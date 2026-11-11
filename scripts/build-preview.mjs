@@ -3,7 +3,7 @@
 //
 // Usage: node scripts/build-preview.mjs <output.html>
 import { build } from "esbuild";
-import { readFileSync, writeFileSync, mkdtempSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdtempSync, existsSync, readdirSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
@@ -29,7 +29,7 @@ window.GE_INLINE = true;
 
 // One page, three views. The view is read from the address: nothing (or a landing section) is the landing
 // page, "nba-..." is the NBA side, anything else is an NFL console tab.
-const LANDING = ["", "how", "locks", "sports"];
+const LANDING = ["", "how", "locks", "sports", "nfl", "nba"];
 const viewOf = (h) => (h.startsWith("nba-") ? "nba" : LANDING.includes(h) ? "site" : "nfl");
 const sub = (cb) => { window.addEventListener("hashchange", cb); return () => window.removeEventListener("hashchange", cb); };
 function applyStyles(view) {
@@ -101,6 +101,11 @@ const cssText = css.outputFiles[0].text.replace(/url\(["']?\/brand\/banner\.jpg[
 if (cssText.includes("/brand/")) throw new Error("An image path was not inlined");
 
 const siteText = siteCss.outputFiles[0].text;
+// Optional player photos (public/players/<name-slug>.jpg). None ship with the repo: add only images you have the right to use.
+const photoDir = path.join(root, "public/players");
+const photos = Object.fromEntries(
+  (existsSync(photoDir) ? readdirSync(photoDir) : []).filter((f) => f.endsWith(".jpg")).map((f) => [f.slice(0, -4), b64("public/players/" + f)]),
+);
 const html = `<title>Godseye App Preview</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,7 +123,7 @@ ${cssText}
 <div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
-<script>window.GE_EYE=${JSON.stringify(b64("public/brand/eye.jpg"))};window.GE_BANNER=${JSON.stringify(b64("public/brand/banner.jpg"))};window.GE_EXTRA_TABS=["markets","hybrids","paste","bets","report","scripts","games"];</script>
+<script>window.GE_EYE=${JSON.stringify(b64("public/brand/eye.jpg"))};window.GE_BANNER=${JSON.stringify(b64("public/brand/banner.jpg"))};window.GE_PHOTOS=${JSON.stringify(photos)};window.GE_EXTRA_TABS=["markets","hybrids","paste","bets","report","scripts","games"];</script>
 <script>
 ${safe(readFileSync(path.join(root, "public/console/data.js"), "utf8"))}
 </script>

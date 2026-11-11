@@ -48,7 +48,42 @@ if four:
     locks.append({"kind": "Anytime TD 4-leg", "matchup": "Across the slate", "when": f"Week {D['meta']['week']}",
                   "p": round(four["p"], 3), "tab": "picks", "legs": [atd_leg(i) for i in four["legs"]]})
 
-out = {"season": D["meta"]["season"], "week": D["meta"]["week"], "built": D["meta"]["built"], "record": D["meta"]["record"],
+# ---- featured players: the algorithm's own numbers for four names on the landing page
+FEATURED = ["Patrick Mahomes", "Josh Allen", "Ja'Marr Chase", "Kenneth Walker III"]
+UNITS = {"pass_yds": "pass yds", "pass_td": "pass TD", "rec": "receptions", "rec_yds": "rec yds", "rush_yds": "rush yds", "carries": "carries"}
+SHOW = {"QB": ["pass_td", "pass_yds", "rush_yds"], "WR": ["rec", "rec_yds"], "TE": ["rec", "rec_yds"], "RB": ["rush_yds", "carries", "rec"]}
+
+
+def floor_rung(pid, mk, floor=0.70):
+    """The highest rung of a market the model still gives 70% or better."""
+    pr = D["props"].get(pid, {}).get(mk)
+    if not pr:
+        return None
+    ok = [(k, p, h) for k, p, h in zip(pr["k"], pr["p"], pr["hits"]) if p >= floor]
+    if not ok:
+        return None
+    k, p, h = ok[-1]
+    return {"text": f"{k}+ {UNITS[mk]}", "p": round(p, 3), "record": f"{h} of {pr['n']} games"}
+
+
+def slug(name):
+    return "".join(c for c in name.lower().replace(" ", "-") if c.isalnum() or c == "-")
+
+
+stars = []
+for name in FEATURED:
+    p = next((x for x in D["players"] if x["name"] == name), None)
+    if not p:
+        stars.append({"name": name, "slug": slug(name), "on_slate": False})
+        continue
+    g = G[p["game"]]
+    lines = [x for x in (floor_rung(p["id"], mk) for mk in SHOW.get(p["pos"], [])) if x]
+    stars.append({"name": name, "slug": slug(name), "on_slate": True, "team": p["team"], "pos": p["pos"],
+                  "game": f"{g['away']} @ {g['home']}", "when": f"{g['weekday']} {g['kick']}", "atd": round(p["p"], 3),
+                  "singles_only": bool(p.get("singles")), "lines": lines})
+photos = sorted(f.stem for f in (ROOT / "public/players").glob("*.jpg")) if (ROOT / "public/players").exists() else []
+
+out = {"stars": stars, "photos": photos, "season": D["meta"]["season"], "week": D["meta"]["week"], "built": D["meta"]["built"], "record": D["meta"]["record"],
        "locks": locks}
 (ROOT / "model/output/locks.json").write_text(json.dumps(out, indent=1))
 print(f"week {out['week']}: {len(locks)} tickets")

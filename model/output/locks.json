@@ -1,4 +1,104 @@
 {
+ "stars": [
+  {
+   "name": "Patrick Mahomes",
+   "slug": "patrick-mahomes",
+   "on_slate": true,
+   "team": "KC",
+   "pos": "QB",
+   "game": "KC @ ATL",
+   "when": "Sunday 1:00 pm ET",
+   "atd": 0.059,
+   "singles_only": false,
+   "lines": [
+    {
+     "text": "1+ pass TD",
+     "p": 0.868,
+     "record": "6 of 8 games"
+    },
+    {
+     "text": "175+ pass yds",
+     "p": 0.744,
+     "record": "7 of 8 games"
+    }
+   ]
+  },
+  {
+   "name": "Josh Allen",
+   "slug": "josh-allen",
+   "on_slate": true,
+   "team": "BUF",
+   "pos": "QB",
+   "game": "BUF @ NYJ",
+   "when": "Sunday 1:00 pm ET",
+   "atd": 0.545,
+   "singles_only": false,
+   "lines": [
+    {
+     "text": "1+ pass TD",
+     "p": 0.809,
+     "record": "6 of 7 games"
+    },
+    {
+     "text": "200+ pass yds",
+     "p": 0.799,
+     "record": "7 of 7 games"
+    }
+   ]
+  },
+  {
+   "name": "Ja'Marr Chase",
+   "slug": "jamarr-chase",
+   "on_slate": true,
+   "team": "CIN",
+   "pos": "WR",
+   "game": "PIT @ CIN",
+   "when": "Sunday 8:20 pm ET",
+   "atd": 0.485,
+   "singles_only": false,
+   "lines": [
+    {
+     "text": "6+ receptions",
+     "p": 0.811,
+     "record": "5 of 8 games"
+    },
+    {
+     "text": "50+ rec yds",
+     "p": 0.781,
+     "record": "6 of 8 games"
+    }
+   ]
+  },
+  {
+   "name": "Kenneth Walker III",
+   "slug": "kenneth-walker-iii",
+   "on_slate": true,
+   "team": "KC",
+   "pos": "RB",
+   "game": "KC @ ATL",
+   "when": "Sunday 1:00 pm ET",
+   "atd": 0.667,
+   "singles_only": false,
+   "lines": [
+    {
+     "text": "70+ rush yds",
+     "p": 0.711,
+     "record": "6 of 8 games"
+    },
+    {
+     "text": "15+ carries",
+     "p": 0.793,
+     "record": "7 of 8 games"
+    },
+    {
+     "text": "2+ receptions",
+     "p": 0.74,
+     "record": "7 of 8 games"
+    }
+   ]
+  }
+ ],
+ "photos": [],
  "season": 2026,
  "week": 10,
  "built": "Tue Nov 10, 05:14 UTC",

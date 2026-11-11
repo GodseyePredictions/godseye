@@ -1095,3 +1095,126 @@ body {
   line-height: 1;
   color: var(--flood);
 }
+
+/* ---------- Featured players and the NFL / NBA explainer sections ---------- */
+.stars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+.star {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--night);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.star-photo,
+.star-mono {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.star-mono {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 5.5rem;
+  color: rgb(255 255 255 / 0.16);
+  background:
+    radial-gradient(70% 90% at 50% 0%, rgb(214 25 43 / 0.45), transparent 70%),
+    linear-gradient(180deg, #1a0d10, #0a090b);
+  border-bottom: 2px solid var(--flood);
+}
+.star-body {
+  padding: 16px 18px 18px;
+}
+.star h3 {
+  margin: 0;
+  font-family: var(--font-display), Impact, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.star-tag {
+  margin: 6px 0 0;
+  color: var(--dim);
+  font-size: 0.85rem;
+}
+.star-status {
+  margin: 8px 0 0;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.star dl {
+  margin: 12px 0 0;
+  display: grid;
+  gap: 6px;
+}
+.star dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  padding-top: 6px;
+}
+.star dt {
+  color: var(--chalk);
+  font-size: 0.92rem;
+}
+.star dd {
+  margin: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+.star dd b {
+  color: var(--flood-text);
+  font-size: 1.05rem;
+}
+.star dd small {
+  display: block;
+  color: var(--dim);
+  font-size: 0.75rem;
+}
+.star-note {
+  margin: 14px 0 24px;
+  color: var(--dim);
+  font-size: 0.88rem;
+}
+.two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 32px 48px;
+  margin-block: 44px 32px;
+}
+.sub-h {
+  margin: 0 0 12px;
+  font-family: var(--font-display), Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.4rem;
+}
+.plain {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  color: var(--dim);
+  max-width: 62ch;
+}
+.plain li {
+  padding-left: 16px;
+  border-left: 2px solid var(--flood);
+}
+.plain strong {
+  color: var(--chalk);
+}
