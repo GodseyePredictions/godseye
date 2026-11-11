@@ -638,6 +638,7 @@ declare global {
 
 export function HybridsTab() {
   const hybrids = data.hybrids as unknown as Hybrid[];
+  const overrides = ((data as unknown as { overrides?: { name: string; team: string; note: string }[] }).overrides ?? []);
   const games = [...new Set(hybrids.map((h) => h.game_id))];
   const c = data.correlations;
   return (
@@ -667,6 +668,13 @@ export function HybridsTab() {
             QB throws an interception and his team wins: {c.int.own_team_won.toFixed(2)}
           </span>
         </div>
+        {overrides.map((o) => (
+          <div className="warns" style={{ marginTop: 8 }} key={o.name}>
+            <div>
+              Late news applied ({o.team}): {o.name} {o.note}
+            </div>
+          </div>
+        ))}
         <p className="sub" style={{ marginTop: 8 }}>
           Because these legs move together, the true chance is higher than multiplying them. Books
           know this and cut the payout, so type your book&apos;s SGP price into the bet slip and

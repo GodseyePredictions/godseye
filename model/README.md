@@ -60,3 +60,7 @@ On 2020 onward: favourites that passed the safe rule returned -0.6% (555 bets), 
 Hybrids now include player props from the console's prop ladders, joined to game legs with correlations measured on past games (for example a running back's carries with his team winning, 0.37; a quarterback's pass attempts with his team winning, -0.35), and to each other with the console's own prop correlations. Each game also gets 3 and 4-pick touchdown slips: running backs, receivers and tight ends, at most two per team and never two teammates at the same position.
 
 Weekly order: `fetch_data.py`, `features.py`, `matchups.py`, `fetch_odds.py`, `game_markets.py`.
+
+### User reads and late news
+
+`overrides.json` records news the weekly snapshot missed (a player back from injury, a role change). `apply_overrides.py` re-estimates the affected players from expected snap share, marks them singles only, withdraws prop lines and precomputed tickets priced on the old role, logs the read in the console's personnel panel, and writes `../public/console/personnel-update.js`. `game_markets.py` applies the same changes before building slips and hybrids. These numbers are estimates, labelled as such, until the touchdown model is re-run.

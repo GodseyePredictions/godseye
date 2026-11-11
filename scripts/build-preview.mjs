@@ -70,6 +70,9 @@ ${cssText}
 ${safe(readFileSync(path.join(root, "public/console/data.js"), "utf8"))}
 </script>
 <script>
+${safe(readFileSync(path.join(root, "public/console/personnel-update.js"), "utf8"))}
+</script>
+<script>
 ${safe(readFileSync(path.join(root, "public/console/odds-update.js"), "utf8"))}
 </script>
 <script>

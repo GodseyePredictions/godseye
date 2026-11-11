@@ -123,6 +123,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
     window.GE_EXTRA_TABS = EXTRA_TABS;
     if (window.GE_INLINE) return;
     loadScript("/console/data.js")
+      .then(() => loadScript("/console/personnel-update.js").catch(() => undefined)) // user reads and late news, when present
       .then(() => loadScript("/console/odds-update.js").catch(() => undefined)) // refreshed game lines, when present
       .then(() => loadScript("/console/app.js"))
       .catch(() =>

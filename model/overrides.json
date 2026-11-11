@@ -1,0 +1,20 @@
+{
+  "note": "User reads and late news applied on top of the console's weekly snapshot. The touchdown model has not been re-run, so every number set here is an estimate and is labelled as one.",
+  "overrides": [
+    {
+      "date": "2026-11-11",
+      "team": "NYG",
+      "game": "2026_10_WAS_NYG",
+      "read": "Cam Skattebo is back and healthy.",
+      "evidence": "Doubtful (hamstring) in week 9, full practice with no designation in week 10.",
+      "method": "Singletary's 39.9% was priced as the lead back with Skattebo out (93% of snaps in week 9). Scoring chance is scaled by expected snap share: Skattebo 60% (he played 56% and 63% in his two healthy games), Singletary 38%.",
+      "lead_back": {"id": "00-0035250", "p": 0.3986, "snap_share_when_priced": 0.93},
+      "players": [
+        {"id": "00-0040715", "name": "Cam Skattebo", "pos": "RB", "snap_share": 0.60, "new": true,
+         "singles_reason": "returning: 0 games back since his last absence (rule: fewer than 2)"},
+        {"id": "00-0035250", "name": "Devin Singletary", "pos": "RB", "snap_share": 0.38,
+         "singles_reason": "role changed by late news: Skattebo back, number is an estimate until the model is re-run"}
+      ]
+    }
+  ]
+}

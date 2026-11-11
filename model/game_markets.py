@@ -821,6 +821,10 @@ def main():
            "games": [], "tickets": {}, "interceptions": [], "hybrids": []}
 
     D = json.loads(CONSOLE_DATA.read_text(encoding="utf8").strip()[len("const D = "):].rstrip(";")) if CONSOLE_DATA.exists() else None
+    if D and (HERE / "overrides.json").exists():
+        from apply_overrides import apply
+        D = apply(D)   # user reads and late news: affected players become singles-only estimates
+        out["overrides"] = [x for x in D["personnel"] if x.get("type") == "override"]
     started = {g["id"] for g in D["games"] if g.get("started")} if D else set()
     up = up[~up.game_id.isin(started)]
     by_id = {g.game_id: g for g in up.itertuples(index=False)}

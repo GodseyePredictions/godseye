@@ -12504,16 +12504,6 @@
    "legs": [
     {
      "kind": "atd",
-     "label": "Devin Singletary anytime TD",
-     "p": 0.3986,
-     "team": "NYG",
-     "pos": "RB",
-     "player_id": "00-0035250",
-     "matchup": "even",
-     "risk": "snap share only 45%; weather can cut passing."
-    },
-    {
-     "kind": "atd",
      "label": "Malik Nabers anytime TD",
      "p": 0.3028,
      "team": "NYG",
@@ -12531,12 +12521,22 @@
      "player_id": "00-0037256",
      "matchup": "even",
      "risk": "snap share only 53%; committee backfield (43% of rushing TDs); weather can cut passing."
+    },
+    {
+     "kind": "atd",
+     "label": "Isaiah Likely anytime TD",
+     "p": 0.2351,
+     "team": "NYG",
+     "pos": "TE",
+     "player_id": "00-0037838",
+     "matchup": "for",
+     "risk": "weather can cut passing."
     }
    ],
-   "p": 0.0365,
-   "p_if_independent": 0.0361,
-   "correlation_lift": 1.012,
-   "fair_price": 2637
+   "p": 0.0211,
+   "p_if_independent": 0.0213,
+   "correlation_lift": 0.991,
+   "fair_price": 4642
   },
   {
    "kind": "Touchdown slip, 4 picks",
@@ -12545,16 +12545,6 @@
    "legs": [
     {
      "kind": "atd",
-     "label": "Devin Singletary anytime TD",
-     "p": 0.3986,
-     "team": "NYG",
-     "pos": "RB",
-     "player_id": "00-0035250",
-     "matchup": "even",
-     "risk": "snap share only 45%; weather can cut passing."
-    },
-    {
-     "kind": "atd",
      "label": "Malik Nabers anytime TD",
      "p": 0.3028,
      "team": "NYG",
@@ -12572,6 +12562,16 @@
      "player_id": "00-0037256",
      "matchup": "even",
      "risk": "snap share only 53%; committee backfield (43% of rushing TDs); weather can cut passing."
+    },
+    {
+     "kind": "atd",
+     "label": "Isaiah Likely anytime TD",
+     "p": 0.2351,
+     "team": "NYG",
+     "pos": "TE",
+     "player_id": "00-0037838",
+     "matchup": "for",
+     "risk": "weather can cut passing."
     },
     {
      "kind": "atd",
@@ -12584,10 +12584,10 @@
      "risk": "snap share only 60%; WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price; weather can cut passing."
     }
    ],
-   "p": 0.0075,
-   "p_if_independent": 0.0074,
-   "correlation_lift": 1.007,
-   "fair_price": 13287
+   "p": 0.0043,
+   "p_if_independent": 0.0044,
+   "correlation_lift": 0.985,
+   "fair_price": 23088
   },
   {
    "kind": "Moneyline + 2 touchdowns",
@@ -12606,16 +12606,6 @@
     },
     {
      "kind": "atd",
-     "label": "Devin Singletary anytime TD",
-     "p": 0.3986,
-     "team": "NYG",
-     "pos": "RB",
-     "player_id": "00-0035250",
-     "matchup": "even",
-     "risk": "snap share only 45%; weather can cut passing."
-    },
-    {
-     "kind": "atd",
      "label": "Malik Nabers anytime TD",
      "p": 0.3028,
      "team": "NYG",
@@ -12623,12 +12613,22 @@
      "player_id": "00-0039337",
      "matchup": "even",
      "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price; weather can cut passing."
+    },
+    {
+     "kind": "atd",
+     "label": "Isaiah Likely anytime TD",
+     "p": 0.2351,
+     "team": "NYG",
+     "pos": "TE",
+     "player_id": "00-0037838",
+     "matchup": "for",
+     "risk": "weather can cut passing."
     }
    ],
-   "p": 0.0892,
-   "p_if_independent": 0.07,
-   "correlation_lift": 1.275,
-   "fair_price": 1021
+   "p": 0.0511,
+   "p_if_independent": 0.0413,
+   "correlation_lift": 1.237,
+   "fair_price": 1858
   },
   {
    "kind": "Spread + touchdown",
@@ -12770,19 +12770,19 @@
     },
     {
      "kind": "atd",
-     "label": "Devin Singletary anytime TD",
-     "p": 0.3986,
+     "label": "Malik Nabers anytime TD",
+     "p": 0.3028,
      "team": "NYG",
-     "pos": "RB",
-     "player_id": "00-0035250",
+     "pos": "WR",
+     "player_id": "00-0039337",
      "matchup": "even",
-     "risk": "snap share only 45%; weather can cut passing."
+     "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price; weather can cut passing."
     }
    ],
-   "p": 0.2167,
-   "p_if_independent": 0.1813,
-   "correlation_lift": 1.195,
-   "fair_price": 362
+   "p": 0.1813,
+   "p_if_independent": 0.1377,
+   "correlation_lift": 1.317,
+   "fair_price": 451
   },
   {
    "kind": "Over + a touchdown from each team",
@@ -12801,13 +12801,13 @@
     },
     {
      "kind": "atd",
-     "label": "Devin Singletary anytime TD",
-     "p": 0.3986,
+     "label": "Malik Nabers anytime TD",
+     "p": 0.3028,
      "team": "NYG",
-     "pos": "RB",
-     "player_id": "00-0035250",
+     "pos": "WR",
+     "player_id": "00-0039337",
      "matchup": "even",
-     "risk": "snap share only 45%; weather can cut passing."
+     "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price; weather can cut passing."
     },
     {
      "kind": "atd",
@@ -12820,10 +12820,19 @@
      "risk": "snap share only 53%; committee backfield (43% of rushing TDs); weather can cut passing."
     }
    ],
-   "p": 0.088,
-   "p_if_independent": 0.0617,
-   "correlation_lift": 1.426,
-   "fair_price": 1037
+   "p": 0.0693,
+   "p_if_independent": 0.0469,
+   "correlation_lift": 1.478,
+   "fair_price": 1344
+  }
+ ],
+ "overrides": [
+  {
+   "type": "override",
+   "name": "Cam Skattebo is back and healthy.",
+   "status": "user read",
+   "team": "NYG",
+   "note": "Doubtful (hamstring) in week 9, full practice with no designation in week 10. Affected numbers are estimates and singles only; tickets and prop lines priced on the old role were withdrawn."
   }
  ],
  "gate": {
