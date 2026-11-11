@@ -1,6 +1,6 @@
 # NBA data health report
 
-Generated 2026-11-11T19:36:07+00:00 from `model/nba/data/nba.sqlite`.
+Generated 2026-11-11T22:29:34+00:00 from `model/nba/data/nba.sqlite`.
 
 ## Rows and date coverage
 
@@ -11,19 +11,19 @@ Generated 2026-11-11T19:36:07+00:00 from `model/nba/data/nba.sqlite`.
 | player_games | 101,649 | 2023-10-25 | 2026-11-11 |
 | officials | 11,505 | 2023-10-24 | 2026-11-10 |
 | starters | 38,540 | 2023-10-24 | 2026-11-11 |
-| injury_reports | 288,967 | 2023-10-24 | 2026-11-11 |
+| injury_reports | 289,264 | 2023-10-24 | 2026-11-11 |
 | ref_assignments | 30 | 2026-11-11 | 2026-11-11 |
-| market_lines | 10 | 2026-11-11 | 2026-11-11 |
+| market_lines | 40 | 2026-11-11 | 2026-11-11 |
 | odds | 0 |  |  |
-| availability | 882 | 2026-11-11 | 2026-11-11 |
+| availability | 2,990 | 2026-11-11 | 2026-11-11 |
 | pbp_snapshots | 522 | 2026-11-10 | 2026-11-10 |
-| nba_runs | 3 | 2026-11-11 | 2026-11-11 |
-| nba_projections | 655 | 2026-11-11 | 2026-11-11 |
-| nba_legs | 0 |  |  |
-| nba_tickets | 0 |  |  |
-| nba_game_cards | 21 | 2026-11-11 | 2026-11-11 |
+| nba_runs | 8 | 2026-11-11 | 2026-11-11 |
+| nba_projections | 2,003 | 2026-11-11 | 2026-11-11 |
+| nba_legs | 32,200 | 2026-11-11 | 2026-11-11 |
+| nba_tickets | 100 | 2026-11-11 | 2026-11-11 |
+| nba_game_cards | 71 | 2026-11-11 | 2026-11-11 |
 | nba_report_cards | 0 |  |  |
-| nba_status_changes | 0 |  |  |
+| nba_status_changes | 104 | 2026-11-11 | 2026-11-11 |
 
 ## Games by season
 
@@ -45,8 +45,8 @@ Generated 2026-11-11T19:36:07+00:00 from `model/nba/data/nba.sqlite`.
 | Shots with a zone vs box-score attempts | 687,585 of 686,346 (100.18%) |
 | Games with no officials listed | 19 of 3,854 |
 | Games with fewer than 3 officials | 0 |
-| Injury reports loaded | 2,074 reports, 288,967 rows |
-| Injury rows whose player name found no exact match | 3,712 of 278,508 (1.33%) |
+| Injury reports loaded | 2,077 reports, 289,264 rows |
+| Injury rows whose player name found no exact match | 3,748 of 278,781 (1.34%) |
 | Game dates with at least one injury report | 99.8% |
 | Games with a market spread and total | 10 (ESPN keeps these only on the day; none exist for past seasons) |
 | Player prop and alternate-line prices | 0 rows (no odds key and no bet365 sheet loaded yet) |

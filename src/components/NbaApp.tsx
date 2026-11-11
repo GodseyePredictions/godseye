@@ -540,12 +540,12 @@ function ModelTab() {
     ["Every number explained", "Each projection lists what moved it from the player's baseline."],
   ];
   const tested = [
-    ["Legs the model called 70 to 80%", "hit 77.4%", "78,814 legs"],
-    ["Legs the model called 80 to 90%", "hit 86.6%", "70,935 legs"],
+    ["Legs the model called 70 to 80%", "hit 77.4%", "78,913 legs"],
+    ["Legs the model called 80 to 90%", "hit 86.7%", "71,264 legs"],
     ["Final margin inside the simulated 10 to 90% band", "79.4% of games", "target 80%"],
     ["Blowouts", "predicted 45.7%, actual 47.0%", "2,462 games"],
-    ["4-leg tickets", "modelled 69.7%, hit 72.8%", "2,462 tickets"],
-    ["6-leg tickets", "modelled 55.5%, hit 60.6%", "2,462 tickets"],
+    ["4-leg tickets", "modelled 65.2%, hit 69.0%", "2,462 tickets"],
+    ["6-leg tickets", "modelled 49.5%, hit 55.1%", "2,462 tickets"],
   ];
   return (
     <>

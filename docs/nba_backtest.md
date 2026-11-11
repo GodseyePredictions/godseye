@@ -1,8 +1,10 @@
 # NBA module backtest
 
-Walk-forward over the last two full seasons, 2024-25 and 2025-26: 2,462 games, 49,122 player-games, 2.07 million graded legs. Run on 11 November 2026 with 2,000 simulations per game (live slates use 10,000). Reproduce with `python3 -m nba.backtest 2000` then `python3 -m nba.validate` from `model/`.
+Walk-forward over the last two full seasons, 2024-25 and 2025-26: 2,462 games, 49,138 player-games, 2.08 million graded legs. Run on 11 November 2026 with 2,000 simulations per game (live slates use 10,000). Reproduce with `python3 -m nba.backtest 2000` then `python3 -m nba.validate` from `model/`.
 
 ## Read this first
+
+0. **Known live issue found after launch, 11 November 2026.** On teams with deep or reshuffled rosters early in the season, projected minutes for the top starters read 3 to 5 minutes low (for example a 35-minute guard projected at 30). The cause is bench players whose baseline still leans on last season's role. The backtest average for high-minute players is under 1 minute low, so this is concentrated in a few teams. It makes star legs conservative rather than aggressive. Not yet fixed.
 
 1. **This backtest cannot tell you whether the system makes money.** There are no historical book prices in the project: no Odds API key was available, and ESPN drops old lines. So there is no ROI, no closing line value and no comparison with the closing line anywhere below. Everything here is calibration and hit rate.
 2. **Legs are a fixed grid of thresholds, not bet365 rungs.** For example 10, 15, 20, 25, 30, 35 points for every player. Real ladders differ.
@@ -14,14 +16,14 @@ Walk-forward over the last two full seasons, 2024-25 and 2025-26: 2,462 games, 4
 
 | Part | Result | Verdict |
 |---|---|---|
-| Leg probabilities | Legs called 70-80% hit 77.4% (78,814 legs). Legs called 80-90% hit 86.6%. Every market within 3 points at the 70%+ end | Good, slightly cautious |
+| Leg probabilities | Legs called 70-80% hit 77.4% (78,913 legs). Legs called 80-90% hit 86.7%. Every market within 3 points at the 70%+ end | Good, slightly cautious |
 | Game legs | Moneyline, spread and total probabilities within 1 point of actual in every bucket | Good |
 | Game simulation spread | Actual margin fell inside the simulated 10-90% band 79.4% of the time, totals 79.6% (target 80%) | Good |
 | Blowouts | Predicted 45.7% of games, actual 47.0%. Overtime predicted 4.6%, actual 4.6% | Good |
 | Team projection | Margin error 11.14 points. Ratings alone: 11.18. Rest, style, referees and absences add almost nothing | Weak edge over a plain rating |
-| Minutes | Error 5.05 minutes against 5.06 for a simple recent-average. Better when a rotation player is out, worse in ordinary games | No better than the baseline overall |
-| Minutes percentiles | 10th percentile beaten 89.1% (target 90%), 90th exceeded 10.0% (target 10%) | Good |
-| Ticket joint probability | 4-leg: modelled 69.7%, hit 72.8%. 6-leg: modelled 55.5%, hit 60.6%. Multiplying legs would have said 62.4% and 47.1% | Too low by 3 to 5 points |
+| Minutes | Error 5.03 minutes against 5.07 for a simple recent-average. Better when a rotation player is out, worse in ordinary games | No better than the baseline overall |
+| Minutes percentiles | 10th percentile beaten 89.1% (target 90%), 90th exceeded 9.9% (target 10%) | Good |
+| Ticket joint probability | 4-leg: modelled 65.2%, hit 69.0%. 6-leg: modelled 49.5%, hit 55.1%. Multiplying legs would have said 63.6% and 47.6% | Too low by 4 to 6 points |
 | Teammate correlations | Two top scorers' points: simulated -0.13, historical +0.02. Guard assists with centre points: simulated +0.02, historical +0.15 | Understated |
 | Double-doubles | Under-forecast by 4 to 7 points between 20% and 60% | Weak |
 | Triple-doubles | Forecast 0.46%, actual 0.88% | Poor: do not bet |
@@ -32,10 +34,10 @@ Walk-forward over the last two full seasons, 2024-25 and 2025-26: 2,462 games, 4
 
 | Games | Player-games | Error, model | Error, baseline | Beat 10th pct | Beat 50th | Beat 90th |
 |---|---|---|---|---|---|---|
-| All | 24,955 | 5.03 | 5.05 | 89.0% | 51.0% | 9.6% |
-| Normal (no rotation player out, no blowout) | 9,658 | 5.09 | 4.90 | 90.8% | 59.2% | 13.0% |
-| A rotation player out | 5,876 | 5.38 | 5.54 | 87.5% | 44.6% | 7.3% |
-| Blowouts | 12,364 | 4.95 | 5.07 | 87.5% | 45.5% | 7.6% |
+| All | 24,966 | 5.01 | 5.05 | 89.0% | 50.9% | 9.5% |
+| Normal (no rotation player out, no blowout) | 9,645 | 5.08 | 4.89 | 90.8% | 59.0% | 12.9% |
+| A rotation player out | 5,901 | 5.35 | 5.55 | 87.4% | 44.6% | 7.2% |
+| Blowouts | 12,375 | 4.94 | 5.08 | 87.6% | 45.4% | 7.6% |
 
 The percentiles are for the whole pre-game distribution, which already mixes blowout and close scripts. That is why they sit high in normal games and low in blowouts: the model cannot know before tip-off which kind of game it will be.
 
@@ -64,7 +66,7 @@ Left out entirely because no reachable source has the data: pick-and-roll covera
 
 **Shooting gate:** scoring legs at 70%+ that pass the gate hit 87.0%; those that fail hit 86.2%, from almost the same forecast (85.3% and 84.2%). The gate does not separate good legs from bad ones in this data. It is still enforced because it is a standing rule. For your review.
 
-**Blowout rule:** in flagged games, legs that clear 70% inside blowout simulations hit 86.2%; legs that do not hit 72.7% (1,127 legs). This rule earns its place.
+**Blowout rule:** in flagged games, legs that clear 70% inside blowout simulations hit 86.2%; legs that do not hit 72.9% (1,155 legs). This rule earns its place.
 
 ### Step 6: simulation
 
@@ -75,15 +77,15 @@ Left out entirely because no reachable source has the data: pick-and-roll covera
 
 | Situation | Legs | Forecast | Actual |
 |---|---|---|---|
-| Blowout-flagged games | 27,834 | 84.5% | 85.7% |
-| Other games | 195,771 | 84.7% | 86.3% |
-| First 20 games | 55,648 | 84.7% | 86.9% |
-| Games 21-55 | 95,067 | 84.8% | 86.5% |
-| Games 56-72 | 45,203 | 84.6% | 86.6% |
-| Final weeks (73+) | 27,687 | 84.6% | 83.3% |
-| Team has a rotation player out | 66,446 | 84.6% | 83.3% |
+| Blowout-flagged games | 27,935 | 84.5% | 85.7% |
+| Other games | 196,148 | 84.7% | 86.4% |
+| First 20 games | 55,648 | 84.7% | 87.0% |
+| Games 21-55 | 95,261 | 84.8% | 86.5% |
+| Games 56-72 | 45,302 | 84.6% | 86.6% |
+| Final weeks (73+) | 27,872 | 84.6% | 83.4% |
+| Team has a rotation player out | 66,469 | 84.6% | 83.4% |
 
-The two weak spots are the final weeks (resting and tanking) and games with a rotation player out. Both are over-forecast by about 1.3 points while everything else is under-forecast.
+The two weak spots are the final weeks (resting and tanking) and games with a rotation player out. Both are over-forecast by about 1.2 points while everything else is under-forecast.
 
 ## Not delivered, and why
 
@@ -103,18 +105,18 @@ The two weak spots are the final weeks (resting and tanking) and games with a ro
 
 | season | games | player-games | MAE model | MAE baseline | beat 10th pct | beat 50th pct | beat 90th pct |
 |---|---|---|---|---|---|---|---|
-| 2025 | all games | 24167 | 5.065 | 5.079 | 0.892 | 0.518 | 0.104 |
-| 2025 | normal (no rotation player out, no blowout) | 9007 | 5.035 | 4.805 | 0.910 | 0.594 | 0.131 |
-| 2025 | a rotation player out | 6952 | 5.496 | 5.722 | 0.876 | 0.478 | 0.098 |
-| 2025 | blowouts | 11543 | 5.012 | 5.137 | 0.877 | 0.459 | 0.083 |
-| 2026 | all games | 24955 | 5.027 | 5.049 | 0.890 | 0.510 | 0.096 |
-| 2026 | normal (no rotation player out, no blowout) | 9658 | 5.090 | 4.895 | 0.908 | 0.592 | 0.130 |
-| 2026 | a rotation player out | 5876 | 5.379 | 5.537 | 0.875 | 0.446 | 0.073 |
-| 2026 | blowouts | 12364 | 4.954 | 5.074 | 0.875 | 0.455 | 0.076 |
-| both | all games | 49122 | 5.046 | 5.064 | 0.891 | 0.514 | 0.100 |
-| both | normal (no rotation player out, no blowout) | 18665 | 5.064 | 4.851 | 0.909 | 0.593 | 0.131 |
-| both | a rotation player out | 12828 | 5.442 | 5.637 | 0.876 | 0.463 | 0.086 |
-| both | blowouts | 23907 | 4.982 | 5.105 | 0.876 | 0.457 | 0.079 |
+| 2025 | all games | 24172 | 5.041 | 5.083 | 0.893 | 0.517 | 0.102 |
+| 2025 | normal (no rotation player out, no blowout) | 9009 | 4.998 | 4.803 | 0.912 | 0.593 | 0.128 |
+| 2025 | a rotation player out | 6966 | 5.468 | 5.729 | 0.878 | 0.480 | 0.096 |
+| 2025 | blowouts | 11542 | 4.997 | 5.144 | 0.878 | 0.459 | 0.082 |
+| 2026 | all games | 24966 | 5.011 | 5.052 | 0.890 | 0.509 | 0.095 |
+| 2026 | normal (no rotation player out, no blowout) | 9645 | 5.078 | 4.893 | 0.908 | 0.590 | 0.129 |
+| 2026 | a rotation player out | 5901 | 5.350 | 5.551 | 0.874 | 0.446 | 0.072 |
+| 2026 | blowouts | 12375 | 4.939 | 5.078 | 0.876 | 0.454 | 0.076 |
+| both | all games | 49138 | 5.025 | 5.067 | 0.891 | 0.513 | 0.099 |
+| both | normal (no rotation player out, no blowout) | 18654 | 5.039 | 4.850 | 0.910 | 0.592 | 0.129 |
+| both | a rotation player out | 12867 | 5.414 | 5.647 | 0.876 | 0.464 | 0.085 |
+| both | blowouts | 23917 | 4.967 | 5.110 | 0.877 | 0.457 | 0.079 |
 
 ## Game script engine
 
@@ -154,110 +156,110 @@ Predicted blowouts: games given 60%+ blowout probability were blowouts 65.9% of 
 ## Player simulation, legs and tickets
 
 
-**Player legs, season 2025** (1,023,500 legs on the calibration grid)
+**Player legs, season 2025** (1,022,626 legs on the calibration grid)
 
 | bucket | legs | forecast | actual | gap | note |
 |---|---|---|---|---|---|
-| 0-10% | 476636 | 0.026 | 0.025 | -0.001 |  |
-| 10-20% | 123989 | 0.146 | 0.149 | 0.003 |  |
-| 20-30% | 85595 | 0.248 | 0.252 | 0.005 |  |
-| 30-40% | 68625 | 0.348 | 0.360 | 0.012 |  |
-| 40-50% | 59578 | 0.449 | 0.462 | 0.014 |  |
-| 50-60% | 52006 | 0.549 | 0.571 | 0.022 |  |
-| 60-70% | 45050 | 0.649 | 0.672 | 0.023 |  |
-| 70-80% | 38448 | 0.749 | 0.777 | 0.028 |  |
-| 80-90% | 34939 | 0.850 | 0.867 | 0.017 |  |
-| 90-100% | 38634 | 0.950 | 0.954 | 0.005 |  |
+| 0-10% | 475092 | 0.026 | 0.025 | -0.001 |  |
+| 10-20% | 123864 | 0.146 | 0.148 | 0.002 |  |
+| 20-30% | 85659 | 0.248 | 0.250 | 0.003 |  |
+| 30-40% | 68744 | 0.349 | 0.359 | 0.011 |  |
+| 40-50% | 59588 | 0.449 | 0.462 | 0.014 |  |
+| 50-60% | 52111 | 0.549 | 0.571 | 0.022 |  |
+| 60-70% | 45197 | 0.649 | 0.668 | 0.020 |  |
+| 70-80% | 38604 | 0.749 | 0.778 | 0.029 |  |
+| 80-90% | 35108 | 0.850 | 0.868 | 0.018 |  |
+| 90-100% | 38659 | 0.950 | 0.955 | 0.005 |  |
 
-**Player legs, season 2026** (1,049,904 legs on the calibration grid)
-
-| bucket | legs | forecast | actual | gap | note |
-|---|---|---|---|---|---|
-| 0-10% | 487551 | 0.026 | 0.024 | -0.002 |  |
-| 10-20% | 129866 | 0.146 | 0.140 | -0.006 |  |
-| 20-30% | 89289 | 0.247 | 0.244 | -0.004 |  |
-| 30-40% | 70290 | 0.349 | 0.348 | -0.000 |  |
-| 40-50% | 60372 | 0.449 | 0.458 | 0.010 |  |
-| 50-60% | 53970 | 0.549 | 0.562 | 0.013 |  |
-| 60-70% | 46982 | 0.649 | 0.668 | 0.020 |  |
-| 70-80% | 40366 | 0.749 | 0.771 | 0.022 |  |
-| 80-90% | 35996 | 0.850 | 0.866 | 0.016 |  |
-| 90-100% | 35222 | 0.948 | 0.952 | 0.004 |  |
-
-**Player legs, season both** (2,073,404 legs on the calibration grid)
+**Player legs, season 2026** (1,051,468 legs on the calibration grid)
 
 | bucket | legs | forecast | actual | gap | note |
 |---|---|---|---|---|---|
-| 0-10% | 964187 | 0.026 | 0.024 | -0.001 |  |
-| 10-20% | 253855 | 0.146 | 0.144 | -0.002 |  |
-| 20-30% | 174884 | 0.248 | 0.248 | 0.000 |  |
-| 30-40% | 138915 | 0.348 | 0.354 | 0.005 |  |
-| 40-50% | 119950 | 0.449 | 0.460 | 0.012 |  |
-| 50-60% | 105976 | 0.549 | 0.566 | 0.017 |  |
-| 60-70% | 92032 | 0.649 | 0.670 | 0.021 |  |
-| 70-80% | 78814 | 0.749 | 0.774 | 0.025 |  |
-| 80-90% | 70935 | 0.850 | 0.866 | 0.016 |  |
-| 90-100% | 73856 | 0.949 | 0.953 | 0.004 |  |
+| 0-10% | 488117 | 0.026 | 0.024 | -0.002 |  |
+| 10-20% | 129865 | 0.146 | 0.140 | -0.006 |  |
+| 20-30% | 89482 | 0.247 | 0.241 | -0.006 |  |
+| 30-40% | 70498 | 0.348 | 0.349 | 0.000 |  |
+| 40-50% | 60553 | 0.449 | 0.456 | 0.008 |  |
+| 50-60% | 54066 | 0.549 | 0.562 | 0.013 |  |
+| 60-70% | 47175 | 0.649 | 0.669 | 0.020 |  |
+| 70-80% | 40309 | 0.749 | 0.771 | 0.022 |  |
+| 80-90% | 36156 | 0.850 | 0.865 | 0.016 |  |
+| 90-100% | 35247 | 0.948 | 0.952 | 0.004 |  |
+
+**Player legs, season both** (2,074,094 legs on the calibration grid)
+
+| bucket | legs | forecast | actual | gap | note |
+|---|---|---|---|---|---|
+| 0-10% | 963209 | 0.026 | 0.024 | -0.001 |  |
+| 10-20% | 253729 | 0.146 | 0.144 | -0.002 |  |
+| 20-30% | 175141 | 0.248 | 0.246 | -0.002 |  |
+| 30-40% | 139242 | 0.349 | 0.354 | 0.005 |  |
+| 40-50% | 120141 | 0.449 | 0.459 | 0.011 |  |
+| 50-60% | 106177 | 0.549 | 0.566 | 0.017 |  |
+| 60-70% | 92372 | 0.649 | 0.669 | 0.020 |  |
+| 70-80% | 78913 | 0.749 | 0.774 | 0.025 |  |
+| 80-90% | 71264 | 0.850 | 0.867 | 0.017 |  |
+| 90-100% | 73906 | 0.949 | 0.953 | 0.005 |  |
 
 **Legs the model calls 70% or better, by market**
 
 | market | legs at 70%+ | forecast | actual | gap | note |
 |---|---|---|---|---|---|
-| ast | 25402 | 0.852 | 0.862 | 0.010 |  |
-| blk | 1912 | 0.775 | 0.763 | -0.012 |  |
-| fg3m | 22592 | 0.808 | 0.837 | 0.029 |  |
-| pa | 39315 | 0.859 | 0.882 | 0.022 |  |
-| pr | 49460 | 0.864 | 0.874 | 0.010 |  |
-| pra | 38593 | 0.857 | 0.871 | 0.014 |  |
-| pts | 22716 | 0.841 | 0.860 | 0.020 |  |
-| reb | 18964 | 0.833 | 0.843 | 0.010 |  |
-| stl | 4651 | 0.752 | 0.751 | -0.001 |  |
+| ast | 25399 | 0.853 | 0.863 | 0.011 |  |
+| blk | 1895 | 0.776 | 0.761 | -0.014 |  |
+| fg3m | 22703 | 0.808 | 0.836 | 0.029 |  |
+| pa | 39386 | 0.859 | 0.882 | 0.023 |  |
+| pr | 49571 | 0.864 | 0.875 | 0.011 |  |
+| pra | 38678 | 0.857 | 0.871 | 0.015 |  |
+| pts | 22721 | 0.841 | 0.861 | 0.020 |  |
+| reb | 19081 | 0.833 | 0.844 | 0.012 |  |
+| stl | 4649 | 0.752 | 0.751 | -0.001 |  |
 
 **Calibration by market**
 
 | market | all legs | mean abs gap by bucket | 70-80% bucket legs | 70-80% forecast | 70-80% actual |
 |---|---|---|---|---|---|
-| ast | 225370 | 0.006 | 8382 | 0.750 | 0.765 |
-| blk | 135222 | 0.009 | 1359 | 0.744 | 0.728 |
-| fg3m | 225370 | 0.016 | 11314 | 0.749 | 0.787 |
-| pa | 270444 | 0.016 | 11943 | 0.750 | 0.788 |
-| pr | 270444 | 0.011 | 14055 | 0.750 | 0.774 |
-| pra | 315518 | 0.015 | 11770 | 0.750 | 0.774 |
-| pts | 270444 | 0.015 | 8313 | 0.749 | 0.779 |
-| reb | 225370 | 0.015 | 7697 | 0.748 | 0.761 |
-| stl | 135222 | 0.006 | 3981 | 0.738 | 0.741 |
+| ast | 225445 | 0.006 | 8284 | 0.750 | 0.766 |
+| blk | 135267 | 0.010 | 1339 | 0.744 | 0.727 |
+| fg3m | 225445 | 0.016 | 11347 | 0.748 | 0.785 |
+| pa | 270534 | 0.016 | 11934 | 0.750 | 0.787 |
+| pr | 270534 | 0.010 | 14142 | 0.750 | 0.775 |
+| pra | 315623 | 0.014 | 11794 | 0.750 | 0.774 |
+| pts | 270534 | 0.015 | 8303 | 0.749 | 0.778 |
+| reb | 225445 | 0.014 | 7779 | 0.748 | 0.766 |
+| stl | 135267 | 0.006 | 3991 | 0.738 | 0.742 |
 
 **Combo markets only (PRA, P+R, P+A), counted from joint results**
 
 | bucket | legs | forecast | actual | gap | note |
 |---|---|---|---|---|---|
-| 0-10% | 383873 | 0.025 | 0.023 | -0.002 |  |
-| 10-20% | 95247 | 0.146 | 0.143 | -0.003 |  |
-| 20-30% | 66996 | 0.248 | 0.251 | 0.004 |  |
-| 30-40% | 54303 | 0.349 | 0.359 | 0.010 |  |
-| 40-50% | 46857 | 0.449 | 0.466 | 0.018 |  |
-| 50-60% | 42295 | 0.549 | 0.574 | 0.025 |  |
-| 60-70% | 39467 | 0.650 | 0.675 | 0.025 |  |
-| 70-80% | 37768 | 0.750 | 0.779 | 0.029 |  |
-| 80-90% | 39470 | 0.851 | 0.867 | 0.016 |  |
-| 90-100% | 50130 | 0.951 | 0.955 | 0.004 |  |
+| 0-10% | 383397 | 0.025 | 0.023 | -0.002 |  |
+| 10-20% | 95119 | 0.146 | 0.142 | -0.004 |  |
+| 20-30% | 67098 | 0.248 | 0.249 | 0.002 |  |
+| 30-40% | 54484 | 0.349 | 0.357 | 0.009 |  |
+| 40-50% | 46986 | 0.449 | 0.465 | 0.017 |  |
+| 50-60% | 42312 | 0.549 | 0.573 | 0.024 |  |
+| 60-70% | 39660 | 0.650 | 0.673 | 0.024 |  |
+| 70-80% | 37870 | 0.750 | 0.778 | 0.028 |  |
+| 80-90% | 39583 | 0.851 | 0.868 | 0.017 |  |
+| 90-100% | 50182 | 0.951 | 0.955 | 0.005 |  |
 
-**Double-doubles** (32,205 player-games with 20+ projected minutes)
+**Double-doubles** (32,313 player-games with 20+ projected minutes)
 
 | bucket | legs | forecast | actual | gap | note |
 |---|---|---|---|---|---|
-| 0-10% | 21976 | 0.031 | 0.037 | 0.006 |  |
-| 10-20% | 4804 | 0.142 | 0.164 | 0.021 |  |
-| 20-30% | 2222 | 0.245 | 0.297 | 0.052 |  |
-| 30-40% | 1343 | 0.345 | 0.389 | 0.044 |  |
-| 40-50% | 834 | 0.446 | 0.507 | 0.061 |  |
-| 50-60% | 510 | 0.547 | 0.614 | 0.067 |  |
-| 60-70% | 311 | 0.646 | 0.672 | 0.026 |  |
-| 70-80% | 136 | 0.738 | 0.699 | -0.040 | (too small to trust) |
-| 80-90% | 62 | 0.843 | 0.855 | 0.012 | (too small to trust) |
-| 90-100% | 7 | 0.928 | 0.714 | -0.213 | (too small to trust) |
+| 0-10% | 22053 | 0.031 | 0.037 | 0.006 |  |
+| 10-20% | 4794 | 0.142 | 0.161 | 0.019 |  |
+| 20-30% | 2261 | 0.246 | 0.288 | 0.043 |  |
+| 30-40% | 1343 | 0.347 | 0.404 | 0.057 |  |
+| 40-50% | 829 | 0.446 | 0.502 | 0.055 |  |
+| 50-60% | 514 | 0.547 | 0.625 | 0.078 |  |
+| 60-70% | 311 | 0.643 | 0.659 | 0.016 |  |
+| 70-80% | 143 | 0.739 | 0.741 | 0.002 | (too small to trust) |
+| 80-90% | 58 | 0.841 | 0.845 | 0.004 | (too small to trust) |
+| 90-100% | 7 | 0.926 | 0.857 | -0.069 | (too small to trust) |
 
-**Triple-doubles**: forecast 0.46%, actual 0.88% over 32,205 player-games; players given 10%+: forecast 22.8%, actual 34.2% (275 cases).
+**Triple-doubles**: forecast 0.46%, actual 0.88% over 32,313 player-games; players given 10%+: forecast 22.9%, actual 33.6% (271 cases).
 
 **Game legs (moneyline, spreads, totals on a fixed grid)**
 
@@ -284,49 +286,49 @@ Predicted blowouts: games given 60%+ blowout probability were blowouts 65.9% of 
 
 | ticket | season | tickets | modelled joint probability | actual hit rate | gap | if legs were multiplied | note |
 |---|---|---|---|---|---|---|---|
-| double_double | 2025 | 109 | 0.760 | 0.743 | -0.017 | 0.760 | (too small to trust) |
-| double_double | 2026 | 86 | 0.777 | 0.733 | -0.044 | 0.777 | (too small to trust) |
-| double_double | both | 195 | 0.768 | 0.738 | -0.029 | 0.767 | (too small to trust) |
-| game_script | 2025 | 1231 | 0.644 | 0.673 | 0.029 | 0.575 |  |
-| game_script | 2026 | 1231 | 0.656 | 0.690 | 0.034 | 0.583 |  |
-| game_script | both | 2462 | 0.650 | 0.681 | 0.031 | 0.579 |  |
-| props_4 | 2025 | 1231 | 0.695 | 0.725 | 0.030 | 0.624 |  |
-| props_4 | 2026 | 1231 | 0.698 | 0.731 | 0.033 | 0.625 |  |
-| props_4 | both | 2462 | 0.697 | 0.728 | 0.032 | 0.624 |  |
-| props_6 | 2025 | 1231 | 0.554 | 0.595 | 0.041 | 0.470 |  |
-| props_6 | 2026 | 1231 | 0.556 | 0.617 | 0.061 | 0.472 |  |
-| props_6 | both | 2462 | 0.555 | 0.606 | 0.051 | 0.471 |  |
+| double_double | 2025 | 107 | 0.757 | 0.766 | 0.010 | 0.756 | (too small to trust) |
+| double_double | 2026 | 90 | 0.774 | 0.767 | -0.007 | 0.774 | (too small to trust) |
+| double_double | both | 197 | 0.765 | 0.766 | 0.002 | 0.764 | (too small to trust) |
+| game_script | 2025 | 1231 | 0.605 | 0.644 | 0.039 | 0.586 |  |
+| game_script | 2026 | 1231 | 0.612 | 0.646 | 0.034 | 0.593 |  |
+| game_script | both | 2462 | 0.609 | 0.645 | 0.036 | 0.589 |  |
+| props_4 | 2025 | 1231 | 0.653 | 0.695 | 0.041 | 0.636 |  |
+| props_4 | 2026 | 1231 | 0.652 | 0.685 | 0.033 | 0.636 |  |
+| props_4 | both | 2462 | 0.652 | 0.690 | 0.037 | 0.636 |  |
+| props_6 | 2025 | 1228 | 0.496 | 0.556 | 0.060 | 0.476 |  |
+| props_6 | 2026 | 1231 | 0.494 | 0.546 | 0.052 | 0.475 |  |
+| props_6 | both | 2459 | 0.495 | 0.551 | 0.056 | 0.476 |  |
 
 **70%+ legs by situation**
 
 | 70%+ legs in | legs | forecast | actual | gap | note |
 |---|---|---|---|---|---|
-| blowout-flagged games | 27834 | 0.845 | 0.857 | 0.011 |  |
-| other games | 195771 | 0.847 | 0.863 | 0.016 |  |
-| early season (first 20 games) | 55648 | 0.847 | 0.869 | 0.022 |  |
-| mid-season (21-55) | 95067 | 0.848 | 0.865 | 0.017 |  |
-| after the All-Star break (56-72) | 45203 | 0.846 | 0.866 | 0.020 |  |
-| final weeks (73+) | 27687 | 0.846 | 0.833 | -0.013 |  |
-| starters | 195173 | 0.855 | 0.870 | 0.015 |  |
-| bench | 28432 | 0.791 | 0.808 | 0.017 |  |
-| team has a rotation player out | 66446 | 0.846 | 0.833 | -0.014 |  |
+| blowout-flagged games | 27935 | 0.845 | 0.857 | 0.012 |  |
+| other games | 196148 | 0.847 | 0.864 | 0.016 |  |
+| early season (first 20 games) | 55648 | 0.847 | 0.870 | 0.023 |  |
+| mid-season (21-55) | 95261 | 0.848 | 0.865 | 0.017 |  |
+| after the All-Star break (56-72) | 45302 | 0.846 | 0.866 | 0.020 |  |
+| final weeks (73+) | 27872 | 0.846 | 0.834 | -0.011 |  |
+| starters | 195380 | 0.855 | 0.871 | 0.016 |  |
+| bench | 28703 | 0.792 | 0.808 | 0.016 |  |
+| team has a rotation player out | 66469 | 0.846 | 0.834 | -0.012 |  |
 
-Blowout rule: in flagged games, 70%+ legs that also clear 70% inside blowout simulations hit 86.2% (26,707 legs); those that do not hit 72.7% (1,127 legs).
+Blowout rule: in flagged games, 70%+ legs that also clear 70% inside blowout simulations hit 86.2% (26,780 legs); those that do not hit 72.9% (1,155 legs).
 
 **Shooting gate**
 
 | 70%+ scoring legs | legs | forecast | actual | gap |
 |---|---|---|---|---|
-| pass the shooting gate | 137246 | 0.853 | 0.870 | 0.017 |
-| fail the shooting gate | 35430 | 0.842 | 0.862 | 0.020 |
+| pass the shooting gate | 137452 | 0.853 | 0.870 | 0.017 |
+| fail the shooting gate | 35607 | 0.842 | 0.862 | 0.020 |
 
 **Simulated against historical correlation** (historical = average product of standardised surprises)
 
 | pair | cases | simulated correlation | historical correlation |
 |---|---|---|---|
-| guard assists with centre points | 4468 | 0.023 | 0.154 |
-| top scorer's points with game total | 4924 | 0.210 | 0.228 |
-| two top scorers' points | 4924 | -0.129 | 0.017 |
+| guard assists with centre points | 4468 | 0.023 | 0.151 |
+| top scorer's points with game total | 4924 | 0.210 | 0.230 |
+| two top scorers' points | 4924 | -0.130 | 0.018 |
 
 ## Factor ablation
 
