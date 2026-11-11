@@ -1,0 +1,1099 @@
+{
+ "as_of": {
+  "season": 2026,
+  "through_week": 9,
+  "seasons_used": "2021-2026",
+  "team_games": 3120
+ },
+ "league_average": {
+  "sec_per_drive": 171.6,
+  "off_pen_per_game": 3.58,
+  "off_pen_yds_per_game": 25.3,
+  "def_pen_per_game": 2.31,
+  "def_pen_yds_per_game": 22.9
+ },
+ "settings": {
+  "top_per_drive": {
+   "half_life_weeks": 16,
+   "ridge": 15
+  },
+  "off_pen": {
+   "half_life_weeks": 8,
+   "ridge": 40
+  },
+  "off_pen_yds": {
+   "half_life_weeks": 8,
+   "ridge": 40
+  },
+  "def_pen": {
+   "half_life_weeks": 30,
+   "ridge": 40
+  },
+  "def_pen_yds": {
+   "half_life_weeks": 8,
+   "ridge": 40
+  },
+  "possession_blend": {
+   "weight_on_ratings": 0.262,
+   "share_per_point_of_spread": 0.00195
+  }
+ },
+ "validation": {
+  "test_seasons": "2024-2026",
+  "top_per_drive": {
+   "games": 706,
+   "avg_miss_model": 28.604,
+   "avg_miss_league_average": 28.863,
+   "skill_vs_league_average": 0.0162,
+   "correlation": 0.126
+  },
+  "off_pen": {
+   "games": 706,
+   "avg_miss_model": 1.599,
+   "avg_miss_league_average": 1.606,
+   "skill_vs_league_average": 0.0046,
+   "correlation": 0.059
+  },
+  "off_pen_yds": {
+   "games": 706,
+   "avg_miss_model": 12.152,
+   "avg_miss_league_average": 12.134,
+   "skill_vs_league_average": -0.0021,
+   "correlation": 0.028
+  },
+  "def_pen": {
+   "games": 706,
+   "avg_miss_model": 1.247,
+   "avg_miss_league_average": 1.255,
+   "skill_vs_league_average": 0.0076,
+   "correlation": 0.086
+  },
+  "def_pen_yds": {
+   "games": 706,
+   "avg_miss_model": 13.946,
+   "avg_miss_league_average": 13.986,
+   "skill_vs_league_average": 0.0065,
+   "correlation": 0.065
+  },
+  "top_share": {
+   "games": 706,
+   "avg_miss_model": 0.0577,
+   "avg_miss_league_average": 0.0582,
+   "skill_vs_league_average": 0.0098,
+   "correlation": 0.113
+  },
+  "top_share_with_spread": {
+   "games": 706,
+   "avg_miss_model": 0.0569,
+   "avg_miss_league_average": 0.0582,
+   "skill_vs_league_average": 0.0378,
+   "correlation": 0.198
+  }
+ },
+ "teams": {
+  "ARI": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.526,
+   "top_offence_sec_per_drive": 2.8,
+   "top_offence_rank": 9,
+   "top_defence_sec_per_drive": -0.8,
+   "top_defence_rank": 14,
+   "off_pen_per_game": 3.54,
+   "off_pen_rank": 12,
+   "off_pen_yds_per_game": 25.0,
+   "off_pen_drawn_by_defence": -0.13,
+   "def_pen_per_game": 2.32,
+   "def_pen_rank": 21,
+   "def_pen_yds_per_game": 24.2,
+   "def_pen_drawn_by_offence": 0.03
+  },
+  "ATL": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.4885,
+   "top_offence_sec_per_drive": -2.3,
+   "top_offence_rank": 25,
+   "top_defence_sec_per_drive": 0.9,
+   "top_defence_rank": 19,
+   "off_pen_per_game": 3.51,
+   "off_pen_rank": 9,
+   "off_pen_yds_per_game": 24.8,
+   "off_pen_drawn_by_defence": 0.04,
+   "def_pen_per_game": 2.22,
+   "def_pen_rank": 6,
+   "def_pen_yds_per_game": 23.4,
+   "def_pen_drawn_by_offence": -0.02
+  },
+  "BAL": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.5045,
+   "top_offence_sec_per_drive": -1.0,
+   "top_offence_rank": 18,
+   "top_defence_sec_per_drive": -1.1,
+   "top_defence_rank": 12,
+   "off_pen_per_game": 3.76,
+   "off_pen_rank": 32,
+   "off_pen_yds_per_game": 26.0,
+   "off_pen_drawn_by_defence": -0.12,
+   "def_pen_per_game": 2.28,
+   "def_pen_rank": 12,
+   "def_pen_yds_per_game": 22.4,
+   "def_pen_drawn_by_offence": -0.18
+  },
+  "BUF": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.5227,
+   "top_offence_sec_per_drive": 7.1,
+   "top_offence_rank": 1,
+   "top_defence_sec_per_drive": -5.4,
+   "top_defence_rank": 4,
+   "off_pen_per_game": 3.65,
+   "off_pen_rank": 25,
+   "off_pen_yds_per_game": 25.9,
+   "off_pen_drawn_by_defence": -0.06,
+   "def_pen_per_game": 2.42,
+   "def_pen_rank": 29,
+   "def_pen_yds_per_game": 24.0,
+   "def_pen_drawn_by_offence": -0.01
+  },
+  "CAR": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.4883,
+   "top_offence_sec_per_drive": -1.6,
+   "top_offence_rank": 22,
+   "top_defence_sec_per_drive": 2.4,
+   "top_defence_rank": 21,
+   "off_pen_per_game": 3.65,
+   "off_pen_rank": 21,
+   "off_pen_yds_per_game": 25.8,
+   "off_pen_drawn_by_defence": 0.13,
+   "def_pen_per_game": 2.27,
+   "def_pen_rank": 10,
+   "def_pen_yds_per_game": 24.4,
+   "def_pen_drawn_by_offence": 0.01
+  },
+  "CHI": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.5753,
+   "top_offence_sec_per_drive": 4.9,
+   "top_offence_rank": 3,
+   "top_defence_sec_per_drive": -8.0,
+   "top_defence_rank": 2,
+   "off_pen_per_game": 3.65,
+   "off_pen_rank": 22,
+   "off_pen_yds_per_game": 25.9,
+   "off_pen_drawn_by_defence": 0.03,
+   "def_pen_per_game": 2.2,
+   "def_pen_rank": 4,
+   "def_pen_yds_per_game": 22.8,
+   "def_pen_drawn_by_offence": -0.06
+  },
+  "CIN": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.4997,
+   "top_offence_sec_per_drive": 3.9,
+   "top_offence_rank": 5,
+   "top_defence_sec_per_drive": 1.4,
+   "top_defence_rank": 20,
+   "off_pen_per_game": 3.42,
+   "off_pen_rank": 2,
+   "off_pen_yds_per_game": 23.9,
+   "off_pen_drawn_by_defence": 0.17,
+   "def_pen_per_game": 2.29,
+   "def_pen_rank": 13,
+   "def_pen_yds_per_game": 23.0,
+   "def_pen_drawn_by_offence": 0.08
+  },
+  "CLE": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.4929,
+   "top_offence_sec_per_drive": -8.8,
+   "top_offence_rank": 32,
+   "top_defence_sec_per_drive": -4.7,
+   "top_defence_rank": 6,
+   "off_pen_per_game": 3.73,
+   "off_pen_rank": 31,
+   "off_pen_yds_per_game": 26.0,
+   "off_pen_drawn_by_defence": -0.1,
+   "def_pen_per_game": 2.39,
+   "def_pen_rank": 27,
+   "def_pen_yds_per_game": 22.4,
+   "def_pen_drawn_by_offence": 0.05
+  },
+  "DAL": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.4856,
+   "top_offence_sec_per_drive": 2.6,
+   "top_offence_rank": 10,
+   "top_defence_sec_per_drive": 2.9,
+   "top_defence_rank": 24,
+   "off_pen_per_game": 3.55,
+   "off_pen_rank": 13,
+   "off_pen_yds_per_game": 25.7,
+   "off_pen_drawn_by_defence": 0.15,
+   "def_pen_per_game": 2.57,
+   "def_pen_rank": 32,
+   "def_pen_yds_per_game": 25.2,
+   "def_pen_drawn_by_offence": 0.28
+  },
+  "DEN": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.4767,
+   "top_offence_sec_per_drive": -2.8,
+   "top_offence_rank": 27,
+   "top_defence_sec_per_drive": -2.2,
+   "top_defence_rank": 10,
+   "off_pen_per_game": 3.56,
+   "off_pen_rank": 14,
+   "off_pen_yds_per_game": 24.8,
+   "off_pen_drawn_by_defence": -0.06,
+   "def_pen_per_game": 2.52,
+   "def_pen_rank": 31,
+   "def_pen_yds_per_game": 23.5,
+   "def_pen_drawn_by_offence": 0.08
+  },
+  "DET": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.5075,
+   "top_offence_sec_per_drive": 3.8,
+   "top_offence_rank": 7,
+   "top_defence_sec_per_drive": -0.0,
+   "top_defence_rank": 16,
+   "off_pen_per_game": 3.62,
+   "off_pen_rank": 18,
+   "off_pen_yds_per_game": 25.6,
+   "off_pen_drawn_by_defence": -0.05,
+   "def_pen_per_game": 2.37,
+   "def_pen_rank": 25,
+   "def_pen_yds_per_game": 22.5,
+   "def_pen_drawn_by_offence": -0.18
+  },
+  "GB": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.486,
+   "top_offence_sec_per_drive": -1.2,
+   "top_offence_rank": 19,
+   "top_defence_sec_per_drive": 3.3,
+   "top_defence_rank": 25,
+   "off_pen_per_game": 3.65,
+   "off_pen_rank": 24,
+   "off_pen_yds_per_game": 25.9,
+   "off_pen_drawn_by_defence": -0.13,
+   "def_pen_per_game": 2.4,
+   "def_pen_rank": 28,
+   "def_pen_yds_per_game": 23.4,
+   "def_pen_drawn_by_offence": -0.07
+  },
+  "HOU": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.4901,
+   "top_offence_sec_per_drive": -2.7,
+   "top_offence_rank": 26,
+   "top_defence_sec_per_drive": -4.5,
+   "top_defence_rank": 8,
+   "off_pen_per_game": 3.65,
+   "off_pen_rank": 23,
+   "off_pen_yds_per_game": 26.0,
+   "off_pen_drawn_by_defence": -0.07,
+   "def_pen_per_game": 2.33,
+   "def_pen_rank": 23,
+   "def_pen_yds_per_game": 22.3,
+   "def_pen_drawn_by_offence": 0.13
+  },
+  "IND": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.5108,
+   "top_offence_sec_per_drive": -2.1,
+   "top_offence_rank": 24,
+   "top_defence_sec_per_drive": -1.0,
+   "top_defence_rank": 13,
+   "off_pen_per_game": 3.47,
+   "off_pen_rank": 5,
+   "off_pen_yds_per_game": 24.4,
+   "off_pen_drawn_by_defence": 0.06,
+   "def_pen_per_game": 2.19,
+   "def_pen_rank": 3,
+   "def_pen_yds_per_game": 22.0,
+   "def_pen_drawn_by_offence": -0.08
+  },
+  "JAX": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.5164,
+   "top_offence_sec_per_drive": 2.0,
+   "top_offence_rank": 11,
+   "top_defence_sec_per_drive": -1.2,
+   "top_defence_rank": 11,
+   "off_pen_per_game": 3.69,
+   "off_pen_rank": 29,
+   "off_pen_yds_per_game": 26.0,
+   "off_pen_drawn_by_defence": 0.07,
+   "def_pen_per_game": 2.3,
+   "def_pen_rank": 16,
+   "def_pen_yds_per_game": 22.8,
+   "def_pen_drawn_by_offence": 0.03
+  },
+  "KC": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.4799,
+   "top_offence_sec_per_drive": 0.5,
+   "top_offence_rank": 13,
+   "top_defence_sec_per_drive": 7.5,
+   "top_defence_rank": 31,
+   "off_pen_per_game": 3.44,
+   "off_pen_rank": 3,
+   "off_pen_yds_per_game": 24.6,
+   "off_pen_drawn_by_defence": 0.07,
+   "def_pen_per_game": 2.32,
+   "def_pen_rank": 22,
+   "def_pen_yds_per_game": 23.6,
+   "def_pen_drawn_by_offence": -0.12
+  },
+  "LA": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.5139,
+   "top_offence_sec_per_drive": 0.2,
+   "top_offence_rank": 15,
+   "top_defence_sec_per_drive": 0.2,
+   "top_defence_rank": 17,
+   "off_pen_per_game": 3.58,
+   "off_pen_rank": 16,
+   "off_pen_yds_per_game": 25.5,
+   "off_pen_drawn_by_defence": -0.08,
+   "def_pen_per_game": 2.25,
+   "def_pen_rank": 9,
+   "def_pen_yds_per_game": 23.5,
+   "def_pen_drawn_by_offence": 0.01
+  },
+  "LAC": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.503,
+   "top_offence_sec_per_drive": -1.4,
+   "top_offence_rank": 20,
+   "top_defence_sec_per_drive": -6.7,
+   "top_defence_rank": 3,
+   "off_pen_per_game": 3.67,
+   "off_pen_rank": 27,
+   "off_pen_yds_per_game": 25.6,
+   "off_pen_drawn_by_defence": 0.04,
+   "def_pen_per_game": 2.31,
+   "def_pen_rank": 19,
+   "def_pen_yds_per_game": 23.5,
+   "def_pen_drawn_by_offence": 0.08
+  },
+  "LV": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.476,
+   "top_offence_sec_per_drive": -7.1,
+   "top_offence_rank": 31,
+   "top_defence_sec_per_drive": 6.5,
+   "top_defence_rank": 30,
+   "off_pen_per_game": 3.41,
+   "off_pen_rank": 1,
+   "off_pen_yds_per_game": 24.0,
+   "off_pen_drawn_by_defence": 0.08,
+   "def_pen_per_game": 2.37,
+   "def_pen_rank": 26,
+   "def_pen_yds_per_game": 23.3,
+   "def_pen_drawn_by_offence": 0.02
+  },
+  "MIA": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.4797,
+   "top_offence_sec_per_drive": 3.8,
+   "top_offence_rank": 6,
+   "top_defence_sec_per_drive": 7.6,
+   "top_defence_rank": 32,
+   "off_pen_per_game": 3.62,
+   "off_pen_rank": 19,
+   "off_pen_yds_per_game": 25.7,
+   "off_pen_drawn_by_defence": -0.0,
+   "def_pen_per_game": 2.29,
+   "def_pen_rank": 14,
+   "def_pen_yds_per_game": 22.0,
+   "def_pen_drawn_by_offence": -0.06
+  },
+  "MIN": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.4963,
+   "top_offence_sec_per_drive": -2.9,
+   "top_offence_rank": 28,
+   "top_defence_sec_per_drive": 0.5,
+   "top_defence_rank": 18,
+   "off_pen_per_game": 3.54,
+   "off_pen_rank": 11,
+   "off_pen_yds_per_game": 24.9,
+   "off_pen_drawn_by_defence": 0.14,
+   "def_pen_per_game": 2.12,
+   "def_pen_rank": 1,
+   "def_pen_yds_per_game": 21.6,
+   "def_pen_drawn_by_offence": 0.1
+  },
+  "NE": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.5041,
+   "top_offence_sec_per_drive": -1.7,
+   "top_offence_rank": 23,
+   "top_defence_sec_per_drive": -3.5,
+   "top_defence_rank": 9,
+   "off_pen_per_game": 3.5,
+   "off_pen_rank": 8,
+   "off_pen_yds_per_game": 24.9,
+   "off_pen_drawn_by_defence": -0.09,
+   "def_pen_per_game": 2.24,
+   "def_pen_rank": 8,
+   "def_pen_yds_per_game": 22.7,
+   "def_pen_drawn_by_offence": -0.11
+  },
+  "NO": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.483,
+   "top_offence_sec_per_drive": 0.3,
+   "top_offence_rank": 14,
+   "top_defence_sec_per_drive": 3.6,
+   "top_defence_rank": 26,
+   "off_pen_per_game": 3.59,
+   "off_pen_rank": 17,
+   "off_pen_yds_per_game": 25.4,
+   "off_pen_drawn_by_defence": -0.0,
+   "def_pen_per_game": 2.23,
+   "def_pen_rank": 7,
+   "def_pen_yds_per_game": 21.7,
+   "def_pen_drawn_by_offence": -0.02
+  },
+  "NYG": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.5471,
+   "top_offence_sec_per_drive": 4.6,
+   "top_offence_rank": 4,
+   "top_defence_sec_per_drive": -5.0,
+   "top_defence_rank": 5,
+   "off_pen_per_game": 3.63,
+   "off_pen_rank": 20,
+   "off_pen_yds_per_game": 25.2,
+   "off_pen_drawn_by_defence": -0.04,
+   "def_pen_per_game": 2.31,
+   "def_pen_rank": 18,
+   "def_pen_yds_per_game": 23.6,
+   "def_pen_drawn_by_offence": 0.22
+  },
+  "NYJ": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.4954,
+   "top_offence_sec_per_drive": -3.0,
+   "top_offence_rank": 29,
+   "top_defence_sec_per_drive": 2.9,
+   "top_defence_rank": 23,
+   "off_pen_per_game": 3.65,
+   "off_pen_rank": 26,
+   "off_pen_yds_per_game": 25.7,
+   "off_pen_drawn_by_defence": -0.22,
+   "def_pen_per_game": 2.49,
+   "def_pen_rank": 30,
+   "def_pen_yds_per_game": 23.3,
+   "def_pen_drawn_by_offence": -0.16
+  },
+  "PHI": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.4676,
+   "top_offence_sec_per_drive": -1.5,
+   "top_offence_rank": 21,
+   "top_defence_sec_per_drive": -0.8,
+   "top_defence_rank": 15,
+   "off_pen_per_game": 3.57,
+   "off_pen_rank": 15,
+   "off_pen_yds_per_game": 24.9,
+   "off_pen_drawn_by_defence": 0.11,
+   "def_pen_per_game": 2.29,
+   "def_pen_rank": 15,
+   "def_pen_yds_per_game": 22.5,
+   "def_pen_drawn_by_offence": -0.07
+  },
+  "PIT": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.5117,
+   "top_offence_sec_per_drive": 0.5,
+   "top_offence_rank": 12,
+   "top_defence_sec_per_drive": 4.4,
+   "top_defence_rank": 27,
+   "off_pen_per_game": 3.46,
+   "off_pen_rank": 4,
+   "off_pen_yds_per_game": 24.8,
+   "off_pen_drawn_by_defence": 0.0,
+   "def_pen_per_game": 2.22,
+   "def_pen_rank": 5,
+   "def_pen_yds_per_game": 22.3,
+   "def_pen_drawn_by_offence": -0.03
+  },
+  "SEA": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.5112,
+   "top_offence_sec_per_drive": -0.2,
+   "top_offence_rank": 16,
+   "top_defence_sec_per_drive": -4.5,
+   "top_defence_rank": 7,
+   "off_pen_per_game": 3.53,
+   "off_pen_rank": 10,
+   "off_pen_yds_per_game": 25.1,
+   "off_pen_drawn_by_defence": -0.07,
+   "def_pen_per_game": 2.3,
+   "def_pen_rank": 17,
+   "def_pen_yds_per_game": 23.2,
+   "def_pen_drawn_by_offence": 0.2
+  },
+  "SF": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.5006,
+   "top_offence_sec_per_drive": 6.5,
+   "top_offence_rank": 2,
+   "top_defence_sec_per_drive": 4.6,
+   "top_defence_rank": 28,
+   "off_pen_per_game": 3.47,
+   "off_pen_rank": 6,
+   "off_pen_yds_per_game": 24.9,
+   "off_pen_drawn_by_defence": 0.02,
+   "def_pen_per_game": 2.32,
+   "def_pen_rank": 20,
+   "def_pen_yds_per_game": 23.0,
+   "def_pen_drawn_by_offence": -0.22
+  },
+  "TB": {
+   "games_this_season": 9,
+   "top_share_this_season": 0.5373,
+   "top_offence_sec_per_drive": 2.8,
+   "top_offence_rank": 8,
+   "top_defence_sec_per_drive": -8.2,
+   "top_defence_rank": 1,
+   "off_pen_per_game": 3.68,
+   "off_pen_rank": 28,
+   "off_pen_yds_per_game": 25.8,
+   "off_pen_drawn_by_defence": -0.06,
+   "def_pen_per_game": 2.16,
+   "def_pen_rank": 2,
+   "def_pen_yds_per_game": 21.3,
+   "def_pen_drawn_by_offence": 0.08
+  },
+  "TEN": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.4226,
+   "top_offence_sec_per_drive": -5.3,
+   "top_offence_rank": 30,
+   "top_defence_sec_per_drive": 6.2,
+   "top_defence_rank": 29,
+   "off_pen_per_game": 3.5,
+   "off_pen_rank": 7,
+   "off_pen_yds_per_game": 25.0,
+   "off_pen_drawn_by_defence": 0.17,
+   "def_pen_per_game": 2.35,
+   "def_pen_rank": 24,
+   "def_pen_yds_per_game": 21.8,
+   "def_pen_drawn_by_offence": -0.06
+  },
+  "WAS": {
+   "games_this_season": 8,
+   "top_share_this_season": 0.4931,
+   "top_offence_sec_per_drive": -0.7,
+   "top_offence_rank": 17,
+   "top_defence_sec_per_drive": 2.9,
+   "top_defence_rank": 22,
+   "off_pen_per_game": 3.71,
+   "off_pen_rank": 30,
+   "off_pen_yds_per_game": 25.9,
+   "off_pen_drawn_by_defence": -0.01,
+   "def_pen_per_game": 2.27,
+   "def_pen_rank": 11,
+   "def_pen_yds_per_game": 22.3,
+   "def_pen_drawn_by_offence": 0.06
+  }
+ },
+ "games": [
+  {
+   "game_id": "2026_10_WAS_NYG",
+   "gameday": "2026-11-12",
+   "away": "WAS",
+   "home": "NYG",
+   "market": {
+    "home_spread": -2.5,
+    "total": 41.5,
+    "home_implied_points": 22.0,
+    "away_implied_points": 19.5,
+    "home_moneyline": -135,
+    "away_moneyline": 114,
+    "home_win_chance_no_margin": 0.5514
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.5103,
+    "home_minutes": 30.6,
+    "away_minutes": 29.4
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.57,
+     "off_pen_yds": 24.6,
+     "def_pen": 2.29,
+     "def_pen_yds": 22.8
+    },
+    "away": {
+     "off_pen": 3.72,
+     "off_pen_yds": 26.0,
+     "def_pen": 2.57,
+     "def_pen_yds": 23.2
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_BUF_NYJ",
+   "gameday": "2026-11-15",
+   "away": "BUF",
+   "home": "NYJ",
+   "market": {
+    "home_spread": 8.5,
+    "total": 50.5,
+    "home_implied_points": 21.0,
+    "away_implied_points": 29.5,
+    "home_moneyline": 320,
+    "away_moneyline": -410,
+    "home_win_chance_no_margin": 0.2285
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.4767,
+    "home_minutes": 28.6,
+    "away_minutes": 31.4
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.54,
+     "off_pen_yds": 24.9,
+     "def_pen": 2.4,
+     "def_pen_yds": 22.5
+    },
+    "away": {
+     "off_pen": 3.48,
+     "off_pen_yds": 24.6,
+     "def_pen": 2.34,
+     "def_pen_yds": 23.7
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_CAR_NO",
+   "gameday": "2026-11-15",
+   "away": "CAR",
+   "home": "NO",
+   "market": {
+    "home_spread": -2.5,
+    "total": 48.5,
+    "home_implied_points": 25.5,
+    "away_implied_points": 23.0,
+    "home_moneyline": -130,
+    "away_moneyline": 110,
+    "home_win_chance_no_margin": 0.5427
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.5055,
+    "home_minutes": 30.3,
+    "away_minutes": 29.7
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.67,
+     "off_pen_yds": 25.8,
+     "def_pen": 2.16,
+     "def_pen_yds": 20.5
+    },
+    "away": {
+     "off_pen": 3.69,
+     "off_pen_yds": 25.9,
+     "def_pen": 2.34,
+     "def_pen_yds": 24.4
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_HOU_CLE",
+   "gameday": "2026-11-15",
+   "away": "HOU",
+   "home": "CLE",
+   "market": {
+    "home_spread": 4.5,
+    "total": 39.5,
+    "home_implied_points": 17.5,
+    "away_implied_points": 22.0,
+    "home_moneyline": 185,
+    "away_moneyline": -225,
+    "home_win_chance_no_margin": 0.3364
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.4892,
+    "home_minutes": 29.4,
+    "away_minutes": 30.6
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.6,
+     "off_pen_yds": 25.5,
+     "def_pen": 2.43,
+     "def_pen_yds": 23.4
+    },
+    "away": {
+     "off_pen": 3.6,
+     "off_pen_yds": 25.5,
+     "def_pen": 2.46,
+     "def_pen_yds": 22.5
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_JAX_TEN",
+   "gameday": "2026-11-15",
+   "away": "JAX",
+   "home": "TEN",
+   "market": {
+    "home_spread": 10.5,
+    "total": 46.5,
+    "home_implied_points": 18.0,
+    "away_implied_points": 28.5,
+    "home_moneyline": 440,
+    "away_moneyline": -600,
+    "home_win_chance_no_margin": 0.1777
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.4743,
+    "home_minutes": 28.5,
+    "away_minutes": 31.5
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.52,
+     "off_pen_yds": 25.2,
+     "def_pen": 2.3,
+     "def_pen_yds": 20.5
+    },
+    "away": {
+     "off_pen": 3.91,
+     "off_pen_yds": 27.3,
+     "def_pen": 2.32,
+     "def_pen_yds": 23.6
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_KC_ATL",
+   "gameday": "2026-11-15",
+   "away": "KC",
+   "home": "ATL",
+   "market": {
+    "home_spread": 3.5,
+    "total": 45.5,
+    "home_implied_points": 21.0,
+    "away_implied_points": 24.5,
+    "home_moneyline": 154,
+    "away_moneyline": -185,
+    "home_win_chance_no_margin": 0.3775
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.4949,
+    "home_minutes": 29.7,
+    "away_minutes": 30.3
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.53,
+     "off_pen_yds": 24.8,
+     "def_pen": 2.02,
+     "def_pen_yds": 21.8
+    },
+    "away": {
+     "off_pen": 3.53,
+     "off_pen_yds": 25.0,
+     "def_pen": 2.39,
+     "def_pen_yds": 23.7
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_LA_ARI",
+   "gameday": "2026-11-15",
+   "away": "LA",
+   "home": "ARI",
+   "market": {
+    "home_spread": 9.5,
+    "total": 39.5,
+    "home_implied_points": 15.0,
+    "away_implied_points": 24.5,
+    "home_moneyline": 330,
+    "away_moneyline": -425,
+    "home_win_chance_no_margin": 0.2232
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.4832,
+    "home_minutes": 29.0,
+    "away_minutes": 31.0
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.42,
+     "off_pen_yds": 24.2,
+     "def_pen": 2.25,
+     "def_pen_yds": 23.4
+    },
+    "away": {
+     "off_pen": 3.5,
+     "off_pen_yds": 25.0,
+     "def_pen": 2.37,
+     "def_pen_yds": 25.0
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_MIA_IND",
+   "gameday": "2026-11-15",
+   "away": "MIA",
+   "home": "IND",
+   "market": {
+    "home_spread": -3.5,
+    "total": 38.5,
+    "home_implied_points": 21.0,
+    "away_implied_points": 17.5,
+    "home_moneyline": -192,
+    "away_moneyline": 160,
+    "home_win_chance_no_margin": 0.6309
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.5082,
+    "home_minutes": 30.5,
+    "away_minutes": 29.5
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.42,
+     "off_pen_yds": 24.4,
+     "def_pen": 2.05,
+     "def_pen_yds": 20.9
+    },
+    "away": {
+     "off_pen": 3.74,
+     "off_pen_yds": 26.6,
+     "def_pen": 2.3,
+     "def_pen_yds": 22.8
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_MIN_GB",
+   "gameday": "2026-11-15",
+   "away": "MIN",
+   "home": "GB",
+   "market": {
+    "home_spread": -3.5,
+    "total": 41.5,
+    "home_implied_points": 22.5,
+    "away_implied_points": 19.0,
+    "home_moneyline": -175,
+    "away_moneyline": 145,
+    "home_win_chance_no_margin": 0.6092
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.5068,
+    "home_minutes": 30.4,
+    "away_minutes": 29.6
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.74,
+     "off_pen_yds": 27.0,
+     "def_pen": 2.41,
+     "def_pen_yds": 22.4
+    },
+    "away": {
+     "off_pen": 3.47,
+     "off_pen_yds": 24.1,
+     "def_pen": 2.13,
+     "def_pen_yds": 22.5
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_NE_DET",
+   "gameday": "2026-11-15",
+   "away": "NE",
+   "home": "DET",
+   "market": {
+    "home_spread": -2.5,
+    "total": 51.5,
+    "home_implied_points": 27.0,
+    "away_implied_points": 24.5,
+    "home_moneyline": -155,
+    "away_moneyline": 130,
+    "home_win_chance_no_margin": 0.583
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.5057,
+    "home_minutes": 30.3,
+    "away_minutes": 29.7
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.53,
+     "off_pen_yds": 24.8,
+     "def_pen": 2.26,
+     "def_pen_yds": 22.5
+    },
+    "away": {
+     "off_pen": 3.46,
+     "off_pen_yds": 24.8,
+     "def_pen": 2.06,
+     "def_pen_yds": 22.4
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_PIT_CIN",
+   "gameday": "2026-11-15",
+   "away": "PIT",
+   "home": "CIN",
+   "market": {
+    "home_spread": -3.5,
+    "total": 49.5,
+    "home_implied_points": 26.5,
+    "away_implied_points": 23.0,
+    "home_moneyline": -180,
+    "away_moneyline": 150,
+    "home_win_chance_no_margin": 0.6164
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.5096,
+    "home_minutes": 30.6,
+    "away_minutes": 29.4
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.37,
+     "off_pen_yds": 23.6,
+     "def_pen": 2.18,
+     "def_pen_yds": 22.5
+    },
+    "away": {
+     "off_pen": 3.68,
+     "off_pen_yds": 26.0,
+     "def_pen": 2.38,
+     "def_pen_yds": 22.2
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_SEA_LV",
+   "gameday": "2026-11-15",
+   "away": "SEA",
+   "home": "LV",
+   "market": {
+    "home_spread": 6.5,
+    "total": 40.5,
+    "home_implied_points": 17.0,
+    "away_implied_points": 23.5,
+    "home_moneyline": 225,
+    "away_moneyline": -278,
+    "home_win_chance_no_margin": 0.295
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.4807,
+    "home_minutes": 28.8,
+    "away_minutes": 31.2
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.29,
+     "off_pen_yds": 23.1,
+     "def_pen": 2.49,
+     "def_pen_yds": 24.0
+    },
+    "away": {
+     "off_pen": 3.67,
+     "off_pen_yds": 25.8,
+     "def_pen": 2.41,
+     "def_pen_yds": 24.4
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_SF_DAL",
+   "gameday": "2026-11-15",
+   "away": "SF",
+   "home": "DAL",
+   "market": {
+    "home_spread": 4.5,
+    "total": 55.5,
+    "home_implied_points": 25.5,
+    "away_implied_points": 30.0,
+    "home_moneyline": 170,
+    "away_moneyline": -205,
+    "home_win_chance_no_margin": 0.3553
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.4908,
+    "home_minutes": 29.4,
+    "away_minutes": 30.6
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.52,
+     "off_pen_yds": 26.3,
+     "def_pen": 2.27,
+     "def_pen_yds": 22.8
+    },
+    "away": {
+     "off_pen": 3.67,
+     "off_pen_yds": 26.1,
+     "def_pen": 2.68,
+     "def_pen_yds": 25.3
+    }
+   }
+  },
+  {
+   "game_id": "2026_10_LAC_BAL",
+   "gameday": "2026-11-16",
+   "away": "LAC",
+   "home": "BAL",
+   "market": {
+    "home_spread": -4.5,
+    "total": 38.5,
+    "home_implied_points": 21.5,
+    "away_implied_points": 17.0,
+    "home_moneyline": -218,
+    "away_moneyline": 180,
+    "home_win_chance_no_margin": 0.6575
+   },
+   "possession": {
+    "basis": "ratings and spread",
+    "home_share": 0.5071,
+    "home_minutes": 30.4,
+    "away_minutes": 29.6
+   },
+   "penalties": {
+    "home": {
+     "off_pen": 3.75,
+     "off_pen_yds": 26.2,
+     "def_pen": 2.28,
+     "def_pen_yds": 23.2
+    },
+    "away": {
+     "off_pen": 3.6,
+     "off_pen_yds": 24.8,
+     "def_pen": 2.21,
+     "def_pen_yds": 23.8
+    }
+   }
+  }
+ ]
+}

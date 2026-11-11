@@ -337,3 +337,28 @@
   max-width: 80ch;
   margin: 0;
 }
+
+/* Game scripts: possession split */
+.t-poss {
+  display: flex;
+  margin: 8px 0 4px;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.t-poss span {
+  padding: 7px 10px;
+  white-space: nowrap;
+  min-width: 0;
+}
+.t-poss-a {
+  background: var(--raise2);
+  color: var(--ink);
+}
+.t-poss-h {
+  background: var(--red);
+  color: #fff;
+  text-align: right;
+}

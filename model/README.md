@@ -20,3 +20,13 @@ Refresh it by downloading the latest copy of that file.
 Version 1 does not beat the market. Its margin error is higher than the closing
 spread's, and betting its disagreements with the spread loses money at -110.
 It is a baseline to improve on, not a source of picks.
+
+## Game-script metrics: time of possession and penalties
+
+`fetch_data.py` downloads play-by-play (not committed; about 105 MB for 2021 to 2026) and refreshes `data/games.csv`. `team_metrics.py` then builds opponent-adjusted team ratings for time of possession and for offensive and defensive penalties, forecasts the next week's games alongside the market spread, total and moneyline, and writes `output/team_metrics.json`.
+
+    pip install pandas numpy
+    python3 fetch_data.py
+    python3 team_metrics.py
+
+Every rating is checked walk-forward on 2024 onward. These stats are mostly noise game to game: the possession forecast beats a 50/50 guess by about 4%, mostly through the point spread, and penalty forecasts beat the league average by under 1%.

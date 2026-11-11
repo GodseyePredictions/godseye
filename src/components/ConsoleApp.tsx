@@ -18,12 +18,13 @@ import {
   type Summary,
 } from "@/lib/bets";
 import { checkSlip } from "@/lib/slip";
+import { ScriptsTab } from "./ScriptsTab";
 import predictions from "../../model/output/predictions.json";
 import backtest from "../../model/output/backtest.json";
 
 /* The eight console tabs are drawn by /console/app.js into #main.
    The four tracker tabs below are drawn by React into #extra. */
-const EXTRA_TABS = ["paste", "bets", "report", "games"] as const;
+const EXTRA_TABS = ["paste", "bets", "report", "scripts", "games"] as const;
 type ExtraTab = (typeof EXTRA_TABS)[number];
 
 declare global {
@@ -203,6 +204,10 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             />
             Model &amp; rules
           </a>
+          <a href="#scripts" data-tab="scripts">
+            <Icon d="M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3" />
+            Game scripts
+          </a>
           <a href="#games" data-tab="games">
             <Icon d="M4 18h16M6 18V9l6-4 6 4v9M10 18v-5h4v5" />
             Game predictions
@@ -229,8 +234,9 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             )}
             {extra === "bets" && <BetsTab bets={bets} setBets={setBets} />}
             {extra === "report" && <ReportTab bets={bets} />}
+            {extra === "scripts" && <ScriptsTab />}
             {extra === "games" && <GamesTab />}
-            {extra && extra !== "games" && (
+            {extra && extra !== "games" && extra !== "scripts" && (
               <p className="t-note">
                 Your bets are saved in this browser only. They are not sent anywhere, and clearing
                 your browser data removes them.
