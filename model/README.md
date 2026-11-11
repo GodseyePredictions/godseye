@@ -64,3 +64,9 @@ Weekly order: `fetch_data.py`, `features.py`, `matchups.py`, `fetch_odds.py`, `g
 ### User reads and late news
 
 `overrides.json` records news the weekly snapshot missed (a player back from injury, a role change). `apply_overrides.py` re-estimates the affected players from expected snap share, marks them singles only, withdraws prop lines and precomputed tickets priced on the old role, logs the read in the console's personnel panel, and writes `../public/console/personnel-update.js`. `game_markets.py` applies the same changes before building slips and hybrids. These numbers are estimates, labelled as such, until the touchdown model is re-run.
+
+### Roster freshness audit (run before trusting any pick)
+
+`freshness.py` compares the console snapshot with the latest snap counts, injury reports and roster status. It flags regular players missing from the snapshot, priced teammates whose numbers assumed that player was out, priced players now ruled out, and teams the snapshot does not price. `game_markets.py` runs it on every build: players with an open alert are kept off slips and hybrids, and a game with an open quarterback alert or an unpriced team is held off every ticket. Confirmed alerts (the team's report is posted) also withdraw the console's own precomputed tickets through `../public/console/freshness-update.js`. An alert clears when the report rules the player out or `overrides.json` records a read for him.
+
+`python3 run_week.py` runs every step in order. Run it after each injury report posts and again when inactives are announced.

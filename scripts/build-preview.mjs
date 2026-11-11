@@ -65,12 +65,15 @@ ${cssText}
 <div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
-<script>window.GE_EYE=${JSON.stringify(b64("public/brand/eye.jpg"))};window.GE_EXTRA_TABS=["markets","hybrids","paste","bets","report","scripts","games"];</script>
+<script>window.GE_EYE=${JSON.stringify(b64("public/brand/eye.jpg"))};window.GE_EXTRA_TABS=["markets","hybrids","paste","bets","report","alerts","scripts","games"];</script>
 <script>
 ${safe(readFileSync(path.join(root, "public/console/data.js"), "utf8"))}
 </script>
 <script>
 ${safe(readFileSync(path.join(root, "public/console/personnel-update.js"), "utf8"))}
+</script>
+<script>
+${safe(readFileSync(path.join(root, "public/console/freshness-update.js"), "utf8"))}
 </script>
 <script>
 ${safe(readFileSync(path.join(root, "public/console/odds-update.js"), "utf8"))}

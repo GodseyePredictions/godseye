@@ -19,7 +19,7 @@ import {
 } from "@/lib/bets";
 import { checkSlip } from "@/lib/slip";
 import { ScriptsTab } from "./ScriptsTab";
-import { HybridsTab, MarketsTab } from "./MarketsTab";
+import { AlertsTab, HybridsTab, MarketsTab } from "./MarketsTab";
 import marketData from "../../model/output/game_markets.json";
 
 // Legs handed from a model ticket to the Paste a slip tab.
@@ -29,7 +29,7 @@ import backtest from "../../model/output/backtest.json";
 
 /* The eight console tabs are drawn by /console/app.js into #main.
    The four tracker tabs below are drawn by React into #extra. */
-const EXTRA_TABS = ["markets", "hybrids", "paste", "bets", "report", "scripts", "games"] as const;
+const EXTRA_TABS = ["markets", "hybrids", "paste", "bets", "report", "alerts", "scripts", "games"] as const;
 type ExtraTab = (typeof EXTRA_TABS)[number];
 
 declare global {
@@ -124,6 +124,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
     if (window.GE_INLINE) return;
     loadScript("/console/data.js")
       .then(() => loadScript("/console/personnel-update.js").catch(() => undefined)) // user reads and late news, when present
+      .then(() => loadScript("/console/freshness-update.js").catch(() => undefined)) // confirmed roster alerts, when present
       .then(() => loadScript("/console/odds-update.js").catch(() => undefined)) // refreshed game lines, when present
       .then(() => loadScript("/console/app.js"))
       .catch(() =>
@@ -145,6 +146,9 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             <i></i> Model-only, no media picks
           </span>
           <span className="livechip" id="recchip"></span>
+          <a className="livechip alertchip" href="#alerts">
+            {marketData.freshness.open_alerts} roster alerts, {marketData.freshness.games_on_hold.length} games on hold
+          </a>
           <span className="livechip">
             Game lines: {marketData.odds.source}
             {marketData.odds.fetched_at ? `, ${marketData.odds.fetched_at}` : ""}
@@ -216,6 +220,10 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             My report
           </a>
           <span className="navgrp">Model</span>
+          <a href="#alerts" data-tab="alerts">
+            <Icon d="M12 3l9 16H3zM12 10v4M12 17v.5" />
+            Roster alerts
+          </a>
           <a href="#model" data-tab="model">
             <Icon
               d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"
@@ -262,6 +270,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             )}
             {extra === "bets" && <BetsTab bets={bets} setBets={setBets} />}
             {extra === "report" && <ReportTab bets={bets} />}
+            {extra === "alerts" && <AlertsTab />}
             {extra === "scripts" && <ScriptsTab />}
             {extra === "games" && <GamesTab />}
             {extra && ["paste", "bets", "report"].includes(extra) && (

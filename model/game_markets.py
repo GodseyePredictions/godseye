@@ -825,6 +825,24 @@ def main():
         from apply_overrides import apply
         D = apply(D)   # user reads and late news: affected players become singles-only estimates
         out["overrides"] = [x for x in D["personnel"] if x.get("type") == "override"]
+    # Roster freshness audit: nobody with an open alert goes on a slip, and a game with an open
+    # quarterback alert (or a team the snapshot does not price) is held back entirely.
+    fresh = {"alerts": [], "open": [], "hold_players": [], "hold_games": []}
+    if D:
+        from freshness import audit, k1
+        fresh = audit()
+        json.dump(fresh, open(HERE / "output/freshness.json", "w"), indent=1)
+        hold = set(fresh["hold_players"])
+        for p_ in D["players"]:
+            if f"{p_['team']}|{k1(p_['name'])}" in hold:
+                p_["singles"] = True
+                p_["hold"] = True
+    out["freshness"] = {"snapshot_built": fresh.get("snapshot_built"), "reports_posted_for": fresh.get("teams_with_report_posted", []),
+                        "open_alerts": len(fresh["open"]), "players_on_hold": len(fresh["hold_players"]),
+                        "games_on_hold": fresh["hold_games"],
+                        "alerts": [a for a in fresh["alerts"] if a["type"] != "REPORT_PENDING"],
+                        "teams_awaiting_report": sorted({a["team"] for a in fresh["alerts"] if a["type"] == "REPORT_PENDING"})}
+    hold_games = set(fresh["hold_games"])
     started = {g["id"] for g in D["games"] if g.get("started")} if D else set()
     up = up[~up.game_id.isin(started)]
     by_id = {g.game_id: g for g in up.itertuples(index=False)}
@@ -895,10 +913,20 @@ def main():
         return leg
 
     all_legs = {"ml": ml_legs(up), "spread": spread_legs(up), "total": total_legs(up)}
+    for legs_ in all_legs.values():
+        for l in legs_:
+            if l["game_id"] in hold_games:
+                l["complete"] = False
+                l["hold"] = "Held: an open roster alert on a quarterback or an unpriced team in this game."
     out["gate"] = {"picks_considered": sum(len(v) for v in all_legs.values()),
                    "dropped_missing_a_check": sum(not l.get("complete", False) for v in all_legs.values() for l in v)}
 
-    favs_now = sorted([decorate(l) for l in favourite_legs(up)], key=lambda l: -l["p"])
+    favs_all = favourite_legs(up)
+    for l in favs_all:
+        if l["game_id"] in hold_games:
+            l["complete"], l["safe"] = False, False
+            l["hold"] = "Held: an open roster alert on a quarterback or an unpriced team in this game."
+    favs_now = sorted([decorate(l) for l in favs_all], key=lambda l: -l["p"])
     safe_now = [l for l in favs_now if l["safe"]]
     out["safe"] = {"rule": f"Model win chance {SAFE_MIN_P:.0%} or higher, every check available, at least two more checks for than against, and Personnel not against.",
                    "moneylines": safe_now, "other_favourites": [l for l in favs_now if not l["safe"]],
@@ -1007,8 +1035,8 @@ def main():
                     "player_id": player["id"], "game": player["game"], "label": f"{player['name']} {int(k_)}+ {MK[mk]}"}
 
         for g in up.itertuples(index=False):
-            if not g.checks_complete:
-                continue   # no hybrid without the matchup checks
+            if not g.checks_complete or g.game_id in hold_games:
+                continue   # no hybrid without the matchup checks, or while the game is on hold
             roster = [p for p in D["players"] if p["game"] == g.game_id and not p.get("singles")]
 
             def matchup(p):
@@ -1045,7 +1073,8 @@ def main():
             add = lambda kind, legs, why: out["hybrids"].append(build(kind, legs, why)) if all(legs) and len(legs) >= 2 else None
 
             # Touchdown-only slips: running backs, receivers and tight ends, at most two from one team
-            pool = sorted([p for p in roster if p["pos"] in ("RB", "WR", "TE")], key=lambda p: (matchup(p) == "against", -p["p"]))
+            # a slip pick needs a real chance to score; below 12% it is a throwaway leg
+            pool = sorted([p for p in roster if p["pos"] in ("RB", "WR", "TE") and p["p"] >= 0.12], key=lambda p: (matchup(p) == "against", -p["p"]))
             slip, per_team, used = [], {}, set()
             for p_ in pool:
                 # two teammates at the same position share the same touches, so only one of them goes on

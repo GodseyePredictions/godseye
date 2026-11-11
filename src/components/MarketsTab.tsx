@@ -211,6 +211,7 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
     .map((g) => g[market] as unknown as MarketLeg | null)
     .filter((l): l is MarketLeg => !!l)
     .sort((a, b) => b.ev - a.ev);
+  const fresh = data.freshness;
   const safe = data.safe as unknown as {
     rule: string;
     moneylines: MarketLeg[];
@@ -254,6 +255,15 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
             for that combination, and bet only when your book pays more than fair.
           </div>
         </div>
+        {fresh.open_alerts > 0 && (
+          <div className="warns" style={{ marginTop: 8 }}>
+            <div>
+              Roster check: {fresh.open_alerts} open alerts. {fresh.games_on_hold.length} games are held off every
+              ticket until they clear ({fresh.games_on_hold.map(gameName).join(", ")}), and {fresh.players_on_hold} players
+              are held off slips and hybrids. <a href="#alerts">See roster alerts</a>.
+            </div>
+          </div>
+        )}
         <div className="row stylebar" style={{ marginTop: 12 }}>
           {MARKETS.map(([k, label]) => (
             <button
@@ -323,7 +333,11 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
                     <span className="nm">
                       {l.label} <small>{gameName(l.game_id)}</small>
                     </span>
-                    <span className="pill warn">checks {(l.net_checks ?? 0) > 0 ? "+" : ""}{l.net_checks}, needs +2</span>
+                    {(l as MarketLeg & { hold?: string }).hold ? (
+                      <span className="pill bad">on hold: roster alert</span>
+                    ) : (
+                      <span className="pill warn">checks {(l.net_checks ?? 0) > 0 ? "+" : ""}{l.net_checks}, needs +2</span>
+                    )}
                     <span className="pill">{am(l.price)}</span>
                     <span className="prob" data-heat={heat(l.p)}>
                       {pct(l.p)}
@@ -730,6 +744,113 @@ export function HybridsTab() {
                   </div>
                 );
               })}
+          </div>
+        </section>
+      ))}
+    </>
+  );
+}
+
+type Alert = {
+  team: string;
+  game_id?: string;
+  player?: string;
+  pos?: string;
+  type: string;
+  severity: string;
+  resolved?: boolean;
+  why: string;
+};
+const ALERT_LABEL: Record<string, string> = {
+  NOT_PRICED: "Missing from the snapshot",
+  ROLE_AT_RISK: "Number assumes a teammate is out",
+  PRICED_BUT_OUT: "Priced but not playing",
+  TEAM_NOT_PRICED: "Whole team missing",
+};
+
+export function AlertsTab() {
+  const f = data.freshness as unknown as {
+    snapshot_built: string;
+    reports_posted_for: string[];
+    open_alerts: number;
+    players_on_hold: number;
+    games_on_hold: string[];
+    alerts: Alert[];
+    teams_awaiting_report: string[];
+  };
+  const teams = [...new Set(f.alerts.map((a) => a.team))];
+  return (
+    <>
+      <section className="panel">
+        <div className="section-head">
+          <div>
+            <h2>Roster alerts</h2>
+            <p className="sub">
+              The touchdown and prop numbers are a snapshot built {f.snapshot_built}. This check
+              compares it with the latest snap counts, injury reports and roster status, and flags
+              anyone the snapshot has wrong. Nobody with an open alert goes on a slip, ticket or
+              hybrid.
+            </p>
+          </div>
+        </div>
+        <section className="kpis">
+          <div className="kpi">
+            <div className="k">Open alerts</div>
+            <div className="v">{f.open_alerts}</div>
+            <div className="d">cleared by a logged read or a new report</div>
+          </div>
+          <div className="kpi">
+            <div className="k">Players on hold</div>
+            <div className="v">{f.players_on_hold}</div>
+            <div className="d">kept off slips and hybrids</div>
+          </div>
+          <div className="kpi">
+            <div className="k">Games on hold</div>
+            <div className="v">{f.games_on_hold.length}</div>
+            <div className="d">{f.games_on_hold.map(gameName).join(", ") || "none"}</div>
+          </div>
+          <div className="kpi">
+            <div className="k">Injury reports posted</div>
+            <div className="v">
+              {f.reports_posted_for.length}
+              <small>teams</small>
+            </div>
+            <div className="d">{f.teams_awaiting_report.length} teams still to post</div>
+          </div>
+        </section>
+        <p className="sub" style={{ marginTop: 10 }}>
+          Confirmed alerts come from teams whose report is posted. For the others the report is not
+          out yet, so the alert is a watch: the player missed time recently, is on the active roster,
+          and the snapshot left him out. It clears on its own if he is ruled out.
+        </p>
+      </section>
+      {teams.map((t) => (
+        <section className="panel" key={t}>
+          <div className="section-head">
+            <h2>{t}</h2>
+          </div>
+          <div className="scroll">
+            <table className="tbl chk">
+              <tbody>
+                {f.alerts
+                  .filter((a) => a.team === t)
+                  .map((a) => (
+                    <tr key={a.type + (a.player ?? "")}>
+                      <td>
+                        <b>{a.player ?? t}</b> {a.pos && <span className="sub">{a.pos}</span>}
+                      </td>
+                      <td>
+                        <span className={`pill ${a.resolved ? "good" : a.severity === "high" ? "bad" : "warn"}`}>
+                          {a.resolved ? "resolved" : a.severity === "high" ? "confirmed" : "watch"}
+                        </span>
+                      </td>
+                      <td>
+                        <b>{ALERT_LABEL[a.type] ?? a.type}.</b> {a.why}
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
           </div>
         </section>
       ))}

@@ -410,3 +410,9 @@
   color: var(--paper-muted);
   font-size: 11.5px;
 }
+
+.alertchip {
+  text-decoration: none;
+  color: var(--warn);
+  border-color: var(--warn);
+}
