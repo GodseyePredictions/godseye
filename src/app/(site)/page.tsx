@@ -44,6 +44,8 @@ const script = [
 
 export default function Home() {
   const rec = locks.record;
+  // The single-file preview carries the banner inline (window.GE_BANNER); the site serves it from /brand.
+  const banner = (typeof window !== "undefined" && (window as { GE_BANNER?: string }).GE_BANNER) || "/brand/banner.jpg";
   const nbaTickets = nba.games.reduce((n, g) => n + g.tickets.length, 0);
   return (
     <>
@@ -67,7 +69,7 @@ export default function Home() {
 
       <main>
         <section className="eye-hero">
-          <img className="eye-banner" src="/brand/banner.jpg" alt="" width={1206} height={214} />
+          <img className="eye-banner" src={banner} alt="" width={1206} height={214} />
           <div className="wrap eye-copy">
             <p className="kicker">AI algorithm predictions · NFL and NBA</p>
             <h1 className="display">
