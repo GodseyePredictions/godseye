@@ -64,8 +64,66 @@ const nflPlay = [
   ["Flat stakes, tracked", "Bet the same small amount each time and log every slip in the tracker so you can see what pays."],
 ];
 
+/* Player card art: the player's initials on his team's colours, with a football or basketball mark.
+   It is graphic design, not a photograph, and carries no league or team marks.
+   A licensed photo placed in public/players replaces it for that player. */
+type Pose = "throw" | "run" | "catch" | "shot" | "dunk" | "drive" | "defend";
+const TEAM_COLOURS: Record<string, [string, string]> = {
+  KC: ["#c8102e", "#ffb81c"], BUF: ["#00338d", "#c60c30"], CIN: ["#fb4f14", "#ffffff"], PHI: ["#006bb6", "#ed174c"],
+  OKC: ["#007ac1", "#ef3b24"], TOR: ["#ce1141", "#c4ced4"], GS: ["#1d428a", "#ffc72c"], LAL: ["#552583", "#fdb927"],
+};
+function PlayerArt({ name, pose, team }: { name: string; pose: Pose; team?: string }) {
+  const hoops = ["shot", "dunk", "drive", "defend"].includes(pose);
+  const [c1, c2] = TEAM_COLOURS[team ?? ""] ?? ["#d6192b", "#d9a53a"];
+  const id = slug(name);
+  const initials = name.split(" ").map((w) => w[0]).slice(0, 2).join("");
+  return (
+    <svg className="star-art" viewBox="0 0 200 150" role="img" aria-label={`Illustration for ${name}`} preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id={`g-${id}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor={c1} />
+          <stop offset="0.62" stopColor="#120d10" />
+          <stop offset="1" stopColor="#0a090b" />
+        </linearGradient>
+        <radialGradient id={`s-${id}`} cx="0.5" cy="0.25" r="0.6">
+          <stop offset="0" stopColor="#ffffff" stopOpacity="0.28" />
+          <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <rect width="200" height="150" fill={`url(#g-${id})`} />
+      {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+        <line key={i} x1={-40 + i * 34} y1="150" x2={30 + i * 34} y2="0" stroke={c2} strokeOpacity={0.1 + (i % 3) * 0.05} strokeWidth={i % 2 ? 3 : 9} />
+      ))}
+      <rect width="200" height="150" fill={`url(#s-${id})`} />
+      <text x="100" y="104" textAnchor="middle" className="star-art-ini" fill="#ffffff">
+        {initials}
+      </text>
+      <rect x="62" y="116" width="76" height="5" fill={c2} transform="skewX(-14)" />
+      {hoops ? (
+        <g transform="translate(170 26)" fill="none" stroke="#ffffff" strokeOpacity="0.85" strokeWidth="1.6">
+          <circle r="12" fill={c2} fillOpacity="0.9" />
+          <path d="M-12 0H12M0 -12V12M-8.5 -8.5C-3 -3 -3 3 -8.5 8.5M8.5 -8.5C3 -3 3 3 8.5 8.5" />
+        </g>
+      ) : (
+        <g transform="translate(170 26) rotate(-28)" fill="none" stroke="#ffffff" strokeOpacity="0.85" strokeWidth="1.6">
+          <ellipse rx="15" ry="9" fill={c2} fillOpacity="0.9" />
+          <path d="M-7 0H7M-4 -3V3M0 -3V3M4 -3V3" />
+        </g>
+      )}
+      <rect x="0" y="146" width="200" height="4" fill={c2} />
+      {team && (
+        <text x="10" y="20" className="star-art-team" fill="#ffffff">
+          {team}
+        </text>
+      )}
+    </svg>
+  );
+}
+
 type Star = {
   name: string;
+  pose: Pose;
+  team?: string;
   tag: string;
   status?: string;
   rows: { label: string; value: string; note?: string }[];
@@ -74,10 +132,9 @@ type Star = {
 const slug = (n: string) => n.toLowerCase().replace(/ /g, "-").replace(/[^a-z0-9-]/g, "");
 
 function StarCard({ s }: { s: Star }) {
-  const initials = s.name.split(" ").map((w) => w[0]).slice(0, 2).join("");
   return (
     <div className="star">
-      {s.photo ? <img className="star-photo" src={s.photo} alt={s.name} /> : <div className="star-mono" aria-hidden="true">{initials}</div>}
+      {s.photo ? <img className="star-photo" src={s.photo} alt={s.name} /> : <PlayerArt name={s.name} pose={s.pose} team={s.team} />}
       <div className="star-body">
         <h3>{s.name}</h3>
         <p className="star-tag">{s.tag}</p>
@@ -98,7 +155,19 @@ function StarCard({ s }: { s: Star }) {
   );
 }
 
-const NBA_FEATURED = ["LeBron James", "Shai Gilgeous-Alexander", "Kawhi Leonard", "Stephen Curry"];
+const NFL_ART: Record<string, { pose: Pose }> = {
+  "Patrick Mahomes": { pose: "throw" },
+  "Josh Allen": { pose: "throw" },
+  "Ja'Marr Chase": { pose: "catch" },
+  "Kenneth Walker III": { pose: "run" },
+};
+const NBA_ART: Record<string, { pose: Pose; team?: string }> = {
+  "LeBron James": { pose: "dunk" },
+  "Shai Gilgeous-Alexander": { pose: "drive" },
+  "Kawhi Leonard": { pose: "defend", team: "TOR" },
+  "Stephen Curry": { pose: "shot" },
+};
+const NBA_FEATURED = Object.keys(NBA_ART);
 
 export default function Home() {
   const rec = locks.record;
@@ -113,6 +182,8 @@ export default function Home() {
     p.on_slate
       ? {
           name: p.name,
+          ...NFL_ART[p.name],
+          team: p.team,
           tag: `${p.pos} · ${p.team} · ${p.game} · ${p.when}`,
           status: p.singles_only ? "Singles only this week" : undefined,
           rows: [
@@ -121,7 +192,7 @@ export default function Home() {
           ],
           photo: photo(p.name),
         }
-      : { name: p.name, tag: "Not on this week's slate", rows: [], photo: photo(p.name) },
+      : { name: p.name, ...NFL_ART[p.name], tag: "Not on this week's slate", rows: [], photo: photo(p.name) },
   );
   type NbaPlayer = { name: string; team: string; status: string; min_mean: number; pts: number; reb: number; ast: number; fg3m: number };
   const nbaStars: Star[] = NBA_FEATURED.map((name) => {
@@ -130,6 +201,8 @@ export default function Home() {
       if (p)
         return {
           name,
+          ...NBA_ART[name],
+          team: p.team,
           tag: `${p.team} · ${g.away} @ ${g.home} · tonight`,
           status: p.status === "confirmed_in" ? undefined : `Listed ${p.status}`,
           rows: [
@@ -142,9 +215,9 @@ export default function Home() {
           photo: photo(name),
         };
       const a = g.availability.find((x) => x.name === name);
-      if (a) return { name, tag: `${g.away} @ ${g.home} · tonight`, status: `${a.status.toUpperCase()}: ${a.reason ?? "no reason given"}`, rows: [], photo: photo(name) };
+      if (a) return { name, ...NBA_ART[name], tag: `${g.away} @ ${g.home} · tonight`, status: `${a.status.toUpperCase()}: ${a.reason ?? "no reason given"}`, rows: [], photo: photo(name) };
     }
-    return { name, tag: "His team does not play tonight", rows: [], photo: photo(name) };
+    return { name, ...NBA_ART[name], tag: "His team does not play tonight", rows: [], photo: photo(name) };
   });
   return (
     <>
@@ -283,7 +356,8 @@ export default function Home() {
                 <StarCard s={s} key={s.name} />
               ))}
             </div>
-            <p className="star-note">The algorithm&apos;s own numbers for this week. The percentage is its chance the player clears that mark.</p>
+            <p className="star-note">The algorithm&apos;s own numbers for this week. The percentage is its chance the player clears that mark. The cards carry no
+              photos yet.</p>
             <div className="steps">
               {nflHow.map(([h, p]) => (
                 <div key={h}>

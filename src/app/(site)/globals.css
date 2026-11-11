@@ -1111,6 +1111,24 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
 }
+.star-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+.star-art-ini {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 84px;
+  letter-spacing: 2px;
+}
+.star-art-team {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+}
 .star-photo,
 .star-mono {
   width: 100%;
