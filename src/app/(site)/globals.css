@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --night: #0d2f9e; /* royal blue */
-  --night-deep: #071a5e;
+  --night: #0a090b; /* the console's black */
+  --night-deep: #000000;
   --panel: #ffffff;
-  --line: #3f5fd0;
-  --flood: #ffd400; /* yellow, for fills */
-  --flood-text: #ffd400;
+  --line: #3a3138;
+  --flood: #d6192b; /* the console's crimson */
+  --flood-text: #ff5a66;
+  --gold: #d9a53a;
   --chalk: #ffffff;
-  --dim: #cdd8ff;
+  --dim: #b9b0b4;
   --win: #0a8f4e;
   --loss: #d92b2b;
   --loss-on-dark: #ff9c9c;
-  /* white cards that sit on the blue */
+  /* white cards that sit on the black */
   --card: #ffffff;
-  --ink: #0a1440;
-  --ink-dim: #4a5685;
-  --card-line: #d5dbf0;
+  --ink: #131115;
+  --ink-dim: #5b5257;
+  --card-line: #ddd6d9;
 }
 
 * {
@@ -112,10 +113,10 @@ a {
 .btn-primary,
 .top nav a.btn-primary {
   background: var(--flood);
-  color: var(--night-deep);
+  color: #fff;
 }
 .btn-primary:hover {
-  background: var(--flood-text);
+  background: #e41f31;
 }
 .btn-ghost {
   border-color: var(--line);
@@ -738,7 +739,7 @@ th:nth-child(n + 3) {
 }
 .plan.pro {
   background: var(--flood);
-  color: var(--ink);
+  color: #fff;
 }
 .plan li {
   border-top-color: rgb(10 20 64 / 0.18);
@@ -806,7 +807,7 @@ tbody tr:last-child td {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
   color: #fff;
 }
@@ -816,38 +817,68 @@ tbody tr:last-child td {
   border-radius: 10px;
   flex: none;
   object-fit: cover;
-  box-shadow: 0 0 0 2px rgb(255 255 255 / 0.85);
-}
-@media (max-width: 600px) {
-  .logo-eye {
-    height: 38px;
-  }
+  box-shadow:
+    0 0 0 1px rgb(214 25 43 / 0.45),
+    0 0 24px rgb(214 25 43 / 0.35);
 }
 .logo-words {
   display: grid;
-  line-height: 1;
+  line-height: 0.9;
 }
 .logo-name {
   font-family: var(--font-display), Impact, sans-serif;
   font-weight: 800;
   font-style: italic;
-  font-size: 34px;
-  letter-spacing: 0.5px;
+  font-size: 38px;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
-.logo-name b {
-  color: var(--flood);
-  font-weight: 800;
+.logo-name .w1 {
+  background: linear-gradient(180deg, #ffffff 0, #cfcfd3 55%, #8e8f95 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.7));
+}
+.logo-name .w2 {
+  background: linear-gradient(180deg, #ff6b74 0, #d6192b 55%, #7d0d1a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 14px rgb(214 25 43 / 0.55));
 }
 .logo-tag {
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.42em;
   text-transform: uppercase;
+  color: #fff;
   opacity: 0.85;
-  margin-top: 3px;
+  margin-top: 5px;
+}
+.logo-swoosh {
+  width: 150px;
+  height: 9px;
+  margin-top: 2px;
+}
+@media (max-width: 760px) {
+  .logo-eye {
+    height: 38px;
+  }
+  .logo-name {
+    font-size: 30px;
+  }
 }
 .display {
   font-weight: 800;
   font-style: italic;
+}
+body {
+  background-image:
+    radial-gradient(1200px 500px at 20% -10%, rgb(214 25 43 / 0.18), transparent 60%),
+    radial-gradient(900px 400px at 100% 0, rgb(217 165 58 / 0.08), transparent 60%);
+  background-repeat: no-repeat;
+}
+.findings li {
+  border-left-color: var(--flood);
 }

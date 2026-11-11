@@ -4,8 +4,8 @@ Usage: python3 -I scripts/import-console.py path/to/console.html
 
 Writes:
   public/console/data.js   the weekly model data (the page's `const D = ...` line)
-  public/console/app.js    the console logic, recoloured and patched for this site
-  src/app/(console)/console-base.css   the console styles, recoloured
+  public/console/app.js    the console logic, patched for this site
+  src/app/(console)/console-base.css   the console styles
 
 Re-run it whenever a new weekly export is produced. Only data.js changes week to week.
 """
@@ -27,22 +27,8 @@ js = "\n".join(js_lines)
 styles = re.findall(r"<style>(.*?)</style>", src, flags=re.S)
 css = max(styles, key=len)
 
-# ---------- shared colour swaps (dark red/gold console -> blue, yellow, white) ----------
-SWAPS = [
-    ("rgba(214,25,43", "rgba(13,47,158"),
-    ("rgba(217,165,58", "rgba(255,212,0"),
-    ("#d6192b", "#0d2f9e"),
-    ("#d9a53a", "#f2b600"),
-    ("#2a2429", "#d5dbf0"),
-    ("#6f666b", "#7a84ad"),
-    ("#a79da2", "#4a5685"),
-    ("#7d0d1a", "#4f74e8"),
-]
-for a, b in SWAPS:
-    js = js.replace(a, b)
-    css = css.replace(a, b)
-
-js = js.replace('fill="#fff"', 'fill="#0a1440"').replace('font-family="IBM Plex Mono"', 'font-family="var(--mono)"')
+# The console keeps its own red, black and gold palette. Only the font references change.
+js = js.replace('font-family="IBM Plex Mono"', 'font-family="var(--mono)"')
 
 # ---------- JS patches ----------
 def patch(text, old, new, count=1):
@@ -93,33 +79,15 @@ document.addEventListener("click",e=>{const t=e.target.closest("button[data-trac
 });
 """
 
-# ---------- CSS: new palette ----------
-css = re.sub(
-    r":root\{.*?\n\}",
-    """:root{
-  --bg:#0d2f9e; --bg-deep:#071a5e; --yellow:#ffd400;
-  --surface:#ffffff; --raise:#f3f5fc; --raise2:#e6ebf9; --line:#d5dbf0; --line2:#b4bee2;
-  --ink:#0a1440; --hi:#0a1440; --muted:#4a5685; --dim:#7a84ad;
-  --red:#0d2f9e; --red-deep:#071a5e; --red-soft:rgba(13,47,158,.10); --red-glow:none;
-  --gold:#0d2f9e; --gold-soft:rgba(255,212,0,.28); --gold-deep:#071a5e;
-  --good:#0a7d45; --good-soft:rgba(10,143,78,.13); --bad:#c62222; --bad-soft:rgba(217,43,43,.12);
-  --warn:#8a5a00; --warn-soft:rgba(255,212,0,.30); --chip:#eef1fb;
-  --brand:var(--red); --brand-deep:var(--red-deep); --brand-soft:var(--red-soft); --rose:var(--gold);
-  --display:var(--font-display),"Arial Narrow",Arial,sans-serif;
-  --body:var(--font-body),system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:var(--font-mono),ui-monospace,"SFMono-Regular",Menlo,monospace;
-  color-scheme:light;
-}""",
-    css,
-    count=1,
-    flags=re.S,
-)
-css = css.replace("color:#fff", "color:var(--hi)")
-css = re.sub(r"\n\s*background-image:radial-gradient\(1200px[^;]*;background-attachment:fixed", "", css)
-css = css.replace("background:linear-gradient(180deg,var(--surface),#100e12)", "background:var(--surface)")
-css = css.replace("box-shadow:0 10px 30px rgba(0,0,0,.35)", "box-shadow:0 6px 0 var(--bg-deep)")
-css = css.replace(".propgrid select option{background:#1a171b}", ".propgrid select option{background:#fff}")
-css = css.replace("rgba(255,255,255,.02)", "rgba(13,47,158,.04)")
+# ---------- CSS: fonts come from this site's font loader ----------
+for old, new in [
+    ('--display:"Saira Condensed"', '--display:var(--font-display)'),
+    ('--body:"IBM Plex Sans"', '--body:var(--font-body)'),
+    ('--mono:"IBM Plex Mono"', '--mono:var(--font-mono)'),
+]:
+    if old not in css:
+        raise SystemExit(f"import-console: expected font declaration not found: {old}")
+    css = css.replace(old, new)
 
 out_public = ROOT / "public" / "console"
 out_public.mkdir(parents=True, exist_ok=True)

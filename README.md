@@ -18,7 +18,7 @@ The console is imported from its exported HTML page:
 
     python3 -I scripts/import-console.py path/to/console.html
 
-This rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic, recoloured for this site) and `src/app/(console)/console-base.css`. Site-specific styling lives in `src/app/(console)/console.css`.
+This rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic, patched for this site) and `src/app/(console)/console-base.css`. Site-specific styling lives in `src/app/(console)/console.css`.
 
 ## What is not built yet
 

@@ -129,14 +129,14 @@ function chartSVG(weekly){ if(!weekly||!weekly.length) return "";
   const W=560,H=170,p=28,n=weekly.length,max=16,bw=(W-2*p)/n;
   const y=v=>H-p-(v/max)*(H-2*p);
   const bars=weekly.map((w,i)=>`<rect x="${p+i*bw+bw*0.2}" y="${y(w.hits)}" width="${bw*0.6}" height="${H-p-y(w.hits)}" rx="3" fill="url(#gbar)"/>
-    <text x="${p+i*bw+bw/2}" y="${H-p+14}" text-anchor="middle" font-size="10" fill="#4a5685">W${w.week}</text>
-    <text x="${p+i*bw+bw/2}" y="${y(w.hits)-5}" text-anchor="middle" font-size="10" fill="#0a1440" font-family="var(--mono)">${w.hits}</text>`).join("");
+    <text x="${p+i*bw+bw/2}" y="${H-p+14}" text-anchor="middle" font-size="10" fill="#a79da2">W${w.week}</text>
+    <text x="${p+i*bw+bw/2}" y="${y(w.hits)-5}" text-anchor="middle" font-size="10" fill="#fff" font-family="var(--mono)">${w.hits}</text>`).join("");
   const line=weekly.map((w,i)=>`${i?"L":"M"}${p+i*bw+bw/2},${y(w.expected)}`).join("");
-  const grid=[0,4,8,12,16].map(v=>`<line x1="${p}" x2="${W-p}" y1="${y(v)}" y2="${y(v)}" stroke="#d5dbf0"/><text x="${p-6}" y="${y(v)+3}" text-anchor="end" font-size="9" fill="#7a84ad">${v}</text>`).join("");
+  const grid=[0,4,8,12,16].map(v=>`<line x1="${p}" x2="${W-p}" y1="${y(v)}" y2="${y(v)}" stroke="#2a2429"/><text x="${p-6}" y="${y(v)+3}" text-anchor="end" font-size="9" fill="#6f666b">${v}</text>`).join("");
   return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Top-16 board hits per week vs model expectation">
-    <defs><linearGradient id="gbar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2f9e"/><stop offset="1" stop-color="#4f74e8"/></linearGradient></defs>
-    ${grid}${bars}<path d="${line}" fill="none" stroke="#f2b600" stroke-width="2" stroke-dasharray="4 3"/>
-    ${weekly.map((w,i)=>`<circle cx="${p+i*bw+bw/2}" cy="${y(w.expected)}" r="3" fill="#f2b600"/>`).join("")}</svg>`}
+    <defs><linearGradient id="gbar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6192b"/><stop offset="1" stop-color="#7d0d1a"/></linearGradient></defs>
+    ${grid}${bars}<path d="${line}" fill="none" stroke="#d9a53a" stroke-width="2" stroke-dasharray="4 3"/>
+    ${weekly.map((w,i)=>`<circle cx="${p+i*bw+bw/2}" cy="${y(w.expected)}" r="3" fill="#d9a53a"/>`).join("")}</svg>`}
 function renderHome(){
   const wk=D.meta.weekly||[]; const tot=wk.reduce((a,w)=>a+w.hits,0), exp=wk.reduce((a,w)=>a+w.expected,0);
   const top=D.players.filter(p=>!p.singles&&!G[p.game].started).slice(0,6);

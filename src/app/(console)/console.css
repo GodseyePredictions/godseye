@@ -1,56 +1,24 @@
 @import "./console-base.css";
 
-/* ---------- Site palette on top of the imported console: blue ground, white cards, yellow accents ---------- */
+/* The imported console keeps its original red, black and gold theme.
+   This file adds: the logo, white "paper" cards for slips, and the tracker tabs. */
 
-/* Areas with a dark blue ground flip the text and surface tokens. */
-header.mast,
-.hero,
-aside.slip {
-  --hi: #fff;
-  --ink: #fff;
-  --muted: #cdd8ff;
-  --dim: #9fb0ee;
-  --gold: #ffd400;
-  --red: #ffd400;
-  --line: rgb(255 255 255 / 0.18);
-  --line2: rgb(255 255 255 / 0.32);
-  --raise: rgb(255 255 255 / 0.07);
-  --raise2: rgb(255 255 255 / 0.13);
-  --chip: rgb(255 255 255 / 0.13);
-  --good: #6fe6ad;
-  --good-soft: rgb(111 230 173 / 0.16);
-  --bad: #ffa3a3;
-  --bad-soft: rgb(255 163 163 / 0.16);
-  --warn: #ffd400;
-  --warn-soft: rgb(255 212 0 / 0.16);
+:root {
+  --paper: #ffffff;
+  --paper-ink: #131115;
+  --paper-muted: #5b5257;
+  --paper-line: #ddd6d9;
+  --field-bg: rgb(255 255 255 / 0.06);
 }
-
 [hidden] {
   display: none !important;
 }
-body {
-  background: var(--bg);
-}
-body::before {
-  background: var(--bg-deep);
-}
-:focus-visible {
-  outline: 3px solid var(--yellow);
-  outline-offset: 2px;
-}
-.panel :focus-visible,
-nav.tabs :focus-visible {
-  outline-color: var(--bg);
-}
 
 /* Brand bar */
-header.mast {
-  border-bottom: 1px solid rgb(255 255 255 / 0.2);
-}
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
   color: #fff;
 }
@@ -60,38 +28,57 @@ header.mast {
   border-radius: 10px;
   flex: none;
   object-fit: cover;
-  box-shadow: 0 0 0 2px rgb(255 255 255 / 0.85);
-}
-@media (max-width: 760px) {
-  .logo-eye {
-    height: 38px;
-  }
+  box-shadow:
+    0 0 0 1px rgb(214 25 43 / 0.45),
+    0 0 24px rgb(214 25 43 / 0.35);
 }
 .logo-words {
   display: grid;
-  line-height: 1;
+  line-height: 0.9;
 }
 .logo-name {
   font-family: var(--display);
   font-weight: 800;
   font-style: italic;
-  font-size: 34px;
-  letter-spacing: 0.5px;
+  font-size: 38px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: #fff;
 }
-.logo-name b {
-  color: var(--yellow);
-  font-weight: 800;
+.logo-name .w1 {
+  background: linear-gradient(180deg, #ffffff 0, #cfcfd3 55%, #8e8f95 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.7));
+}
+.logo-name .w2 {
+  background: linear-gradient(180deg, #ff6b74 0, #d6192b 55%, #7d0d1a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 14px rgb(214 25 43 / 0.55));
 }
 .logo-tag {
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.42em;
   text-transform: uppercase;
   color: #fff;
   opacity: 0.85;
-  margin-top: 3px;
+  margin-top: 5px;
+}
+.logo-swoosh {
+  width: 150px;
+  height: 9px;
+  margin-top: 2px;
+}
+@media (max-width: 760px) {
+  .logo-eye {
+    height: 38px;
+  }
+  .logo-name {
+    font-size: 30px;
+  }
 }
 .brand {
   flex-wrap: wrap;
@@ -100,205 +87,40 @@ header.mast {
   flex-basis: 100%;
   margin: 0;
 }
-.livechip {
-  background: #fff;
-  color: #4a5685;
-  border: 0;
-}
-.livechip i {
-  background: var(--bg);
-  box-shadow: none;
-}
 
-/* Navigation card */
-nav.tabs {
-  border: 0;
-  box-shadow: 0 6px 0 var(--bg-deep);
-}
-nav.tabs a[aria-current="page"] {
-  background: var(--red-soft);
-  border-left-color: var(--yellow);
-  color: var(--ink);
-}
-@media (max-width: 900px) {
-  nav.tabs a[aria-current="page"] {
-    border-bottom-color: var(--yellow);
-  }
-}
-
-/* Cards */
-.panel {
-  border: 0;
-}
-.section-head h2::before,
-.kpi::after {
-  background: var(--yellow);
-  box-shadow: none;
-}
-.section-head h2::before {
-  outline: 1px solid rgb(10 20 64 / 0.15);
-}
-.kpi {
-  background: var(--surface);
-  border: 0;
-  box-shadow: 0 5px 0 var(--bg-deep);
-}
-.kpi::after {
-  height: 4px;
-}
-.kpi .v small {
-  color: var(--muted);
-}
-.ticket {
-  border-top: 5px solid var(--yellow);
-}
-.ticket .fair,
-.feat .fair,
-.leg .lp {
-  color: var(--ink);
-  font-weight: 600;
-}
-aside.slip .leg .lp {
-  color: var(--yellow);
-}
-.bar i {
-  background: linear-gradient(90deg, var(--bg), #4f74e8);
-}
-.l5 i {
-  background: rgb(217 43 43 / 0.28);
-}
-.aleg.v-remove {
-  border-left-color: var(--bad);
-}
-.eyebrow {
-  color: var(--gold);
-}
-
-/* Buttons */
-.btn.primary {
-  background: var(--yellow);
-  border-color: var(--yellow);
-  color: #0a1440;
-  box-shadow: none;
-}
-.btn.primary:hover {
-  background: #ffe04d;
-}
-.btn:hover {
-  border-color: var(--bg);
-}
-a.btn {
-  color: var(--ink);
-}
-a.btn.primary {
-  color: #0a1440;
-}
-
-/* Probability heat chips, readable on white */
-.prob[data-heat="5"] {
-  background: rgb(10 143 78 / 0.2);
-  color: #06603a;
-}
-.prob[data-heat="4"] {
-  background: rgb(10 143 78 / 0.1);
-  color: #0a7d45;
-}
-.prob[data-heat="3"] {
-  background: rgb(255 212 0 / 0.3);
-  color: #6b4700;
-}
-.prob[data-heat="2"] {
-  background: rgb(240 120 74 / 0.18);
-  color: #a3410f;
-}
-.prob[data-heat="1"] {
-  background: rgb(217 43 43 / 0.13);
-  color: #b01c1c;
-}
-aside.slip .prob[data-heat] {
-  background: rgb(255 255 255 / 0.14);
-  color: #fff;
-}
-
-/* Hero: the red eye banner across the top, fading into a dark panel that holds the text */
+/* Hero: the red eye banner across the top, fading into the dark panel that holds the text */
 .hero {
-  min-height: 360px;
-  padding: 200px 30px 30px;
-  border: 0;
-  background-color: #0b0a0c;
   background-image:
     linear-gradient(180deg, rgb(8 7 9 / 0) 0, rgb(8 7 9 / 0) 45%, rgb(10 9 11 / 0.92) 72%, #0b0a0c 100%),
     url("/brand/banner.jpg");
-  background-repeat: no-repeat;
-  background-position: top, top;
-  background-size: 100% auto, 100% auto;
-  box-shadow: 0 6px 0 var(--bg-deep);
-}
-.hero-h {
-  text-shadow: 0 2px 10px rgb(0 0 0 / 0.8);
-}
-.hero-h span {
-  color: var(--yellow);
-  text-shadow: none;
-}
-.hero-sub {
-  color: #e6e9f5;
-}
-@media (max-width: 760px) {
-  .hero {
-    min-height: 0;
-    padding: 90px 18px 22px;
-  }
 }
 
-/* Bet slip drawer */
-aside.slip {
-  background: var(--bg-deep);
-  border-left: 0;
-  box-shadow: -16px 0 50px rgb(0 0 0 / 0.45);
-}
-aside.slip .sliphead {
-  background: var(--yellow);
-  border-bottom: 0;
-}
-aside.slip .sliphead h2 {
-  color: #0a1440;
-}
-aside.slip .sliphead .btn,
-.closeslip {
-  background: rgb(10 20 64 / 0.1);
-  border-color: rgb(10 20 64 / 0.35);
-  color: #0a1440;
-}
-aside.slip .btn {
-  color: #fff;
-}
-aside.slip .btn.primary {
-  color: #0a1440;
-}
-aside.slip .sgpgroup {
-  background: rgb(0 0 0 / 0.22);
-}
-.fab {
-  background: var(--yellow);
-  color: #0a1440;
+/* White paper cards: tickets and tracked bets read as slips against the dark console */
+.ticket,
+.t-bet {
+  --ink: var(--paper-ink);
+  --muted: var(--paper-muted);
+  --gold: #8a5f12;
+  --line: var(--paper-line);
+  --line2: #c9c0c4;
+  --raise2: #f1eeef;
+  --field-bg: #fff;
+  --good: #0a7d45;
+  --bad: #c62222;
+  background: var(--paper);
+  color: var(--paper-ink);
   border: 0;
-  box-shadow: 0 6px 0 var(--bg-deep);
+  border-top: 5px solid var(--red);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.45);
 }
-.fab .cnt {
-  background: #0a1440;
-  color: #fff;
+.ticket:hover {
+  border-color: var(--red);
 }
-.toast {
-  background: #0a1440;
-  color: #fff;
-  box-shadow: 0 6px 20px rgb(0 0 0 / 0.35);
-  border: 2px solid var(--yellow);
+.ticket .legsn {
+  color: var(--paper-ink);
 }
-.foot {
-  color: #cdd8ff;
-}
-.foot a {
+.ticket .btn.primary,
+.t-bet .btn.primary {
   color: #fff;
 }
 
@@ -307,9 +129,6 @@ aside.slip .sgpgroup {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-#extra[hidden] {
-  display: none;
 }
 .t-cols {
   display: grid;
@@ -324,9 +143,9 @@ aside.slip .sgpgroup {
 .t-field {
   display: grid;
   gap: 5px;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -338,16 +157,27 @@ aside.slip .sgpgroup {
   letter-spacing: 0;
   text-transform: none;
   color: var(--ink);
-  background: #fff;
-  border: 2px solid var(--line);
-  border-radius: 8px;
+  background: var(--field-bg);
+  border: 1px solid var(--line2);
+  border-radius: 7px;
   padding: 8px 10px;
   width: 100%;
   min-width: 0;
 }
+.t-field select option {
+  background: #1a171b;
+  color: #f3eef0;
+}
+.t-bet .t-field select option {
+  background: #fff;
+  color: #131115;
+}
 .t-field textarea {
   font-family: var(--mono);
   font-size: 13px;
+}
+.t-field ::placeholder {
+  color: var(--dim);
 }
 .t-row {
   display: flex;
@@ -364,7 +194,7 @@ aside.slip .sgpgroup {
   margin-top: 10px;
   background: var(--raise);
   border: 1px solid var(--line);
-  border-left: 5px solid var(--yellow);
+  border-left: 4px solid var(--red);
   border-radius: 10px;
 }
 .t-grow {
@@ -395,7 +225,7 @@ aside.slip .sgpgroup {
   font-size: 30px;
   line-height: 1.05;
   margin: 4px 0 14px;
-  color: var(--ink);
+  color: #fff;
 }
 .t-err {
   color: var(--bad);
@@ -415,13 +245,13 @@ aside.slip .sgpgroup {
   gap: 2px;
   padding: 9px 11px;
   border-radius: 8px;
-  background: var(--chip);
-  border-left: 4px solid var(--bg);
+  background: var(--raise2);
+  border-left: 4px solid var(--line2);
   font-size: 13px;
 }
 .t-findings li.warn {
-  background: #fdeeee;
-  border-left-color: var(--bad);
+  background: var(--bad-soft);
+  border-left-color: var(--red);
 }
 .t-findings span {
   color: var(--muted);
@@ -432,10 +262,10 @@ aside.slip .sgpgroup {
   gap: 14px;
   justify-content: space-between;
   padding: 14px 16px;
-  background: var(--surface);
-  border-top: 5px solid var(--yellow);
   border-radius: 12px;
-  box-shadow: 0 6px 0 var(--bg-deep);
+}
+.t-bet .sub {
+  color: var(--paper-muted);
 }
 .t-bet-main {
   flex: 1 1 280px;
@@ -496,13 +326,13 @@ aside.slip .sgpgroup {
   text-align: right;
 }
 .t-up {
-  color: var(--good);
+  color: var(--good) !important;
 }
 .t-down {
-  color: var(--bad);
+  color: var(--bad) !important;
 }
 .t-note {
-  color: #cdd8ff;
+  color: var(--muted);
   font-size: 12px;
   max-width: 80ch;
   margin: 0;
