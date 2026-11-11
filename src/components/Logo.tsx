@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
 /** The godseye lockup from the original console: the red eye photo, the wordmark and the red swoosh. */
-export function Logo({ href = "/" }: { href?: string }) {
+export function Logo({ href = "/", eyeSrc = "/brand/eye.jpg" }: { href?: string; eyeSrc?: string }) {
   return (
     <a href={href} className="logo" aria-label="godseye prediction, home">
-      <img className="logo-eye" src="/brand/eye.jpg" alt="" width={212} height={50} />
+      <img className="logo-eye" src={eyeSrc} alt="" width={212} height={50} />
       <span className="logo-words">
         <span className="logo-name">
           <span className="w1">Gods</span>
