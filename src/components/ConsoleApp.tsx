@@ -20,6 +20,7 @@ import {
 import { checkSlip } from "@/lib/slip";
 import { ScriptsTab } from "./ScriptsTab";
 import { HybridsTab, MarketsTab } from "./MarketsTab";
+import marketData from "../../model/output/game_markets.json";
 
 // Legs handed from a model ticket to the Paste a slip tab.
 let pastePrefill: Leg[] | null = null;
@@ -122,6 +123,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
     window.GE_EXTRA_TABS = EXTRA_TABS;
     if (window.GE_INLINE) return;
     loadScript("/console/data.js")
+      .then(() => loadScript("/console/odds-update.js").catch(() => undefined)) // refreshed game lines, when present
       .then(() => loadScript("/console/app.js"))
       .catch(() =>
         setLoadError(
@@ -142,6 +144,10 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             <i></i> Model-only, no media picks
           </span>
           <span className="livechip" id="recchip"></span>
+          <span className="livechip">
+            Game lines: {marketData.odds.source}
+            {marketData.odds.fetched_at ? `, ${marketData.odds.fetched_at}` : ""}
+          </span>
         </div>
       </header>
 

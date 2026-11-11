@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
+import { toDecimal } from "@/lib/odds";
 import data from "../../model/output/game_markets.json";
 import type { Leg } from "@/lib/bets";
 
@@ -35,6 +36,43 @@ type Ticket = {
   dogs: number;
 };
 type Row = { bets: number; win_rate: number; break_even: number; roi: number };
+
+// Prices typed in from the user's own sportsbook, kept in this browser. They replace the listed price.
+const PRICE_STORE = "godseye.prices.v1";
+type Prices = Record<string, number>;
+const NO_PRICES: Prices = {};
+const priceListeners = new Set<() => void>();
+let priceCache: Prices | null = null;
+function readPrices(): Prices {
+  if (priceCache === null) {
+    try {
+      priceCache = JSON.parse(localStorage.getItem(PRICE_STORE) ?? "{}") as Prices;
+    } catch {
+      priceCache = {};
+    }
+  }
+  return priceCache;
+}
+function setPrice(key: string, value: number | null) {
+  const next = { ...readPrices() };
+  if (value === null) delete next[key];
+  else next[key] = value;
+  priceCache = next;
+  try {
+    localStorage.setItem(PRICE_STORE, JSON.stringify(next));
+  } catch {
+    /* storage unavailable: keep for this visit */
+  }
+  priceListeners.forEach((l) => l());
+}
+function subscribePrices(cb: () => void) {
+  priceListeners.add(cb);
+  return () => {
+    priceListeners.delete(cb);
+  };
+}
+const priceKey = (l: { game_id: string; market: string; label: string }) => `${l.game_id}|${l.market}|${l.label}`;
+const fromDecimal = (d: number) => (d >= 2 ? Math.round((d - 1) * 100) : Math.round(-100 / (d - 1)));
 
 const tickets = data.tickets as unknown as Record<string, Ticket[]>;
 const card = data.scorecard;
@@ -101,12 +139,16 @@ function Why({ leg }: { leg: MarketLeg }) {
   );
 }
 
-function TicketCard({ t, onTrack }: { t: Ticket; onTrack: (legs: Leg[]) => void }) {
+function TicketCard({ t, prices, onTrack }: { t: Ticket; prices: Prices; onTrack: (legs: Leg[]) => void }) {
+  const priceOf = (l: MarketLeg) => prices[priceKey(l)] ?? l.price;
+  const yours = t.legs.filter((l) => prices[priceKey(l)] !== undefined).length;
+  const decimal = t.legs.reduce((d, l) => d * toDecimal(priceOf(l)), 1);
+  const ev = t.p * decimal - 1;
   return (
     <div className="ticket">
       <div className="top">
         <span className="legsn">{t.n}-leg</span>
-        <span className="fair num">{am(t.market_price)}</span>
+        <span className="fair num">{am(fromDecimal(decimal))}</span>
       </div>
       <div className="pct">
         {pct(t.p)} to hit · fair {am(t.fair_price)} · {t.dogs} underdog{t.dogs === 1 ? "" : "s"}
@@ -116,22 +158,27 @@ function TicketCard({ t, onTrack }: { t: Ticket; onTrack: (legs: Leg[]) => void 
           <li key={l.game_id + l.label}>
             {l.label}{" "}
             <span>
-              {pct(l.p, 0)} · {am(l.price)}
+              {pct(l.p, 0)} · {am(priceOf(l))}
             </span>
           </li>
         ))}
       </ol>
-      <span className={`pill ${t.ev > 0.02 ? "good" : t.ev < -0.02 ? "bad" : "neutral"}`}>
-        {t.ev > 0.02
-          ? `Model sees ${signedPct(t.ev)} value at these prices`
-          : t.ev < -0.02
-            ? `Overpriced by ${pct(-t.ev)}: bet only if your book pays better than ${am(t.fair_price)}`
+      <span className={`pill ${ev > 0.02 ? "good" : ev < -0.02 ? "bad" : "neutral"}`}>
+        {ev > 0.02
+          ? `Model sees ${signedPct(ev)} value at these prices`
+          : ev < -0.02
+            ? `Overpriced by ${pct(-ev)}: bet only if your book pays better than ${am(t.fair_price)}`
             : `About fair: needs better than ${am(t.fair_price)}`}
+      </span>
+      <span className="sub">
+        {yours === 0
+          ? `Prices: ${data.odds.source}`
+          : `${yours} of ${t.n} legs at your book's price, the rest ${data.odds.source}`}
       </span>
       <button
         className="btn primary"
         onClick={() =>
-          onTrack(t.legs.map((l) => ({ description: l.label, odds: l.price, game: gameName(l.game_id) })))
+          onTrack(t.legs.map((l) => ({ description: l.label, odds: priceOf(l), game: gameName(l.game_id) })))
         }
       >
         Review and track
@@ -158,6 +205,7 @@ function History({ rows, unit }: { rows: Row[]; unit: string }) {
 
 export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
   const [market, setMarket] = useState<MarketKey>("ml");
+  const prices = useSyncExternalStore(subscribePrices, readPrices, () => NO_PRICES);
   const list = tickets[market] ?? [];
   const legs = data.games
     .map((g) => g[market] as unknown as MarketLeg | null)
@@ -348,7 +396,7 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
         {list.length ? (
           <div className="ladder">
             {list.map((t) => (
-              <TicketCard key={t.n} t={t} onTrack={onTrack} />
+              <TicketCard key={t.n} t={t} prices={prices} onTrack={onTrack} />
             ))}
           </div>
         ) : (
@@ -362,7 +410,9 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
             <h2>Every game, best side first</h2>
             <p className="sub">
               The model&apos;s side in each game with its chance, the price, and what is pulling the
-              forecast that way.
+              forecast that way. Listed prices are {data.odds.source}
+              {data.odds.fetched_at ? `, fetched ${data.odds.fetched_at}` : ""}. If your book shows a
+              different price, type it in: the value figure and the tickets above use your number.
             </p>
           </div>
         </div>
@@ -374,8 +424,24 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
                   {l.label} <small>{gameName(l.game_id)}</small>
                 </span>
                 {l.dog && <span className="pill gold">underdog</span>}
-                <span className="pill">{am(l.price)}</span>
-                <span className={`pill ${l.ev > 0 ? "good" : "neutral"}`}>value {signedPct(l.ev)}</span>
+                <span className="pill">listed {am(l.price)}</span>
+                <label className="t-price">
+                  <span>Your book</span>
+                  <input
+                    id={`price-${priceKey(l)}`}
+                    inputMode="numeric"
+                    placeholder={am(l.price)}
+                    defaultValue={prices[priceKey(l)] ?? ""}
+                    onBlur={(e) => {
+                      const n = Number(e.target.value.replace("−", "-").replace("+", ""));
+                      setPrice(priceKey(l), e.target.value.trim() !== "" && Number.isFinite(n) && Math.abs(n) >= 100 ? n : null);
+                    }}
+                  />
+                </label>
+                {(() => {
+                  const ev = l.p * toDecimal(prices[priceKey(l)] ?? l.price) - 1;
+                  return <span className={`pill ${ev > 0 ? "good" : "neutral"}`}>value {signedPct(ev)}</span>;
+                })()}
                 <span className="prob" data-heat={heat(l.p)}>
                   {pct(l.p)}
                 </span>
@@ -552,11 +618,12 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
   );
 }
 
-type HybridLeg = { kind: string; label: string; p: number; player_id?: string; price?: number; matchup?: string };
+type HybridLeg = { kind: string; label: string; p: number; player_id?: string; price?: number; matchup?: string; mk?: string; k?: number };
 type Hybrid = {
   kind: string;
   game_id: string;
   legs: HybridLeg[];
+  why?: string;
   p: number;
   p_if_independent: number;
   correlation_lift: number;
@@ -565,7 +632,7 @@ type Hybrid = {
 
 declare global {
   interface Window {
-    appendLegs?: (legs: { id: string; mk: string; k: null }[], label: string) => void;
+    appendLegs?: (legs: { id: string; mk: string; k: number | null }[], label: string) => void;
   }
 }
 
@@ -580,8 +647,9 @@ export function HybridsTab() {
           <div>
             <h2>Hybrid SGPs</h2>
             <p className="sub">
-              Same-game parlays that tie a game result to touchdown scorers. The game leg comes from
-              the game model, the touchdown chances from the ATTD model, and the two are combined
+              Same-game parlays for every game: touchdown slips, and hybrids that tie a game result
+              to player props and touchdown scorers. Game legs come from the game model, prop and
+              touchdown chances from the ATTD and props models, and they are combined
               with correlations measured on {c.n_player_games.toLocaleString("en-CA")} past
               player-games. Players on the singles-only list are never used, a scorer whose position
               matchup is against him is passed over when another is available, and no hybrid is
@@ -615,7 +683,8 @@ export function HybridsTab() {
             {hybrids
               .filter((h) => h.game_id === id)
               .map((h) => {
-                const tds = h.legs.filter((l) => l.kind === "atd" && l.player_id);
+                const playerLegs = h.legs.filter((l) => (l.kind === "atd" || l.kind === "prop") && l.player_id);
+                const gameLegs = h.legs.length - playerLegs.length;
                 return (
                   <div className="ticket" key={h.kind}>
                     <div className="top">
@@ -634,6 +703,7 @@ export function HybridsTab() {
                         </li>
                       ))}
                     </ol>
+                    {h.why && <span className="sub">{h.why}</span>}
                     <span className="pill neutral">
                       {pct(h.p_if_independent)} if unrelated · ×{h.correlation_lift.toFixed(2)} from
                       correlation
@@ -642,12 +712,12 @@ export function HybridsTab() {
                       className="btn primary"
                       onClick={() =>
                         window.appendLegs?.(
-                          tds.map((l) => ({ id: l.player_id!, mk: "atd", k: null })),
-                          `${gameName(id)} hybrid`,
+                          playerLegs.map((l) => ({ id: l.player_id!, mk: l.kind === "atd" ? "atd" : l.mk!, k: l.kind === "atd" ? null : l.k! })),
+                          `${gameName(id)} ${h.kind.toLowerCase()}`,
                         )
                       }
                     >
-                      Add touchdown legs to slip
+                      {gameLegs ? "Add player legs to slip" : "Add all legs to slip"}
                     </button>
                   </div>
                 );

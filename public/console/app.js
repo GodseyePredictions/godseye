@@ -168,12 +168,12 @@ function renderPicks(){
   const anyTickets=Object.values(styles).some(v=>v.tickets.length);
   const combos0=(D.algo.atd_combos||[]);
   const comboCards=combos0.map((t,i)=>`<div class="ticket">
-      <div class="top"><span class="legsn">${t.n}-LEG · ${gameLabel(G[t.game])}</span><span class="fair">${am(t.p)}</span></div>
+      <div class="top"><span class="legsn">${t.n}-LEG · ${gameLabel(G[t.game])}</span><span class="fair">fair ${am(t.p)}</span></div>
       <div class="pct">${pct(t.p)} to hit · independent ${pct(t.p_indep)} · bet if bet365 pays better than ${am(t.p)}</div>
       <ol>${t.legs.map(id=>`<li>${esc(P[id].name)} <span>${P[id].pos} ${P[id].team} · ${pct(P[id].p,0)}</span></li>`).join("")}</ol>
       <button class="btn primary" data-load-combo="${i}">Load into slip</button></div>`).join("");
   const atd=styles[st].tickets.map(t=>`<div class="ticket">
-      <div class="top"><span class="legsn">${t.n}-LEG</span><span class="fair">${am(t.p)}</span></div>
+      <div class="top"><span class="legsn">${t.n}-LEG</span><span class="fair">fair ${am(t.p)}</span></div>
       <div class="pct">${pct(t.p)} to hit · bet if bet365 pays better than ${am(t.p)}</div>
       <ol>${t.legs.map(id=>`<li>${esc(P[id].name)} <span>${P[id].team} · ${pct(P[id].p,0)}</span></li>`).join("")}</ol>
       <button class="btn primary" data-load-atd="${st}|${t.n}">Load into slip</button></div>`).join("");
@@ -221,7 +221,7 @@ function renderScriptSGP(){
       ${top?top.legs.map(legrow).join(""):""}
       <div class="grid2" style="margin-top:12px">
         ${["hybrid1","hybrid2"].map(k=>{const h=t[k]; if(!h) return ""; const ttl=k==="hybrid1"?"1 anytime TD + 4 props":"2 anytime TDs + 4 props";
-          return `<div class="ticket"><div class="top"><span class="legsn">${ttl}</span><span class="fair">${am(h.p)}</span></div><div class="pct">${pct(h.p)} to hit</div>
+          return `<div class="ticket"><div class="top"><span class="legsn">${ttl}</span><span class="fair">fair ${am(h.p)}</span></div><div class="pct">${pct(h.p)} to hit</div>
             <ol>${h.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>
             <button class="btn primary" data-script-load="${gi}|${k}|0">Load into slip</button></div>`}).join("")}
       </div></section>`}).join("");

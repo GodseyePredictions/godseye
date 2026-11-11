@@ -384,3 +384,29 @@
 .ticket .pill.neutral {
   display: inline-block;
 }
+
+/* Typing in your own book's price */
+.t-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.t-price input {
+  width: 70px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  background: var(--field-bg);
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  padding: 3px 6px;
+}
+.myleg .line1 {
+  flex-wrap: wrap;
+}
+.ticket .sub {
+  color: var(--paper-muted);
+  font-size: 11.5px;
+}

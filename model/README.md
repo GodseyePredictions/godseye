@@ -52,3 +52,11 @@ Every moneyline and spread pick carries seven checks: home vs away, personnel, o
 Public data has no slot alignment or coverage assignments, so the slot is measured by short-middle targets and coverage by what each defence allows in that area. Injury designations for the coming week appear late in the week, so re-run `fetch_data.py`, `matchups.py` and `game_markets.py` after they post.
 
 On 2020 onward: favourites that passed the safe rule returned -0.6% (555 bets), those that did not -3.8% (297), and those with the checks against them -6.8% (59). Alternative-line forecasts were within a point or two of what happened at every distance tested.
+
+### Live odds, prop hybrids and touchdown slips
+
+`fetch_odds.py` pulls current game lines (DraftKings, through ESPN's public scoreboard) into `data/live_odds.json` and writes `../public/console/odds-update.js`, which refreshes the lines the console displays. `game_markets.py` uses those prices for the coming week when the file is present. There is no bet365 feed; in the app a user can type their own book's price on any game leg and the value figures and tickets use it.
+
+Hybrids now include player props from the console's prop ladders, joined to game legs with correlations measured on past games (for example a running back's carries with his team winning, 0.37; a quarterback's pass attempts with his team winning, -0.35), and to each other with the console's own prop correlations. Each game also gets 3 and 4-pick touchdown slips: running backs, receivers and tight ends, at most two per team and never two teammates at the same position.
+
+Weekly order: `fetch_data.py`, `features.py`, `matchups.py`, `fetch_odds.py`, `game_markets.py`.

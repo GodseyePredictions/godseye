@@ -237,6 +237,23 @@ def build_game_table():
     if len(up):
         f = up.iloc[0]
         up = up[(up.season == f.season) & (up.week == f.week)]
+    # Current prices for the coming week replace the lines in games.csv when fetch_odds.py has run.
+    live_path = HERE / "data/live_odds.json"
+    live_meta = None
+    if live_path.exists() and len(up):
+        live = json.loads(live_path.read_text())
+        live_meta = {"source": live["source"], "fetched_at": live["fetched_at"], "games_updated": 0}
+        up = up.copy()
+        for i, g in up.iterrows():
+            l = live["games"].get(f"{g.away_team}@{g.home_team}")
+            if not l or l["home_spread"] is None or l["total"] is None:
+                continue
+            up.loc[i, "spread_line"], up.loc[i, "total_line"] = -l["home_spread"], l["total"]
+            for col, key in (("home_moneyline", "home_ml"), ("away_moneyline", "away_ml"), ("home_spread_odds", "home_spread_odds"),
+                             ("away_spread_odds", "away_spread_odds"), ("over_odds", "over_odds"), ("under_odds", "under_odds")):
+                if l[key] is not None:
+                    up.loc[i, col] = l[key]
+            live_meta["games_updated"] += 1
     todo = pd.concat([played, up]).sort_values(["t", "game_id"])
 
     console_wx = {}
@@ -348,6 +365,7 @@ def build_game_table():
     fill = [c for c in list(MARGIN_FEATURES) + list(TOTAL_FEATURES) if c in G]
     G[fill] = G[fill].fillna(0.0)
     G.attrs["detail"] = detail
+    G.attrs["odds"] = live_meta or {"source": "nflverse schedule file", "fetched_at": None, "games_updated": 0}
     I = pd.DataFrame(int_rows).merge(qb[["game_id", "team", "qb_id", "ints", "dropbacks"]], on=["game_id", "team", "qb_id"], how="left")
     return G, I, tg
 
@@ -726,6 +744,29 @@ def correlations(G: pd.DataFrame, I: pd.DataFrame):
     for pos, grp in s.groupby("position"):
         out["atd"][pos] = {k: round(tetrachoric(grp.scored.values.astype(float), grp[k].values), 3) for k in ("won", "cover", "over")}
         out["atd"][pos]["n"] = int(len(grp))
+    pr = pd.read_csv(CACHE / "prop_games.csv").merge(P, on="game_id")
+    is_home = pr.team == pr.home
+    margin = np.where(is_home, pr.result, -pr.result)
+    line = np.where(is_home, pr.spread_line, -pr.spread_line)
+    pr["won"], pr["cover"], pr["over"] = (margin > 0).astype(float), (margin - line > 0).astype(float), (pr.total > pr.total_line).astype(float)
+    out["props"] = {}
+    roles = {"carries": ["RB", "QB"], "rush_yds": ["RB", "QB"], "rec": ["WR", "TE", "RB"], "rec_yds": ["WR", "TE", "RB"],
+             "pass_att": ["QB"], "pass_yds": ["QB"]}
+    floor = {"carries": 6, "rush_yds": 6, "rec": 3, "rec_yds": 3, "pass_att": 15, "pass_yds": 15}
+    vol = {"carries": "carries", "rush_yds": "carries", "rec": "rec", "rec_yds": "rec", "pass_att": "pass_att", "pass_yds": "pass_att"}
+    for mk, positions in roles.items():
+        out["props"][mk] = {}
+        for pos_ in positions:
+            d_ = pr[pr.position == pos_]
+            # regular contributors only, each compared with his own usual game that season
+            avg = d_.groupby(["season", "player_id"])[vol[mk]].transform("mean")
+            d_ = d_[avg >= floor[mk]]
+            med = d_.groupby(["season", "player_id"])[mk].transform("median")
+            hit = (d_[mk] > med).astype(float).values
+            if len(d_) < 500:
+                continue
+            out["props"][mk][pos_] = {k: round(tetrachoric(hit, d_[k].values), 3) for k in ("won", "cover", "over")}
+            out["props"][mk][pos_]["n"] = int(len(d_))
     q = I[I.ints.notna() & (I.dropbacks >= 10)].merge(P, on="game_id")
     is_home = q.team == q.home
     margin = np.where(is_home, q.result, -q.result)
@@ -891,71 +932,164 @@ def main():
                        "expected_dropbacks": round(float(r.i_dropbacks), 1), "points_underdog_by": round(float(r.i_dog), 1)}})
     out["interception_threshold"] = INT_MIN
 
-    # Hybrid same-game parlays: a game leg tied to the console's touchdown legs with measured correlation.
+    # Hybrid same-game parlays: game legs, player props and touchdown legs tied together with measured correlation.
+    out["odds"] = G.attrs["odds"]
     if D:
-        atd_corr = D["corr"]["atd"]
+        atd_corr, leg_corr = D["corr"]["atd"], D["corr"]["legs"]
+        MK = {"carries": "carries", "rush_yds": "rushing yards", "rec": "receptions", "rec_yds": "receiving yards",
+              "pass_att": "pass attempts", "pass_yds": "passing yards"}
         ints = {(x["game_id"], x["team"]): x for x in out["interceptions"]}
 
-        def rho(a, b):
-            ka, kb = a["kind"], b["kind"]
-            if ka == "atd" and kb == "atd":
-                if a["team"] != b["team"]:
-                    return atd_corr.get("OPP", 0.03)
-                return atd_corr.get("TM:" + "-".join(sorted([a["pos"], b["pos"]])), atd_corr.get("TM:default", -0.04))
-            if ka != "atd" and kb != "atd":
-                if {ka, kb} == {"game", "int"}:
-                    g_, i_ = (a, b) if ka == "game" else (b, a)
-                    base = corr["int"]["over"] if g_["market"] == "total" else corr["int"]["own_team_won" if g_["market"] == "ml" else "own_team_cover"]
-                    if g_["market"] == "total":
-                        return base if g_["over"] else -base
-                    return base if g_["team"] == i_["team"] else -base
-                return 0.0
-            p_, o = (a, b) if ka == "atd" else (b, a)
-            if o["kind"] == "int":
-                return 0.0
-            c = corr["atd"].get(p_["pos"], {})
+        def game_rho(player_leg, o):
+            """A touchdown or prop leg against a moneyline, spread or total leg."""
+            if player_leg["kind"] == "atd":
+                c = corr["atd"].get(player_leg["pos"], {})
+            else:
+                c = corr["props"].get(player_leg["mk"], {}).get(player_leg["pos"], {})
             if o["market"] == "total":
                 return c.get("over", 0) if o["over"] else -c.get("over", 0)
             base = c.get("won" if o["market"] == "ml" else "cover", 0)
-            return base if p_["team"] == o["team"] else -base
+            return base if player_leg["team"] == o["team"] else -base
 
-        def build(kind, game_leg, extra):
-            legs = [game_leg] + extra
+        def rho(a, b):
+            ka, kb = a["kind"], b["kind"]
+            players = ("atd", "prop")
+            if ka in players and kb in players:
+                same = a["player_id"] == b["player_id"]
+                rel = "SELF" if same else ("TM" if a["team"] == b["team"] else "OPP")
+                if ka == "atd" and kb == "atd":
+                    if rel == "OPP":
+                        return atd_corr.get("OPP", 0.03)
+                    return atd_corr.get("TM:" + "-".join(sorted([a["pos"], b["pos"]])), atd_corr.get("TM:default", -0.04))
+                ma, mb = a.get("mk", "atd"), b.get("mk", "atd")
+                if same and ma == mb:
+                    return 0.95
+                key = rel + "|" + "|".join(sorted([f"{ma}@{a['pos']}", f"{mb}@{b['pos']}"]))
+                if key in leg_corr:
+                    return leg_corr[key]
+                return leg_corr.get("_rel", {}).get("SELF", 0.3) if same else 0.0
+            if ka == "game" and kb == "game":
+                return 0.0
+            if "int" in (ka, kb):
+                g_, i_ = (a, b) if kb == "int" else (b, a)
+                if g_["kind"] != "game":
+                    return 0.0
+                if g_["market"] == "total":
+                    return corr["int"]["over"] if g_["over"] else -corr["int"]["over"]
+                base = corr["int"]["own_team_won" if g_["market"] == "ml" else "own_team_cover"]
+                return base if g_["team"] == i_["team"] else -base
+            return game_rho(a, b) if ka in players else game_rho(b, a)
+
+        KEEP = ("kind", "label", "p", "team", "pos", "player_id", "market", "price", "note", "matchup", "net_checks", "mk", "k", "risk")
+
+        def build(kind, legs, why):
             ps = [l["p"] for l in legs]
             R = [[1.0 if i == j else rho(a, b) for j, b in enumerate(legs)] for i, a in enumerate(legs)]
             pj, pi = joint_probability(ps, R), float(np.prod(ps))
-            return {"kind": kind, "game_id": game_leg["game_id"],
-                    "legs": [{k: v for k, v in l.items() if k in ("kind", "label", "p", "team", "pos", "player_id", "market", "price", "note", "matchup", "net_checks")} for l in legs],
+            return {"kind": kind, "game_id": legs[0].get("game_id") or legs[0]["game"], "why": why,
+                    "legs": [{k: v for k, v in l.items() if k in KEEP} for l in legs],
                     "p": round(pj, 4), "p_if_independent": round(pi, 4), "correlation_lift": round(pj / pi, 3), "fair_price": american(pj)}
 
+        def rung(player, mk, lo=0.70, hi=0.88, target=0.78):
+            """The line on a player's prop ladder closest to a 78% chance."""
+            m = D["props"].get(player["id"], {}).get(mk)
+            if not m:
+                return None
+            band = [(abs(p_ - target), k_, p_) for k_, p_ in zip(m["k"], m["p"]) if lo <= p_ <= hi]
+            if not band:
+                return None
+            _, k_, p_ = min(band)
+            return {"kind": "prop", "mk": mk, "k": int(k_), "p": float(p_), "team": player["team"], "pos": player["pos"],
+                    "player_id": player["id"], "game": player["game"], "label": f"{player['name']} {int(k_)}+ {MK[mk]}"}
+
         for g in up.itertuples(index=False):
+            if not g.checks_complete:
+                continue   # no hybrid without the matchup checks
             roster = [p for p in D["players"] if p["game"] == g.game_id and not p.get("singles")]
-            def tds(team, k):
-                _, verdicts, _ = side_checks(g, team == g.home)
-                mv = lambda p: verdicts[POSITION_CHECK.get(p["pos"], 4)]
-                mine = sorted([p for p in roster if p["team"] == team], key=lambda p: -p["p"])
-                ok = [p for p in mine if mv(p) != "against"]
-                top = (ok if len(ok) >= k else mine)[:k]
-                return [{"kind": "atd", "label": f"{p['name']} anytime TD", "p": float(p["p"]), "team": team, "pos": p["pos"],
-                         "player_id": p["id"], "matchup": mv(p)} for p in top]
+
+            def matchup(p):
+                _, verdicts, _ = side_checks(g, p["team"] == g.home)
+                return verdicts[POSITION_CHECK.get(p["pos"], 4)]
+
+            def td_leg(p):
+                return {"kind": "atd", "label": f"{p['name']} anytime TD", "p": float(p["p"]), "team": p["team"], "pos": p["pos"],
+                        "player_id": p["id"], "game": p["game"], "matchup": matchup(p), "risk": p.get("risk")}
+
+            def tds(team, k, positions=("RB", "WR", "TE", "QB")):
+                mine = sorted([p for p in roster if p["team"] == team and p["pos"] in positions], key=lambda p: -p["p"])
+                ok = [p for p in mine if matchup(p) != "against"]
+                return [td_leg(p) for p in (ok if len(ok) >= k else mine)[:k]]
+
+            def lead(team, pos, mk):
+                """The player at this position most likely to clear the first line of this prop."""
+                c = [p for p in roster if p["team"] == team and p["pos"] == pos and D["props"].get(p["id"], {}).get(mk)]
+                return max(c, key=lambda p: D["props"][p["id"]][mk]["p"][min(1, len(D["props"][p["id"]][mk]["p"]) - 1)], default=None)
+
+            def prop(team, pos, mks):
+                for mk in mks:
+                    pl = lead(team, pos, mk)
+                    r = rung(pl, mk) if pl else None
+                    if r:
+                        return r
+                return None
+
             def game_leg(market):
                 l = next((x for x in all_legs[market] if x["game_id"] == g.game_id), None)
                 return None if l is None else {**l, "kind": "game"}
-            if not g.checks_complete:
-                continue   # no hybrid without the matchup checks
+
             ml, sp, tot = game_leg("ml"), game_leg("spread"), game_leg("total")
+            add = lambda kind, legs, why: out["hybrids"].append(build(kind, legs, why)) if all(legs) and len(legs) >= 2 else None
+
+            # Touchdown-only slips: running backs, receivers and tight ends, at most two from one team
+            pool = sorted([p for p in roster if p["pos"] in ("RB", "WR", "TE")], key=lambda p: (matchup(p) == "against", -p["p"]))
+            slip, per_team, used = [], {}, set()
+            for p_ in pool:
+                # two teammates at the same position share the same touches, so only one of them goes on
+                if per_team.get(p_["team"], 0) < 2 and (p_["team"], p_["pos"]) not in used:
+                    slip.append(td_leg(p_))
+                    used.add((p_["team"], p_["pos"]))
+                    per_team[p_["team"]] = per_team.get(p_["team"], 0) + 1
+                if len(slip) == 4:
+                    break
+            for n in (3, 4):
+                if len(slip) >= n:
+                    add(f"Touchdown slip, {n} picks", slip[:n], "The most likely scorers among running backs, receivers and tight ends: no more than two from one team, and never two teammates at the same position.")
+
             if ml and len(tds(ml["team"], 2)) == 2:
-                out["hybrids"].append(build("Moneyline + 2 touchdowns", ml, tds(ml["team"], 2)))
-            if sp and tds(sp["team"], 1):
+                add("Moneyline + 2 touchdowns", [ml] + tds(ml["team"], 2), "A team that wins usually has its main scorers get in.")
+            if sp:
                 extra = tds(sp["team"], 1)
                 it = ints.get((g.game_id, sp["opp"]))
                 kind = "Spread + touchdown"
                 if it and it["recommended"]:
                     extra.append({"kind": "int", "label": f"{it['qb']} to throw an interception", "p": it["p"], "team": sp["opp"]})
                     kind = "Spread + touchdown + interception"
-                out["hybrids"].append(build(kind, sp, extra))
-            if tot and tot["over"] and tds(g.home, 1) and tds(g.away, 1):
-                out["hybrids"].append(build("Over + a touchdown from each team", tot, tds(g.home, 1) + tds(g.away, 1)))
+                add(kind, [sp] + extra, "Covering and scoring move together.")
+                # Prop hybrids
+                rb = prop(sp["team"], "RB", ["carries", "rush_yds"])
+                add("Spread + rushing prop + touchdown", [sp, rb] + tds(sp["team"], 1, ("RB",)),
+                    "A team that covers runs the ball late, so its back gets carries and goal-line chances.")
+                qb_opp = prop(sp["opp"], "QB", ["pass_att", "pass_yds"])
+                add("Spread + opposing quarterback volume + rushing prop", [sp, qb_opp, rb],
+                    "When this side covers, the other quarterback is throwing to catch up while this side runs.")
+            if ml:
+                wr = prop(ml["team"], "WR", ["rec_yds", "rec"]) or prop(ml["team"], "TE", ["rec_yds", "rec"])
+                add("Moneyline + receiving prop + touchdown", [ml, wr] + tds(ml["team"], 1),
+                    "The winner's lead receiver and its most likely scorer.")
+            top_team = g.home if (g.total_line + g.spread_line) >= (g.total_line - g.spread_line) else g.away
+            qb = prop(top_team, "QB", ["pass_yds"])
+            wr = prop(top_team, "WR", ["rec_yds", "rec"])
+            wr_td = tds(top_team, 1, ("WR", "TE"))
+            add("Passing stack: quarterback + receiver + touchdown", [qb, wr] + wr_td,
+                "A quarterback's yards and his receiver's yards rise together, in the offence expected to score more.")
+            if tot and tot["over"]:
+                if tds(g.home, 1) and tds(g.away, 1):
+                    add("Over + a touchdown from each team", [tot] + tds(g.home, 1) + tds(g.away, 1), "High-scoring games need scorers on both sides.")
+                add("Over + both quarterbacks' passing yards", [tot, prop(g.home, "QB", ["pass_yds"]), prop(g.away, "QB", ["pass_yds"])],
+                    "Passing yards on both sides are what push a game over.")
+            elif tot:
+                add("Under + both lead backs' carries", [tot, prop(g.home, "RB", ["carries"]), prop(g.away, "RB", ["carries"])],
+                    "A slow, run-heavy game keeps the clock moving and the score down.")
 
     (HERE / "output").mkdir(exist_ok=True)
     json.dump(out, open(HERE / "output/game_markets.json", "w"), indent=1, default=lambda o: None if pd.isna(o) else o)
@@ -964,7 +1098,9 @@ def main():
         for tk in out["tickets"][m]:
             print(m, tk["n"], [l["label"] + f" {l['p']:.0%} @{l['price']:+d}" for l in tk["legs"]], f"p={tk['p']:.3f} fair {tk['fair_price']:+d} mkt {tk['market_price']:+d} ev {tk['ev']:+.2f}")
     print("INT:", [(x["qb"], x["p"], x["recommended"]) for x in out["interceptions"][:6]])
-    for h in out["hybrids"][:4]:
+    from collections import Counter
+    print("hybrids per game:", Counter(Counter(h["game_id"] for h in out["hybrids"]).values()), Counter(h["kind"] for h in out["hybrids"]))
+    for h in [h for h in out["hybrids"] if h["game_id"].endswith("WAS_NYG")]:
         print(h["kind"], [l["label"] for l in h["legs"]], h["p"], h["p_if_independent"], h["correlation_lift"])
 
 

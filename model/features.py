@@ -21,7 +21,8 @@ OLD_NAMES = {"OAK": "LV", "SD": "LAC", "STL": "LA"}  # games.csv keeps old abbre
 COLS = ["game_id", "season", "week", "home_team", "away_team", "posteam", "defteam", "play_type",
         "epa", "success", "qb_dropback", "interception", "sack", "fumble_lost", "passer_player_id",
         "rusher_player_id", "receiver_player_id", "td_player_id", "touchdown", "rush_attempt", "pass_attempt",
-        "fixed_drive", "drive_time_of_possession", "special_teams_play", "penalty", "penalty_team", "penalty_yards"]
+        "fixed_drive", "drive_time_of_possession", "special_teams_play", "penalty", "penalty_team", "penalty_yards",
+        "complete_pass", "rushing_yards", "receiving_yards", "passing_yards"]
 
 
 def load_games() -> pd.DataFrame:
@@ -76,17 +77,28 @@ def season_tables(path: str):
     tds = td.groupby(["game_id", "posteam", "td_player_id"]).size().rename("tds").reset_index().rename(columns={"td_player_id": "player_id"})
     skill = opp.merge(tds, on=["game_id", "posteam", "player_id"], how="left").fillna({"tds": 0})
     skill = skill.rename(columns={"posteam": "team"})
-    return team, qb, skill
+
+    # Prop stats per player per game, for measuring how props move with the game result
+    rush = scrim[scrim.rush_attempt == 1].dropna(subset=["rusher_player_id"]).groupby(["game_id", "posteam", "rusher_player_id"]).agg(
+        carries=("epa", "size"), rush_yds=("rushing_yards", "sum")).reset_index().rename(columns={"rusher_player_id": "player_id"})
+    rec = scrim[scrim.pass_attempt == 1].dropna(subset=["receiver_player_id"]).groupby(["game_id", "posteam", "receiver_player_id"]).agg(
+        rec=("complete_pass", "sum"), rec_yds=("receiving_yards", "sum")).reset_index().rename(columns={"receiver_player_id": "player_id"})
+    pas = scrim[scrim.pass_attempt == 1].dropna(subset=["passer_player_id"]).groupby(["game_id", "posteam", "passer_player_id"]).agg(
+        pass_att=("epa", "size"), pass_yds=("passing_yards", "sum")).reset_index().rename(columns={"passer_player_id": "player_id"})
+    props = rush.merge(rec, on=["game_id", "posteam", "player_id"], how="outer").merge(pas, on=["game_id", "posteam", "player_id"], how="outer")
+    props = props.rename(columns={"posteam": "team"}).fillna(0)
+    props["season"] = int(pbp.season.iloc[0])
+    return team, qb, skill, props
 
 
 def main():
     files = sorted(glob.glob(str(HERE / "data/pbp/play_by_play_*.csv.gz")))
     if not files:
         raise SystemExit("No play-by-play files found. Run: python3 fetch_data.py 2015 2026")
-    teams, qbs, skills = [], [], []
+    teams, qbs, skills, propss = [], [], [], []
     for f in files:
-        t, q, s = season_tables(f)
-        teams.append(t); qbs.append(q); skills.append(s)
+        t, q, s, pr = season_tables(f)
+        teams.append(t); qbs.append(q); skills.append(s); propss.append(pr)
         print(Path(f).name, len(t))
     team, qb, skill = pd.concat(teams), pd.concat(qbs), pd.concat(skills)
 
@@ -120,6 +132,9 @@ def main():
     team.round(5).to_csv(CACHE / "team_games.csv", index=False)
     qb.round(4).to_csv(CACHE / "qb_games.csv", index=False)
     skill[["game_id", "team", "player_id", "position", "opps", "scored"]].to_csv(CACHE / "skill_games.csv", index=False)
+    props = pd.concat(propss).merge(pos.rename(columns={"gsis_id": "player_id"}), on="player_id", how="left")
+    props = props[props.position.isin(["RB", "WR", "TE", "QB"])]
+    props.to_csv(CACHE / "prop_games.csv", index=False)
     print(f"team_games {len(team)}, qb_games {len(qb)}, skill_games {len(skill)}")
     print(team[["off_epa", "pass_epa", "rush_epa", "int_rate", "sec_per_play", "plays"]].describe().round(3).loc[["mean", "std"]])
 

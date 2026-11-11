@@ -41,6 +41,12 @@ js = re.sub(r'<section class="hero" style="background-image:[^"]*">', '<section 
 if "BANNER" in js:
     raise SystemExit("import-console: BANNER is still referenced")
 
+# 1b. Ticket headers show the model's fair price. Label it, so it is not read as the sportsbook's price.
+n_fair = js.count('class="fair">${am(')
+if not n_fair:
+    raise SystemExit("import-console: fair-price labels not found")
+js = js.replace('class="fair">${am(', 'class="fair">fair ${am(')
+
 # 2. Tabs that this site adds (rendered by React) sit beside the console's own tabs.
 js = patch(
     js,
