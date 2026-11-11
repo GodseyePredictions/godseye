@@ -810,6 +810,19 @@ tbody tr:last-child td {
   text-decoration: none;
   color: #fff;
 }
+.logo-eye {
+  height: 50px;
+  width: auto;
+  border-radius: 10px;
+  flex: none;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px rgb(255 255 255 / 0.85);
+}
+@media (max-width: 600px) {
+  .logo-eye {
+    height: 38px;
+  }
+}
 .logo-words {
   display: grid;
   line-height: 1;
