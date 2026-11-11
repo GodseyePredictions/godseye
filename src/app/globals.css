@@ -1,16 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --night: #04382c; /* deep emerald */
-  --night-deep: #022219;
-  --panel: #0a4a3a;
-  --line: #1f6b57;
-  --flood: #d9ab2f; /* gold, for fills */
-  --flood-text: #f0cc62; /* lighter gold, readable as text on emerald */
+  --night: #0d2f9e; /* royal blue */
+  --night-deep: #071a5e;
+  --panel: #ffffff;
+  --line: #3f5fd0;
+  --flood: #ffd400; /* yellow, for fills */
+  --flood-text: #ffd400;
   --chalk: #ffffff;
-  --dim: #bfdcd2;
-  --win: #f0cc62;
-  --loss: #ff8a7a;
+  --dim: #cdd8ff;
+  --win: #0a8f4e;
+  --loss: #d92b2b;
+  --loss-on-dark: #ff9c9c;
+  /* white cards that sit on the blue */
+  --card: #ffffff;
+  --ink: #0a1440;
+  --ink-dim: #4a5685;
+  --card-line: #d5dbf0;
 }
 
 * {
@@ -200,7 +206,7 @@ a {
   color: var(--chalk);
 }
 .note.warn b {
-  color: var(--loss);
+  color: var(--loss-on-dark);
 }
 .slip-foot {
   display: flex;
@@ -703,4 +709,95 @@ th:nth-child(n + 3) {
   .grid2 {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+/* Cards: white surfaces with dark text, so slips and panels stand apart from the blue */
+.panel,
+.bet,
+.stats div,
+.bars,
+.legedit,
+.plan,
+.tablewrap {
+  background: var(--card);
+  color: var(--ink);
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 6px 0 var(--night-deep);
+}
+.panel,
+.bet {
+  border-top: 6px solid var(--flood);
+}
+.legedit {
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.tablewrap {
+  padding: 8px 12px;
+}
+.plan.pro {
+  background: var(--flood);
+  color: var(--ink);
+}
+.plan li {
+  border-top-color: rgb(10 20 64 / 0.18);
+}
+.field input,
+.field select,
+.field textarea {
+  background: #fff;
+  color: var(--ink);
+  border: 2px solid var(--card-line);
+}
+.field textarea::placeholder,
+.field input::placeholder {
+  color: #8a93b8;
+}
+.legedit .field,
+.bet .field,
+.panel .empty,
+.bet-meta,
+.bars > p,
+.bar-row small,
+.stats span,
+.findings span,
+.warnbox span,
+th,
+.x {
+  color: var(--ink-dim);
+}
+.track {
+  background-image: linear-gradient(var(--card-line), var(--card-line));
+}
+.findings li {
+  background: #eef1fb;
+  border-left-color: var(--night);
+}
+.findings li.warn {
+  background: #fdeeee;
+  border-left-color: var(--loss);
+}
+.panel .btn-primary,
+.plan .btn-ghost {
+  background: var(--night);
+  color: #fff;
+  border-color: var(--night);
+}
+.panel .btn-primary:hover {
+  background: var(--night-deep);
+}
+th,
+td {
+  border-bottom-color: var(--card-line);
+}
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+.tab.on {
+  color: var(--ink);
+}
+.warnbox {
+  border-top: 0;
+  border-left: 6px solid var(--flood);
 }
