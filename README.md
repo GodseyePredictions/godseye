@@ -36,3 +36,7 @@ The separate team-rating model in `model/` is documented in `model/README.md`.
     node scripts/build-preview.mjs godseye-preview.html
 
 builds the landing page, the NFL console and the NBA side into one HTML file (the Claude artifact). In that file the three share one page: no address is the landing page, `#home`, `#picks` and the other console tabs are NFL, and `#nba-home`, `#nba-sgp` and so on are NBA. Rebuild and republish it after a new NFL import or a new NBA slate.
+
+## Player photos on the landing page
+
+The featured-player cards show initials unless a photo exists at `public/players/<name-slug>.jpg` (for example `patrick-mahomes.jpg`, `shai-gilgeous-alexander.jpg`). No photos ship with the repo. Add only images you hold a licence for, then re-run `python3 -I scripts/build-locks.py` and rebuild.
