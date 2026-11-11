@@ -12374,5 +12374,792 @@
   "source": "DraftKings lines via ESPN",
   "fetched_at": "2026-11-11 21:04 UTC",
   "games_updated": 14
- }
+ },
+ "snipers": [
+  {
+   "game_id": "2026_10_WAS_NYG",
+   "away": "WAS",
+   "home": "NYG",
+   "gameday": "2026-11-12",
+   "slips_considered": 107184,
+   "bands": [
+    {
+     "label": "+150 to +200",
+     "lottery": false,
+     "slips": [
+      {
+       "band": "+150 to +200",
+       "script": "favourite",
+       "read": "NYG control the game",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "NYG",
+         "market": "spread",
+         "label": "NYG -2.5",
+         "p": 0.4894,
+         "net_checks": 1
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 20,
+         "p": 0.7781,
+         "team": "NYG",
+         "pos": "TE",
+         "player_id": "00-0037838",
+         "matchup": "for",
+         "label": "Isaiah Likely 20+ receiving yards"
+        }
+       ],
+       "p": 0.3783,
+       "fair_price": 164,
+       "p_if_independent": 0.3808,
+       "correlation_lift": 0.993,
+       "trust": {
+        "legs": 2,
+        "legs_in_calibrated_prop_band": 1,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.926
+       }
+      },
+      {
+       "band": "+150 to +200",
+       "script": "underdog",
+       "read": "WAS keep it close or win",
+       "legs": [
+        {
+         "kind": "prop",
+         "mk": "pass_att",
+         "k": 20,
+         "p": 0.8387,
+         "team": "NYG",
+         "pos": "QB",
+         "player_id": "00-0039923",
+         "matchup": "even",
+         "label": "J.J. McCarthy 20+ pass attempts"
+        },
+        {
+         "kind": "prop",
+         "mk": "pass_yds",
+         "k": 150,
+         "p": 0.7421,
+         "team": "WAS",
+         "pos": "QB",
+         "player_id": "00-0039910",
+         "matchup": "even",
+         "label": "Jayden Daniels 150+ passing yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 30,
+         "p": 0.6186,
+         "team": "NYG",
+         "pos": "TE",
+         "player_id": "00-0037838",
+         "matchup": "for",
+         "label": "Isaiah Likely 30+ receiving yards"
+        }
+       ],
+       "p": 0.3951,
+       "fair_price": 153,
+       "p_if_independent": 0.385,
+       "correlation_lift": 1.026,
+       "trust": {
+        "legs": 3,
+        "legs_in_calibrated_prop_band": 2,
+        "touchdown_legs": 0,
+        "game_legs": 0,
+        "score": 0.902
+       }
+      }
+     ]
+    },
+    {
+     "label": "+200 to +350",
+     "lottery": false,
+     "slips": [
+      {
+       "band": "+200 to +350",
+       "script": "favourite",
+       "read": "NYG control the game",
+       "legs": [
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 20,
+         "p": 0.7781,
+         "team": "NYG",
+         "pos": "TE",
+         "player_id": "00-0037838",
+         "matchup": "for",
+         "label": "Isaiah Likely 20+ receiving yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 1,
+         "p": 0.7576,
+         "team": "WAS",
+         "pos": "RB",
+         "player_id": "00-0033699",
+         "matchup": "even",
+         "label": "Austin Ekeler 1+ receptions"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 3,
+         "p": 0.557,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0041042",
+         "matchup": "even",
+         "label": "Malachi Fields 3+ receptions"
+        }
+       ],
+       "p": 0.3272,
+       "fair_price": 206,
+       "p_if_independent": 0.3283,
+       "correlation_lift": 0.996,
+       "trust": {
+        "legs": 3,
+        "legs_in_calibrated_prop_band": 2,
+        "touchdown_legs": 0,
+        "game_legs": 0,
+        "score": 0.898
+       }
+      },
+      {
+       "band": "+200 to +350",
+       "script": "underdog",
+       "read": "WAS keep it close or win",
+       "legs": [
+        {
+         "kind": "prop",
+         "mk": "rush_yds",
+         "k": 20,
+         "p": 0.7614,
+         "team": "WAS",
+         "pos": "QB",
+         "player_id": "00-0039910",
+         "matchup": "even",
+         "label": "Jayden Daniels 20+ rushing yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "pass_yds",
+         "k": 150,
+         "p": 0.7421,
+         "team": "WAS",
+         "pos": "QB",
+         "player_id": "00-0039910",
+         "matchup": "even",
+         "label": "Jayden Daniels 150+ passing yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rush_yds",
+         "k": 40,
+         "p": 0.5778,
+         "team": "WAS",
+         "pos": "RB",
+         "player_id": "00-0037256",
+         "matchup": "even",
+         "label": "Rachaad White 40+ rushing yards"
+        }
+       ],
+       "p": 0.3253,
+       "fair_price": 207,
+       "p_if_independent": 0.3265,
+       "correlation_lift": 0.996,
+       "trust": {
+        "legs": 3,
+        "legs_in_calibrated_prop_band": 2,
+        "touchdown_legs": 0,
+        "game_legs": 0,
+        "score": 0.865
+       }
+      }
+     ]
+    },
+    {
+     "label": "+350 to +500",
+     "lottery": false,
+     "slips": [
+      {
+       "band": "+350 to +500",
+       "script": "favourite",
+       "read": "NYG control the game",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "NYG",
+         "market": "spread",
+         "label": "NYG -8.5",
+         "p": 0.2914,
+         "net_checks": 1
+        },
+        {
+         "kind": "prop",
+         "mk": "pass_att",
+         "k": 25,
+         "p": 0.7792,
+         "team": "WAS",
+         "pos": "QB",
+         "player_id": "00-0039910",
+         "matchup": "even",
+         "label": "Jayden Daniels 25+ pass attempts"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 1,
+         "p": 0.7576,
+         "team": "WAS",
+         "pos": "RB",
+         "player_id": "00-0033699",
+         "matchup": "even",
+         "label": "Austin Ekeler 1+ receptions"
+        }
+       ],
+       "p": 0.213,
+       "fair_price": 369,
+       "p_if_independent": 0.172,
+       "correlation_lift": 1.238,
+       "trust": {
+        "legs": 3,
+        "legs_in_calibrated_prop_band": 2,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.816
+       }
+      },
+      {
+       "band": "+350 to +500",
+       "script": "underdog",
+       "read": "WAS keep it close or win",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "WAS",
+         "market": "ml",
+         "label": "WAS moneyline",
+         "p": 0.4202177918189729,
+         "net_checks": -1
+        },
+        {
+         "kind": "prop",
+         "mk": "rush_yds",
+         "k": 20,
+         "p": 0.7614,
+         "team": "WAS",
+         "pos": "QB",
+         "player_id": "00-0039910",
+         "matchup": "even",
+         "label": "Jayden Daniels 20+ rushing yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 2,
+         "p": 0.7699,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0041042",
+         "matchup": "even",
+         "label": "Malachi Fields 2+ receptions"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 1,
+         "p": 0.8241,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0036309",
+         "matchup": "even",
+         "label": "Darnell Mooney 1+ receptions"
+        }
+       ],
+       "p": 0.212,
+       "fair_price": 372,
+       "p_if_independent": 0.203,
+       "correlation_lift": 1.044,
+       "trust": {
+        "legs": 4,
+        "legs_in_calibrated_prop_band": 3,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.778
+       }
+      }
+     ]
+    },
+    {
+     "label": "+500 to +700",
+     "lottery": false,
+     "slips": [
+      {
+       "band": "+500 to +700",
+       "script": "favourite",
+       "read": "NYG control the game",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "NYG",
+         "market": "spread",
+         "label": "NYG -8.5",
+         "p": 0.2914,
+         "net_checks": 1
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 20,
+         "p": 0.704,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0041042",
+         "matchup": "even",
+         "label": "Malachi Fields 20+ receiving yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 5,
+         "p": 0.7741,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0039337",
+         "matchup": "even",
+         "label": "Malik Nabers 5+ receptions"
+        }
+       ],
+       "p": 0.1613,
+       "fair_price": 520,
+       "p_if_independent": 0.1588,
+       "correlation_lift": 1.016,
+       "trust": {
+        "legs": 3,
+        "legs_in_calibrated_prop_band": 2,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.783
+       }
+      },
+      {
+       "band": "+500 to +700",
+       "script": "underdog",
+       "read": "WAS keep it close or win",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "WAS",
+         "market": "ml",
+         "label": "WAS moneyline",
+         "p": 0.4202177918189729,
+         "net_checks": -1
+        },
+        {
+         "kind": "prop",
+         "mk": "pass_att",
+         "k": 20,
+         "p": 0.8387,
+         "team": "NYG",
+         "pos": "QB",
+         "player_id": "00-0039923",
+         "matchup": "even",
+         "label": "J.J. McCarthy 20+ pass attempts"
+        },
+        {
+         "kind": "prop",
+         "mk": "rush_yds",
+         "k": 40,
+         "p": 0.5778,
+         "team": "WAS",
+         "pos": "RB",
+         "player_id": "00-0037256",
+         "matchup": "even",
+         "label": "Rachaad White 40+ rushing yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 2,
+         "p": 0.5711,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0036309",
+         "matchup": "even",
+         "label": "Darnell Mooney 2+ receptions"
+        }
+       ],
+       "p": 0.1567,
+       "fair_price": 538,
+       "p_if_independent": 0.1163,
+       "correlation_lift": 1.347,
+       "trust": {
+        "legs": 4,
+        "legs_in_calibrated_prop_band": 1,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.723
+       }
+      }
+     ]
+    },
+    {
+     "label": "+700 to +1200",
+     "lottery": false,
+     "slips": [
+      {
+       "band": "+700 to +1200",
+       "script": "favourite",
+       "read": "NYG control the game",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "NYG",
+         "market": "spread",
+         "label": "NYG -8.5",
+         "p": 0.2914,
+         "net_checks": 1
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 1,
+         "p": 0.8305,
+         "team": "WAS",
+         "pos": "RB",
+         "player_id": "00-0037256",
+         "matchup": "even",
+         "label": "Rachaad White 1+ receptions"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 1,
+         "p": 0.7576,
+         "team": "WAS",
+         "pos": "RB",
+         "player_id": "00-0033699",
+         "matchup": "even",
+         "label": "Austin Ekeler 1+ receptions"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 60,
+         "p": 0.5777,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0039337",
+         "matchup": "even",
+         "label": "Malik Nabers 60+ receiving yards"
+        }
+       ],
+       "p": 0.125,
+       "fair_price": 700,
+       "p_if_independent": 0.1059,
+       "correlation_lift": 1.18,
+       "trust": {
+        "legs": 4,
+        "legs_in_calibrated_prop_band": 2,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.724
+       }
+      },
+      {
+       "band": "+700 to +1200",
+       "script": "underdog",
+       "read": "WAS keep it close or win",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "WAS",
+         "market": "ml",
+         "label": "WAS moneyline",
+         "p": 0.4202177918189729,
+         "net_checks": -1
+        },
+        {
+         "kind": "prop",
+         "mk": "pass_att",
+         "k": 20,
+         "p": 0.8387,
+         "team": "NYG",
+         "pos": "QB",
+         "player_id": "00-0039923",
+         "matchup": "even",
+         "label": "J.J. McCarthy 20+ pass attempts"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 5,
+         "p": 0.7741,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0039337",
+         "matchup": "even",
+         "label": "Malik Nabers 5+ receptions"
+        },
+        {
+         "kind": "prop",
+         "mk": "rush_yds",
+         "k": 40,
+         "p": 0.5778,
+         "team": "WAS",
+         "pos": "RB",
+         "player_id": "00-0037256",
+         "matchup": "even",
+         "label": "Rachaad White 40+ rushing yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec",
+         "k": 2,
+         "p": 0.5711,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0036309",
+         "matchup": "even",
+         "label": "Darnell Mooney 2+ receptions"
+        }
+       ],
+       "p": 0.1238,
+       "fair_price": 707,
+       "p_if_independent": 0.09,
+       "correlation_lift": 1.376,
+       "trust": {
+        "legs": 5,
+        "legs_in_calibrated_prop_band": 2,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.696
+       }
+      }
+     ]
+    },
+    {
+     "label": "Lottery, about +1200",
+     "lottery": true,
+     "slips": [
+      {
+       "band": "Lottery, about +1200",
+       "script": "underdog",
+       "read": "WAS keep it close or win",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "WAS",
+         "market": "spread",
+         "label": "WAS -3.5",
+         "p": 0.3058,
+         "net_checks": -1
+        },
+        {
+         "kind": "game",
+         "market": "total",
+         "team": null,
+         "label": "Over 40.5",
+         "p": 0.5177270975243581
+        },
+        {
+         "kind": "prop",
+         "mk": "rush_yds",
+         "k": 20,
+         "p": 0.7614,
+         "team": "WAS",
+         "pos": "QB",
+         "player_id": "00-0039910",
+         "matchup": "even",
+         "label": "Jayden Daniels 20+ rushing yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rush_yds",
+         "k": 20,
+         "p": 0.4681,
+         "team": "WAS",
+         "pos": "RB",
+         "player_id": "00-0033699",
+         "matchup": "even",
+         "label": "Austin Ekeler 20+ rushing yards"
+        }
+       ],
+       "p": 0.0765,
+       "fair_price": 1207,
+       "p_if_independent": 0.0564,
+       "correlation_lift": 1.356,
+       "trust": {
+        "legs": 4,
+        "legs_in_calibrated_prop_band": 1,
+        "touchdown_legs": 0,
+        "game_legs": 2,
+        "score": 0.579
+       }
+      }
+     ]
+    },
+    {
+     "label": "Lottery, about +1500",
+     "lottery": true,
+     "slips": [
+      {
+       "band": "Lottery, about +1500",
+       "script": "favourite",
+       "read": "NYG control the game",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "NYG",
+         "market": "spread",
+         "label": "NYG -8.5",
+         "p": 0.2914,
+         "net_checks": 1
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 20,
+         "p": 0.7781,
+         "team": "NYG",
+         "pos": "TE",
+         "player_id": "00-0037838",
+         "matchup": "for",
+         "label": "Isaiah Likely 20+ receiving yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 20,
+         "p": 0.704,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0041042",
+         "matchup": "even",
+         "label": "Malachi Fields 20+ receiving yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "pass_att",
+         "k": 30,
+         "p": 0.5561,
+         "team": "WAS",
+         "pos": "QB",
+         "player_id": "00-0039910",
+         "matchup": "even",
+         "label": "Jayden Daniels 30+ pass attempts"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 60,
+         "p": 0.5777,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0039337",
+         "matchup": "even",
+         "label": "Malik Nabers 60+ receiving yards"
+        }
+       ],
+       "p": 0.0681,
+       "fair_price": 1369,
+       "p_if_independent": 0.0513,
+       "correlation_lift": 1.328,
+       "trust": {
+        "legs": 5,
+        "legs_in_calibrated_prop_band": 2,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.688
+       }
+      }
+     ]
+    },
+    {
+     "label": "Lottery, about +2000",
+     "lottery": true,
+     "slips": [
+      {
+       "band": "Lottery, about +2000",
+       "script": "favourite",
+       "read": "NYG control the game",
+       "legs": [
+        {
+         "kind": "game",
+         "team": "NYG",
+         "market": "spread",
+         "label": "NYG -8.5",
+         "p": 0.2914,
+         "net_checks": 1
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 20,
+         "p": 0.704,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0041042",
+         "matchup": "even",
+         "label": "Malachi Fields 20+ receiving yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "pass_att",
+         "k": 30,
+         "p": 0.5561,
+         "team": "WAS",
+         "pos": "QB",
+         "player_id": "00-0039910",
+         "matchup": "even",
+         "label": "Jayden Daniels 30+ pass attempts"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 30,
+         "p": 0.6186,
+         "team": "NYG",
+         "pos": "TE",
+         "player_id": "00-0037838",
+         "matchup": "for",
+         "label": "Isaiah Likely 30+ receiving yards"
+        },
+        {
+         "kind": "prop",
+         "mk": "rec_yds",
+         "k": 60,
+         "p": 0.5777,
+         "team": "NYG",
+         "pos": "WR",
+         "player_id": "00-0039337",
+         "matchup": "even",
+         "label": "Malik Nabers 60+ receiving yards"
+        }
+       ],
+       "p": 0.0536,
+       "fair_price": 1765,
+       "p_if_independent": 0.0408,
+       "correlation_lift": 1.316,
+       "trust": {
+        "legs": 5,
+        "legs_in_calibrated_prop_band": 1,
+        "touchdown_legs": 0,
+        "game_legs": 1,
+        "score": 0.647
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

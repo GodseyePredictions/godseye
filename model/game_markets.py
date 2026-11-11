@@ -19,8 +19,10 @@ seasons only. The scorecard is written next to the picks.
 Usage: python3 game_markets.py      (needs data/cache from features.py)
 Writes output/game_markets.json.
 """
+import itertools
 import json
 import math
+import os
 from pathlib import Path
 
 import numpy as np
@@ -793,6 +795,204 @@ def joint_probability(ps, R, n=400_000, seed=7):
     return float((z < norm.ppf(np.array(ps))).all(axis=1).mean())
 
 
+# ----------------------------------------------------------------------------- odds snipers
+
+SNIPER_BANDS = [("+150 to +200", 150, 200, 3), ("+200 to +350", 200, 350, 4), ("+350 to +500", 350, 500, 4),
+                ("+500 to +700", 500, 700, 5), ("+700 to +1200", 700, 1200, 5)]
+LOTTERY = [("Lottery, about +1200", 1100, 1350), ("Lottery, about +1500", 1350, 1750), ("Lottery, about +2000", 1750, 2400)]
+
+
+FAMILY = {"carries": "rushing", "rush_yds": "rushing", "rec": "receiving", "rec_yds": "receiving",
+          "pass_att": "passing", "pass_yds": "passing", "pass_td": "passing", "atd": "touchdown"}
+MAX_USES = 3   # how many slips on one game's board may lean on the same player and stat
+
+
+def leg_key(l):
+    return l["label"] if l["kind"] == "game" else (l["player_id"], FAMILY[l.get("mk", "atd")])
+
+
+def fair_american(p: float) -> float:
+    return 100 * (1 - p) / p if p < 0.5 else -100 * p / (1 - p)
+
+
+def build_snipers(g, roster, rho, matchup, td_leg, alt_ladder, D, MK):
+    """Slips built to land in set fair-odds ranges, two opposing game scripts per range.
+
+    Every slip in a range has about the same chance by definition, so slips are ranked by how far
+    the number can be trusted: fewer legs, markets that have been well calibrated, matchup checks
+    in favour, and legs that genuinely move together.
+    """
+    fav_home = g.spread_line >= 0
+    sides = {"favourite": (g.home, g.away, True) if fav_home else (g.away, g.home, False),
+             "underdog": (g.away, g.home, False) if fav_home else (g.home, g.away, True)}
+    rng = np.random.default_rng(11)
+    Z = rng.standard_normal((30_000, 5))
+
+    def prop_legs(p_):
+        out_ = []
+        for mk, m in D["props"].get(p_["id"], {}).items():
+            for lo, hi, target in ((0.70, 0.88, 0.78), (0.45, 0.69, 0.58), (0.25, 0.44, 0.35)):
+                band = [(abs(x - target), i) for i, x in enumerate(m["p"]) if lo <= x <= hi]
+                if band:
+                    i = min(band)[1]
+                    out_.append({"kind": "prop", "mk": mk, "k": int(m["k"][i]), "p": float(m["p"][i]), "team": p_["team"], "pos": p_["pos"],
+                                 "player_id": p_["id"], "game": p_["game"], "matchup": matchup(p_),
+                                 "label": f"{p_['name']} {int(m['k'][i])}+ {MK.get(mk, mk)}"})
+        return out_
+
+    def quality(l):
+        """How far this leg's number can be trusted, 0 to 1."""
+        if l["kind"] == "prop":
+            q = 1.0 if 0.70 <= l["p"] <= 0.88 else 0.8 if l["p"] >= 0.55 else 0.6 if l["p"] >= 0.40 else 0.45
+        elif l["kind"] == "atd":
+            q = {"RB": 0.60, "TE": 0.50, "WR": 0.45, "QB": 0.50}.get(l["pos"], 0.45)   # receiver touchdowns have run hot
+        elif l["market"] == "total":
+            q = 0.60
+        else:
+            q = 0.50 if l.get("harder") else 0.70   # a line moved against the pick is a long shot, not a base leg
+        m = l.get("matchup")
+        return q + (0.10 if m == "for" else -0.20 if m == "against" else 0.0)
+
+    def joint_fast(legs):
+        n = len(legs)
+        R = np.array([[1.0 if i == j else rho(a, b) for j, b in enumerate(legs)] for i, a in enumerate(legs)])
+        for _ in range(12):
+            try:
+                L = np.linalg.cholesky(R)
+                break
+            except np.linalg.LinAlgError:
+                R = np.where(np.eye(n) == 1, 1.0, R * 0.9)
+        else:
+            return None
+        thr = norm.ppf([l["p"] for l in legs])
+        return float(((Z[:, :n] @ L.T) < thr).all(axis=1).mean())
+
+    slips = []
+    for script, (team, opp, home_side) in sides.items():
+        m = g.b_margin if home_side else -g.b_margin
+        p_win = g.p_home_win if home_side else 1 - g.p_home_win
+        main_line = -g.spread_line if home_side else g.spread_line
+        base = {"kind": "game", "game_id": g.game_id, "team": team, "opp": opp, "home_side": home_side}
+        _, _, net = side_checks(g, home_side)
+        ml = {**base, "market": "ml", "label": f"{team} moneyline", "p": float(p_win), "net_checks": int(net)}
+        side_legs = [ml] + [{**base, "market": "spread", "line": a["line"], "label": f"{team} {a['line']:+g}", "p": a["p"], "net_checks": int(net),
+                             "harder": a["line"] < main_line}
+                            for a in alt_ladder(g, home_side, main_line)]
+        totals = [{"kind": "game", "game_id": g.game_id, "market": "total", "team": None, "opp": None, "over": o,
+                   "label": f"{'Over' if o else 'Under'} {g.total_line:g}", "p": float(g.p_over if o else 1 - g.p_over)} for o in (True, False)]
+        players = []
+        for p_ in roster:
+            if p_["p"] >= 0.12 and p_["pos"] in ("RB", "WR", "TE", "QB"):
+                players.append(td_leg(p_))
+            players += prop_legs(p_)
+        # keep legs that fit this script: they do not move against this side winning
+        for l in players:
+            l["tie"] = rho(l, ml)   # how strongly this leg moves with this side winning
+        players = [l for l in players if l["tie"] >= -0.02]
+        players = sorted(players, key=lambda l: -(quality(l) + 0.5 * max(l["tie"], 0)))[:20]
+        pool = [l for l in side_legs + totals + players if 0.15 <= l["p"] <= 0.93]
+        for l in pool:
+            l["q"] = quality(l) + (0.05 * max(-2, min(3, l.get("net_checks", 0))) if l["kind"] == "game" and l["market"] != "total" else 0.0)
+
+        def allowed(combo):
+            per, mkts, n_side, n_tot = {}, set(), 0, 0
+            for l in combo:
+                if l["kind"] == "game":
+                    if l["market"] == "total":
+                        n_tot += 1
+                    else:
+                        n_side += 1
+                else:
+                    per[l["player_id"]] = per.get(l["player_id"], 0) + 1
+                    key = leg_key(l)   # one leg per player per stat family: catches and receiving yards are the same bet twice
+                    if key in mkts:
+                        return False
+                    mkts.add(key)
+            # every slip needs a leg that defines the script: the side itself, or a player leg tied to that side winning
+            defining = n_side >= 1 or any(l["kind"] != "game" and l["tie"] >= 0.10 for l in combo)
+            return defining and n_side <= 1 and n_tot <= 1 and all(v <= 2 for v in per.values())
+
+        for n in range(2, 6):
+            for combo in itertools.combinations(pool, n):
+                p_ind = float(np.prod([l["p"] for l in combo]))
+                if p_ind < 0.02 or p_ind > 0.47 or not allowed(combo):
+                    continue
+                pj = joint_fast(list(combo))
+                if pj is None or pj <= 0.03:
+                    continue
+                fair = fair_american(pj)
+                if not (150 <= fair <= 2400):
+                    continue
+                lift = pj / p_ind
+                score = float(np.mean([l["q"] for l in combo])) - 0.07 * (n - 2) + 0.15 * min(max(lift - 1, -0.3), 0.6)
+                slips.append({"script": script, "team": team, "legs": combo, "p": pj, "fair": fair, "lift": lift, "score": score})
+
+    def finish(sl, band):
+        legs = list(sl["legs"])
+        R = [[1.0 if i == j else rho(a, b) for j, b in enumerate(legs)] for i, a in enumerate(legs)]
+        pj = joint_probability([l["p"] for l in legs], R)
+        p_ind = float(np.prod([l["p"] for l in legs]))
+        calibrated = sum(1 for l in legs if l["kind"] == "prop" and 0.70 <= l["p"] <= 0.88)
+        reads = {"favourite": f"{sl['team']} control the game", "underdog": f"{sl['team']} keep it close or win"}
+        return {"band": band, "script": sl["script"], "read": reads[sl["script"]],
+                "legs": [{k: v for k, v in l.items() if k in ("kind", "label", "p", "team", "pos", "player_id", "market", "mk", "k", "matchup", "net_checks")} for l in legs],
+                "p": round(pj, 4), "fair_price": american(pj), "p_if_independent": round(p_ind, 4), "correlation_lift": round(pj / p_ind, 3),
+                "trust": {"legs": len(legs), "legs_in_calibrated_prop_band": calibrated,
+                          "touchdown_legs": sum(l["kind"] == "atd" for l in legs), "game_legs": sum(l["kind"] == "game" for l in legs),
+                          "score": round(sl["score"], 3)}}
+
+    def overlap(a, b):
+        la, lb = {l["label"] for l in a["legs"]}, {l["label"] for l in b["legs"]}
+        return len(la & lb) / min(len(la), len(lb))
+
+    def choose(cands, label, lo, hi, ok, max_tries=12):
+        """The best-scoring slip that still lands in the range once priced with the full simulation."""
+        tried = 0
+        for s_ in cands:
+            if not ok(s_):
+                continue
+            done = finish(s_, label)
+            tried += 1
+            if lo <= fair_american(done["p"]) <= hi:
+                return s_, done
+            if tried >= max_tries:
+                break
+        return None, None
+
+    uses = {}
+    fresh_legs = lambda x: all(uses.get(leg_key(l), 0) < MAX_USES for l in x["legs"])   # do not hang the whole board on one leg
+
+    def take(s_):
+        for l in s_["legs"]:
+            uses[leg_key(l)] = uses.get(leg_key(l), 0) + 1
+
+    bands = []
+    for label, lo, hi, max_legs in SNIPER_BANDS:
+        inband = sorted([s_ for s_ in slips if lo - 15 <= s_["fair"] <= hi + 15 and len(s_["legs"]) <= max_legs], key=lambda s_: -s_["score"])
+        raw, done = [], []
+        for script in ("favourite", "underdog"):   # the two variations share no legs
+            s_, d_ = choose(inband, label, lo, hi, lambda x: x["script"] == script and fresh_legs(x) and all(overlap(x, y) == 0 for y in raw))
+            if s_:
+                raw.append(s_); done.append(d_); take(s_)
+        if len(raw) < 2:   # one script had nothing: take the next best slip that is genuinely different
+            s_, d_ = choose(inband, label, lo, hi, lambda x: fresh_legs(x) and all(overlap(x, y) <= 0.34 for y in raw))
+            if s_:
+                raw.append(s_); done.append(d_); take(s_)
+        bands.append({"label": label, "lottery": False, "slips": done})
+    for label, lo, hi in LOTTERY:
+        inband = sorted([s_ for s_ in slips if lo - 60 <= s_["fair"] <= hi + 60], key=lambda s_: -s_["score"])
+        # a lottery slip is always offered when one exists, so the reuse limit is looser here
+        loose = lambda x: all(uses.get(leg_key(l), 0) < MAX_USES + 2 for l in x["legs"])
+        s_, d_ = choose(inband, label, lo, hi, fresh_legs, 25)
+        if not s_:
+            s_, d_ = choose(inband, label, lo, hi, loose, 40)
+        if s_:
+            take(s_)
+        bands.append({"label": label, "lottery": True, "slips": [d_] if d_ else []})
+    return {"game_id": g.game_id, "away": g.away, "home": g.home, "gameday": g.gameday, "slips_considered": len(slips), "bands": bands}
+
+
+
 # ----------------------------------------------------------------------------- this week
 
 def reasons(g, side_home: bool, model, labels):
@@ -969,7 +1169,7 @@ def main():
     if D:
         atd_corr, leg_corr = D["corr"]["atd"], D["corr"]["legs"]
         MK = {"carries": "carries", "rush_yds": "rushing yards", "rec": "receptions", "rec_yds": "receiving yards",
-              "pass_att": "pass attempts", "pass_yds": "passing yards"}
+              "pass_att": "pass attempts", "pass_yds": "passing yards", "pass_td": "passing touchdowns"}
         ints = {(x["game_id"], x["team"]): x for x in out["interceptions"]}
 
         def game_rho(player_leg, o):
@@ -1034,6 +1234,11 @@ def main():
             return {"kind": "prop", "mk": mk, "k": int(k_), "p": float(p_), "team": player["team"], "pos": player["pos"],
                     "player_id": player["id"], "game": player["game"], "label": f"{player['name']} {int(k_)}+ {MK[mk]}"}
 
+        out["snipers"] = []
+        # Odds Snipers are built for the next game day (or every game with GE_SNIPER_GAMES=all)
+        open_games = up[up.checks_complete & ~up.game_id.isin(hold_games)]
+        first_day = open_games.gameday.min() if len(open_games) else None
+        sniper_ids = set(open_games.game_id if os.environ.get("GE_SNIPER_GAMES") == "all" else open_games[open_games.gameday == first_day].game_id)
         for g in up.itertuples(index=False):
             if not g.checks_complete or g.game_id in hold_games:
                 continue   # no hybrid without the matchup checks, or while the game is on hold
@@ -1068,6 +1273,9 @@ def main():
             def game_leg(market):
                 l = next((x for x in all_legs[market] if x["game_id"] == g.game_id), None)
                 return None if l is None else {**l, "kind": "game"}
+
+            if g.game_id in sniper_ids:
+                out["snipers"].append(build_snipers(g, roster, rho, matchup, td_leg, alt_ladder, D, MK))
 
             ml, sp, tot = game_leg("ml"), game_leg("spread"), game_leg("total")
             add = lambda kind, legs, why: out["hybrids"].append(build(kind, legs, why)) if all(legs) and len(legs) >= 2 else None
@@ -1133,7 +1341,14 @@ def main():
     print("INT:", [(x["qb"], x["p"], x["recommended"]) for x in out["interceptions"][:6]])
     from collections import Counter
     print("hybrids per game:", Counter(Counter(h["game_id"] for h in out["hybrids"]).values()), Counter(h["kind"] for h in out["hybrids"]))
-    for h in [h for h in out["hybrids"] if h["game_id"].endswith("WAS_NYG")]:
+    for sn in out.get("snipers", []):
+        print("ODDS SNIPERS", sn["game_id"], "slips considered:", sn["slips_considered"])
+        for b_ in sn["bands"]:
+            for sl in b_["slips"]:
+                print(f"  {b_['label']:22} {sl['script']:9} {sl['p']:.3f} fair {sl['fair_price']:+d} lift {sl['correlation_lift']:.2f} | " + " + ".join(l["label"] for l in sl["legs"]))
+            if not b_["slips"]:
+                print(f"  {b_['label']:22} no slip worth building")
+    for h in [h for h in out["hybrids"] if h["game_id"].endswith("WAS_NYG")][:0]:
         print(h["kind"], [l["label"] for l in h["legs"]], h["p"], h["p_if_independent"], h["correlation_lift"])
 
 

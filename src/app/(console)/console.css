@@ -416,3 +416,10 @@
   color: var(--warn);
   border-color: var(--warn);
 }
+
+.ticket .t-price {
+  color: var(--paper-muted);
+}
+.ticket .t-price input {
+  width: 84px;
+}

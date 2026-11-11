@@ -857,3 +857,164 @@ export function AlertsTab() {
     </>
   );
 }
+
+type SniperSlip = {
+  band: string;
+  script: string;
+  read: string;
+  legs: HybridLeg[];
+  p: number;
+  fair_price: number;
+  p_if_independent: number;
+  correlation_lift: number;
+  trust: { legs: number; legs_in_calibrated_prop_band: number; touchdown_legs: number; game_legs: number };
+};
+type SniperBand = { label: string; lottery: boolean; slips: SniperSlip[] };
+type SniperGame = { game_id: string; away: string; home: string; gameday: string; slips_considered: number; bands: SniperBand[] };
+
+function SniperCard({ game, s, prices }: { game: string; s: SniperSlip; prices: Prices }) {
+  const key = `sniper|${game}|${s.band}|${s.script}`;
+  const yours = prices[key];
+  const ev = yours !== undefined ? s.p * toDecimal(yours) - 1 : null;
+  const playerLegs = s.legs.filter((l) => (l.kind === "atd" || l.kind === "prop") && l.player_id);
+  const gameLegs = s.legs.filter((l) => l.kind === "game");
+  return (
+    <div className="ticket">
+      <div className="top">
+        <span className="legsn" style={{ fontSize: 17 }}>
+          {s.read}
+        </span>
+        <span className="fair num">fair {am(s.fair_price)}</span>
+      </div>
+      <div className="pct">
+        {pct(s.p)} to hit · {s.legs.length} legs
+      </div>
+      <ol>
+        {s.legs.map((l) => (
+          <li key={l.label}>
+            {l.label} <span>{pct(l.p, 0)}</span>{" "}
+            {l.matchup && l.matchup !== "even" && (
+              <span className={`pill ${verdictPill(l.matchup)}`}>matchup {l.matchup}</span>
+            )}
+          </li>
+        ))}
+      </ol>
+      <span className="sub">
+        {s.trust.legs_in_calibrated_prop_band} of {s.legs.length} legs are props in the range that has hit as priced
+        {s.trust.touchdown_legs ? `, ${s.trust.touchdown_legs} touchdown` : ""}
+        {s.correlation_lift >= 1.05 ? `; legs help each other (×${s.correlation_lift.toFixed(2)})` : ""}.
+      </span>
+      <label className="t-price">
+        <span>bet365 price for this slip</span>
+        <input
+          id={`price-${key}`}
+          inputMode="numeric"
+          placeholder={am(s.fair_price)}
+          defaultValue={yours ?? ""}
+          onBlur={(e) => {
+            const n = Number(e.target.value.replace("−", "-").replace("+", ""));
+            setPrice(key, e.target.value.trim() !== "" && Number.isFinite(n) && Math.abs(n) >= 100 ? n : null);
+          }}
+        />
+      </label>
+      <span className={`pill ${ev === null ? "neutral" : ev > 0.02 ? "good" : ev < -0.02 ? "bad" : "neutral"}`}>
+        {ev === null
+          ? `Bet it only if bet365 pays more than ${am(s.fair_price)}`
+          : ev > 0.02
+            ? `Value: ${signedPct(ev)} at ${am(yours!)}`
+            : ev < -0.02
+              ? `No value: ${am(yours!)} is short of fair ${am(s.fair_price)} by ${pct(-ev)}`
+              : `About fair at ${am(yours!)}`}
+      </span>
+      <button
+        className="btn primary"
+        onClick={() =>
+          window.appendLegs?.(
+            playerLegs.map((l) => ({ id: l.player_id!, mk: l.kind === "atd" ? "atd" : l.mk!, k: l.kind === "atd" ? null : l.k! })),
+            `Odds Sniper ${s.band}`,
+          )
+        }
+      >
+        {gameLegs.length ? "Add player legs to slip" : "Add all legs to slip"}
+      </button>
+      {gameLegs.length > 0 && (
+        <span className="sub">Add at your book: {gameLegs.map((l) => l.label).join(", ")}.</span>
+      )}
+    </div>
+  );
+}
+
+export function SnipersTab() {
+  const games = ((data as unknown as { snipers?: SniperGame[] }).snipers ?? []);
+  const prices = useSyncExternalStore(subscribePrices, readPrices, () => NO_PRICES);
+  return (
+    <>
+      <section className="panel">
+        <div className="section-head">
+          <div>
+            <h2>Odds Snipers</h2>
+            <p className="sub">
+              Slips built to land in a set price range. In each range there are two that read the
+              game in opposite ways and share no legs, so one of them is live whichever way it goes.
+              Legs can be props, touchdowns, the moneyline, a spread or the total.
+            </p>
+          </div>
+        </div>
+        <div className="warns">
+          <div>
+            The ranges are the model&apos;s fair odds, not bet365&apos;s. Every slip in a range has
+            about the same chance by definition, so they are ranked by how far the number can be
+            trusted: fewer legs, props in the range that has hit as priced, matchups in favour, and
+            nobody with an open roster alert. Type bet365&apos;s price on a slip to see if it pays
+            more than fair. These have not been graded yet; grading starts with this week.
+          </div>
+        </div>
+      </section>
+      {games.length === 0 && (
+        <section className="panel">
+          <p className="empty">No game is ready for Odds Snipers. A game on hold for a roster alert is not built.</p>
+        </section>
+      )}
+      {games.map((g) => (
+        <div key={g.game_id} style={{ display: "contents" }}>
+          <section className="panel">
+            <div className="section-head">
+              <div>
+                <h2>
+                  {g.away} @ {g.home}
+                </h2>
+                <p className="sub">
+                  {g.gameday} · chosen from {g.slips_considered.toLocaleString("en-CA")} possible slips
+                </p>
+              </div>
+            </div>
+          </section>
+          {g.bands.map((b) => (
+            <section className="panel" key={b.label}>
+              <div className="section-head">
+                <div>
+                  <h2>{b.label}</h2>
+                  {b.lottery && (
+                    <p className="sub">
+                      A long shot by design. Expect this to lose far more often than it wins, and
+                      stake it that way.
+                    </p>
+                  )}
+                </div>
+              </div>
+              {b.slips.length ? (
+                <div className="ladder">
+                  {b.slips.map((s) => (
+                    <SniperCard key={s.script + s.band} game={g.game_id} s={s} prices={prices} />
+                  ))}
+                </div>
+              ) : (
+                <p className="empty">No slip worth building in this range for this game.</p>
+              )}
+            </section>
+          ))}
+        </div>
+      ))}
+    </>
+  );
+}

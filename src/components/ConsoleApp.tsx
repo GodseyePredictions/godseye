@@ -19,7 +19,7 @@ import {
 } from "@/lib/bets";
 import { checkSlip } from "@/lib/slip";
 import { ScriptsTab } from "./ScriptsTab";
-import { AlertsTab, HybridsTab, MarketsTab } from "./MarketsTab";
+import { AlertsTab, HybridsTab, MarketsTab, SnipersTab } from "./MarketsTab";
 import marketData from "../../model/output/game_markets.json";
 
 // Legs handed from a model ticket to the Paste a slip tab.
@@ -29,7 +29,7 @@ import backtest from "../../model/output/backtest.json";
 
 /* The eight console tabs are drawn by /console/app.js into #main.
    The four tracker tabs below are drawn by React into #extra. */
-const EXTRA_TABS = ["markets", "hybrids", "paste", "bets", "report", "alerts", "scripts", "games"] as const;
+const EXTRA_TABS = ["snipers", "markets", "hybrids", "paste", "bets", "report", "alerts", "scripts", "games"] as const;
 type ExtraTab = (typeof EXTRA_TABS)[number];
 
 declare global {
@@ -186,6 +186,10 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             <Icon d="M4 6h16M4 12h16M4 18h10" />
             ATD board
           </a>
+          <a href="#snipers" data-tab="snipers">
+            <Icon d="M12 2v4M12 18v4M2 12h4M18 12h4" circle={6} />
+            Odds Snipers
+          </a>
           <a href="#markets" data-tab="markets">
             <Icon d="M4 18l5-6 4 3 7-9M15 6h5v5" />
             Game parlays
@@ -260,6 +264,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
                 }}
               />
             )}
+            {extra === "snipers" && <SnipersTab />}
             {extra === "hybrids" && <HybridsTab />}
             {extra === "paste" && (
               <PasteTab

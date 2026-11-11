@@ -72,3 +72,9 @@ Weekly order: `fetch_data.py`, `features.py`, `matchups.py`, `fetch_odds.py`, `g
 `python3 run_week.py` runs every step in order. Run it after each injury report posts and again when inactives are announced.
 
 `rebuild_console.py` runs after the audit. Withdrawing tickets would leave a game empty in the console, so it rebuilds that game's Game SGP, Script SGP ladder and hybrids, and props tickets from the players who are still eligible, using the console's own prop ladders and correlations, and writes `../public/console/rebuild-update.js`.
+
+### Odds Snipers
+
+`game_markets.py` also builds Odds Snipers for the next game day (set `GE_SNIPER_GAMES=all` for every open game; each game takes two to three minutes). For each game it searches about 100,000 combinations of props, touchdowns, the moneyline, spreads (main and alternative) and the total, and keeps slips whose fair price lands in set ranges: +150 to +200, +200 to +350, +350 to +500, +500 to +700, +700 to +1200, and lottery slips near +1200, +1500 and +2000.
+
+Each range gets two slips that read the game in opposite ways and share no legs. Since every slip in a range has about the same chance, they are ranked by trust: fewer legs, props in the range that has hit as priced, matchup checks in favour, and legs that move together. Rules: at most two legs per player and one per stat family, one side leg and one total leg at most, every slip needs a leg tied to its script, no leg is leaned on by more than three slips, and nobody with an open roster alert is used. Ranges are the model's fair odds; the app takes the book's price per slip and reports the value. Nothing here has been graded yet.
