@@ -22,8 +22,8 @@ export default function Home() {
           <a href="#pricing" className="hide-sm">
             Pricing
           </a>
-          <Link href="/sign-up" className="btn btn-primary btn-sm">
-            Create free account
+          <Link href="/app" className="btn btn-primary btn-sm">
+            Open the app
           </Link>
         </nav>
       </header>
@@ -40,8 +40,8 @@ export default function Home() {
               perform.
             </p>
             <div className="actions">
-              <Link href="/sign-up" className="btn btn-primary">
-                Create free account
+              <Link href="/app" className="btn btn-primary">
+                Open the app
               </Link>
               <a href="#how" className="btn btn-ghost">
                 See what it does
@@ -179,8 +179,8 @@ export default function Home() {
                   <li>Basic win and loss record</li>
                   <li>5 advisor chats each month</li>
                 </ul>
-                <Link href="/sign-up" className="btn btn-ghost">
-                  Create free account
+                <Link href="/app" className="btn btn-ghost">
+                  Open the app
                 </Link>
               </div>
               <div className="plan pro">
@@ -194,8 +194,8 @@ export default function Home() {
                   <li>Best-line check on every leg</li>
                   <li>Closing line tracking</li>
                 </ul>
-                <Link href="/sign-up" className="btn">
-                  Create free account
+                <Link href="/app" className="btn">
+                  Open the app
                 </Link>
               </div>
             </div>
