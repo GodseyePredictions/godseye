@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --night: #0c0c0d;
-  --night-deep: #000000;
-  --panel: #17171a;
-  --line: #303036;
-  --flood: #e4002b; /* brand red, for fills */
-  --flood-text: #ff3d55; /* lighter red, readable as text on black */
-  --chalk: #f5f3ee;
-  --dim: #b4b4bb;
-  --win: #f5f3ee;
-  --loss: #ff3d55;
+  --night: #04382c; /* deep emerald */
+  --night-deep: #022219;
+  --panel: #0a4a3a;
+  --line: #1f6b57;
+  --flood: #d9ab2f; /* gold, for fills */
+  --flood-text: #f0cc62; /* lighter gold, readable as text on emerald */
+  --chalk: #ffffff;
+  --dim: #bfdcd2;
+  --win: #f0cc62;
+  --loss: #ff8a7a;
 }
 
 * {
@@ -106,10 +106,10 @@ a {
 .btn-primary,
 .top nav a.btn-primary {
   background: var(--flood);
-  color: #fff;
+  color: var(--night-deep);
 }
 .btn-primary:hover {
-  background: #ff1f47;
+  background: var(--flood-text);
 }
 .btn-ghost {
   border-color: var(--line);
@@ -350,7 +350,7 @@ a {
 }
 .plan.pro {
   background: var(--flood);
-  color: #fff;
+  color: var(--night-deep);
   border-color: var(--flood);
 }
 .plan h3 {
@@ -376,10 +376,10 @@ a {
 }
 .plan li {
   padding: 8px 0;
-  border-top: 1px solid rgb(255 255 255 / 0.22);
+  border-top: 1px solid rgb(120 140 130 / 0.4);
 }
 .plan.pro .btn {
-  background: #000;
+  background: var(--night-deep);
   color: var(--chalk);
 }
 
