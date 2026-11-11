@@ -93,6 +93,8 @@ function subscribeHash(cb: () => void) {
   return () => window.removeEventListener("hashchange", cb);
 }
 const readHash = () => window.location.hash.slice(1);
+/** Tab links are "#sgp" on the site and "#nba-sgp" in the single-file preview, where NFL and NBA share one page. */
+let PFX = "";
 
 const pct = (p: number | null | undefined, d = 0) => (p == null ? "n/a" : `${(p * 100).toFixed(d)}%`);
 const signed = (v: number | null | undefined) => (v == null ? "n/a" : `${v > 0 ? "+" : ""}${v.toFixed(1)}`);
@@ -278,7 +280,7 @@ function HomeTab() {
         </div>
         <div className="nba-grid">
           {slate.games.map((g) => (
-            <a className="nba-card" href="#scripts" key={g.id}>
+            <a className="nba-card" href={`#${PFX}scripts`} key={g.id}>
               <h3>
                 {g.away} @ {g.home}
               </h3>
@@ -692,8 +694,10 @@ function ModelTab() {
   );
 }
 
-export default function NbaApp() {
-  const hash = useSyncExternalStore(subscribeHash, readHash, () => "");
+export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
+  PFX = prefix;
+  const raw_hash = useSyncExternalStore(subscribeHash, readHash, () => "");
+  const hash = raw_hash.startsWith(prefix) ? raw_hash.slice(prefix.length) : "";
   const tab: Tab = (TABS as readonly string[]).includes(hash) ? (hash as Tab) : "home";
   const nav: [Tab, string, string][] = [
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
@@ -734,7 +738,7 @@ export default function NbaApp() {
             <span key={id} style={{ display: "contents" }}>
               {i === 1 && <span className="navgrp">Picks</span>}
               {i === 6 && <span className="navgrp">Model</span>}
-              <a href={`#${id}`} aria-current={tab === id ? "page" : "false"}>
+              <a href={`#${prefix}${id}`} aria-current={tab === id ? "page" : "false"}>
                 <Icon d={d} />
                 {label}
               </a>

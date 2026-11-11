@@ -30,3 +30,9 @@ The first command rewrites `public/console/data.js` (the week's model data), `pu
 Logins, subscriptions, the AI advisor chat, live odds and sportsbook sync. Bets are stored in the visitor's browser until accounts exist.
 
 The separate team-rating model in `model/` is documented in `model/README.md`.
+
+## The shareable single-file app
+
+    node scripts/build-preview.mjs godseye-preview.html
+
+builds the landing page, the NFL console and the NBA side into one HTML file (the Claude artifact). In that file the three share one page: no address is the landing page, `#home`, `#picks` and the other console tabs are NFL, and `#nba-home`, `#nba-sgp` and so on are NBA. Rebuild and republish it after a new NFL import or a new NBA slate.
