@@ -3,7 +3,7 @@
 A Next.js site with two sections:
 
 - `/` is the marketing page (`src/app/(site)`).
-- `/app` is the product (`src/app/(console)`): the God's Eye console (algorithm picks, game SGPs, ATD board, SGP builder, quick add, slip audit, model and rules) plus tracker tabs (paste a slip, my bets, my report, game predictions).
+- `/app` is the product (`src/app/(console)`): the God's Eye console (algorithm picks, game SGPs, ATD board, SGP builder, quick add, slip audit, model and rules), game parlays and hybrid SGPs from the game-market model, game scripts, and tracker tabs (paste a slip, my bets, my report).
 
 ## Run it
 

@@ -1,0 +1,5484 @@
+{
+ "as_of": {
+  "season": 2026,
+  "week": 10,
+  "trained_on": "2015-2026",
+  "team_games": 6328
+ },
+ "scorecard": {
+  "test_seasons": "2020-2026",
+  "games": 1829,
+  "margin_miss_points": {
+   "fundamentals_only": 10.097,
+   "market_line": 9.746,
+   "blend": 9.759
+  },
+  "total_miss_points": {
+   "fundamentals_only": 10.522,
+   "market_line": 10.332,
+   "blend": 10.334
+  },
+  "weight_on_fundamentals": {
+   "margin": 0.073,
+   "total": 0.13
+  },
+  "moneyline_log_loss": {
+   "model": 0.6089,
+   "market": 0.6082,
+   "games": 1823
+  },
+  "moneyline_singles": [
+   {
+    "min_ev": -1.0,
+    "bets": 1823,
+    "win_rate": 0.4909,
+    "break_even": 0.5026,
+    "roi": -0.0293,
+    "z": -0.99
+   },
+   {
+    "min_ev": 0.0,
+    "bets": 794,
+    "win_rate": 0.4081,
+    "break_even": 0.4185,
+    "roi": -0.0311,
+    "z": -0.6
+   },
+   {
+    "min_ev": 0.02,
+    "bets": 466,
+    "win_rate": 0.3777,
+    "break_even": 0.3687,
+    "roi": 0.0088,
+    "z": 0.4
+   },
+   {
+    "min_ev": 0.05,
+    "bets": 185,
+    "win_rate": 0.3027,
+    "break_even": 0.3147,
+    "roi": -0.0714,
+    "z": -0.35
+   }
+  ],
+  "moneyline_value_bets_split": {
+   "underdogs": [
+    {
+     "min_ev": 0.0,
+     "bets": 504,
+     "win_rate": 0.3175,
+     "break_even": 0.3108,
+     "roi": -0.0043,
+     "z": 0.32
+    }
+   ],
+   "favourites": [
+    {
+     "min_ev": 0.0,
+     "bets": 290,
+     "win_rate": 0.5655,
+     "break_even": 0.6057,
+     "roi": -0.0776,
+     "z": -1.4
+    }
+   ]
+  },
+  "spread_singles": [
+   {
+    "min_edge": 0.0,
+    "bets": 1790,
+    "win_rate": 0.4866,
+    "break_even": 0.5188,
+    "roi": -0.0621,
+    "z": -2.73
+   },
+   {
+    "min_edge": 0.01,
+    "bets": 616,
+    "win_rate": 0.4968,
+    "break_even": 0.5179,
+    "roi": -0.0401,
+    "z": -1.05
+   },
+   {
+    "min_edge": 0.02,
+    "bets": 186,
+    "win_rate": 0.4624,
+    "break_even": 0.5171,
+    "roi": -0.1056,
+    "z": -1.49
+   },
+   {
+    "min_edge": 0.03,
+    "bets": 46,
+    "win_rate": 0.5435,
+    "break_even": 0.518,
+    "roi": 0.0484,
+    "z": 0.35
+   }
+  ],
+  "total_singles": [
+   {
+    "min_edge": 0.0,
+    "bets": 1811,
+    "win_rate": 0.4992,
+    "break_even": 0.5192,
+    "roi": -0.0386,
+    "z": -1.71
+   },
+   {
+    "min_edge": 0.01,
+    "bets": 82,
+    "win_rate": 0.4268,
+    "break_even": 0.5241,
+    "roi": -0.1845,
+    "z": -1.76
+   },
+   {
+    "min_edge": 0.02,
+    "bets": 11,
+    "win_rate": 0.3636,
+    "break_even": 0.5241,
+    "roi": -0.3108,
+    "z": -1.07
+   },
+   {
+    "min_edge": 0.03,
+    "bets": 1,
+    "win_rate": 0.0,
+    "break_even": 0.5349,
+    "roi": -1.0,
+    "z": -1.07
+   }
+  ],
+  "tickets": {
+   "ml": [
+    {
+     "legs": 4,
+     "weeks": 122,
+     "hit": 8,
+     "hits_expected": 6.2,
+     "roi": 0.54
+    },
+    {
+     "legs": 6,
+     "weeks": 116,
+     "hit": 1,
+     "hits_expected": 1.5,
+     "roi": -0.232
+    },
+    {
+     "legs": 8,
+     "weeks": 108,
+     "hit": 0,
+     "hits_expected": 0.4,
+     "roi": -1.0
+    }
+   ],
+   "spread": [
+    {
+     "legs": 4,
+     "weeks": 128,
+     "hit": 12,
+     "hits_expected": 8.8,
+     "roi": 0.337
+    },
+    {
+     "legs": 6,
+     "weeks": 122,
+     "hit": 0,
+     "hits_expected": 2.2,
+     "roi": -1.0
+    },
+    {
+     "legs": 8,
+     "weeks": 116,
+     "hit": 0,
+     "hits_expected": 0.5,
+     "roi": -1.0
+    }
+   ],
+   "total": [
+    {
+     "legs": 4,
+     "weeks": 128,
+     "hit": 9,
+     "hits_expected": 8.2,
+     "roi": 0.024
+    },
+    {
+     "legs": 6,
+     "weeks": 122,
+     "hit": 1,
+     "hits_expected": 2.0,
+     "roi": -0.581
+    },
+    {
+     "legs": 8,
+     "weeks": 116,
+     "hit": 0,
+     "hits_expected": 0.5,
+     "roi": -1.0
+    }
+   ]
+  }
+ },
+ "interception_scorecard": {
+  "test_seasons": "2020-2026",
+  "starts": 3564,
+  "base_rate": 0.502,
+  "log_loss": {
+   "model": 0.6892,
+   "always_base_rate": 0.6936
+  },
+  "calibration": [
+   {
+    "forecast_range": "0%-42%",
+    "starts": 195,
+    "average_forecast": 0.398,
+    "actually_threw_one": 0.359
+   },
+   {
+    "forecast_range": "42%-47%",
+    "starts": 716,
+    "average_forecast": 0.449,
+    "actually_threw_one": 0.475
+   },
+   {
+    "forecast_range": "47%-52%",
+    "starts": 1386,
+    "average_forecast": 0.496,
+    "actually_threw_one": 0.491
+   },
+   {
+    "forecast_range": "52%-57%",
+    "starts": 964,
+    "average_forecast": 0.542,
+    "actually_threw_one": 0.534
+   },
+   {
+    "forecast_range": "57%-62%",
+    "starts": 255,
+    "average_forecast": 0.588,
+    "actually_threw_one": 0.635
+   },
+   {
+    "forecast_range": "62%-100%",
+    "starts": 48,
+    "average_forecast": 0.638,
+    "actually_threw_one": 0.479
+   }
+  ]
+ },
+ "correlations": {
+  "n_player_games": 31864,
+  "atd": {
+   "QB": {
+    "won": 0.21,
+    "cover": 0.149,
+    "over": 0.259,
+    "n": 1869
+   },
+   "RB": {
+    "won": 0.275,
+    "cover": 0.248,
+    "over": 0.236,
+    "n": 11671
+   },
+   "TE": {
+    "won": 0.196,
+    "cover": 0.152,
+    "over": 0.256,
+    "n": 4710
+   },
+   "WR": {
+    "won": 0.214,
+    "cover": 0.188,
+    "over": 0.257,
+    "n": 13614
+   }
+  },
+  "int": {
+   "own_team_won": -0.403,
+   "own_team_cover": -0.38,
+   "over": -0.02,
+   "n": 5686
+  }
+ },
+ "games": [
+  {
+   "game_id": "2026_10_BUF_NYJ",
+   "gameday": "2026-11-15",
+   "away": "BUF",
+   "home": "NYJ",
+   "spread_home": 8.5,
+   "total_line": 50.5,
+   "model_home_margin": -8.7,
+   "model_total": 50.1,
+   "fundamentals_home_margin": -10.8,
+   "fundamentals_total": 47.8,
+   "ml": {
+    "game_id": "2026_10_BUF_NYJ",
+    "market": "ml",
+    "team": "BUF",
+    "opp": "NYJ",
+    "home_side": false,
+    "label": "BUF moneyline",
+    "p": 0.7795,
+    "price": -395,
+    "market_p": 0.7659,
+    "edge": 0.0136,
+    "ev": -0.0232,
+    "dog": false,
+    "model_number": 8.7,
+    "note": "Model 77.9% to win; the price implies 76.6% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 7.9
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 3.0
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 2.8
+     }
+    ],
+    "against": [
+     {
+      "factor": "time of possession",
+      "points": -0.9
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_BUF_NYJ",
+    "market": "spread",
+    "team": "BUF",
+    "opp": "NYJ",
+    "home_side": false,
+    "line": -8.5,
+    "label": "BUF -8.5",
+    "p": 0.5052,
+    "price": -110,
+    "market_p": 0.5,
+    "edge": 0.0052,
+    "ev": -0.0355,
+    "dog": false,
+    "model_number": 8.7,
+    "note": "Model has BUF by +8.7; the line has them by +8.5.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 7.9
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 3.0
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 2.8
+     }
+    ],
+    "against": [
+     {
+      "factor": "time of possession",
+      "points": -0.9
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_BUF_NYJ",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": false,
+    "line": 50.5,
+    "label": "BUF @ NYJ under 50.5",
+    "p": 0.5108,
+    "price": -105,
+    "market_p": 0.5,
+    "edge": 0.0108,
+    "ev": -0.0027,
+    "dog": false,
+    "model_number": 50.1,
+    "note": "Model total 50.1 against a line of 50.5 (-0.4).",
+    "for": [
+     {
+      "factor": "wind",
+      "points": 2.2
+     },
+     {
+      "factor": "pace of play",
+      "points": 0.7
+     }
+    ],
+    "against": [
+     {
+      "factor": "both teams' scoring and points allowed",
+      "points": -1.9
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_CAR_NO",
+   "gameday": "2026-11-15",
+   "away": "CAR",
+   "home": "NO",
+   "spread_home": -2.5,
+   "total_line": 48.5,
+   "model_home_margin": 2.4,
+   "model_total": 48.7,
+   "fundamentals_home_margin": 1.2,
+   "fundamentals_total": 50.4,
+   "ml": {
+    "game_id": "2026_10_CAR_NO",
+    "market": "ml",
+    "team": "NO",
+    "opp": "CAR",
+    "home_side": true,
+    "label": "NO moneyline",
+    "p": 0.5847,
+    "price": -135,
+    "market_p": 0.5514,
+    "edge": 0.0332,
+    "ev": 0.0177,
+    "dog": false,
+    "model_number": 2.4,
+    "note": "Model 58.5% to win; the price implies 55.1% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": 0.6
+     }
+    ],
+    "against": []
+   },
+   "spread": {
+    "game_id": "2026_10_CAR_NO",
+    "market": "spread",
+    "team": "CAR",
+    "opp": "NO",
+    "home_side": false,
+    "line": 2.5,
+    "label": "CAR +2.5",
+    "p": 0.503,
+    "price": -112,
+    "market_p": 0.5,
+    "edge": 0.003,
+    "ev": -0.048,
+    "dog": true,
+    "model_number": -2.4,
+    "note": "Model has CAR by -2.4; the line has them by -2.5.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 0.3
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 0.3
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": -0.6
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_CAR_NO",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 48.5,
+    "label": "CAR @ NO over 48.5",
+    "p": 0.5073,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0073,
+    "ev": -0.0515,
+    "dog": false,
+    "model_number": 48.7,
+    "note": "Model total 48.7 against a line of 48.5 (+0.2).",
+    "for": [
+     {
+      "factor": "wind",
+      "points": 1.6
+     },
+     {
+      "factor": "penalties",
+      "points": 0.9
+     },
+     {
+      "factor": "long drives",
+      "points": 0.7
+     }
+    ],
+    "against": []
+   }
+  },
+  {
+   "game_id": "2026_10_HOU_CLE",
+   "gameday": "2026-11-15",
+   "away": "HOU",
+   "home": "CLE",
+   "spread_home": 5.5,
+   "total_line": 39.5,
+   "model_home_margin": -5.5,
+   "model_total": 39.7,
+   "fundamentals_home_margin": -5.5,
+   "fundamentals_total": 41.0,
+   "ml": {
+    "game_id": "2026_10_HOU_CLE",
+    "market": "ml",
+    "team": "HOU",
+    "opp": "CLE",
+    "home_side": false,
+    "label": "HOU moneyline",
+    "p": 0.6874,
+    "price": -230,
+    "market_p": 0.669,
+    "edge": 0.0184,
+    "ev": -0.0137,
+    "dog": false,
+    "model_number": 5.5,
+    "note": "Model 68.7% to win; the price implies 66.9% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 4.3
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 2.1
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 1.8
+     }
+    ],
+    "against": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": -0.4
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_HOU_CLE",
+    "market": "spread",
+    "team": "CLE",
+    "opp": "HOU",
+    "home_side": true,
+    "line": 5.5,
+    "label": "CLE +5.5",
+    "p": 0.5001,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0001,
+    "ev": -0.065,
+    "dog": true,
+    "model_number": -5.5,
+    "note": "Model has CLE by -5.5; the line has them by -5.5.",
+    "personnel": "Deshaun Watson at quarterback rates +0.02 EPA per play against CLE's recent starters.",
+    "for": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": 0.4
+     },
+     {
+      "factor": "penalties",
+      "points": 0.4
+     },
+     {
+      "factor": "time of possession",
+      "points": 0.3
+     }
+    ],
+    "against": [
+     {
+      "factor": "results-based team rating",
+      "points": -4.3
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_HOU_CLE",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 39.5,
+    "label": "HOU @ CLE over 39.5",
+    "p": 0.5061,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0061,
+    "ev": -0.0539,
+    "dog": false,
+    "model_number": 39.7,
+    "note": "Model total 39.7 against a line of 39.5 (+0.2).",
+    "for": [
+     {
+      "factor": "penalties",
+      "points": 1.0
+     },
+     {
+      "factor": "quarterback changes",
+      "points": 0.7
+     },
+     {
+      "factor": "expected play count",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "combined offensive efficiency",
+      "points": -2.0
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_JAX_TEN",
+   "gameday": "2026-11-15",
+   "away": "JAX",
+   "home": "TEN",
+   "spread_home": 10.5,
+   "total_line": 46.5,
+   "model_home_margin": -10.7,
+   "model_total": 46.3,
+   "fundamentals_home_margin": -12.6,
+   "fundamentals_total": 44.8,
+   "ml": {
+    "game_id": "2026_10_JAX_TEN",
+    "market": "ml",
+    "team": "JAX",
+    "opp": "TEN",
+    "home_side": false,
+    "label": "JAX moneyline",
+    "p": 0.8282,
+    "price": -535,
+    "market_p": 0.8082,
+    "edge": 0.0201,
+    "ev": -0.017,
+    "dog": false,
+    "model_number": 10.7,
+    "note": "Model 82.8% to win; the price implies 80.8% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 7.9
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 3.2
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 3.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "time of possession",
+      "points": -0.7
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_JAX_TEN",
+    "market": "spread",
+    "team": "JAX",
+    "opp": "TEN",
+    "home_side": false,
+    "line": -10.5,
+    "label": "JAX -10.5",
+    "p": 0.5049,
+    "price": -108,
+    "market_p": 0.5,
+    "edge": 0.0049,
+    "ev": -0.0276,
+    "dog": false,
+    "model_number": 10.7,
+    "note": "Model has JAX by +10.7; the line has them by +10.5.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 7.9
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 3.2
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 3.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "time of possession",
+      "points": -0.7
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_JAX_TEN",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": false,
+    "line": 46.5,
+    "label": "JAX @ TEN under 46.5",
+    "p": 0.5066,
+    "price": -110,
+    "market_p": 0.5,
+    "edge": 0.0066,
+    "ev": -0.0329,
+    "dog": false,
+    "model_number": 46.3,
+    "note": "Model total 46.3 against a line of 46.5 (-0.2).",
+    "for": [
+     {
+      "factor": "pace of play",
+      "points": 1.6
+     },
+     {
+      "factor": "wind",
+      "points": 0.6
+     },
+     {
+      "factor": "both teams' scoring and points allowed",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "penalties",
+      "points": -1.0
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_KC_ATL",
+   "gameday": "2026-11-15",
+   "away": "KC",
+   "home": "ATL",
+   "spread_home": 3.5,
+   "total_line": 45.5,
+   "model_home_margin": -3.7,
+   "model_total": 45.4,
+   "fundamentals_home_margin": -6.2,
+   "fundamentals_total": 44.8,
+   "ml": {
+    "game_id": "2026_10_KC_ATL",
+    "market": "ml",
+    "team": "KC",
+    "opp": "ATL",
+    "home_side": false,
+    "label": "KC moneyline",
+    "p": 0.6287,
+    "price": -185,
+    "market_p": 0.6225,
+    "edge": 0.0062,
+    "ev": -0.0315,
+    "dog": false,
+    "model_number": 3.7,
+    "note": "Model 62.9% to win; the price implies 62.2% with the book's margin removed.",
+    "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 3.4
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 1.6
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 1.4
+     }
+    ],
+    "against": []
+   },
+   "spread": {
+    "game_id": "2026_10_KC_ATL",
+    "market": "spread",
+    "team": "KC",
+    "opp": "ATL",
+    "home_side": false,
+    "line": -3.5,
+    "label": "KC -3.5",
+    "p": 0.5061,
+    "price": -102,
+    "market_p": 0.5,
+    "edge": 0.0061,
+    "ev": 0.0022,
+    "dog": false,
+    "model_number": 3.7,
+    "note": "Model has KC by +3.7; the line has them by +3.5.",
+    "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 3.4
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 1.6
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 1.4
+     }
+    ],
+    "against": []
+   },
+   "total": {
+    "game_id": "2026_10_KC_ATL",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": false,
+    "line": 45.5,
+    "label": "KC @ ATL under 45.5",
+    "p": 0.5029,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0029,
+    "ev": -0.0598,
+    "dog": false,
+    "model_number": 45.4,
+    "note": "Model total 45.4 against a line of 45.5 (-0.1).",
+    "for": [
+     {
+      "factor": "pace of play",
+      "points": 1.1
+     },
+     {
+      "factor": "both teams' scoring and points allowed",
+      "points": 1.0
+     },
+     {
+      "factor": "combined passing efficiency",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "long drives",
+      "points": -0.8
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_LAC_BAL",
+   "gameday": "2026-11-16",
+   "away": "LAC",
+   "home": "BAL",
+   "spread_home": -4.5,
+   "total_line": 38.5,
+   "model_home_margin": 4.5,
+   "model_total": 38.8,
+   "fundamentals_home_margin": 4.1,
+   "fundamentals_total": 40.6,
+   "ml": {
+    "game_id": "2026_10_LAC_BAL",
+    "market": "ml",
+    "team": "LAC",
+    "opp": "BAL",
+    "home_side": false,
+    "label": "LAC moneyline",
+    "p": 0.3454,
+    "price": 180,
+    "market_p": 0.3425,
+    "edge": 0.0029,
+    "ev": -0.0328,
+    "dog": true,
+    "model_number": -4.5,
+    "note": "Model 34.5% to win; the price implies 34.3% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": 2.2
+     },
+     {
+      "factor": "interception risk",
+      "points": 0.3
+     }
+    ],
+    "against": [
+     {
+      "factor": "results-based team rating",
+      "points": -1.8
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_LAC_BAL",
+    "market": "spread",
+    "team": "LAC",
+    "opp": "BAL",
+    "home_side": false,
+    "line": 4.5,
+    "label": "LAC +4.5",
+    "p": 0.5008,
+    "price": -112,
+    "market_p": 0.5,
+    "edge": 0.0008,
+    "ev": -0.052,
+    "dog": true,
+    "model_number": -4.5,
+    "note": "Model has LAC by -4.5; the line has them by -4.5.",
+    "for": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": 2.2
+     },
+     {
+      "factor": "interception risk",
+      "points": 0.3
+     }
+    ],
+    "against": [
+     {
+      "factor": "results-based team rating",
+      "points": -1.8
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_LAC_BAL",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 38.5,
+    "label": "LAC @ BAL over 38.5",
+    "p": 0.5083,
+    "price": -110,
+    "market_p": 0.5,
+    "edge": 0.0083,
+    "ev": -0.0297,
+    "dog": false,
+    "model_number": 38.8,
+    "note": "Model total 38.8 against a line of 38.5 (+0.3).",
+    "for": [
+     {
+      "factor": "expected play count",
+      "points": 0.5
+     },
+     {
+      "factor": "penalties",
+      "points": 0.4
+     }
+    ],
+    "against": [
+     {
+      "factor": "quarterback changes",
+      "points": -1.5
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_LA_ARI",
+   "gameday": "2026-11-15",
+   "away": "LA",
+   "home": "ARI",
+   "spread_home": 9.5,
+   "total_line": 39.5,
+   "model_home_margin": -9.6,
+   "model_total": 40.8,
+   "fundamentals_home_margin": -10.2,
+   "fundamentals_total": 49.7,
+   "ml": {
+    "game_id": "2026_10_LA_ARI",
+    "market": "ml",
+    "team": "LA",
+    "opp": "ARI",
+    "home_side": false,
+    "label": "LA moneyline",
+    "p": 0.8021,
+    "price": -425,
+    "market_p": 0.7768,
+    "edge": 0.0253,
+    "ev": -0.0092,
+    "dog": false,
+    "model_number": 9.6,
+    "note": "Model 80.2% to win; the price implies 77.7% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 5.8
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 2.8
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 2.3
+     }
+    ],
+    "against": []
+   },
+   "spread": {
+    "game_id": "2026_10_LA_ARI",
+    "market": "spread",
+    "team": "LA",
+    "opp": "ARI",
+    "home_side": false,
+    "line": -9.5,
+    "label": "LA -9.5",
+    "p": 0.5017,
+    "price": -112,
+    "market_p": 0.5,
+    "edge": 0.0017,
+    "ev": -0.0504,
+    "dog": false,
+    "model_number": 9.6,
+    "note": "Model has LA by +9.6; the line has them by +9.5.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 5.8
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 2.8
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 2.3
+     }
+    ],
+    "against": []
+   },
+   "total": {
+    "game_id": "2026_10_LA_ARI",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 39.5,
+    "label": "LA @ ARI over 39.5",
+    "p": 0.54,
+    "price": -108,
+    "market_p": 0.5,
+    "edge": 0.04,
+    "ev": 0.0399,
+    "dog": false,
+    "model_number": 40.8,
+    "note": "Model total 40.8 against a line of 39.5 (+1.3).",
+    "for": [
+     {
+      "factor": "wind",
+      "points": 1.6
+     },
+     {
+      "factor": "both teams' scoring and points allowed",
+      "points": 1.1
+     },
+     {
+      "factor": "combined offensive efficiency",
+      "points": 0.6
+     }
+    ],
+    "against": [
+     {
+      "factor": "quarterback changes",
+      "points": -0.4
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_MIA_IND",
+   "gameday": "2026-11-15",
+   "away": "MIA",
+   "home": "IND",
+   "spread_home": -3.5,
+   "total_line": 38.5,
+   "model_home_margin": 3.7,
+   "model_total": 39.3,
+   "fundamentals_home_margin": 6.2,
+   "fundamentals_total": 44.4,
+   "ml": {
+    "game_id": "2026_10_MIA_IND",
+    "market": "ml",
+    "team": "MIA",
+    "opp": "IND",
+    "home_side": false,
+    "label": "MIA moneyline",
+    "p": 0.3713,
+    "price": 160,
+    "market_p": 0.3691,
+    "edge": 0.0022,
+    "ev": -0.0346,
+    "dog": true,
+    "model_number": -3.7,
+    "note": "Model 37.1% to win; the price implies 36.9% with the book's margin removed.",
+    "personnel": "Malik Willis at quarterback rates -0.05 EPA per play against MIA's recent starters.",
+    "for": [
+     {
+      "factor": "penalties",
+      "points": 0.2
+     },
+     {
+      "factor": "interception risk",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "down-to-down success rate",
+      "points": -1.9
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_MIA_IND",
+    "market": "spread",
+    "team": "IND",
+    "opp": "MIA",
+    "home_side": true,
+    "line": -3.5,
+    "label": "IND -3.5",
+    "p": 0.5061,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0061,
+    "ev": -0.0538,
+    "dog": false,
+    "model_number": 3.7,
+    "note": "Model has IND by +3.7; the line has them by +3.5.",
+    "for": [
+     {
+      "factor": "down-to-down success rate",
+      "points": 1.9
+     },
+     {
+      "factor": "results-based team rating",
+      "points": 1.3
+     },
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": 1.3
+     }
+    ],
+    "against": []
+   },
+   "total": {
+    "game_id": "2026_10_MIA_IND",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 38.5,
+    "label": "MIA @ IND over 38.5",
+    "p": 0.5233,
+    "price": -108,
+    "market_p": 0.5,
+    "edge": 0.0233,
+    "ev": 0.0079,
+    "dog": false,
+    "model_number": 39.3,
+    "note": "Model total 39.3 against a line of 38.5 (+0.8).",
+    "for": [
+     {
+      "factor": "long drives",
+      "points": 0.8
+     },
+     {
+      "factor": "expected play count",
+      "points": 0.6
+     },
+     {
+      "factor": "wind",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "pace of play",
+      "points": -1.9
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_MIN_GB",
+   "gameday": "2026-11-15",
+   "away": "MIN",
+   "home": "GB",
+   "spread_home": -3.5,
+   "total_line": 41.5,
+   "model_home_margin": 3.3,
+   "model_total": 41.7,
+   "fundamentals_home_margin": 0.5,
+   "fundamentals_total": 43.3,
+   "ml": {
+    "game_id": "2026_10_MIN_GB",
+    "market": "ml",
+    "team": "GB",
+    "opp": "MIN",
+    "home_side": true,
+    "label": "GB moneyline",
+    "p": 0.6148,
+    "price": -170,
+    "market_p": 0.6038,
+    "edge": 0.011,
+    "ev": -0.0235,
+    "dog": false,
+    "model_number": 3.3,
+    "note": "Model 61.5% to win; the price implies 60.4% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "penalties",
+      "points": 1.0
+     },
+     {
+      "factor": "results-based team rating",
+      "points": 0.5
+     },
+     {
+      "factor": "interception risk",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": -2.6
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_MIN_GB",
+    "market": "spread",
+    "team": "MIN",
+    "opp": "GB",
+    "home_side": false,
+    "line": 3.5,
+    "label": "MIN +3.5",
+    "p": 0.5068,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0068,
+    "ev": -0.0526,
+    "dog": true,
+    "model_number": -3.3,
+    "note": "Model has MIN by -3.3; the line has them by -3.5.",
+    "personnel": "Kirk Cousins at quarterback rates +0.10 EPA per play against MIN's recent starters.",
+    "for": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": 2.6
+     },
+     {
+      "factor": "division game",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "penalties",
+      "points": -1.0
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_MIN_GB",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 41.5,
+    "label": "MIN @ GB over 41.5",
+    "p": 0.507,
+    "price": -108,
+    "market_p": 0.5,
+    "edge": 0.007,
+    "ev": -0.0235,
+    "dog": false,
+    "model_number": 41.7,
+    "note": "Model total 41.7 against a line of 41.5 (+0.2).",
+    "for": [
+     {
+      "factor": "quarterback changes",
+      "points": 2.7
+     },
+     {
+      "factor": "expected play count",
+      "points": 0.5
+     },
+     {
+      "factor": "long drives",
+      "points": 0.5
+     }
+    ],
+    "against": [
+     {
+      "factor": "both teams' scoring and points allowed",
+      "points": -2.6
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_NE_DET",
+   "gameday": "2026-11-15",
+   "away": "NE",
+   "home": "DET",
+   "spread_home": -2.5,
+   "total_line": 51.5,
+   "model_home_margin": 2.5,
+   "model_total": 51.4,
+   "fundamentals_home_margin": 2.8,
+   "fundamentals_total": 50.5,
+   "ml": {
+    "game_id": "2026_10_NE_DET",
+    "market": "ml",
+    "team": "DET",
+    "opp": "NE",
+    "home_side": true,
+    "label": "DET moneyline",
+    "p": 0.5886,
+    "price": -155,
+    "market_p": 0.583,
+    "edge": 0.0057,
+    "ev": -0.0316,
+    "dog": false,
+    "model_number": 2.5,
+    "note": "Model 58.9% to win; the price implies 58.3% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "home field",
+      "points": 0.7
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 0.5
+     },
+     {
+      "factor": "penalties",
+      "points": 0.4
+     }
+    ],
+    "against": [
+     {
+      "factor": "results-based team rating",
+      "points": -0.8
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_NE_DET",
+    "market": "spread",
+    "team": "DET",
+    "opp": "NE",
+    "home_side": true,
+    "line": -2.5,
+    "label": "DET -2.5",
+    "p": 0.5006,
+    "price": -120,
+    "market_p": 0.5,
+    "edge": 0.0006,
+    "ev": -0.0822,
+    "dog": false,
+    "model_number": 2.5,
+    "note": "Model has DET by +2.5; the line has them by +2.5.",
+    "for": [
+     {
+      "factor": "home field",
+      "points": 0.7
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 0.5
+     },
+     {
+      "factor": "penalties",
+      "points": 0.4
+     }
+    ],
+    "against": [
+     {
+      "factor": "results-based team rating",
+      "points": -0.8
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_NE_DET",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": false,
+    "line": 51.5,
+    "label": "NE @ DET under 51.5",
+    "p": 0.5038,
+    "price": -120,
+    "market_p": 0.5,
+    "edge": 0.0038,
+    "ev": -0.0763,
+    "dog": false,
+    "model_number": 51.4,
+    "note": "Model total 51.4 against a line of 51.5 (-0.1).",
+    "for": [
+     {
+      "factor": "pace of play",
+      "points": 0.6
+     },
+     {
+      "factor": "penalties",
+      "points": 0.5
+     }
+    ],
+    "against": [
+     {
+      "factor": "wind",
+      "points": -1.6
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_PIT_CIN",
+   "gameday": "2026-11-15",
+   "away": "PIT",
+   "home": "CIN",
+   "spread_home": -3.5,
+   "total_line": 49.5,
+   "model_home_margin": 3.4,
+   "model_total": 49.6,
+   "fundamentals_home_margin": 2.7,
+   "fundamentals_total": 50.5,
+   "ml": {
+    "game_id": "2026_10_PIT_CIN",
+    "market": "ml",
+    "team": "CIN",
+    "opp": "PIT",
+    "home_side": true,
+    "label": "CIN moneyline",
+    "p": 0.6202,
+    "price": -175,
+    "market_p": 0.6092,
+    "edge": 0.011,
+    "ev": -0.0253,
+    "dog": false,
+    "model_number": 3.4,
+    "note": "Model 62.0% to win; the price implies 60.9% with the book's margin removed.",
+    "personnel": "Joe Burrow at quarterback rates +0.04 EPA per play against CIN's recent starters.",
+    "for": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": 1.2
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 0.9
+     },
+     {
+      "factor": "results-based team rating",
+      "points": 0.3
+     }
+    ],
+    "against": [
+     {
+      "factor": "rest days",
+      "points": -0.5
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_PIT_CIN",
+    "market": "spread",
+    "team": "PIT",
+    "opp": "CIN",
+    "home_side": false,
+    "line": 3.5,
+    "label": "PIT +3.5",
+    "p": 0.5018,
+    "price": -110,
+    "market_p": 0.5,
+    "edge": 0.0018,
+    "ev": -0.0421,
+    "dog": true,
+    "model_number": -3.4,
+    "note": "Model has PIT by -3.4; the line has them by -3.5.",
+    "for": [
+     {
+      "factor": "rest days",
+      "points": 0.5
+     },
+     {
+      "factor": "rushing matchup",
+      "points": 0.4
+     },
+     {
+      "factor": "time of possession",
+      "points": 0.3
+     }
+    ],
+    "against": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": -1.2
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_PIT_CIN",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 49.5,
+    "label": "PIT @ CIN over 49.5",
+    "p": 0.5039,
+    "price": -108,
+    "market_p": 0.5,
+    "edge": 0.0039,
+    "ev": -0.0295,
+    "dog": false,
+    "model_number": 49.6,
+    "note": "Model total 49.6 against a line of 49.5 (+0.1).",
+    "for": [
+     {
+      "factor": "wind",
+      "points": 1.3
+     },
+     {
+      "factor": "combined offensive efficiency",
+      "points": 1.1
+     },
+     {
+      "factor": "both teams' scoring and points allowed",
+      "points": 1.1
+     }
+    ],
+    "against": [
+     {
+      "factor": "pace of play",
+      "points": -0.8
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_SEA_LV",
+   "gameday": "2026-11-15",
+   "away": "SEA",
+   "home": "LV",
+   "spread_home": 6.5,
+   "total_line": 40.5,
+   "model_home_margin": -6.9,
+   "model_total": 41.1,
+   "fundamentals_home_margin": -12.3,
+   "fundamentals_total": 45.0,
+   "ml": {
+    "game_id": "2026_10_SEA_LV",
+    "market": "ml",
+    "team": "SEA",
+    "opp": "LV",
+    "home_side": false,
+    "label": "SEA moneyline",
+    "p": 0.7307,
+    "price": -298,
+    "market_p": 0.718,
+    "edge": 0.0128,
+    "ev": -0.024,
+    "dog": false,
+    "model_number": 6.9,
+    "note": "Model 73.1% to win; the price implies 71.8% with the book's margin removed.",
+    "personnel": "Sam Darnold at quarterback rates +0.02 EPA per play against SEA's recent starters.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 6.1
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 3.2
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 2.7
+     }
+    ],
+    "against": [
+     {
+      "factor": "time of possession",
+      "points": -0.9
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_SEA_LV",
+    "market": "spread",
+    "team": "SEA",
+    "opp": "LV",
+    "home_side": false,
+    "line": -6.5,
+    "label": "SEA -6.5",
+    "p": 0.5131,
+    "price": -108,
+    "market_p": 0.5,
+    "edge": 0.0131,
+    "ev": -0.0118,
+    "dog": false,
+    "model_number": 6.9,
+    "note": "Model has SEA by +6.9; the line has them by +6.5.",
+    "personnel": "Sam Darnold at quarterback rates +0.02 EPA per play against SEA's recent starters.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 6.1
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 3.2
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 2.7
+     }
+    ],
+    "against": [
+     {
+      "factor": "time of possession",
+      "points": -0.9
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_SEA_LV",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 40.5,
+    "label": "SEA @ LV over 40.5",
+    "p": 0.5177,
+    "price": -112,
+    "market_p": 0.5,
+    "edge": 0.0177,
+    "ev": -0.02,
+    "dog": false,
+    "model_number": 41.1,
+    "note": "Model total 41.1 against a line of 40.5 (+0.6).",
+    "for": [
+     {
+      "factor": "wind",
+      "points": 1.6
+     },
+     {
+      "factor": "penalties",
+      "points": 0.5
+     },
+     {
+      "factor": "expected play count",
+      "points": 0.4
+     }
+    ],
+    "against": [
+     {
+      "factor": "combined offensive efficiency",
+      "points": -1.4
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_SF_DAL",
+   "gameday": "2026-11-15",
+   "away": "SF",
+   "home": "DAL",
+   "spread_home": 3.5,
+   "total_line": 55.5,
+   "model_home_margin": -3.6,
+   "model_total": 55.7,
+   "fundamentals_home_margin": -4.6,
+   "fundamentals_total": 56.7,
+   "ml": {
+    "game_id": "2026_10_SF_DAL",
+    "market": "ml",
+    "team": "DAL",
+    "opp": "SF",
+    "home_side": true,
+    "label": "DAL moneyline",
+    "p": 0.3752,
+    "price": 170,
+    "market_p": 0.3553,
+    "edge": 0.0199,
+    "ev": 0.0129,
+    "dog": true,
+    "model_number": -3.6,
+    "note": "Model 37.5% to win; the price implies 35.5% with the book's margin removed.",
+    "for": [
+     {
+      "factor": "overall offence-versus-defence efficiency",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "results-based team rating",
+      "points": -3.2
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_SF_DAL",
+    "market": "spread",
+    "team": "SF",
+    "opp": "DAL",
+    "home_side": false,
+    "line": -3.5,
+    "label": "SF -3.5",
+    "p": 0.5025,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0025,
+    "ev": -0.0605,
+    "dog": false,
+    "model_number": 3.6,
+    "note": "Model has SF by +3.6; the line has them by +3.5.",
+    "personnel": "Brock Purdy at quarterback rates +0.03 EPA per play against SF's recent starters.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 3.2
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 1.6
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 1.3
+     }
+    ],
+    "against": []
+   },
+   "total": {
+    "game_id": "2026_10_SF_DAL",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 55.5,
+    "label": "SF @ DAL over 55.5",
+    "p": 0.5047,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0047,
+    "ev": -0.0564,
+    "dog": false,
+    "model_number": 55.7,
+    "note": "Model total 55.7 against a line of 55.5 (+0.2).",
+    "for": [
+     {
+      "factor": "both teams' scoring and points allowed",
+      "points": 3.0
+     },
+     {
+      "factor": "combined offensive efficiency",
+      "points": 2.6
+     },
+     {
+      "factor": "wind",
+      "points": 1.6
+     }
+    ],
+    "against": [
+     {
+      "factor": "pace of play",
+      "points": -0.6
+     }
+    ]
+   }
+  },
+  {
+   "game_id": "2026_10_WAS_NYG",
+   "gameday": "2026-11-12",
+   "away": "WAS",
+   "home": "NYG",
+   "spread_home": -2.5,
+   "total_line": 41.5,
+   "model_home_margin": 2.3,
+   "model_total": 42.0,
+   "fundamentals_home_margin": -0.6,
+   "fundamentals_total": 45.2,
+   "ml": {
+    "game_id": "2026_10_WAS_NYG",
+    "market": "ml",
+    "team": "NYG",
+    "opp": "WAS",
+    "home_side": true,
+    "label": "NYG moneyline",
+    "p": 0.5801,
+    "price": -142,
+    "market_p": 0.5635,
+    "edge": 0.0166,
+    "ev": -0.0114,
+    "dog": false,
+    "model_number": 2.3,
+    "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+    "personnel": "J.J. McCarthy at quarterback rates -0.07 EPA per play against NYG's recent starters.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 0.7
+     }
+    ],
+    "against": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": -2.3
+     }
+    ]
+   },
+   "spread": {
+    "game_id": "2026_10_WAS_NYG",
+    "market": "spread",
+    "team": "WAS",
+    "opp": "NYG",
+    "home_side": false,
+    "line": 2.5,
+    "label": "WAS +2.5",
+    "p": 0.5071,
+    "price": -110,
+    "market_p": 0.5,
+    "edge": 0.0071,
+    "ev": -0.0319,
+    "dog": true,
+    "model_number": -2.3,
+    "note": "Model has WAS by -2.3; the line has them by -2.5.",
+    "for": [
+     {
+      "factor": "quarterback versus the team's usual starter",
+      "points": 2.3
+     },
+     {
+      "factor": "time of possession",
+      "points": 0.6
+     },
+     {
+      "factor": "division game",
+      "points": 0.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "results-based team rating",
+      "points": -0.7
+     }
+    ]
+   },
+   "total": {
+    "game_id": "2026_10_WAS_NYG",
+    "market": "total",
+    "team": null,
+    "opp": null,
+    "over": true,
+    "line": 41.5,
+    "label": "WAS @ NYG over 41.5",
+    "p": 0.5145,
+    "price": -105,
+    "market_p": 0.5,
+    "edge": 0.0145,
+    "ev": 0.0045,
+    "dog": false,
+    "model_number": 42.0,
+    "note": "Model total 42.0 against a line of 41.5 (+0.5).",
+    "for": [
+     {
+      "factor": "penalties",
+      "points": 0.9
+     },
+     {
+      "factor": "combined offensive efficiency",
+      "points": 0.6
+     },
+     {
+      "factor": "long drives",
+      "points": 0.6
+     }
+    ],
+    "against": [
+     {
+      "factor": "quarterback changes",
+      "points": -1.4
+     }
+    ]
+   }
+  }
+ ],
+ "tickets": {
+  "ml": [
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_CAR_NO",
+      "market": "ml",
+      "team": "NO",
+      "opp": "CAR",
+      "home_side": true,
+      "label": "NO moneyline",
+      "p": 0.5847,
+      "price": -135,
+      "market_p": 0.5514,
+      "edge": 0.0332,
+      "ev": 0.0177,
+      "dog": false,
+      "model_number": 2.4,
+      "note": "Model 58.5% to win; the price implies 55.1% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 0.6
+       }
+      ],
+      "against": []
+     },
+     {
+      "game_id": "2026_10_SF_DAL",
+      "market": "ml",
+      "team": "DAL",
+      "opp": "SF",
+      "home_side": true,
+      "label": "DAL moneyline",
+      "p": 0.3752,
+      "price": 170,
+      "market_p": 0.3553,
+      "edge": 0.0199,
+      "ev": 0.0129,
+      "dog": true,
+      "model_number": -3.6,
+      "note": "Model 37.5% to win; the price implies 35.5% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "overall offence-versus-defence efficiency",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -3.2
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "ml",
+      "team": "NYG",
+      "opp": "WAS",
+      "home_side": true,
+      "label": "NYG moneyline",
+      "p": 0.5801,
+      "price": -142,
+      "market_p": 0.5635,
+      "edge": 0.0166,
+      "ev": -0.0114,
+      "dog": false,
+      "model_number": 2.3,
+      "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+      "personnel": "J.J. McCarthy at quarterback rates -0.07 EPA per play against NYG's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 0.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -2.3
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_HOU_CLE",
+      "market": "ml",
+      "team": "HOU",
+      "opp": "CLE",
+      "home_side": false,
+      "label": "HOU moneyline",
+      "p": 0.6874,
+      "price": -230,
+      "market_p": 0.669,
+      "edge": 0.0184,
+      "ev": -0.0137,
+      "dog": false,
+      "model_number": 5.5,
+      "note": "Model 68.7% to win; the price implies 66.9% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 4.3
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 2.1
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 1.8
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -0.4
+       }
+      ]
+     }
+    ],
+    "n": 4,
+    "p": 0.0875,
+    "fair_price": 1043,
+    "market_price": 1049,
+    "market_decimal": 11.492,
+    "ev": 0.0054,
+    "dogs": 1
+   },
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_CAR_NO",
+      "market": "ml",
+      "team": "NO",
+      "opp": "CAR",
+      "home_side": true,
+      "label": "NO moneyline",
+      "p": 0.5847,
+      "price": -135,
+      "market_p": 0.5514,
+      "edge": 0.0332,
+      "ev": 0.0177,
+      "dog": false,
+      "model_number": 2.4,
+      "note": "Model 58.5% to win; the price implies 55.1% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 0.6
+       }
+      ],
+      "against": []
+     },
+     {
+      "game_id": "2026_10_SF_DAL",
+      "market": "ml",
+      "team": "DAL",
+      "opp": "SF",
+      "home_side": true,
+      "label": "DAL moneyline",
+      "p": 0.3752,
+      "price": 170,
+      "market_p": 0.3553,
+      "edge": 0.0199,
+      "ev": 0.0129,
+      "dog": true,
+      "model_number": -3.6,
+      "note": "Model 37.5% to win; the price implies 35.5% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "overall offence-versus-defence efficiency",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -3.2
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "ml",
+      "team": "NYG",
+      "opp": "WAS",
+      "home_side": true,
+      "label": "NYG moneyline",
+      "p": 0.5801,
+      "price": -142,
+      "market_p": 0.5635,
+      "edge": 0.0166,
+      "ev": -0.0114,
+      "dog": false,
+      "model_number": 2.3,
+      "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+      "personnel": "J.J. McCarthy at quarterback rates -0.07 EPA per play against NYG's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 0.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -2.3
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_HOU_CLE",
+      "market": "ml",
+      "team": "HOU",
+      "opp": "CLE",
+      "home_side": false,
+      "label": "HOU moneyline",
+      "p": 0.6874,
+      "price": -230,
+      "market_p": 0.669,
+      "edge": 0.0184,
+      "ev": -0.0137,
+      "dog": false,
+      "model_number": 5.5,
+      "note": "Model 68.7% to win; the price implies 66.9% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 4.3
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 2.1
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 1.8
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -0.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_MIN_GB",
+      "market": "ml",
+      "team": "GB",
+      "opp": "MIN",
+      "home_side": true,
+      "label": "GB moneyline",
+      "p": 0.6148,
+      "price": -170,
+      "market_p": 0.6038,
+      "edge": 0.011,
+      "ev": -0.0235,
+      "dog": false,
+      "model_number": 3.3,
+      "note": "Model 61.5% to win; the price implies 60.4% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "penalties",
+        "points": 1.0
+       },
+       {
+        "factor": "results-based team rating",
+        "points": 0.5
+       },
+       {
+        "factor": "interception risk",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -2.6
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_LAC_BAL",
+      "market": "ml",
+      "team": "LAC",
+      "opp": "BAL",
+      "home_side": false,
+      "label": "LAC moneyline",
+      "p": 0.3454,
+      "price": 180,
+      "market_p": 0.3425,
+      "edge": 0.0029,
+      "ev": -0.0328,
+      "dog": true,
+      "model_number": -4.5,
+      "note": "Model 34.5% to win; the price implies 34.3% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 2.2
+       },
+       {
+        "factor": "interception risk",
+        "points": 0.3
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -1.8
+       }
+      ]
+     }
+    ],
+    "n": 6,
+    "p": 0.0186,
+    "fair_price": 5283,
+    "market_price": 5011,
+    "market_decimal": 51.107,
+    "ev": -0.0506,
+    "dogs": 2
+   },
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_CAR_NO",
+      "market": "ml",
+      "team": "NO",
+      "opp": "CAR",
+      "home_side": true,
+      "label": "NO moneyline",
+      "p": 0.5847,
+      "price": -135,
+      "market_p": 0.5514,
+      "edge": 0.0332,
+      "ev": 0.0177,
+      "dog": false,
+      "model_number": 2.4,
+      "note": "Model 58.5% to win; the price implies 55.1% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 0.6
+       }
+      ],
+      "against": []
+     },
+     {
+      "game_id": "2026_10_SF_DAL",
+      "market": "ml",
+      "team": "DAL",
+      "opp": "SF",
+      "home_side": true,
+      "label": "DAL moneyline",
+      "p": 0.3752,
+      "price": 170,
+      "market_p": 0.3553,
+      "edge": 0.0199,
+      "ev": 0.0129,
+      "dog": true,
+      "model_number": -3.6,
+      "note": "Model 37.5% to win; the price implies 35.5% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "overall offence-versus-defence efficiency",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -3.2
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "ml",
+      "team": "NYG",
+      "opp": "WAS",
+      "home_side": true,
+      "label": "NYG moneyline",
+      "p": 0.5801,
+      "price": -142,
+      "market_p": 0.5635,
+      "edge": 0.0166,
+      "ev": -0.0114,
+      "dog": false,
+      "model_number": 2.3,
+      "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+      "personnel": "J.J. McCarthy at quarterback rates -0.07 EPA per play against NYG's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 0.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -2.3
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_HOU_CLE",
+      "market": "ml",
+      "team": "HOU",
+      "opp": "CLE",
+      "home_side": false,
+      "label": "HOU moneyline",
+      "p": 0.6874,
+      "price": -230,
+      "market_p": 0.669,
+      "edge": 0.0184,
+      "ev": -0.0137,
+      "dog": false,
+      "model_number": 5.5,
+      "note": "Model 68.7% to win; the price implies 66.9% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 4.3
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 2.1
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 1.8
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -0.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_MIN_GB",
+      "market": "ml",
+      "team": "GB",
+      "opp": "MIN",
+      "home_side": true,
+      "label": "GB moneyline",
+      "p": 0.6148,
+      "price": -170,
+      "market_p": 0.6038,
+      "edge": 0.011,
+      "ev": -0.0235,
+      "dog": false,
+      "model_number": 3.3,
+      "note": "Model 61.5% to win; the price implies 60.4% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "penalties",
+        "points": 1.0
+       },
+       {
+        "factor": "results-based team rating",
+        "points": 0.5
+       },
+       {
+        "factor": "interception risk",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -2.6
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_LAC_BAL",
+      "market": "ml",
+      "team": "LAC",
+      "opp": "BAL",
+      "home_side": false,
+      "label": "LAC moneyline",
+      "p": 0.3454,
+      "price": 180,
+      "market_p": 0.3425,
+      "edge": 0.0029,
+      "ev": -0.0328,
+      "dog": true,
+      "model_number": -4.5,
+      "note": "Model 34.5% to win; the price implies 34.3% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 2.2
+       },
+       {
+        "factor": "interception risk",
+        "points": 0.3
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -1.8
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_SEA_LV",
+      "market": "ml",
+      "team": "SEA",
+      "opp": "LV",
+      "home_side": false,
+      "label": "SEA moneyline",
+      "p": 0.7307,
+      "price": -298,
+      "market_p": 0.718,
+      "edge": 0.0128,
+      "ev": -0.024,
+      "dog": false,
+      "model_number": 6.9,
+      "note": "Model 73.1% to win; the price implies 71.8% with the book's margin removed.",
+      "personnel": "Sam Darnold at quarterback rates +0.02 EPA per play against SEA's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 6.1
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 3.2
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 2.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_PIT_CIN",
+      "market": "ml",
+      "team": "CIN",
+      "opp": "PIT",
+      "home_side": true,
+      "label": "CIN moneyline",
+      "p": 0.6202,
+      "price": -175,
+      "market_p": 0.6092,
+      "edge": 0.011,
+      "ev": -0.0253,
+      "dog": false,
+      "model_number": 3.4,
+      "note": "Model 62.0% to win; the price implies 60.9% with the book's margin removed.",
+      "personnel": "Joe Burrow at quarterback rates +0.04 EPA per play against CIN's recent starters.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 1.2
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 0.9
+       },
+       {
+        "factor": "results-based team rating",
+        "points": 0.3
+       }
+      ],
+      "against": [
+       {
+        "factor": "rest days",
+        "points": -0.5
+       }
+      ]
+     }
+    ],
+    "n": 8,
+    "p": 0.0084,
+    "fair_price": 11779,
+    "market_price": 10626,
+    "market_decimal": 107.262,
+    "ev": -0.097,
+    "dogs": 2
+   }
+  ],
+  "spread": [
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_KC_ATL",
+      "market": "spread",
+      "team": "KC",
+      "opp": "ATL",
+      "home_side": false,
+      "line": -3.5,
+      "label": "KC -3.5",
+      "p": 0.5061,
+      "price": -102,
+      "market_p": 0.5,
+      "edge": 0.0061,
+      "ev": 0.0022,
+      "dog": false,
+      "model_number": 3.7,
+      "note": "Model has KC by +3.7; the line has them by +3.5.",
+      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 3.4
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 1.6
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 1.4
+       }
+      ],
+      "against": []
+     },
+     {
+      "game_id": "2026_10_SEA_LV",
+      "market": "spread",
+      "team": "SEA",
+      "opp": "LV",
+      "home_side": false,
+      "line": -6.5,
+      "label": "SEA -6.5",
+      "p": 0.5131,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0131,
+      "ev": -0.0118,
+      "dog": false,
+      "model_number": 6.9,
+      "note": "Model has SEA by +6.9; the line has them by +6.5.",
+      "personnel": "Sam Darnold at quarterback rates +0.02 EPA per play against SEA's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 6.1
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 3.2
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 2.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_JAX_TEN",
+      "market": "spread",
+      "team": "JAX",
+      "opp": "TEN",
+      "home_side": false,
+      "line": -10.5,
+      "label": "JAX -10.5",
+      "p": 0.5049,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0049,
+      "ev": -0.0276,
+      "dog": false,
+      "model_number": 10.7,
+      "note": "Model has JAX by +10.7; the line has them by +10.5.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 7.9
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 3.2
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 3.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.7
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "spread",
+      "team": "WAS",
+      "opp": "NYG",
+      "home_side": false,
+      "line": 2.5,
+      "label": "WAS +2.5",
+      "p": 0.5071,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0071,
+      "ev": -0.0319,
+      "dog": true,
+      "model_number": -2.3,
+      "note": "Model has WAS by -2.3; the line has them by -2.5.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 2.3
+       },
+       {
+        "factor": "time of possession",
+        "points": 0.6
+       },
+       {
+        "factor": "division game",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -0.7
+       }
+      ]
+     }
+    ],
+    "n": 4,
+    "p": 0.0665,
+    "fair_price": 1404,
+    "market_price": 1302,
+    "market_decimal": 14.024,
+    "ev": -0.0676,
+    "dogs": 1
+   },
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_KC_ATL",
+      "market": "spread",
+      "team": "KC",
+      "opp": "ATL",
+      "home_side": false,
+      "line": -3.5,
+      "label": "KC -3.5",
+      "p": 0.5061,
+      "price": -102,
+      "market_p": 0.5,
+      "edge": 0.0061,
+      "ev": 0.0022,
+      "dog": false,
+      "model_number": 3.7,
+      "note": "Model has KC by +3.7; the line has them by +3.5.",
+      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 3.4
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 1.6
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 1.4
+       }
+      ],
+      "against": []
+     },
+     {
+      "game_id": "2026_10_SEA_LV",
+      "market": "spread",
+      "team": "SEA",
+      "opp": "LV",
+      "home_side": false,
+      "line": -6.5,
+      "label": "SEA -6.5",
+      "p": 0.5131,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0131,
+      "ev": -0.0118,
+      "dog": false,
+      "model_number": 6.9,
+      "note": "Model has SEA by +6.9; the line has them by +6.5.",
+      "personnel": "Sam Darnold at quarterback rates +0.02 EPA per play against SEA's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 6.1
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 3.2
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 2.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_JAX_TEN",
+      "market": "spread",
+      "team": "JAX",
+      "opp": "TEN",
+      "home_side": false,
+      "line": -10.5,
+      "label": "JAX -10.5",
+      "p": 0.5049,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0049,
+      "ev": -0.0276,
+      "dog": false,
+      "model_number": 10.7,
+      "note": "Model has JAX by +10.7; the line has them by +10.5.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 7.9
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 3.2
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 3.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.7
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "spread",
+      "team": "WAS",
+      "opp": "NYG",
+      "home_side": false,
+      "line": 2.5,
+      "label": "WAS +2.5",
+      "p": 0.5071,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0071,
+      "ev": -0.0319,
+      "dog": true,
+      "model_number": -2.3,
+      "note": "Model has WAS by -2.3; the line has them by -2.5.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 2.3
+       },
+       {
+        "factor": "time of possession",
+        "points": 0.6
+       },
+       {
+        "factor": "division game",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -0.7
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_BUF_NYJ",
+      "market": "spread",
+      "team": "BUF",
+      "opp": "NYJ",
+      "home_side": false,
+      "line": -8.5,
+      "label": "BUF -8.5",
+      "p": 0.5052,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0052,
+      "ev": -0.0355,
+      "dog": false,
+      "model_number": 8.7,
+      "note": "Model has BUF by +8.7; the line has them by +8.5.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 7.9
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 3.0
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 2.8
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_PIT_CIN",
+      "market": "spread",
+      "team": "PIT",
+      "opp": "CIN",
+      "home_side": false,
+      "line": 3.5,
+      "label": "PIT +3.5",
+      "p": 0.5018,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0018,
+      "ev": -0.0421,
+      "dog": true,
+      "model_number": -3.4,
+      "note": "Model has PIT by -3.4; the line has them by -3.5.",
+      "for": [
+       {
+        "factor": "rest days",
+        "points": 0.5
+       },
+       {
+        "factor": "rushing matchup",
+        "points": 0.4
+       },
+       {
+        "factor": "time of possession",
+        "points": 0.3
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -1.2
+       }
+      ]
+     }
+    ],
+    "n": 6,
+    "p": 0.0169,
+    "fair_price": 5833,
+    "market_price": 5011,
+    "market_decimal": 51.111,
+    "ev": -0.1385,
+    "dogs": 2
+   },
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_KC_ATL",
+      "market": "spread",
+      "team": "KC",
+      "opp": "ATL",
+      "home_side": false,
+      "line": -3.5,
+      "label": "KC -3.5",
+      "p": 0.5061,
+      "price": -102,
+      "market_p": 0.5,
+      "edge": 0.0061,
+      "ev": 0.0022,
+      "dog": false,
+      "model_number": 3.7,
+      "note": "Model has KC by +3.7; the line has them by +3.5.",
+      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 3.4
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 1.6
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 1.4
+       }
+      ],
+      "against": []
+     },
+     {
+      "game_id": "2026_10_SEA_LV",
+      "market": "spread",
+      "team": "SEA",
+      "opp": "LV",
+      "home_side": false,
+      "line": -6.5,
+      "label": "SEA -6.5",
+      "p": 0.5131,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0131,
+      "ev": -0.0118,
+      "dog": false,
+      "model_number": 6.9,
+      "note": "Model has SEA by +6.9; the line has them by +6.5.",
+      "personnel": "Sam Darnold at quarterback rates +0.02 EPA per play against SEA's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 6.1
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 3.2
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 2.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_JAX_TEN",
+      "market": "spread",
+      "team": "JAX",
+      "opp": "TEN",
+      "home_side": false,
+      "line": -10.5,
+      "label": "JAX -10.5",
+      "p": 0.5049,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0049,
+      "ev": -0.0276,
+      "dog": false,
+      "model_number": 10.7,
+      "note": "Model has JAX by +10.7; the line has them by +10.5.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 7.9
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 3.2
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 3.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.7
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "spread",
+      "team": "WAS",
+      "opp": "NYG",
+      "home_side": false,
+      "line": 2.5,
+      "label": "WAS +2.5",
+      "p": 0.5071,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0071,
+      "ev": -0.0319,
+      "dog": true,
+      "model_number": -2.3,
+      "note": "Model has WAS by -2.3; the line has them by -2.5.",
+      "for": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": 2.3
+       },
+       {
+        "factor": "time of possession",
+        "points": 0.6
+       },
+       {
+        "factor": "division game",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -0.7
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_BUF_NYJ",
+      "market": "spread",
+      "team": "BUF",
+      "opp": "NYJ",
+      "home_side": false,
+      "line": -8.5,
+      "label": "BUF -8.5",
+      "p": 0.5052,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0052,
+      "ev": -0.0355,
+      "dog": false,
+      "model_number": 8.7,
+      "note": "Model has BUF by +8.7; the line has them by +8.5.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 7.9
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 3.0
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 2.8
+       }
+      ],
+      "against": [
+       {
+        "factor": "time of possession",
+        "points": -0.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_PIT_CIN",
+      "market": "spread",
+      "team": "PIT",
+      "opp": "CIN",
+      "home_side": false,
+      "line": 3.5,
+      "label": "PIT +3.5",
+      "p": 0.5018,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0018,
+      "ev": -0.0421,
+      "dog": true,
+      "model_number": -3.4,
+      "note": "Model has PIT by -3.4; the line has them by -3.5.",
+      "for": [
+       {
+        "factor": "rest days",
+        "points": 0.5
+       },
+       {
+        "factor": "rushing matchup",
+        "points": 0.4
+       },
+       {
+        "factor": "time of possession",
+        "points": 0.3
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -1.2
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_CAR_NO",
+      "market": "spread",
+      "team": "CAR",
+      "opp": "NO",
+      "home_side": false,
+      "line": 2.5,
+      "label": "CAR +2.5",
+      "p": 0.503,
+      "price": -112,
+      "market_p": 0.5,
+      "edge": 0.003,
+      "ev": -0.048,
+      "dog": true,
+      "model_number": -2.4,
+      "note": "Model has CAR by -2.4; the line has them by -2.5.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 0.3
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 0.3
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -0.6
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_LA_ARI",
+      "market": "spread",
+      "team": "LA",
+      "opp": "ARI",
+      "home_side": false,
+      "line": -9.5,
+      "label": "LA -9.5",
+      "p": 0.5017,
+      "price": -112,
+      "market_p": 0.5,
+      "edge": 0.0017,
+      "ev": -0.0504,
+      "dog": false,
+      "model_number": 9.6,
+      "note": "Model has LA by +9.6; the line has them by +9.5.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 5.8
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 2.8
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 2.3
+       }
+      ],
+      "against": []
+     }
+    ],
+    "n": 8,
+    "p": 0.0043,
+    "fair_price": 23410,
+    "market_price": 18212,
+    "market_decimal": 183.124,
+    "ev": -0.2211,
+    "dogs": 3
+   }
+  ],
+  "total": [
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_LA_ARI",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 39.5,
+      "label": "LA @ ARI over 39.5",
+      "p": 0.54,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.04,
+      "ev": 0.0399,
+      "dog": false,
+      "model_number": 40.8,
+      "note": "Model total 40.8 against a line of 39.5 (+1.3).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 1.6
+       },
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": 1.1
+       },
+       {
+        "factor": "combined offensive efficiency",
+        "points": 0.6
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -0.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_MIA_IND",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 38.5,
+      "label": "MIA @ IND over 38.5",
+      "p": 0.5233,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0233,
+      "ev": 0.0079,
+      "dog": false,
+      "model_number": 39.3,
+      "note": "Model total 39.3 against a line of 38.5 (+0.8).",
+      "for": [
+       {
+        "factor": "long drives",
+        "points": 0.8
+       },
+       {
+        "factor": "expected play count",
+        "points": 0.6
+       },
+       {
+        "factor": "wind",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "pace of play",
+        "points": -1.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 41.5,
+      "label": "WAS @ NYG over 41.5",
+      "p": 0.5145,
+      "price": -105,
+      "market_p": 0.5,
+      "edge": 0.0145,
+      "ev": 0.0045,
+      "dog": false,
+      "model_number": 42.0,
+      "note": "Model total 42.0 against a line of 41.5 (+0.5).",
+      "for": [
+       {
+        "factor": "penalties",
+        "points": 0.9
+       },
+       {
+        "factor": "combined offensive efficiency",
+        "points": 0.6
+       },
+       {
+        "factor": "long drives",
+        "points": 0.6
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -1.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_BUF_NYJ",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": false,
+      "line": 50.5,
+      "label": "BUF @ NYJ under 50.5",
+      "p": 0.5108,
+      "price": -105,
+      "market_p": 0.5,
+      "edge": 0.0108,
+      "ev": -0.0027,
+      "dog": false,
+      "model_number": 50.1,
+      "note": "Model total 50.1 against a line of 50.5 (-0.4).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 2.2
+       },
+       {
+        "factor": "pace of play",
+        "points": 0.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": -1.9
+       }
+      ]
+     }
+    ],
+    "n": 4,
+    "p": 0.0743,
+    "fair_price": 1247,
+    "market_price": 1314,
+    "market_decimal": 14.139,
+    "ev": 0.05,
+    "dogs": 0
+   },
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_LA_ARI",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 39.5,
+      "label": "LA @ ARI over 39.5",
+      "p": 0.54,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.04,
+      "ev": 0.0399,
+      "dog": false,
+      "model_number": 40.8,
+      "note": "Model total 40.8 against a line of 39.5 (+1.3).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 1.6
+       },
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": 1.1
+       },
+       {
+        "factor": "combined offensive efficiency",
+        "points": 0.6
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -0.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_MIA_IND",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 38.5,
+      "label": "MIA @ IND over 38.5",
+      "p": 0.5233,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0233,
+      "ev": 0.0079,
+      "dog": false,
+      "model_number": 39.3,
+      "note": "Model total 39.3 against a line of 38.5 (+0.8).",
+      "for": [
+       {
+        "factor": "long drives",
+        "points": 0.8
+       },
+       {
+        "factor": "expected play count",
+        "points": 0.6
+       },
+       {
+        "factor": "wind",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "pace of play",
+        "points": -1.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 41.5,
+      "label": "WAS @ NYG over 41.5",
+      "p": 0.5145,
+      "price": -105,
+      "market_p": 0.5,
+      "edge": 0.0145,
+      "ev": 0.0045,
+      "dog": false,
+      "model_number": 42.0,
+      "note": "Model total 42.0 against a line of 41.5 (+0.5).",
+      "for": [
+       {
+        "factor": "penalties",
+        "points": 0.9
+       },
+       {
+        "factor": "combined offensive efficiency",
+        "points": 0.6
+       },
+       {
+        "factor": "long drives",
+        "points": 0.6
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -1.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_BUF_NYJ",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": false,
+      "line": 50.5,
+      "label": "BUF @ NYJ under 50.5",
+      "p": 0.5108,
+      "price": -105,
+      "market_p": 0.5,
+      "edge": 0.0108,
+      "ev": -0.0027,
+      "dog": false,
+      "model_number": 50.1,
+      "note": "Model total 50.1 against a line of 50.5 (-0.4).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 2.2
+       },
+       {
+        "factor": "pace of play",
+        "points": 0.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": -1.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_SEA_LV",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 40.5,
+      "label": "SEA @ LV over 40.5",
+      "p": 0.5177,
+      "price": -112,
+      "market_p": 0.5,
+      "edge": 0.0177,
+      "ev": -0.02,
+      "dog": false,
+      "model_number": 41.1,
+      "note": "Model total 41.1 against a line of 40.5 (+0.6).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 1.6
+       },
+       {
+        "factor": "penalties",
+        "points": 0.5
+       },
+       {
+        "factor": "expected play count",
+        "points": 0.4
+       }
+      ],
+      "against": [
+       {
+        "factor": "combined offensive efficiency",
+        "points": -1.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_MIN_GB",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 41.5,
+      "label": "MIN @ GB over 41.5",
+      "p": 0.507,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.007,
+      "ev": -0.0235,
+      "dog": false,
+      "model_number": 41.7,
+      "note": "Model total 41.7 against a line of 41.5 (+0.2).",
+      "for": [
+       {
+        "factor": "quarterback changes",
+        "points": 2.7
+       },
+       {
+        "factor": "expected play count",
+        "points": 0.5
+       },
+       {
+        "factor": "long drives",
+        "points": 0.5
+       }
+      ],
+      "against": [
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": -2.6
+       }
+      ]
+     }
+    ],
+    "n": 6,
+    "p": 0.0195,
+    "fair_price": 5030,
+    "market_price": 5054,
+    "market_decimal": 51.543,
+    "ev": 0.0047,
+    "dogs": 0
+   },
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_LA_ARI",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 39.5,
+      "label": "LA @ ARI over 39.5",
+      "p": 0.54,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.04,
+      "ev": 0.0399,
+      "dog": false,
+      "model_number": 40.8,
+      "note": "Model total 40.8 against a line of 39.5 (+1.3).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 1.6
+       },
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": 1.1
+       },
+       {
+        "factor": "combined offensive efficiency",
+        "points": 0.6
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -0.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_MIA_IND",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 38.5,
+      "label": "MIA @ IND over 38.5",
+      "p": 0.5233,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0233,
+      "ev": 0.0079,
+      "dog": false,
+      "model_number": 39.3,
+      "note": "Model total 39.3 against a line of 38.5 (+0.8).",
+      "for": [
+       {
+        "factor": "long drives",
+        "points": 0.8
+       },
+       {
+        "factor": "expected play count",
+        "points": 0.6
+       },
+       {
+        "factor": "wind",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "pace of play",
+        "points": -1.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 41.5,
+      "label": "WAS @ NYG over 41.5",
+      "p": 0.5145,
+      "price": -105,
+      "market_p": 0.5,
+      "edge": 0.0145,
+      "ev": 0.0045,
+      "dog": false,
+      "model_number": 42.0,
+      "note": "Model total 42.0 against a line of 41.5 (+0.5).",
+      "for": [
+       {
+        "factor": "penalties",
+        "points": 0.9
+       },
+       {
+        "factor": "combined offensive efficiency",
+        "points": 0.6
+       },
+       {
+        "factor": "long drives",
+        "points": 0.6
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -1.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_BUF_NYJ",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": false,
+      "line": 50.5,
+      "label": "BUF @ NYJ under 50.5",
+      "p": 0.5108,
+      "price": -105,
+      "market_p": 0.5,
+      "edge": 0.0108,
+      "ev": -0.0027,
+      "dog": false,
+      "model_number": 50.1,
+      "note": "Model total 50.1 against a line of 50.5 (-0.4).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 2.2
+       },
+       {
+        "factor": "pace of play",
+        "points": 0.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": -1.9
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_SEA_LV",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 40.5,
+      "label": "SEA @ LV over 40.5",
+      "p": 0.5177,
+      "price": -112,
+      "market_p": 0.5,
+      "edge": 0.0177,
+      "ev": -0.02,
+      "dog": false,
+      "model_number": 41.1,
+      "note": "Model total 41.1 against a line of 40.5 (+0.6).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 1.6
+       },
+       {
+        "factor": "penalties",
+        "points": 0.5
+       },
+       {
+        "factor": "expected play count",
+        "points": 0.4
+       }
+      ],
+      "against": [
+       {
+        "factor": "combined offensive efficiency",
+        "points": -1.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_MIN_GB",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 41.5,
+      "label": "MIN @ GB over 41.5",
+      "p": 0.507,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.007,
+      "ev": -0.0235,
+      "dog": false,
+      "model_number": 41.7,
+      "note": "Model total 41.7 against a line of 41.5 (+0.2).",
+      "for": [
+       {
+        "factor": "quarterback changes",
+        "points": 2.7
+       },
+       {
+        "factor": "expected play count",
+        "points": 0.5
+       },
+       {
+        "factor": "long drives",
+        "points": 0.5
+       }
+      ],
+      "against": [
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": -2.6
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_PIT_CIN",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 49.5,
+      "label": "PIT @ CIN over 49.5",
+      "p": 0.5039,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0039,
+      "ev": -0.0295,
+      "dog": false,
+      "model_number": 49.6,
+      "note": "Model total 49.6 against a line of 49.5 (+0.1).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 1.3
+       },
+       {
+        "factor": "combined offensive efficiency",
+        "points": 1.1
+       },
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": 1.1
+       }
+      ],
+      "against": [
+       {
+        "factor": "pace of play",
+        "points": -0.8
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_LAC_BAL",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 38.5,
+      "label": "LAC @ BAL over 38.5",
+      "p": 0.5083,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0083,
+      "ev": -0.0297,
+      "dog": false,
+      "model_number": 38.8,
+      "note": "Model total 38.8 against a line of 38.5 (+0.3).",
+      "for": [
+       {
+        "factor": "expected play count",
+        "points": 0.5
+       },
+       {
+        "factor": "penalties",
+        "points": 0.4
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -1.5
+       }
+      ]
+     }
+    ],
+    "n": 8,
+    "p": 0.005,
+    "fair_price": 19929,
+    "market_price": 18851,
+    "market_decimal": 189.51,
+    "ev": -0.0538,
+    "dogs": 0
+   }
+  ]
+ },
+ "interceptions": [
+  {
+   "game_id": "2026_10_SEA_LV",
+   "team": "LV",
+   "opp": "SEA",
+   "qb": "Fernando Mendoza",
+   "p": 0.5665,
+   "fair_price": -131,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0203,
+    "matchup_interception_rate": 0.0259,
+    "expected_dropbacks": 37.5,
+    "points_underdog_by": 6.5
+   }
+  },
+  {
+   "game_id": "2026_10_JAX_TEN",
+   "team": "TEN",
+   "opp": "JAX",
+   "qb": "Cam Ward",
+   "p": 0.5635,
+   "fair_price": -129,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0165,
+    "matchup_interception_rate": 0.026,
+    "expected_dropbacks": 37.4,
+    "points_underdog_by": 10.5
+   }
+  },
+  {
+   "game_id": "2026_10_LA_ARI",
+   "team": "ARI",
+   "opp": "LA",
+   "qb": "Gardner Minshew",
+   "p": 0.5619,
+   "fair_price": -128,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0194,
+    "matchup_interception_rate": 0.0201,
+    "expected_dropbacks": 40.3,
+    "points_underdog_by": 9.5
+   }
+  },
+  {
+   "game_id": "2026_10_NE_DET",
+   "team": "NE",
+   "opp": "DET",
+   "qb": "Drake Maye",
+   "p": 0.5485,
+   "fair_price": -121,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0244,
+    "matchup_interception_rate": 0.0204,
+    "expected_dropbacks": 38.7,
+    "points_underdog_by": 2.5
+   }
+  },
+  {
+   "game_id": "2026_10_MIN_GB",
+   "team": "MIN",
+   "opp": "GB",
+   "qb": "Kirk Cousins",
+   "p": 0.5423,
+   "fair_price": -118,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0224,
+    "matchup_interception_rate": 0.0252,
+    "expected_dropbacks": 36.5,
+    "points_underdog_by": 3.5
+   }
+  },
+  {
+   "game_id": "2026_10_KC_ATL",
+   "team": "ATL",
+   "opp": "KC",
+   "qb": "Michael Penix Jr.",
+   "p": 0.5239,
+   "fair_price": -110,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0209,
+    "matchup_interception_rate": 0.0249,
+    "expected_dropbacks": 35.2,
+    "points_underdog_by": 3.5
+   }
+  },
+  {
+   "game_id": "2026_10_LAC_BAL",
+   "team": "LAC",
+   "opp": "BAL",
+   "qb": "Justin Herbert",
+   "p": 0.5216,
+   "fair_price": -109,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0222,
+    "matchup_interception_rate": 0.0205,
+    "expected_dropbacks": 37.9,
+    "points_underdog_by": 4.5
+   }
+  },
+  {
+   "game_id": "2026_10_BUF_NYJ",
+   "team": "NYJ",
+   "opp": "BUF",
+   "qb": "Geno Smith",
+   "p": 0.5198,
+   "fair_price": -108,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0212,
+    "matchup_interception_rate": 0.0202,
+    "expected_dropbacks": 36.6,
+    "points_underdog_by": 8.5
+   }
+  },
+  {
+   "game_id": "2026_10_PIT_CIN",
+   "team": "CIN",
+   "opp": "PIT",
+   "qb": "Joe Burrow",
+   "p": 0.5136,
+   "fair_price": -106,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0179,
+    "matchup_interception_rate": 0.0208,
+    "expected_dropbacks": 40.0,
+    "points_underdog_by": -3.5
+   }
+  },
+  {
+   "game_id": "2026_10_HOU_CLE",
+   "team": "CLE",
+   "opp": "HOU",
+   "qb": "Deshaun Watson",
+   "p": 0.5079,
+   "fair_price": -103,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0159,
+    "matchup_interception_rate": 0.0209,
+    "expected_dropbacks": 38.5,
+    "points_underdog_by": 5.5
+   }
+  },
+  {
+   "game_id": "2026_10_SF_DAL",
+   "team": "DAL",
+   "opp": "SF",
+   "qb": "Dak Prescott",
+   "p": 0.4971,
+   "fair_price": 101,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.018,
+    "matchup_interception_rate": 0.0158,
+    "expected_dropbacks": 38.6,
+    "points_underdog_by": 3.5
+   }
+  },
+  {
+   "game_id": "2026_10_PIT_CIN",
+   "team": "PIT",
+   "opp": "CIN",
+   "qb": "Aaron Rodgers",
+   "p": 0.4944,
+   "fair_price": 102,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0169,
+    "matchup_interception_rate": 0.0182,
+    "expected_dropbacks": 37.6,
+    "points_underdog_by": 3.5
+   }
+  },
+  {
+   "game_id": "2026_10_CAR_NO",
+   "team": "NO",
+   "opp": "CAR",
+   "qb": "Tyler Shough",
+   "p": 0.4929,
+   "fair_price": 103,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0182,
+    "matchup_interception_rate": 0.0194,
+    "expected_dropbacks": 38.4,
+    "points_underdog_by": -2.5
+   }
+  },
+  {
+   "game_id": "2026_10_CAR_NO",
+   "team": "CAR",
+   "opp": "NO",
+   "qb": "Bryce Young",
+   "p": 0.4927,
+   "fair_price": 103,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0205,
+    "matchup_interception_rate": 0.0164,
+    "expected_dropbacks": 37.8,
+    "points_underdog_by": 2.5
+   }
+  },
+  {
+   "game_id": "2026_10_WAS_NYG",
+   "team": "NYG",
+   "opp": "WAS",
+   "qb": "J.J. McCarthy",
+   "p": 0.4846,
+   "fair_price": 106,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0255,
+    "matchup_interception_rate": 0.017,
+    "expected_dropbacks": 38.3,
+    "points_underdog_by": -2.5
+   }
+  },
+  {
+   "game_id": "2026_10_MIA_IND",
+   "team": "IND",
+   "opp": "MIA",
+   "qb": "Daniel Jones",
+   "p": 0.4825,
+   "fair_price": 107,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0226,
+    "matchup_interception_rate": 0.0227,
+    "expected_dropbacks": 35.3,
+    "points_underdog_by": -3.5
+   }
+  },
+  {
+   "game_id": "2026_10_SF_DAL",
+   "team": "SF",
+   "opp": "DAL",
+   "qb": "Brock Purdy",
+   "p": 0.4764,
+   "fair_price": 110,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0242,
+    "matchup_interception_rate": 0.0178,
+    "expected_dropbacks": 35.7,
+    "points_underdog_by": -3.5
+   }
+  },
+  {
+   "game_id": "2026_10_MIA_IND",
+   "team": "MIA",
+   "opp": "IND",
+   "qb": "Malik Willis",
+   "p": 0.4742,
+   "fair_price": 111,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.022,
+    "matchup_interception_rate": 0.0195,
+    "expected_dropbacks": 34.3,
+    "points_underdog_by": 3.5
+   }
+  },
+  {
+   "game_id": "2026_10_SEA_LV",
+   "team": "SEA",
+   "opp": "LV",
+   "qb": "Sam Darnold",
+   "p": 0.4586,
+   "fair_price": 118,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0219,
+    "matchup_interception_rate": 0.0213,
+    "expected_dropbacks": 34.6,
+    "points_underdog_by": -6.5
+   }
+  },
+  {
+   "game_id": "2026_10_MIN_GB",
+   "team": "GB",
+   "opp": "MIN",
+   "qb": "Jordan Love",
+   "p": 0.4543,
+   "fair_price": 120,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0183,
+    "matchup_interception_rate": 0.0207,
+    "expected_dropbacks": 35.2,
+    "points_underdog_by": -3.5
+   }
+  },
+  {
+   "game_id": "2026_10_KC_ATL",
+   "team": "KC",
+   "opp": "ATL",
+   "qb": "Patrick Mahomes",
+   "p": 0.4481,
+   "fair_price": 123,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0181,
+    "matchup_interception_rate": 0.0159,
+    "expected_dropbacks": 37.7,
+    "points_underdog_by": -3.5
+   }
+  },
+  {
+   "game_id": "2026_10_LAC_BAL",
+   "team": "BAL",
+   "opp": "LAC",
+   "qb": "Tyler Huntley",
+   "p": 0.4404,
+   "fair_price": 127,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0164,
+    "matchup_interception_rate": 0.0251,
+    "expected_dropbacks": 32.5,
+    "points_underdog_by": -4.5
+   }
+  },
+  {
+   "game_id": "2026_10_NE_DET",
+   "team": "DET",
+   "opp": "NE",
+   "qb": "Jared Goff",
+   "p": 0.4376,
+   "fair_price": 129,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0158,
+    "matchup_interception_rate": 0.0148,
+    "expected_dropbacks": 37.0,
+    "points_underdog_by": -2.5
+   }
+  },
+  {
+   "game_id": "2026_10_WAS_NYG",
+   "team": "WAS",
+   "opp": "NYG",
+   "qb": "Jayden Daniels",
+   "p": 0.4249,
+   "fair_price": 135,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0125,
+    "matchup_interception_rate": 0.0156,
+    "expected_dropbacks": 36.2,
+    "points_underdog_by": 2.5
+   }
+  },
+  {
+   "game_id": "2026_10_JAX_TEN",
+   "team": "JAX",
+   "opp": "TEN",
+   "qb": "Trevor Lawrence",
+   "p": 0.4191,
+   "fair_price": 139,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.021,
+    "matchup_interception_rate": 0.0179,
+    "expected_dropbacks": 35.4,
+    "points_underdog_by": -10.5
+   }
+  },
+  {
+   "game_id": "2026_10_HOU_CLE",
+   "team": "HOU",
+   "opp": "CLE",
+   "qb": "C.J. Stroud",
+   "p": 0.419,
+   "fair_price": 139,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0176,
+    "matchup_interception_rate": 0.0157,
+    "expected_dropbacks": 37.2,
+    "points_underdog_by": -5.5
+   }
+  },
+  {
+   "game_id": "2026_10_LA_ARI",
+   "team": "LA",
+   "opp": "ARI",
+   "qb": "Matthew Stafford",
+   "p": 0.4131,
+   "fair_price": 142,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0179,
+    "matchup_interception_rate": 0.0159,
+    "expected_dropbacks": 36.6,
+    "points_underdog_by": -9.5
+   }
+  },
+  {
+   "game_id": "2026_10_BUF_NYJ",
+   "team": "BUF",
+   "opp": "NYJ",
+   "qb": "Josh Allen",
+   "p": 0.3686,
+   "fair_price": 171,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0202,
+    "matchup_interception_rate": 0.0112,
+    "expected_dropbacks": 34.8,
+    "points_underdog_by": -8.5
+   }
+  }
+ ],
+ "hybrids": [
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_BUF_NYJ",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "BUF",
+     "label": "BUF moneyline",
+     "p": 0.7795,
+     "price": -395,
+     "note": "Model 77.9% to win; the price implies 76.6% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "James Cook anytime TD",
+     "p": 0.6935,
+     "team": "BUF",
+     "pos": "RB",
+     "player_id": "00-0037248"
+    },
+    {
+     "kind": "atd",
+     "label": "Josh Allen anytime TD",
+     "p": 0.5446,
+     "team": "BUF",
+     "pos": "QB",
+     "player_id": "00-0034857"
+    }
+   ],
+   "p": 0.3267,
+   "p_if_independent": 0.2944,
+   "correlation_lift": 1.11,
+   "fair_price": 206
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_BUF_NYJ",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "BUF",
+     "label": "BUF -8.5",
+     "p": 0.5052,
+     "price": -110,
+     "note": "Model has BUF by +8.7; the line has them by +8.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "James Cook anytime TD",
+     "p": 0.6935,
+     "team": "BUF",
+     "pos": "RB",
+     "player_id": "00-0037248"
+    }
+   ],
+   "p": 0.3856,
+   "p_if_independent": 0.3504,
+   "correlation_lift": 1.101,
+   "fair_price": 159
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_CAR_NO",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "NO",
+     "label": "NO moneyline",
+     "p": 0.5847,
+     "price": -135,
+     "note": "Model 58.5% to win; the price implies 55.1% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Chris Olave anytime TD",
+     "p": 0.4643,
+     "team": "NO",
+     "pos": "WR",
+     "player_id": "00-0037239"
+    },
+    {
+     "kind": "atd",
+     "label": "Tyler Shough anytime TD",
+     "p": 0.3031,
+     "team": "NO",
+     "pos": "QB",
+     "player_id": "00-0040743"
+    }
+   ],
+   "p": 0.1022,
+   "p_if_independent": 0.0823,
+   "correlation_lift": 1.243,
+   "fair_price": 878
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_CAR_NO",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "CAR",
+     "label": "CAR +2.5",
+     "p": 0.503,
+     "price": -112,
+     "note": "Model has CAR by -2.4; the line has them by -2.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Chuba Hubbard anytime TD",
+     "p": 0.4904,
+     "team": "CAR",
+     "pos": "RB",
+     "player_id": "00-0036555"
+    }
+   ],
+   "p": 0.2855,
+   "p_if_independent": 0.2467,
+   "correlation_lift": 1.158,
+   "fair_price": 250
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_CAR_NO",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "CAR @ NO over 48.5",
+     "p": 0.5073,
+     "price": -115,
+     "note": "Model total 48.7 against a line of 48.5 (+0.2).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Chris Olave anytime TD",
+     "p": 0.4643,
+     "team": "NO",
+     "pos": "WR",
+     "player_id": "00-0037239"
+    },
+    {
+     "kind": "atd",
+     "label": "Chuba Hubbard anytime TD",
+     "p": 0.4904,
+     "team": "CAR",
+     "pos": "RB",
+     "player_id": "00-0036555"
+    }
+   ],
+   "p": 0.1554,
+   "p_if_independent": 0.1155,
+   "correlation_lift": 1.345,
+   "fair_price": 544
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_HOU_CLE",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "HOU",
+     "label": "HOU moneyline",
+     "p": 0.6874,
+     "price": -230,
+     "note": "Model 68.7% to win; the price implies 66.9% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Woody Marks anytime TD",
+     "p": 0.4349,
+     "team": "HOU",
+     "pos": "RB",
+     "player_id": "00-0040583"
+    },
+    {
+     "kind": "atd",
+     "label": "Nico Collins anytime TD",
+     "p": 0.2799,
+     "team": "HOU",
+     "pos": "WR",
+     "player_id": "00-0036554"
+    }
+   ],
+   "p": 0.099,
+   "p_if_independent": 0.0837,
+   "correlation_lift": 1.184,
+   "fair_price": 910
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_HOU_CLE",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "CLE",
+     "label": "CLE +5.5",
+     "p": 0.5001,
+     "price": -115,
+     "note": "Model has CLE by -5.5; the line has them by -5.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Quinshon Judkins anytime TD",
+     "p": 0.4095,
+     "team": "CLE",
+     "pos": "RB",
+     "player_id": "00-0040784"
+    }
+   ],
+   "p": 0.2424,
+   "p_if_independent": 0.2048,
+   "correlation_lift": 1.184,
+   "fair_price": 313
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_HOU_CLE",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "HOU @ CLE over 39.5",
+     "p": 0.5061,
+     "price": -115,
+     "note": "Model total 39.7 against a line of 39.5 (+0.2).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Quinshon Judkins anytime TD",
+     "p": 0.4095,
+     "team": "CLE",
+     "pos": "RB",
+     "player_id": "00-0040784"
+    },
+    {
+     "kind": "atd",
+     "label": "Woody Marks anytime TD",
+     "p": 0.4349,
+     "team": "HOU",
+     "pos": "RB",
+     "player_id": "00-0040583"
+    }
+   ],
+   "p": 0.1238,
+   "p_if_independent": 0.0901,
+   "correlation_lift": 1.373,
+   "fair_price": 708
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_JAX_TEN",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "JAX",
+     "label": "JAX moneyline",
+     "p": 0.8282,
+     "price": -535,
+     "note": "Model 82.8% to win; the price implies 80.8% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Bhayshul Tuten anytime TD",
+     "p": 0.4661,
+     "team": "JAX",
+     "pos": "RB",
+     "player_id": "00-0040719"
+    },
+    {
+     "kind": "atd",
+     "label": "Parker Washington anytime TD",
+     "p": 0.3642,
+     "team": "JAX",
+     "pos": "WR",
+     "player_id": "00-0038606"
+    }
+   ],
+   "p": 0.1518,
+   "p_if_independent": 0.1406,
+   "correlation_lift": 1.08,
+   "fair_price": 559
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_JAX_TEN",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "JAX",
+     "label": "JAX -10.5",
+     "p": 0.5049,
+     "price": -108,
+     "note": "Model has JAX by +10.7; the line has them by +10.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Bhayshul Tuten anytime TD",
+     "p": 0.4661,
+     "team": "JAX",
+     "pos": "RB",
+     "player_id": "00-0040719"
+    }
+   ],
+   "p": 0.274,
+   "p_if_independent": 0.2353,
+   "correlation_lift": 1.164,
+   "fair_price": 265
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_KC_ATL",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "KC",
+     "label": "KC moneyline",
+     "p": 0.6287,
+     "price": -185,
+     "note": "Model 62.9% to win; the price implies 62.2% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Kenneth Walker III anytime TD",
+     "p": 0.6672,
+     "team": "KC",
+     "pos": "RB",
+     "player_id": "00-0038134"
+    },
+    {
+     "kind": "atd",
+     "label": "Xavier Worthy anytime TD",
+     "p": 0.3328,
+     "team": "KC",
+     "pos": "WR",
+     "player_id": "00-0039894"
+    }
+   ],
+   "p": 0.1679,
+   "p_if_independent": 0.1396,
+   "correlation_lift": 1.203,
+   "fair_price": 496
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_KC_ATL",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "KC",
+     "label": "KC -3.5",
+     "p": 0.5061,
+     "price": -102,
+     "note": "Model has KC by +3.7; the line has them by +3.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Kenneth Walker III anytime TD",
+     "p": 0.6672,
+     "team": "KC",
+     "pos": "RB",
+     "player_id": "00-0038134"
+    }
+   ],
+   "p": 0.3739,
+   "p_if_independent": 0.3377,
+   "correlation_lift": 1.107,
+   "fair_price": 167
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_LAC_BAL",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "LAC",
+     "label": "LAC moneyline",
+     "p": 0.3454,
+     "price": 180,
+     "note": "Model 34.5% to win; the price implies 34.3% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Omarion Hampton anytime TD",
+     "p": 0.2746,
+     "team": "LAC",
+     "pos": "RB",
+     "player_id": "00-0040666"
+    },
+    {
+     "kind": "atd",
+     "label": "Quentin Johnston anytime TD",
+     "p": 0.1422,
+     "team": "LAC",
+     "pos": "WR",
+     "player_id": "00-0038544"
+    }
+   ],
+   "p": 0.0219,
+   "p_if_independent": 0.0135,
+   "correlation_lift": 1.625,
+   "fair_price": 4462
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_LAC_BAL",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "LAC",
+     "label": "LAC +4.5",
+     "p": 0.5008,
+     "price": -112,
+     "note": "Model has LAC by -4.5; the line has them by -4.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Omarion Hampton anytime TD",
+     "p": 0.2746,
+     "team": "LAC",
+     "pos": "RB",
+     "player_id": "00-0040666"
+    }
+   ],
+   "p": 0.1703,
+   "p_if_independent": 0.1375,
+   "correlation_lift": 1.238,
+   "fair_price": 487
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_LAC_BAL",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "LAC @ BAL over 38.5",
+     "p": 0.5083,
+     "price": -110,
+     "note": "Model total 38.8 against a line of 38.5 (+0.3).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Derrick Henry anytime TD",
+     "p": 0.5063,
+     "team": "BAL",
+     "pos": "RB",
+     "player_id": "00-0032764"
+    },
+    {
+     "kind": "atd",
+     "label": "Omarion Hampton anytime TD",
+     "p": 0.2746,
+     "team": "LAC",
+     "pos": "RB",
+     "player_id": "00-0040666"
+    }
+   ],
+   "p": 0.0993,
+   "p_if_independent": 0.0707,
+   "correlation_lift": 1.404,
+   "fair_price": 908
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_LA_ARI",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "LA",
+     "label": "LA moneyline",
+     "p": 0.8021,
+     "price": -425,
+     "note": "Model 80.2% to win; the price implies 77.7% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Kyren Williams anytime TD",
+     "p": 0.6651,
+     "team": "LA",
+     "pos": "RB",
+     "player_id": "00-0037840"
+    },
+    {
+     "kind": "atd",
+     "label": "Puka Nacua anytime TD",
+     "p": 0.5462,
+     "team": "LA",
+     "pos": "WR",
+     "player_id": "00-0039075"
+    }
+   ],
+   "p": 0.316,
+   "p_if_independent": 0.2914,
+   "correlation_lift": 1.084,
+   "fair_price": 216
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_LA_ARI",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "LA",
+     "label": "LA -9.5",
+     "p": 0.5017,
+     "price": -112,
+     "note": "Model has LA by +9.6; the line has them by +9.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Kyren Williams anytime TD",
+     "p": 0.6651,
+     "team": "LA",
+     "pos": "RB",
+     "player_id": "00-0037840"
+    }
+   ],
+   "p": 0.3699,
+   "p_if_independent": 0.3337,
+   "correlation_lift": 1.109,
+   "fair_price": 170
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_LA_ARI",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "LA @ ARI over 39.5",
+     "p": 0.54,
+     "price": -108,
+     "note": "Model total 40.8 against a line of 39.5 (+1.3).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Michael Wilson anytime TD",
+     "p": 0.3541,
+     "team": "ARI",
+     "pos": "WR",
+     "player_id": "00-0038559"
+    },
+    {
+     "kind": "atd",
+     "label": "Kyren Williams anytime TD",
+     "p": 0.6651,
+     "team": "LA",
+     "pos": "RB",
+     "player_id": "00-0037840"
+    }
+   ],
+   "p": 0.166,
+   "p_if_independent": 0.1272,
+   "correlation_lift": 1.305,
+   "fair_price": 503
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_MIA_IND",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "MIA",
+     "label": "MIA moneyline",
+     "p": 0.3713,
+     "price": 160,
+     "note": "Model 37.1% to win; the price implies 36.9% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Ollie Gordon II anytime TD",
+     "p": 0.4574,
+     "team": "MIA",
+     "pos": "RB",
+     "player_id": "00-0040198"
+    },
+    {
+     "kind": "atd",
+     "label": "Caleb Douglas anytime TD",
+     "p": 0.3153,
+     "team": "MIA",
+     "pos": "WR",
+     "player_id": "00-0041523"
+    }
+   ],
+   "p": 0.0785,
+   "p_if_independent": 0.0535,
+   "correlation_lift": 1.466,
+   "fair_price": 1174
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_MIA_IND",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "IND",
+     "label": "IND -3.5",
+     "p": 0.5061,
+     "price": -115,
+     "note": "Model has IND by +3.7; the line has them by +3.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Jonathan Taylor anytime TD",
+     "p": 0.4308,
+     "team": "IND",
+     "pos": "RB",
+     "player_id": "00-0036223"
+    }
+   ],
+   "p": 0.2561,
+   "p_if_independent": 0.218,
+   "correlation_lift": 1.175,
+   "fair_price": 290
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_MIA_IND",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "MIA @ IND over 38.5",
+     "p": 0.5233,
+     "price": -108,
+     "note": "Model total 39.3 against a line of 38.5 (+0.8).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Jonathan Taylor anytime TD",
+     "p": 0.4308,
+     "team": "IND",
+     "pos": "RB",
+     "player_id": "00-0036223"
+    },
+    {
+     "kind": "atd",
+     "label": "Ollie Gordon II anytime TD",
+     "p": 0.4574,
+     "team": "MIA",
+     "pos": "RB",
+     "player_id": "00-0040198"
+    }
+   ],
+   "p": 0.1385,
+   "p_if_independent": 0.1031,
+   "correlation_lift": 1.343,
+   "fair_price": 622
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_MIN_GB",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "GB",
+     "label": "GB moneyline",
+     "p": 0.6148,
+     "price": -170,
+     "note": "Model 61.5% to win; the price implies 60.4% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Matthew Golden anytime TD",
+     "p": 0.3536,
+     "team": "GB",
+     "pos": "WR",
+     "player_id": "00-0040667"
+    },
+    {
+     "kind": "atd",
+     "label": "Christian Watson anytime TD",
+     "p": 0.3276,
+     "team": "GB",
+     "pos": "WR",
+     "player_id": "00-0038124"
+    }
+   ],
+   "p": 0.0864,
+   "p_if_independent": 0.0712,
+   "correlation_lift": 1.213,
+   "fair_price": 1058
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_MIN_GB",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "MIN",
+     "label": "MIN +3.5",
+     "p": 0.5068,
+     "price": -115,
+     "note": "Model has MIN by -3.3; the line has them by -3.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Justin Jefferson anytime TD",
+     "p": 0.3319,
+     "team": "MIN",
+     "pos": "WR",
+     "player_id": "00-0036322"
+    }
+   ],
+   "p": 0.1946,
+   "p_if_independent": 0.1682,
+   "correlation_lift": 1.157,
+   "fair_price": 414
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_MIN_GB",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "MIN @ GB over 41.5",
+     "p": 0.507,
+     "price": -108,
+     "note": "Model total 41.7 against a line of 41.5 (+0.2).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Matthew Golden anytime TD",
+     "p": 0.3536,
+     "team": "GB",
+     "pos": "WR",
+     "player_id": "00-0040667"
+    },
+    {
+     "kind": "atd",
+     "label": "Justin Jefferson anytime TD",
+     "p": 0.3319,
+     "team": "MIN",
+     "pos": "WR",
+     "player_id": "00-0036322"
+    }
+   ],
+   "p": 0.0876,
+   "p_if_independent": 0.0595,
+   "correlation_lift": 1.471,
+   "fair_price": 1042
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_NE_DET",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "DET",
+     "label": "DET moneyline",
+     "p": 0.5886,
+     "price": -155,
+     "note": "Model 58.9% to win; the price implies 58.3% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Jahmyr Gibbs anytime TD",
+     "p": 0.6376,
+     "team": "DET",
+     "pos": "RB",
+     "player_id": "00-0039139"
+    },
+    {
+     "kind": "atd",
+     "label": "Jameson Williams anytime TD",
+     "p": 0.4239,
+     "team": "DET",
+     "pos": "WR",
+     "player_id": "00-0037240"
+    }
+   ],
+   "p": 0.1931,
+   "p_if_independent": 0.1591,
+   "correlation_lift": 1.214,
+   "fair_price": 418
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_NE_DET",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "DET",
+     "label": "DET -2.5",
+     "p": 0.5006,
+     "price": -120,
+     "note": "Model has DET by +2.5; the line has them by +2.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Jahmyr Gibbs anytime TD",
+     "p": 0.6376,
+     "team": "DET",
+     "pos": "RB",
+     "player_id": "00-0039139"
+    }
+   ],
+   "p": 0.3565,
+   "p_if_independent": 0.3192,
+   "correlation_lift": 1.117,
+   "fair_price": 181
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_PIT_CIN",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "CIN",
+     "label": "CIN moneyline",
+     "p": 0.6202,
+     "price": -175,
+     "note": "Model 62.0% to win; the price implies 60.9% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Ja'Marr Chase anytime TD",
+     "p": 0.4851,
+     "team": "CIN",
+     "pos": "WR",
+     "player_id": "00-0036900"
+    },
+    {
+     "kind": "atd",
+     "label": "Tee Higgins anytime TD",
+     "p": 0.4192,
+     "team": "CIN",
+     "pos": "WR",
+     "player_id": "00-0036410"
+    }
+   ],
+   "p": 0.1498,
+   "p_if_independent": 0.1261,
+   "correlation_lift": 1.188,
+   "fair_price": 567
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_SEA_LV",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "SEA",
+     "label": "SEA moneyline",
+     "p": 0.7307,
+     "price": -298,
+     "note": "Model 73.1% to win; the price implies 71.8% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Jaxon Smith-Njigba anytime TD",
+     "p": 0.4422,
+     "team": "SEA",
+     "pos": "WR",
+     "player_id": "00-0038543"
+    },
+    {
+     "kind": "atd",
+     "label": "Zach Charbonnet anytime TD",
+     "p": 0.3326,
+     "team": "SEA",
+     "pos": "RB",
+     "player_id": "00-0039165"
+    }
+   ],
+   "p": 0.1241,
+   "p_if_independent": 0.1075,
+   "correlation_lift": 1.155,
+   "fair_price": 706
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_SEA_LV",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "SEA",
+     "label": "SEA -6.5",
+     "p": 0.5131,
+     "price": -108,
+     "note": "Model has SEA by +6.9; the line has them by +6.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Jaxon Smith-Njigba anytime TD",
+     "p": 0.4422,
+     "team": "SEA",
+     "pos": "WR",
+     "player_id": "00-0038543"
+    }
+   ],
+   "p": 0.2552,
+   "p_if_independent": 0.2269,
+   "correlation_lift": 1.125,
+   "fair_price": 292
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_SEA_LV",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "SEA @ LV over 40.5",
+     "p": 0.5177,
+     "price": -112,
+     "note": "Model total 41.1 against a line of 40.5 (+0.6).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Ashton Jeanty anytime TD",
+     "p": 0.4363,
+     "team": "LV",
+     "pos": "RB",
+     "player_id": "00-0040122"
+    },
+    {
+     "kind": "atd",
+     "label": "Jaxon Smith-Njigba anytime TD",
+     "p": 0.4422,
+     "team": "SEA",
+     "pos": "WR",
+     "player_id": "00-0038543"
+    }
+   ],
+   "p": 0.1364,
+   "p_if_independent": 0.0999,
+   "correlation_lift": 1.366,
+   "fair_price": 633
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_SF_DAL",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "DAL",
+     "label": "DAL moneyline",
+     "p": 0.3752,
+     "price": 170,
+     "note": "Model 37.5% to win; the price implies 35.5% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Javonte Williams anytime TD",
+     "p": 0.6726,
+     "team": "DAL",
+     "pos": "RB",
+     "player_id": "00-0036997"
+    },
+    {
+     "kind": "atd",
+     "label": "CeeDee Lamb anytime TD",
+     "p": 0.4594,
+     "team": "DAL",
+     "pos": "WR",
+     "player_id": "00-0036358"
+    }
+   ],
+   "p": 0.1542,
+   "p_if_independent": 0.1159,
+   "correlation_lift": 1.33,
+   "fair_price": 549
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_SF_DAL",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "SF",
+     "label": "SF -3.5",
+     "p": 0.5025,
+     "price": -115,
+     "note": "Model has SF by +3.6; the line has them by +3.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Christian McCaffrey anytime TD",
+     "p": 0.6906,
+     "team": "SF",
+     "pos": "RB",
+     "player_id": "00-0033280"
+    }
+   ],
+   "p": 0.3824,
+   "p_if_independent": 0.347,
+   "correlation_lift": 1.102,
+   "fair_price": 162
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_SF_DAL",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "SF @ DAL over 55.5",
+     "p": 0.5047,
+     "price": -115,
+     "note": "Model total 55.7 against a line of 55.5 (+0.2).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Javonte Williams anytime TD",
+     "p": 0.6726,
+     "team": "DAL",
+     "pos": "RB",
+     "player_id": "00-0036997"
+    },
+    {
+     "kind": "atd",
+     "label": "Christian McCaffrey anytime TD",
+     "p": 0.6906,
+     "team": "SF",
+     "pos": "RB",
+     "player_id": "00-0033280"
+    }
+   ],
+   "p": 0.2826,
+   "p_if_independent": 0.2344,
+   "correlation_lift": 1.205,
+   "fair_price": 254
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_WAS_NYG",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "NYG",
+     "label": "NYG moneyline",
+     "p": 0.5801,
+     "price": -142,
+     "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Devin Singletary anytime TD",
+     "p": 0.3986,
+     "team": "NYG",
+     "pos": "RB",
+     "player_id": "00-0035250"
+    },
+    {
+     "kind": "atd",
+     "label": "Malik Nabers anytime TD",
+     "p": 0.3028,
+     "team": "NYG",
+     "pos": "WR",
+     "player_id": "00-0039337"
+    }
+   ],
+   "p": 0.0893,
+   "p_if_independent": 0.07,
+   "correlation_lift": 1.275,
+   "fair_price": 1020
+  },
+  {
+   "kind": "Spread + touchdown",
+   "game_id": "2026_10_WAS_NYG",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "WAS",
+     "label": "WAS +2.5",
+     "p": 0.5071,
+     "price": -110,
+     "note": "Model has WAS by -2.3; the line has them by -2.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Rachaad White anytime TD",
+     "p": 0.299,
+     "team": "WAS",
+     "pos": "RB",
+     "player_id": "00-0037256"
+    }
+   ],
+   "p": 0.1853,
+   "p_if_independent": 0.1516,
+   "correlation_lift": 1.222,
+   "fair_price": 440
+  },
+  {
+   "kind": "Over + a touchdown from each team",
+   "game_id": "2026_10_WAS_NYG",
+   "legs": [
+    {
+     "market": "total",
+     "team": null,
+     "label": "WAS @ NYG over 41.5",
+     "p": 0.5145,
+     "price": -105,
+     "note": "Model total 42.0 against a line of 41.5 (+0.5).",
+     "kind": "game"
+    },
+    {
+     "kind": "atd",
+     "label": "Devin Singletary anytime TD",
+     "p": 0.3986,
+     "team": "NYG",
+     "pos": "RB",
+     "player_id": "00-0035250"
+    },
+    {
+     "kind": "atd",
+     "label": "Rachaad White anytime TD",
+     "p": 0.299,
+     "team": "WAS",
+     "pos": "RB",
+     "player_id": "00-0037256"
+    }
+   ],
+   "p": 0.0876,
+   "p_if_independent": 0.0613,
+   "correlation_lift": 1.429,
+   "fair_price": 1041
+  }
+ ],
+ "interception_threshold": 0.57
+}

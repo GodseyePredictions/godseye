@@ -19,12 +19,16 @@ import {
 } from "@/lib/bets";
 import { checkSlip } from "@/lib/slip";
 import { ScriptsTab } from "./ScriptsTab";
+import { HybridsTab, MarketsTab } from "./MarketsTab";
+
+// Legs handed from a model ticket to the Paste a slip tab.
+let pastePrefill: Leg[] | null = null;
 import predictions from "../../model/output/predictions.json";
 import backtest from "../../model/output/backtest.json";
 
 /* The eight console tabs are drawn by /console/app.js into #main.
    The four tracker tabs below are drawn by React into #extra. */
-const EXTRA_TABS = ["paste", "bets", "report", "scripts", "games"] as const;
+const EXTRA_TABS = ["markets", "hybrids", "paste", "bets", "report", "scripts", "games"] as const;
 type ExtraTab = (typeof EXTRA_TABS)[number];
 
 declare global {
@@ -170,6 +174,14 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             <Icon d="M4 6h16M4 12h16M4 18h10" />
             ATD board
           </a>
+          <a href="#markets" data-tab="markets">
+            <Icon d="M4 18l5-6 4 3 7-9M15 6h5v5" />
+            Game parlays
+          </a>
+          <a href="#hybrids" data-tab="hybrids">
+            <Icon d="M7 7h10v10H7zM3 12h4M17 12h4M12 3v4M12 17v4" />
+            Hybrid SGPs
+          </a>
           <span className="navgrp">Build</span>
           <a href="#mysgp" data-tab="mysgp">
             <Icon d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5" />
@@ -224,6 +236,15 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
           )}
           <main id="main"></main>
           <div id="extra" hidden={!extra}>
+            {extra === "markets" && (
+              <MarketsTab
+                onTrack={(legs) => {
+                  pastePrefill = legs;
+                  window.location.hash = "paste";
+                }}
+              />
+            )}
+            {extra === "hybrids" && <HybridsTab />}
             {extra === "paste" && (
               <PasteTab
                 onSave={(b) => {
@@ -236,7 +257,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             {extra === "report" && <ReportTab bets={bets} />}
             {extra === "scripts" && <ScriptsTab />}
             {extra === "games" && <GamesTab />}
-            {extra && extra !== "games" && extra !== "scripts" && (
+            {extra && ["paste", "bets", "report"].includes(extra) && (
               <p className="t-note">
                 Your bets are saved in this browser only. They are not sent anywhere, and clearing
                 your browser data removes them.
@@ -273,7 +294,10 @@ function Head({ title, sub }: { title: string; sub?: string }) {
 
 function PasteTab({ onSave }: { onSave: (b: Bet) => void }) {
   const [text, setText] = useState("");
-  const [legs, setLegs] = useState<Leg[]>([]);
+  const [legs, setLegs] = useState<Leg[]>(() => pastePrefill ?? []);
+  useEffect(() => {
+    pastePrefill = null;
+  }, []);
   const [stake, setStake] = useState("25");
   const [book, setBook] = useState("bet365");
   const [sport, setSport] = useState("NFL");
