@@ -384,3 +384,113 @@
 .ticket .pill.neutral {
   display: inline-block;
 }
+
+/* Sport switch in the top bar (Home / NFL / NBA) */
+.sports {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.sports a {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+.sports a:hover {
+  color: #fff;
+}
+.sports a[aria-current="page"] {
+  background: var(--red);
+  color: #fff;
+}
+
+/* NBA page */
+.nba-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.nba-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--raise);
+  text-decoration: none;
+  color: var(--ink);
+  display: grid;
+  gap: 8px;
+}
+.nba-card:hover {
+  border-color: var(--red);
+}
+.nba-card h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 24px;
+  color: #fff;
+}
+.nba-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+.nba-three div {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+.nba-three b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 17px;
+  color: #fff;
+}
+.nba-three span {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+.nba-scripts {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.nba-scripts li {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 13px;
+}
+.nba-scripts small {
+  display: block;
+  color: var(--muted);
+}
+.nba-tickets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+.ticket ol li small {
+  display: block;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.nba-select {
+  background: var(--field-bg);
+  color: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font: inherit;
+}

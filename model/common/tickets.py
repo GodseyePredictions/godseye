@@ -47,13 +47,11 @@ def allowed(combo, cfg, allow_combo_component=False) -> bool:
         return False
     if scripts and max(scripts.values()) > cfg["max_legs_same_script"]:
         return False
-    if not allow_combo_component:
-        for mk in per_player.values():
-            for m in mk:
-                if m in COMBO_PARTS and COMBO_PARTS[m] & set(mk):
-                    return False
-            if len([m for m in mk if m in COMBO_PARTS]) > 1:
-                return False
+    for mk in per_player.values():
+        if len([m for m in mk if m in COMBO_PARTS]) > 1:               # two combo legs on one player are the same bet twice
+            return False
+        if not allow_combo_component and any(m in COMBO_PARTS and COMBO_PARTS[m] & set(mk) for m in mk):
+            return False
     return True
 
 
@@ -70,7 +68,8 @@ def best_ticket(pool: list, size: int, cfg: dict, require_price: bool = True, ex
     pool = sorted(pool, key=lambda l: -(l["p"] * to_decimal(l["price"]) if l.get("price") else l["p"]))[:cfg["sgp_candidate_pool"]]
     floor = cfg["ticket_min_joint"].get(size + (1 if extra else 0), 0.0)
     best, best_key = None, None
-    for allow in (False, True):
+    # a combo may sit with its own component only when prices show it adds value; without prices it never does
+    for allow in ((False, True) if require_price else (False,)):
         for combo in combinations(pool, size):
             legs = list(combo) + (extra or [])
             if not allowed(legs, cfg, allow):

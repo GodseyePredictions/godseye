@@ -1,0 +1,172 @@
+{
+ "season": 2026,
+ "week": 10,
+ "built": "Tue Nov 10, 05:14 UTC",
+ "record": {
+  "tickets": 64,
+  "cashed": 18,
+  "legs_hit": 73,
+  "legs_exp": 71
+ },
+ "locks": [
+  {
+   "kind": "Same-game parlay",
+   "matchup": "KC @ ATL",
+   "when": "Sunday 1:00 pm ET",
+   "p": 0.441,
+   "tab": "sgp",
+   "legs": [
+    {
+     "text": "Patrick Mahomes 1+ pass TDs",
+     "team": "KC",
+     "p": 0.868,
+     "record": "cleared in 6 of 8 games"
+    },
+    {
+     "text": "Rashee Rice 20+ rec yds",
+     "team": "KC",
+     "p": 0.835,
+     "record": "cleared in 4 of 6 games"
+    },
+    {
+     "text": "Kyle Pitts 2+ receptions",
+     "team": "ATL",
+     "p": 0.878,
+     "record": "cleared in 6 of 9 games"
+    },
+    {
+     "text": "Bijan Robinson 2+ receptions",
+     "team": "ATL",
+     "p": 0.816,
+     "record": "cleared in 7 of 9 games"
+    },
+    {
+     "text": "Travis Kelce 20+ rec yds",
+     "team": "KC",
+     "p": 0.832,
+     "record": "cleared in 7 of 8 games"
+    }
+   ]
+  },
+  {
+   "kind": "Same-game parlay",
+   "matchup": "PIT @ CIN",
+   "when": "Sunday 8:20 pm ET",
+   "p": 0.439,
+   "tab": "sgp",
+   "legs": [
+    {
+     "text": "Joe Burrow 1+ pass TDs",
+     "team": "CIN",
+     "p": 0.816,
+     "record": "cleared in 8 of 8 games"
+    },
+    {
+     "text": "Ja'Marr Chase 6+ receptions",
+     "team": "CIN",
+     "p": 0.811,
+     "record": "cleared in 5 of 8 games"
+    },
+    {
+     "text": "Chase Brown 3+ receptions",
+     "team": "CIN",
+     "p": 0.801,
+     "record": "cleared in 7 of 8 games"
+    },
+    {
+     "text": "Tee Higgins 30+ rec yds",
+     "team": "CIN",
+     "p": 0.81,
+     "record": "cleared in 7 of 8 games"
+    }
+   ]
+  },
+  {
+   "kind": "Same-game parlay",
+   "matchup": "LA @ ARI",
+   "when": "Sunday 4:05 pm ET",
+   "p": 0.411,
+   "tab": "sgp",
+   "legs": [
+    {
+     "text": "Matthew Stafford 1+ pass TDs",
+     "team": "LA",
+     "p": 0.872,
+     "record": "cleared in 7 of 9 games"
+    },
+    {
+     "text": "Kyren Williams 40+ rush yds",
+     "team": "LA",
+     "p": 0.821,
+     "record": "cleared in 9 of 9 games"
+    },
+    {
+     "text": "Michael Wilson 40+ rec yds",
+     "team": "ARI",
+     "p": 0.817,
+     "record": "cleared in 6 of 9 games"
+    },
+    {
+     "text": "Tyler Higbee 1+ receptions",
+     "team": "LA",
+     "p": 0.869,
+     "record": "cleared in 8 of 9 games"
+    },
+    {
+     "text": "Tyler Allgeier 2+ receptions",
+     "team": "ARI",
+     "p": 0.796,
+     "record": "cleared in 8 of 9 games"
+    }
+   ]
+  },
+  {
+   "kind": "Anytime TD double",
+   "matchup": "SF @ DAL",
+   "when": "Sunday 4:25 pm ET",
+   "p": 0.468,
+   "tab": "picks",
+   "legs": [
+    {
+     "text": "Christian McCaffrey Anytime TD",
+     "team": "SF",
+     "p": 0.691
+    },
+    {
+     "text": "Javonte Williams Anytime TD",
+     "team": "DAL",
+     "p": 0.673
+    }
+   ]
+  },
+  {
+   "kind": "Anytime TD 4-leg",
+   "matchup": "Across the slate",
+   "when": "Week 10",
+   "p": 0.217,
+   "tab": "picks",
+   "legs": [
+    {
+     "text": "James Cook Anytime TD",
+     "team": "BUF",
+     "p": 0.694
+    },
+    {
+     "text": "Christian McCaffrey Anytime TD",
+     "team": "SF",
+     "p": 0.691
+    },
+    {
+     "text": "Javonte Williams Anytime TD",
+     "team": "DAL",
+     "p": 0.673
+    },
+    {
+     "text": "Kenneth Walker III Anytime TD",
+     "team": "KC",
+     "p": 0.667
+    }
+   ]
+  }
+ ]
+}

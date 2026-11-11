@@ -40,6 +40,7 @@ CONFIG = {
     "role_change_minutes": 6.0,          # last-5 minutes this far from season minutes = role change
     "role_starter_share": 0.5,           # started at least this share of recent games = starter
     "role_sixth_min": 22.0, "role_rotation_min": 12.0,
+    "reconcile_floor": 0.10,             # share of the 240-minute reconciliation every player takes regardless of sample
     "min_prior_games": 8,                # shrinkage strength (in games) for a player's minutes
     "team_effect_prior_games": 25,       # shrinkage for a team's (coach's) blowout habits
     "ramp_minutes_factor": [0.80, 0.86, 0.91, 0.95, 0.98],   # starting point; refitted from history
@@ -116,6 +117,10 @@ CONFIG = {
     "single_min_ev": 0.02,
     "kelly_fraction": 0.25, "kelly_cap": 0.03,
     "sgp_candidate_pool": 14,
+    # With no book prices loaded, publish model-only tickets on standard milestone thresholds, clearly labelled
+    # "rung and price not checked at the book". They cannot be marked as placed. Set False to print "no bet" instead.
+    "preview_tickets_without_prices": True,
+    "preview_min_minutes": 18.0,
     "script_dependence_gap": 0.10,       # a leg "depends on a script" when its chance differs this much between scripts
     "combo_component_ev_gain": 0.02,     # a combo may sit with its own component only if EV improves by this much
     "dd_ticket_max_legs": 3,

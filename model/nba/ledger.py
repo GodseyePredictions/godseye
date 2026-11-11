@@ -79,9 +79,12 @@ def save_game(con, run_id, run_at, game_id, card: dict, text: str, proj_rows: li
 def place(con, ticket_id: str, stake: float | None = None, book_price: float | None = None) -> dict:
     """Mark a ticket as placed: stamp the time, optionally record the real price taken, and lock it."""
     init(con)
-    row = con.execute("SELECT locked, status FROM nba_tickets WHERE ticket_id=?", [ticket_id]).fetchone()
+    row = con.execute("SELECT locked, status, type FROM nba_tickets WHERE ticket_id=?", [ticket_id]).fetchone()
     if row is None:
         return {"ok": False, "message": f"no ticket {ticket_id}"}
+    if str(row[2]).startswith("preview_") and book_price is None:
+        return {"ok": False, "message": "this is a model-only preview ticket: give the book's real price to place it "
+                                        "(python3 -m nba.run_slate place TICKET_ID STAKE PRICE)"}
     if row[0]:
         return {"ok": False, "message": f"ticket {ticket_id} is already placed and locked"}
     at = now()

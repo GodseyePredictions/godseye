@@ -232,10 +232,20 @@ def apply(M: MinutesModel, D: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
     D["e_min"] = M.expected(D)
     D.loc[D.exp_out == 1, "e_min"] = 0.0
     D["p_play"] = np.where(D.exp_out == 1, 0.0, M.play_prob(D))
-    # Expected minutes are "if he plays"; the team's 240 are shared among those who do, in proportion.
-    # (Letting the bench absorb the gap first was tried and rejected: it made sixth men 2 minutes too high.)
-    tot = (D.e_min * D.p_play).groupby([D.game_id, D.team_id]).transform("sum")
-    D["e_min"] *= (240.0 / tot.replace(0, np.nan)).clip(0.8, 1.25).fillna(1.0)
+    # Expected minutes are "if he plays"; the team's 240 are shared among those who do. The gap between the
+    # listed players' total and 240 is absorbed mostly by players with little evidence this season (their
+    # baseline still leans on last season's role), so an established starter is not shaved because the
+    # bench's numbers are stale. (Letting the whole bench absorb it first was tried and rejected: it made
+    # sixth men 2 minutes too high.)
+    key = [D.game_id, D.team_id]
+    k = cfg["min_prior_games"]
+    unsure = cfg["reconcile_floor"] + (k / (D.s_n.fillna(0) + k)) ** 2
+    ep = D.e_min * D.p_play
+    excess = ep.groupby(key).transform("sum") - 240.0
+    lam = excess / (ep * unsure).groupby(key).transform("sum").replace(0, np.nan)
+    D["e_min"] *= (1 - lam.fillna(0) * unsure).clip(0.5, 1.3)
+    tot = (D.e_min * D.p_play).groupby(key).transform("sum")
+    D["e_min"] *= (240.0 / tot.replace(0, np.nan)).clip(0.9, 1.1).fillna(1.0)
     D["e_min"] = D.e_min.clip(upper=41.5)
     D["role_i"] = role_of(D.start_share, D.e_min, cfg)
     D["p_foul"] = M.foul_trouble_prob(D, D.e_min.to_numpy())

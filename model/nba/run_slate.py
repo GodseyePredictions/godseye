@@ -157,7 +157,21 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
         card = sgp.script_card(inputs, sims, players, cfg)
         offers = offers_for(con, g.game_id, cfg)
         legs = sgp.build_legs(offers, sims, players, gg, names, cfg)
-        if offers.empty:
+        preview = False
+        if offers.empty and cfg["preview_tickets_without_prices"]:
+            # model-only tickets: standard thresholds for confirmed players, no price, not checked against the book
+            okp = set(gg[gg.ticket_eligible == 1].player_id)
+            cand = players.players[players.players.player_id.isin(okp) & (players.players.e_min >= cfg["preview_min_minutes"])]
+            legs = sgp.build_legs(sgp.grid_offers(cand, cfg), sims, players, gg, names, cfg)
+            built = sgp.build_tickets(legs, sims, card, cfg, require_price=False)
+            built["tickets"] = [t for t in built["tickets"] if t["type"] != "game_script"]
+            built["notes"] = [n for n in built["notes"] if not n.startswith("game_script")]
+            for t in built["tickets"]:
+                t["type"] = "preview_" + t["type"]
+            built["notes"].insert(0, "MODEL-ONLY PREVIEW: no book prices are loaded. Thresholds are standard milestones, not rungs read "
+                                     "from bet365. Check each rung exists and its price before placing.")
+            preview = True
+        elif offers.empty:
             built = {"tickets": [], "singles": [], "notes": ["no bet: no book prices are loaded for this game "
                      "(set ODDS_API_KEY or load a bet365 sheet with: python3 -m nba.refresh csv FILE " + g.game_id + ")"]}
         else:
@@ -171,7 +185,8 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
         for t, tid in zip(built["tickets"], tids):
             text += f"\n  ticket id for [{t['type']}]: {tid}"
         texts.append(text)
-        slate.append({"card": card, "projections": prow,
+        slate.append({"card": card, "projections": prow, "preview": preview, "tip_utc": g.tip_utc, "home": g.home, "away": g.away,
+                      "home_id": g.home_id, "away_id": g.away_id,
                       "tickets": [{"id": tid, "type": t["type"], "joint": t["joint"], "book_price": t["book_price"],
                                    "fair_price": t["fair_price"], "ev": t["ev"], "price_is_estimate": bool(t.get("price_is_estimate")),
                                    "legs": [{k: v for k, v in l.items() if k not in ("hits", "active")} for l in t["legs"]]}
@@ -198,7 +213,9 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                                             "projections_changed": json.dumps(c["projections_changed"])}])
     OUT.mkdir(exist_ok=True)
     payload = {"run_id": run_id, "run_at": run_at, "n_sims": n_sims or cfg["n_sims"], "games": slate, "status_changes": moved}
-    (OUT / "nba_slate.json").write_text(json.dumps(payload, indent=1, default=str))
+    (OUT / "nba_slate.json").write_text(json.dumps(_clean(payload), indent=1, default=str))
+    if not only:
+        write_site_file(payload)
     ids.write_review()
     if not quiet:
         print("\n\n".join(texts))
@@ -207,6 +224,43 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
             for line in c["projections_changed"]:
                 print("   ", line)
     return {"run_id": run_id, "games": len(slate), "status_changes": moved, "texts": texts, **info}
+
+
+def _clean(o):
+    """NaN is not valid JSON for a browser: write null instead."""
+    if isinstance(o, dict):
+        return {k: _clean(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [_clean(v) for v in o]
+    if isinstance(o, (float, np.floating)):
+        return None if not np.isfinite(o) else float(o)
+    if isinstance(o, np.integer):
+        return int(o)
+    return o
+
+
+def write_site_file(payload: dict) -> None:
+    """A slim copy of the slate for the website's NBA page (src/components/NbaApp.tsx reads it)."""
+    keep_leg = ("label", "market", "line", "side", "p", "p_blowout", "p_close", "price", "reason", "name")
+    games = []
+    for g in payload["games"]:
+        abbr = {g["home_id"]: g["home"], g["away_id"]: g["away"]}
+        games.append({
+            "id": g["card"]["game_id"], "home": g["home"], "away": g["away"], "tip_utc": g["tip_utc"], "preview": g["preview"],
+            "card": g["card"], "notes": g["notes"],
+            "tickets": [{"id": t["id"], "type": t["type"], "joint": t["joint"], "book_price": t["book_price"], "fair_price": t["fair_price"],
+                         "ev": t["ev"], "price_is_estimate": t["price_is_estimate"],
+                         "naive": float(np.prod([l["p"] for l in t["legs"]])),
+                         "legs": [{k: l.get(k) for k in keep_leg} for l in t["legs"]]} for t in g["tickets"]],
+            "singles": [{k: s.get(k) for k in keep_leg + ("ev", "kelly_stake")} for s in g["singles"][:8]],
+            "players": [{k: (round(p[k], 2) if isinstance(p[k], float) else p[k]) for k in
+                         ("name", "team_id", "status", "role", "role_change", "p_play", "min_mean", "min_p10", "min_p90", "pts", "reb",
+                          "ast", "fg3m", "stl", "blk", "gate_pts", "gate_fg3m", "blowout_exposure", "inout_notes")}
+                        | {"adjustments": json.loads(p["adjustments"])[:6], "team": abbr.get(p["team_id"], "")}
+                        for p in sorted(g["projections"], key=lambda x: -x["min_mean"]) if p["min_mean"] >= 10],
+            "availability": [a for a in g["availability"] if a["status"] != "confirmed_in"]})
+    site = {"run_at": payload["run_at"], "n_sims": payload["n_sims"], "games": games}
+    (OUT / "nba_site.json").write_text(json.dumps(_clean(site), default=str, allow_nan=False))
 
 
 def watch(con, cfg=CONFIG) -> dict:

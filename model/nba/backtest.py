@@ -198,6 +198,9 @@ if __name__ == "__main__":
           "| blowout pred/actual", G.p_blowout.mean().round(3), G.blowout.mean().round(3), "close", G.p_close.mean().round(3), G.close.mean().round(3),
           "OT", G.p_ot.mean().round(3), G.ot.mean().round(3), "poss", G.sim_poss.mean().round(1), G.poss.mean().round(1))
     print(r["tickets"].groupby("type").agg(n=("hit", "size"), joint=("joint", "mean"), hit=("hit", "mean")).round(3))
+    for lo, hi in ((0, 20), (20, 26), (26, 32), (32, 99)):
+        d = M[(M.base_min >= lo) & (M.base_min < hi)]
+        print("base", lo, hi, len(d), "sim", d.min_mean.mean().round(2), "actual", d.act.mean().round(2), "MAE", (d.min_mean - d.act).abs().mean().round(2))
     for role, d in M.groupby("role"):
         print(role, len(d), "MAE", (d.min_mean - d.act).abs().mean().round(2), "bias", (d.min_mean - d.act).mean().round(2),
               ">p10", (d.act > d.p10).mean().round(3), ">p50", (d.act > d.p50).mean().round(3), ">p90", (d.act > d.p90).mean().round(3))
