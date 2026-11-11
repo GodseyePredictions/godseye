@@ -1,0 +1,64 @@
+{
+  "parameters": {
+    "k": 0.08,
+    "home_field": 2.5,
+    "rest_per_day": 0.12,
+    "carryover": 0.5,
+    "blowout_cap": 24.0
+  },
+  "test_seasons": "2015-2026",
+  "games_scored": 3164,
+  "margin_error_points": {
+    "model": 10.152,
+    "market_closing_spread": 9.793,
+    "market_plus_model_blend": 9.821
+  },
+  "blend_weight_on_model_disagreement": 0.143,
+  "win_prob_log_loss": {
+    "model": 0.6368,
+    "market": 0.6126,
+    "games": 3152
+  },
+  "straight_up_accuracy": {
+    "model": 0.6318,
+    "market": 0.6593
+  },
+  "against_the_spread": [
+    {
+      "min_edge_points": 0,
+      "bets": 3083,
+      "win_rate": 0.5018,
+      "roi_at_minus_110": -0.042,
+      "z_vs_break_even": -2.45
+    },
+    {
+      "min_edge_points": 1,
+      "bets": 2236,
+      "win_rate": 0.5054,
+      "roi_at_minus_110": -0.0352,
+      "z_vs_break_even": -1.74
+    },
+    {
+      "min_edge_points": 2,
+      "bets": 1456,
+      "win_rate": 0.487,
+      "roi_at_minus_110": -0.0704,
+      "z_vs_break_even": -2.81
+    },
+    {
+      "min_edge_points": 3,
+      "bets": 887,
+      "win_rate": 0.5028,
+      "roi_at_minus_110": -0.0401,
+      "z_vs_break_even": -1.25
+    },
+    {
+      "min_edge_points": 4,
+      "bets": 498,
+      "win_rate": 0.51,
+      "roi_at_minus_110": -0.0263,
+      "z_vs_break_even": -0.61
+    }
+  ],
+  "break_even_win_rate": 0.5238
+}

@@ -1,0 +1,132 @@
+{
+  "season": 2026,
+  "week": 10,
+  "games": [
+    {
+      "game_id": "2026_10_WAS_NYG",
+      "gameday": "2026-11-12",
+      "away": "WAS",
+      "home": "NYG",
+      "model_home_margin": 4.0,
+      "model_home_win_prob": 0.618,
+      "market_home_spread": 2.5
+    },
+    {
+      "game_id": "2026_10_BUF_NYJ",
+      "gameday": "2026-11-15",
+      "away": "BUF",
+      "home": "NYJ",
+      "model_home_margin": -9.3,
+      "model_home_win_prob": 0.245,
+      "market_home_spread": -8.5
+    },
+    {
+      "game_id": "2026_10_CAR_NO",
+      "gameday": "2026-11-15",
+      "away": "CAR",
+      "home": "NO",
+      "model_home_margin": 2.1,
+      "model_home_win_prob": 0.562,
+      "market_home_spread": 2.5
+    },
+    {
+      "game_id": "2026_10_HOU_CLE",
+      "gameday": "2026-11-15",
+      "away": "HOU",
+      "home": "CLE",
+      "model_home_margin": -3.3,
+      "model_home_win_prob": 0.404,
+      "market_home_spread": -4.5
+    },
+    {
+      "game_id": "2026_10_JAX_TEN",
+      "gameday": "2026-11-15",
+      "away": "JAX",
+      "home": "TEN",
+      "model_home_margin": -9.5,
+      "model_home_win_prob": 0.24,
+      "market_home_spread": -10.5
+    },
+    {
+      "game_id": "2026_10_KC_ATL",
+      "gameday": "2026-11-15",
+      "away": "KC",
+      "home": "ATL",
+      "model_home_margin": -2.7,
+      "model_home_win_prob": 0.422,
+      "market_home_spread": -3.5
+    },
+    {
+      "game_id": "2026_10_LA_ARI",
+      "gameday": "2026-11-15",
+      "away": "LA",
+      "home": "ARI",
+      "model_home_margin": -5.9,
+      "model_home_win_prob": 0.332,
+      "market_home_spread": -9.5
+    },
+    {
+      "game_id": "2026_10_MIA_IND",
+      "gameday": "2026-11-15",
+      "away": "MIA",
+      "home": "IND",
+      "model_home_margin": 4.3,
+      "model_home_win_prob": 0.624,
+      "market_home_spread": 3.5
+    },
+    {
+      "game_id": "2026_10_MIN_GB",
+      "gameday": "2026-11-15",
+      "away": "MIN",
+      "home": "GB",
+      "model_home_margin": 4.0,
+      "model_home_win_prob": 0.615,
+      "market_home_spread": 3.5
+    },
+    {
+      "game_id": "2026_10_NE_DET",
+      "gameday": "2026-11-15",
+      "away": "NE",
+      "home": "DET",
+      "model_home_margin": 1.0,
+      "model_home_win_prob": 0.529,
+      "market_home_spread": 2.5
+    },
+    {
+      "game_id": "2026_10_PIT_CIN",
+      "gameday": "2026-11-15",
+      "away": "PIT",
+      "home": "CIN",
+      "model_home_margin": 3.4,
+      "model_home_win_prob": 0.6,
+      "market_home_spread": 3.5
+    },
+    {
+      "game_id": "2026_10_SEA_LV",
+      "gameday": "2026-11-15",
+      "away": "SEA",
+      "home": "LV",
+      "model_home_margin": -5.6,
+      "model_home_win_prob": 0.339,
+      "market_home_spread": -6.5
+    },
+    {
+      "game_id": "2026_10_SF_DAL",
+      "gameday": "2026-11-15",
+      "away": "SF",
+      "home": "DAL",
+      "model_home_margin": -2.5,
+      "model_home_win_prob": 0.426,
+      "market_home_spread": -4.5
+    },
+    {
+      "game_id": "2026_10_LAC_BAL",
+      "gameday": "2026-11-16",
+      "away": "LAC",
+      "home": "BAL",
+      "model_home_margin": 5.2,
+      "model_home_win_prob": 0.65,
+      "market_home_spread": 4.5
+    }
+  ]
+}
