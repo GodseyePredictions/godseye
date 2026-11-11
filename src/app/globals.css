@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --night: #0b1238; /* stadium sky after dark */
-  --night-deep: #070b26;
-  --panel: #151d52;
-  --line: #2a3478;
-  --flood: #ffd21f; /* floodlight yellow */
-  --chalk: #f3f1e7;
-  --dim: #a9b0d6;
-  --win: #35d07f;
-  --loss: #ff5d5d;
+  --night: #0c0c0d;
+  --night-deep: #000000;
+  --panel: #17171a;
+  --line: #303036;
+  --flood: #e4002b; /* brand red, for fills */
+  --flood-text: #ff3d55; /* lighter red, readable as text on black */
+  --chalk: #f5f3ee;
+  --dim: #b4b4bb;
+  --win: #f5f3ee;
+  --loss: #ff3d55;
 }
 
 * {
@@ -74,7 +75,7 @@ a {
   text-transform: uppercase;
 }
 .brand span {
-  color: var(--flood);
+  color: var(--flood-text);
 }
 .top nav {
   display: flex;
@@ -105,10 +106,10 @@ a {
 .btn-primary,
 .top nav a.btn-primary {
   background: var(--flood);
-  color: var(--night-deep);
+  color: #fff;
 }
 .btn-primary:hover {
-  background: #ffe066;
+  background: #ff1f47;
 }
 .btn-ghost {
   border-color: var(--line);
@@ -155,7 +156,7 @@ a {
   border-radius: 14px;
   padding: 20px;
   transform: rotate(1.5deg);
-  box-shadow: 14px 14px 0 var(--night-deep);
+  box-shadow: 14px 14px 0 var(--flood);
   max-width: 440px;
   justify-self: center;
   width: 100%;
@@ -196,7 +197,7 @@ a {
   color: var(--chalk);
 }
 .note b {
-  color: var(--flood);
+  color: var(--chalk);
 }
 .note.warn b {
   color: var(--loss);
@@ -268,7 +269,7 @@ a {
   font-size: 1.7rem;
   text-transform: uppercase;
   margin: 0 0 8px;
-  color: var(--flood);
+  color: var(--flood-text);
 }
 .jobs p {
   margin: 0;
@@ -349,7 +350,7 @@ a {
 }
 .plan.pro {
   background: var(--flood);
-  color: var(--night-deep);
+  color: #fff;
   border-color: var(--flood);
 }
 .plan h3 {
@@ -375,10 +376,10 @@ a {
 }
 .plan li {
   padding: 8px 0;
-  border-top: 1px solid rgb(127 127 160 / 0.35);
+  border-top: 1px solid rgb(255 255 255 / 0.22);
 }
 .plan.pro .btn {
-  background: var(--night-deep);
+  background: #000;
   color: var(--chalk);
 }
 
