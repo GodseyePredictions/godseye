@@ -1,0 +1,1033 @@
+{
+ "games": 2462,
+ "seasons": [
+  2025,
+  2026
+ ],
+ "minutes": [
+  {
+   "season": 2025,
+   "games": "all games",
+   "player-games": 24172,
+   "MAE model": 5.040532198354082,
+   "MAE baseline": 5.082985451812933,
+   "beat 10th pct": 0.8929339731921231,
+   "beat 50th pct": 0.5172927353963264,
+   "beat 90th pct": 0.10189475426112858
+  },
+  {
+   "season": 2025,
+   "games": "normal (no rotation player out, no blowout)",
+   "player-games": 9009,
+   "MAE model": 4.99788497543237,
+   "MAE baseline": 4.803167704072325,
+   "beat 10th pct": 0.9124209124209124,
+   "beat 50th pct": 0.5930735930735931,
+   "beat 90th pct": 0.1280941280941281
+  },
+  {
+   "season": 2025,
+   "games": "a rotation player out",
+   "player-games": 6966,
+   "MAE model": 5.467649218173395,
+   "MAE baseline": 5.728641624926096,
+   "beat 10th pct": 0.8775480907263853,
+   "beat 50th pct": 0.4799023830031582,
+   "beat 90th pct": 0.09575078954923916
+  },
+  {
+   "season": 2025,
+   "games": "blowouts",
+   "player-games": 11542,
+   "MAE model": 4.997324601321884,
+   "MAE baseline": 5.144466010849769,
+   "beat 10th pct": 0.8775775428868481,
+   "beat 50th pct": 0.45945243458672674,
+   "beat 90th pct": 0.08152833131173107
+  },
+  {
+   "season": 2026,
+   "games": "all games",
+   "player-games": 24966,
+   "MAE model": 5.010678186034966,
+   "MAE baseline": 5.052267612796386,
+   "beat 10th pct": 0.889689978370584,
+   "beat 50th pct": 0.5089321477209005,
+   "beat 90th pct": 0.0954498117439718
+  },
+  {
+   "season": 2026,
+   "games": "normal (no rotation player out, no blowout)",
+   "player-games": 9645,
+   "MAE model": 5.077686399037106,
+   "MAE baseline": 4.893428884196361,
+   "beat 10th pct": 0.9075168481078278,
+   "beat 50th pct": 0.5900466562986003,
+   "beat 90th pct": 0.12897874546397098
+  },
+  {
+   "season": 2026,
+   "games": "a rotation player out",
+   "player-games": 5901,
+   "MAE model": 5.350175287289835,
+   "MAE baseline": 5.551336874125319,
+   "beat 10th pct": 0.8742586002372479,
+   "beat 50th pct": 0.44568717166581934,
+   "beat 90th pct": 0.07168276563294357
+  },
+  {
+   "season": 2026,
+   "games": "blowouts",
+   "player-games": 12375,
+   "MAE model": 4.938760876731093,
+   "MAE baseline": 5.078003312634347,
+   "beat 10th pct": 0.8757171717171717,
+   "beat 50th pct": 0.4543030303030303,
+   "beat 90th pct": 0.0757979797979798
+  },
+  {
+   "season": "both",
+   "games": "all games",
+   "player-games": 49138,
+   "MAE model": 5.025363993063694,
+   "MAE baseline": 5.067378354070104,
+   "beat 10th pct": 0.8912857666164679,
+   "beat 50th pct": 0.5130448939720786,
+   "beat 90th pct": 0.09862021246285971
+  },
+  {
+   "season": "both",
+   "games": "normal (no rotation player out, no blowout)",
+   "player-games": 18654,
+   "MAE model": 5.039146084613655,
+   "MAE baseline": 4.849837001933177,
+   "beat 10th pct": 0.9098852792966656,
+   "beat 50th pct": 0.5915085236410421,
+   "beat 90th pct": 0.12855151710088988
+  },
+  {
+   "season": "both",
+   "games": "a rotation player out",
+   "player-games": 12867,
+   "MAE model": 5.413773904102991,
+   "MAE baseline": 5.647326995682653,
+   "beat 10th pct": 0.8760394808424652,
+   "beat 50th pct": 0.4642107717416647,
+   "beat 90th pct": 0.08471283127380119
+  },
+  {
+   "season": "both",
+   "games": "blowouts",
+   "player-games": 23917,
+   "MAE model": 4.967022887402454,
+   "MAE baseline": 5.110077254299371,
+   "beat 10th pct": 0.876614960070243,
+   "beat 50th pct": 0.4567880587030146,
+   "beat 90th pct": 0.07856336497052306
+  }
+ ],
+ "game": [
+  {
+   "season": 2025,
+   "games": 1231,
+   "margin MAE (ours)": 11.00461579675153,
+   "margin MAE (ratings only)": 11.008895920052579,
+   "margin MAE (always 0)": 12.750609260763607,
+   "total MAE (ours)": 14.574950230879312,
+   "total MAE (season average)": 15.816562522065698,
+   "winner picked": 0.6645004061738424,
+   "margin inside 10-90% band": 0.7977254264825345,
+   "total inside 10-90% band": 0.8050365556458164
+  },
+  {
+   "season": 2026,
+   "games": 1231,
+   "margin MAE (ours)": 11.283800737233245,
+   "margin MAE (ratings only)": 11.35216379717179,
+   "margin MAE (always 0)": 13.272136474411047,
+   "total MAE (ours)": 14.9216809807298,
+   "total MAE (season average)": 15.83105279864006,
+   "winner picked": 0.6839967506092608,
+   "margin inside 10-90% band": 0.7896019496344435,
+   "total inside 10-90% band": 0.7871649065800163
+  },
+  {
+   "season": "both",
+   "games": 2462,
+   "margin MAE (ours)": 11.144208266992386,
+   "margin MAE (ratings only)": 11.180529858612186,
+   "margin MAE (always 0)": 13.011372867587328,
+   "total MAE (ours)": 14.748315605804557,
+   "total MAE (season average)": 15.867633520989388,
+   "winner picked": 0.6742485783915516,
+   "margin inside 10-90% band": 0.7936636880584891,
+   "total inside 10-90% band": 0.7961007311129163
+  }
+ ],
+ "blowout": {
+  "pred": 0.45687794476035753,
+  "actual": 0.46994313566206336,
+  "flag_share": 0.12469536961819659,
+  "p60_actual": 0.659217877094972,
+  "p60_n": 179
+ },
+ "legs70": [
+  {
+   "market": "ast",
+   "legs at 70%+": 25399,
+   "forecast": 0.8528875564472818,
+   "actual": 0.8634591913067443,
+   "gap": 0.010571634859462553,
+   "note": ""
+  },
+  {
+   "market": "blk",
+   "legs at 70%+": 1895,
+   "forecast": 0.7756317531549914,
+   "actual": 0.7614775725593668,
+   "gap": -0.014154180595624677,
+   "note": ""
+  },
+  {
+   "market": "fg3m",
+   "legs at 70%+": 22703,
+   "forecast": 0.8077694091907668,
+   "actual": 0.8364973792009867,
+   "gap": 0.028727970010219872,
+   "note": ""
+  },
+  {
+   "market": "pa",
+   "legs at 70%+": 39386,
+   "forecast": 0.8594030537381169,
+   "actual": 0.881912354643782,
+   "gap": 0.022509300905665164,
+   "note": ""
+  },
+  {
+   "market": "pr",
+   "legs at 70%+": 49571,
+   "forecast": 0.8639697340089759,
+   "actual": 0.8745032377801537,
+   "gap": 0.010533503771177788,
+   "note": ""
+  },
+  {
+   "market": "pra",
+   "legs at 70%+": 38678,
+   "forecast": 0.8565254499493485,
+   "actual": 0.8710895082475826,
+   "gap": 0.01456405829823404,
+   "note": ""
+  },
+  {
+   "market": "pts",
+   "legs at 70%+": 22721,
+   "forecast": 0.8405490618356337,
+   "actual": 0.8607455657761542,
+   "gap": 0.020196503940520527,
+   "note": ""
+  },
+  {
+   "market": "reb",
+   "legs at 70%+": 19081,
+   "forecast": 0.8326915816762501,
+   "actual": 0.8442953723599392,
+   "gap": 0.011603790683689108,
+   "note": ""
+  },
+  {
+   "market": "stl",
+   "legs at 70%+": 4649,
+   "forecast": 0.7521363156146633,
+   "actual": 0.7513443751344375,
+   "gap": -0.0007919404802257946,
+   "note": ""
+  }
+ ],
+ "bucket_70_80": {
+  "n": 78913,
+  "forecast": 0.7487679767547836,
+  "actual": 0.7740296275645331
+ },
+ "by_market": [
+  {
+   "market": "ast",
+   "all legs": 225445,
+   "mean abs gap by bucket": 0.006192375094237225,
+   "70-80% bucket legs": 8284,
+   "70-80% forecast": 0.7498039986150914,
+   "70-80% actual": 0.7659343312409465
+  },
+  {
+   "market": "blk",
+   "all legs": 135267,
+   "mean abs gap by bucket": 0.010083306741189645,
+   "70-80% bucket legs": 1339,
+   "70-80% forecast": 0.7444497516615683,
+   "70-80% actual": 0.7274085138162808
+  },
+  {
+   "market": "fg3m",
+   "all legs": 225445,
+   "mean abs gap by bucket": 0.01647931093306184,
+   "70-80% bucket legs": 11347,
+   "70-80% forecast": 0.7482217856838732,
+   "70-80% actual": 0.7846126729532035
+  },
+  {
+   "market": "pa",
+   "all legs": 270534,
+   "mean abs gap by bucket": 0.015930186941204103,
+   "70-80% bucket legs": 11934,
+   "70-80% forecast": 0.7500388303075478,
+   "70-80% actual": 0.7869113457348752
+  },
+  {
+   "market": "pr",
+   "all legs": 270534,
+   "mean abs gap by bucket": 0.010140435821166766,
+   "70-80% bucket legs": 14142,
+   "70-80% forecast": 0.7502462579283331,
+   "70-80% actual": 0.7751378871446755
+  },
+  {
+   "market": "pra",
+   "all legs": 315623,
+   "mean abs gap by bucket": 0.014201299532311622,
+   "70-80% bucket legs": 11794,
+   "70-80% forecast": 0.7498128385401449,
+   "70-80% actual": 0.7737832796337121
+  },
+  {
+   "market": "pts",
+   "all legs": 270534,
+   "mean abs gap by bucket": 0.015305091500616177,
+   "70-80% bucket legs": 8303,
+   "70-80% forecast": 0.7493628934244823,
+   "70-80% actual": 0.7779115982175118
+  },
+  {
+   "market": "reb",
+   "all legs": 225445,
+   "mean abs gap by bucket": 0.014376300563449565,
+   "70-80% bucket legs": 7779,
+   "70-80% forecast": 0.7476985172051167,
+   "70-80% actual": 0.766036765651112
+  },
+  {
+   "market": "stl",
+   "all legs": 135267,
+   "mean abs gap by bucket": 0.006140377821212192,
+   "70-80% bucket legs": 3991,
+   "70-80% forecast": 0.7383399493349432,
+   "70-80% actual": 0.7421698822350288
+  }
+ ],
+ "dd": [
+  {
+   "bucket": "0-10%",
+   "legs": 22053,
+   "forecast": 0.031080496740177127,
+   "actual": 0.037273840293837575,
+   "gap": 0.006193343553660448,
+   "note": ""
+  },
+  {
+   "bucket": "10-20%",
+   "legs": 4794,
+   "forecast": 0.14217156894443692,
+   "actual": 0.16124322069253233,
+   "gap": 0.019071651748095414,
+   "note": ""
+  },
+  {
+   "bucket": "20-30%",
+   "legs": 2261,
+   "forecast": 0.2455284052630937,
+   "actual": 0.28836797877045556,
+   "gap": 0.04283957350736187,
+   "note": ""
+  },
+  {
+   "bucket": "30-40%",
+   "legs": 1343,
+   "forecast": 0.3467429462119784,
+   "actual": 0.4035740878629933,
+   "gap": 0.05683114165101494,
+   "note": ""
+  },
+  {
+   "bucket": "40-50%",
+   "legs": 829,
+   "forecast": 0.4464619080787687,
+   "actual": 0.5018094089264173,
+   "gap": 0.05534750084764867,
+   "note": ""
+  },
+  {
+   "bucket": "50-60%",
+   "legs": 514,
+   "forecast": 0.5467265936275896,
+   "actual": 0.6245136186770428,
+   "gap": 0.07778702504945323,
+   "note": ""
+  },
+  {
+   "bucket": "60-70%",
+   "legs": 311,
+   "forecast": 0.6430906519253411,
+   "actual": 0.6591639871382636,
+   "gap": 0.016073335212922535,
+   "note": ""
+  },
+  {
+   "bucket": "70-80%",
+   "legs": 143,
+   "forecast": 0.7391330321484662,
+   "actual": 0.7412587412587412,
+   "gap": 0.002125709110275098,
+   "note": "(too small to trust)"
+  },
+  {
+   "bucket": "80-90%",
+   "legs": 58,
+   "forecast": 0.8412055315059399,
+   "actual": 0.8448275862068966,
+   "gap": 0.0036220547009566673,
+   "note": "(too small to trust)"
+  },
+  {
+   "bucket": "90-100%",
+   "legs": 7,
+   "forecast": 0.9260634645082881,
+   "actual": 0.8571428571428571,
+   "gap": -0.06892060736543104,
+   "note": "(too small to trust)"
+  }
+ ],
+ "tickets": [
+  {
+   "ticket": "double_double",
+   "season": 2025,
+   "tickets": 107,
+   "modelled joint probability": 0.7566401869158879,
+   "actual hit rate": 0.7663551401869159,
+   "gap": 0.009714953271028004,
+   "if legs were multiplied": 0.7561293142168791,
+   "note": "(too small to trust)"
+  },
+  {
+   "ticket": "double_double",
+   "season": 2026,
+   "tickets": 90,
+   "modelled joint probability": 0.7739944444444444,
+   "actual hit rate": 0.7666666666666667,
+   "gap": -0.007327777777777711,
+   "if legs were multiplied": 0.7735256997732382,
+   "note": "(too small to trust)"
+  },
+  {
+   "ticket": "game_script",
+   "season": 2025,
+   "tickets": 1231,
+   "modelled joint probability": 0.604925195704519,
+   "actual hit rate": 0.644191714053615,
+   "gap": 0.039266518349096,
+   "if legs were multiplied": 0.5858662663503688,
+   "note": ""
+  },
+  {
+   "ticket": "game_script",
+   "season": 2026,
+   "tickets": 1231,
+   "modelled joint probability": 0.6121691335397608,
+   "actual hit rate": 0.6458164094232332,
+   "gap": 0.03364727588347238,
+   "if legs were multiplied": 0.5931055501102134,
+   "note": ""
+  },
+  {
+   "ticket": "props_4",
+   "season": 2025,
+   "tickets": 1231,
+   "modelled joint probability": 0.6532490370580956,
+   "actual hit rate": 0.6945572705117791,
+   "gap": 0.04130823345368351,
+   "if legs were multiplied": 0.6363970130483559,
+   "note": ""
+  },
+  {
+   "ticket": "props_4",
+   "season": 2026,
+   "tickets": 1231,
+   "modelled joint probability": 0.6516974336967088,
+   "actual hit rate": 0.6848090982940699,
+   "gap": 0.033111664597361035,
+   "if legs were multiplied": 0.6361147733867024,
+   "note": ""
+  },
+  {
+   "ticket": "props_6",
+   "season": 2025,
+   "tickets": 1228,
+   "modelled joint probability": 0.49615779951370675,
+   "actual hit rate": 0.5561889250814332,
+   "gap": 0.060031125567726495,
+   "if legs were multiplied": 0.47574012952164546,
+   "note": ""
+  },
+  {
+   "ticket": "props_6",
+   "season": 2026,
+   "tickets": 1231,
+   "modelled joint probability": 0.49408742083776896,
+   "actual hit rate": 0.545897644191714,
+   "gap": 0.051810223353945084,
+   "if legs were multiplied": 0.47534023288644534,
+   "note": ""
+  },
+  {
+   "ticket": "double_double",
+   "season": "both",
+   "tickets": 197,
+   "modelled joint probability": 0.7645685279187817,
+   "actual hit rate": 0.766497461928934,
+   "gap": 0.0019289340101522612,
+   "if legs were multiplied": 0.7640769015268907,
+   "note": "(too small to trust)"
+  },
+  {
+   "ticket": "game_script",
+   "season": "both",
+   "tickets": 2462,
+   "modelled joint probability": 0.6085471646221399,
+   "actual hit rate": 0.6450040617384241,
+   "gap": 0.03645689711628419,
+   "if legs were multiplied": 0.589485908230291,
+   "note": ""
+  },
+  {
+   "ticket": "props_4",
+   "season": "both",
+   "tickets": 2462,
+   "modelled joint probability": 0.6524732353774022,
+   "actual hit rate": 0.6896831844029244,
+   "gap": 0.037209949025522215,
+   "if legs were multiplied": 0.6362558932175292,
+   "note": ""
+  },
+  {
+   "ticket": "props_6",
+   "season": "both",
+   "tickets": 2459,
+   "modelled joint probability": 0.495121347236326,
+   "actual hit rate": 0.5510370069133794,
+   "gap": 0.05591565967705342,
+   "if legs were multiplied": 0.47553993726547167,
+   "note": ""
+  }
+ ],
+ "situations": [
+  {
+   "70%+ legs in": "blowout-flagged games",
+   "legs": 27935,
+   "forecast": 0.8447888180460659,
+   "actual": 0.8565598711294076,
+   "gap": 0.011771053083341698,
+   "note": ""
+  },
+  {
+   "70%+ legs in": "other games",
+   "legs": 196148,
+   "forecast": 0.8471169485828466,
+   "actual": 0.8635010298346146,
+   "gap": 0.016384081251768046,
+   "note": ""
+  },
+  {
+   "70%+ legs in": "early season (first 20 games)",
+   "legs": 55648,
+   "forecast": 0.8470502147759488,
+   "actual": 0.8700941633122484,
+   "gap": 0.023043948536299652,
+   "note": ""
+  },
+  {
+   "70%+ legs in": "mid-season (21-55)",
+   "legs": 95261,
+   "forecast": 0.847621204272309,
+   "actual": 0.8650864467095664,
+   "gap": 0.017465242437257333,
+   "note": ""
+  },
+  {
+   "70%+ legs in": "after the All-Star break (56-72)",
+   "legs": 45302,
+   "forecast": 0.8455351165801681,
+   "actual": 0.8657233676217385,
+   "gap": 0.020188251041570404,
+   "note": ""
+  },
+  {
+   "70%+ legs in": "final weeks (73+)",
+   "legs": 27872,
+   "forecast": 0.8457643914822703,
+   "actual": 0.8343498851894374,
+   "gap": -0.011414506292832916,
+   "note": ""
+  },
+  {
+   "70%+ legs in": "starters",
+   "legs": 195380,
+   "forecast": 0.8549240871720116,
+   "actual": 0.8706315897225919,
+   "gap": 0.015707502550580288,
+   "note": ""
+  },
+  {
+   "70%+ legs in": "bench",
+   "legs": 28703,
+   "forecast": 0.7917082782662932,
+   "actual": 0.8082082012333206,
+   "gap": 0.016499922967027403,
+   "note": ""
+  },
+  {
+   "70%+ legs in": "team has a rotation player out",
+   "legs": 66469,
+   "forecast": 0.8460971627591756,
+   "actual": 0.8339075358437767,
+   "gap": -0.012189626915398821,
+   "note": ""
+  }
+ ],
+ "gate": [
+  {
+   "70%+ scoring legs": "pass the shooting gate",
+   "legs": 137452,
+   "forecast": 0.8531794950104089,
+   "actual": 0.8704347699560574,
+   "gap": 0.01725527494564849
+  },
+  {
+   "70%+ scoring legs": "fail the shooting gate",
+   "legs": 35607,
+   "forecast": 0.8417069647789479,
+   "actual": 0.8616845002387171,
+   "gap": 0.019977535459769213
+  }
+ ],
+ "corr": [
+  {
+   "pair": "guard assists with centre points",
+   "cases": 4468,
+   "simulated correlation": 0.022939955470305334,
+   "historical correlation": 0.15098367326900383
+  },
+  {
+   "pair": "top scorer's points with game total",
+   "cases": 4924,
+   "simulated correlation": 0.20954751754442735,
+   "historical correlation": 0.2295942377548387
+  },
+  {
+   "pair": "two top scorers' points",
+   "cases": 4924,
+   "simulated correlation": -0.12950946710429867,
+   "historical correlation": 0.017849247395849956
+  }
+ ],
+ "ablation": [
+  {
+   "group": "form",
+   "stat": "ast",
+   "gain": 0.0156277404959786
+  },
+  {
+   "group": "form",
+   "stat": "blk",
+   "gain": 0.002163097769877523
+  },
+  {
+   "group": "form",
+   "stat": "fg2a",
+   "gain": 0.04716169879808717
+  },
+  {
+   "group": "form",
+   "stat": "fg2m",
+   "gain": 0.00030220931847659574
+  },
+  {
+   "group": "form",
+   "stat": "fg3a",
+   "gain": 0.05409612624364693
+  },
+  {
+   "group": "form",
+   "stat": "fg3m",
+   "gain": -4.312912350537679e-06
+  },
+  {
+   "group": "form",
+   "stat": "fta",
+   "gain": 0.01115377226308699
+  },
+  {
+   "group": "form",
+   "stat": "reb",
+   "gain": 0.0037535665583796314
+  },
+  {
+   "group": "form",
+   "stat": "stl",
+   "gain": 0.0012536579491156223
+  },
+  {
+   "group": "opp_position",
+   "stat": "ast",
+   "gain": 0.004434787702368983
+  },
+  {
+   "group": "opp_position",
+   "stat": "blk",
+   "gain": 0.0009298413124588542
+  },
+  {
+   "group": "opp_position",
+   "stat": "fg2a",
+   "gain": 0.0011495633090451052
+  },
+  {
+   "group": "opp_position",
+   "stat": "fg2m",
+   "gain": 0.0
+  },
+  {
+   "group": "opp_position",
+   "stat": "fg3a",
+   "gain": 0.001965589341519019
+  },
+  {
+   "group": "opp_position",
+   "stat": "fg3m",
+   "gain": 0.0
+  },
+  {
+   "group": "opp_position",
+   "stat": "fta",
+   "gain": 0.00021789791548421702
+  },
+  {
+   "group": "opp_position",
+   "stat": "reb",
+   "gain": 0.0022708899528103665
+  },
+  {
+   "group": "opp_position",
+   "stat": "stl",
+   "gain": 0.0006508507424542015
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "ast",
+   "gain": 0.0
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "blk",
+   "gain": 0.0
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "fg2a",
+   "gain": 0.0006124182361959452
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "fg2m",
+   "gain": 0.0006292510720386724
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "fg3a",
+   "gain": 0.0011702998633587969
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "fg3m",
+   "gain": 6.200510996046433e-05
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "fta",
+   "gain": 0.001288986473645809
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "reb",
+   "gain": 1.0677801296660832e-05
+  },
+  {
+   "group": "opp_shot_profile",
+   "stat": "stl",
+   "gain": 0.0009367757715438908
+  },
+  {
+   "group": "referee",
+   "stat": "ast",
+   "gain": 0.0
+  },
+  {
+   "group": "referee",
+   "stat": "blk",
+   "gain": 0.0
+  },
+  {
+   "group": "referee",
+   "stat": "fg2a",
+   "gain": 0.0
+  },
+  {
+   "group": "referee",
+   "stat": "fg2m",
+   "gain": 0.0
+  },
+  {
+   "group": "referee",
+   "stat": "fg3a",
+   "gain": 0.0
+  },
+  {
+   "group": "referee",
+   "stat": "fg3m",
+   "gain": 0.0
+  },
+  {
+   "group": "referee",
+   "stat": "fta",
+   "gain": 0.0003461908792141973
+  },
+  {
+   "group": "referee",
+   "stat": "reb",
+   "gain": 0.0
+  },
+  {
+   "group": "referee",
+   "stat": "stl",
+   "gain": 0.0
+  },
+  {
+   "group": "rim_protection",
+   "stat": "ast",
+   "gain": 0.0
+  },
+  {
+   "group": "rim_protection",
+   "stat": "blk",
+   "gain": 0.00044017169770151716
+  },
+  {
+   "group": "rim_protection",
+   "stat": "fg2a",
+   "gain": 0.0
+  },
+  {
+   "group": "rim_protection",
+   "stat": "fg2m",
+   "gain": 0.0003044634832704011
+  },
+  {
+   "group": "rim_protection",
+   "stat": "fg3a",
+   "gain": 0.0
+  },
+  {
+   "group": "rim_protection",
+   "stat": "fg3m",
+   "gain": 0.0
+  },
+  {
+   "group": "rim_protection",
+   "stat": "fta",
+   "gain": 0.0
+  },
+  {
+   "group": "rim_protection",
+   "stat": "reb",
+   "gain": 0.0
+  },
+  {
+   "group": "rim_protection",
+   "stat": "stl",
+   "gain": 0.0
+  },
+  {
+   "group": "situational",
+   "stat": "ast",
+   "gain": 0.00032807829499804415
+  },
+  {
+   "group": "situational",
+   "stat": "blk",
+   "gain": 0.0004261464955207842
+  },
+  {
+   "group": "situational",
+   "stat": "fg2a",
+   "gain": 0.0006074854567623453
+  },
+  {
+   "group": "situational",
+   "stat": "fg2m",
+   "gain": -4.26311741541916e-05
+  },
+  {
+   "group": "situational",
+   "stat": "fg3a",
+   "gain": 0.0004674159833676218
+  },
+  {
+   "group": "situational",
+   "stat": "fg3m",
+   "gain": -0.0005130741024043904
+  },
+  {
+   "group": "situational",
+   "stat": "fta",
+   "gain": 7.698304356998728e-05
+  },
+  {
+   "group": "situational",
+   "stat": "reb",
+   "gain": -8.465818799312533e-05
+  },
+  {
+   "group": "situational",
+   "stat": "stl",
+   "gain": 1.0114751402774723e-06
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "ast",
+   "gain": 0.00043343517811254915
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "blk",
+   "gain": 0.0
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "fg2a",
+   "gain": 0.0019010655735696917
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "fg2m",
+   "gain": 0.0
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "fg3a",
+   "gain": 0.00032583191451953145
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "fg3m",
+   "gain": 0.0
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "fta",
+   "gain": 0.00020512834447739646
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "reb",
+   "gain": 4.758031458492297e-05
+  },
+  {
+   "group": "teammate_inout",
+   "stat": "stl",
+   "gain": 0.0
+  }
+ ],
+ "verdict": {
+  "form": "keep",
+  "opp_shot_profile": "keep",
+  "opp_position": "keep",
+  "rim_protection": "keep",
+  "situational": "switch off",
+  "teammate_inout": "keep",
+  "referee": "keep"
+ },
+ "team_inputs": [
+  {
+   "input": "referee crew",
+   "season": 2025,
+   "margin MAE with": 11.00461579675153,
+   "margin MAE without": 11.00461579675153,
+   "total MAE with": 14.574950230879308,
+   "total MAE without": 14.624738782741519
+  },
+  {
+   "input": "referee crew",
+   "season": 2026,
+   "margin MAE with": 11.283800737233245,
+   "margin MAE without": 11.283800737233245,
+   "total MAE with": 14.921680980729798,
+   "total MAE without": 14.921705798321595
+  },
+  {
+   "input": "style clash",
+   "season": 2025,
+   "margin MAE with": 11.00461579675153,
+   "margin MAE without": 11.00461579675153,
+   "total MAE with": 14.574950230879308,
+   "total MAE without": 14.574985774617947
+  },
+  {
+   "input": "style clash",
+   "season": 2026,
+   "margin MAE with": 11.283800737233245,
+   "margin MAE without": 11.283800737233245,
+   "total MAE with": 14.921680980729798,
+   "total MAE without": 14.957302505262792
+  },
+  {
+   "input": "rest, back-to-back, travel",
+   "season": 2025,
+   "margin MAE with": 11.00461579675153,
+   "margin MAE without": 11.07432668525463,
+   "total MAE with": 14.574950230879308,
+   "total MAE without": 14.571061198272899
+  },
+  {
+   "input": "rest, back-to-back, travel",
+   "season": 2026,
+   "margin MAE with": 11.283800737233245,
+   "margin MAE without": 11.311425273343666,
+   "total MAE with": 14.921680980729798,
+   "total MAE without": 14.912905011276822
+  },
+  {
+   "input": "who is missing tonight",
+   "season": 2025,
+   "margin MAE with": 11.00461579675153,
+   "margin MAE without": 10.939574088927603,
+   "total MAE with": 14.574950230879308,
+   "total MAE without": 14.57053628777201
+  },
+  {
+   "input": "who is missing tonight",
+   "season": 2026,
+   "margin MAE with": 11.283800737233245,
+   "margin MAE without": 11.310213245744706,
+   "total MAE with": 14.921680980729798,
+   "total MAE without": 14.929257012541646
+  }
+ ]
+}

@@ -882,3 +882,213 @@ body {
 .findings li {
   border-left-color: var(--flood);
 }
+
+/* ---------- Landing page: eye banner, how it works, locks, sport tabs ---------- */
+.top nav a.tab-link {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--chalk);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 18px;
+}
+.top nav a.tab-link:hover {
+  background: var(--flood);
+  border-color: var(--flood);
+}
+.eye-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: var(--night-deep);
+}
+.eye-banner {
+  display: block;
+  width: 100%;
+  height: clamp(150px, 24vw, 300px);
+  object-fit: cover;
+  object-position: 55% 30%;
+}
+.eye-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(60% 50% at 55% 0%, rgb(214 25 43 / 0.28), transparent 70%);
+}
+.eye-copy {
+  padding-block: 40px 64px;
+}
+.eye-copy h1 {
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  line-height: 0.95;
+  margin: 8px 0 0;
+}
+.eye-copy h1 em {
+  font-style: normal;
+  color: var(--flood);
+}
+.eye-copy .lede {
+  max-width: 62ch;
+  color: var(--dim);
+  font-size: 1.15rem;
+  margin: 18px 0 0;
+}
+.eye-copy .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.kicker {
+  margin: 0;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 28px;
+  margin-top: 36px;
+}
+.steps h3 {
+  margin: 6px 0 8px;
+  font-size: 1.15rem;
+}
+.steps p {
+  margin: 0;
+  color: var(--dim);
+}
+.step-n {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: var(--flood);
+}
+.script {
+  margin-top: 48px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--flood);
+  border-radius: 6px;
+  padding: 24px clamp(18px, 4vw, 36px);
+  background: var(--night);
+}
+.script h3 {
+  margin: 0 0 14px;
+  font-family: var(--font-display), Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.4rem;
+}
+.script dl {
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+.script dl > div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 16px;
+}
+.script dt {
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  padding-top: 3px;
+}
+.script dd {
+  margin: 0;
+  font-size: 1.08rem;
+  max-width: 70ch;
+}
+@media (max-width: 640px) {
+  .script dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}
+.locks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px 26px;
+  margin-top: 36px;
+  align-items: start;
+}
+.slip.lock {
+  box-shadow: 8px 8px 0 var(--flood);
+  max-width: none;
+  transform: none;
+  padding-bottom: 6px;
+}
+.slip.lock .slip-head small {
+  text-align: right;
+}
+.slip.lock .slip-foot b {
+  font-size: 1.25rem;
+}
+.lock-link {
+  display: block;
+  padding: 10px 16px 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--flood);
+}
+.backing {
+  margin-top: 36px;
+  max-width: 78ch;
+  color: var(--dim);
+}
+.backing strong {
+  color: var(--chalk);
+}
+.sport-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+.sport-card {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--night);
+  color: var(--chalk);
+  text-decoration: none;
+}
+.sport-card:hover {
+  border-color: var(--flood);
+}
+.sport-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+.sport-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--dim);
+  display: grid;
+  gap: 4px;
+}
+.sport-card .btn {
+  justify-self: start;
+  margin-top: 6px;
+}
+.sport-tag {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--flood);
+}
