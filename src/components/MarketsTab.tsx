@@ -3,6 +3,9 @@ import data from "../../model/output/game_markets.json";
 import type { Leg } from "@/lib/bets";
 
 type Factor = { factor: string; points: number };
+type Check = { check: string; score: number | null; verdict: string; numbers?: string };
+type AltLine = { line: number; p: number; fair_price: number; main: boolean };
+type SafeSpread = { game_id: string; team: string; main_line: number; main_p: number; safe_line: number; p: number; fair_price: number; net_checks: number };
 type MarketLeg = {
   game_id: string;
   market: string;
@@ -18,6 +21,9 @@ type MarketLeg = {
   injury_report?: string[];
   for?: Factor[];
   against?: Factor[];
+  checks?: Check[];
+  net_checks?: number;
+  safe?: boolean;
 };
 type Ticket = {
   legs: MarketLeg[];
@@ -43,6 +49,8 @@ const am = (n: number) => (n > 0 ? `+${n}` : `−${Math.abs(n)}`);
 const pct = (p: number, d = 1) => `${(p * 100).toFixed(d)}%`;
 const signedPct = (p: number) => `${p >= 0 ? "+" : "−"}${Math.abs(p * 100).toFixed(1)}%`;
 const heat = (p: number) => (p >= 0.8 ? 5 : p >= 0.65 ? 4 : p >= 0.5 ? 3 : p >= 0.35 ? 2 : 1);
+const line = (n: number) => (n > 0 ? `+${n}` : n === 0 ? "PK" : `−${Math.abs(n)}`);
+const verdictPill = (v: string) => (v === "for" ? "good" : v === "against" ? "bad" : "neutral");
 const gameName = (id: string) => {
   const [, , away, home] = id.split("_");
   return `${away} @ ${home}`;
@@ -51,7 +59,26 @@ const gameName = (id: string) => {
 function Why({ leg }: { leg: MarketLeg }) {
   return (
     <details>
-      <summary>Why this side</summary>
+      <summary>Matchup checks and reasons</summary>
+      {leg.checks && (
+        <div className="scroll">
+          <table className="tbl chk">
+            <tbody>
+              {leg.checks.map((c) => (
+                <tr key={c.check}>
+                  <td>
+                    <b>{c.check}</b>
+                  </td>
+                  <td>
+                    <span className={`pill ${verdictPill(c.verdict)}`}>{c.verdict}</span>
+                  </td>
+                  <td>{c.numbers}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
       <ul className="why">
         {leg.note && <li>{leg.note}</li>}
         {(leg.for ?? []).map((f) => (
@@ -136,6 +163,15 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
     .map((g) => g[market] as unknown as MarketLeg | null)
     .filter((l): l is MarketLeg => !!l)
     .sort((a, b) => b.ev - a.ev);
+  const safe = data.safe as unknown as {
+    rule: string;
+    moneylines: MarketLeg[];
+    other_favourites: MarketLeg[];
+    parlays: Ticket[];
+    spreads: SafeSpread[];
+  };
+  const alts = Object.fromEntries(data.games.map((g) => [g.game_id, g.alt_spreads as AltLine[]]));
+  const fav = card.strong_favourites as unknown as Record<string, Row & { average_forecast: number }>;
   const ints = data.interceptions;
   const intPicks = ints.filter((i) => i.recommended);
   const ic = data.interception_scorecard;
@@ -153,9 +189,11 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
             <p className="sub">
               Moneyline, spread and total tickets from the game model. It rates every team on
               efficiency, pace, possession, turnovers, penalties and its quarterback, then moves the
-              market line a small step toward that view. Legs are ranked by value at the listed
-              price, not by how likely they are, so underdogs make every ticket and favourites
-              shorter than −350 are left out.
+              market line a small step toward that view. Every moneyline and spread pick carries
+              seven matchup checks, and a pick missing any of them is dropped ({data.gate.dropped_missing_a_check}{" "}
+              of {data.gate.picks_considered} this week). Tickets rank legs by value at the listed
+              price, so underdogs make every ticket; a favourite needs the checks to lean its way,
+              and favourites shorter than −350 are left out.
             </p>
           </div>
         </div>
@@ -179,6 +217,121 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
               {label}
             </button>
           ))}
+        </div>
+      </section>
+
+      <section className="panel">
+        <div className="section-head">
+          <div>
+            <h2>Safe picks</h2>
+            <p className="sub">
+              {safe.rule} Safe means likely to win, not good value: these prices are short, and the
+              return over time has been close to zero.
+            </p>
+          </div>
+        </div>
+        {safe.moneylines.length === 0 ? (
+          <p className="empty">No favourite passes every part of the safe rule this week.</p>
+        ) : (
+          <div className="mylegs">
+            {safe.moneylines.map((l) => (
+              <div className="myleg" key={l.game_id}>
+                <div className="line1">
+                  <span className="nm">
+                    {l.label} <small>{gameName(l.game_id)}</small>
+                  </span>
+                  <span className="pill good">safe · checks {(l.net_checks ?? 0) > 0 ? "+" : ""}{l.net_checks}</span>
+                  <span className="pill">{am(l.price)}</span>
+                  <span className="prob" data-heat={heat(l.p)}>
+                    {pct(l.p)}
+                  </span>
+                </div>
+                <Why leg={l} />
+              </div>
+            ))}
+          </div>
+        )}
+        {safe.parlays.map((t) => (
+          <div className="warns" style={{ marginTop: 10 }} key={t.n}>
+            <div>
+              Safe {t.n}-leg parlay: {t.legs.map((l) => l.label).join(" + ")}. Model {pct(t.p)} to hit,
+              fair {am(t.fair_price)}, listed {am(t.market_price)}.{" "}
+              <button
+                className="btn sm"
+                onClick={() => onTrack(t.legs.map((l) => ({ description: l.label, odds: l.price, game: gameName(l.game_id) })))}
+              >
+                Review and track
+              </button>
+            </div>
+          </div>
+        ))}
+        {safe.other_favourites.length > 0 && (
+          <>
+            <h3 style={{ marginTop: 14 }}>Strong favourites that did not pass</h3>
+            <div className="mylegs">
+              {safe.other_favourites.map((l) => (
+                <div className="myleg" key={l.game_id}>
+                  <div className="line1">
+                    <span className="nm">
+                      {l.label} <small>{gameName(l.game_id)}</small>
+                    </span>
+                    <span className="pill warn">checks {(l.net_checks ?? 0) > 0 ? "+" : ""}{l.net_checks}, needs +2</span>
+                    <span className="pill">{am(l.price)}</span>
+                    <span className="prob" data-heat={heat(l.p)}>
+                      {pct(l.p)}
+                    </span>
+                  </div>
+                  <Why leg={l} />
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+        <h3 style={{ marginTop: 14 }}>Safer alternative spreads</h3>
+        <p className="sub">
+          The same side at the first alternative line the model gives 70% or better. No book prices
+          are loaded for alternative lines, so compare the fair price with your book.
+        </p>
+        <div className="scroll">
+          <table className="tbl">
+            <thead>
+              <tr>
+                <th>Team</th>
+                <th>Main line</th>
+                <th>Safer line</th>
+                <th>Chance</th>
+                <th>Fair price</th>
+                <th>Checks</th>
+              </tr>
+            </thead>
+            <tbody>
+              {safe.spreads.map((r) => (
+                <tr key={r.game_id}>
+                  <td>
+                    <b>{r.team}</b> <span className="sub">{gameName(r.game_id)}</span>
+                  </td>
+                  <td className="num">
+                    {line(r.main_line)} ({pct(r.main_p, 0)})
+                  </td>
+                  <td className="num">
+                    <b>{line(r.safe_line)}</b>
+                  </td>
+                  <td>
+                    <span className="prob" data-heat={heat(r.p)}>
+                      {pct(r.p)}
+                    </span>
+                  </td>
+                  <td className="num">{am(r.fair_price)}</td>
+                  <td>
+                    <span className={`pill ${r.net_checks >= 2 ? "good" : r.net_checks < 0 ? "bad" : "neutral"}`}>
+                      {r.net_checks > 0 ? "+" : ""}
+                      {r.net_checks}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -227,6 +380,16 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
                   {pct(l.p)}
                 </span>
               </div>
+              {market === "spread" && (
+                <div className="alts">
+                  Alternative lines:
+                  {(alts[l.game_id] ?? []).map((a) => (
+                    <span className={`pill ${a.main ? "gold" : ""}`} key={a.line}>
+                      {line(a.line)} · {pct(a.p, 0)} · fair {am(a.fair_price)}
+                    </span>
+                  ))}
+                </div>
+              )}
               <Why leg={l} />
             </div>
           ))}
@@ -316,6 +479,39 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
               <History rows={card.moneyline_value_bets_split.favourites as unknown as Row[]} unit="of which favourites" />
               <History rows={card.spread_singles as unknown as Row[]} unit="Spreads" />
               <History rows={card.total_singles as unknown as Row[]} unit="Totals" />
+              <History rows={[fav.all]} unit="Strong favourites, all" />
+              <History rows={[fav.safe_checks_lean_their_way]} unit="Strong favourites that passed the safe rule" />
+              <History rows={[fav.not_safe]} unit="Strong favourites that did not pass" />
+              <History rows={[fav.checks_net_negative]} unit="Strong favourites with the checks against them" />
+            </tbody>
+          </table>
+        </div>
+        <p className="sub">
+          The checks sort favourites in the right direction: those that passed won more often
+          relative to their price than those that did not. The gap is small and the samples are
+          a few hundred games, so read it as a lean, not a proven edge.
+        </p>
+        <div className="scroll" style={{ marginTop: 10 }}>
+          <table className="tbl">
+            <thead>
+              <tr>
+                <th>Alternative lines, points moved</th>
+                <th>Games</th>
+                <th>Forecast</th>
+                <th>Actually covered</th>
+              </tr>
+            </thead>
+            <tbody>
+              {card.alternative_lines.map((a) => (
+                <tr key={a.points_moved}>
+                  <td>
+                    <b>{a.points_moved > 0 ? `${a.points_moved} easier` : `${-a.points_moved} harder`}</b>
+                  </td>
+                  <td className="num">{a.games.toLocaleString("en-CA")}</td>
+                  <td className="num">{pct(a.average_forecast)}</td>
+                  <td className="num">{pct(a.actually_covered)}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -356,7 +552,7 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
   );
 }
 
-type HybridLeg = { kind: string; label: string; p: number; player_id?: string; price?: number };
+type HybridLeg = { kind: string; label: string; p: number; player_id?: string; price?: number; matchup?: string };
 type Hybrid = {
   kind: string;
   game_id: string;
@@ -387,7 +583,9 @@ export function HybridsTab() {
               Same-game parlays that tie a game result to touchdown scorers. The game leg comes from
               the game model, the touchdown chances from the ATTD model, and the two are combined
               with correlations measured on {c.n_player_games.toLocaleString("en-CA")} past
-              player-games. Players on the singles-only list are never used.
+              player-games. Players on the singles-only list are never used, a scorer whose position
+              matchup is against him is passed over when another is available, and no hybrid is
+              built for a game missing a matchup check.
             </p>
           </div>
         </div>
@@ -431,7 +629,8 @@ export function HybridsTab() {
                     <ol>
                       {h.legs.map((l) => (
                         <li key={l.label}>
-                          {l.label} <span>{pct(l.p, 0)}</span>
+                          {l.label} <span>{pct(l.p, 0)}</span>{" "}
+                          {l.matchup && <span className={`pill ${verdictPill(l.matchup)}`}>matchup {l.matchup}</span>}
                         </li>
                       ))}
                     </ol>

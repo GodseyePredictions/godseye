@@ -27,3 +27,7 @@ if __name__ == "__main__":
     fetch(PLAYERS, DATA / "players.csv")
     for s in range(first, last + 1):
         fetch(PBP.format(s=s), DATA / "pbp" / f"play_by_play_{s}.csv.gz")
+        # injury reports, snap counts and (from 2022) play charting, used by matchups.py
+        for kind, start in (("injuries", 2015), ("snap_counts", 2015), ("ftn_charting", 2022)):
+            if s >= start:
+                fetch(f"https://github.com/nflverse/nflverse-data/releases/download/{kind}/{kind}_{s}.csv", DATA / kind / f"{kind}_{s}.csv")

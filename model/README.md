@@ -42,3 +42,13 @@ Every rating is checked walk-forward on 2024 onward. These stats are mostly nois
 The scorecard in the output is walk-forward on 2020 onward. The model does not beat the closing line: the fitted weight on its own view is about 7% for margins and 13% for totals, and single bets on its sides lose roughly the bookmaker's margin. The tickets are fair-price references, not proven edges.
 
 It reads `../public/console/data.js` for this week's touchdown probabilities, weather, singles-only list and injury flags, so re-run it after importing a new console export.
+
+### Matchup checks, safe picks and alternative lines
+
+`matchups.py` (run it after `features.py`) builds the unit-level tables: inside and outside runs against the front, receiver targets by depth and area, tight end targets, pressure, play-calling tendencies, and how many usual starters on the offensive line, defence and skill positions are ruled Out or Doubtful. `game_markets.py` rates those the same way as everything else and feeds them into the forecast.
+
+Every moneyline and spread pick carries seven checks: home vs away, personnel, offensive play-calling, defensive play-calling and pressure, running backs vs defensive line with line health, receivers (deep, slot area, outside), and tight ends. A pick missing any check is dropped. A favourite needs the checks to lean its way to make a ticket. "Safe" moneylines need a 65% model chance, two more checks for than against, and personnel not against.
+
+Public data has no slot alignment or coverage assignments, so the slot is measured by short-middle targets and coverage by what each defence allows in that area. Injury designations for the coming week appear late in the week, so re-run `fetch_data.py`, `matchups.py` and `game_markets.py` after they post.
+
+On 2020 onward: favourites that passed the safe rule returned -0.6% (555 bets), those that did not -3.8% (297), and those with the checks against them -6.8% (59). Alternative-line forecasts were within a point or two of what happened at every distance tested.
