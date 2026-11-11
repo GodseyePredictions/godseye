@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated from the console export by scripts/import-console.py:
+    "public/console/**",
   ]),
 ]);
 

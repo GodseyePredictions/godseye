@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 
 const bars = [
   { label: "Singles", roi: 4.2 },
@@ -12,9 +13,7 @@ export default function Home() {
   return (
     <>
       <header className="wrap top">
-        <Link href="/" className="brand">
-          gods<span>eye</span>
-        </Link>
+        <Logo />
         <nav aria-label="Main">
           <a href="#how" className="hide-sm">
             What it does
@@ -35,9 +34,8 @@ export default function Home() {
               Check the slip <em>before you place it</em>
             </h1>
             <p className="lede">
-              godseye is an AI advisor that reads your parlay or single, tells
-              you what is wrong with it, and tracks how your bets really
-              perform.
+              godseye prices NFL touchdown and prop bets with a model, audits
+              your parlay leg by leg, and tracks how your bets really perform.
             </p>
             <div className="actions">
               <Link href="/app" className="btn btn-primary">
@@ -62,7 +60,7 @@ export default function Home() {
                 </div>
                 <div className="leg-sub">Spread, Bills at Dolphins</div>
                 <div className="note">
-                  <b>Better line:</b> −3 at −112 on another book
+                  <b>Keep:</b> the strongest leg on this slip
                 </div>
               </div>
               <div className="leg">
@@ -100,33 +98,32 @@ export default function Home() {
           <div className="wrap">
             <h2 className="display">An advisor, not a tout</h2>
             <p className="intro">
-              godseye does not sell locks. It helps you place the bets you
-              already want to make at a better price, with fewer mistakes, and
-              shows you the truth about your results.
+              godseye does not sell locks. It shows you the model&apos;s number for
+              every leg, helps you build slips with fewer mistakes, and shows
+              you the truth about your results.
             </p>
             <div className="jobs">
               <div>
-                <h3>Talk through the slip</h3>
+                <h3>See the model&apos;s picks</h3>
                 <p>
-                  Paste a slip or upload a screenshot. The advisor checks each
-                  leg against odds across books and flags legs that are linked
-                  or overpriced.
+                  Anytime-touchdown and prop probabilities for every game,
+                  ready-made tickets, and same-game parlays priced with
+                  measured leg correlations.
+                </p>
+              </div>
+              <div>
+                <h3>Build and audit a slip</h3>
+                <p>
+                  Add legs to your slip, type your book&apos;s price, and see
+                  the model&apos;s chance, the fair price and which legs to keep,
+                  swap or remove.
                 </p>
               </div>
               <div>
                 <h3>Track every bet</h3>
                 <p>
-                  Each slip you share is saved and settled. Singles, parlays
-                  and props all land in one record of what you staked and what
-                  came back.
-                </p>
-              </div>
-              <div>
-                <h3>Read your report</h3>
-                <p>
-                  See your return by sport, bet type and book, and whether you
-                  are beating the closing line. The advisor uses it in every
-                  chat.
+                  Send a slip to your record, mark it when it settles, and
+                  read your return by sport, bet type and book.
                 </p>
               </div>
             </div>
@@ -168,6 +165,10 @@ export default function Home() {
         <section id="pricing" className="band band-deep">
           <div className="wrap">
             <h2 className="display">Start free. Go Pro when it helps.</h2>
+            <p className="intro">
+              Everything is open while godseye is in preview. These plans
+              start when accounts launch.
+            </p>
             <div className="plans">
               <div className="plan">
                 <h3>Free</h3>
@@ -175,9 +176,9 @@ export default function Home() {
                   $0
                 </div>
                 <ul>
-                  <li>Track your bets from screenshots or pasted slips</li>
-                  <li>Basic win and loss record</li>
-                  <li>5 advisor chats each month</li>
+                  <li>Paste and check any slip</li>
+                  <li>Track your bets and see your record</li>
+                  <li>This week&apos;s touchdown board</li>
                 </ul>
                 <Link href="/app" className="btn btn-ghost">
                   Open the app
@@ -189,10 +190,10 @@ export default function Home() {
                   $29 <small>CAD per month</small>
                 </div>
                 <ul>
-                  <li>Unlimited advisor chats</li>
+                  <li>Algorithm picks and game parlays</li>
                   <li>Full report by sport, bet type and book</li>
-                  <li>Best-line check on every leg</li>
-                  <li>Closing line tracking</li>
+                  <li>Build and audit your own parlay</li>
+                  <li>AI advisor chat (planned, not built yet)</li>
                 </ul>
                 <Link href="/app" className="btn">
                   Open the app

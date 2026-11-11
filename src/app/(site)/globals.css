@@ -801,3 +801,40 @@ tbody tr:last-child td {
   border-top: 0;
   border-left: 6px solid var(--flood);
 }
+
+/* Logo */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+}
+.logo-words {
+  display: grid;
+  line-height: 1;
+}
+.logo-name {
+  font-family: var(--font-display), Impact, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 34px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.logo-name b {
+  color: var(--flood);
+  font-weight: 800;
+}
+.logo-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 3px;
+}
+.display {
+  font-weight: 800;
+  font-style: italic;
+}

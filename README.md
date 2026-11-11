@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# godseye predictions
 
-## Getting Started
+A Next.js site with two sections:
 
-First, run the development server:
+- `/` is the marketing page (`src/app/(site)`).
+- `/app` is the product (`src/app/(console)`): the God's Eye console (algorithm picks, game SGPs, ATD board, SGP builder, quick add, slip audit, model and rules) plus tracker tabs (paste a slip, my bets, my report, game predictions).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Run it
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    npm install
+    npm run dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`npm test` runs the odds and bet-tracking tests. `npm run build` makes a production build.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Updating the weekly picks
 
-## Learn More
+The console is imported from its exported HTML page:
 
-To learn more about Next.js, take a look at the following resources:
+    python3 -I scripts/import-console.py path/to/console.html
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic, recoloured for this site) and `src/app/(console)/console-base.css`. Site-specific styling lives in `src/app/(console)/console.css`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## What is not built yet
 
-## Deploy on Vercel
+Logins, subscriptions, the AI advisor chat, live odds and sportsbook sync. Bets are stored in the visitor's browser until accounts exist.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The separate team-rating model in `model/` is documented in `model/README.md`.

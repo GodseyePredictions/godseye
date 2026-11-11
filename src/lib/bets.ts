@@ -11,9 +11,12 @@ export type Bet = {
   stake: number;
   status: Status;
   closingOdds?: number; // singles only
+  price?: number; // American odds for the whole bet, when the book priced it as one (same-game parlays)
+  modelChance?: number; // the model's win chance when the bet was tracked from the console
 };
 
-export function betDecimal(bet: Pick<Bet, "legs">): number {
+export function betDecimal(bet: Pick<Bet, "legs" | "price">): number {
+  if (bet.price) return toDecimal(bet.price);
   return bet.legs.length === 1
     ? toDecimal(bet.legs[0].odds)
     : parlayDecimal(bet.legs.map((l) => l.odds));
@@ -83,7 +86,7 @@ export function averageClv(bets: Bet[]): number | null {
   const withClose = bets.filter((b) => b.legs.length === 1 && b.closingOdds);
   if (!withClose.length) return null;
   const sum = withClose.reduce(
-    (s, b) => s + impliedProb(b.closingOdds!) - impliedProb(b.legs[0].odds),
+    (s, b) => s + impliedProb(b.closingOdds!) - impliedProb(b.price ?? b.legs[0].odds),
     0,
   );
   return sum / withClose.length;
