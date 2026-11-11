@@ -79,3 +79,105 @@ def pbpstats_snapshot(con, season: str, to_date: str) -> int:
                 for r in json.loads(body).get("multi_row_table_data", [])]
         n += upsert(con, "pbp_snapshots", rows)
     return n
+
+
+OU_TYPES = {"pts": "Total Points", "reb": "Total Rebounds", "ast": "Total Assists", "fg3m": "Total 3-Point Field Goals"}
+
+
+def _implied(american: float) -> float:
+    return 100 / (american + 100) if american > 0 else -american / (-american + 100)
+
+
+def _ladder_median(ladder: list) -> float:
+    """The count at which a ladder's price crosses a coin flip (the book's own idea of the player's median)."""
+    pts = sorted((r, _implied(px)) for r, px in ladder)
+    for (r0, p0), (r1, p1) in zip(pts, pts[1:]):
+        if p0 >= 0.5 > p1:
+            return r0 + (p0 - 0.5) / max(p0 - p1, 1e-9) * (r1 - r0) - 0.5
+    return pts[0][0] - 1.0 if pts[0][1] < 0.5 else pts[-1][0] + 0.5
+
+
+def choose_ladder(rungs: list, ou_line: float | None, need_line: bool = True) -> tuple[list, str]:
+    """`rungs` is one player's rows for one market, as (rung, price). The feed sometimes mixes a second,
+    different market into the same name, so no rung is trusted on its own. Each one must fit the player's
+    full-game over/under line: clearly likely when well under the line, clearly unlikely when well over it,
+    and getting longer as the rung rises. Rungs that do not fit are dropped. With no line, nothing is used."""
+    if ou_line is None:
+        return [], "no over/under line to confirm the ladder"
+    ok = {}
+    for r, px in rungs:
+        p, gap = _implied(px), (r - 0.5) - ou_line                 # gap < 0: rung is under the line
+        if gap <= -3 and p < 0.72: continue
+        if gap <= -1 and p < 0.52: continue
+        if gap >= 1 and p > 0.56: continue
+        if gap >= 3 and p > 0.38: continue
+        if r not in ok or abs(p - (0.5 - 0.1 * gap)) < abs(_implied(ok[r]) - (0.5 - 0.1 * gap)):
+            ok[r] = px
+    below = sorted((r for r in ok if r - 0.5 <= ou_line), reverse=True)
+    above = sorted(r for r in ok if r - 0.5 > ou_line)
+    keep, last = [], 0.0
+    for r in below:                                               # walking down from the line: chance must not fall
+        p = _implied(ok[r])
+        if p >= last - 1e-9:
+            keep.append(r); last = p
+    last = 1.0
+    for r in above:                                               # walking up from the line: chance must not rise
+        p = _implied(ok[r])
+        if p <= last + 1e-9:
+            keep.append(r); last = p
+    out = [(r, ok[r]) for r in sorted(keep)]
+    return out, ("" if out else "no rung fits the over/under line")
+
+
+def espn_draftkings_props(game_id: str, names: dict, cfg=CONFIG, max_age=240) -> tuple[list[dict], list[str]]:
+    """DraftKings milestone ladders (points, rebounds, assists, threes) for one game, from ESPN's odds API.
+
+    Each row is a rung DraftKings lists ("15+" is stored as over 14.5) with its price. Players come with
+    ESPN ids, which are this module's own ids, so no name matching is involved. ESPN's over/under rows do
+    not say which price is the over, so they are used only for their line, to confirm which ladder is the
+    full-game one. Returns (rows, problems)."""
+    base = (f"https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/{game_id}/competitions/{game_id}"
+            f"/odds/100/propBets?lang=en&region=us&limit=1000")
+    tag = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M")[:-1]          # a fresh copy every ten minutes
+    raw, ou, page, pages, at = {}, {}, 1, 1, None
+    ou_names = {v: k for k, v in OU_TYPES.items()}
+    while page <= pages:
+        body, at = get(f"{base}&page={page}", RAW, min_interval=GAP["sports.core.api.espn.com"], max_age=max_age, tag=tag)
+        d = json.loads(body)
+        pages = d.get("pageCount", 1)
+        for it in d.get("items", []):
+            tname = (it.get("type") or {}).get("name")
+            a = re.search(r"/athletes/(\d+)", (it.get("athlete") or {}).get("$ref", ""))
+            total = ((it.get("odds") or {}).get("total") or {}).get("value", "")
+            if not a:
+                continue
+            pid = a.group(1)
+            if tname in ou_names:
+                try:
+                    ou[(pid, ou_names[tname])] = float(total)
+                except (TypeError, ValueError):
+                    pass
+                continue
+            market = cfg["espn_dk_markets"].get(tname)
+            m = re.match(r"^(\d+)\+$", str(total))
+            price = ((it.get("odds") or {}).get("american") or {}).get("value")
+            if not (market and m and price):
+                continue
+            try:
+                px = float(str(price).replace("+", "").replace("EVEN", "100"))
+            except ValueError:
+                continue
+            if abs(px) < 100:
+                continue
+            raw.setdefault((pid, market), []).append((int(m.group(1)), px))
+        page += 1
+    rows, problems = [], []
+    for (pid, market), rungs in raw.items():
+        ladder, why = choose_ladder(rungs, ou.get((pid, market)))
+        if why:
+            problems.append(f"{names.get(pid, pid)} {market}: {why}; not used")
+        for r, px in ladder:
+            rows.append({"known_at": at, "source": "espn-core", "book": "draftkings", "game_id": game_id, "market": market,
+                         "player_id": pid, "player_name": names.get(pid, pid), "side": "over", "line": r - 0.5,
+                         "price": px, "is_close": 0})
+    return rows, problems

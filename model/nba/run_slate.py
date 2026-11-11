@@ -81,14 +81,38 @@ def officials_tonight(con, games: pd.DataFrame) -> pd.DataFrame:
 
 
 def offers_for(con, game_id: str, cfg=CONFIG) -> pd.DataFrame:
-    """The latest price the book has shown for every rung and line of this game. Only these can be legs."""
-    o = pd.read_sql("SELECT * FROM odds WHERE game_id=? AND known_at < ? AND book LIKE ?", con,
-                    params=[game_id, ledger.now(), f"%{cfg['odds_book']}%"])
-    if o.empty:
-        return o
-    o = o.sort_values("known_at").drop_duplicates(["market", "player_name", "side", "line"], keep="last")
-    fresh = o.known_at >= o.known_at.max()[:10]          # same day as the latest pull
-    return o[fresh]
+    """The latest price shown for every rung and line of this game, from the first preferred book that has
+    any. Only these can be legs."""
+    o = pd.read_sql("SELECT * FROM odds WHERE game_id=? AND known_at < ?", con, params=[game_id, ledger.now()])
+    for book in cfg["odds_books"]:
+        ob = o[o.book.str.contains(book, case=False)]
+        if ob.empty:
+            continue
+        ob = ob[ob.known_at >= ob.known_at.max()[:15]]            # the latest pull only (same ten minutes)
+        return ob.sort_values("known_at").drop_duplicates(["market", "player_name", "side", "line"], keep="last")
+    return o.iloc[0:0]
+
+
+def multi_game_slips(per_game: dict, cfg=CONFIG) -> list:
+    """Slips across several games: the best n-leg ticket from each of the strongest games. Games are
+    independent of each other, so the slip's chance is the product of each game's counted joint chance."""
+    from common.odds_math import decimal_to_american, fair_american
+    out = []
+    for n in cfg["multi_legs_per_game"]:
+        have = sorted(((t["joint"], gid, t) for gid, d in per_game.items() for t in [d.get(n)] if t), key=lambda x: -x[0])
+        pick = have[:cfg["multi_games"]]
+        if len(pick) < cfg["multi_games"]:
+            continue
+        joint = float(np.prod([p[0] for p in pick]))
+        dec = [p[2]["decimal"] for p in pick]
+        price = float(np.prod(dec)) if all(dec) else None
+        out.append({"type": f"multi_{n * len(pick)}", "n_legs": n * len(pick), "joint": joint, "fair_price": fair_american(joint),
+                    "book_price": decimal_to_american(price) if price else None, "ev": joint * price - 1 if price else None,
+                    "price_is_estimate": True,
+                    "parts": [{"game_id": gid, "matchup": per_game[gid]["matchup"], "joint": j,
+                               "legs": [{k: v for k, v in l.items() if k not in ("hits", "active")} for l in t["legs"]]}
+                              for j, gid, t in pick]})
+    return out
 
 
 def projection_rows(game_id, rows: pd.DataFrame, summary: pd.DataFrame, gate: pd.DataFrame) -> list:
@@ -145,7 +169,7 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
     names = {**dict(zip(games.home_id, games.home)), **dict(zip(games.away_id, games.away))}
     restr = known.set_index("player_id").minutes_restriction
     pl.D["minutes_restriction"] = pl.D.player_id.map(restr[~restr.index.duplicated()])
-    slate, texts = [], []
+    slate, texts, per_game, book_used = [], [], {}, None
     (HERE / "data" / "sims").mkdir(parents=True, exist_ok=True)
     for g in games.itertuples():
         gg = gate[gate.game_id == g.game_id]
@@ -176,6 +200,12 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                      "(set ODDS_API_KEY or load a bet365 sheet with: python3 -m nba.refresh csv FILE " + g.game_id + ")"]}
         else:
             built = sgp.build_tickets(legs, sims, card, cfg, require_price=True)
+        if not preview and not offers.empty:
+            from common import tickets as tk
+            pool = sgp.floor_rungs([l for l in legs if sgp.sgp_eligible(l, cfg, True)[0]])
+            per_game[g.game_id] = {"matchup": card["matchup"],
+                                   **{n: tk.best_ticket(pool, n, cfg, True) if len(pool) >= n else None for n in cfg["multi_legs_per_game"]}}
+            book_used = offers.book.iloc[0]
         text = sgp.slip_text(card, built, gg)
         summ = ps.summary(players)
         prow = projection_rows(g.game_id, inputs["rows"], summ, gg)
@@ -212,7 +242,23 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                                             "from_status": c["from"], "to_status": c["to"],
                                             "projections_changed": json.dumps(c["projections_changed"])}])
     OUT.mkdir(exist_ok=True)
-    payload = {"run_id": run_id, "run_at": run_at, "n_sims": n_sims or cfg["n_sims"], "games": slate, "status_changes": moved}
+    multi = multi_game_slips(per_game, cfg) if not only else []
+    for m in multi:
+        tid = ledger.uuid.uuid4().hex[:12]
+        m["id"] = tid
+        upsert(con, "nba_tickets", [{
+            "ticket_id": tid, "run_id": run_id, "run_at": run_at, "game_id": "multi:" + games.date_et.iloc[0], "type": m["type"],
+            "leg_ids": json.dumps([l["id"] for part in m["parts"] for l in part["legs"]]),
+            "slip_json": json.dumps([{"description": l["label"], "odds": l["price"], "game": part["matchup"]}
+                                     for part in m["parts"] for l in part["legs"]]),
+            "joint_prob": m["joint"], "book_price": m["book_price"], "price_is_estimate": 1, "fair_price": m["fair_price"],
+            "ev": m["ev"], "status": "proposed", "placed_at": None, "stake": None, "locked": 0}])
+        texts.append(f"=== MULTI-GAME SLIP: {m['n_legs']} props across {len(m['parts'])} games ===\n"
+                     f"  joint {m['joint']:.1%} | fair {m['fair_price']:+d} | product of leg prices "
+                     + (f"{m['book_price']:+d}" if m["book_price"] else "n/a") + f"  | ticket id {tid}\n"
+                     + "\n".join(f"  {part['matchup']} ({part['joint']:.0%}): " + "; ".join(l["label"] for l in part["legs"]) for part in m["parts"]))
+    payload = {"run_id": run_id, "run_at": run_at, "n_sims": n_sims or cfg["n_sims"], "games": slate, "status_changes": moved,
+               "multi": multi, "book": book_used}
     (OUT / "nba_slate.json").write_text(json.dumps(_clean(payload), indent=1, default=str))
     if not only:
         write_site_file(payload)
@@ -259,7 +305,9 @@ def write_site_file(payload: dict) -> None:
                         | {"adjustments": json.loads(p["adjustments"])[:6], "team": abbr.get(p["team_id"], "")}
                         for p in sorted(g["projections"], key=lambda x: -x["min_mean"]) if p["min_mean"] >= 10],
             "availability": [a for a in g["availability"] if a["status"] != "confirmed_in"]})
-    site = {"run_at": payload["run_at"], "n_sims": payload["n_sims"], "games": games}
+    site = {"run_at": payload["run_at"], "n_sims": payload["n_sims"], "games": games, "book": payload.get("book"),
+            "multi": [{**m, "parts": [{**p, "legs": [{k: l.get(k) for k in keep_leg} for l in p["legs"]]} for p in m["parts"]]}
+                      for m in payload.get("multi", [])]}
     (OUT / "nba_site.json").write_text(json.dumps(_clean(site), default=str, allow_nan=False))
 
 

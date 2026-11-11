@@ -115,7 +115,7 @@ def build_legs(offers: pd.DataFrame, sims, players, gate: pd.DataFrame | None, t
 
 def sgp_eligible(leg: dict, cfg=CONFIG, require_price=True) -> tuple[bool, str]:
     """The standing rules for a same-game parlay leg, with the reason when a leg fails."""
-    if leg["kind"] != "prop" or leg["market"] not in PROP_MARKETS:
+    if leg["kind"] != "prop" or leg["market"] not in cfg.get("sgp_markets", PROP_MARKETS):
         return False, "not a props-ticket market"
     if require_price and leg["price"] is None:
         return False, "no book price"

@@ -94,3 +94,17 @@ def test_http_cache_resumes_without_asking_again(tmp_path):
     again, at2 = http.get("https://example.test/a?k=SECRET", tmp_path, min_interval=0, opener=opener, redact="SECRET")
     assert body == again == b'{"ok": 1}' and at == at2 and len(calls) == 2          # one retry, then served from disk
     assert "SECRET" not in "".join(p.read_text() for p in tmp_path.rglob("*.json"))
+
+
+def test_draftkings_rungs_must_fit_the_over_under_line():
+    from nba.sources import choose_ladder
+    other = [(2, -125), (3, 250), (4, 600)]                                # a different market mixed in under the same name
+    game = [(4, -1500), (5, -800), (6, -300), (7, -120), (8, 150), (10, 400), (12, 900)]
+    got, why = choose_ladder(other + game, 6.5)
+    assert why == "" and [r for r, _ in got] == [4, 5, 6, 7, 8, 10, 12] and dict(got)[4] == -1500
+    assert choose_ladder(other, 6.5)[0] == []                               # the wrong market on its own: nothing survives
+    assert choose_ladder(game, None)[0] == [] and "no over/under line" in choose_ladder(game, None)[1]
+    shuffled = [(10, -1700), (15, -391), (20, -130), (25, 204), (21, -106), (40, 2700)]
+    assert [r for r, _ in choose_ladder(shuffled, 20.5)[0]] == [10, 15, 20, 21, 25, 40]
+    odd = [(5, -800), (6, -900), (7, -120), (8, 150)]                       # 5+ priced shorter than 6+: dropped
+    assert [r for r, _ in choose_ladder(odd, 6.5)[0]] == [6, 7, 8]

@@ -33,3 +33,11 @@ Project full probability distributions for NBA player props and build bet365 sam
 - All thresholds (70% floor, blowout cutoffs, shrinkage strengths, caps) live in one config file. Nothing hard-coded.
 - Write tests for every module. Do not change or break NFL code.
 - If a data source cannot supply something a prompt asks for, stop and tell the user. Do not invent a substitute silently.
+
+### Amendments (11 November 2026, from the owner)
+
+- **Ticket sizes:** 4-leg, 6-leg and 8-leg props SGPs per game (rule 4 said 4 and 6).
+- **Props tickets use four markets:** points, rebounds, assists, 3-pointers made. The other markets stay modelled but are not used on props tickets.
+- **Multi-game slips:** 4 or 5 legs from each of 3 games (12 or 15 props), chosen by the algorithm's own joint probabilities. Every leg still needs 70%.
+- **Book:** bet365 or DraftKings. DraftKings milestone ladders are read from ESPN's odds API. Rule 5 still holds: only rungs the book lists, and a rung is used only when it fits the player's over/under line.
+- **Site:** landing page at `/`, NFL at `/nfl`, NBA at `/nba`.

@@ -88,7 +88,7 @@ def singles(legs: list, cfg: dict) -> list:
     """Edge rungs: any offered price with positive expected value, with a quarter-Kelly stake."""
     out = []
     for l in legs:
-        if l.get("price") is None:
+        if l.get("price") is None or l["p"] < cfg.get("single_min_prob", 0.0):
             continue
         ev = expected_value(l["p"], l["price"])
         if ev >= cfg["single_min_ev"]:

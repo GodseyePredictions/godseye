@@ -6,12 +6,15 @@ import os
 
 CONFIG = {
     # ---- sources and politeness -------------------------------------------------------------
-    "min_interval": {"site.api.espn.com": 0.15, "api.pbpstats.com": 1.5, "www.basketball-reference.com": 3.5,
+    "min_interval": {"site.api.espn.com": 0.15, "sports.core.api.espn.com": 0.3, "api.pbpstats.com": 1.5, "www.basketball-reference.com": 3.5,
                      "official.nba.com": 1.0, "ak-static.cms.nba.com": 0.5, "api.the-odds-api.com": 1.0},
     "retries": 4,
     "odds_api_key_env": "ODDS_API_KEY",
     "odds_regions": "us,uk,eu,au",
     "odds_book": "bet365",
+    "odds_books": ["bet365", "draftkings"],   # books in order of preference; the first with prices for a game is used
+    "espn_dk_markets": {"Points Milestones": "pts", "Rebounds Milestones": "reb", "Assists Milestones": "ast",
+                        "3-Point Field Goals Milestones": "fg3m"},
     "injury_report_lead_min": 30,        # use the last official report at least this long before tip
     "officials_posted_utc_hour": 14,     # referee assignments are posted about 9am ET on game day
 
@@ -109,12 +112,16 @@ CONFIG = {
 
     # ---- tickets ----------------------------------------------------------------------------
     "sgp_leg_floor": 0.70,
-    "sgp_sizes": [4, 6],
-    "ticket_min_joint": {4: 0.30, 6: 0.18, 5: 0.25},
+    "sgp_sizes": [4, 6, 8],
+    "sgp_markets": ["pts", "reb", "ast", "fg3m"],      # markets allowed on props tickets
+    "ticket_min_joint": {4: 0.30, 5: 0.25, 6: 0.18, 8: 0.10},
+    "multi_games": 3,                    # multi-game slips: this many games ...
+    "multi_legs_per_game": [4, 5],       # ... with this many legs from each (12 and 15 props in all)
     "max_legs_per_player": 2,
     "max_legs_same_script": 4,
     "upper_rung_rank": 2,                # in blowout-flagged games starters may use only their lowest rungs
     "single_min_ev": 0.02,
+    "single_min_prob": 0.30,             # no long-shot singles: the model's far tails are its least reliable part
     "kelly_fraction": 0.25, "kelly_cap": 0.03,
     "sgp_candidate_pool": 14,
     # With no book prices loaded, publish model-only tickets on standard milestone thresholds, clearly labelled

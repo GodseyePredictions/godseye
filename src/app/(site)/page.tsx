@@ -191,7 +191,7 @@ export default function Home() {
                   {nba.games.length} games, {nbaTickets} tickets tonight
                 </h3>
                 <ul>
-                  <li>A 4-leg and a 6-leg props SGP for every game</li>
+                  <li>4-leg, 6-leg and 8-leg props SGPs for every game</li>
                   <li>Game script card: pace, margin, blowout risk</li>
                   <li>Projection board with the reasons for every number</li>
                   <li>Availability from the official injury report</li>
@@ -215,8 +215,8 @@ export default function Home() {
                 edge and most bettors lose over time.
               </p>
               <p>
-                <strong>The NBA side is new.</strong> Its tickets are model-only until bet365 prices are connected, and its test measured
-                how often legs hit, not profit.
+                <strong>The NBA side is new.</strong> It prices against DraftKings ladders and flags a ticket when the model sees
+                negative value. Its test measured how often legs hit, not profit.
               </p>
             </div>
           </div>

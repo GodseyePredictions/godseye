@@ -64,14 +64,26 @@ type Game = {
     scripts: { script: string; probability: number; who: string; players: string }[];
   };
 };
-const slate = raw as unknown as { run_at: string; n_sims: number; games: Game[] };
+type Multi = {
+  id: string;
+  type: string;
+  n_legs: number;
+  joint: number;
+  fair_price: number;
+  book_price: number | null;
+  ev: number | null;
+  parts: { matchup: string; joint: number; legs: Leg[] }[];
+};
+const slate = raw as unknown as { run_at: string; n_sims: number; games: Game[]; book: string | null; multi: Multi[] };
+const BOOK = slate.book === "draftkings" ? "DraftKings" : slate.book === "bet365" ? "bet365" : "the book";
 
-const TABS = ["home", "sgp", "board", "scripts", "avail", "model"] as const;
+const TABS = ["home", "sgp", "multi", "board", "scripts", "avail", "model"] as const;
 type Tab = (typeof TABS)[number];
 
 const TICKET_NAMES: Record<string, string> = {
   props_4: "4-leg props SGP",
   props_6: "6-leg props SGP",
+  props_8: "8-leg props SGP",
   game_script: "Game-script SGP",
   double_double: "Double-double ticket",
 };
@@ -141,7 +153,7 @@ function TicketCard({ t, game }: { t: Ticket; game: Game }) {
       <ol>
         {t.legs.map((l) => (
           <li key={l.label}>
-            {l.label} <Prob p={l.p} />
+            {l.label} <Prob p={l.p} /> {l.price != null && <span className="num">{american(l.price)}</span>}
             <small>{l.reason}</small>
           </li>
         ))}
@@ -149,7 +161,14 @@ function TicketCard({ t, game }: { t: Ticket; game: Game }) {
       {game.preview ? (
         <span className="pill warn">Model-only: rung and price not checked at bet365</span>
       ) : (
-        t.price_is_estimate && <span className="pill neutral">Price is the product of leg prices, not bet365&apos;s same-game price</span>
+        <>
+          {t.price_is_estimate && (
+            <span className="pill neutral">
+              Price is {BOOK}&apos;s leg prices multiplied together. Its same-game price will be lower.
+            </span>
+          )}
+          {t.ev != null && t.ev < 0 && <span className="pill bad">Negative value at these prices by the model&apos;s numbers</span>}
+        </>
       )}
     </div>
   );
@@ -333,7 +352,7 @@ function SgpTab() {
             .filter((n) => !n.startsWith("MODEL-ONLY"))
             .map((n) => (
               <p className="sub" key={n}>
-                {n.replace("double_double:", "Double-double ticket:").replace("props_4:", "4-leg ticket:").replace("props_6:", "6-leg ticket:")}
+                {n.replace("game_script:", "Game-script ticket:").replace("double_double:", "Double-double ticket:").replace("props_4:", "4-leg ticket:").replace("props_6:", "6-leg ticket:")}
               </p>
             ))}
           {g.singles.length > 0 && (
@@ -367,6 +386,60 @@ function SgpTab() {
               </div>
             </>
           )}
+        </section>
+      ))}
+    </>
+  );
+}
+
+function MultiTab() {
+  if (!slate.multi?.length)
+    return (
+      <section className="panel">
+        <p className="empty">No multi-game slip today: it needs prices and qualifying tickets in at least three games.</p>
+      </section>
+    );
+  return (
+    <>
+      <section className="panel">
+        <p className="sub" style={{ margin: 0 }}>
+          The strongest ticket from each of the three best games, joined into one slip. Games do not affect each other, so the
+          slip&apos;s chance is each game&apos;s counted chance multiplied together. Prices are {BOOK}&apos;s leg prices.
+        </p>
+      </section>
+      {slate.multi.map((m) => (
+        <section className="panel" key={m.id}>
+          <div className="section-head">
+            <div>
+              <h2>
+                {m.n_legs} props across {m.parts.length} games
+              </h2>
+              <p className="sub">
+                Model chance every leg hits: <b>{pct(m.joint, 1)}</b> · fair {american(m.fair_price)} · leg prices multiplied{" "}
+                {american(m.book_price)}
+              </p>
+            </div>
+            {m.ev != null && <span className={`pill ${m.ev < 0 ? "bad" : "good"}`}>Value {signed(m.ev * 100)}%</span>}
+          </div>
+          <div className="nba-tickets">
+            {m.parts.map((p) => (
+              <div className="ticket" key={p.matchup}>
+                <div className="top">
+                  <span className="legsn" style={{ fontSize: 20 }}>
+                    {p.matchup}
+                  </span>
+                  <span className="fair num">{pct(p.joint)}</span>
+                </div>
+                <ol>
+                  {p.legs.map((l) => (
+                    <li key={l.label}>
+                      {l.label} <Prob p={l.p} /> <span className="num">{american(l.price)}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </div>
         </section>
       ))}
     </>
@@ -534,7 +607,8 @@ function ModelTab() {
     ["Algorithm only", "Every pick comes from the model's own output. No expert, media or consensus picks."],
     ["No verified availability, no leg", "A player without a cleared status on the official injury report cannot be on a ticket."],
     ["70% floor", "Every same-game parlay leg must have a model chance of 70% or better. Lower-chance value rungs are straight singles only."],
-    ["Two props tickets per game", "One 4-leg and one 6-leg, best legs from either team. Double-doubles and triple-doubles go on their own ticket."],
+    ["Three props tickets per game", "A 4-leg, a 6-leg and an 8-leg from points, rebounds, assists and threes, best legs from either team."],
+    ["Only rungs the book lists", "Legs are milestone rungs read from the book's ladder, each checked against the player's over/under line."],
     ["Game script first", "The game is simulated before any player number. Blowout risk is checked before a leg is considered."],
     ["Counted, never multiplied", "A ticket's chance is the share of simulated games in which every leg hits."],
     ["Every number explained", "Each projection lists what moved it from the player's baseline."],
@@ -624,6 +698,7 @@ export default function NbaApp() {
   const nav: [Tab, string, string][] = [
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
+    ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["scripts", "Game scripts", "M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3"],
     ["avail", "Availability", "M4 12l5 5L20 6"],
@@ -658,7 +733,7 @@ export default function NbaApp() {
           {nav.map(([id, label, d], i) => (
             <span key={id} style={{ display: "contents" }}>
               {i === 1 && <span className="navgrp">Picks</span>}
-              {i === 5 && <span className="navgrp">Model</span>}
+              {i === 6 && <span className="navgrp">Model</span>}
               <a href={`#${id}`} aria-current={tab === id ? "page" : "false"}>
                 <Icon d={d} />
                 {label}
@@ -669,6 +744,7 @@ export default function NbaApp() {
         <div style={{ minWidth: 0 }}>
           {tab === "home" && <HomeTab />}
           {tab === "sgp" && <SgpTab />}
+          {tab === "multi" && <MultiTab />}
           {tab === "board" && <BoardTab />}
           {tab === "scripts" && slate.games.map((g) => <ScriptCard g={g} key={g.id} />)}
           {tab === "avail" && <AvailTab />}

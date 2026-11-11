@@ -66,7 +66,17 @@ def todays_games(con, days_ahead: int = 1) -> pd.DataFrame:
 def pull_odds(con, ids: IdMap, games: pd.DataFrame) -> dict:
     key = odds_api_key()
     if not key:
-        return {"status": "skipped: ODDS_API_KEY is not set. Use the pasted bet365 sheet instead."}
+        # no Odds API key: DraftKings ladders through ESPN's odds API (points, rebounds, assists, threes)
+        n, problems = 0, []
+        for g in games.itertuples():
+            try:
+                rows, bad = sources.espn_draftkings_props(g.game_id, ids.names)
+                con.execute("DELETE FROM odds WHERE game_id=? AND source='espn-core' AND known_at=?", [g.game_id, rows[0]["known_at"] if rows else ""])
+                n += upsert(con, "odds", rows)
+                problems += bad
+            except FetchError as e:
+                problems.append(f"{g.game_id}: {e}")
+        return {"status": "ok: DraftKings via ESPN (ODDS_API_KEY is not set)", "rows": n, "problems": problems}
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M")
     n, problems = 0, []
     try:
