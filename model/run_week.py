@@ -14,9 +14,12 @@ STEPS = [
     ["fetch_odds.py"],                   # current game lines
     ["apply_overrides.py"],              # user reads and late news
     ["freshness.py"],                    # roster audit: who the snapshot has wrong
+    ["rebuild_console.py"],              # rebuild SGPs and props tickets for games that lost players
     ["game_markets.py"],                 # ratings, forecasts, tickets, hybrids (holds anyone with an open alert)
 ]
 for step in STEPS:
     print(f"\n=== {step[0]} ===", flush=True)
     subprocess.run([sys.executable, *step], check=True)
+print("\n=== check-console ===", flush=True)
+subprocess.run(["node", "../scripts/check-console.mjs"], check=True)   # fails if any game was left empty
 print("\nDone. Check output/freshness.json for open alerts before using any pick.")

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test src/lib/*.test.ts"
+    "test": "node --test src/lib/*.test.ts",
+    "check-console": "node scripts/check-console.mjs"
   },
   "dependencies": {
     "next": "16.4.6",

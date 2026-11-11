@@ -76,6 +76,9 @@ ${safe(readFileSync(path.join(root, "public/console/personnel-update.js"), "utf8
 ${safe(readFileSync(path.join(root, "public/console/freshness-update.js"), "utf8"))}
 </script>
 <script>
+${safe(readFileSync(path.join(root, "public/console/rebuild-update.js"), "utf8"))}
+</script>
+<script>
 ${safe(readFileSync(path.join(root, "public/console/odds-update.js"), "utf8"))}
 </script>
 <script>

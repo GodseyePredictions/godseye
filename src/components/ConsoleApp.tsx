@@ -125,6 +125,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
     loadScript("/console/data.js")
       .then(() => loadScript("/console/personnel-update.js").catch(() => undefined)) // user reads and late news, when present
       .then(() => loadScript("/console/freshness-update.js").catch(() => undefined)) // confirmed roster alerts, when present
+      .then(() => loadScript("/console/rebuild-update.js").catch(() => undefined)) // rebuilt SGPs for games that lost tickets
       .then(() => loadScript("/console/odds-update.js").catch(() => undefined)) // refreshed game lines, when present
       .then(() => loadScript("/console/app.js"))
       .catch(() =>
