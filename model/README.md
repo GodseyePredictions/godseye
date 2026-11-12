@@ -51,7 +51,9 @@ Every moneyline and spread pick carries seven checks: home vs away, personnel, o
 
 Public data has no slot alignment or coverage assignments, so the slot is measured by short-middle targets and coverage by what each defence allows in that area. Injury designations for the coming week appear late in the week, so re-run `fetch_data.py`, `matchups.py` and `game_markets.py` after they post.
 
-On 2020 onward: favourites that passed the safe rule returned -0.6% (555 bets), those that did not -3.8% (297), and those with the checks against them -6.8% (59). Alternative-line forecasts were within a point or two of what happened at every distance tested.
+Personnel counts usual starters (most snaps over the prior six games) who are ruled Out or Doubtful on the injury report or are off the active roster, which catches players on injured reserve. Names are matched across sources by full name, then by first initial and surname, and a player who cannot be found is never counted as out.
+
+On 2020 onward, with that personnel definition: favourites that passed the safe rule returned -2.8% (555 bets) and those that did not 0.0% (298). The checks have not been shown to pick better favourites; an earlier, apparently favourable split came from a narrower personnel definition and did not survive the correction. Alternative-line forecasts were within a point or two of what happened at every distance tested.
 
 ### Live odds, prop hybrids and touchdown slips
 

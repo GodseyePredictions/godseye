@@ -77,6 +77,8 @@ MARGIN_FEATURES = {
     "m_ol": "offensive line starters out",
     "m_olcont": "offensive line continuity",
     "m_def_out": "defensive starters out",
+    "m_front_out": "defensive line and linebacker starters out",
+    "m_back_out": "cornerback and safety starters out",
     "m_skill_out": "skill starters out",
 }
 # The seven checks every moneyline and spread pick must carry, and the inputs behind each.
@@ -85,8 +87,8 @@ CHECKS = {
     "Personnel": ["m_qb", "m_ol", "m_olcont", "m_def_out", "m_skill_out"],
     "Offensive play-calling": ["m_scheme"],
     "Defensive play-calling and pressure": ["m_protect", "m_int"],
-    "Running backs vs defensive line, with line health": ["m_run_in", "m_run_out", "m_stuff", "m_explosive", "m_ol"],
-    "Receivers: deep, slot area, outside": ["m_wr_deep", "m_wr_mid", "m_wr_out"],
+    "Running backs vs defensive line, with line health": ["m_run_in", "m_run_out", "m_stuff", "m_explosive", "m_ol", "m_front_out"],
+    "Receivers: deep, slot area, outside": ["m_wr_deep", "m_wr_mid", "m_wr_out", "m_back_out"],
     "Tight ends vs linebackers and safeties": ["m_te"],
 }
 CHECK_INPUTS = sorted({f for fs in CHECKS.values() for f in fs})
@@ -316,6 +318,7 @@ def build_game_table():
                         "defence_pressure": faced("pressure_rate", team), "defence_deep_allowed": faced("wr_deep_epa", team),
                         "defence_stuff": faced("stuff_rate", team),
                         "ol_out": pv(pr, "ol_out"), "def_out": pv(pr, "def_out"), "skill_out": pv(pr, "skill_out"),
+                        "front_out": pv(pr, "front_out"), "back_out": pv(pr, "back_out"),
                         "ol_continuity": pv(pr, "ol_continuity"),
                         "out_names": "" if pr is None else "; ".join(x for x in (pr.ol_out_names, pr.def_out_names, pr.skill_out_names) if x),
                     }
@@ -340,6 +343,7 @@ def build_game_table():
                 "m_scheme": fit_side(0, h) - fit_side(1, a),
                 "m_ol": pv(pa_, "ol_out") - pv(ph_, "ol_out"), "m_olcont": pv(ph_, "ol_continuity") - pv(pa_, "ol_continuity"),
                 "m_def_out": pv(pa_, "def_out") - pv(ph_, "def_out"), "m_skill_out": pv(pa_, "skill_out") - pv(ph_, "skill_out"),
+                "m_front_out": pv(pa_, "front_out") - pv(ph_, "front_out"), "m_back_out": pv(pa_, "back_out") - pv(ph_, "back_out"),
                 "t_proe": us("proe"), "t_deep": us("deep_rate"), "t_nohuddle": us("nohuddle_rate"), "t_pressure": us("pressure_rate"),
                 "t_out": pv(ph_, "ol_out") + pv(pa_, "ol_out") + pv(ph_, "skill_out") + pv(pa_, "skill_out"),
                 "t_points": sm("points"), "t_epa": sm("off_epa"), "t_pass": sm("pass_epa"), "t_pace": -sm("sec_per_play"),
@@ -1139,9 +1143,11 @@ def main():
             f"{opp} expected to allow {pc(b['pressure_allowed'])}.",
             f"{team} runs vs {opp} front: inside {f3(a['run_inside'])}, outside {f3(a['run_outside'])} EPA per carry, "
             f"stuffed {pc(a['stuffed'])}, 10+ yards {pc(a['explosive_run'])}. {opp} vs {team} front: inside {f3(b['run_inside'])}, "
-            f"outside {f3(b['run_outside'])}, stuffed {pc(b['stuffed'])}.",
+            f"outside {f3(b['run_outside'])}, stuffed {pc(b['stuffed'])}. Front-seven starters out: {opp} {n0(b['front_out'])}, {team} {n0(a['front_out'])}; "
+            f"line starters out: {team} {n0(a['ol_out'])}, {opp} {n0(b['ol_out'])}.",
             f"{team} receivers vs {opp} coverage, EPA per target: deep {f3(a['wr_deep'])}, slot area {f3(a['wr_slot_area'])}, "
-            f"outside {f3(a['wr_outside'])}. {opp} receivers vs {team}: deep {f3(b['wr_deep'])}, slot area {f3(b['wr_slot_area'])}, outside {f3(b['wr_outside'])}.",
+            f"outside {f3(a['wr_outside'])}. {opp} receivers vs {team}: deep {f3(b['wr_deep'])}, slot area {f3(b['wr_slot_area'])}, outside {f3(b['wr_outside'])}. "
+            f"Cornerback and safety starters out: {opp} {n0(b['back_out'])}, {team} {n0(a['back_out'])}.",
             f"{team} tight ends vs {opp}: {f3(a['te'])} EPA per target on {pc(a['te_share'])} of targets. {opp} tight ends vs {team}: {f3(b['te'])}.",
         ]
 

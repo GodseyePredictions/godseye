@@ -567,9 +567,9 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
           </table>
         </div>
         <p className="sub">
-          The checks sort favourites in the right direction: those that passed won more often
-          relative to their price than those that did not. The gap is small and the samples are
-          a few hundred games, so read it as a lean, not a proven edge.
+          {fav.safe_checks_lean_their_way.roi > fav.not_safe.roi
+            ? "Favourites that passed the safe rule returned more than those that did not, but the gap is small and the samples are a few hundred games. Read it as a lean, not a proven edge."
+            : "Favourites that passed the safe rule did not return more than those that did not. On this evidence the checks describe a matchup; they have not been shown to pick better favourites."}
         </p>
         <div className="scroll" style={{ marginTop: 10 }}>
           <table className="tbl">

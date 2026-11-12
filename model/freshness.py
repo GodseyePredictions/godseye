@@ -38,6 +38,13 @@ def k1(s: str) -> str:
     return re.sub(r"[^a-z]", "", re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", (s or "").lower()))
 
 
+def loose1(name: str) -> str:
+    """First initial plus surname, so "Sam Cosmi" and "Samuel Cosmi" are the same player."""
+    clean = re.sub(r"[^a-z ]", "", re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", (name or "").lower())).strip()
+    parts = clean.split(None, 1)
+    return clean if len(parts) < 2 else parts[0][:1] + "." + parts[1].replace(" ", "")
+
+
 def audit():
     D = json.loads(CONSOLE_DATA.read_text(encoding="utf8").strip()[len("const D = "):].rstrip(";"))
     season, week = D["meta"]["season"], D["meta"]["week"]
@@ -55,20 +62,23 @@ def audit():
     inj = pd.read_csv(HERE / f"data/injuries/injuries_{season}.csv", low_memory=False)
     inj["team"] = inj.team.replace(TEAM_FIX)
     inj["key"] = key(inj.full_name)
+    inj["loose"] = inj.full_name.map(loose1)
     cur = inj[inj.week == week]
     posted = set(cur.team)
-    report = {(r.team, r.key): r for r in cur.itertuples()}
-    prev = {(r.team, r.key): r for r in inj[inj.week < week].sort_values("week").itertuples()}
+    report = {(r.team, k_): r for r in cur.itertuples() for k_ in (r.key, r.loose)}
+    prev = {(r.team, k_): r for r in inj[inj.week < week].sort_values("week").itertuples() for k_ in (r.key, r.loose)}
 
     ros = pd.read_csv(HERE / f"data/rosters/roster_weekly_{season}.csv", low_memory=False)
     ros["team"] = ros.team.replace(TEAM_FIX)
     ros["key"] = key(ros.full_name)
+    ros["loose"] = ros.full_name.map(loose1)
     latest = ros.sort_values("week").groupby(["team", "key"]).tail(1)
-    active = {(r.team, r.key): r.status for r in latest.itertuples()}
+    active = {(r.team, k_): r.status for r in latest.itertuples() for k_ in (r.loose, r.key)}
 
-    priced = {}
+    priced, priced_loose = {}, {}
     for p in D["players"]:
         priced.setdefault(p["team"], {})[k1(p["name"])] = p
+        priced_loose.setdefault(p["team"], {})[loose1(p["name"])] = p
     playing = {t for g in D["games"] if not g.get("started") for t in (g["home"], g["away"])}
     game_of = {t: g["id"] for g in D["games"] for t in (g["home"], g["away"])}
 
@@ -82,6 +92,7 @@ def audit():
         role = recent.groupby("key").agg(name=("player", "first"), pos=("pos", "first"), share=("offense_pct", "mean"),
                                          games=("week", "nunique"), last=("week", "max")).reset_index()
         team_priced = priced.get(team, {})
+        team_loose = priced_loose.get(team, {})
         pending = team not in posted
         if not team_priced:
             alerts.append({"team": team, "game_id": game_of.get(team), "type": "TEAM_NOT_PRICED", "severity": "high", "resolved": False,
@@ -97,17 +108,18 @@ def audit():
                 continue
             if r.pos == "QB" and r.key != usual_qb:
                 continue
-            rep = report.get((team, r.key))
+            lk = loose1(r.name)
+            rep = report.get((team, r.key)) or report.get((team, lk))
             status = None if rep is None or pd.isna(rep.report_status) else rep.report_status
             practice = None if rep is None or pd.isna(rep.practice_status) else rep.practice_status
-            on_roster = active.get((team, r.key))
+            on_roster = active.get((team, r.key)) or active.get((team, lk))
             base = {"team": team, "game_id": game_of.get(team), "player": r.name, "pos": r.pos,
                     "snap_share_when_played": round(float(r.share), 2), "games_in_last_6": int(r.games), "last_played_week": int(r.last),
                     "report_status": status, "practice": practice, "roster_status": on_roster, "resolved": r.key in resolved}
-            if r.key not in team_priced:
+            if r.key not in team_priced and lk not in team_loose:
                 if on_roster != "ACT" or status in ("Out", "Doubtful"):
                     continue   # correctly left out
-                was = prev.get((team, r.key))
+                was = prev.get((team, r.key)) or prev.get((team, lk))
                 why = (f"played {r.share:.0%} of snaps in {r.games} of the last {len(weeks)} games, is on the active roster, "
                        + ("and is not ruled out on this week's report" + (f" ({practice.lower()})" if practice else "")
                           if not pending else "and this week's injury report is not posted yet")
@@ -116,7 +128,7 @@ def audit():
                 alerts.append({**base, "type": "NOT_PRICED", "severity": "watch" if pending else "high", "why": why})
                 missing_by_pos.setdefault(r.pos, []).append(r.name)
             else:
-                p = team_priced[r.key]
+                p = team_priced.get(r.key) or team_loose[lk]
                 if status in ("Out", "Doubtful") or (on_roster is not None and on_roster != "ACT"):
                     alerts.append({**base, "type": "PRICED_BUT_OUT", "severity": "high", "snapshot_p": p["p"],
                                    "why": f"priced at {p['p']:.0%} in the snapshot but now {status or 'off the active roster (' + str(on_roster) + ')'}."})

@@ -31,6 +31,8 @@ COLS = ["game_id", "play_id", "posteam", "play_type", "epa", "qb_dropback", "qb_
         "run_location", "run_gap", "pass_location", "pass_length", "air_yards", "receiver_player_id",
         "pass_oe", "shotgun", "no_huddle", "yardline_100", "yards_gained", "pass_attempt"]
 OL, DEF, SKILL = {"T", "G", "C", "OL"}, {"DE", "DT", "NT", "DL", "LB", "CB", "S", "DB"}, {"WR", "TE", "RB", "HB", "FB"}
+FRONT, BACK = {"DE", "DT", "NT", "DL", "LB"}, {"CB", "S", "DB"}
+NOT_AVAILABLE = {"RES", "CUT", "RET", "DEV", "PUP", "SUS", "NWT", "RSN", "EXE", "TRC", "TRD", "TRT"}   # roster statuses that mean he will not play
 
 # stat -> (numerator rows, how to summarise): built below as value + "_n" count columns
 UNIT_STATS = ["run_in_epa", "run_out_epa", "stuff_rate", "explosive_run", "wr_deep_epa", "wr_mid_epa", "wr_out_epa",
@@ -40,6 +42,15 @@ UNIT_STATS = ["run_in_epa", "run_out_epa", "stuff_rate", "explosive_run", "wr_de
 
 def norm_name(s: pd.Series) -> pd.Series:
     return s.fillna("").str.lower().str.replace(r"\b(jr|sr|ii|iii|iv)\b", "", regex=True).str.replace(r"[^a-z]", "", regex=True)
+
+
+def loose_name(s: pd.Series) -> pd.Series:
+    """First initial plus surname, for matching "Sam Cosmi" to "Samuel Cosmi" across data sources."""
+    clean = s.fillna("").str.lower().str.replace(r"\b(jr|sr|ii|iii|iv)\b", "", regex=True).str.replace(r"[^a-z ]", "", regex=True).str.strip()
+    parts = clean.str.split(r"\s+", n=1, expand=True)
+    if parts.shape[1] < 2:
+        return clean
+    return parts[0].str[:1] + "." + parts[1].fillna("").str.replace(" ", "", regex=False)
 
 
 def agg(df, value, name):
@@ -101,19 +112,35 @@ def season_units(path: str, pos: pd.DataFrame) -> pd.DataFrame:
 
 
 def personnel_table(sides: pd.DataFrame) -> pd.DataFrame:
-    """Starters ruled Out or Doubtful before each game, from the usual players over the prior four games."""
+    """Usual starters who will not play, from the players with the most snaps over the prior six games.
+
+    A starter counts as out if the injury report rules him Out or Doubtful, or if the roster shows
+    him on injured reserve or otherwise off the active list. The second test matters: a player on
+    injured reserve does not appear on the weekly injury report at all.
+    """
     snaps = pd.concat([pd.read_csv(f) for f in sorted(glob.glob(str(HERE / "data/snap_counts/snap_counts_*.csv")))])
     snaps["team"] = snaps.team.replace(TEAM_FIX)
     snaps["key"] = norm_name(snaps.player)
+    snaps["loose"] = loose_name(snaps.player)
     inj = pd.concat([pd.read_csv(f, low_memory=False) for f in sorted(glob.glob(str(HERE / "data/injuries/injuries_*.csv")))])
     inj = inj[inj.report_status.isin(["Out", "Doubtful"])].copy()
     inj["team"] = inj.team.replace(TEAM_FIX)
     inj["key"] = norm_name(inj.full_name)
+    inj["loose"] = loose_name(inj.full_name)
     out_set = {(r.season, r.week, r.team): set() for r in inj[["season", "week", "team"]].drop_duplicates().itertuples()}
-    out_names = {}
     for r in inj.itertuples():
-        out_set[(r.season, r.week, r.team)].add(r.key)
-        out_names[(r.season, r.week, r.team, r.key)] = (r.full_name, r.position)
+        out_set[(r.season, r.week, r.team)].update((r.key, r.loose))
+
+    ros = pd.concat([pd.read_csv(f, usecols=["season", "week", "team", "full_name", "status"], low_memory=False)
+                     for f in sorted(glob.glob(str(HERE / "data/rosters/roster_weekly_*.csv")))])
+    ros["team"] = ros.team.replace(TEAM_FIX)
+    ros["key"] = norm_name(ros.full_name)
+    ros["loose"] = loose_name(ros.full_name)
+    roster = {(r.season, r.week, r.team, r.key): r.status for r in ros.itertuples()}
+    # the looser match is only trusted when it points at one player on that team that week
+    lc = ros.groupby(["season", "week", "team", "loose"]).status.agg(["first", "size"]).reset_index()
+    roster_loose = {(r.season, r.week, r.team, r.loose): r.first for r in lc[lc["size"] == 1].itertuples()}
+    has_roster = {(r.season, r.week, r.team) for r in ros[["season", "week", "team"]].drop_duplicates().itertuples()}
 
     snaps["order"] = snaps.season * 100 + snaps.week
     rows = []
@@ -122,20 +149,34 @@ def personnel_table(sides: pd.DataFrame) -> pd.DataFrame:
         by_order = {o: g for o, g in sg.groupby("order")}
         for s in sides[sides.team == team].itertuples():
             cur = s.season * 100 + s.week
-            prior = game_orders[game_orders < cur][-4:]
+            prior = game_orders[game_orders < cur][-6:]
             if len(prior) < 2:
                 continue
             recent = pd.concat([by_order[o] for o in prior])
             def usual(positions, col, k):
-                r = recent[recent.position.isin(positions)].groupby("key").agg(snaps=(col, "sum"), name=("player", "first"), pos=("position", "first"))
+                r = recent[recent.position.isin(positions)].groupby("key").agg(snaps=(col, "sum"), name=("player", "first"), pos=("position", "first"), loose=("loose", "first"))
                 return r.sort_values("snaps", ascending=False).head(k)
             ol, de, sk = usual(OL, "offense_snaps", 5), usual(DEF, "defense_snaps", 11), usual(SKILL, "offense_snaps", 5)
             outs = out_set.get((s.season, s.week, team), set())
+            listed = (s.season, s.week, team) in has_roster
+
+            def is_out(k, lk):
+                if k in outs or lk in outs:
+                    return "injury report"
+                if listed:
+                    st = roster.get((s.season, s.week, team, k)) or roster_loose.get((s.season, s.week, team, lk))
+                    # a player we cannot find is left alone: a missing name is not evidence of an absence
+                    if st in NOT_AVAILABLE:
+                        return "injured reserve" if st == "RES" else f"roster status {st}"
+                return None
+
             last = by_order[prior[-1]]
             last_ol = set(last[last.position.isin(OL)].sort_values("offense_snaps", ascending=False).head(5).key)
-            miss = lambda grp: [f"{r['name']} ({r['pos']})" for k, r in grp.iterrows() if k in outs]
+            miss = lambda grp, pos=None: [f"{r['name']} ({r['pos']}, {is_out(k, r['loose'])})" for k, r in grp.iterrows()
+                                          if is_out(k, r["loose"]) and (pos is None or r["pos"] in pos)]
             rows.append({"game_id": s.game_id, "team": team,
                          "ol_out": len(miss(ol)), "def_out": len(miss(de)), "skill_out": len(miss(sk)),
+                         "front_out": len(miss(de, FRONT)), "back_out": len(miss(de, BACK)),
                          "ol_continuity": len(last_ol & set(ol.index)) / 5,
                          "ol_out_names": "; ".join(miss(ol)), "def_out_names": "; ".join(miss(de)), "skill_out_names": "; ".join(miss(sk))})
     return pd.DataFrame(rows)
@@ -158,9 +199,7 @@ def main():
     pers.to_csv(CACHE / "personnel.csv", index=False)
     print(f"unit_games {len(units)}, personnel {len(pers)}")
     print(units[UNIT_STATS].describe().round(3).loc[["count", "mean"]].T.to_string())
-    print(pers[["ol_out", "def_out", "skill_out", "ol_continuity"]].describe().round(2).loc[["mean", "max"]])
-    cur = pers[pers.game_id.str.startswith("2026_10")]
-    print(cur[cur.ol_out + cur.def_out + cur.skill_out > 0][["team", "ol_out_names", "def_out_names", "skill_out_names"]].head(8).to_string())
+    print(pers[["ol_out", "def_out", "front_out", "back_out", "skill_out", "ol_continuity"]].describe().round(2).loc[["mean", "max"]])
 
 
 if __name__ == "__main__":
