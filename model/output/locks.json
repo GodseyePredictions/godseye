@@ -1,0 +1,272 @@
+{
+ "stars": [
+  {
+   "name": "Patrick Mahomes",
+   "slug": "patrick-mahomes",
+   "on_slate": true,
+   "team": "KC",
+   "pos": "QB",
+   "game": "KC @ ATL",
+   "when": "Sunday 1:00 pm ET",
+   "atd": 0.059,
+   "singles_only": false,
+   "lines": [
+    {
+     "text": "1+ pass TD",
+     "p": 0.868,
+     "record": "6 of 8 games"
+    },
+    {
+     "text": "175+ pass yds",
+     "p": 0.744,
+     "record": "7 of 8 games"
+    }
+   ]
+  },
+  {
+   "name": "Josh Allen",
+   "slug": "josh-allen",
+   "on_slate": true,
+   "team": "BUF",
+   "pos": "QB",
+   "game": "BUF @ NYJ",
+   "when": "Sunday 1:00 pm ET",
+   "atd": 0.545,
+   "singles_only": false,
+   "lines": [
+    {
+     "text": "1+ pass TD",
+     "p": 0.809,
+     "record": "6 of 7 games"
+    },
+    {
+     "text": "200+ pass yds",
+     "p": 0.799,
+     "record": "7 of 7 games"
+    }
+   ]
+  },
+  {
+   "name": "Ja'Marr Chase",
+   "slug": "jamarr-chase",
+   "on_slate": true,
+   "team": "CIN",
+   "pos": "WR",
+   "game": "PIT @ CIN",
+   "when": "Sunday 8:20 pm ET",
+   "atd": 0.485,
+   "singles_only": false,
+   "lines": [
+    {
+     "text": "6+ receptions",
+     "p": 0.811,
+     "record": "5 of 8 games"
+    },
+    {
+     "text": "50+ rec yds",
+     "p": 0.781,
+     "record": "6 of 8 games"
+    }
+   ]
+  },
+  {
+   "name": "Kenneth Walker III",
+   "slug": "kenneth-walker-iii",
+   "on_slate": true,
+   "team": "KC",
+   "pos": "RB",
+   "game": "KC @ ATL",
+   "when": "Sunday 1:00 pm ET",
+   "atd": 0.667,
+   "singles_only": false,
+   "lines": [
+    {
+     "text": "70+ rush yds",
+     "p": 0.711,
+     "record": "6 of 8 games"
+    },
+    {
+     "text": "15+ carries",
+     "p": 0.793,
+     "record": "7 of 8 games"
+    },
+    {
+     "text": "2+ receptions",
+     "p": 0.74,
+     "record": "7 of 8 games"
+    }
+   ]
+  }
+ ],
+ "photos": [],
+ "season": 2026,
+ "week": 10,
+ "built": "Tue Nov 10, 05:14 UTC",
+ "record": {
+  "tickets": 64,
+  "cashed": 18,
+  "legs_hit": 73,
+  "legs_exp": 71
+ },
+ "locks": [
+  {
+   "kind": "Same-game parlay",
+   "matchup": "KC @ ATL",
+   "when": "Sunday 1:00 pm ET",
+   "p": 0.441,
+   "tab": "sgp",
+   "legs": [
+    {
+     "text": "Patrick Mahomes 1+ pass TDs",
+     "team": "KC",
+     "p": 0.868,
+     "record": "cleared in 6 of 8 games"
+    },
+    {
+     "text": "Rashee Rice 20+ rec yds",
+     "team": "KC",
+     "p": 0.835,
+     "record": "cleared in 4 of 6 games"
+    },
+    {
+     "text": "Kyle Pitts 2+ receptions",
+     "team": "ATL",
+     "p": 0.878,
+     "record": "cleared in 6 of 9 games"
+    },
+    {
+     "text": "Bijan Robinson 2+ receptions",
+     "team": "ATL",
+     "p": 0.816,
+     "record": "cleared in 7 of 9 games"
+    },
+    {
+     "text": "Travis Kelce 20+ rec yds",
+     "team": "KC",
+     "p": 0.832,
+     "record": "cleared in 7 of 8 games"
+    }
+   ]
+  },
+  {
+   "kind": "Same-game parlay",
+   "matchup": "NE @ DET",
+   "when": "Sunday 9:30 am ET",
+   "p": 0.408,
+   "tab": "sgp",
+   "legs": [
+    {
+     "text": "Drake Maye 1+ pass TDs",
+     "team": "NE",
+     "p": 0.863,
+     "record": "cleared in 7 of 9 games"
+    },
+    {
+     "text": "Rhamondre Stevenson 20+ rush yds",
+     "team": "NE",
+     "p": 0.835,
+     "record": "cleared in 9 of 9 games"
+    },
+    {
+     "text": "Amon-Ra St. Brown 5+ receptions",
+     "team": "DET",
+     "p": 0.827,
+     "record": "cleared in 7 of 8 games"
+    },
+    {
+     "text": "Hunter Henry 2+ receptions",
+     "team": "NE",
+     "p": 0.812,
+     "record": "cleared in 8 of 9 games"
+    },
+    {
+     "text": "Jared Goff 200+ pass yds",
+     "team": "DET",
+     "p": 0.803,
+     "record": "cleared in 6 of 8 games"
+    }
+   ]
+  },
+  {
+   "kind": "Same-game parlay",
+   "matchup": "LAC @ BAL",
+   "when": "Monday 8:15 pm ET",
+   "p": 0.405,
+   "tab": "sgp",
+   "legs": [
+    {
+     "text": "Justin Herbert 150+ pass yds",
+     "team": "LAC",
+     "p": 0.729,
+     "record": "cleared in 7 of 8 games"
+    },
+    {
+     "text": "Omarion Hampton 20+ rush yds",
+     "team": "LAC",
+     "p": 0.789,
+     "record": "cleared in 7 of 8 games"
+    },
+    {
+     "text": "Zay Flowers 3+ receptions",
+     "team": "BAL",
+     "p": 0.815,
+     "record": "cleared in 7 of 8 games"
+    },
+    {
+     "text": "Mark Andrews 1+ receptions",
+     "team": "BAL",
+     "p": 0.86,
+     "record": "cleared in 9 of 9 games"
+    }
+   ]
+  },
+  {
+   "kind": "Anytime TD double",
+   "matchup": "SF @ DAL",
+   "when": "Sunday 4:25 pm ET",
+   "p": 0.468,
+   "tab": "picks",
+   "legs": [
+    {
+     "text": "Christian McCaffrey Anytime TD",
+     "team": "SF",
+     "p": 0.691
+    },
+    {
+     "text": "Javonte Williams Anytime TD",
+     "team": "DAL",
+     "p": 0.673
+    }
+   ]
+  },
+  {
+   "kind": "Anytime TD 4-leg",
+   "matchup": "Across the slate",
+   "when": "Week 10",
+   "p": 0.217,
+   "tab": "picks",
+   "legs": [
+    {
+     "text": "James Cook Anytime TD",
+     "team": "BUF",
+     "p": 0.694
+    },
+    {
+     "text": "Christian McCaffrey Anytime TD",
+     "team": "SF",
+     "p": 0.691
+    },
+    {
+     "text": "Javonte Williams Anytime TD",
+     "team": "DAL",
+     "p": 0.673
+    },
+    {
+     "text": "Kenneth Walker III Anytime TD",
+     "team": "KC",
+     "p": 0.667
+    }
+   ]
+  }
+ ]
+}

@@ -1,9 +1,10 @@
 # godseye predictions
 
-A Next.js site with two sections:
+A Next.js site with three sections:
 
-- `/` is the marketing page (`src/app/(site)`).
-- `/app` is the product (`src/app/(console)`): the God's Eye console (algorithm picks, game SGPs, ATD board, SGP builder, quick add, slip audit, model and rules), game parlays and hybrid SGPs from the game-market model, game scripts, and tracker tabs (paste a slip, my bets, my report).
+- `/` is the landing page (`src/app/(site)`): the eye banner, how it works, this week's top algorithm tickets ("Locks of the week") and the NFL and NBA tabs.
+- `/nba` is the NBA side (`src/components/NbaApp.tsx`): tonight's slate, a 4-leg and a 6-leg props SGP per game, game scripts, a projection board and availability. It reads `model/nba/output/nba_site.json`, written by `python3 -m nba.run_slate` (see `model/nba/README.md`).
+- `/nfl` is the NFL side (`src/app/(console)`; `/app` redirects here): the God's Eye console (algorithm picks, game SGPs, ATD board, SGP builder, quick add, slip audit, model and rules), game parlays and hybrid SGPs from the game-market model, game scripts, and tracker tabs (paste a slip, my bets, my report).
 
 ## Run it
 
@@ -18,10 +19,24 @@ The console is imported from its exported HTML page:
 
     python3 -I scripts/import-console.py path/to/console.html
 
-This rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic, patched for this site) and `src/app/(console)/console-base.css`. Site-specific styling lives in `src/app/(console)/console.css`.
+Then refresh the landing page's "Locks of the week" from the new data:
+
+    python3 -I scripts/build-locks.py
+
+The first command rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic, patched for this site) and `src/app/(console)/console-base.css`. Site-specific styling lives in `src/app/(console)/console.css`.
 
 ## What is not built yet
 
 Logins, subscriptions, the AI advisor chat, live odds and sportsbook sync. Bets are stored in the visitor's browser until accounts exist.
 
 The separate team-rating model in `model/` is documented in `model/README.md`.
+
+## The shareable single-file app
+
+    node scripts/build-preview.mjs godseye-preview.html
+
+builds the landing page, the NFL console and the NBA side into one HTML file (the Claude artifact). In that file the three share one page: no address is the landing page, `#home`, `#picks` and the other console tabs are NFL, and `#nba-home`, `#nba-sgp` and so on are NBA. Rebuild and republish it after a new NFL import or a new NBA slate.
+
+## Player photos on the landing page
+
+The featured-player cards show initials unless a photo exists at `public/players/<name-slug>.jpg` (for example `patrick-mahomes.jpg`, `shai-gilgeous-alexander.jpg`). No photos ship with the repo. Add only images you hold a licence for, then re-run `python3 -I scripts/build-locks.py` and rebuild.

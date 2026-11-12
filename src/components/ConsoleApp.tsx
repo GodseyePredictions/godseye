@@ -143,6 +143,15 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
           <p id="meta"></p>
         </div>
         <div className="topright">
+          {/* Plain links on purpose: each sport page loads its own data and scripts, so switching is a full page load. */}
+          <nav className="sports" aria-label="Sport">
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+            <a href="/">Home</a>
+            <a href="/nfl" aria-current="page">
+              NFL
+            </a>
+            <a href="/nba">NBA</a>
+          </nav>
           <span className="livechip">
             <i></i> Model-only, no media picks
           </span>

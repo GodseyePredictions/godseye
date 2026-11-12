@@ -20,6 +20,8 @@ STEPS = [
 for step in STEPS:
     print(f"\n=== {step[0]} ===", flush=True)
     subprocess.run([sys.executable, *step], check=True)
+print("\n=== build-locks ===", flush=True)   # landing page showcase, after the roster audit
+subprocess.run([sys.executable, "-I", "../scripts/build-locks.py"], check=True)
 print("\n=== check-console ===", flush=True)
 subprocess.run(["node", "../scripts/check-console.mjs"], check=True)   # fails if any game was left empty
 print("\nDone. Check output/freshness.json for open alerts before using any pick.")
