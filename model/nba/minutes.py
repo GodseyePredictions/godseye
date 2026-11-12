@@ -147,7 +147,13 @@ class MinutesModel:
             m = m * (rng.random((N, n)) < D.p_play.to_numpy()[None, :])
         target = 240.0 + 25.0 * ot
         cap = (48.0 + 5.0 * ot)[:, None]
-        for _ in range(6):
+        # bring each simulated game to 240: a surplus comes mostly off the bench, a shortfall is shared by all
+        sw = D.squeeze_w.to_numpy()[None, :] if "squeeze_w" in D else 1.0
+        for _ in range(3):
+            over = m.sum(1) - target
+            w = m * np.where(over[:, None] > 0, sw, 1.0)
+            m = np.clip(m - over[:, None] * w / np.maximum(w.sum(1), 1e-9)[:, None], 0, cap)
+        for _ in range(3):
             m = np.minimum(m * (target / np.maximum(m.sum(1), 1e-9))[:, None], cap)
         q4m = e0[None, :] * D.q4_share.to_numpy()[None, :] * self.q4[role[None, :], bucket(q4_entry, self.cfg["q4_entry_buckets"])[:, None]]
         return {"minutes": m, "foul_trouble": ft, "q4_minutes": q4m}
@@ -242,6 +248,10 @@ def apply(M: MinutesModel, D: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
     unsure = cfg["reconcile_floor"] + (k / (D.s_n.fillna(0) + k)) ** 2
     ep = D.e_min * D.p_play
     excess = ep.groupby(key).transform("sum") - 240.0
+    # when the listed minutes are too many, an established starter gives up little; when too few, everyone shares
+    shield = np.where((D.start_share >= cfg["role_starter_share"]) & (D.s_n.fillna(0) >= 5), 1 - cfg["reconcile_starter_shield"], 1.0)
+    unsure = np.where(excess > 0, unsure * shield, unsure)
+    D["squeeze_w"] = shield
     lam = excess / (ep * unsure).groupby(key).transform("sum").replace(0, np.nan)
     D["e_min"] *= (1 - lam.fillna(0) * unsure).clip(0.5, 1.3)
     tot = (D.e_min * D.p_play).groupby(key).transform("sum")

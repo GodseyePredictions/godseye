@@ -65,7 +65,7 @@ def _g(feat):
 def design(P: pd.DataFrame, T: pd.DataFrame, L: pd.DataFrame, C: pd.DataFrame, G: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
     """Baselines and tonight's inputs for every player row. C = game_sim.clash(...), G = game table."""
     D = P.copy()
-    w = cfg["last_season_weight"]
+    w = cfg["last_season_weight"] * D.get("prev_w", pd.Series(1.0, index=D.index))
     lg = L.set_index("date_et").reindex(D.date_et)
     lg.index = D.index
     grp = D.grp.to_numpy()

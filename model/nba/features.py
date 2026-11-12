@@ -71,12 +71,13 @@ def team_games(games: pd.DataFrame, pg: pd.DataFrame, pending: pd.DataFrame | No
 
 def player_rows(pg: pd.DataFrame, tg: pd.DataFrame, pending_rosters: pd.DataFrame | None = None) -> pd.DataFrame:
     """Every box-score line (played or not) with its game context; tonight's rostered players appended."""
-    cols = ["game_id", "team_id", "player_id", "name", "pos", "dnp"] + BOX
+    cols = ["game_id", "team_id", "player_id", "name", "pos", "dnp", "reason"] + BOX
     p = pg[cols].copy()
     if pending_rosters is not None and len(pending_rosters):
         r = pending_rosters[["game_id", "team_id", "player_id", "name", "pos"]].copy()
         for c in BOX + ["dnp"]:
             r[c] = np.nan
+        r["reason"] = None
         p = pd.concat([p, r], ignore_index=True)
     ctx = tg[["game_id", "team_id", "opp_id", "season", "date_et", "tip", "known", "is_home", "pending", "margin",
               "q4_entry", "poss", "reg_min", "periods"]]
@@ -105,9 +106,14 @@ def player_state(p: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
         out.loc[stale, "s_" + c] = 0.0
     out[[c for c in out if c.startswith("s_")]] = out[[c for c in out if c.startswith("s_")]].fillna(0.0)
     prev = pl.groupby(["player_id", "season"])[cols].sum().add_prefix("prev_").reset_index()
+    prev["prev_team"] = pl.groupby(["player_id", "season"]).team_id.last().to_numpy()
     prev["season"] += 1
     out = out.merge(prev, on=["player_id", "season"], how="left")
-    out[[c for c in out if c.startswith("prev_")]] = out[[c for c in out if c.startswith("prev_")]].fillna(0.0)
+    pc = [c for c in out if c.startswith("prev_") and c != "prev_team"]
+    out[pc] = out[pc].fillna(0.0)
+    # a player on a new team: last season's role says less about this one, so it gets less weight everywhere
+    out["changed_team"] = (out.prev_team.notna() & (out.prev_team != out.team_id)).astype(int)
+    out["prev_w"] = np.where(out.changed_team == 1, cfg["team_change_prev_factor"], 1.0)
     out["days_since_played"] = (out.tip - out.last_played).dt.total_seconds() / 86400
     return out
 
