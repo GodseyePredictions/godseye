@@ -993,6 +993,77 @@ def build_snipers(g, roster, rho, matchup, td_leg, alt_ladder, D, MK):
 
 
 
+def build_featured(g, roster, rho, matchup, td_leg, D, MK):
+    """The four headline slips for a game: a 6-leg and an 8-leg props slip, and hybrids with one and two touchdowns.
+
+    Running backs, receivers and tight ends only. Prop legs are the line closest to a 78% chance (the
+    range that has hit as priced), ranked by matchup and by how often the player has cleared that
+    line this season. Every position is represented, with at most two legs per player and one per
+    stat family.
+    """
+    skill = [p for p in roster if p["pos"] in ("RB", "WR", "TE")]
+    cands = []
+    for p_ in skill:
+        m_ = matchup(p_)
+        for mk, m in D["props"].get(p_["id"], {}).items():
+            band = [(abs(x - 0.78), i) for i, x in enumerate(m["p"]) if 0.70 <= x <= 0.88]
+            if not band:
+                continue
+            i = min(band)[1]
+            hits, n = (m["hits"][i] if m.get("hits") else None), m.get("n")
+            season = (hits / n - m["p"][i]) if hits is not None and n else 0.0
+            q = 1.0 + (0.10 if m_ == "for" else -0.20 if m_ == "against" else 0.0) + 0.15 * max(-0.3, min(0.3, season))
+            cands.append({"kind": "prop", "mk": mk, "k": int(m["k"][i]), "p": float(m["p"][i]), "team": p_["team"], "pos": p_["pos"],
+                          "player_id": p_["id"], "game": p_["game"], "matchup": m_, "hits": hits, "n": n, "q": q,
+                          "label": f"{p_['name']} {int(m['k'][i])}+ {MK.get(mk, mk)}"})
+    cands.sort(key=lambda l: (-l["q"], -l["p"]))
+
+    def fits(l, chosen):
+        mine = [x for x in chosen if x["player_id"] == l["player_id"]]
+        return len(mine) < 2 and all(leg_key(x) != leg_key(l) for x in mine)
+
+    def props(n, start=()):
+        chosen = list(start)
+        for pos in ("RB", "WR", "TE"):   # one from each position first
+            if not any(x["pos"] == pos and x["kind"] == "prop" for x in chosen):
+                best = next((l for l in cands if l["pos"] == pos and l not in chosen and fits(l, chosen)), None)
+                if best:
+                    chosen.append(best)
+        for l in cands:
+            if len([x for x in chosen if x["kind"] == "prop"]) >= n:
+                break
+            if l not in chosen and fits(l, chosen):
+                chosen.append(l)
+        return chosen
+
+    def slip(title, note, legs):
+        legs = list(legs)
+        R = [[1.0 if i == j else rho(a, b) for j, b in enumerate(legs)] for i, a in enumerate(legs)]
+        pj = joint_probability([l["p"] for l in legs], R)
+        p_ind = float(np.prod([l["p"] for l in legs]))
+        return {"band": title, "script": title, "read": title, "note": note,
+                "legs": [{k: v for k, v in l.items() if k in ("kind", "label", "p", "team", "pos", "player_id", "mk", "k", "matchup", "hits", "n")} for l in legs],
+                "p": round(pj, 4), "fair_price": american(pj), "p_if_independent": round(p_ind, 4), "correlation_lift": round(pj / p_ind, 3),
+                "trust": {"legs": len(legs), "legs_in_calibrated_prop_band": sum(l["kind"] == "prop" for l in legs),
+                          "touchdown_legs": sum(l["kind"] == "atd" for l in legs), "game_legs": 0}}
+
+    six = props(6)
+    eight = props(8, six)
+    tds = sorted([p for p in skill if p["p"] >= 0.12], key=lambda p: (matchup(p) == "against", -p["p"]))
+    td1 = td_leg(tds[0]) if tds else None
+    td2 = next((td_leg(p) for p in tds[1:] if td1 and p["team"] != td1["team"]), None)   # second scorer from the other team
+    out_ = []
+    if len(six) == 6:
+        out_.append(slip("6-leg props", "Six props, each close to a 78% chance.", six))
+    if len(eight) == 8:
+        out_.append(slip("8-leg props", "The 6-leg slip plus two more.", eight))
+    if td1:
+        out_.append(slip("Hybrid: 1 touchdown + 4 props", "The game's most likely eligible scorer with four props.", props(4, [td1])))
+    if td1 and td2:
+        out_.append(slip("Hybrid: 2 touchdowns + 4 props", "One scorer from each team with four props.", props(4, [td1, td2])))
+    return {"game_id": g.game_id, "away": g.away, "home": g.home, "slips": out_}
+
+
 # ----------------------------------------------------------------------------- this week
 
 def reasons(g, side_home: bool, model, labels):
@@ -1234,7 +1305,7 @@ def main():
             return {"kind": "prop", "mk": mk, "k": int(k_), "p": float(p_), "team": player["team"], "pos": player["pos"],
                     "player_id": player["id"], "game": player["game"], "label": f"{player['name']} {int(k_)}+ {MK[mk]}"}
 
-        out["snipers"] = []
+        out["snipers"], out["featured"] = [], []
         # Odds Snipers are built for the next game day (or every game with GE_SNIPER_GAMES=all)
         open_games = up[up.checks_complete & ~up.game_id.isin(hold_games)]
         first_day = open_games.gameday.min() if len(open_games) else None
@@ -1276,6 +1347,7 @@ def main():
 
             if g.game_id in sniper_ids:
                 out["snipers"].append(build_snipers(g, roster, rho, matchup, td_leg, alt_ladder, D, MK))
+                out["featured"].append(build_featured(g, roster, rho, matchup, td_leg, D, MK))
 
             ml, sp, tot = game_leg("ml"), game_leg("spread"), game_leg("total")
             add = lambda kind, legs, why: out["hybrids"].append(build(kind, legs, why)) if all(legs) and len(legs) >= 2 else None
@@ -1341,6 +1413,12 @@ def main():
     print("INT:", [(x["qb"], x["p"], x["recommended"]) for x in out["interceptions"][:6]])
     from collections import Counter
     print("hybrids per game:", Counter(Counter(h["game_id"] for h in out["hybrids"]).values()), Counter(h["kind"] for h in out["hybrids"]))
+    for ft in out.get("featured", []):
+        print("FEATURED", ft["game_id"])
+        for sl in ft["slips"]:
+            print(f"  {sl['read']:32} {sl['p']:.3f} fair {sl['fair_price']:+d} lift {sl['correlation_lift']:.2f}")
+            for l in sl["legs"]:
+                print(f"      {l['label']:42} {l['p']:.0%} {l['pos']} {l['team']} matchup {l.get('matchup')} season {l.get('hits')}/{l.get('n')}")
     for sn in out.get("snipers", []):
         print("ODDS SNIPERS", sn["game_id"], "slips considered:", sn["slips_considered"])
         for b_ in sn["bands"]:

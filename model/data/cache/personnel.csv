@@ -4685,7 +4685,7 @@ game_id,team,ol_out,def_out,skill_out,ol_continuity,ol_out_names,def_out_names,s
 2025_14_NO_TB,NO,0,1,0,0.8,,Justin Reid (S),
 2025_17_NO_TEN,NO,1,1,0,0.8,Cesar Ruiz (C),Bryan Bresee (DT),
 2025_18_NO_ATL,NO,0,1,1,1.0,,Nathan Shepherd (DT),Chris Olave (WR)
-2026_01_NO_DET,NO,0,1,0,0.6,,Cameron Jordan (DE),
+2026_01_NO_DET,NO,0,1,1,0.6,,Cameron Jordan (DE),Audric Estime (RB)
 2026_02_NO_BAL,NO,0,0,0,0.6,,,
 2026_06_NO_NYG,NO,0,1,0,1.0,,Kaden Elliss (LB),
 2026_11_NO_CHI,NO,0,0,0,0.8,,,
@@ -6530,7 +6530,7 @@ game_id,team,ol_out,def_out,skill_out,ol_continuity,ol_out_names,def_out_names,s
 2026_01_WAS_PHI,WAS,0,0,0,0.8,,,
 2026_02_WAS_DAL,WAS,0,1,0,1.0,,Frankie Luvu (LB),
 2026_06_WAS_SF,WAS,0,0,0,0.8,,,
-2026_10_WAS_NYG,WAS,0,0,0,0.8,,,
+2026_10_WAS_NYG,WAS,1,0,0,0.8,Lucas Patrick (G),,
 2026_12_WAS_ARI,WAS,0,0,0,0.8,,,
 2026_13_WAS_TEN,WAS,0,0,0,0.8,,,
 2026_16_WAS_MIN,WAS,0,0,0,0.8,,,

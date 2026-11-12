@@ -632,7 +632,7 @@ export function MarketsTab({ onTrack }: { onTrack: (legs: Leg[]) => void }) {
   );
 }
 
-type HybridLeg = { kind: string; label: string; p: number; player_id?: string; price?: number; matchup?: string; mk?: string; k?: number };
+type HybridLeg = { kind: string; label: string; p: number; player_id?: string; price?: number; matchup?: string; mk?: string; k?: number; hits?: number | null; n?: number | null };
 type Hybrid = {
   kind: string;
   game_id: string;
@@ -862,6 +862,7 @@ type SniperSlip = {
   band: string;
   script: string;
   read: string;
+  note?: string;
   legs: HybridLeg[];
   p: number;
   fair_price: number;
@@ -889,10 +890,16 @@ function SniperCard({ game, s, prices }: { game: string; s: SniperSlip; prices: 
       <div className="pct">
         {pct(s.p)} to hit · {s.legs.length} legs
       </div>
+      {s.note && <span className="sub">{s.note}</span>}
       <ol>
         {s.legs.map((l) => (
           <li key={l.label}>
             {l.label} <span>{pct(l.p, 0)}</span>{" "}
+            {l.n ? (
+              <span>
+                · {l.hits}/{l.n} this season{" "}
+              </span>
+            ) : null}
             {l.matchup && l.matchup !== "even" && (
               <span className={`pill ${verdictPill(l.matchup)}`}>matchup {l.matchup}</span>
             )}
@@ -946,6 +953,7 @@ function SniperCard({ game, s, prices }: { game: string; s: SniperSlip; prices: 
 
 export function SnipersTab() {
   const games = ((data as unknown as { snipers?: SniperGame[] }).snipers ?? []);
+  const featured = ((data as unknown as { featured?: { game_id: string; away: string; home: string; slips: SniperSlip[] }[] }).featured ?? []);
   const prices = useSyncExternalStore(subscribePrices, readPrices, () => NO_PRICES);
   return (
     <>
@@ -970,6 +978,28 @@ export function SnipersTab() {
           </div>
         </div>
       </section>
+      {featured.map((f) => (
+        <section className="panel" key={f.game_id}>
+          <div className="section-head">
+            <div>
+              <h2>
+                {f.away} @ {f.home}: props and touchdown hybrids
+              </h2>
+              <p className="sub">
+                Running backs, receivers and tight ends only. Each prop is the line closest to a 78%
+                chance, ranked by matchup and by how often he has cleared it this season, with every
+                position represented. Refreshed with injury reports and lines as of{" "}
+                {data.odds.fetched_at ?? "the last run"}.
+              </p>
+            </div>
+          </div>
+          <div className="ladder">
+            {f.slips.map((s) => (
+              <SniperCard key={s.read} game={f.game_id} s={s} prices={prices} />
+            ))}
+          </div>
+        </section>
+      ))}
       {games.length === 0 && (
         <section className="panel">
           <p className="empty">No game is ready for Odds Snipers. A game on hold for a roster alert is not built.</p>

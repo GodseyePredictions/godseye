@@ -9,7 +9,7 @@
   "test_seasons": "2020-2026",
   "games": 1829,
   "margin_miss_points": {
-   "fundamentals_only": 10.11,
+   "fundamentals_only": 10.111,
    "market_line": 9.746,
    "blend": 9.761
   },
@@ -35,7 +35,7 @@
     "break_even": 0.7783,
     "roi": -0.0171,
     "z": -0.92,
-    "average_forecast": 0.7516
+    "average_forecast": 0.7517
    },
    "safe_checks_lean_their_way": {
     "bets": 555,
@@ -208,10 +208,10 @@
    {
     "min_edge": 0.0,
     "bets": 1811,
-    "win_rate": 0.4997,
+    "win_rate": 0.5003,
     "break_even": 0.5192,
-    "roi": -0.0375,
-    "z": -1.66
+    "roi": -0.0365,
+    "z": -1.61
    },
    {
     "min_edge": 0.01,
@@ -667,10 +667,10 @@
     "line": 50.5,
     "label": "BUF @ NYJ under 50.5",
     "p": 0.5123,
-    "price": -105,
+    "price": -102,
     "market_p": 0.5,
     "edge": 0.0123,
-    "ev": 0.0003,
+    "ev": 0.0146,
     "dog": false,
     "complete": true,
     "net_checks": 0,
@@ -755,10 +755,10 @@
     "home_side": true,
     "label": "NO moneyline",
     "p": 0.5913,
-    "price": -135,
-    "market_p": 0.5514,
-    "edge": 0.0398,
-    "ev": 0.0293,
+    "price": -130,
+    "market_p": 0.5427,
+    "edge": 0.0485,
+    "ev": 0.0461,
     "dog": false,
     "complete": true,
     "net_checks": 0,
@@ -808,7 +808,7 @@
     ],
     "safe": false,
     "model_number": 2.6,
-    "note": "Model 59.1% to win; the price implies 55.1% with the book's margin removed.",
+    "note": "Model 59.1% to win; the price implies 54.3% with the book's margin removed.",
     "for": [
      {
       "factor": "backs as receivers",
@@ -923,10 +923,10 @@
     "line": 48.5,
     "label": "CAR @ NO over 48.5",
     "p": 0.5074,
-    "price": -115,
+    "price": -112,
     "market_p": 0.5,
     "edge": 0.0074,
-    "ev": -0.0514,
+    "ev": -0.0396,
     "dog": false,
     "complete": true,
     "net_checks": 0,
@@ -1006,10 +1006,10 @@
     "home_side": true,
     "label": "CLE moneyline",
     "p": 0.3424,
-    "price": 190,
-    "market_p": 0.331,
-    "edge": 0.0114,
-    "ev": -0.007,
+    "price": 185,
+    "market_p": 0.3364,
+    "edge": 0.0061,
+    "ev": -0.0241,
     "dog": true,
     "complete": false,
     "net_checks": -3,
@@ -1060,7 +1060,7 @@
     "safe": false,
     "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": -4.6,
-    "note": "Model 34.2% to win; the price implies 33.1% with the book's margin removed.",
+    "note": "Model 34.2% to win; the price implies 33.6% with the book's margin removed.",
     "personnel": "Deshaun Watson at quarterback rates +0.02 EPA per play against CLE's recent starters.",
     "for": [
      {
@@ -1177,10 +1177,10 @@
     "line": 40.5,
     "label": "HOU @ CLE over 40.5",
     "p": 0.5059,
-    "price": -115,
+    "price": -108,
     "market_p": 0.5,
     "edge": 0.0059,
-    "ev": -0.0542,
+    "ev": -0.0257,
     "dog": false,
     "complete": false,
     "net_checks": 0,
@@ -1266,10 +1266,10 @@
     "home_side": false,
     "label": "JAX moneyline",
     "p": 0.8276,
-    "price": -535,
-    "market_p": 0.8082,
-    "edge": 0.0195,
-    "ev": -0.0177,
+    "price": -600,
+    "market_p": 0.8223,
+    "edge": 0.0053,
+    "ev": -0.0344,
     "dog": false,
     "complete": false,
     "net_checks": 1,
@@ -1320,7 +1320,7 @@
     "safe": false,
     "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": 10.6,
-    "note": "Model 82.8% to win; the price implies 80.8% with the book's margin removed.",
+    "note": "Model 82.8% to win; the price implies 82.2% with the book's margin removed.",
     "for": [
      {
       "factor": "results-based team rating",
@@ -1511,10 +1511,10 @@
    "gameday": "2026-11-15",
    "away": "KC",
    "home": "ATL",
-   "spread_home": 3.5,
-   "total_line": 45.5,
-   "model_home_margin": -3.8,
-   "model_total": 45.3,
+   "spread_home": 3.0,
+   "total_line": 46.5,
+   "model_home_margin": -3.4,
+   "model_total": 46.2,
    "fundamentals_home_margin": -6.4,
    "fundamentals_total": 44.3,
    "ml": {
@@ -1524,11 +1524,11 @@
     "opp": "ATL",
     "home_side": false,
     "label": "KC moneyline",
-    "p": 0.6334,
-    "price": -185,
-    "market_p": 0.6225,
-    "edge": 0.0109,
-    "ev": -0.0242,
+    "p": 0.6185,
+    "price": -180,
+    "market_p": 0.6164,
+    "edge": 0.0021,
+    "ev": -0.0379,
     "dog": false,
     "complete": true,
     "net_checks": 0,
@@ -1577,8 +1577,8 @@
      }
     ],
     "safe": false,
-    "model_number": 3.8,
-    "note": "Model 63.3% to win; the price implies 62.2% with the book's margin removed.",
+    "model_number": 3.4,
+    "note": "Model 61.9% to win; the price implies 61.6% with the book's margin removed.",
     "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
     "for": [
      {
@@ -1602,13 +1602,13 @@
     "team": "KC",
     "opp": "ATL",
     "home_side": false,
-    "line": -3.5,
-    "label": "KC -3.5",
-    "p": 0.5105,
-    "price": -102,
+    "line": -3.0,
+    "label": "KC -3",
+    "p": 0.5123,
+    "price": -120,
     "market_p": 0.5,
-    "edge": 0.0105,
-    "ev": 0.011,
+    "edge": 0.0123,
+    "ev": -0.0608,
     "dog": false,
     "complete": true,
     "net_checks": 0,
@@ -1657,8 +1657,8 @@
      }
     ],
     "safe": false,
-    "model_number": 3.8,
-    "note": "Model has KC by +3.8; the line has them by +3.5.",
+    "model_number": 3.4,
+    "note": "Model has KC by +3.4; the line has them by +3.0.",
     "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
     "for": [
      {
@@ -1682,18 +1682,18 @@
     "team": null,
     "opp": null,
     "over": false,
-    "line": 45.5,
-    "label": "KC @ ATL under 45.5",
-    "p": 0.5048,
-    "price": -108,
+    "line": 46.5,
+    "label": "KC @ ATL under 46.5",
+    "p": 0.5087,
+    "price": -110,
     "market_p": 0.5,
-    "edge": 0.0048,
-    "ev": -0.0277,
+    "edge": 0.0087,
+    "ev": -0.0288,
     "dog": false,
     "complete": true,
     "net_checks": 0,
-    "model_number": 45.3,
-    "note": "Model total 45.3 against a line of 45.5 (-0.2).",
+    "model_number": 46.2,
+    "note": "Model total 46.2 against a line of 46.5 (-0.3).",
     "for": [
      {
       "factor": "pace of play",
@@ -1717,39 +1717,39 @@
    },
    "alt_spreads": [
     {
-     "line": -9.5,
-     "p": 0.3092,
-     "fair_price": 223,
+     "line": -9.0,
+     "p": 0.3105,
+     "fair_price": 222,
      "main": false
     },
     {
-     "line": -6.5,
-     "p": 0.4012,
-     "fair_price": 149,
+     "line": -6.0,
+     "p": 0.4032,
+     "fair_price": 148,
      "main": false
     },
     {
-     "line": -3.5,
-     "p": 0.5157,
-     "fair_price": -106,
+     "line": -3.0,
+     "p": 0.5191,
+     "fair_price": -108,
      "main": true
     },
     {
-     "line": -0.5,
-     "p": 0.6188,
-     "fair_price": -162,
+     "line": 0.0,
+     "p": 0.6199,
+     "fair_price": -163,
      "main": false
     },
     {
-     "line": 2.5,
-     "p": 0.7117,
-     "fair_price": -247,
+     "line": 3.0,
+     "p": 0.7131,
+     "fair_price": -249,
      "main": false
     },
     {
-     "line": 6.5,
-     "p": 0.8062,
-     "fair_price": -416,
+     "line": 7.0,
+     "p": 0.808,
+     "fair_price": -421,
      "main": false
     }
    ]
@@ -1773,10 +1773,10 @@
     "home_side": true,
     "label": "BAL moneyline",
     "p": 0.6641,
-    "price": -205,
-    "market_p": 0.6447,
-    "edge": 0.0194,
-    "ev": -0.012,
+    "price": -225,
+    "market_p": 0.6636,
+    "edge": 0.0004,
+    "ev": -0.0408,
     "dog": false,
     "complete": true,
     "net_checks": 1,
@@ -1826,7 +1826,7 @@
     ],
     "safe": false,
     "model_number": 4.8,
-    "note": "Model 66.4% to win; the price implies 64.5% with the book's margin removed.",
+    "note": "Model 66.4% to win; the price implies 66.4% with the book's margin removed.",
     "personnel": "Tyler Huntley at quarterback rates -0.07 EPA per play against BAL's recent starters.",
     "for": [
      {
@@ -2022,83 +2022,84 @@
    "ml": {
     "game_id": "2026_10_LA_ARI",
     "market": "ml",
-    "team": "LA",
-    "opp": "ARI",
-    "home_side": false,
-    "label": "LA moneyline",
-    "p": 0.8015,
-    "price": -440,
-    "market_p": 0.7819,
-    "edge": 0.0196,
-    "ev": -0.0164,
-    "dog": false,
+    "team": "ARI",
+    "opp": "LA",
+    "home_side": true,
+    "label": "ARI moneyline",
+    "p": 0.1985,
+    "price": 390,
+    "market_p": 0.1957,
+    "edge": 0.0028,
+    "ev": -0.0273,
+    "dog": true,
     "complete": true,
-    "net_checks": 5,
+    "net_checks": -5,
     "checks": [
      {
       "check": "Home vs away",
-      "score": 0.09,
+      "score": -0.09,
       "verdict": "even",
-      "numbers": "LA is away; plays -0.04 EPA per play better at home than away, ARI -0.01."
+      "numbers": "ARI is home; plays -0.01 EPA per play better at home than away, LA -0.04."
      },
      {
       "check": "Personnel",
-      "score": 0.24,
+      "score": -0.24,
       "verdict": "even",
-      "numbers": "Starters out: LA line 0, defence 0, skill 0; ARI line 0, defence 0, skill 0."
+      "numbers": "Starters out: ARI line 0, defence 0, skill 0; LA line 0, defence 0, skill 0."
      },
      {
       "check": "Offensive play-calling",
-      "score": 0.67,
-      "verdict": "for",
-      "numbers": "LA pass rate is -0.72 percentage points against expected, throws deep 23%, play-action 26%, motion 62%, no-huddle 8%, passes 56% in the red zone."
+      "score": -0.67,
+      "verdict": "against",
+      "numbers": "ARI pass rate is -0.88 percentage points against expected, throws deep 20%, play-action 22%, motion 54%, no-huddle 10%, passes 59% in the red zone."
      },
      {
       "check": "Defensive play-calling and pressure",
-      "score": 1.01,
-      "verdict": "for",
-      "numbers": "ARI defence blitzes 30% and pressures 14% of dropbacks; LA is expected to allow pressure on 13%. LA defence blitzes 28%; ARI expected to allow 15%."
+      "score": -1.01,
+      "verdict": "against",
+      "numbers": "LA defence blitzes 28% and pressures 15% of dropbacks; ARI is expected to allow pressure on 15%. ARI defence blitzes 30%; LA expected to allow 13%."
      },
      {
       "check": "Running backs vs defensive line, with line health",
-      "score": 1.15,
-      "verdict": "for",
-      "numbers": "LA runs vs ARI front: inside -0.05, outside +0.05 EPA per carry, stuffed 14%, 10+ yards 10%. ARI vs LA front: inside -0.15, outside -0.05, stuffed 19%."
+      "score": -1.15,
+      "verdict": "against",
+      "numbers": "ARI runs vs LA front: inside -0.15, outside -0.05 EPA per carry, stuffed 19%, 10+ yards 8%. LA vs ARI front: inside -0.05, outside +0.05, stuffed 14%."
      },
      {
       "check": "Receivers: deep, slot area, outside",
-      "score": 1.14,
-      "verdict": "for",
-      "numbers": "LA receivers vs ARI coverage, EPA per target: deep +0.52, slot area +0.31, outside +0.22. ARI receivers vs LA: deep +0.12, slot area +0.24, outside +0.09."
+      "score": -1.14,
+      "verdict": "against",
+      "numbers": "ARI receivers vs LA coverage, EPA per target: deep +0.12, slot area +0.24, outside +0.09. LA receivers vs ARI: deep +0.52, slot area +0.31, outside +0.22."
      },
      {
       "check": "Tight ends vs linebackers and safeties",
-      "score": 0.86,
-      "verdict": "for",
-      "numbers": "LA tight ends vs ARI: +0.27 EPA per target on 25% of targets. ARI tight ends vs LA: +0.13."
+      "score": -0.86,
+      "verdict": "against",
+      "numbers": "ARI tight ends vs LA: +0.13 EPA per target on 30% of targets. LA tight ends vs ARI: +0.27."
      }
     ],
-    "safe": true,
-    "model_number": 9.5,
-    "note": "Model 80.1% to win; the price implies 78.2% with the book's margin removed.",
+    "safe": false,
+    "model_number": -9.5,
+    "note": "Model 19.9% to win; the price implies 19.6% with the book's margin removed.",
+    "personnel": "Gardner Minshew at quarterback rates -0.02 EPA per play against ARI's recent starters.",
     "for": [
      {
-      "factor": "results-based team rating",
-      "points": 4.3
+      "factor": "backs as receivers",
+      "points": 0.7
      },
      {
-      "factor": "scoring versus points allowed",
-      "points": 2.2
+      "factor": "receivers deep against safeties and outside corners",
+      "points": 0.3
      },
      {
-      "factor": "down-to-down success rate",
-      "points": 2.2
+      "factor": "rushing matchup",
+      "points": 0.3
      }
     ],
     "against": [
      {
-      "factor": "backs as receivers",
-      "points": -0.7
+      "factor": "results-based team rating",
+      "points": -4.3
      }
     ]
    },
@@ -2283,12 +2284,12 @@
     "home_side": false,
     "label": "MIA moneyline",
     "p": 0.3727,
-    "price": 160,
-    "market_p": 0.3691,
-    "edge": 0.0037,
-    "ev": -0.0309,
+    "price": 170,
+    "market_p": 0.3553,
+    "edge": 0.0175,
+    "ev": 0.0064,
     "dog": true,
-    "complete": true,
+    "complete": false,
     "net_checks": -1,
     "checks": [
      {
@@ -2335,8 +2336,9 @@
      }
     ],
     "safe": false,
+    "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": -3.7,
-    "note": "Model 37.3% to win; the price implies 36.9% with the book's margin removed.",
+    "note": "Model 37.3% to win; the price implies 35.5% with the book's margin removed.",
     "personnel": "Malik Willis at quarterback rates -0.05 EPA per play against MIA's recent starters.",
     "for": [
      {
@@ -2373,7 +2375,7 @@
     "edge": 0.0047,
     "ev": -0.0675,
     "dog": false,
-    "complete": true,
+    "complete": false,
     "net_checks": 1,
     "checks": [
      {
@@ -2420,6 +2422,7 @@
      }
     ],
     "safe": false,
+    "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": 3.7,
     "note": "Model has IND by +3.7; the line has them by +3.5.",
     "for": [
@@ -2452,13 +2455,14 @@
     "line": 38.5,
     "label": "MIA @ IND over 38.5",
     "p": 0.5238,
-    "price": -108,
+    "price": -105,
     "market_p": 0.5,
     "edge": 0.0238,
-    "ev": 0.0088,
+    "ev": 0.0226,
     "dog": false,
-    "complete": true,
+    "complete": false,
     "net_checks": 0,
+    "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": 39.3,
     "note": "Model total 39.3 against a line of 38.5 (+0.8).",
     "for": [
@@ -2527,92 +2531,91 @@
    "away": "MIN",
    "home": "GB",
    "spread_home": -3.0,
-   "total_line": 42.5,
+   "total_line": 41.5,
    "model_home_margin": 2.6,
-   "model_total": 42.7,
+   "model_total": 41.8,
    "fundamentals_home_margin": -0.2,
    "fundamentals_total": 43.9,
    "ml": {
     "game_id": "2026_10_MIN_GB",
     "market": "ml",
-    "team": "MIN",
-    "opp": "GB",
-    "home_side": false,
-    "label": "MIN moneyline",
-    "p": 0.4076,
-    "price": 136,
-    "market_p": 0.4066,
-    "edge": 0.001,
-    "ev": -0.038,
-    "dog": true,
+    "team": "GB",
+    "opp": "MIN",
+    "home_side": true,
+    "label": "GB moneyline",
+    "p": 0.5924,
+    "price": -155,
+    "market_p": 0.583,
+    "edge": 0.0094,
+    "ev": -0.0254,
+    "dog": false,
     "complete": true,
-    "net_checks": -2,
+    "net_checks": 2,
     "checks": [
      {
       "check": "Home vs away",
-      "score": -2.39,
-      "verdict": "against",
-      "numbers": "MIN is away; plays +0.07 EPA per play better at home than away, GB +0.05."
+      "score": 2.39,
+      "verdict": "for",
+      "numbers": "GB is home; plays +0.05 EPA per play better at home than away, MIN +0.07."
      },
      {
       "check": "Personnel",
-      "score": 0.45,
-      "verdict": "for",
-      "numbers": "Starters out: MIN line 0, defence 0, skill 0; GB line 0, defence 0, skill 0."
+      "score": -0.45,
+      "verdict": "against",
+      "numbers": "Starters out: GB line 0, defence 0, skill 0; MIN line 0, defence 0, skill 0."
      },
      {
       "check": "Offensive play-calling",
-      "score": -0.49,
-      "verdict": "against",
-      "numbers": "MIN pass rate is -1.91 percentage points against expected, throws deep 22%, play-action 25%, motion 54%, no-huddle 8%, passes 58% in the red zone."
+      "score": 0.49,
+      "verdict": "for",
+      "numbers": "GB pass rate is -1.11 percentage points against expected, throws deep 23%, play-action 22%, motion 58%, no-huddle 8%, passes 52% in the red zone."
      },
      {
       "check": "Defensive play-calling and pressure",
-      "score": -0.01,
+      "score": 0.01,
       "verdict": "even",
-      "numbers": "GB defence blitzes 30% and pressures 15% of dropbacks; MIN is expected to allow pressure on 17%. MIN defence blitzes 44%; GB expected to allow 18%."
+      "numbers": "MIN defence blitzes 44% and pressures 18% of dropbacks; GB is expected to allow pressure on 18%. GB defence blitzes 30%; MIN expected to allow 17%."
      },
      {
       "check": "Running backs vs defensive line, with line health",
-      "score": 0.33,
+      "score": -0.33,
       "verdict": "even",
-      "numbers": "MIN runs vs GB front: inside -0.09, outside -0.03 EPA per carry, stuffed 18%, 10+ yards 9%. GB vs MIN front: inside -0.15, outside -0.11, stuffed 19%."
+      "numbers": "GB runs vs MIN front: inside -0.15, outside -0.11 EPA per carry, stuffed 19%, 10+ yards 10%. MIN vs GB front: inside -0.09, outside -0.03, stuffed 18%."
      },
      {
       "check": "Receivers: deep, slot area, outside",
-      "score": -1.09,
-      "verdict": "against",
-      "numbers": "MIN receivers vs GB coverage, EPA per target: deep +0.33, slot area -0.08, outside +0.03. GB receivers vs MIN: deep +0.54, slot area +0.24, outside +0.08."
+      "score": 1.09,
+      "verdict": "for",
+      "numbers": "GB receivers vs MIN coverage, EPA per target: deep +0.54, slot area +0.24, outside +0.08. MIN receivers vs GB: deep +0.33, slot area -0.08, outside +0.03."
      },
      {
       "check": "Tight ends vs linebackers and safeties",
-      "score": -0.32,
+      "score": 0.32,
       "verdict": "even",
-      "numbers": "MIN tight ends vs GB: +0.23 EPA per target on 24% of targets. GB tight ends vs MIN: +0.25."
+      "numbers": "GB tight ends vs MIN: +0.25 EPA per target on 21% of targets. MIN tight ends vs GB: +0.23."
      }
     ],
     "safe": false,
-    "model_number": -2.6,
-    "note": "Model 40.8% to win; the price implies 40.7% with the book's margin removed.",
-    "personnel": "Kirk Cousins at quarterback rates +0.10 EPA per play against MIN's recent starters.",
+    "model_number": 2.6,
+    "note": "Model 59.2% to win; the price implies 58.3% with the book's margin removed.",
     "for": [
      {
-      "factor": "quarterback versus the team's usual starter",
-      "points": 2.3
+      "factor": "penalties",
+      "points": 0.6
      },
      {
-      "factor": "each team's own home and road form",
-      "points": 0.8
-     },
-     {
-      "factor": "outside runs against the edge",
+      "factor": "results-based team rating",
       "points": 0.4
+     },
+     {
+      "factor": "receivers short outside against corners",
+      "points": 0.3
      }
     ],
     "against": [
      {
-      "factor": "penalties",
-      "points": -0.6
+      "factor": "quarterback versus the team's usual starter",
+      "points": -2.3
      }
     ]
    },
@@ -2707,18 +2710,18 @@
     "team": null,
     "opp": null,
     "over": true,
-    "line": 42.5,
-    "label": "MIN @ GB over 42.5",
-    "p": 0.5055,
-    "price": -105,
+    "line": 41.5,
+    "label": "MIN @ GB over 41.5",
+    "p": 0.5094,
+    "price": -115,
     "market_p": 0.5,
-    "edge": 0.0055,
-    "ev": -0.013,
+    "edge": 0.0094,
+    "ev": -0.0476,
     "dog": false,
     "complete": true,
     "net_checks": 0,
-    "model_number": 42.7,
-    "note": "Model total 42.7 against a line of 42.5 (+0.2).",
+    "model_number": 41.8,
+    "note": "Model total 41.8 against a line of 41.5 (+0.3).",
     "for": [
      {
       "factor": "quarterback changes",
@@ -2798,10 +2801,10 @@
     "home_side": true,
     "label": "DET moneyline",
     "p": 0.5884,
-    "price": -148,
-    "market_p": 0.5721,
-    "edge": 0.0163,
-    "ev": -0.0141,
+    "price": -155,
+    "market_p": 0.583,
+    "edge": 0.0054,
+    "ev": -0.0321,
     "dog": false,
     "complete": true,
     "net_checks": -2,
@@ -2851,7 +2854,7 @@
     ],
     "safe": false,
     "model_number": 2.5,
-    "note": "Model 58.8% to win; the price implies 57.2% with the book's margin removed.",
+    "note": "Model 58.8% to win; the price implies 58.3% with the book's margin removed.",
     "for": [
      {
       "factor": "home field",
@@ -3054,10 +3057,10 @@
     "home_side": true,
     "label": "CIN moneyline",
     "p": 0.6225,
-    "price": -175,
-    "market_p": 0.6092,
-    "edge": 0.0133,
-    "ev": -0.0217,
+    "price": -180,
+    "market_p": 0.6164,
+    "edge": 0.0061,
+    "ev": -0.0316,
     "dog": false,
     "complete": false,
     "net_checks": 0,
@@ -3108,7 +3111,7 @@
     "safe": false,
     "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": 3.5,
-    "note": "Model 62.3% to win; the price implies 60.9% with the book's margin removed.",
+    "note": "Model 62.3% to win; the price implies 61.6% with the book's margin removed.",
     "personnel": "Joe Burrow at quarterback rates +0.04 EPA per play against CIN's recent starters.",
     "for": [
      {
@@ -3311,10 +3314,10 @@
     "home_side": false,
     "label": "SEA moneyline",
     "p": 0.7321,
-    "price": -285,
-    "market_p": 0.7095,
-    "edge": 0.0226,
-    "ev": -0.011,
+    "price": -298,
+    "market_p": 0.718,
+    "edge": 0.0141,
+    "ev": -0.0222,
     "dog": false,
     "complete": false,
     "net_checks": 1,
@@ -3365,7 +3368,7 @@
     "safe": false,
     "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": 7.0,
-    "note": "Model 73.2% to win; the price implies 71.0% with the book's margin removed.",
+    "note": "Model 73.2% to win; the price implies 71.8% with the book's margin removed.",
     "personnel": "Sam Darnold at quarterback rates +0.02 EPA per play against SEA's recent starters.",
     "for": [
      {
@@ -3397,10 +3400,10 @@
     "line": -6.5,
     "label": "SEA -6.5",
     "p": 0.5146,
-    "price": -108,
+    "price": -112,
     "market_p": 0.5,
     "edge": 0.0146,
-    "ev": -0.009,
+    "ev": -0.026,
     "dog": false,
     "complete": false,
     "net_checks": 1,
@@ -3558,109 +3561,24 @@
    "gameday": "2026-11-15",
    "away": "SF",
    "home": "DAL",
-   "spread_home": 4.5,
+   "spread_home": 3.5,
    "total_line": 55.5,
-   "model_home_margin": -4.4,
+   "model_home_margin": -3.6,
    "model_total": 55.7,
    "fundamentals_home_margin": -4.0,
    "fundamentals_total": 56.8,
    "ml": {
     "game_id": "2026_10_SF_DAL",
     "market": "ml",
-    "team": "SF",
-    "opp": "DAL",
-    "home_side": false,
-    "label": "SF moneyline",
-    "p": 0.6536,
-    "price": -205,
-    "market_p": 0.6447,
-    "edge": 0.0089,
-    "ev": -0.0275,
-    "dog": false,
-    "complete": true,
-    "net_checks": 3,
-    "checks": [
-     {
-      "check": "Home vs away",
-      "score": -0.7,
-      "verdict": "against",
-      "numbers": "SF is away; plays +0.06 EPA per play better at home than away, DAL -0.05."
-     },
-     {
-      "check": "Personnel",
-      "score": 0.03,
-      "verdict": "even",
-      "numbers": "Starters out: SF line 0, defence 0, skill 0; DAL line 0, defence 0, skill 0."
-     },
-     {
-      "check": "Offensive play-calling",
-      "score": 0.36,
-      "verdict": "for",
-      "numbers": "SF pass rate is -1.41 percentage points against expected, throws deep 21%, play-action 23%, motion 63%, no-huddle 6%, passes 53% in the red zone."
-     },
-     {
-      "check": "Defensive play-calling and pressure",
-      "score": -0.16,
-      "verdict": "even",
-      "numbers": "DAL defence blitzes 28% and pressures 15% of dropbacks; SF is expected to allow pressure on 14%. SF defence blitzes 29%; DAL expected to allow 13%."
-     },
-     {
-      "check": "Running backs vs defensive line, with line health",
-      "score": 0.71,
-      "verdict": "for",
-      "numbers": "SF runs vs DAL front: inside -0.02, outside +0.06 EPA per carry, stuffed 16%, 10+ yards 11%. DAL vs SF front: inside -0.07, outside -0.02, stuffed 17%."
-     },
-     {
-      "check": "Receivers: deep, slot area, outside",
-      "score": 0.56,
-      "verdict": "for",
-      "numbers": "SF receivers vs DAL coverage, EPA per target: deep +0.64, slot area +0.38, outside +0.23. DAL receivers vs SF: deep +0.47, slot area +0.20, outside +0.22."
-     },
-     {
-      "check": "Tight ends vs linebackers and safeties",
-      "score": 1.41,
-      "verdict": "for",
-      "numbers": "SF tight ends vs DAL: +0.30 EPA per target on 24% of targets. DAL tight ends vs SF: +0.09."
-     }
-    ],
-    "safe": true,
-    "model_number": 4.4,
-    "note": "Model 65.4% to win; the price implies 64.5% with the book's margin removed.",
-    "personnel": "Brock Purdy at quarterback rates +0.03 EPA per play against SF's recent starters.",
-    "for": [
-     {
-      "factor": "results-based team rating",
-      "points": 2.4
-     },
-     {
-      "factor": "down-to-down success rate",
-      "points": 1.2
-     },
-     {
-      "factor": "scoring versus points allowed",
-      "points": 1.2
-     }
-    ],
-    "against": [
-     {
-      "factor": "backs as receivers",
-      "points": -0.8
-     }
-    ]
-   },
-   "spread": {
-    "game_id": "2026_10_SF_DAL",
-    "market": "spread",
     "team": "DAL",
     "opp": "SF",
     "home_side": true,
-    "line": 4.5,
-    "label": "DAL +4.5",
-    "p": 0.5017,
-    "price": -115,
-    "market_p": 0.5,
-    "edge": 0.0017,
-    "ev": -0.062,
+    "label": "DAL moneyline",
+    "p": 0.3758,
+    "price": 170,
+    "market_p": 0.3553,
+    "edge": 0.0206,
+    "ev": 0.0148,
     "dog": true,
     "complete": true,
     "net_checks": -3,
@@ -3709,8 +3627,8 @@
      }
     ],
     "safe": false,
-    "model_number": -4.4,
-    "note": "Model has DAL by -4.4; the line has them by -4.5.",
+    "model_number": -3.6,
+    "note": "Model 37.6% to win; the price implies 35.5% with the book's margin removed.",
     "for": [
      {
       "factor": "backs as receivers",
@@ -3728,6 +3646,91 @@
      }
     ]
    },
+   "spread": {
+    "game_id": "2026_10_SF_DAL",
+    "market": "spread",
+    "team": "SF",
+    "opp": "DAL",
+    "home_side": false,
+    "line": -3.5,
+    "label": "SF -3.5",
+    "p": 0.5019,
+    "price": -115,
+    "market_p": 0.5,
+    "edge": 0.0019,
+    "ev": -0.0617,
+    "dog": false,
+    "complete": true,
+    "net_checks": 3,
+    "checks": [
+     {
+      "check": "Home vs away",
+      "score": -0.7,
+      "verdict": "against",
+      "numbers": "SF is away; plays +0.06 EPA per play better at home than away, DAL -0.05."
+     },
+     {
+      "check": "Personnel",
+      "score": 0.03,
+      "verdict": "even",
+      "numbers": "Starters out: SF line 0, defence 0, skill 0; DAL line 0, defence 0, skill 0."
+     },
+     {
+      "check": "Offensive play-calling",
+      "score": 0.36,
+      "verdict": "for",
+      "numbers": "SF pass rate is -1.41 percentage points against expected, throws deep 21%, play-action 23%, motion 63%, no-huddle 6%, passes 53% in the red zone."
+     },
+     {
+      "check": "Defensive play-calling and pressure",
+      "score": -0.16,
+      "verdict": "even",
+      "numbers": "DAL defence blitzes 28% and pressures 15% of dropbacks; SF is expected to allow pressure on 14%. SF defence blitzes 29%; DAL expected to allow 13%."
+     },
+     {
+      "check": "Running backs vs defensive line, with line health",
+      "score": 0.71,
+      "verdict": "for",
+      "numbers": "SF runs vs DAL front: inside -0.02, outside +0.06 EPA per carry, stuffed 16%, 10+ yards 11%. DAL vs SF front: inside -0.07, outside -0.02, stuffed 17%."
+     },
+     {
+      "check": "Receivers: deep, slot area, outside",
+      "score": 0.56,
+      "verdict": "for",
+      "numbers": "SF receivers vs DAL coverage, EPA per target: deep +0.64, slot area +0.38, outside +0.23. DAL receivers vs SF: deep +0.47, slot area +0.20, outside +0.22."
+     },
+     {
+      "check": "Tight ends vs linebackers and safeties",
+      "score": 1.41,
+      "verdict": "for",
+      "numbers": "SF tight ends vs DAL: +0.30 EPA per target on 24% of targets. DAL tight ends vs SF: +0.09."
+     }
+    ],
+    "safe": false,
+    "model_number": 3.6,
+    "note": "Model has SF by +3.6; the line has them by +3.5.",
+    "personnel": "Brock Purdy at quarterback rates +0.03 EPA per play against SF's recent starters.",
+    "for": [
+     {
+      "factor": "results-based team rating",
+      "points": 2.4
+     },
+     {
+      "factor": "down-to-down success rate",
+      "points": 1.2
+     },
+     {
+      "factor": "scoring versus points allowed",
+      "points": 1.2
+     }
+    ],
+    "against": [
+     {
+      "factor": "backs as receivers",
+      "points": -0.8
+     }
+    ]
+   },
    "total": {
     "game_id": "2026_10_SF_DAL",
     "market": "total",
@@ -3737,10 +3740,10 @@
     "line": 55.5,
     "label": "SF @ DAL over 55.5",
     "p": 0.5051,
-    "price": -115,
+    "price": -118,
     "market_p": 0.5,
     "edge": 0.0051,
-    "ev": -0.0557,
+    "ev": -0.0668,
     "dog": false,
     "complete": true,
     "net_checks": 0,
@@ -3769,37 +3772,37 @@
    },
    "alt_spreads": [
     {
-     "line": -1.5,
-     "p": 0.2995,
+     "line": -9.5,
+     "p": 0.2997,
      "fair_price": 234,
      "main": false
     },
     {
-     "line": 1.5,
-     "p": 0.3916,
+     "line": -6.5,
+     "p": 0.3922,
      "fair_price": 155,
      "main": false
     },
     {
-     "line": 4.5,
-     "p": 0.5029,
+     "line": -3.5,
+     "p": 0.5031,
      "fair_price": -101,
      "main": true
     },
     {
-     "line": 7.5,
+     "line": -0.5,
      "p": 0.6109,
      "fair_price": -157,
      "main": false
     },
     {
-     "line": 10.5,
-     "p": 0.7036,
-     "fair_price": -237,
+     "line": 2.5,
+     "p": 0.7039,
+     "fair_price": -238,
      "main": false
     },
     {
-     "line": 14.5,
+     "line": 6.5,
      "p": 0.8,
      "fair_price": -400,
      "main": false
@@ -3816,7 +3819,7 @@
    "model_home_margin": 2.3,
    "model_total": 41.1,
    "fundamentals_home_margin": 0.5,
-   "fundamentals_total": 45.1,
+   "fundamentals_total": 45.2,
    "ml": {
     "game_id": "2026_10_WAS_NYG",
     "market": "ml",
@@ -3824,11 +3827,11 @@
     "opp": "WAS",
     "home_side": true,
     "label": "NYG moneyline",
-    "p": 0.5798,
-    "price": -142,
-    "market_p": 0.5635,
-    "edge": 0.0163,
-    "ev": -0.0119,
+    "p": 0.58,
+    "price": -135,
+    "market_p": 0.5514,
+    "edge": 0.0285,
+    "ev": 0.0096,
     "dog": false,
     "complete": true,
     "net_checks": 1,
@@ -3841,9 +3844,9 @@
      },
      {
       "check": "Personnel",
-      "score": -0.06,
+      "score": 0.28,
       "verdict": "even",
-      "numbers": "Starters out: NYG line 0, defence 0, skill 0; WAS line 0, defence 0, skill 0."
+      "numbers": "Starters out: NYG line 0, defence 0, skill 0; WAS line 1, defence 0, skill 0. WAS out: Lucas Patrick (G)."
      },
      {
       "check": "Offensive play-calling",
@@ -3859,7 +3862,7 @@
      },
      {
       "check": "Running backs vs defensive line, with line health",
-      "score": -0.12,
+      "score": 0.22,
       "verdict": "even",
       "numbers": "NYG runs vs WAS front: inside -0.07, outside -0.04 EPA per carry, stuffed 17%, 10+ yards 9%. WAS vs NYG front: inside -0.07, outside +0.03, stuffed 19%."
      },
@@ -3878,7 +3881,7 @@
     ],
     "safe": false,
     "model_number": 2.3,
-    "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+    "note": "Model 58.0% to win; the price implies 55.1% with the book's margin removed.",
     "personnel": "J.J. McCarthy at quarterback rates -0.07 EPA per play against NYG's recent starters.",
     "for": [
      {
@@ -3909,11 +3912,11 @@
     "home_side": false,
     "line": 2.5,
     "label": "WAS +2.5",
-    "p": 0.5074,
-    "price": -110,
+    "p": 0.5072,
+    "price": -112,
     "market_p": 0.5,
-    "edge": 0.0074,
-    "ev": -0.0314,
+    "edge": 0.0072,
+    "ev": -0.04,
     "dog": true,
     "complete": true,
     "net_checks": -1,
@@ -3926,9 +3929,9 @@
      },
      {
       "check": "Personnel",
-      "score": 0.06,
+      "score": -0.28,
       "verdict": "even",
-      "numbers": "Starters out: WAS line 0, defence 0, skill 0; NYG line 0, defence 0, skill 0."
+      "numbers": "Starters out: WAS line 1, defence 0, skill 0; NYG line 0, defence 0, skill 0. WAS out: Lucas Patrick (G)."
      },
      {
       "check": "Offensive play-calling",
@@ -3944,7 +3947,7 @@
      },
      {
       "check": "Running backs vs defensive line, with line health",
-      "score": 0.12,
+      "score": -0.22,
       "verdict": "even",
       "numbers": "WAS runs vs NYG front: inside -0.07, outside +0.03 EPA per carry, stuffed 19%, 10+ yards 10%. NYG vs WAS front: inside -0.07, outside -0.04, stuffed 17%."
      },
@@ -3993,11 +3996,11 @@
     "over": true,
     "line": 40.5,
     "label": "WAS @ NYG over 40.5",
-    "p": 0.5177,
+    "p": 0.5183,
     "price": -118,
     "market_p": 0.5,
-    "edge": 0.0177,
-    "ev": -0.0435,
+    "edge": 0.0183,
+    "ev": -0.0424,
     "dog": false,
     "complete": true,
     "net_checks": 0,
@@ -4039,14 +4042,14 @@
     },
     {
      "line": 2.5,
-     "p": 0.5106,
+     "p": 0.5103,
      "fair_price": -104,
      "main": true
     },
     {
      "line": 5.5,
-     "p": 0.6163,
-     "fair_price": -161,
+     "p": 0.6161,
+     "fair_price": -160,
      "main": false
     },
     {
@@ -4057,7 +4060,7 @@
     },
     {
      "line": 12.5,
-     "p": 0.804,
+     "p": 0.8038,
      "fair_price": -410,
      "main": false
     }
@@ -4076,10 +4079,10 @@
       "home_side": true,
       "label": "NO moneyline",
       "p": 0.5913,
-      "price": -135,
-      "market_p": 0.5514,
-      "edge": 0.0398,
-      "ev": 0.0293,
+      "price": -130,
+      "market_p": 0.5427,
+      "edge": 0.0485,
+      "ev": 0.0461,
       "dog": false,
       "complete": true,
       "net_checks": 0,
@@ -4129,7 +4132,7 @@
       ],
       "safe": false,
       "model_number": 2.6,
-      "note": "Model 59.1% to win; the price implies 55.1% with the book's margin removed.",
+      "note": "Model 59.1% to win; the price implies 54.3% with the book's margin removed.",
       "for": [
        {
         "factor": "backs as receivers",
@@ -4152,17 +4155,96 @@
       ]
      },
      {
+      "game_id": "2026_10_SF_DAL",
+      "market": "ml",
+      "team": "DAL",
+      "opp": "SF",
+      "home_side": true,
+      "label": "DAL moneyline",
+      "p": 0.3758,
+      "price": 170,
+      "market_p": 0.3553,
+      "edge": 0.0206,
+      "ev": 0.0148,
+      "dog": true,
+      "complete": true,
+      "net_checks": -3,
+      "checks": [
+       {
+        "check": "Home vs away",
+        "score": 0.7,
+        "verdict": "for",
+        "numbers": "DAL is home; plays -0.05 EPA per play better at home than away, SF +0.06."
+       },
+       {
+        "check": "Personnel",
+        "score": -0.03,
+        "verdict": "even",
+        "numbers": "Starters out: DAL line 0, defence 0, skill 0; SF line 0, defence 0, skill 0."
+       },
+       {
+        "check": "Offensive play-calling",
+        "score": -0.36,
+        "verdict": "against",
+        "numbers": "DAL pass rate is -1.73 percentage points against expected, throws deep 21%, play-action 23%, motion 53%, no-huddle 8%, passes 55% in the red zone."
+       },
+       {
+        "check": "Defensive play-calling and pressure",
+        "score": 0.16,
+        "verdict": "even",
+        "numbers": "SF defence blitzes 29% and pressures 14% of dropbacks; DAL is expected to allow pressure on 13%. DAL defence blitzes 28%; SF expected to allow 14%."
+       },
+       {
+        "check": "Running backs vs defensive line, with line health",
+        "score": -0.71,
+        "verdict": "against",
+        "numbers": "DAL runs vs SF front: inside -0.07, outside -0.02 EPA per carry, stuffed 17%, 10+ yards 8%. SF vs DAL front: inside -0.02, outside +0.06, stuffed 16%."
+       },
+       {
+        "check": "Receivers: deep, slot area, outside",
+        "score": -0.56,
+        "verdict": "against",
+        "numbers": "DAL receivers vs SF coverage, EPA per target: deep +0.47, slot area +0.20, outside +0.22. SF receivers vs DAL: deep +0.64, slot area +0.38, outside +0.23."
+       },
+       {
+        "check": "Tight ends vs linebackers and safeties",
+        "score": -1.41,
+        "verdict": "against",
+        "numbers": "DAL tight ends vs SF: +0.09 EPA per target on 21% of targets. SF tight ends vs DAL: +0.30."
+       }
+      ],
+      "safe": false,
+      "model_number": -3.6,
+      "note": "Model 37.6% to win; the price implies 35.5% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "backs as receivers",
+        "points": 0.8
+       },
+       {
+        "factor": "rushing matchup",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -2.4
+       }
+      ]
+     },
+     {
       "game_id": "2026_10_WAS_NYG",
       "market": "ml",
       "team": "NYG",
       "opp": "WAS",
       "home_side": true,
       "label": "NYG moneyline",
-      "p": 0.5798,
-      "price": -142,
-      "market_p": 0.5635,
-      "edge": 0.0163,
-      "ev": -0.0119,
+      "p": 0.58,
+      "price": -135,
+      "market_p": 0.5514,
+      "edge": 0.0285,
+      "ev": 0.0096,
       "dog": false,
       "complete": true,
       "net_checks": 1,
@@ -4175,9 +4257,9 @@
        },
        {
         "check": "Personnel",
-        "score": -0.06,
+        "score": 0.28,
         "verdict": "even",
-        "numbers": "Starters out: NYG line 0, defence 0, skill 0; WAS line 0, defence 0, skill 0."
+        "numbers": "Starters out: NYG line 0, defence 0, skill 0; WAS line 1, defence 0, skill 0. WAS out: Lucas Patrick (G)."
        },
        {
         "check": "Offensive play-calling",
@@ -4193,7 +4275,7 @@
        },
        {
         "check": "Running backs vs defensive line, with line health",
-        "score": -0.12,
+        "score": 0.22,
         "verdict": "even",
         "numbers": "NYG runs vs WAS front: inside -0.07, outside -0.04 EPA per carry, stuffed 17%, 10+ yards 9%. WAS vs NYG front: inside -0.07, outside +0.03, stuffed 19%."
        },
@@ -4212,7 +4294,7 @@
       ],
       "safe": false,
       "model_number": 2.3,
-      "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+      "note": "Model 58.0% to win; the price implies 55.1% with the book's margin removed.",
       "personnel": "J.J. McCarthy at quarterback rates -0.07 EPA per play against NYG's recent starters.",
       "for": [
        {
@@ -4236,180 +4318,95 @@
       ]
      },
      {
-      "game_id": "2026_10_LAC_BAL",
+      "game_id": "2026_10_MIN_GB",
       "market": "ml",
-      "team": "BAL",
-      "opp": "LAC",
+      "team": "GB",
+      "opp": "MIN",
       "home_side": true,
-      "label": "BAL moneyline",
-      "p": 0.6641,
-      "price": -205,
-      "market_p": 0.6447,
-      "edge": 0.0194,
-      "ev": -0.012,
+      "label": "GB moneyline",
+      "p": 0.5924,
+      "price": -155,
+      "market_p": 0.583,
+      "edge": 0.0094,
+      "ev": -0.0254,
       "dog": false,
       "complete": true,
-      "net_checks": 1,
+      "net_checks": 2,
       "checks": [
        {
         "check": "Home vs away",
-        "score": -1.88,
-        "verdict": "against",
-        "numbers": "BAL is home; plays -0.13 EPA per play better at home than away, LAC -0.04."
+        "score": 2.39,
+        "verdict": "for",
+        "numbers": "GB is home; plays +0.05 EPA per play better at home than away, MIN +0.07."
        },
        {
         "check": "Personnel",
-        "score": -0.04,
-        "verdict": "even",
-        "numbers": "Starters out: BAL line 0, defence 0, skill 0; LAC line 0, defence 0, skill 0."
+        "score": -0.45,
+        "verdict": "against",
+        "numbers": "Starters out: GB line 0, defence 0, skill 0; MIN line 0, defence 0, skill 0."
        },
        {
         "check": "Offensive play-calling",
-        "score": 0.23,
-        "verdict": "even",
-        "numbers": "BAL pass rate is -5.04 percentage points against expected, throws deep 20%, play-action 23%, motion 58%, no-huddle 6%, passes 49% in the red zone."
+        "score": 0.49,
+        "verdict": "for",
+        "numbers": "GB pass rate is -1.11 percentage points against expected, throws deep 23%, play-action 22%, motion 58%, no-huddle 8%, passes 52% in the red zone."
        },
        {
         "check": "Defensive play-calling and pressure",
-        "score": -0.31,
+        "score": 0.01,
         "verdict": "even",
-        "numbers": "LAC defence blitzes 28% and pressures 15% of dropbacks; BAL is expected to allow pressure on 16%. BAL defence blitzes 30%; LAC expected to allow 17%."
+        "numbers": "MIN defence blitzes 44% and pressures 18% of dropbacks; GB is expected to allow pressure on 18%. GB defence blitzes 30%; MIN expected to allow 17%."
        },
        {
         "check": "Running backs vs defensive line, with line health",
-        "score": 1.02,
-        "verdict": "for",
-        "numbers": "BAL runs vs LAC front: inside -0.11, outside +0.01 EPA per carry, stuffed 18%, 10+ yards 11%. LAC vs BAL front: inside -0.14, outside -0.06, stuffed 20%."
+        "score": -0.33,
+        "verdict": "even",
+        "numbers": "GB runs vs MIN front: inside -0.15, outside -0.11 EPA per carry, stuffed 19%, 10+ yards 10%. MIN vs GB front: inside -0.09, outside -0.03, stuffed 18%."
        },
        {
         "check": "Receivers: deep, slot area, outside",
-        "score": 0.12,
-        "verdict": "even",
-        "numbers": "BAL receivers vs LAC coverage, EPA per target: deep +0.52, slot area +0.26, outside +0.10. LAC receivers vs BAL: deep +0.63, slot area +0.14, outside +0.09."
+        "score": 1.09,
+        "verdict": "for",
+        "numbers": "GB receivers vs MIN coverage, EPA per target: deep +0.54, slot area +0.24, outside +0.08. MIN receivers vs GB: deep +0.33, slot area -0.08, outside +0.03."
        },
        {
         "check": "Tight ends vs linebackers and safeties",
-        "score": 1.55,
-        "verdict": "for",
-        "numbers": "BAL tight ends vs LAC: +0.23 EPA per target on 26% of targets. LAC tight ends vs BAL: +0.05."
+        "score": 0.32,
+        "verdict": "even",
+        "numbers": "GB tight ends vs MIN: +0.25 EPA per target on 21% of targets. MIN tight ends vs GB: +0.23."
        }
       ],
       "safe": false,
-      "model_number": 4.8,
-      "note": "Model 66.4% to win; the price implies 64.5% with the book's margin removed.",
-      "personnel": "Tyler Huntley at quarterback rates -0.07 EPA per play against BAL's recent starters.",
+      "model_number": 2.6,
+      "note": "Model 59.2% to win; the price implies 58.3% with the book's margin removed.",
       "for": [
        {
-        "factor": "results-based team rating",
-        "points": 1.4
-       },
-       {
-        "factor": "each team's own home and road form",
-        "points": 1.0
-       },
-       {
-        "factor": "down-to-down success rate",
-        "points": 0.9
-       }
-      ],
-      "against": [
-       {
-        "factor": "quarterback versus the team's usual starter",
-        "points": -2.0
-       }
-      ]
-     },
-     {
-      "game_id": "2026_10_MIA_IND",
-      "market": "ml",
-      "team": "MIA",
-      "opp": "IND",
-      "home_side": false,
-      "label": "MIA moneyline",
-      "p": 0.3727,
-      "price": 160,
-      "market_p": 0.3691,
-      "edge": 0.0037,
-      "ev": -0.0309,
-      "dog": true,
-      "complete": true,
-      "net_checks": -1,
-      "checks": [
-       {
-        "check": "Home vs away",
-        "score": -1.19,
-        "verdict": "against",
-        "numbers": "MIA is away; plays +0.02 EPA per play better at home than away, IND +0.02."
-       },
-       {
-        "check": "Personnel",
-        "score": 0.23,
-        "verdict": "even",
-        "numbers": "Starters out: MIA line 0, defence 0, skill 0; IND line 0, defence 0, skill 0."
-       },
-       {
-        "check": "Offensive play-calling",
-        "score": 0.12,
-        "verdict": "even",
-        "numbers": "MIA pass rate is -4.84 percentage points against expected, throws deep 21%, play-action 24%, motion 63%, no-huddle 6%, passes 50% in the red zone."
-       },
-       {
-        "check": "Defensive play-calling and pressure",
-        "score": 0.68,
-        "verdict": "for",
-        "numbers": "IND defence blitzes 28% and pressures 15% of dropbacks; MIA is expected to allow pressure on 14%. MIA defence blitzes 30%; IND expected to allow 15%."
-       },
-       {
-        "check": "Running backs vs defensive line, with line health",
-        "score": -0.43,
-        "verdict": "against",
-        "numbers": "MIA runs vs IND front: inside -0.08, outside +0.00 EPA per carry, stuffed 20%, 10+ yards 10%. IND vs MIA front: inside -0.02, outside -0.02, stuffed 18%."
-       },
-       {
-        "check": "Receivers: deep, slot area, outside",
-        "score": -0.53,
-        "verdict": "against",
-        "numbers": "MIA receivers vs IND coverage, EPA per target: deep +0.38, slot area +0.17, outside +0.10. IND receivers vs MIA: deep +0.33, slot area +0.33, outside +0.19."
-       },
-       {
-        "check": "Tight ends vs linebackers and safeties",
-        "score": 1.31,
-        "verdict": "for",
-        "numbers": "MIA tight ends vs IND: +0.31 EPA per target on 23% of targets. IND tight ends vs MIA: +0.11."
-       }
-      ],
-      "safe": false,
-      "model_number": -3.7,
-      "note": "Model 37.3% to win; the price implies 36.9% with the book's margin removed.",
-      "personnel": "Malik Willis at quarterback rates -0.05 EPA per play against MIA's recent starters.",
-      "for": [
-       {
-        "factor": "offensive line continuity",
+        "factor": "penalties",
         "points": 0.6
        },
        {
-        "factor": "tight ends against linebackers and safeties",
-        "points": 0.5
+        "factor": "results-based team rating",
+        "points": 0.4
        },
        {
-        "factor": "each team's own home and road form",
+        "factor": "receivers short outside against corners",
         "points": 0.3
        }
       ],
       "against": [
        {
-        "factor": "down-to-down success rate",
-        "points": -1.4
+        "factor": "quarterback versus the team's usual starter",
+        "points": -2.3
        }
       ]
      }
     ],
     "n": 4,
-    "p": 0.0849,
-    "fair_price": 1078,
-    "market_price": 1048,
-    "market_decimal": 11.476,
-    "ev": -0.0262,
+    "p": 0.0763,
+    "fair_price": 1210,
+    "market_price": 1268,
+    "market_decimal": 13.68,
+    "ev": 0.0445,
     "dogs": 1
    },
    {
@@ -4422,10 +4419,10 @@
       "home_side": true,
       "label": "NO moneyline",
       "p": 0.5913,
-      "price": -135,
-      "market_p": 0.5514,
-      "edge": 0.0398,
-      "ev": 0.0293,
+      "price": -130,
+      "market_p": 0.5427,
+      "edge": 0.0485,
+      "ev": 0.0461,
       "dog": false,
       "complete": true,
       "net_checks": 0,
@@ -4475,7 +4472,7 @@
       ],
       "safe": false,
       "model_number": 2.6,
-      "note": "Model 59.1% to win; the price implies 55.1% with the book's margin removed.",
+      "note": "Model 59.1% to win; the price implies 54.3% with the book's margin removed.",
       "for": [
        {
         "factor": "backs as receivers",
@@ -4498,17 +4495,96 @@
       ]
      },
      {
+      "game_id": "2026_10_SF_DAL",
+      "market": "ml",
+      "team": "DAL",
+      "opp": "SF",
+      "home_side": true,
+      "label": "DAL moneyline",
+      "p": 0.3758,
+      "price": 170,
+      "market_p": 0.3553,
+      "edge": 0.0206,
+      "ev": 0.0148,
+      "dog": true,
+      "complete": true,
+      "net_checks": -3,
+      "checks": [
+       {
+        "check": "Home vs away",
+        "score": 0.7,
+        "verdict": "for",
+        "numbers": "DAL is home; plays -0.05 EPA per play better at home than away, SF +0.06."
+       },
+       {
+        "check": "Personnel",
+        "score": -0.03,
+        "verdict": "even",
+        "numbers": "Starters out: DAL line 0, defence 0, skill 0; SF line 0, defence 0, skill 0."
+       },
+       {
+        "check": "Offensive play-calling",
+        "score": -0.36,
+        "verdict": "against",
+        "numbers": "DAL pass rate is -1.73 percentage points against expected, throws deep 21%, play-action 23%, motion 53%, no-huddle 8%, passes 55% in the red zone."
+       },
+       {
+        "check": "Defensive play-calling and pressure",
+        "score": 0.16,
+        "verdict": "even",
+        "numbers": "SF defence blitzes 29% and pressures 14% of dropbacks; DAL is expected to allow pressure on 13%. DAL defence blitzes 28%; SF expected to allow 14%."
+       },
+       {
+        "check": "Running backs vs defensive line, with line health",
+        "score": -0.71,
+        "verdict": "against",
+        "numbers": "DAL runs vs SF front: inside -0.07, outside -0.02 EPA per carry, stuffed 17%, 10+ yards 8%. SF vs DAL front: inside -0.02, outside +0.06, stuffed 16%."
+       },
+       {
+        "check": "Receivers: deep, slot area, outside",
+        "score": -0.56,
+        "verdict": "against",
+        "numbers": "DAL receivers vs SF coverage, EPA per target: deep +0.47, slot area +0.20, outside +0.22. SF receivers vs DAL: deep +0.64, slot area +0.38, outside +0.23."
+       },
+       {
+        "check": "Tight ends vs linebackers and safeties",
+        "score": -1.41,
+        "verdict": "against",
+        "numbers": "DAL tight ends vs SF: +0.09 EPA per target on 21% of targets. SF tight ends vs DAL: +0.30."
+       }
+      ],
+      "safe": false,
+      "model_number": -3.6,
+      "note": "Model 37.6% to win; the price implies 35.5% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "backs as receivers",
+        "points": 0.8
+       },
+       {
+        "factor": "rushing matchup",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "results-based team rating",
+        "points": -2.4
+       }
+      ]
+     },
+     {
       "game_id": "2026_10_WAS_NYG",
       "market": "ml",
       "team": "NYG",
       "opp": "WAS",
       "home_side": true,
       "label": "NYG moneyline",
-      "p": 0.5798,
-      "price": -142,
-      "market_p": 0.5635,
-      "edge": 0.0163,
-      "ev": -0.0119,
+      "p": 0.58,
+      "price": -135,
+      "market_p": 0.5514,
+      "edge": 0.0285,
+      "ev": 0.0096,
       "dog": false,
       "complete": true,
       "net_checks": 1,
@@ -4521,9 +4597,9 @@
        },
        {
         "check": "Personnel",
-        "score": -0.06,
+        "score": 0.28,
         "verdict": "even",
-        "numbers": "Starters out: NYG line 0, defence 0, skill 0; WAS line 0, defence 0, skill 0."
+        "numbers": "Starters out: NYG line 0, defence 0, skill 0; WAS line 1, defence 0, skill 0. WAS out: Lucas Patrick (G)."
        },
        {
         "check": "Offensive play-calling",
@@ -4539,7 +4615,7 @@
        },
        {
         "check": "Running backs vs defensive line, with line health",
-        "score": -0.12,
+        "score": 0.22,
         "verdict": "even",
         "numbers": "NYG runs vs WAS front: inside -0.07, outside -0.04 EPA per carry, stuffed 17%, 10+ yards 9%. WAS vs NYG front: inside -0.07, outside +0.03, stuffed 19%."
        },
@@ -4558,7 +4634,7 @@
       ],
       "safe": false,
       "model_number": 2.3,
-      "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+      "note": "Model 58.0% to win; the price implies 55.1% with the book's margin removed.",
       "personnel": "J.J. McCarthy at quarterback rates -0.07 EPA per play against NYG's recent starters.",
       "for": [
        {
@@ -4582,6 +4658,168 @@
       ]
      },
      {
+      "game_id": "2026_10_MIN_GB",
+      "market": "ml",
+      "team": "GB",
+      "opp": "MIN",
+      "home_side": true,
+      "label": "GB moneyline",
+      "p": 0.5924,
+      "price": -155,
+      "market_p": 0.583,
+      "edge": 0.0094,
+      "ev": -0.0254,
+      "dog": false,
+      "complete": true,
+      "net_checks": 2,
+      "checks": [
+       {
+        "check": "Home vs away",
+        "score": 2.39,
+        "verdict": "for",
+        "numbers": "GB is home; plays +0.05 EPA per play better at home than away, MIN +0.07."
+       },
+       {
+        "check": "Personnel",
+        "score": -0.45,
+        "verdict": "against",
+        "numbers": "Starters out: GB line 0, defence 0, skill 0; MIN line 0, defence 0, skill 0."
+       },
+       {
+        "check": "Offensive play-calling",
+        "score": 0.49,
+        "verdict": "for",
+        "numbers": "GB pass rate is -1.11 percentage points against expected, throws deep 23%, play-action 22%, motion 58%, no-huddle 8%, passes 52% in the red zone."
+       },
+       {
+        "check": "Defensive play-calling and pressure",
+        "score": 0.01,
+        "verdict": "even",
+        "numbers": "MIN defence blitzes 44% and pressures 18% of dropbacks; GB is expected to allow pressure on 18%. GB defence blitzes 30%; MIN expected to allow 17%."
+       },
+       {
+        "check": "Running backs vs defensive line, with line health",
+        "score": -0.33,
+        "verdict": "even",
+        "numbers": "GB runs vs MIN front: inside -0.15, outside -0.11 EPA per carry, stuffed 19%, 10+ yards 10%. MIN vs GB front: inside -0.09, outside -0.03, stuffed 18%."
+       },
+       {
+        "check": "Receivers: deep, slot area, outside",
+        "score": 1.09,
+        "verdict": "for",
+        "numbers": "GB receivers vs MIN coverage, EPA per target: deep +0.54, slot area +0.24, outside +0.08. MIN receivers vs GB: deep +0.33, slot area -0.08, outside +0.03."
+       },
+       {
+        "check": "Tight ends vs linebackers and safeties",
+        "score": 0.32,
+        "verdict": "even",
+        "numbers": "GB tight ends vs MIN: +0.25 EPA per target on 21% of targets. MIN tight ends vs GB: +0.23."
+       }
+      ],
+      "safe": false,
+      "model_number": 2.6,
+      "note": "Model 59.2% to win; the price implies 58.3% with the book's margin removed.",
+      "for": [
+       {
+        "factor": "penalties",
+        "points": 0.6
+       },
+       {
+        "factor": "results-based team rating",
+        "points": 0.4
+       },
+       {
+        "factor": "receivers short outside against corners",
+        "points": 0.3
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback versus the team's usual starter",
+        "points": -2.3
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_KC_ATL",
+      "market": "ml",
+      "team": "KC",
+      "opp": "ATL",
+      "home_side": false,
+      "label": "KC moneyline",
+      "p": 0.6185,
+      "price": -180,
+      "market_p": 0.6164,
+      "edge": 0.0021,
+      "ev": -0.0379,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "checks": [
+       {
+        "check": "Home vs away",
+        "score": -0.85,
+        "verdict": "against",
+        "numbers": "KC is away; plays +0.05 EPA per play better at home than away, ATL -0.04."
+       },
+       {
+        "check": "Personnel",
+        "score": 0.1,
+        "verdict": "even",
+        "numbers": "Starters out: KC line 0, defence 0, skill 0; ATL line 0, defence 0, skill 0."
+       },
+       {
+        "check": "Offensive play-calling",
+        "score": -1.93,
+        "verdict": "against",
+        "numbers": "KC pass rate is +0.67 percentage points against expected, throws deep 19%, play-action 23%, motion 55%, no-huddle 5%, passes 56% in the red zone."
+       },
+       {
+        "check": "Defensive play-calling and pressure",
+        "score": 0.22,
+        "verdict": "even",
+        "numbers": "ATL defence blitzes 30% and pressures 16% of dropbacks; KC is expected to allow pressure on 17%. KC defence blitzes 31%; ATL expected to allow 13%."
+       },
+       {
+        "check": "Running backs vs defensive line, with line health",
+        "score": 0.75,
+        "verdict": "for",
+        "numbers": "KC runs vs ATL front: inside +0.00, outside +0.02 EPA per carry, stuffed 16%, 10+ yards 11%. ATL vs KC front: inside -0.13, outside -0.03, stuffed 17%."
+       },
+       {
+        "check": "Receivers: deep, slot area, outside",
+        "score": 0.93,
+        "verdict": "for",
+        "numbers": "KC receivers vs ATL coverage, EPA per target: deep +0.47, slot area +0.18, outside +0.14. ATL receivers vs KC: deep +0.32, slot area +0.05, outside -0.02."
+       },
+       {
+        "check": "Tight ends vs linebackers and safeties",
+        "score": 0.3,
+        "verdict": "even",
+        "numbers": "KC tight ends vs ATL: +0.26 EPA per target on 26% of targets. ATL tight ends vs KC: +0.19."
+       }
+      ],
+      "safe": false,
+      "model_number": 3.4,
+      "note": "Model 61.9% to win; the price implies 61.6% with the book's margin removed.",
+      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 2.5
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 1.3
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 1.3
+       }
+      ],
+      "against": []
+     },
+     {
       "game_id": "2026_10_LAC_BAL",
       "market": "ml",
       "team": "BAL",
@@ -4589,10 +4827,10 @@
       "home_side": true,
       "label": "BAL moneyline",
       "p": 0.6641,
-      "price": -205,
-      "market_p": 0.6447,
-      "edge": 0.0194,
-      "ev": -0.012,
+      "price": -225,
+      "market_p": 0.6636,
+      "edge": 0.0004,
+      "ev": -0.0408,
       "dog": false,
       "complete": true,
       "net_checks": 1,
@@ -4642,7 +4880,7 @@
       ],
       "safe": false,
       "model_number": 4.8,
-      "note": "Model 66.4% to win; the price implies 64.5% with the book's margin removed.",
+      "note": "Model 66.4% to win; the price implies 66.4% with the book's margin removed.",
       "personnel": "Tyler Huntley at quarterback rates -0.07 EPA per play against BAL's recent starters.",
       "for": [
        {
@@ -4664,347 +4902,20 @@
         "points": -2.0
        }
       ]
-     },
-     {
-      "game_id": "2026_10_MIA_IND",
-      "market": "ml",
-      "team": "MIA",
-      "opp": "IND",
-      "home_side": false,
-      "label": "MIA moneyline",
-      "p": 0.3727,
-      "price": 160,
-      "market_p": 0.3691,
-      "edge": 0.0037,
-      "ev": -0.0309,
-      "dog": true,
-      "complete": true,
-      "net_checks": -1,
-      "checks": [
-       {
-        "check": "Home vs away",
-        "score": -1.19,
-        "verdict": "against",
-        "numbers": "MIA is away; plays +0.02 EPA per play better at home than away, IND +0.02."
-       },
-       {
-        "check": "Personnel",
-        "score": 0.23,
-        "verdict": "even",
-        "numbers": "Starters out: MIA line 0, defence 0, skill 0; IND line 0, defence 0, skill 0."
-       },
-       {
-        "check": "Offensive play-calling",
-        "score": 0.12,
-        "verdict": "even",
-        "numbers": "MIA pass rate is -4.84 percentage points against expected, throws deep 21%, play-action 24%, motion 63%, no-huddle 6%, passes 50% in the red zone."
-       },
-       {
-        "check": "Defensive play-calling and pressure",
-        "score": 0.68,
-        "verdict": "for",
-        "numbers": "IND defence blitzes 28% and pressures 15% of dropbacks; MIA is expected to allow pressure on 14%. MIA defence blitzes 30%; IND expected to allow 15%."
-       },
-       {
-        "check": "Running backs vs defensive line, with line health",
-        "score": -0.43,
-        "verdict": "against",
-        "numbers": "MIA runs vs IND front: inside -0.08, outside +0.00 EPA per carry, stuffed 20%, 10+ yards 10%. IND vs MIA front: inside -0.02, outside -0.02, stuffed 18%."
-       },
-       {
-        "check": "Receivers: deep, slot area, outside",
-        "score": -0.53,
-        "verdict": "against",
-        "numbers": "MIA receivers vs IND coverage, EPA per target: deep +0.38, slot area +0.17, outside +0.10. IND receivers vs MIA: deep +0.33, slot area +0.33, outside +0.19."
-       },
-       {
-        "check": "Tight ends vs linebackers and safeties",
-        "score": 1.31,
-        "verdict": "for",
-        "numbers": "MIA tight ends vs IND: +0.31 EPA per target on 23% of targets. IND tight ends vs MIA: +0.11."
-       }
-      ],
-      "safe": false,
-      "model_number": -3.7,
-      "note": "Model 37.3% to win; the price implies 36.9% with the book's margin removed.",
-      "personnel": "Malik Willis at quarterback rates -0.05 EPA per play against MIA's recent starters.",
-      "for": [
-       {
-        "factor": "offensive line continuity",
-        "points": 0.6
-       },
-       {
-        "factor": "tight ends against linebackers and safeties",
-        "points": 0.5
-       },
-       {
-        "factor": "each team's own home and road form",
-        "points": 0.3
-       }
-      ],
-      "against": [
-       {
-        "factor": "down-to-down success rate",
-        "points": -1.4
-       }
-      ]
-     },
-     {
-      "game_id": "2026_10_KC_ATL",
-      "market": "ml",
-      "team": "KC",
-      "opp": "ATL",
-      "home_side": false,
-      "label": "KC moneyline",
-      "p": 0.6334,
-      "price": -185,
-      "market_p": 0.6225,
-      "edge": 0.0109,
-      "ev": -0.0242,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "checks": [
-       {
-        "check": "Home vs away",
-        "score": -0.85,
-        "verdict": "against",
-        "numbers": "KC is away; plays +0.05 EPA per play better at home than away, ATL -0.04."
-       },
-       {
-        "check": "Personnel",
-        "score": 0.1,
-        "verdict": "even",
-        "numbers": "Starters out: KC line 0, defence 0, skill 0; ATL line 0, defence 0, skill 0."
-       },
-       {
-        "check": "Offensive play-calling",
-        "score": -1.93,
-        "verdict": "against",
-        "numbers": "KC pass rate is +0.67 percentage points against expected, throws deep 19%, play-action 23%, motion 55%, no-huddle 5%, passes 56% in the red zone."
-       },
-       {
-        "check": "Defensive play-calling and pressure",
-        "score": 0.22,
-        "verdict": "even",
-        "numbers": "ATL defence blitzes 30% and pressures 16% of dropbacks; KC is expected to allow pressure on 17%. KC defence blitzes 31%; ATL expected to allow 13%."
-       },
-       {
-        "check": "Running backs vs defensive line, with line health",
-        "score": 0.75,
-        "verdict": "for",
-        "numbers": "KC runs vs ATL front: inside +0.00, outside +0.02 EPA per carry, stuffed 16%, 10+ yards 11%. ATL vs KC front: inside -0.13, outside -0.03, stuffed 17%."
-       },
-       {
-        "check": "Receivers: deep, slot area, outside",
-        "score": 0.93,
-        "verdict": "for",
-        "numbers": "KC receivers vs ATL coverage, EPA per target: deep +0.47, slot area +0.18, outside +0.14. ATL receivers vs KC: deep +0.32, slot area +0.05, outside -0.02."
-       },
-       {
-        "check": "Tight ends vs linebackers and safeties",
-        "score": 0.3,
-        "verdict": "even",
-        "numbers": "KC tight ends vs ATL: +0.26 EPA per target on 26% of targets. ATL tight ends vs KC: +0.19."
-       }
-      ],
-      "safe": false,
-      "model_number": 3.8,
-      "note": "Model 63.3% to win; the price implies 62.2% with the book's margin removed.",
-      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
-      "for": [
-       {
-        "factor": "results-based team rating",
-        "points": 2.5
-       },
-       {
-        "factor": "scoring versus points allowed",
-        "points": 1.3
-       },
-       {
-        "factor": "down-to-down success rate",
-        "points": 1.3
-       }
-      ],
-      "against": []
-     },
-     {
-      "game_id": "2026_10_MIN_GB",
-      "market": "ml",
-      "team": "MIN",
-      "opp": "GB",
-      "home_side": false,
-      "label": "MIN moneyline",
-      "p": 0.4076,
-      "price": 136,
-      "market_p": 0.4066,
-      "edge": 0.001,
-      "ev": -0.038,
-      "dog": true,
-      "complete": true,
-      "net_checks": -2,
-      "checks": [
-       {
-        "check": "Home vs away",
-        "score": -2.39,
-        "verdict": "against",
-        "numbers": "MIN is away; plays +0.07 EPA per play better at home than away, GB +0.05."
-       },
-       {
-        "check": "Personnel",
-        "score": 0.45,
-        "verdict": "for",
-        "numbers": "Starters out: MIN line 0, defence 0, skill 0; GB line 0, defence 0, skill 0."
-       },
-       {
-        "check": "Offensive play-calling",
-        "score": -0.49,
-        "verdict": "against",
-        "numbers": "MIN pass rate is -1.91 percentage points against expected, throws deep 22%, play-action 25%, motion 54%, no-huddle 8%, passes 58% in the red zone."
-       },
-       {
-        "check": "Defensive play-calling and pressure",
-        "score": -0.01,
-        "verdict": "even",
-        "numbers": "GB defence blitzes 30% and pressures 15% of dropbacks; MIN is expected to allow pressure on 17%. MIN defence blitzes 44%; GB expected to allow 18%."
-       },
-       {
-        "check": "Running backs vs defensive line, with line health",
-        "score": 0.33,
-        "verdict": "even",
-        "numbers": "MIN runs vs GB front: inside -0.09, outside -0.03 EPA per carry, stuffed 18%, 10+ yards 9%. GB vs MIN front: inside -0.15, outside -0.11, stuffed 19%."
-       },
-       {
-        "check": "Receivers: deep, slot area, outside",
-        "score": -1.09,
-        "verdict": "against",
-        "numbers": "MIN receivers vs GB coverage, EPA per target: deep +0.33, slot area -0.08, outside +0.03. GB receivers vs MIN: deep +0.54, slot area +0.24, outside +0.08."
-       },
-       {
-        "check": "Tight ends vs linebackers and safeties",
-        "score": -0.32,
-        "verdict": "even",
-        "numbers": "MIN tight ends vs GB: +0.23 EPA per target on 24% of targets. GB tight ends vs MIN: +0.25."
-       }
-      ],
-      "safe": false,
-      "model_number": -2.6,
-      "note": "Model 40.8% to win; the price implies 40.7% with the book's margin removed.",
-      "personnel": "Kirk Cousins at quarterback rates +0.10 EPA per play against MIN's recent starters.",
-      "for": [
-       {
-        "factor": "quarterback versus the team's usual starter",
-        "points": 2.3
-       },
-       {
-        "factor": "each team's own home and road form",
-        "points": 0.8
-       },
-       {
-        "factor": "outside runs against the edge",
-        "points": 0.4
-       }
-      ],
-      "against": [
-       {
-        "factor": "penalties",
-        "points": -0.6
-       }
-      ]
      }
     ],
     "n": 6,
-    "p": 0.0219,
-    "fair_price": 4465,
-    "market_price": 4072,
-    "market_decimal": 41.722,
-    "ev": -0.086,
-    "dogs": 2
+    "p": 0.0314,
+    "fair_price": 3089,
+    "market_price": 2974,
+    "market_decimal": 30.738,
+    "ev": -0.036,
+    "dogs": 1
    }
   ],
   "spread": [
    {
     "legs": [
-     {
-      "game_id": "2026_10_KC_ATL",
-      "market": "spread",
-      "team": "KC",
-      "opp": "ATL",
-      "home_side": false,
-      "line": -3.5,
-      "label": "KC -3.5",
-      "p": 0.5105,
-      "price": -102,
-      "market_p": 0.5,
-      "edge": 0.0105,
-      "ev": 0.011,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "checks": [
-       {
-        "check": "Home vs away",
-        "score": -0.85,
-        "verdict": "against",
-        "numbers": "KC is away; plays +0.05 EPA per play better at home than away, ATL -0.04."
-       },
-       {
-        "check": "Personnel",
-        "score": 0.1,
-        "verdict": "even",
-        "numbers": "Starters out: KC line 0, defence 0, skill 0; ATL line 0, defence 0, skill 0."
-       },
-       {
-        "check": "Offensive play-calling",
-        "score": -1.93,
-        "verdict": "against",
-        "numbers": "KC pass rate is +0.67 percentage points against expected, throws deep 19%, play-action 23%, motion 55%, no-huddle 5%, passes 56% in the red zone."
-       },
-       {
-        "check": "Defensive play-calling and pressure",
-        "score": 0.22,
-        "verdict": "even",
-        "numbers": "ATL defence blitzes 30% and pressures 16% of dropbacks; KC is expected to allow pressure on 17%. KC defence blitzes 31%; ATL expected to allow 13%."
-       },
-       {
-        "check": "Running backs vs defensive line, with line health",
-        "score": 0.75,
-        "verdict": "for",
-        "numbers": "KC runs vs ATL front: inside +0.00, outside +0.02 EPA per carry, stuffed 16%, 10+ yards 11%. ATL vs KC front: inside -0.13, outside -0.03, stuffed 17%."
-       },
-       {
-        "check": "Receivers: deep, slot area, outside",
-        "score": 0.93,
-        "verdict": "for",
-        "numbers": "KC receivers vs ATL coverage, EPA per target: deep +0.47, slot area +0.18, outside +0.14. ATL receivers vs KC: deep +0.32, slot area +0.05, outside -0.02."
-       },
-       {
-        "check": "Tight ends vs linebackers and safeties",
-        "score": 0.3,
-        "verdict": "even",
-        "numbers": "KC tight ends vs ATL: +0.26 EPA per target on 26% of targets. ATL tight ends vs KC: +0.19."
-       }
-      ],
-      "safe": false,
-      "model_number": 3.8,
-      "note": "Model has KC by +3.8; the line has them by +3.5.",
-      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
-      "for": [
-       {
-        "factor": "results-based team rating",
-        "points": 2.5
-       },
-       {
-        "factor": "scoring versus points allowed",
-        "points": 1.3
-       },
-       {
-        "factor": "down-to-down success rate",
-        "points": 1.3
-       }
-      ],
-      "against": []
-     },
      {
       "game_id": "2026_10_MIN_GB",
       "market": "spread",
@@ -5258,98 +5169,102 @@
         "points": -2.0
        }
       ]
-     }
-    ],
-    "n": 4,
-    "p": 0.0669,
-    "fair_price": 1394,
-    "market_price": 1315,
-    "market_decimal": 14.147,
-    "ev": -0.0529,
-    "dogs": 1
-   },
-   {
-    "legs": [
+     },
      {
-      "game_id": "2026_10_KC_ATL",
+      "game_id": "2026_10_CAR_NO",
       "market": "spread",
-      "team": "KC",
-      "opp": "ATL",
-      "home_side": false,
-      "line": -3.5,
-      "label": "KC -3.5",
-      "p": 0.5105,
-      "price": -102,
+      "team": "NO",
+      "opp": "CAR",
+      "home_side": true,
+      "line": -2.5,
+      "label": "NO -2.5",
+      "p": 0.503,
+      "price": -108,
       "market_p": 0.5,
-      "edge": 0.0105,
-      "ev": 0.011,
+      "edge": 0.003,
+      "ev": -0.0312,
       "dog": false,
       "complete": true,
       "net_checks": 0,
       "checks": [
        {
         "check": "Home vs away",
-        "score": -0.85,
-        "verdict": "against",
-        "numbers": "KC is away; plays +0.05 EPA per play better at home than away, ATL -0.04."
+        "score": -0.22,
+        "verdict": "even",
+        "numbers": "NO is home; plays -0.01 EPA per play better at home than away, CAR -0.04."
        },
        {
         "check": "Personnel",
-        "score": 0.1,
+        "score": 0.07,
         "verdict": "even",
-        "numbers": "Starters out: KC line 0, defence 0, skill 0; ATL line 0, defence 0, skill 0."
+        "numbers": "Starters out: NO line 0, defence 0, skill 0; CAR line 0, defence 0, skill 0."
        },
        {
         "check": "Offensive play-calling",
-        "score": -1.93,
-        "verdict": "against",
-        "numbers": "KC pass rate is +0.67 percentage points against expected, throws deep 19%, play-action 23%, motion 55%, no-huddle 5%, passes 56% in the red zone."
+        "score": 0.09,
+        "verdict": "even",
+        "numbers": "NO pass rate is -2.19 percentage points against expected, throws deep 20%, play-action 20%, motion 58%, no-huddle 12%, passes 53% in the red zone."
        },
        {
         "check": "Defensive play-calling and pressure",
-        "score": 0.22,
+        "score": 0.15,
         "verdict": "even",
-        "numbers": "ATL defence blitzes 30% and pressures 16% of dropbacks; KC is expected to allow pressure on 17%. KC defence blitzes 31%; ATL expected to allow 13%."
+        "numbers": "CAR defence blitzes 31% and pressures 13% of dropbacks; NO is expected to allow pressure on 12%. NO defence blitzes 31%; CAR expected to allow 15%."
        },
        {
         "check": "Running backs vs defensive line, with line health",
-        "score": 0.75,
-        "verdict": "for",
-        "numbers": "KC runs vs ATL front: inside +0.00, outside +0.02 EPA per carry, stuffed 16%, 10+ yards 11%. ATL vs KC front: inside -0.13, outside -0.03, stuffed 17%."
+        "score": -0.36,
+        "verdict": "against",
+        "numbers": "NO runs vs CAR front: inside -0.06, outside -0.07 EPA per carry, stuffed 17%, 10+ yards 8%. CAR vs NO front: inside -0.05, outside +0.01, stuffed 16%."
        },
        {
         "check": "Receivers: deep, slot area, outside",
-        "score": 0.93,
-        "verdict": "for",
-        "numbers": "KC receivers vs ATL coverage, EPA per target: deep +0.47, slot area +0.18, outside +0.14. ATL receivers vs KC: deep +0.32, slot area +0.05, outside -0.02."
+        "score": -0.06,
+        "verdict": "even",
+        "numbers": "NO receivers vs CAR coverage, EPA per target: deep +0.31, slot area +0.44, outside +0.09. CAR receivers vs NO: deep +0.72, slot area +0.36, outside -0.04."
        },
        {
         "check": "Tight ends vs linebackers and safeties",
-        "score": 0.3,
-        "verdict": "even",
-        "numbers": "KC tight ends vs ATL: +0.26 EPA per target on 26% of targets. ATL tight ends vs KC: +0.19."
+        "score": 0.62,
+        "verdict": "for",
+        "numbers": "NO tight ends vs CAR: +0.31 EPA per target on 24% of targets. CAR tight ends vs NO: +0.25."
        }
       ],
       "safe": false,
-      "model_number": 3.8,
-      "note": "Model has KC by +3.8; the line has them by +3.5.",
-      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
+      "model_number": 2.6,
+      "note": "Model has NO by +2.6; the line has them by +2.5.",
       "for": [
        {
-        "factor": "results-based team rating",
-        "points": 2.5
+        "factor": "backs as receivers",
+        "points": 0.8
        },
        {
-        "factor": "scoring versus points allowed",
-        "points": 1.3
+        "factor": "receivers short outside against corners",
+        "points": 0.7
        },
        {
-        "factor": "down-to-down success rate",
-        "points": 1.3
+        "factor": "quarterback versus the team's usual starter",
+        "points": 0.5
        }
       ],
-      "against": []
-     },
+      "against": [
+       {
+        "factor": "outside runs against the edge",
+        "points": -0.4
+       }
+      ]
+     }
+    ],
+    "n": 4,
+    "p": 0.066,
+    "fair_price": 1416,
+    "market_price": 1276,
+    "market_decimal": 13.758,
+    "ev": -0.0925,
+    "dogs": 1
+   },
+   {
+    "legs": [
      {
       "game_id": "2026_10_MIN_GB",
       "market": "spread",
@@ -5696,11 +5611,11 @@
       "home_side": false,
       "line": 2.5,
       "label": "WAS +2.5",
-      "p": 0.5074,
-      "price": -110,
+      "p": 0.5072,
+      "price": -112,
       "market_p": 0.5,
-      "edge": 0.0074,
-      "ev": -0.0314,
+      "edge": 0.0072,
+      "ev": -0.04,
       "dog": true,
       "complete": true,
       "net_checks": -1,
@@ -5713,9 +5628,9 @@
        },
        {
         "check": "Personnel",
-        "score": 0.06,
+        "score": -0.28,
         "verdict": "even",
-        "numbers": "Starters out: WAS line 0, defence 0, skill 0; NYG line 0, defence 0, skill 0."
+        "numbers": "Starters out: WAS line 1, defence 0, skill 0; NYG line 0, defence 0, skill 0. WAS out: Lucas Patrick (G)."
        },
        {
         "check": "Offensive play-calling",
@@ -5731,7 +5646,7 @@
        },
        {
         "check": "Running backs vs defensive line, with line health",
-        "score": 0.12,
+        "score": -0.22,
         "verdict": "even",
         "numbers": "WAS runs vs NYG front: inside -0.07, outside +0.03 EPA per carry, stuffed 19%, 10+ yards 10%. NYG vs WAS front: inside -0.07, outside -0.04, stuffed 17%."
        },
@@ -5771,98 +5686,102 @@
         "points": -0.6
        }
       ]
+     },
+     {
+      "game_id": "2026_10_LA_ARI",
+      "market": "spread",
+      "team": "LA",
+      "opp": "ARI",
+      "home_side": false,
+      "line": -9.5,
+      "label": "LA -9.5",
+      "p": 0.5009,
+      "price": -112,
+      "market_p": 0.5,
+      "edge": 0.0009,
+      "ev": -0.0519,
+      "dog": false,
+      "complete": true,
+      "net_checks": 5,
+      "checks": [
+       {
+        "check": "Home vs away",
+        "score": 0.09,
+        "verdict": "even",
+        "numbers": "LA is away; plays -0.04 EPA per play better at home than away, ARI -0.01."
+       },
+       {
+        "check": "Personnel",
+        "score": 0.24,
+        "verdict": "even",
+        "numbers": "Starters out: LA line 0, defence 0, skill 0; ARI line 0, defence 0, skill 0."
+       },
+       {
+        "check": "Offensive play-calling",
+        "score": 0.67,
+        "verdict": "for",
+        "numbers": "LA pass rate is -0.72 percentage points against expected, throws deep 23%, play-action 26%, motion 62%, no-huddle 8%, passes 56% in the red zone."
+       },
+       {
+        "check": "Defensive play-calling and pressure",
+        "score": 1.01,
+        "verdict": "for",
+        "numbers": "ARI defence blitzes 30% and pressures 14% of dropbacks; LA is expected to allow pressure on 13%. LA defence blitzes 28%; ARI expected to allow 15%."
+       },
+       {
+        "check": "Running backs vs defensive line, with line health",
+        "score": 1.15,
+        "verdict": "for",
+        "numbers": "LA runs vs ARI front: inside -0.05, outside +0.05 EPA per carry, stuffed 14%, 10+ yards 10%. ARI vs LA front: inside -0.15, outside -0.05, stuffed 19%."
+       },
+       {
+        "check": "Receivers: deep, slot area, outside",
+        "score": 1.14,
+        "verdict": "for",
+        "numbers": "LA receivers vs ARI coverage, EPA per target: deep +0.52, slot area +0.31, outside +0.22. ARI receivers vs LA: deep +0.12, slot area +0.24, outside +0.09."
+       },
+       {
+        "check": "Tight ends vs linebackers and safeties",
+        "score": 0.86,
+        "verdict": "for",
+        "numbers": "LA tight ends vs ARI: +0.27 EPA per target on 25% of targets. ARI tight ends vs LA: +0.13."
+       }
+      ],
+      "safe": false,
+      "model_number": 9.5,
+      "note": "Model has LA by +9.5; the line has them by +9.5.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 4.3
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 2.2
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 2.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "backs as receivers",
+        "points": -0.7
+       }
+      ]
      }
     ],
     "n": 6,
-    "p": 0.0171,
-    "fair_price": 5753,
-    "market_price": 5102,
-    "market_decimal": 52.016,
-    "ev": -0.1112,
+    "p": 0.0168,
+    "fair_price": 5867,
+    "market_price": 4829,
+    "market_decimal": 49.294,
+    "ev": -0.1739,
     "dogs": 2
    },
    {
     "legs": [
-     {
-      "game_id": "2026_10_KC_ATL",
-      "market": "spread",
-      "team": "KC",
-      "opp": "ATL",
-      "home_side": false,
-      "line": -3.5,
-      "label": "KC -3.5",
-      "p": 0.5105,
-      "price": -102,
-      "market_p": 0.5,
-      "edge": 0.0105,
-      "ev": 0.011,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "checks": [
-       {
-        "check": "Home vs away",
-        "score": -0.85,
-        "verdict": "against",
-        "numbers": "KC is away; plays +0.05 EPA per play better at home than away, ATL -0.04."
-       },
-       {
-        "check": "Personnel",
-        "score": 0.1,
-        "verdict": "even",
-        "numbers": "Starters out: KC line 0, defence 0, skill 0; ATL line 0, defence 0, skill 0."
-       },
-       {
-        "check": "Offensive play-calling",
-        "score": -1.93,
-        "verdict": "against",
-        "numbers": "KC pass rate is +0.67 percentage points against expected, throws deep 19%, play-action 23%, motion 55%, no-huddle 5%, passes 56% in the red zone."
-       },
-       {
-        "check": "Defensive play-calling and pressure",
-        "score": 0.22,
-        "verdict": "even",
-        "numbers": "ATL defence blitzes 30% and pressures 16% of dropbacks; KC is expected to allow pressure on 17%. KC defence blitzes 31%; ATL expected to allow 13%."
-       },
-       {
-        "check": "Running backs vs defensive line, with line health",
-        "score": 0.75,
-        "verdict": "for",
-        "numbers": "KC runs vs ATL front: inside +0.00, outside +0.02 EPA per carry, stuffed 16%, 10+ yards 11%. ATL vs KC front: inside -0.13, outside -0.03, stuffed 17%."
-       },
-       {
-        "check": "Receivers: deep, slot area, outside",
-        "score": 0.93,
-        "verdict": "for",
-        "numbers": "KC receivers vs ATL coverage, EPA per target: deep +0.47, slot area +0.18, outside +0.14. ATL receivers vs KC: deep +0.32, slot area +0.05, outside -0.02."
-       },
-       {
-        "check": "Tight ends vs linebackers and safeties",
-        "score": 0.3,
-        "verdict": "even",
-        "numbers": "KC tight ends vs ATL: +0.26 EPA per target on 26% of targets. ATL tight ends vs KC: +0.19."
-       }
-      ],
-      "safe": false,
-      "model_number": 3.8,
-      "note": "Model has KC by +3.8; the line has them by +3.5.",
-      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
-      "for": [
-       {
-        "factor": "results-based team rating",
-        "points": 2.5
-       },
-       {
-        "factor": "scoring versus points allowed",
-        "points": 1.3
-       },
-       {
-        "factor": "down-to-down success rate",
-        "points": 1.3
-       }
-      ],
-      "against": []
-     },
      {
       "game_id": "2026_10_MIN_GB",
       "market": "spread",
@@ -6209,11 +6128,11 @@
       "home_side": false,
       "line": 2.5,
       "label": "WAS +2.5",
-      "p": 0.5074,
-      "price": -110,
+      "p": 0.5072,
+      "price": -112,
       "market_p": 0.5,
-      "edge": 0.0074,
-      "ev": -0.0314,
+      "edge": 0.0072,
+      "ev": -0.04,
       "dog": true,
       "complete": true,
       "net_checks": -1,
@@ -6226,9 +6145,9 @@
        },
        {
         "check": "Personnel",
-        "score": 0.06,
+        "score": -0.28,
         "verdict": "even",
-        "numbers": "Starters out: WAS line 0, defence 0, skill 0; NYG line 0, defence 0, skill 0."
+        "numbers": "Starters out: WAS line 1, defence 0, skill 0; NYG line 0, defence 0, skill 0. WAS out: Lucas Patrick (G)."
        },
        {
         "check": "Offensive play-calling",
@@ -6244,7 +6163,7 @@
        },
        {
         "check": "Running backs vs defensive line, with line health",
-        "score": 0.12,
+        "score": -0.22,
         "verdict": "even",
         "numbers": "WAS runs vs NYG front: inside -0.07, outside +0.03 EPA per carry, stuffed 19%, 10+ yards 10%. NYG vs WAS front: inside -0.07, outside -0.04, stuffed 17%."
        },
@@ -6370,93 +6289,178 @@
       ]
      },
      {
-      "game_id": "2026_10_SF_DAL",
+      "game_id": "2026_10_KC_ATL",
       "market": "spread",
-      "team": "DAL",
-      "opp": "SF",
-      "home_side": true,
-      "line": 4.5,
-      "label": "DAL +4.5",
-      "p": 0.5017,
-      "price": -115,
+      "team": "KC",
+      "opp": "ATL",
+      "home_side": false,
+      "line": -3.0,
+      "label": "KC -3",
+      "p": 0.5123,
+      "price": -120,
       "market_p": 0.5,
-      "edge": 0.0017,
-      "ev": -0.062,
-      "dog": true,
+      "edge": 0.0123,
+      "ev": -0.0608,
+      "dog": false,
       "complete": true,
-      "net_checks": -3,
+      "net_checks": 0,
       "checks": [
        {
         "check": "Home vs away",
-        "score": 0.7,
-        "verdict": "for",
-        "numbers": "DAL is home; plays -0.05 EPA per play better at home than away, SF +0.06."
+        "score": -0.85,
+        "verdict": "against",
+        "numbers": "KC is away; plays +0.05 EPA per play better at home than away, ATL -0.04."
        },
        {
         "check": "Personnel",
-        "score": -0.03,
+        "score": 0.1,
         "verdict": "even",
-        "numbers": "Starters out: DAL line 0, defence 0, skill 0; SF line 0, defence 0, skill 0."
+        "numbers": "Starters out: KC line 0, defence 0, skill 0; ATL line 0, defence 0, skill 0."
        },
        {
         "check": "Offensive play-calling",
-        "score": -0.36,
+        "score": -1.93,
         "verdict": "against",
-        "numbers": "DAL pass rate is -1.73 percentage points against expected, throws deep 21%, play-action 23%, motion 53%, no-huddle 8%, passes 55% in the red zone."
+        "numbers": "KC pass rate is +0.67 percentage points against expected, throws deep 19%, play-action 23%, motion 55%, no-huddle 5%, passes 56% in the red zone."
        },
        {
         "check": "Defensive play-calling and pressure",
-        "score": 0.16,
+        "score": 0.22,
         "verdict": "even",
-        "numbers": "SF defence blitzes 29% and pressures 14% of dropbacks; DAL is expected to allow pressure on 13%. DAL defence blitzes 28%; SF expected to allow 14%."
+        "numbers": "ATL defence blitzes 30% and pressures 16% of dropbacks; KC is expected to allow pressure on 17%. KC defence blitzes 31%; ATL expected to allow 13%."
        },
        {
         "check": "Running backs vs defensive line, with line health",
-        "score": -0.71,
-        "verdict": "against",
-        "numbers": "DAL runs vs SF front: inside -0.07, outside -0.02 EPA per carry, stuffed 17%, 10+ yards 8%. SF vs DAL front: inside -0.02, outside +0.06, stuffed 16%."
+        "score": 0.75,
+        "verdict": "for",
+        "numbers": "KC runs vs ATL front: inside +0.00, outside +0.02 EPA per carry, stuffed 16%, 10+ yards 11%. ATL vs KC front: inside -0.13, outside -0.03, stuffed 17%."
        },
        {
         "check": "Receivers: deep, slot area, outside",
-        "score": -0.56,
-        "verdict": "against",
-        "numbers": "DAL receivers vs SF coverage, EPA per target: deep +0.47, slot area +0.20, outside +0.22. SF receivers vs DAL: deep +0.64, slot area +0.38, outside +0.23."
+        "score": 0.93,
+        "verdict": "for",
+        "numbers": "KC receivers vs ATL coverage, EPA per target: deep +0.47, slot area +0.18, outside +0.14. ATL receivers vs KC: deep +0.32, slot area +0.05, outside -0.02."
        },
        {
         "check": "Tight ends vs linebackers and safeties",
-        "score": -1.41,
-        "verdict": "against",
-        "numbers": "DAL tight ends vs SF: +0.09 EPA per target on 21% of targets. SF tight ends vs DAL: +0.30."
+        "score": 0.3,
+        "verdict": "even",
+        "numbers": "KC tight ends vs ATL: +0.26 EPA per target on 26% of targets. ATL tight ends vs KC: +0.19."
        }
       ],
       "safe": false,
-      "model_number": -4.4,
-      "note": "Model has DAL by -4.4; the line has them by -4.5.",
+      "model_number": 3.4,
+      "note": "Model has KC by +3.4; the line has them by +3.0.",
+      "personnel": "Patrick Mahomes at quarterback rates +0.02 EPA per play against KC's recent starters.",
       "for": [
        {
-        "factor": "backs as receivers",
-        "points": 0.8
+        "factor": "results-based team rating",
+        "points": 2.5
        },
        {
-        "factor": "rushing matchup",
-        "points": 0.2
+        "factor": "scoring versus points allowed",
+        "points": 1.3
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 1.3
+       }
+      ],
+      "against": []
+     },
+     {
+      "game_id": "2026_10_SF_DAL",
+      "market": "spread",
+      "team": "SF",
+      "opp": "DAL",
+      "home_side": false,
+      "line": -3.5,
+      "label": "SF -3.5",
+      "p": 0.5019,
+      "price": -115,
+      "market_p": 0.5,
+      "edge": 0.0019,
+      "ev": -0.0617,
+      "dog": false,
+      "complete": true,
+      "net_checks": 3,
+      "checks": [
+       {
+        "check": "Home vs away",
+        "score": -0.7,
+        "verdict": "against",
+        "numbers": "SF is away; plays +0.06 EPA per play better at home than away, DAL -0.05."
+       },
+       {
+        "check": "Personnel",
+        "score": 0.03,
+        "verdict": "even",
+        "numbers": "Starters out: SF line 0, defence 0, skill 0; DAL line 0, defence 0, skill 0."
+       },
+       {
+        "check": "Offensive play-calling",
+        "score": 0.36,
+        "verdict": "for",
+        "numbers": "SF pass rate is -1.41 percentage points against expected, throws deep 21%, play-action 23%, motion 63%, no-huddle 6%, passes 53% in the red zone."
+       },
+       {
+        "check": "Defensive play-calling and pressure",
+        "score": -0.16,
+        "verdict": "even",
+        "numbers": "DAL defence blitzes 28% and pressures 15% of dropbacks; SF is expected to allow pressure on 14%. SF defence blitzes 29%; DAL expected to allow 13%."
+       },
+       {
+        "check": "Running backs vs defensive line, with line health",
+        "score": 0.71,
+        "verdict": "for",
+        "numbers": "SF runs vs DAL front: inside -0.02, outside +0.06 EPA per carry, stuffed 16%, 10+ yards 11%. DAL vs SF front: inside -0.07, outside -0.02, stuffed 17%."
+       },
+       {
+        "check": "Receivers: deep, slot area, outside",
+        "score": 0.56,
+        "verdict": "for",
+        "numbers": "SF receivers vs DAL coverage, EPA per target: deep +0.64, slot area +0.38, outside +0.23. DAL receivers vs SF: deep +0.47, slot area +0.20, outside +0.22."
+       },
+       {
+        "check": "Tight ends vs linebackers and safeties",
+        "score": 1.41,
+        "verdict": "for",
+        "numbers": "SF tight ends vs DAL: +0.30 EPA per target on 24% of targets. DAL tight ends vs SF: +0.09."
+       }
+      ],
+      "safe": false,
+      "model_number": 3.6,
+      "note": "Model has SF by +3.6; the line has them by +3.5.",
+      "personnel": "Brock Purdy at quarterback rates +0.03 EPA per play against SF's recent starters.",
+      "for": [
+       {
+        "factor": "results-based team rating",
+        "points": 2.4
+       },
+       {
+        "factor": "down-to-down success rate",
+        "points": 1.2
+       },
+       {
+        "factor": "scoring versus points allowed",
+        "points": 1.2
        }
       ],
       "against": [
        {
-        "factor": "results-based team rating",
-        "points": -2.4
+        "factor": "backs as receivers",
+        "points": -0.8
        }
       ]
      }
     ],
     "n": 8,
     "p": 0.0043,
-    "fair_price": 23189,
-    "market_price": 18307,
-    "market_decimal": 184.075,
-    "ev": -0.2096,
-    "dogs": 3
+    "fair_price": 23107,
+    "market_price": 16796,
+    "market_decimal": 168.957,
+    "ev": -0.272,
+    "dogs": 2
    }
   ],
   "total": [
@@ -6502,45 +6506,6 @@
       ]
      },
      {
-      "game_id": "2026_10_MIA_IND",
-      "market": "total",
-      "team": null,
-      "opp": null,
-      "over": true,
-      "line": 38.5,
-      "label": "MIA @ IND over 38.5",
-      "p": 0.5238,
-      "price": -108,
-      "market_p": 0.5,
-      "edge": 0.0238,
-      "ev": 0.0088,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "model_number": 39.3,
-      "note": "Model total 39.3 against a line of 38.5 (+0.8).",
-      "for": [
-       {
-        "factor": "long drives",
-        "points": 1.2
-       },
-       {
-        "factor": "no-huddle tempo",
-        "points": 0.3
-       },
-       {
-        "factor": "wind",
-        "points": 0.2
-       }
-      ],
-      "against": [
-       {
-        "factor": "pace of play",
-        "points": -1.7
-       }
-      ]
-     },
-     {
       "game_id": "2026_10_BUF_NYJ",
       "market": "total",
       "team": null,
@@ -6549,10 +6514,10 @@
       "line": 50.5,
       "label": "BUF @ NYJ under 50.5",
       "p": 0.5123,
-      "price": -105,
+      "price": -102,
       "market_p": 0.5,
       "edge": 0.0123,
-      "ev": 0.0003,
+      "ev": 0.0146,
       "dog": false,
       "complete": true,
       "net_checks": 0,
@@ -6580,51 +6545,86 @@
       ]
      },
      {
-      "game_id": "2026_10_MIN_GB",
+      "game_id": "2026_10_KC_ATL",
       "market": "total",
       "team": null,
       "opp": null,
-      "over": true,
-      "line": 42.5,
-      "label": "MIN @ GB over 42.5",
-      "p": 0.5055,
-      "price": -105,
+      "over": false,
+      "line": 46.5,
+      "label": "KC @ ATL under 46.5",
+      "p": 0.5087,
+      "price": -110,
       "market_p": 0.5,
-      "edge": 0.0055,
-      "ev": -0.013,
+      "edge": 0.0087,
+      "ev": -0.0288,
       "dog": false,
       "complete": true,
       "net_checks": 0,
-      "model_number": 42.7,
-      "note": "Model total 42.7 against a line of 42.5 (+0.2).",
+      "model_number": 46.2,
+      "note": "Model total 46.2 against a line of 46.5 (-0.3).",
       "for": [
        {
-        "factor": "quarterback changes",
-        "points": 2.6
+        "factor": "pace of play",
+        "points": 1.0
+       },
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": 0.9
        },
        {
         "factor": "deep passing by both offences",
-        "points": 1.1
-       },
-       {
-        "factor": "long drives",
-        "points": 0.7
+        "points": 0.8
        }
       ],
       "against": [
        {
-        "factor": "both teams' scoring and points allowed",
-        "points": -2.4
+        "factor": "long drives",
+        "points": -1.1
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_LAC_BAL",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 38.5,
+      "label": "LAC @ BAL over 38.5",
+      "p": 0.505,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.005,
+      "ev": -0.0359,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "model_number": 38.7,
+      "note": "Model total 38.7 against a line of 38.5 (+0.2).",
+      "for": [
+       {
+        "factor": "no-huddle tempo",
+        "points": 0.4
+       },
+       {
+        "factor": "penalties",
+        "points": 0.3
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -1.5
        }
       ]
      }
     ],
     "n": 4,
-    "p": 0.0735,
-    "fair_price": 1261,
-    "market_price": 1314,
-    "market_decimal": 14.139,
-    "ev": 0.0385,
+    "p": 0.0713,
+    "fair_price": 1303,
+    "market_price": 1290,
+    "market_decimal": 13.901,
+    "ev": -0.0094,
     "dogs": 0
    },
    {
@@ -6669,45 +6669,6 @@
       ]
      },
      {
-      "game_id": "2026_10_MIA_IND",
-      "market": "total",
-      "team": null,
-      "opp": null,
-      "over": true,
-      "line": 38.5,
-      "label": "MIA @ IND over 38.5",
-      "p": 0.5238,
-      "price": -108,
-      "market_p": 0.5,
-      "edge": 0.0238,
-      "ev": 0.0088,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "model_number": 39.3,
-      "note": "Model total 39.3 against a line of 38.5 (+0.8).",
-      "for": [
-       {
-        "factor": "long drives",
-        "points": 1.2
-       },
-       {
-        "factor": "no-huddle tempo",
-        "points": 0.3
-       },
-       {
-        "factor": "wind",
-        "points": 0.2
-       }
-      ],
-      "against": [
-       {
-        "factor": "pace of play",
-        "points": -1.7
-       }
-      ]
-     },
-     {
       "game_id": "2026_10_BUF_NYJ",
       "market": "total",
       "team": null,
@@ -6716,10 +6677,10 @@
       "line": 50.5,
       "label": "BUF @ NYJ under 50.5",
       "p": 0.5123,
-      "price": -105,
+      "price": -102,
       "market_p": 0.5,
       "edge": 0.0123,
-      "ev": 0.0003,
+      "ev": 0.0146,
       "dog": false,
       "complete": true,
       "net_checks": 0,
@@ -6747,62 +6708,23 @@
       ]
      },
      {
-      "game_id": "2026_10_MIN_GB",
-      "market": "total",
-      "team": null,
-      "opp": null,
-      "over": true,
-      "line": 42.5,
-      "label": "MIN @ GB over 42.5",
-      "p": 0.5055,
-      "price": -105,
-      "market_p": 0.5,
-      "edge": 0.0055,
-      "ev": -0.013,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "model_number": 42.7,
-      "note": "Model total 42.7 against a line of 42.5 (+0.2).",
-      "for": [
-       {
-        "factor": "quarterback changes",
-        "points": 2.6
-       },
-       {
-        "factor": "deep passing by both offences",
-        "points": 1.1
-       },
-       {
-        "factor": "long drives",
-        "points": 0.7
-       }
-      ],
-      "against": [
-       {
-        "factor": "both teams' scoring and points allowed",
-        "points": -2.4
-       }
-      ]
-     },
-     {
       "game_id": "2026_10_KC_ATL",
       "market": "total",
       "team": null,
       "opp": null,
       "over": false,
-      "line": 45.5,
-      "label": "KC @ ATL under 45.5",
-      "p": 0.5048,
-      "price": -108,
+      "line": 46.5,
+      "label": "KC @ ATL under 46.5",
+      "p": 0.5087,
+      "price": -110,
       "market_p": 0.5,
-      "edge": 0.0048,
-      "ev": -0.0277,
+      "edge": 0.0087,
+      "ev": -0.0288,
       "dog": false,
       "complete": true,
       "net_checks": 0,
-      "model_number": 45.3,
-      "note": "Model total 45.3 against a line of 45.5 (-0.2).",
+      "model_number": 46.2,
+      "note": "Model total 46.2 against a line of 46.5 (-0.3).",
       "for": [
        {
         "factor": "pace of play",
@@ -6858,247 +6780,40 @@
         "points": -1.5
        }
       ]
-     }
-    ],
-    "n": 6,
-    "p": 0.0187,
-    "fair_price": 5240,
-    "market_price": 5098,
-    "market_decimal": 51.985,
-    "ev": -0.0266,
-    "dogs": 0
-   },
-   {
-    "legs": [
+     },
      {
-      "game_id": "2026_10_LA_ARI",
+      "game_id": "2026_10_CAR_NO",
       "market": "total",
       "team": null,
       "opp": null,
       "over": true,
-      "line": 39.5,
-      "label": "LA @ ARI over 39.5",
-      "p": 0.5415,
-      "price": -108,
+      "line": 48.5,
+      "label": "CAR @ NO over 48.5",
+      "p": 0.5074,
+      "price": -112,
       "market_p": 0.5,
-      "edge": 0.0415,
-      "ev": 0.0429,
+      "edge": 0.0074,
+      "ev": -0.0396,
       "dog": false,
       "complete": true,
       "net_checks": 0,
-      "model_number": 40.9,
-      "note": "Model total 40.9 against a line of 39.5 (+1.4).",
+      "model_number": 48.7,
+      "note": "Model total 48.7 against a line of 48.5 (+0.2).",
       "for": [
        {
         "factor": "wind",
         "points": 1.5
        },
        {
-        "factor": "both teams' scoring and points allowed",
+        "factor": "long drives",
         "points": 1.0
-       },
-       {
-        "factor": "long drives",
-        "points": 0.8
-       }
-      ],
-      "against": [
-       {
-        "factor": "quarterback changes",
-        "points": -0.4
-       }
-      ]
-     },
-     {
-      "game_id": "2026_10_MIA_IND",
-      "market": "total",
-      "team": null,
-      "opp": null,
-      "over": true,
-      "line": 38.5,
-      "label": "MIA @ IND over 38.5",
-      "p": 0.5238,
-      "price": -108,
-      "market_p": 0.5,
-      "edge": 0.0238,
-      "ev": 0.0088,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "model_number": 39.3,
-      "note": "Model total 39.3 against a line of 38.5 (+0.8).",
-      "for": [
-       {
-        "factor": "long drives",
-        "points": 1.2
-       },
-       {
-        "factor": "no-huddle tempo",
-        "points": 0.3
-       },
-       {
-        "factor": "wind",
-        "points": 0.2
-       }
-      ],
-      "against": [
-       {
-        "factor": "pace of play",
-        "points": -1.7
-       }
-      ]
-     },
-     {
-      "game_id": "2026_10_BUF_NYJ",
-      "market": "total",
-      "team": null,
-      "opp": null,
-      "over": false,
-      "line": 50.5,
-      "label": "BUF @ NYJ under 50.5",
-      "p": 0.5123,
-      "price": -105,
-      "market_p": 0.5,
-      "edge": 0.0123,
-      "ev": 0.0003,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "model_number": 50.1,
-      "note": "Model total 50.1 against a line of 50.5 (-0.4).",
-      "for": [
-       {
-        "factor": "wind",
-        "points": 2.1
-       },
-       {
-        "factor": "pace of play",
-        "points": 0.7
-       },
-       {
-        "factor": "deep passing by both offences",
-        "points": 0.2
-       }
-      ],
-      "against": [
-       {
-        "factor": "both teams' scoring and points allowed",
-        "points": -1.8
-       }
-      ]
-     },
-     {
-      "game_id": "2026_10_MIN_GB",
-      "market": "total",
-      "team": null,
-      "opp": null,
-      "over": true,
-      "line": 42.5,
-      "label": "MIN @ GB over 42.5",
-      "p": 0.5055,
-      "price": -105,
-      "market_p": 0.5,
-      "edge": 0.0055,
-      "ev": -0.013,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "model_number": 42.7,
-      "note": "Model total 42.7 against a line of 42.5 (+0.2).",
-      "for": [
-       {
-        "factor": "quarterback changes",
-        "points": 2.6
-       },
-       {
-        "factor": "deep passing by both offences",
-        "points": 1.1
-       },
-       {
-        "factor": "long drives",
-        "points": 0.7
-       }
-      ],
-      "against": [
-       {
-        "factor": "both teams' scoring and points allowed",
-        "points": -2.4
-       }
-      ]
-     },
-     {
-      "game_id": "2026_10_KC_ATL",
-      "market": "total",
-      "team": null,
-      "opp": null,
-      "over": false,
-      "line": 45.5,
-      "label": "KC @ ATL under 45.5",
-      "p": 0.5048,
-      "price": -108,
-      "market_p": 0.5,
-      "edge": 0.0048,
-      "ev": -0.0277,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "model_number": 45.3,
-      "note": "Model total 45.3 against a line of 45.5 (-0.2).",
-      "for": [
-       {
-        "factor": "pace of play",
-        "points": 1.0
-       },
-       {
-        "factor": "both teams' scoring and points allowed",
-        "points": 0.9
-       },
-       {
-        "factor": "deep passing by both offences",
-        "points": 0.8
-       }
-      ],
-      "against": [
-       {
-        "factor": "long drives",
-        "points": -1.1
-       }
-      ]
-     },
-     {
-      "game_id": "2026_10_LAC_BAL",
-      "market": "total",
-      "team": null,
-      "opp": null,
-      "over": true,
-      "line": 38.5,
-      "label": "LAC @ BAL over 38.5",
-      "p": 0.505,
-      "price": -110,
-      "market_p": 0.5,
-      "edge": 0.005,
-      "ev": -0.0359,
-      "dog": false,
-      "complete": true,
-      "net_checks": 0,
-      "model_number": 38.7,
-      "note": "Model total 38.7 against a line of 38.5 (+0.2).",
-      "for": [
-       {
-        "factor": "no-huddle tempo",
-        "points": 0.4
        },
        {
         "factor": "penalties",
-        "points": 0.3
+        "points": 0.7
        }
       ],
-      "against": [
-       {
-        "factor": "quarterback changes",
-        "points": -1.5
-       }
-      ]
+      "against": []
      },
      {
       "game_id": "2026_10_WAS_NYG",
@@ -7108,11 +6823,247 @@
       "over": true,
       "line": 40.5,
       "label": "WAS @ NYG over 40.5",
-      "p": 0.5177,
+      "p": 0.5183,
       "price": -118,
       "market_p": 0.5,
-      "edge": 0.0177,
-      "ev": -0.0435,
+      "edge": 0.0183,
+      "ev": -0.0424,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "model_number": 41.1,
+      "note": "Model total 41.1 against a line of 40.5 (+0.6).",
+      "for": [
+       {
+        "factor": "long drives",
+        "points": 0.8
+       },
+       {
+        "factor": "deep passing by both offences",
+        "points": 0.8
+       },
+       {
+        "factor": "penalties",
+        "points": 0.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -1.3
+       }
+      ]
+     }
+    ],
+    "n": 6,
+    "p": 0.0187,
+    "fair_price": 5236,
+    "market_price": 4761,
+    "market_decimal": 48.611,
+    "ev": -0.0889,
+    "dogs": 0
+   },
+   {
+    "legs": [
+     {
+      "game_id": "2026_10_LA_ARI",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 39.5,
+      "label": "LA @ ARI over 39.5",
+      "p": 0.5415,
+      "price": -108,
+      "market_p": 0.5,
+      "edge": 0.0415,
+      "ev": 0.0429,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "model_number": 40.9,
+      "note": "Model total 40.9 against a line of 39.5 (+1.4).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 1.5
+       },
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": 1.0
+       },
+       {
+        "factor": "long drives",
+        "points": 0.8
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -0.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_BUF_NYJ",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": false,
+      "line": 50.5,
+      "label": "BUF @ NYJ under 50.5",
+      "p": 0.5123,
+      "price": -102,
+      "market_p": 0.5,
+      "edge": 0.0123,
+      "ev": 0.0146,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "model_number": 50.1,
+      "note": "Model total 50.1 against a line of 50.5 (-0.4).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 2.1
+       },
+       {
+        "factor": "pace of play",
+        "points": 0.7
+       },
+       {
+        "factor": "deep passing by both offences",
+        "points": 0.2
+       }
+      ],
+      "against": [
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": -1.8
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_KC_ATL",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": false,
+      "line": 46.5,
+      "label": "KC @ ATL under 46.5",
+      "p": 0.5087,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.0087,
+      "ev": -0.0288,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "model_number": 46.2,
+      "note": "Model total 46.2 against a line of 46.5 (-0.3).",
+      "for": [
+       {
+        "factor": "pace of play",
+        "points": 1.0
+       },
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": 0.9
+       },
+       {
+        "factor": "deep passing by both offences",
+        "points": 0.8
+       }
+      ],
+      "against": [
+       {
+        "factor": "long drives",
+        "points": -1.1
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_LAC_BAL",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 38.5,
+      "label": "LAC @ BAL over 38.5",
+      "p": 0.505,
+      "price": -110,
+      "market_p": 0.5,
+      "edge": 0.005,
+      "ev": -0.0359,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "model_number": 38.7,
+      "note": "Model total 38.7 against a line of 38.5 (+0.2).",
+      "for": [
+       {
+        "factor": "no-huddle tempo",
+        "points": 0.4
+       },
+       {
+        "factor": "penalties",
+        "points": 0.3
+       }
+      ],
+      "against": [
+       {
+        "factor": "quarterback changes",
+        "points": -1.5
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_CAR_NO",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 48.5,
+      "label": "CAR @ NO over 48.5",
+      "p": 0.5074,
+      "price": -112,
+      "market_p": 0.5,
+      "edge": 0.0074,
+      "ev": -0.0396,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "model_number": 48.7,
+      "note": "Model total 48.7 against a line of 48.5 (+0.2).",
+      "for": [
+       {
+        "factor": "wind",
+        "points": 1.5
+       },
+       {
+        "factor": "long drives",
+        "points": 1.0
+       },
+       {
+        "factor": "penalties",
+        "points": 0.7
+       }
+      ],
+      "against": []
+     },
+     {
+      "game_id": "2026_10_WAS_NYG",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 40.5,
+      "label": "WAS @ NYG over 40.5",
+      "p": 0.5183,
+      "price": -118,
+      "market_p": 0.5,
+      "edge": 0.0183,
+      "ev": -0.0424,
       "dog": false,
       "complete": true,
       "net_checks": 0,
@@ -7140,46 +7091,90 @@
       ]
      },
      {
-      "game_id": "2026_10_CAR_NO",
+      "game_id": "2026_10_MIN_GB",
       "market": "total",
       "team": null,
       "opp": null,
       "over": true,
-      "line": 48.5,
-      "label": "CAR @ NO over 48.5",
-      "p": 0.5074,
+      "line": 41.5,
+      "label": "MIN @ GB over 41.5",
+      "p": 0.5094,
       "price": -115,
       "market_p": 0.5,
-      "edge": 0.0074,
-      "ev": -0.0514,
+      "edge": 0.0094,
+      "ev": -0.0476,
       "dog": false,
       "complete": true,
       "net_checks": 0,
-      "model_number": 48.7,
-      "note": "Model total 48.7 against a line of 48.5 (+0.2).",
+      "model_number": 41.8,
+      "note": "Model total 41.8 against a line of 41.5 (+0.3).",
       "for": [
        {
-        "factor": "wind",
-        "points": 1.5
+        "factor": "quarterback changes",
+        "points": 2.6
+       },
+       {
+        "factor": "deep passing by both offences",
+        "points": 1.1
        },
        {
         "factor": "long drives",
-        "points": 1.0
-       },
-       {
-        "factor": "penalties",
         "points": 0.7
        }
       ],
-      "against": []
+      "against": [
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": -2.4
+       }
+      ]
+     },
+     {
+      "game_id": "2026_10_SF_DAL",
+      "market": "total",
+      "team": null,
+      "opp": null,
+      "over": true,
+      "line": 55.5,
+      "label": "SF @ DAL over 55.5",
+      "p": 0.5051,
+      "price": -118,
+      "market_p": 0.5,
+      "edge": 0.0051,
+      "ev": -0.0668,
+      "dog": false,
+      "complete": true,
+      "net_checks": 0,
+      "model_number": 55.7,
+      "note": "Model total 55.7 against a line of 55.5 (+0.2).",
+      "for": [
+       {
+        "factor": "both teams' scoring and points allowed",
+        "points": 2.8
+       },
+       {
+        "factor": "combined offensive efficiency",
+        "points": 2.1
+       },
+       {
+        "factor": "long drives",
+        "points": 1.7
+       }
+      ],
+      "against": [
+       {
+        "factor": "pace of play",
+        "points": -0.5
+       }
+      ]
      }
     ],
     "n": 8,
-    "p": 0.0049,
-    "fair_price": 20231,
-    "market_price": 17855,
-    "market_decimal": 179.552,
-    "ev": -0.1168,
+    "p": 0.0048,
+    "fair_price": 20637,
+    "market_price": 16690,
+    "market_decimal": 167.9,
+    "ev": -0.1904,
     "dogs": 0
    }
   ]
@@ -7250,7 +7245,7 @@
    "team": "MIN",
    "opp": "GB",
    "qb": "Kirk Cousins",
-   "p": 0.5411,
+   "p": 0.5403,
    "fair_price": -118,
    "recommended": false,
    "inputs": {
@@ -7265,14 +7260,14 @@
    "team": "ATL",
    "opp": "KC",
    "qb": "Michael Penix Jr.",
-   "p": 0.5239,
+   "p": 0.5227,
    "fair_price": -110,
    "recommended": false,
    "inputs": {
     "qb_interception_rate": 0.0209,
     "matchup_interception_rate": 0.0249,
     "expected_dropbacks": 35.2,
-    "points_underdog_by": 3.5
+    "points_underdog_by": 3.0
    }
   },
   {
@@ -7340,14 +7335,14 @@
    "team": "DAL",
    "opp": "SF",
    "qb": "Dak Prescott",
-   "p": 0.5011,
-   "fair_price": -100,
+   "p": 0.4971,
+   "fair_price": 101,
    "recommended": false,
    "inputs": {
     "qb_interception_rate": 0.018,
     "matchup_interception_rate": 0.0158,
     "expected_dropbacks": 38.6,
-    "points_underdog_by": 4.5
+    "points_underdog_by": 3.5
    }
   },
   {
@@ -7426,6 +7421,21 @@
    }
   },
   {
+   "game_id": "2026_10_SF_DAL",
+   "team": "SF",
+   "opp": "DAL",
+   "qb": "Brock Purdy",
+   "p": 0.4764,
+   "fair_price": 110,
+   "recommended": false,
+   "inputs": {
+    "qb_interception_rate": 0.0242,
+    "matchup_interception_rate": 0.0178,
+    "expected_dropbacks": 35.7,
+    "points_underdog_by": -3.5
+   }
+  },
+  {
    "game_id": "2026_10_MIA_IND",
    "team": "MIA",
    "opp": "IND",
@@ -7438,21 +7448,6 @@
     "matchup_interception_rate": 0.0195,
     "expected_dropbacks": 34.3,
     "points_underdog_by": 3.5
-   }
-  },
-  {
-   "game_id": "2026_10_SF_DAL",
-   "team": "SF",
-   "opp": "DAL",
-   "qb": "Brock Purdy",
-   "p": 0.4724,
-   "fair_price": 112,
-   "recommended": false,
-   "inputs": {
-    "qb_interception_rate": 0.0242,
-    "matchup_interception_rate": 0.0178,
-    "expected_dropbacks": 35.7,
-    "points_underdog_by": -4.5
    }
   },
   {
@@ -7475,7 +7470,7 @@
    "team": "GB",
    "opp": "MIN",
    "qb": "Jordan Love",
-   "p": 0.457,
+   "p": 0.4562,
    "fair_price": 119,
    "recommended": false,
    "inputs": {
@@ -7490,14 +7485,14 @@
    "team": "KC",
    "opp": "ATL",
    "qb": "Patrick Mahomes",
-   "p": 0.4481,
-   "fair_price": 123,
+   "p": 0.4509,
+   "fair_price": 122,
    "recommended": false,
    "inputs": {
     "qb_interception_rate": 0.0181,
     "matchup_interception_rate": 0.0159,
     "expected_dropbacks": 37.7,
-    "points_underdog_by": -3.5
+    "points_underdog_by": -3.0
    }
   },
   {
@@ -8037,9 +8032,9 @@
      "team": "NO",
      "label": "NO moneyline",
      "p": 0.5913,
-     "price": -135,
+     "price": -130,
      "net_checks": 0,
-     "note": "Model 59.1% to win; the price implies 55.1% with the book's margin removed.",
+     "note": "Model 59.1% to win; the price implies 54.3% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -8109,9 +8104,9 @@
      "team": "NO",
      "label": "NO moneyline",
      "p": 0.5913,
-     "price": -135,
+     "price": -130,
      "net_checks": 0,
-     "note": "Model 59.1% to win; the price implies 55.1% with the book's margin removed.",
+     "note": "Model 59.1% to win; the price implies 54.3% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -8191,7 +8186,7 @@
      "team": null,
      "label": "CAR @ NO over 48.5",
      "p": 0.5074,
-     "price": -115,
+     "price": -112,
      "net_checks": 0,
      "note": "Model total 48.7 against a line of 48.5 (+0.2).",
      "kind": "game"
@@ -8323,10 +8318,10 @@
      "market": "ml",
      "team": "KC",
      "label": "KC moneyline",
-     "p": 0.6334,
-     "price": -185,
+     "p": 0.6185,
+     "price": -180,
      "net_checks": 0,
-     "note": "Model 63.3% to win; the price implies 62.2% with the book's margin removed.",
+     "note": "Model 61.9% to win; the price implies 61.6% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -8350,10 +8345,10 @@
      "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
     }
    ],
-   "p": 0.1687,
-   "p_if_independent": 0.1406,
-   "correlation_lift": 1.199,
-   "fair_price": 493
+   "p": 0.1661,
+   "p_if_independent": 0.1373,
+   "correlation_lift": 1.209,
+   "fair_price": 502
   },
   {
    "kind": "Spread + touchdown",
@@ -8363,11 +8358,11 @@
     {
      "market": "spread",
      "team": "KC",
-     "label": "KC -3.5",
-     "p": 0.5105,
-     "price": -102,
+     "label": "KC -3",
+     "p": 0.5123,
+     "price": -120,
      "net_checks": 0,
-     "note": "Model has KC by +3.8; the line has them by +3.5.",
+     "note": "Model has KC by +3.4; the line has them by +3.0.",
      "kind": "game"
     },
     {
@@ -8381,8 +8376,8 @@
      "risk": "no structural red flags; normal variance."
     }
    ],
-   "p": 0.3767,
-   "p_if_independent": 0.3406,
+   "p": 0.378,
+   "p_if_independent": 0.3418,
    "correlation_lift": 1.106,
    "fair_price": 165
   },
@@ -8394,11 +8389,11 @@
     {
      "market": "spread",
      "team": "KC",
-     "label": "KC -3.5",
-     "p": 0.5105,
-     "price": -102,
+     "label": "KC -3",
+     "p": 0.5123,
+     "price": -120,
      "net_checks": 0,
-     "note": "Model has KC by +3.8; the line has them by +3.5.",
+     "note": "Model has KC by +3.4; the line has them by +3.0.",
      "kind": "game"
     },
     {
@@ -8422,10 +8417,10 @@
      "risk": "no structural red flags; normal variance."
     }
    ],
-   "p": 0.3354,
-   "p_if_independent": 0.27,
-   "correlation_lift": 1.242,
-   "fair_price": 198
+   "p": 0.3364,
+   "p_if_independent": 0.271,
+   "correlation_lift": 1.241,
+   "fair_price": 197
   },
   {
    "kind": "Spread + opposing quarterback volume + rushing prop",
@@ -8435,11 +8430,11 @@
     {
      "market": "spread",
      "team": "KC",
-     "label": "KC -3.5",
-     "p": 0.5105,
-     "price": -102,
+     "label": "KC -3",
+     "p": 0.5123,
+     "price": -120,
      "net_checks": 0,
-     "note": "Model has KC by +3.8; the line has them by +3.5.",
+     "note": "Model has KC by +3.4; the line has them by +3.0.",
      "kind": "game"
     },
     {
@@ -8463,10 +8458,10 @@
      "label": "Kenneth Walker III 15+ carries"
     }
    ],
-   "p": 0.3536,
-   "p_if_independent": 0.2876,
-   "correlation_lift": 1.23,
-   "fair_price": 183
+   "p": 0.3546,
+   "p_if_independent": 0.2886,
+   "correlation_lift": 1.229,
+   "fair_price": 182
   },
   {
    "kind": "Moneyline + receiving prop + touchdown",
@@ -8477,10 +8472,10 @@
      "market": "ml",
      "team": "KC",
      "label": "KC moneyline",
-     "p": 0.6334,
-     "price": -185,
+     "p": 0.6185,
+     "price": -180,
      "net_checks": 0,
-     "note": "Model 63.3% to win; the price implies 62.2% with the book's margin removed.",
+     "note": "Model 61.9% to win; the price implies 61.6% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -8504,10 +8499,10 @@
      "risk": "no structural red flags; normal variance."
     }
    ],
-   "p": 0.3848,
-   "p_if_independent": 0.3495,
-   "correlation_lift": 1.101,
-   "fair_price": 160
+   "p": 0.3771,
+   "p_if_independent": 0.3412,
+   "correlation_lift": 1.105,
+   "fair_price": 165
   },
   {
    "kind": "Passing stack: quarterback + receiver + touchdown",
@@ -8601,9 +8596,9 @@
      "team": "BAL",
      "label": "BAL moneyline",
      "p": 0.6641,
-     "price": -205,
+     "price": -225,
      "net_checks": 1,
-     "note": "Model 66.4% to win; the price implies 64.5% with the book's margin removed.",
+     "note": "Model 66.4% to win; the price implies 66.4% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -8755,9 +8750,9 @@
      "team": "BAL",
      "label": "BAL moneyline",
      "p": 0.6641,
-     "price": -205,
+     "price": -225,
      "net_checks": 1,
-     "note": "Model 66.4% to win; the price implies 64.5% with the book's margin removed.",
+     "note": "Model 66.4% to win; the price implies 66.4% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -8854,19 +8849,19 @@
     },
     {
      "kind": "atd",
-     "label": "Michael Wilson anytime TD",
-     "p": 0.3541,
+     "label": "Tyler Allgeier anytime TD",
+     "p": 0.3437,
      "team": "ARI",
-     "pos": "WR",
-     "player_id": "00-0038559",
+     "pos": "RB",
+     "player_id": "00-0037263",
      "matchup": "against",
-     "risk": "trailing game script cuts carries; WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
+     "risk": "snap share only 59%; trailing game script cuts carries."
     }
    ],
-   "p": 0.1315,
-   "p_if_independent": 0.1286,
-   "correlation_lift": 1.022,
-   "fair_price": 661
+   "p": 0.1278,
+   "p_if_independent": 0.1249,
+   "correlation_lift": 1.024,
+   "fair_price": 682
   },
   {
    "kind": "Touchdown slip, 4 picks",
@@ -8895,13 +8890,44 @@
     },
     {
      "kind": "atd",
-     "label": "Michael Wilson anytime TD",
-     "p": 0.3541,
+     "label": "Tyler Allgeier anytime TD",
+     "p": 0.3437,
      "team": "ARI",
-     "pos": "WR",
-     "player_id": "00-0038559",
+     "pos": "RB",
+     "player_id": "00-0037263",
      "matchup": "against",
-     "risk": "trailing game script cuts carries; WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
+     "risk": "snap share only 59%; trailing game script cuts carries."
+    },
+    {
+     "kind": "atd",
+     "label": "Trey McBride anytime TD",
+     "p": 0.3397,
+     "team": "ARI",
+     "pos": "TE",
+     "player_id": "00-0037744",
+     "matchup": "against",
+     "risk": "trailing game script cuts carries."
+    }
+   ],
+   "p": 0.0429,
+   "p_if_independent": 0.0424,
+   "correlation_lift": 1.011,
+   "fair_price": 2232
+  },
+  {
+   "kind": "Moneyline + 2 touchdowns",
+   "game_id": "2026_10_LA_ARI",
+   "why": "A team that wins usually has its main scorers get in.",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "ARI",
+     "label": "ARI moneyline",
+     "p": 0.1985,
+     "price": 390,
+     "net_checks": -5,
+     "note": "Model 19.9% to win; the price implies 19.6% with the book's margin removed.",
+     "kind": "game"
     },
     {
      "kind": "atd",
@@ -8912,53 +8938,22 @@
      "player_id": "00-0037263",
      "matchup": "against",
      "risk": "snap share only 59%; trailing game script cuts carries."
-    }
-   ],
-   "p": 0.0443,
-   "p_if_independent": 0.0442,
-   "correlation_lift": 1.001,
-   "fair_price": 2160
-  },
-  {
-   "kind": "Moneyline + 2 touchdowns",
-   "game_id": "2026_10_LA_ARI",
-   "why": "A team that wins usually has its main scorers get in.",
-   "legs": [
-    {
-     "market": "ml",
-     "team": "LA",
-     "label": "LA moneyline",
-     "p": 0.8015,
-     "price": -440,
-     "net_checks": 5,
-     "note": "Model 80.1% to win; the price implies 78.2% with the book's margin removed.",
-     "kind": "game"
     },
     {
      "kind": "atd",
-     "label": "Kyren Williams anytime TD",
-     "p": 0.6651,
-     "team": "LA",
-     "pos": "RB",
-     "player_id": "00-0037840",
-     "matchup": "for",
-     "risk": "committee backfield (58% of rushing TDs)."
-    },
-    {
-     "kind": "atd",
-     "label": "Puka Nacua anytime TD",
-     "p": 0.5462,
-     "team": "LA",
-     "pos": "WR",
-     "player_id": "00-0039075",
-     "matchup": "for",
-     "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
+     "label": "Trey McBride anytime TD",
+     "p": 0.3397,
+     "team": "ARI",
+     "pos": "TE",
+     "player_id": "00-0037744",
+     "matchup": "against",
+     "risk": "trailing game script cuts carries."
     }
    ],
-   "p": 0.3158,
-   "p_if_independent": 0.2912,
-   "correlation_lift": 1.085,
-   "fair_price": 217
+   "p": 0.041,
+   "p_if_independent": 0.0232,
+   "correlation_lift": 1.768,
+   "fair_price": 2341
   },
   {
    "kind": "Spread + touchdown",
@@ -9080,39 +9075,39 @@
    "legs": [
     {
      "market": "ml",
-     "team": "LA",
-     "label": "LA moneyline",
-     "p": 0.8015,
-     "price": -440,
-     "net_checks": 5,
-     "note": "Model 80.1% to win; the price implies 78.2% with the book's margin removed.",
+     "team": "ARI",
+     "label": "ARI moneyline",
+     "p": 0.1985,
+     "price": 390,
+     "net_checks": -5,
+     "note": "Model 19.9% to win; the price implies 19.6% with the book's margin removed.",
      "kind": "game"
     },
     {
      "kind": "prop",
      "mk": "rec_yds",
      "k": 40,
-     "p": 0.8121,
-     "team": "LA",
-     "pos": "WR",
-     "player_id": "00-0039075",
-     "label": "Puka Nacua 40+ receiving yards"
+     "p": 0.7643,
+     "team": "ARI",
+     "pos": "TE",
+     "player_id": "00-0037744",
+     "label": "Trey McBride 40+ receiving yards"
     },
     {
      "kind": "atd",
-     "label": "Kyren Williams anytime TD",
-     "p": 0.6651,
-     "team": "LA",
+     "label": "Tyler Allgeier anytime TD",
+     "p": 0.3437,
+     "team": "ARI",
      "pos": "RB",
-     "player_id": "00-0037840",
-     "matchup": "for",
-     "risk": "committee backfield (58% of rushing TDs)."
+     "player_id": "00-0037263",
+     "matchup": "against",
+     "risk": "snap share only 59%; trailing game script cuts carries."
     }
    ],
-   "p": 0.4588,
-   "p_if_independent": 0.4329,
-   "correlation_lift": 1.06,
-   "fair_price": 118
+   "p": 0.0752,
+   "p_if_independent": 0.0521,
+   "correlation_lift": 1.441,
+   "fair_price": 1231
   },
   {
    "kind": "Passing stack: quarterback + receiver + touchdown",
@@ -9172,13 +9167,13 @@
     },
     {
      "kind": "atd",
-     "label": "Michael Wilson anytime TD",
-     "p": 0.3541,
+     "label": "Tyler Allgeier anytime TD",
+     "p": 0.3437,
      "team": "ARI",
-     "pos": "WR",
-     "player_id": "00-0038559",
+     "pos": "RB",
+     "player_id": "00-0037263",
      "matchup": "against",
-     "risk": "trailing game script cuts carries; WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
+     "risk": "snap share only 59%; trailing game script cuts carries."
     },
     {
      "kind": "atd",
@@ -9191,10 +9186,10 @@
      "risk": "committee backfield (58% of rushing TDs)."
     }
    ],
-   "p": 0.1663,
-   "p_if_independent": 0.1275,
-   "correlation_lift": 1.304,
-   "fair_price": 501
+   "p": 0.1596,
+   "p_if_independent": 0.1238,
+   "correlation_lift": 1.29,
+   "fair_price": 526
   },
   {
    "kind": "Over + both quarterbacks' passing yards",
@@ -9236,334 +9231,6 @@
    "p_if_independent": 0.3194,
    "correlation_lift": 1.211,
    "fair_price": 159
-  },
-  {
-   "kind": "Touchdown slip, 3 picks",
-   "game_id": "2026_10_MIA_IND",
-   "why": "The most likely scorers among running backs, receivers and tight ends: no more than two from one team, and never two teammates at the same position.",
-   "legs": [
-    {
-     "kind": "atd",
-     "label": "Jonathan Taylor anytime TD",
-     "p": 0.4308,
-     "team": "IND",
-     "pos": "RB",
-     "player_id": "00-0036223",
-     "matchup": "for",
-     "risk": "committee backfield (50% of rushing TDs)."
-    },
-    {
-     "kind": "atd",
-     "label": "Keenan Allen anytime TD",
-     "p": 0.2066,
-     "team": "IND",
-     "pos": "WR",
-     "player_id": "00-0030279",
-     "matchup": "for",
-     "risk": "snap share only 56%; WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
-    },
-    {
-     "kind": "atd",
-     "label": "Greg Dulcich anytime TD",
-     "p": 0.1968,
-     "team": "MIA",
-     "pos": "TE",
-     "player_id": "00-0037252",
-     "matchup": "for",
-     "risk": "snap share only 62%."
-    }
-   ],
-   "p": 0.0181,
-   "p_if_independent": 0.0175,
-   "correlation_lift": 1.034,
-   "fair_price": 5420
-  },
-  {
-   "kind": "Touchdown slip, 4 picks",
-   "game_id": "2026_10_MIA_IND",
-   "why": "The most likely scorers among running backs, receivers and tight ends: no more than two from one team, and never two teammates at the same position.",
-   "legs": [
-    {
-     "kind": "atd",
-     "label": "Jonathan Taylor anytime TD",
-     "p": 0.4308,
-     "team": "IND",
-     "pos": "RB",
-     "player_id": "00-0036223",
-     "matchup": "for",
-     "risk": "committee backfield (50% of rushing TDs)."
-    },
-    {
-     "kind": "atd",
-     "label": "Keenan Allen anytime TD",
-     "p": 0.2066,
-     "team": "IND",
-     "pos": "WR",
-     "player_id": "00-0030279",
-     "matchup": "for",
-     "risk": "snap share only 56%; WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
-    },
-    {
-     "kind": "atd",
-     "label": "Greg Dulcich anytime TD",
-     "p": 0.1968,
-     "team": "MIA",
-     "pos": "TE",
-     "player_id": "00-0037252",
-     "matchup": "for",
-     "risk": "snap share only 62%."
-    },
-    {
-     "kind": "atd",
-     "label": "Ollie Gordon II anytime TD",
-     "p": 0.4574,
-     "team": "MIA",
-     "pos": "RB",
-     "player_id": "00-0040198",
-     "matchup": "against",
-     "risk": "snap share only 61%; committee backfield (59% of rushing TDs)."
-    }
-   ],
-   "p": 0.008,
-   "p_if_independent": 0.008,
-   "correlation_lift": 1.004,
-   "fair_price": 12334
-  },
-  {
-   "kind": "Moneyline + 2 touchdowns",
-   "game_id": "2026_10_MIA_IND",
-   "why": "A team that wins usually has its main scorers get in.",
-   "legs": [
-    {
-     "market": "ml",
-     "team": "MIA",
-     "label": "MIA moneyline",
-     "p": 0.3727,
-     "price": 160,
-     "net_checks": -1,
-     "note": "Model 37.3% to win; the price implies 36.9% with the book's margin removed.",
-     "kind": "game"
-    },
-    {
-     "kind": "atd",
-     "label": "Greg Dulcich anytime TD",
-     "p": 0.1968,
-     "team": "MIA",
-     "pos": "TE",
-     "player_id": "00-0037252",
-     "matchup": "for",
-     "risk": "snap share only 62%."
-    },
-    {
-     "kind": "atd",
-     "label": "Will Kacmarek anytime TD",
-     "p": 0.0699,
-     "team": "MIA",
-     "pos": "TE",
-     "player_id": "00-0041524",
-     "matchup": "for",
-     "risk": "snap share only 39%."
-    }
-   ],
-   "p": 0.0086,
-   "p_if_independent": 0.0051,
-   "correlation_lift": 1.682,
-   "fair_price": 11498
-  },
-  {
-   "kind": "Spread + touchdown",
-   "game_id": "2026_10_MIA_IND",
-   "why": "Covering and scoring move together.",
-   "legs": [
-    {
-     "market": "spread",
-     "team": "IND",
-     "label": "IND -3.5",
-     "p": 0.5047,
-     "price": -118,
-     "net_checks": 1,
-     "note": "Model has IND by +3.7; the line has them by +3.5.",
-     "kind": "game"
-    },
-    {
-     "kind": "atd",
-     "label": "Jonathan Taylor anytime TD",
-     "p": 0.4308,
-     "team": "IND",
-     "pos": "RB",
-     "player_id": "00-0036223",
-     "matchup": "for",
-     "risk": "committee backfield (50% of rushing TDs)."
-    }
-   ],
-   "p": 0.2555,
-   "p_if_independent": 0.2174,
-   "correlation_lift": 1.175,
-   "fair_price": 291
-  },
-  {
-   "kind": "Spread + rushing prop + touchdown",
-   "game_id": "2026_10_MIA_IND",
-   "why": "A team that covers runs the ball late, so its back gets carries and goal-line chances.",
-   "legs": [
-    {
-     "market": "spread",
-     "team": "IND",
-     "label": "IND -3.5",
-     "p": 0.5047,
-     "price": -118,
-     "net_checks": 1,
-     "note": "Model has IND by +3.7; the line has them by +3.5.",
-     "kind": "game"
-    },
-    {
-     "kind": "prop",
-     "mk": "rush_yds",
-     "k": 30,
-     "p": 0.8276,
-     "team": "IND",
-     "pos": "RB",
-     "player_id": "00-0036223",
-     "label": "Jonathan Taylor 30+ rushing yards"
-    },
-    {
-     "kind": "atd",
-     "label": "Jonathan Taylor anytime TD",
-     "p": 0.4308,
-     "team": "IND",
-     "pos": "RB",
-     "player_id": "00-0036223",
-     "matchup": "for",
-     "risk": "committee backfield (50% of rushing TDs)."
-    }
-   ],
-   "p": 0.237,
-   "p_if_independent": 0.1799,
-   "correlation_lift": 1.317,
-   "fair_price": 322
-  },
-  {
-   "kind": "Spread + opposing quarterback volume + rushing prop",
-   "game_id": "2026_10_MIA_IND",
-   "why": "When this side covers, the other quarterback is throwing to catch up while this side runs.",
-   "legs": [
-    {
-     "market": "spread",
-     "team": "IND",
-     "label": "IND -3.5",
-     "p": 0.5047,
-     "price": -118,
-     "net_checks": 1,
-     "note": "Model has IND by +3.7; the line has them by +3.5.",
-     "kind": "game"
-    },
-    {
-     "kind": "prop",
-     "mk": "pass_att",
-     "k": 25,
-     "p": 0.7436,
-     "team": "MIA",
-     "pos": "QB",
-     "player_id": "00-0038128",
-     "label": "Malik Willis 25+ pass attempts"
-    },
-    {
-     "kind": "prop",
-     "mk": "rush_yds",
-     "k": 30,
-     "p": 0.8276,
-     "team": "IND",
-     "pos": "RB",
-     "player_id": "00-0036223",
-     "label": "Jonathan Taylor 30+ rushing yards"
-    }
-   ],
-   "p": 0.3685,
-   "p_if_independent": 0.3106,
-   "correlation_lift": 1.186,
-   "fair_price": 171
-  },
-  {
-   "kind": "Moneyline + receiving prop + touchdown",
-   "game_id": "2026_10_MIA_IND",
-   "why": "The winner's lead receiver and its most likely scorer.",
-   "legs": [
-    {
-     "market": "ml",
-     "team": "MIA",
-     "label": "MIA moneyline",
-     "p": 0.3727,
-     "price": 160,
-     "net_checks": -1,
-     "note": "Model 37.3% to win; the price implies 36.9% with the book's margin removed.",
-     "kind": "game"
-    },
-    {
-     "kind": "prop",
-     "mk": "rec_yds",
-     "k": 30,
-     "p": 0.7737,
-     "team": "MIA",
-     "pos": "WR",
-     "player_id": "00-0041523",
-     "label": "Caleb Douglas 30+ receiving yards"
-    },
-    {
-     "kind": "atd",
-     "label": "Greg Dulcich anytime TD",
-     "p": 0.1968,
-     "team": "MIA",
-     "pos": "TE",
-     "player_id": "00-0037252",
-     "matchup": "for",
-     "risk": "snap share only 62%."
-    }
-   ],
-   "p": 0.0748,
-   "p_if_independent": 0.0567,
-   "correlation_lift": 1.319,
-   "fair_price": 1236
-  },
-  {
-   "kind": "Over + a touchdown from each team",
-   "game_id": "2026_10_MIA_IND",
-   "why": "High-scoring games need scorers on both sides.",
-   "legs": [
-    {
-     "market": "total",
-     "team": null,
-     "label": "MIA @ IND over 38.5",
-     "p": 0.5238,
-     "price": -108,
-     "net_checks": 0,
-     "note": "Model total 39.3 against a line of 38.5 (+0.8).",
-     "kind": "game"
-    },
-    {
-     "kind": "atd",
-     "label": "Jonathan Taylor anytime TD",
-     "p": 0.4308,
-     "team": "IND",
-     "pos": "RB",
-     "player_id": "00-0036223",
-     "matchup": "for",
-     "risk": "committee backfield (50% of rushing TDs)."
-    },
-    {
-     "kind": "atd",
-     "label": "Greg Dulcich anytime TD",
-     "p": 0.1968,
-     "team": "MIA",
-     "pos": "TE",
-     "player_id": "00-0037252",
-     "matchup": "for",
-     "risk": "snap share only 62%."
-    }
-   ],
-   "p": 0.0656,
-   "p_if_independent": 0.0444,
-   "correlation_lift": 1.478,
-   "fair_price": 1423
   },
   {
    "kind": "Touchdown slip, 3 picks",
@@ -9664,39 +9331,39 @@
    "legs": [
     {
      "market": "ml",
-     "team": "MIN",
-     "label": "MIN moneyline",
-     "p": 0.4076,
-     "price": 136,
-     "net_checks": -2,
-     "note": "Model 40.8% to win; the price implies 40.7% with the book's margin removed.",
+     "team": "GB",
+     "label": "GB moneyline",
+     "p": 0.5924,
+     "price": -155,
+     "net_checks": 2,
+     "note": "Model 59.2% to win; the price implies 58.3% with the book's margin removed.",
      "kind": "game"
     },
     {
      "kind": "atd",
-     "label": "Aaron Jones anytime TD",
-     "p": 0.2983,
-     "team": "MIN",
-     "pos": "RB",
-     "player_id": "00-0033293",
-     "matchup": "even",
-     "risk": "snap share only 57%; committee backfield (47% of rushing TDs); trailing game script cuts carries."
+     "label": "Matthew Golden anytime TD",
+     "p": 0.3536,
+     "team": "GB",
+     "pos": "WR",
+     "player_id": "00-0040667",
+     "matchup": "for",
+     "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
     },
     {
      "kind": "atd",
-     "label": "Jordan Mason anytime TD",
-     "p": 0.2876,
-     "team": "MIN",
-     "pos": "RB",
-     "player_id": "00-0037525",
-     "matchup": "even",
-     "risk": "snap share only 38%; committee backfield (44% of rushing TDs); trailing game script cuts carries."
+     "label": "Christian Watson anytime TD",
+     "p": 0.3276,
+     "team": "GB",
+     "pos": "WR",
+     "player_id": "00-0038124",
+     "matchup": "for",
+     "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
     }
    ],
-   "p": 0.0525,
-   "p_if_independent": 0.035,
-   "correlation_lift": 1.502,
-   "fair_price": 1804
+   "p": 0.0843,
+   "p_if_independent": 0.0686,
+   "correlation_lift": 1.229,
+   "fair_price": 1086
   },
   {
    "kind": "Spread + touchdown",
@@ -9818,39 +9485,39 @@
    "legs": [
     {
      "market": "ml",
-     "team": "MIN",
-     "label": "MIN moneyline",
-     "p": 0.4076,
-     "price": 136,
-     "net_checks": -2,
-     "note": "Model 40.8% to win; the price implies 40.7% with the book's margin removed.",
+     "team": "GB",
+     "label": "GB moneyline",
+     "p": 0.5924,
+     "price": -155,
+     "net_checks": 2,
+     "note": "Model 59.2% to win; the price implies 58.3% with the book's margin removed.",
      "kind": "game"
     },
     {
      "kind": "prop",
      "mk": "rec_yds",
-     "k": 40,
-     "p": 0.7349,
-     "team": "MIN",
+     "k": 30,
+     "p": 0.7304,
+     "team": "GB",
      "pos": "WR",
-     "player_id": "00-0036322",
-     "label": "Justin Jefferson 40+ receiving yards"
+     "player_id": "00-0040667",
+     "label": "Matthew Golden 30+ receiving yards"
     },
     {
      "kind": "atd",
-     "label": "Aaron Jones anytime TD",
-     "p": 0.2983,
-     "team": "MIN",
-     "pos": "RB",
-     "player_id": "00-0033293",
-     "matchup": "even",
-     "risk": "snap share only 57%; committee backfield (47% of rushing TDs); trailing game script cuts carries."
+     "label": "Matthew Golden anytime TD",
+     "p": 0.3536,
+     "team": "GB",
+     "pos": "WR",
+     "player_id": "00-0040667",
+     "matchup": "for",
+     "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price."
     }
    ],
-   "p": 0.1199,
-   "p_if_independent": 0.0894,
-   "correlation_lift": 1.342,
-   "fair_price": 734
+   "p": 0.2013,
+   "p_if_independent": 0.153,
+   "correlation_lift": 1.316,
+   "fair_price": 397
   },
   {
    "kind": "Passing stack: quarterback + receiver + touchdown",
@@ -9901,11 +9568,11 @@
     {
      "market": "total",
      "team": null,
-     "label": "MIN @ GB over 42.5",
-     "p": 0.5055,
-     "price": -105,
+     "label": "MIN @ GB over 41.5",
+     "p": 0.5094,
+     "price": -115,
      "net_checks": 0,
-     "note": "Model total 42.7 against a line of 42.5 (+0.2).",
+     "note": "Model total 41.8 against a line of 41.5 (+0.3).",
      "kind": "game"
     },
     {
@@ -9929,10 +9596,10 @@
      "risk": "snap share only 57%; committee backfield (47% of rushing TDs); trailing game script cuts carries."
     }
    ],
-   "p": 0.0785,
-   "p_if_independent": 0.0533,
-   "correlation_lift": 1.473,
-   "fair_price": 1174
+   "p": 0.0788,
+   "p_if_independent": 0.0537,
+   "correlation_lift": 1.467,
+   "fair_price": 1169
   },
   {
    "kind": "Touchdown slip, 3 picks",
@@ -10036,9 +9703,9 @@
      "team": "DET",
      "label": "DET moneyline",
      "p": 0.5884,
-     "price": -148,
+     "price": -155,
      "net_checks": -2,
-     "note": "Model 58.8% to win; the price implies 57.2% with the book's margin removed.",
+     "note": "Model 58.8% to win; the price implies 58.3% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -10190,9 +9857,9 @@
      "team": "DET",
      "label": "DET moneyline",
      "p": 0.5884,
-     "price": -148,
+     "price": -155,
      "net_checks": -2,
-     "note": "Model 58.8% to win; the price implies 57.2% with the book's margin removed.",
+     "note": "Model 58.8% to win; the price implies 58.3% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -10361,39 +10028,39 @@
    "legs": [
     {
      "market": "ml",
-     "team": "SF",
-     "label": "SF moneyline",
-     "p": 0.6536,
-     "price": -205,
-     "net_checks": 3,
-     "note": "Model 65.4% to win; the price implies 64.5% with the book's margin removed.",
+     "team": "DAL",
+     "label": "DAL moneyline",
+     "p": 0.3758,
+     "price": 170,
+     "net_checks": -3,
+     "note": "Model 37.6% to win; the price implies 35.5% with the book's margin removed.",
      "kind": "game"
     },
     {
      "kind": "atd",
-     "label": "Christian McCaffrey anytime TD",
-     "p": 0.6906,
-     "team": "SF",
+     "label": "Javonte Williams anytime TD",
+     "p": 0.6726,
+     "team": "DAL",
      "pos": "RB",
-     "player_id": "00-0033280",
-     "matchup": "for",
-     "risk": "no structural red flags; normal variance."
+     "player_id": "00-0036997",
+     "matchup": "against",
+     "risk": "trailing game script cuts carries."
     },
     {
      "kind": "atd",
-     "label": "George Kittle anytime TD",
-     "p": 0.5126,
-     "team": "SF",
+     "label": "Jake Ferguson anytime TD",
+     "p": 0.2137,
+     "team": "DAL",
      "pos": "TE",
-     "player_id": "00-0033288",
-     "matchup": "for",
-     "risk": "no structural red flags; normal variance."
+     "player_id": "00-0038041",
+     "matchup": "against",
+     "risk": "snap share only 48%; trailing game script cuts carries."
     }
    ],
-   "p": 0.2665,
-   "p_if_independent": 0.2314,
-   "correlation_lift": 1.152,
-   "fair_price": 275
+   "p": 0.0764,
+   "p_if_independent": 0.054,
+   "correlation_lift": 1.415,
+   "fair_price": 1208
   },
   {
    "kind": "Spread + touchdown",
@@ -10402,136 +10069,13 @@
    "legs": [
     {
      "market": "spread",
-     "team": "DAL",
-     "label": "DAL +4.5",
-     "p": 0.5017,
-     "price": -115,
-     "net_checks": -3,
-     "note": "Model has DAL by -4.4; the line has them by -4.5.",
-     "kind": "game"
-    },
-    {
-     "kind": "atd",
-     "label": "Javonte Williams anytime TD",
-     "p": 0.6726,
-     "team": "DAL",
-     "pos": "RB",
-     "player_id": "00-0036997",
-     "matchup": "against",
-     "risk": "trailing game script cuts carries."
-    }
-   ],
-   "p": 0.3736,
-   "p_if_independent": 0.3374,
-   "correlation_lift": 1.107,
-   "fair_price": 168
-  },
-  {
-   "kind": "Spread + rushing prop + touchdown",
-   "game_id": "2026_10_SF_DAL",
-   "why": "A team that covers runs the ball late, so its back gets carries and goal-line chances.",
-   "legs": [
-    {
-     "market": "spread",
-     "team": "DAL",
-     "label": "DAL +4.5",
-     "p": 0.5017,
-     "price": -115,
-     "net_checks": -3,
-     "note": "Model has DAL by -4.4; the line has them by -4.5.",
-     "kind": "game"
-    },
-    {
-     "kind": "prop",
-     "mk": "carries",
-     "k": 15,
-     "p": 0.7854,
-     "team": "DAL",
-     "pos": "RB",
-     "player_id": "00-0036997",
-     "label": "Javonte Williams 15+ carries"
-    },
-    {
-     "kind": "atd",
-     "label": "Javonte Williams anytime TD",
-     "p": 0.6726,
-     "team": "DAL",
-     "pos": "RB",
-     "player_id": "00-0036997",
-     "matchup": "against",
-     "risk": "trailing game script cuts carries."
-    }
-   ],
-   "p": 0.3309,
-   "p_if_independent": 0.265,
-   "correlation_lift": 1.249,
-   "fair_price": 202
-  },
-  {
-   "kind": "Spread + opposing quarterback volume + rushing prop",
-   "game_id": "2026_10_SF_DAL",
-   "why": "When this side covers, the other quarterback is throwing to catch up while this side runs.",
-   "legs": [
-    {
-     "market": "spread",
-     "team": "DAL",
-     "label": "DAL +4.5",
-     "p": 0.5017,
-     "price": -115,
-     "net_checks": -3,
-     "note": "Model has DAL by -4.4; the line has them by -4.5.",
-     "kind": "game"
-    },
-    {
-     "kind": "prop",
-     "mk": "pass_att",
-     "k": 25,
-     "p": 0.7693,
      "team": "SF",
-     "pos": "QB",
-     "player_id": "00-0037834",
-     "label": "Brock Purdy 25+ pass attempts"
-    },
-    {
-     "kind": "prop",
-     "mk": "carries",
-     "k": 15,
-     "p": 0.7854,
-     "team": "DAL",
-     "pos": "RB",
-     "player_id": "00-0036997",
-     "label": "Javonte Williams 15+ carries"
-    }
-   ],
-   "p": 0.3676,
-   "p_if_independent": 0.3031,
-   "correlation_lift": 1.213,
-   "fair_price": 172
-  },
-  {
-   "kind": "Moneyline + receiving prop + touchdown",
-   "game_id": "2026_10_SF_DAL",
-   "why": "The winner's lead receiver and its most likely scorer.",
-   "legs": [
-    {
-     "market": "ml",
-     "team": "SF",
-     "label": "SF moneyline",
-     "p": 0.6536,
-     "price": -205,
+     "label": "SF -3.5",
+     "p": 0.5019,
+     "price": -115,
      "net_checks": 3,
-     "note": "Model 65.4% to win; the price implies 64.5% with the book's margin removed.",
+     "note": "Model has SF by +3.6; the line has them by +3.5.",
      "kind": "game"
-    },
-    {
-     "kind": "prop",
-     "mk": "rec_yds",
-     "k": 30,
-     "p": 0.7781,
-     "team": "SF",
-     "pos": "TE",
-     "player_id": "00-0033288",
-     "label": "George Kittle 30+ receiving yards"
     },
     {
      "kind": "atd",
@@ -10544,10 +10088,133 @@
      "risk": "no structural red flags; normal variance."
     }
    ],
-   "p": 0.3798,
-   "p_if_independent": 0.3512,
-   "correlation_lift": 1.081,
-   "fair_price": 163
+   "p": 0.3819,
+   "p_if_independent": 0.3466,
+   "correlation_lift": 1.102,
+   "fair_price": 162
+  },
+  {
+   "kind": "Spread + rushing prop + touchdown",
+   "game_id": "2026_10_SF_DAL",
+   "why": "A team that covers runs the ball late, so its back gets carries and goal-line chances.",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "SF",
+     "label": "SF -3.5",
+     "p": 0.5019,
+     "price": -115,
+     "net_checks": 3,
+     "note": "Model has SF by +3.6; the line has them by +3.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "prop",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8615,
+     "team": "SF",
+     "pos": "RB",
+     "player_id": "00-0033280",
+     "label": "Christian McCaffrey 10+ carries"
+    },
+    {
+     "kind": "atd",
+     "label": "Christian McCaffrey anytime TD",
+     "p": 0.6906,
+     "team": "SF",
+     "pos": "RB",
+     "player_id": "00-0033280",
+     "matchup": "for",
+     "risk": "no structural red flags; normal variance."
+    }
+   ],
+   "p": 0.3571,
+   "p_if_independent": 0.2986,
+   "correlation_lift": 1.196,
+   "fair_price": 180
+  },
+  {
+   "kind": "Spread + opposing quarterback volume + rushing prop",
+   "game_id": "2026_10_SF_DAL",
+   "why": "When this side covers, the other quarterback is throwing to catch up while this side runs.",
+   "legs": [
+    {
+     "market": "spread",
+     "team": "SF",
+     "label": "SF -3.5",
+     "p": 0.5019,
+     "price": -115,
+     "net_checks": 3,
+     "note": "Model has SF by +3.6; the line has them by +3.5.",
+     "kind": "game"
+    },
+    {
+     "kind": "prop",
+     "mk": "pass_att",
+     "k": 30,
+     "p": 0.8513,
+     "team": "DAL",
+     "pos": "QB",
+     "player_id": "00-0033077",
+     "label": "Dak Prescott 30+ pass attempts"
+    },
+    {
+     "kind": "prop",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8615,
+     "team": "SF",
+     "pos": "RB",
+     "player_id": "00-0033280",
+     "label": "Christian McCaffrey 10+ carries"
+    }
+   ],
+   "p": 0.4216,
+   "p_if_independent": 0.3681,
+   "correlation_lift": 1.145,
+   "fair_price": 137
+  },
+  {
+   "kind": "Moneyline + receiving prop + touchdown",
+   "game_id": "2026_10_SF_DAL",
+   "why": "The winner's lead receiver and its most likely scorer.",
+   "legs": [
+    {
+     "market": "ml",
+     "team": "DAL",
+     "label": "DAL moneyline",
+     "p": 0.3758,
+     "price": 170,
+     "net_checks": -3,
+     "note": "Model 37.6% to win; the price implies 35.5% with the book's margin removed.",
+     "kind": "game"
+    },
+    {
+     "kind": "prop",
+     "mk": "rec",
+     "k": 1,
+     "p": 0.7727,
+     "team": "DAL",
+     "pos": "TE",
+     "player_id": "00-0038041",
+     "label": "Jake Ferguson 1+ receptions"
+    },
+    {
+     "kind": "atd",
+     "label": "Javonte Williams anytime TD",
+     "p": 0.6726,
+     "team": "DAL",
+     "pos": "RB",
+     "player_id": "00-0036997",
+     "matchup": "against",
+     "risk": "trailing game script cuts carries."
+    }
+   ],
+   "p": 0.2164,
+   "p_if_independent": 0.1953,
+   "correlation_lift": 1.108,
+   "fair_price": 362
   },
   {
    "kind": "Over + a touchdown from each team",
@@ -10559,7 +10226,7 @@
      "team": null,
      "label": "SF @ DAL over 55.5",
      "p": 0.5051,
-     "price": -115,
+     "price": -118,
      "net_checks": 0,
      "note": "Model total 55.7 against a line of 55.5 (+0.2).",
      "kind": "game"
@@ -10600,7 +10267,7 @@
      "team": null,
      "label": "SF @ DAL over 55.5",
      "p": 0.5051,
-     "price": -115,
+     "price": -118,
      "net_checks": 0,
      "note": "Model total 55.7 against a line of 55.5 (+0.2).",
      "kind": "game"
@@ -10732,10 +10399,10 @@
      "market": "ml",
      "team": "NYG",
      "label": "NYG moneyline",
-     "p": 0.5798,
-     "price": -142,
+     "p": 0.58,
+     "price": -135,
      "net_checks": 1,
-     "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+     "note": "Model 58.0% to win; the price implies 55.1% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -10773,8 +10440,8 @@
      "market": "spread",
      "team": "WAS",
      "label": "WAS +2.5",
-     "p": 0.5074,
-     "price": -110,
+     "p": 0.5072,
+     "price": -112,
      "net_checks": -1,
      "note": "Model has WAS by -2.3; the line has them by -2.5.",
      "kind": "game"
@@ -10790,7 +10457,7 @@
      "risk": "snap share only 53%; committee backfield (43% of rushing TDs); weather can cut passing."
     }
    ],
-   "p": 0.1854,
+   "p": 0.1853,
    "p_if_independent": 0.1517,
    "correlation_lift": 1.222,
    "fair_price": 440
@@ -10804,8 +10471,8 @@
      "market": "spread",
      "team": "WAS",
      "label": "WAS +2.5",
-     "p": 0.5074,
-     "price": -110,
+     "p": 0.5072,
+     "price": -112,
      "net_checks": -1,
      "note": "Model has WAS by -2.3; the line has them by -2.5.",
      "kind": "game"
@@ -10831,10 +10498,10 @@
      "risk": "snap share only 53%; committee backfield (43% of rushing TDs); weather can cut passing."
     }
    ],
-   "p": 0.1747,
+   "p": 0.1746,
    "p_if_independent": 0.1266,
    "correlation_lift": 1.38,
-   "fair_price": 472
+   "fair_price": 473
   },
   {
    "kind": "Spread + opposing quarterback volume + rushing prop",
@@ -10845,8 +10512,8 @@
      "market": "spread",
      "team": "WAS",
      "label": "WAS +2.5",
-     "p": 0.5074,
-     "price": -110,
+     "p": 0.5072,
+     "price": -112,
      "net_checks": -1,
      "note": "Model has WAS by -2.3; the line has them by -2.5.",
      "kind": "game"
@@ -10872,8 +10539,8 @@
      "label": "Rachaad White 20+ rushing yards"
     }
    ],
-   "p": 0.4063,
-   "p_if_independent": 0.3552,
+   "p": 0.4062,
+   "p_if_independent": 0.355,
    "correlation_lift": 1.144,
    "fair_price": 146
   },
@@ -10886,10 +10553,10 @@
      "market": "ml",
      "team": "NYG",
      "label": "NYG moneyline",
-     "p": 0.5798,
-     "price": -142,
+     "p": 0.58,
+     "price": -135,
      "net_checks": 1,
-     "note": "Model 58.0% to win; the price implies 56.3% with the book's margin removed.",
+     "note": "Model 58.0% to win; the price implies 55.1% with the book's margin removed.",
      "kind": "game"
     },
     {
@@ -10913,8 +10580,8 @@
      "risk": "WRs on tickets ran ~7 pts hot in the ledger, so take him only at the play-at price; weather can cut passing."
     }
    ],
-   "p": 0.1813,
-   "p_if_independent": 0.1377,
+   "p": 0.1814,
+   "p_if_independent": 0.1378,
    "correlation_lift": 1.317,
    "fair_price": 451
   },
@@ -10927,7 +10594,7 @@
      "market": "total",
      "team": null,
      "label": "WAS @ NYG over 40.5",
-     "p": 0.5177,
+     "p": 0.5183,
      "price": -118,
      "net_checks": 0,
      "note": "Model total 41.1 against a line of 40.5 (+0.6).",
@@ -10956,8 +10623,8 @@
    ],
    "p": 0.0693,
    "p_if_independent": 0.0469,
-   "correlation_lift": 1.478,
-   "fair_price": 1344
+   "correlation_lift": 1.477,
+   "fair_price": 1343
   }
  ],
  "overrides": [
@@ -10972,18 +10639,60 @@
  "freshness": {
   "snapshot_built": "Tue Nov 10, 05:14 UTC",
   "reports_posted_for": [
+   "ARI",
+   "ATL",
+   "BUF",
+   "CAR",
+   "CIN",
+   "CLE",
+   "DAL",
+   "DET",
+   "GB",
+   "HOU",
+   "IND",
+   "JAX",
+   "KC",
+   "LA",
+   "LV",
+   "MIA",
+   "MIN",
+   "NE",
+   "NO",
    "NYG",
+   "NYJ",
+   "PIT",
+   "SEA",
+   "SF",
+   "TEN",
    "WAS"
   ],
-  "open_alerts": 35,
-  "players_on_hold": 20,
+  "open_alerts": 37,
+  "players_on_hold": 22,
   "games_on_hold": [
    "2026_10_HOU_CLE",
    "2026_10_JAX_TEN",
+   "2026_10_MIA_IND",
    "2026_10_PIT_CIN",
    "2026_10_SEA_LV"
   ],
   "alerts": [
+   {
+    "team": "ARI",
+    "game_id": "2026_10_LA_ARI",
+    "player": "Michael Wilson",
+    "pos": "WR",
+    "snap_share_when_played": 0.87,
+    "games_in_last_6": 6,
+    "last_played_week": 9,
+    "report_status": null,
+    "practice": null,
+    "roster_status": "RES",
+    "resolved": false,
+    "type": "PRICED_BUT_OUT",
+    "severity": "high",
+    "snapshot_p": 0.3541,
+    "why": "priced at 35% in the snapshot but now off the active roster (RES)."
+   },
    {
     "team": "CLE",
     "game_id": "2026_10_HOU_CLE",
@@ -10997,8 +10706,8 @@
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 99% of snaps in 5 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Questionable in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 99% of snaps in 5 of the last 6 games, is on the active roster, and is not ruled out on this week's report; last listed Questionable in week 9, but the snapshot has no number for him."
    },
    {
     "team": "DAL",
@@ -11009,12 +10718,12 @@
     "games_in_last_6": 5,
     "last_played_week": 8,
     "report_status": null,
-    "practice": null,
+    "practice": "Limited Participation in Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 76% of snaps in 5 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Questionable in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 76% of snaps in 5 of the last 6 games, is on the active roster, and is not ruled out on this week's report (limited participation in practice); last listed Questionable in week 9, but the snapshot has no number for him."
    },
    {
     "team": "DAL",
@@ -11022,7 +10731,7 @@
     "player": "CeeDee Lamb",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.4594,
     "resolved": false,
     "why": "priced at 46% assuming George Pickens would not play. If he plays, this number is too high."
@@ -11033,7 +10742,7 @@
     "player": "Ryan Flournoy",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.3094,
     "resolved": false,
     "why": "priced at 31% assuming George Pickens would not play. If he plays, this number is too high."
@@ -11051,8 +10760,8 @@
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 38% of snaps in 5 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Questionable in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 38% of snaps in 5 of the last 6 games, is on the active roster, and is not ruled out on this week's report; last listed Questionable in week 9, but the snapshot has no number for him."
    },
    {
     "team": "GB",
@@ -11060,7 +10769,7 @@
     "player": "Josh Jacobs",
     "pos": "RB",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.3275,
     "resolved": false,
     "why": "priced at 33% assuming MarShawn Lloyd would not play. If he plays, this number is too high."
@@ -11074,12 +10783,12 @@
     "games_in_last_6": 3,
     "last_played_week": 5,
     "report_status": null,
-    "practice": null,
+    "practice": "Did Not Participate In Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 44% of snaps in 3 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Out in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 44% of snaps in 3 of the last 6 games, is on the active roster, and is not ruled out on this week's report (did not participate in practice); last listed Out in week 9, but the snapshot has no number for him."
    },
    {
     "team": "HOU",
@@ -11087,7 +10796,7 @@
     "player": "Woody Marks",
     "pos": "RB",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.4349,
     "resolved": false,
     "why": "priced at 43% assuming David Montgomery would not play. If he plays, this number is too high."
@@ -11131,6 +10840,23 @@
     "why": "priced at 12% assuming Theo Wease would not play. If he plays, this number is too high."
    },
    {
+    "team": "MIA",
+    "game_id": "2026_10_MIA_IND",
+    "player": "Malik Willis",
+    "pos": "QB",
+    "snap_share_when_played": 1.0,
+    "games_in_last_6": 6,
+    "last_played_week": 9,
+    "report_status": null,
+    "practice": null,
+    "roster_status": "RES",
+    "resolved": false,
+    "type": "PRICED_BUT_OUT",
+    "severity": "high",
+    "snapshot_p": 0.1177,
+    "why": "priced at 12% in the snapshot but now off the active roster (RES)."
+   },
+   {
     "team": "NE",
     "game_id": "2026_10_NE_DET",
     "player": "A.J. Brown",
@@ -11139,12 +10865,12 @@
     "games_in_last_6": 2,
     "last_played_week": 7,
     "report_status": null,
-    "practice": null,
+    "practice": "Limited Participation in Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 84% of snaps in 2 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Out in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 84% of snaps in 2 of the last 6 games, is on the active roster, and is not ruled out on this week's report (limited participation in practice); last listed Out in week 9, but the snapshot has no number for him."
    },
    {
     "team": "NE",
@@ -11152,7 +10878,7 @@
     "player": "DeMario Douglas",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.1901,
     "resolved": false,
     "why": "priced at 19% assuming A.J. Brown would not play. If he plays, this number is too high."
@@ -11163,7 +10889,7 @@
     "player": "Kyle Williams",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.1884,
     "resolved": false,
     "why": "priced at 19% assuming A.J. Brown would not play. If he plays, this number is too high."
@@ -11174,7 +10900,7 @@
     "player": "Efton Chism III",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.1778,
     "resolved": false,
     "why": "priced at 18% assuming A.J. Brown would not play. If he plays, this number is too high."
@@ -11215,12 +10941,12 @@
     "games_in_last_6": 5,
     "last_played_week": 8,
     "report_status": null,
-    "practice": null,
+    "practice": "Limited Participation in Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 91% of snaps in 5 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Out in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 91% of snaps in 5 of the last 6 games, is on the active roster, and is not ruled out on this week's report (limited participation in practice); last listed Out in week 9, but the snapshot has no number for him."
    },
    {
     "team": "NYJ",
@@ -11235,8 +10961,8 @@
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 58% of snaps in 3 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Questionable in week 5, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 58% of snaps in 3 of the last 6 games, is on the active roster, and is not ruled out on this week's report; last listed Questionable in week 5, but the snapshot has no number for him."
    },
    {
     "team": "NYJ",
@@ -11244,7 +10970,7 @@
     "player": "Adonai Mitchell",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.2946,
     "resolved": false,
     "why": "priced at 29% assuming Garrett Wilson, Tim Patrick would not play. If he plays, this number is too high."
@@ -11255,7 +10981,7 @@
     "player": "Omar Cooper Jr.",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.2584,
     "resolved": false,
     "why": "priced at 26% assuming Garrett Wilson, Tim Patrick would not play. If he plays, this number is too high."
@@ -11277,12 +11003,12 @@
     "games_in_last_6": 4,
     "last_played_week": 7,
     "report_status": null,
-    "practice": null,
+    "practice": "Full Participation in Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 46% of snaps in 4 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Out in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 46% of snaps in 4 of the last 6 games, is on the active roster, and is not ruled out on this week's report (full participation in practice); last listed Out in week 9, but the snapshot has no number for him."
    },
    {
     "team": "SEA",
@@ -11293,12 +11019,12 @@
     "games_in_last_6": 5,
     "last_played_week": 8,
     "report_status": null,
-    "practice": null,
+    "practice": "Did Not Participate In Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 100% of snaps in 5 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Out in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 100% of snaps in 5 of the last 6 games, is on the active roster, and is not ruled out on this week's report (did not participate in practice); last listed Out in week 9, but the snapshot has no number for him."
    },
    {
     "team": "SEA",
@@ -11306,7 +11032,7 @@
     "player": "Jaxon Smith-Njigba",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.4422,
     "resolved": false,
     "why": "priced at 44% assuming Rashid Shaheed would not play. If he plays, this number is too high."
@@ -11317,7 +11043,7 @@
     "player": "Cooper Kupp",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.1851,
     "resolved": false,
     "why": "priced at 19% assuming Rashid Shaheed would not play. If he plays, this number is too high."
@@ -11328,7 +11054,7 @@
     "player": "Tory Horton",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.1371,
     "resolved": false,
     "why": "priced at 14% assuming Rashid Shaheed would not play. If he plays, this number is too high."
@@ -11342,12 +11068,12 @@
     "games_in_last_6": 3,
     "last_played_week": 5,
     "report_status": null,
-    "practice": null,
+    "practice": "Limited Participation in Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 62% of snaps in 3 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Out in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 62% of snaps in 3 of the last 6 games, is on the active roster, and is not ruled out on this week's report (limited participation in practice); last listed Out in week 9, but the snapshot has no number for him."
    },
    {
     "team": "SF",
@@ -11375,12 +11101,12 @@
     "games_in_last_6": 4,
     "last_played_week": 6,
     "report_status": null,
-    "practice": null,
+    "practice": "Did Not Participate In Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
-    "severity": "watch",
-    "why": "played 49% of snaps in 4 of the last 6 games, is on the active roster, and this week's injury report is not posted yet; last listed Out in week 9, but the snapshot has no number for him."
+    "severity": "high",
+    "why": "played 49% of snaps in 4 of the last 6 games, is on the active roster, and is not ruled out on this week's report (did not participate in practice); last listed Out in week 9, but the snapshot has no number for him."
    },
    {
     "team": "SF",
@@ -11388,7 +11114,7 @@
     "player": "Jordan Watkins",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.2814,
     "resolved": false,
     "why": "priced at 28% assuming Deebo Samuel, Mike Evans would not play. If he plays, this number is too high."
@@ -11399,7 +11125,7 @@
     "player": "Brandin Cooks",
     "pos": "WR",
     "type": "ROLE_AT_RISK",
-    "severity": "watch",
+    "severity": "high",
     "snapshot_p": 0.2085,
     "resolved": false,
     "why": "priced at 21% assuming Deebo Samuel, Mike Evans would not play. If he plays, this number is too high."
@@ -11421,12 +11147,12 @@
     "games_in_last_6": 5,
     "last_played_week": 8,
     "report_status": null,
-    "practice": "Limited Participation in Practice",
+    "practice": "Did Not Participate In Practice",
     "roster_status": "ACT",
     "resolved": false,
     "type": "NOT_PRICED",
     "severity": "high",
-    "why": "played 58% of snaps in 5 of the last 6 games, is on the active roster, and is not ruled out on this week's report (limited participation in practice); last listed Out in week 9, but the snapshot has no number for him."
+    "why": "played 58% of snaps in 5 of the last 6 games, is on the active roster, and is not ruled out on this week's report (did not participate in practice); last listed Out in week 9, but the snapshot has no number for him."
    },
    {
     "team": "WAS",
@@ -11463,35 +11189,13 @@
    }
   ],
   "teams_awaiting_report": [
-   "ARI",
-   "ATL",
    "BAL",
-   "BUF",
-   "CAR",
-   "CIN",
-   "CLE",
-   "DAL",
-   "DET",
-   "GB",
-   "HOU",
-   "IND",
-   "JAX",
-   "KC",
-   "LA",
-   "LAC",
-   "LV",
-   "MIA",
-   "MIN",
-   "NE",
-   "NO",
-   "NYJ",
-   "SEA",
-   "SF"
+   "LAC"
   ]
  },
  "gate": {
   "picks_considered": 42,
-  "dropped_missing_a_check": 12
+  "dropped_missing_a_check": 15
  },
  "safe": {
   "rule": "Model win chance 65% or higher, every check available, at least two more checks for than against, and Personnel not against.",
@@ -11504,10 +11208,10 @@
     "home_side": false,
     "label": "LA moneyline",
     "p": 0.8015,
-    "price": -440,
-    "market_p": 0.7819,
-    "edge": 0.0196,
-    "ev": -0.0164,
+    "price": -520,
+    "market_p": 0.8043,
+    "edge": -0.0028,
+    "ev": -0.0444,
     "dog": false,
     "complete": true,
     "net_checks": 5,
@@ -11557,7 +11261,7 @@
     ],
     "safe": true,
     "model_number": 9.5,
-    "note": "Model 80.1% to win; the price implies 78.2% with the book's margin removed.",
+    "note": "Model 80.1% to win; the price implies 80.4% with the book's margin removed.",
     "for": [
      {
       "factor": "results-based team rating",
@@ -11578,90 +11282,6 @@
       "points": -0.7
      }
     ]
-   },
-   {
-    "game_id": "2026_10_SF_DAL",
-    "market": "ml",
-    "team": "SF",
-    "opp": "DAL",
-    "home_side": false,
-    "label": "SF moneyline",
-    "p": 0.6536,
-    "price": -205,
-    "market_p": 0.6447,
-    "edge": 0.0089,
-    "ev": -0.0275,
-    "dog": false,
-    "complete": true,
-    "net_checks": 3,
-    "checks": [
-     {
-      "check": "Home vs away",
-      "score": -0.7,
-      "verdict": "against",
-      "numbers": "SF is away; plays +0.06 EPA per play better at home than away, DAL -0.05."
-     },
-     {
-      "check": "Personnel",
-      "score": 0.03,
-      "verdict": "even",
-      "numbers": "Starters out: SF line 0, defence 0, skill 0; DAL line 0, defence 0, skill 0."
-     },
-     {
-      "check": "Offensive play-calling",
-      "score": 0.36,
-      "verdict": "for",
-      "numbers": "SF pass rate is -1.41 percentage points against expected, throws deep 21%, play-action 23%, motion 63%, no-huddle 6%, passes 53% in the red zone."
-     },
-     {
-      "check": "Defensive play-calling and pressure",
-      "score": -0.16,
-      "verdict": "even",
-      "numbers": "DAL defence blitzes 28% and pressures 15% of dropbacks; SF is expected to allow pressure on 14%. SF defence blitzes 29%; DAL expected to allow 13%."
-     },
-     {
-      "check": "Running backs vs defensive line, with line health",
-      "score": 0.71,
-      "verdict": "for",
-      "numbers": "SF runs vs DAL front: inside -0.02, outside +0.06 EPA per carry, stuffed 16%, 10+ yards 11%. DAL vs SF front: inside -0.07, outside -0.02, stuffed 17%."
-     },
-     {
-      "check": "Receivers: deep, slot area, outside",
-      "score": 0.56,
-      "verdict": "for",
-      "numbers": "SF receivers vs DAL coverage, EPA per target: deep +0.64, slot area +0.38, outside +0.23. DAL receivers vs SF: deep +0.47, slot area +0.20, outside +0.22."
-     },
-     {
-      "check": "Tight ends vs linebackers and safeties",
-      "score": 1.41,
-      "verdict": "for",
-      "numbers": "SF tight ends vs DAL: +0.30 EPA per target on 24% of targets. DAL tight ends vs SF: +0.09."
-     }
-    ],
-    "safe": true,
-    "model_number": 4.4,
-    "note": "Model 65.4% to win; the price implies 64.5% with the book's margin removed.",
-    "personnel": "Brock Purdy at quarterback rates +0.03 EPA per play against SF's recent starters.",
-    "for": [
-     {
-      "factor": "results-based team rating",
-      "points": 2.4
-     },
-     {
-      "factor": "down-to-down success rate",
-      "points": 1.2
-     },
-     {
-      "factor": "scoring versus points allowed",
-      "points": 1.2
-     }
-    ],
-    "against": [
-     {
-      "factor": "backs as receivers",
-      "points": -0.8
-     }
-    ]
    }
   ],
   "other_favourites": [
@@ -11673,10 +11293,10 @@
     "home_side": false,
     "label": "JAX moneyline",
     "p": 0.8276,
-    "price": -535,
-    "market_p": 0.8082,
-    "edge": 0.0195,
-    "ev": -0.0177,
+    "price": -600,
+    "market_p": 0.8223,
+    "edge": 0.0053,
+    "ev": -0.0344,
     "dog": false,
     "complete": false,
     "net_checks": 1,
@@ -11727,7 +11347,7 @@
     "safe": false,
     "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": 10.6,
-    "note": "Model 82.8% to win; the price implies 80.8% with the book's margin removed.",
+    "note": "Model 82.8% to win; the price implies 82.2% with the book's margin removed.",
     "for": [
      {
       "factor": "results-based team rating",
@@ -11840,10 +11460,10 @@
     "home_side": false,
     "label": "SEA moneyline",
     "p": 0.7321,
-    "price": -285,
-    "market_p": 0.7095,
-    "edge": 0.0226,
-    "ev": -0.011,
+    "price": -298,
+    "market_p": 0.718,
+    "edge": 0.0141,
+    "ev": -0.0222,
     "dog": false,
     "complete": false,
     "net_checks": 1,
@@ -11894,7 +11514,7 @@
     "safe": false,
     "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": 7.0,
-    "note": "Model 73.2% to win; the price implies 71.0% with the book's margin removed.",
+    "note": "Model 73.2% to win; the price implies 71.8% with the book's margin removed.",
     "personnel": "Sam Darnold at quarterback rates +0.02 EPA per play against SEA's recent starters.",
     "for": [
      {
@@ -11925,10 +11545,10 @@
     "home_side": true,
     "label": "BAL moneyline",
     "p": 0.6641,
-    "price": -205,
-    "market_p": 0.6447,
-    "edge": 0.0194,
-    "ev": -0.012,
+    "price": -225,
+    "market_p": 0.6636,
+    "edge": 0.0004,
+    "ev": -0.0408,
     "dog": false,
     "complete": true,
     "net_checks": 1,
@@ -11978,7 +11598,7 @@
     ],
     "safe": false,
     "model_number": 4.8,
-    "note": "Model 66.4% to win; the price implies 64.5% with the book's margin removed.",
+    "note": "Model 66.4% to win; the price implies 66.4% with the book's margin removed.",
     "personnel": "Tyler Huntley at quarterback rates -0.07 EPA per play against BAL's recent starters.",
     "for": [
      {
@@ -12009,10 +11629,10 @@
     "home_side": false,
     "label": "HOU moneyline",
     "p": 0.6576,
-    "price": -230,
-    "market_p": 0.669,
-    "edge": -0.0114,
-    "ev": -0.0565,
+    "price": -225,
+    "market_p": 0.6636,
+    "edge": -0.0061,
+    "ev": -0.0502,
     "dog": false,
     "complete": false,
     "net_checks": 3,
@@ -12063,7 +11683,7 @@
     "safe": false,
     "hold": "Held: an open roster alert on a quarterback or an unpriced team in this game.",
     "model_number": 4.6,
-    "note": "Model 65.8% to win; the price implies 66.9% with the book's margin removed.",
+    "note": "Model 65.8% to win; the price implies 66.4% with the book's margin removed.",
     "for": [
      {
       "factor": "results-based team rating",
@@ -12086,186 +11706,7 @@
     ]
    }
   ],
-  "parlays": [
-   {
-    "legs": [
-     {
-      "game_id": "2026_10_LA_ARI",
-      "market": "ml",
-      "team": "LA",
-      "opp": "ARI",
-      "home_side": false,
-      "label": "LA moneyline",
-      "p": 0.8015,
-      "price": -440,
-      "market_p": 0.7819,
-      "edge": 0.0196,
-      "ev": -0.0164,
-      "dog": false,
-      "complete": true,
-      "net_checks": 5,
-      "checks": [
-       {
-        "check": "Home vs away",
-        "score": 0.09,
-        "verdict": "even",
-        "numbers": "LA is away; plays -0.04 EPA per play better at home than away, ARI -0.01."
-       },
-       {
-        "check": "Personnel",
-        "score": 0.24,
-        "verdict": "even",
-        "numbers": "Starters out: LA line 0, defence 0, skill 0; ARI line 0, defence 0, skill 0."
-       },
-       {
-        "check": "Offensive play-calling",
-        "score": 0.67,
-        "verdict": "for",
-        "numbers": "LA pass rate is -0.72 percentage points against expected, throws deep 23%, play-action 26%, motion 62%, no-huddle 8%, passes 56% in the red zone."
-       },
-       {
-        "check": "Defensive play-calling and pressure",
-        "score": 1.01,
-        "verdict": "for",
-        "numbers": "ARI defence blitzes 30% and pressures 14% of dropbacks; LA is expected to allow pressure on 13%. LA defence blitzes 28%; ARI expected to allow 15%."
-       },
-       {
-        "check": "Running backs vs defensive line, with line health",
-        "score": 1.15,
-        "verdict": "for",
-        "numbers": "LA runs vs ARI front: inside -0.05, outside +0.05 EPA per carry, stuffed 14%, 10+ yards 10%. ARI vs LA front: inside -0.15, outside -0.05, stuffed 19%."
-       },
-       {
-        "check": "Receivers: deep, slot area, outside",
-        "score": 1.14,
-        "verdict": "for",
-        "numbers": "LA receivers vs ARI coverage, EPA per target: deep +0.52, slot area +0.31, outside +0.22. ARI receivers vs LA: deep +0.12, slot area +0.24, outside +0.09."
-       },
-       {
-        "check": "Tight ends vs linebackers and safeties",
-        "score": 0.86,
-        "verdict": "for",
-        "numbers": "LA tight ends vs ARI: +0.27 EPA per target on 25% of targets. ARI tight ends vs LA: +0.13."
-       }
-      ],
-      "safe": true,
-      "model_number": 9.5,
-      "note": "Model 80.1% to win; the price implies 78.2% with the book's margin removed.",
-      "for": [
-       {
-        "factor": "results-based team rating",
-        "points": 4.3
-       },
-       {
-        "factor": "scoring versus points allowed",
-        "points": 2.2
-       },
-       {
-        "factor": "down-to-down success rate",
-        "points": 2.2
-       }
-      ],
-      "against": [
-       {
-        "factor": "backs as receivers",
-        "points": -0.7
-       }
-      ]
-     },
-     {
-      "game_id": "2026_10_SF_DAL",
-      "market": "ml",
-      "team": "SF",
-      "opp": "DAL",
-      "home_side": false,
-      "label": "SF moneyline",
-      "p": 0.6536,
-      "price": -205,
-      "market_p": 0.6447,
-      "edge": 0.0089,
-      "ev": -0.0275,
-      "dog": false,
-      "complete": true,
-      "net_checks": 3,
-      "checks": [
-       {
-        "check": "Home vs away",
-        "score": -0.7,
-        "verdict": "against",
-        "numbers": "SF is away; plays +0.06 EPA per play better at home than away, DAL -0.05."
-       },
-       {
-        "check": "Personnel",
-        "score": 0.03,
-        "verdict": "even",
-        "numbers": "Starters out: SF line 0, defence 0, skill 0; DAL line 0, defence 0, skill 0."
-       },
-       {
-        "check": "Offensive play-calling",
-        "score": 0.36,
-        "verdict": "for",
-        "numbers": "SF pass rate is -1.41 percentage points against expected, throws deep 21%, play-action 23%, motion 63%, no-huddle 6%, passes 53% in the red zone."
-       },
-       {
-        "check": "Defensive play-calling and pressure",
-        "score": -0.16,
-        "verdict": "even",
-        "numbers": "DAL defence blitzes 28% and pressures 15% of dropbacks; SF is expected to allow pressure on 14%. SF defence blitzes 29%; DAL expected to allow 13%."
-       },
-       {
-        "check": "Running backs vs defensive line, with line health",
-        "score": 0.71,
-        "verdict": "for",
-        "numbers": "SF runs vs DAL front: inside -0.02, outside +0.06 EPA per carry, stuffed 16%, 10+ yards 11%. DAL vs SF front: inside -0.07, outside -0.02, stuffed 17%."
-       },
-       {
-        "check": "Receivers: deep, slot area, outside",
-        "score": 0.56,
-        "verdict": "for",
-        "numbers": "SF receivers vs DAL coverage, EPA per target: deep +0.64, slot area +0.38, outside +0.23. DAL receivers vs SF: deep +0.47, slot area +0.20, outside +0.22."
-       },
-       {
-        "check": "Tight ends vs linebackers and safeties",
-        "score": 1.41,
-        "verdict": "for",
-        "numbers": "SF tight ends vs DAL: +0.30 EPA per target on 24% of targets. DAL tight ends vs SF: +0.09."
-       }
-      ],
-      "safe": true,
-      "model_number": 4.4,
-      "note": "Model 65.4% to win; the price implies 64.5% with the book's margin removed.",
-      "personnel": "Brock Purdy at quarterback rates +0.03 EPA per play against SF's recent starters.",
-      "for": [
-       {
-        "factor": "results-based team rating",
-        "points": 2.4
-       },
-       {
-        "factor": "down-to-down success rate",
-        "points": 1.2
-       },
-       {
-        "factor": "scoring versus points allowed",
-        "points": 1.2
-       }
-      ],
-      "against": [
-       {
-        "factor": "backs as receivers",
-        "points": -0.8
-       }
-      ]
-     }
-    ],
-    "n": 2,
-    "p": 0.5239,
-    "fair_price": -110,
-    "market_price": -121,
-    "market_decimal": 1.826,
-    "ev": -0.0435,
-    "dogs": 0
-   }
-  ],
+  "parlays": [],
   "spreads": [
    {
     "game_id": "2026_10_LA_ARI",
@@ -12278,6 +11719,16 @@
     "net_checks": 5
    },
    {
+    "game_id": "2026_10_SF_DAL",
+    "team": "SF",
+    "main_line": -3.5,
+    "main_p": 0.5019,
+    "safe_line": 2.5,
+    "p": 0.7039,
+    "fair_price": -238,
+    "net_checks": 3
+   },
+   {
     "game_id": "2026_10_LAC_BAL",
     "team": "BAL",
     "main_line": -4.5,
@@ -12285,16 +11736,6 @@
     "safe_line": 1.5,
     "p": 0.7093,
     "fair_price": -244,
-    "net_checks": 1
-   },
-   {
-    "game_id": "2026_10_MIA_IND",
-    "team": "IND",
-    "main_line": -3.5,
-    "main_p": 0.5047,
-    "safe_line": 2.5,
-    "p": 0.7068,
-    "fair_price": -241,
     "net_checks": 1
    },
    {
@@ -12310,11 +11751,11 @@
    {
     "game_id": "2026_10_KC_ATL",
     "team": "KC",
-    "main_line": -3.5,
-    "main_p": 0.5105,
-    "safe_line": 2.5,
-    "p": 0.7117,
-    "fair_price": -247,
+    "main_line": -3.0,
+    "main_p": 0.5123,
+    "safe_line": 3.0,
+    "p": 0.7131,
+    "fair_price": -249,
     "net_checks": 0
    },
    {
@@ -12331,7 +11772,7 @@
     "game_id": "2026_10_WAS_NYG",
     "team": "WAS",
     "main_line": 2.5,
-    "main_p": 0.5074,
+    "main_p": 0.5072,
     "safe_line": 8.5,
     "p": 0.7086,
     "fair_price": -243,
@@ -12356,23 +11797,13 @@
     "p": 0.7023,
     "fair_price": -236,
     "net_checks": -2
-   },
-   {
-    "game_id": "2026_10_SF_DAL",
-    "team": "DAL",
-    "main_line": 4.5,
-    "main_p": 0.5017,
-    "safe_line": 10.5,
-    "p": 0.7036,
-    "fair_price": -237,
-    "net_checks": -3
    }
   ]
  },
  "interception_threshold": 0.57,
  "odds": {
   "source": "DraftKings lines via ESPN",
-  "fetched_at": "2026-11-11 21:04 UTC",
+  "fetched_at": "2026-11-12 18:53 UTC",
   "games_updated": 14
  },
  "snipers": [
@@ -12381,7 +11812,7 @@
    "away": "WAS",
    "home": "NYG",
    "gameday": "2026-11-12",
-   "slips_considered": 107184,
+   "slips_considered": 107176,
    "bands": [
     {
      "label": "+150 to +200",
@@ -12397,7 +11828,7 @@
          "team": "NYG",
          "market": "spread",
          "label": "NYG -2.5",
-         "p": 0.4894,
+         "p": 0.4897,
          "net_checks": 1
         },
         {
@@ -12412,9 +11843,9 @@
          "label": "Isaiah Likely 20+ receiving yards"
         }
        ],
-       "p": 0.3783,
+       "p": 0.3785,
        "fair_price": 164,
-       "p_if_independent": 0.3808,
+       "p_if_independent": 0.381,
        "correlation_lift": 0.993,
        "trust": {
         "legs": 2,
@@ -12647,7 +12078,7 @@
          "team": "WAS",
          "market": "ml",
          "label": "WAS moneyline",
-         "p": 0.4202177918189729,
+         "p": 0.42003130677266787,
          "net_checks": -1
         },
         {
@@ -12684,9 +12115,9 @@
          "label": "Darnell Mooney 1+ receptions"
         }
        ],
-       "p": 0.212,
+       "p": 0.2119,
        "fair_price": 372,
-       "p_if_independent": 0.203,
+       "p_if_independent": 0.2029,
        "correlation_lift": 1.044,
        "trust": {
         "legs": 4,
@@ -12760,7 +12191,7 @@
          "team": "WAS",
          "market": "ml",
          "label": "WAS moneyline",
-         "p": 0.4202177918189729,
+         "p": 0.42003130677266787,
          "net_checks": -1
         },
         {
@@ -12797,9 +12228,9 @@
          "label": "Darnell Mooney 2+ receptions"
         }
        ],
-       "p": 0.1567,
+       "p": 0.1566,
        "fair_price": 538,
-       "p_if_independent": 0.1163,
+       "p_if_independent": 0.1162,
        "correlation_lift": 1.347,
        "trust": {
         "legs": 4,
@@ -12884,7 +12315,7 @@
          "team": "WAS",
          "market": "ml",
          "label": "WAS moneyline",
-         "p": 0.4202177918189729,
+         "p": 0.42003130677266787,
          "net_checks": -1
         },
         {
@@ -12933,7 +12364,7 @@
         }
        ],
        "p": 0.1238,
-       "fair_price": 707,
+       "fair_price": 708,
        "p_if_independent": 0.09,
        "correlation_lift": 1.376,
        "trust": {
@@ -12968,7 +12399,7 @@
          "market": "total",
          "team": null,
          "label": "Over 40.5",
-         "p": 0.5177270975243581
+         "p": 0.5183255268406473
         },
         {
          "kind": "prop",
@@ -12993,10 +12424,10 @@
          "label": "Austin Ekeler 20+ rushing yards"
         }
        ],
-       "p": 0.0765,
-       "fair_price": 1207,
-       "p_if_independent": 0.0564,
-       "correlation_lift": 1.356,
+       "p": 0.0766,
+       "fair_price": 1205,
+       "p_if_independent": 0.0565,
+       "correlation_lift": 1.357,
        "trust": {
         "legs": 4,
         "legs_in_calibrated_prop_band": 1,
@@ -13158,6 +12589,400 @@
        }
       }
      ]
+    }
+   ]
+  }
+ ],
+ "featured": [
+  {
+   "game_id": "2026_10_WAS_NYG",
+   "away": "WAS",
+   "home": "NYG",
+   "slips": [
+    {
+     "band": "6-leg props",
+     "script": "6-leg props",
+     "read": "6-leg props",
+     "note": "Six props, each close to a 78% chance.",
+     "legs": [
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 1,
+       "p": 0.8305,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0037256",
+       "matchup": "even",
+       "hits": 7,
+       "n": 7,
+       "label": "Rachaad White 1+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.7699,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0041042",
+       "matchup": "even",
+       "hits": 8,
+       "n": 8,
+       "label": "Malachi Fields 2+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.8644,
+       "team": "NYG",
+       "pos": "TE",
+       "player_id": "00-0037838",
+       "matchup": "for",
+       "hits": 8,
+       "n": 8,
+       "label": "Isaiah Likely 2+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 5,
+       "p": 0.7741,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0039337",
+       "matchup": "even",
+       "hits": 7,
+       "n": 8,
+       "label": "Malik Nabers 5+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 1,
+       "p": 0.7576,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0033699",
+       "matchup": "even",
+       "hits": 4,
+       "n": 5,
+       "label": "Austin Ekeler 1+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rush_yds",
+       "k": 20,
+       "p": 0.8346,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0037256",
+       "matchup": "even",
+       "hits": 6,
+       "n": 7,
+       "label": "Rachaad White 20+ rushing yards"
+      }
+     ],
+     "p": 0.2695,
+     "fair_price": 271,
+     "p_if_independent": 0.2705,
+     "correlation_lift": 0.996,
+     "trust": {
+      "legs": 6,
+      "legs_in_calibrated_prop_band": 6,
+      "touchdown_legs": 0,
+      "game_legs": 0
+     }
+    },
+    {
+     "band": "8-leg props",
+     "script": "8-leg props",
+     "read": "8-leg props",
+     "note": "The 6-leg slip plus two more.",
+     "legs": [
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 1,
+       "p": 0.8305,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0037256",
+       "matchup": "even",
+       "hits": 7,
+       "n": 7,
+       "label": "Rachaad White 1+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.7699,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0041042",
+       "matchup": "even",
+       "hits": 8,
+       "n": 8,
+       "label": "Malachi Fields 2+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.8644,
+       "team": "NYG",
+       "pos": "TE",
+       "player_id": "00-0037838",
+       "matchup": "for",
+       "hits": 8,
+       "n": 8,
+       "label": "Isaiah Likely 2+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 5,
+       "p": 0.7741,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0039337",
+       "matchup": "even",
+       "hits": 7,
+       "n": 8,
+       "label": "Malik Nabers 5+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 1,
+       "p": 0.7576,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0033699",
+       "matchup": "even",
+       "hits": 4,
+       "n": 5,
+       "label": "Austin Ekeler 1+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rush_yds",
+       "k": 20,
+       "p": 0.8346,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0037256",
+       "matchup": "even",
+       "hits": 6,
+       "n": 7,
+       "label": "Rachaad White 20+ rushing yards"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 1,
+       "p": 0.8241,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0036309",
+       "matchup": "even",
+       "hits": 6,
+       "n": 8,
+       "label": "Darnell Mooney 1+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.844,
+       "team": "WAS",
+       "pos": "TE",
+       "player_id": "00-0037809",
+       "matchup": "against",
+       "hits": 6,
+       "n": 6,
+       "label": "Chig Okonkwo 2+ receptions"
+      }
+     ],
+     "p": 0.1889,
+     "fair_price": 429,
+     "p_if_independent": 0.1882,
+     "correlation_lift": 1.004,
+     "trust": {
+      "legs": 8,
+      "legs_in_calibrated_prop_band": 8,
+      "touchdown_legs": 0,
+      "game_legs": 0
+     }
+    },
+    {
+     "band": "Hybrid: 1 touchdown + 4 props",
+     "script": "Hybrid: 1 touchdown + 4 props",
+     "read": "Hybrid: 1 touchdown + 4 props",
+     "note": "The game's most likely eligible scorer with four props.",
+     "legs": [
+      {
+       "kind": "atd",
+       "label": "Malik Nabers anytime TD",
+       "p": 0.3028,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0039337",
+       "matchup": "even"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 1,
+       "p": 0.8305,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0037256",
+       "matchup": "even",
+       "hits": 7,
+       "n": 7,
+       "label": "Rachaad White 1+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.7699,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0041042",
+       "matchup": "even",
+       "hits": 8,
+       "n": 8,
+       "label": "Malachi Fields 2+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.8644,
+       "team": "NYG",
+       "pos": "TE",
+       "player_id": "00-0037838",
+       "matchup": "for",
+       "hits": 8,
+       "n": 8,
+       "label": "Isaiah Likely 2+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 5,
+       "p": 0.7741,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0039337",
+       "matchup": "even",
+       "hits": 7,
+       "n": 8,
+       "label": "Malik Nabers 5+ receptions"
+      }
+     ],
+     "p": 0.1474,
+     "fair_price": 578,
+     "p_if_independent": 0.1296,
+     "correlation_lift": 1.138,
+     "trust": {
+      "legs": 5,
+      "legs_in_calibrated_prop_band": 4,
+      "touchdown_legs": 1,
+      "game_legs": 0
+     }
+    },
+    {
+     "band": "Hybrid: 2 touchdowns + 4 props",
+     "script": "Hybrid: 2 touchdowns + 4 props",
+     "read": "Hybrid: 2 touchdowns + 4 props",
+     "note": "One scorer from each team with four props.",
+     "legs": [
+      {
+       "kind": "atd",
+       "label": "Malik Nabers anytime TD",
+       "p": 0.3028,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0039337",
+       "matchup": "even"
+      },
+      {
+       "kind": "atd",
+       "label": "Rachaad White anytime TD",
+       "p": 0.299,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0037256",
+       "matchup": "even"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 1,
+       "p": 0.8305,
+       "team": "WAS",
+       "pos": "RB",
+       "player_id": "00-0037256",
+       "matchup": "even",
+       "hits": 7,
+       "n": 7,
+       "label": "Rachaad White 1+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.7699,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0041042",
+       "matchup": "even",
+       "hits": 8,
+       "n": 8,
+       "label": "Malachi Fields 2+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 2,
+       "p": 0.8644,
+       "team": "NYG",
+       "pos": "TE",
+       "player_id": "00-0037838",
+       "matchup": "for",
+       "hits": 8,
+       "n": 8,
+       "label": "Isaiah Likely 2+ receptions"
+      },
+      {
+       "kind": "prop",
+       "mk": "rec",
+       "k": 5,
+       "p": 0.7741,
+       "team": "NYG",
+       "pos": "WR",
+       "player_id": "00-0039337",
+       "matchup": "even",
+       "hits": 7,
+       "n": 8,
+       "label": "Malik Nabers 5+ receptions"
+      }
+     ],
+     "p": 0.0471,
+     "fair_price": 2022,
+     "p_if_independent": 0.0387,
+     "correlation_lift": 1.217,
+     "trust": {
+      "legs": 6,
+      "legs_in_calibrated_prop_band": 4,
+      "touchdown_legs": 2,
+      "game_legs": 0
+     }
     }
    ]
   }
