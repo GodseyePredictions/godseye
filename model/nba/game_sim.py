@@ -159,7 +159,7 @@ def missing_value(P: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
         return P["s_" + c] + w * P["prev_" + c]
     gs = (tot("pts") + 0.4 * tot("fgm") - 0.7 * tot("fga") - 0.4 * (tot("fta") - tot("ftm")) + 0.7 * tot("oreb") + 0.3 * tot("dreb")
           + tot("stl") + 0.7 * tot("ast") + 0.7 * tot("blk") - 0.4 * tot("pf") - tot("tov")) / (tot("min") + 200)
-    val = (P.base_min.fillna(0) * gs).where((P.exp_out == 1) & (P.base_min >= cfg["rotation_min"]) & (P.last_team == P.team_id), 0.0)
+    val = (P.base_min.fillna(0) * gs).where((P.exp_out == 1) & (P.base_min >= cfg["rotation_min"]) & (P.last_team == P.team_id) & (P.s_n > 0), 0.0)
     v = P.assign(v=val).groupby(["game_id", "team_id"]).agg(v=("v", "sum"), tip=("tip", "first")).reset_index().sort_values("tip")
     v["baked"] = v.groupby("team_id").v.transform(lambda x: x.shift(1).rolling(cfg["missing_window_games"], min_periods=1).mean()).fillna(0)
     v["missing"] = v.v - v.baked

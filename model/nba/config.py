@@ -43,7 +43,8 @@ CONFIG = {
     "role_change_minutes": 6.0,          # last-5 minutes this far from season minutes = role change
     "role_starter_share": 0.5,           # started at least this share of recent games = starter
     "role_sixth_min": 22.0, "role_rotation_min": 12.0,
-    "reconcile_floor": 0.10,             # share of the 240-minute reconciliation every player takes regardless of sample
+    "reconcile_floor": 0.10,
+    "reconcile_starter_shield": 0.3,     # share of the 240-minute squeeze an established starter is spared             # share of the 240-minute reconciliation every player takes regardless of sample
     "min_prior_games": 8,                # shrinkage strength (in games) for a player's minutes
     "team_effect_prior_games": 25,       # shrinkage for a team's (coach's) blowout habits
     "ramp_minutes_factor": [0.80, 0.86, 0.91, 0.95, 0.98],   # starting point; refitted from history
@@ -80,7 +81,8 @@ CONFIG = {
     "missing_window_games": 15,
 
     # ---- player stat models -----------------------------------------------------------------
-    "last_season_weight": 0.45,          # weight of a last-season minute relative to a this-season minute
+    "last_season_weight": 0.45,
+    "team_change_prev_factor": 0.4,      # last season counts this much less for a player who has changed team          # weight of a last-season minute relative to a this-season minute
     "rate_prior_minutes": {"pts": 250, "reb": 250, "ast": 300, "fg3m": 500, "stl": 700, "blk": 700,
                            "fga": 250, "fg3a": 350, "fta": 350},
     "form_games": 5,

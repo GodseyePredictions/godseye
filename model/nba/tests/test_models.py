@@ -88,12 +88,17 @@ def test_missing_teammate_moves_minutes_to_others():
                          "tip": pd.Timestamp("2026-01-01", tz="UTC") + pd.Timedelta(days=2 * g), "pending": 0,
                          "played": int(played), "min": m if played else 0, "fga": 10 if played else 0, "fg3a": 3 if played else 0,
                          "fta": 2 if played else 0, "reb": 4 if played else 0, "ast": 3 if played else 0, "pts": 12 if played else 0,
-                         "base_min": mins, "last_team": "T", "exp_out": int(k == 0 and g == 29)})
+                         "base_min": mins, "last_team": "T", "exp_out": int(k == 0 and g == 29), "s_n": g})
     P = pd.DataFrame(rows)
     io = inout.adjustments(P, CONFIG)
     last = io[io.game_id == "g29"].set_index("player_id")
     assert "p0" not in last.index                                   # the absent player gets no row
     assert last.loc["p4", "io_min"] > 0.05 and "P0 out" in last.loc["p4", "io_notes"] and "with/without" in last.loc["p4", "io_notes"]
+    # a player who is out but has not played this season is already missing from every baseline: no adjustment
+    P2 = P.copy()
+    P2.loc[P2.player_id == "p0", "s_n"] = 0
+    never = inout.adjustments(P2, CONFIG)
+    assert abs(never[never.game_id == "g29"].set_index("player_id").loc["p4", "io_min"]) < 1e-9
     early = io[io.game_id == "g05"].set_index("player_id")
     assert abs(early.loc["p4", "io_min"]) < 1e-9                    # nobody out and no history of absences: no adjustment
 

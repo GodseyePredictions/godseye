@@ -27,7 +27,7 @@ def baseline_minutes(P: pd.DataFrame, cfg=CONFIG) -> pd.Series:
     l5 = P.l5_min / P.l5_n.replace(0, np.nan)
     l10 = P.l10_min / P.l10_n.replace(0, np.nan)
     prev = P.prev_min / P.prev_n.replace(0, np.nan)
-    k = cfg["min_prior_games"]
+    k = cfg["min_prior_games"] * P.get("prev_w", 1.0)
     s = (P.s_min + k * prev.fillna(l10).fillna(0)) / (P.s_n + k).where(prev.notna() | l10.notna(), P.s_n.replace(0, np.nan))
     s = s.fillna(l10).fillna(prev)
     l5, l10 = l5.fillna(s), l10.fillna(s)
@@ -70,8 +70,16 @@ def adjustments(P: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
             exp_out = g.exp_out.to_numpy().astype(bool)
             grp = g.grp.to_numpy()
             names, pend, was_played, pids = g["name"].to_numpy(), g.pending.to_numpy(), g.played.to_numpy(), g.player_id.to_numpy()
+            # dressed but not used (coach's decision) is not an absence: he was available and the rotation
+            # already reflects that. Only a player who was unavailable counts as "out" in the with/without tables.
+            benched = np.zeros(n, bool)
+            if "reason" in g:
+                benched[i_all[g.reason.fillna("").str.upper().str.contains("COACH").to_numpy()]] = True
             # ---- tonight's adjustment, from pair tables that hold earlier games only
-            rot_mask = (base >= rot) & (g.last_team.to_numpy() == team)
+            # A teammate only counts as "in or out" if he has played for this team this season. Someone who has
+            # been out all season is already absent from every baseline; treating him as newly out would hand
+            # his last-season minutes to teammates a second time.
+            rot_mask = (base >= rot) & (g.last_team.to_numpy() == team) & (g.s_n.fillna(0).to_numpy() > 0)
             jj = np.where(rot_mask)[0]
             for a in range(len(g)):
                 i = i_all[a]
@@ -126,7 +134,7 @@ def adjustments(P: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
             mins[i_all[pl]] = g["min"].to_numpy()[pl]
             X[i_all[pl]] = g[STATS].to_numpy(float)[pl]
             seen |= played
-            absent = seen & ~played
+            absent = seen & ~played & ~benched
             pi = np.where(played)[0]
             with_n[np.ix_(pi, pi)] += 1; with_min[np.ix_(pi, pi)] += mins[pi][:, None]
             with_x[np.ix_(pi, pi)] += X[pi][:, None, :]

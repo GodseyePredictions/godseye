@@ -168,7 +168,11 @@ function TicketCard({ t, game }: { t: Ticket; game: Game }) {
               Price is {BOOK}&apos;s leg prices multiplied together. Its same-game price will be lower.
             </span>
           )}
-          {t.ev != null && t.ev < 0 && <span className="pill bad">Negative value at these prices by the model&apos;s numbers</span>}
+          {t.ev != null && t.ev < 0 && (
+            <span className="pill neutral">
+              The model rates this below {BOOK}&apos;s price. On the first graded slate the book&apos;s prices were the more accurate.
+            </span>
+          )}
         </>
       )}
     </div>
@@ -420,7 +424,7 @@ function MultiTab() {
                 {american(m.book_price)}
               </p>
             </div>
-            {m.ev != null && <span className={`pill ${m.ev < 0 ? "bad" : "good"}`}>Value {signed(m.ev * 100)}%</span>}
+            {m.ev != null && <span className="pill neutral">Model vs price {signed(m.ev * 100)}%</span>}
           </div>
           <div className="nba-tickets">
             {m.parts.map((p) => (
@@ -615,12 +619,12 @@ function ModelTab() {
     ["Every number explained", "Each projection lists what moved it from the player's baseline."],
   ];
   const tested = [
-    ["Legs the model called 70 to 80%", "hit 77.4%", "78,913 legs"],
-    ["Legs the model called 80 to 90%", "hit 86.7%", "71,264 legs"],
+    ["Legs the model called 70 to 80%", "hit 77.1%", "79,294 legs"],
+    ["Legs the model called 80 to 90%", "hit 86.3%", "71,821 legs"],
     ["Final margin inside the simulated 10 to 90% band", "79.4% of games", "target 80%"],
     ["Blowouts", "predicted 45.7%, actual 47.0%", "2,462 games"],
-    ["4-leg tickets", "modelled 65.2%, hit 69.0%", "2,462 tickets"],
-    ["6-leg tickets", "modelled 49.5%, hit 55.1%", "2,462 tickets"],
+    ["4-leg tickets", "modelled 63.0%, hit 64.8%", "2,462 tickets"],
+    ["6-leg tickets", "modelled 46.4%, hit 51.0%", "2,462 tickets"],
   ];
   return (
     <>
