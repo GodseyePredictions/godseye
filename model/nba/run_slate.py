@@ -262,6 +262,7 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
     (OUT / "nba_slate.json").write_text(json.dumps(_clean(payload), indent=1, default=str))
     if not only:
         write_site_file(payload)
+    write_track_file(con)
     ids.write_review()
     if not quiet:
         print("\n\n".join(texts))
@@ -311,6 +312,44 @@ def write_site_file(payload: dict) -> None:
     (OUT / "nba_site.json").write_text(json.dumps(_clean(site), default=str, allow_nan=False))
 
 
+def write_track_file(con) -> dict:
+    """Every slip issued, by slate, with its result once graded (output/nba_track.json, read by the website).
+    For each date the last full-slate run is the issued one. Model-only preview tickets are not tracked."""
+    runs = pd.read_sql("SELECT slate_date, run_id, run_at FROM nba_runs WHERE kind='slate' ORDER BY run_at", con)
+    runs = runs.drop_duplicates("slate_date", keep="last")
+    sched = pd.read_sql("SELECT game_id, away || ' @ ' || home m FROM schedule", con).set_index("game_id").m.to_dict()
+    slates, totals = [], {}
+    for r in runs.itertuples():
+        T = pd.read_sql("SELECT * FROM nba_tickets WHERE run_id=? AND type NOT LIKE 'preview%'", con, params=[r.run_id])
+        if T.empty:
+            continue
+        L = pd.read_sql("SELECT leg_id, label, model_prob, price, result, actual FROM nba_legs WHERE run_id=?", con,
+                        params=[r.run_id]).set_index("leg_id")
+        tickets = []
+        for t in T.itertuples():
+            legs = [{"label": L.label[i], "p": float(L.model_prob[i]), "price": None if pd.isna(L.price[i]) else float(L.price[i]),
+                     "result": L.result[i] if isinstance(L.result[i], str) else "pending",
+                     "actual": None if pd.isna(L.actual[i]) else float(L.actual[i])} for i in json.loads(t.leg_ids) if i in L.index]
+            res = [l["result"] for l in legs]
+            result = ("pending" if "pending" in res else "lost" if "lost" in res else
+                      "void" if all(x == "void" for x in res) else "won")
+            tickets.append({"id": t.ticket_id, "game": sched.get(t.game_id, "Multi-game"), "type": t.type, "result": result,
+                            "joint": float(t.joint_prob), "price": None if pd.isna(t.book_price) else float(t.book_price),
+                            "placed": t.status == "placed", "hit": sum(x == "won" for x in res), "n": len(legs), "legs": legs})
+            if result in ("won", "lost"):
+                d = totals.setdefault(t.type, {"tickets": 0, "won": 0, "expected": 0.0, "units": 0.0})
+                d["tickets"] += 1; d["won"] += result == "won"; d["expected"] += float(t.joint_prob)
+                if tickets[-1]["price"]:
+                    px = tickets[-1]["price"]
+                    d["units"] += ((px / 100 if px > 0 else 100 / -px) if result == "won" else -1.0)
+        graded = [t for t in tickets if t["result"] in ("won", "lost")]
+        slates.append({"date": r.slate_date, "issued_at": r.run_at, "tickets": tickets, "graded": len(graded),
+                       "won": sum(t["result"] == "won" for t in graded)})
+    out = {"made_at": ledger.now(), "slates": slates[::-1], "totals": totals}
+    (OUT / "nba_track.json").write_text(json.dumps(_clean(out), default=str, allow_nan=False))
+    return out
+
+
 def watch(con, cfg=CONFIG) -> dict:
     """Pull the late-changing data, and re-run only the games where someone's status changed."""
     refresh.gameday(con)
@@ -346,3 +385,4 @@ if __name__ == "__main__":
         d = args[1] if len(args) > 1 else (datetime.now(timezone.utc) - timedelta(hours=29)).date().isoformat()
         refresh.daily(con) if do_refresh else None
         print(grading.grade_date(con, d)["text"])
+        write_track_file(con)
