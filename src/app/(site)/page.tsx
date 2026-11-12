@@ -436,7 +436,7 @@ export default function Home() {
                   <li>4-leg, 6-leg and 8-leg props SGPs for every game</li>
                   <li>Game script card: pace, margin, blowout risk</li>
                   <li>Projection board with the reasons for every number</li>
-                  <li>Availability from the official injury report</li>
+                  <li>A track record of every slip issued, graded nightly</li>
                 </ul>
                 <span className="btn btn-primary">Open NBA</span>
               </Link>

@@ -3,6 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
 import raw from "../../model/nba/output/nba_site.json";
+import rawTrack from "../../model/nba/output/nba_track.json";
 
 /* The NBA side of the console. It mirrors the NFL console's layout and reads the latest slate
    written by `python3 -m nba.run_slate` (model/nba/output/nba_site.json). */
@@ -75,15 +76,24 @@ type Multi = {
   parts: { matchup: string; joint: number; legs: Leg[] }[];
 };
 const slate = raw as unknown as { run_at: string; n_sims: number; games: Game[]; book: string | null; multi: Multi[] };
+type TrackLeg = { label: string; p: number; price: number | null; result: string; actual: number | null };
+type TrackTicket = { id: string; game: string; type: string; result: string; joint: number; price: number | null; hit: number; n: number; legs: TrackLeg[] };
+const track = rawTrack as unknown as {
+  made_at: string;
+  slates: { date: string; issued_at: string; graded: number; won: number; tickets: TrackTicket[] }[];
+  totals: Record<string, { tickets: number; won: number; expected: number; units: number }>;
+};
 const BOOK = slate.book === "draftkings" ? "DraftKings" : slate.book === "bet365" ? "bet365" : "the book";
 
-const TABS = ["home", "sgp", "multi", "board", "scripts", "avail", "model"] as const;
+const TABS = ["home", "sgp", "multi", "track", "board", "scripts", "avail", "model"] as const;
 type Tab = (typeof TABS)[number];
 
 const TICKET_NAMES: Record<string, string> = {
   props_4: "4-leg props SGP",
   props_6: "6-leg props SGP",
   props_8: "8-leg props SGP",
+  multi_12: "12 props, 3 games",
+  multi_15: "15 props, 3 games",
   game_script: "Game-script SGP",
   double_double: "Double-double ticket",
 };
@@ -451,6 +461,124 @@ function MultiTab() {
   );
 }
 
+function ResultPill({ r }: { r: string }) {
+  const cls = r === "won" ? "good" : r === "lost" ? "bad" : r === "pending" ? "gold" : "neutral";
+  return <span className={`pill ${cls}`}>{r === "won" ? "Cashed" : r === "lost" ? "Lost" : r === "pending" ? "Pending" : "Void"}</span>;
+}
+
+function TrackTab() {
+  const [open, setOpen] = useState<string | null>(null);
+  const order = ["props_4", "props_6", "props_8", "multi_12", "multi_15"];
+  const rows = order.filter((k) => track.totals[k]).map((k) => ({ k, ...track.totals[k] }));
+  const all = rows.reduce((a, r) => ({ tickets: a.tickets + r.tickets, won: a.won + r.won, expected: a.expected + r.expected, units: a.units + r.units }), { tickets: 0, won: 0, expected: 0, units: 0 });
+  return (
+    <>
+      <section className="panel">
+        <div className="section-head">
+          <div>
+            <h2>Track record</h2>
+            <p className="sub">Every slip issued here, graded from the official box score. Updated {builtAt(track.made_at)}.</p>
+          </div>
+        </div>
+        {rows.length === 0 ? (
+          <p className="empty">Nothing graded yet.</p>
+        ) : (
+          <div className="scroll">
+            <table className="tbl">
+              <thead>
+                <tr>
+                  <th>Slip</th>
+                  <th>Graded</th>
+                  <th>Cashed</th>
+                  <th>Model expected</th>
+                  <th>Units at 1 per slip</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...rows, { k: "all", ...all }].map((r) => (
+                  <tr key={r.k}>
+                    <td>{r.k === "all" ? <b>All slips</b> : (TICKET_NAMES[r.k] ?? r.k)}</td>
+                    <td className="num">{r.tickets}</td>
+                    <td className="num">{r.won}</td>
+                    <td className="num">{r.expected.toFixed(1)}</td>
+                    <td className="num">{signed(r.units)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        <p className="sub">
+          Units use {BOOK}&apos;s leg prices multiplied together; a real same-game price pays less. A short record like this one is mostly
+          luck in either direction.
+        </p>
+      </section>
+      {track.slates.map((sl) => (
+        <section className="panel" key={sl.date}>
+          <div className="section-head">
+            <div>
+              <h2>{new Date(sl.date + "T12:00:00Z").toLocaleDateString("en-CA", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" })}</h2>
+              <p className="sub">
+                Issued {builtAt(sl.issued_at)} · {sl.graded ? `${sl.won} of ${sl.graded} cashed` : `${sl.tickets.length} slips pending`}
+              </p>
+            </div>
+          </div>
+          <div className="scroll">
+            <table className="tbl">
+              <thead>
+                <tr>
+                  <th>Game</th>
+                  <th>Slip</th>
+                  <th>Result</th>
+                  <th>Legs hit</th>
+                  <th>Model chance</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sl.tickets.map((t) => (
+                  <TrackRow key={t.id} t={t} open={open === t.id} toggle={() => setOpen(open === t.id ? null : t.id)} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+    </>
+  );
+}
+
+function TrackRow({ t, open, toggle }: { t: TrackTicket; open: boolean; toggle: () => void }) {
+  return (
+    <>
+      <tr onClick={toggle} style={{ cursor: "pointer" }}>
+        <td>{t.game}</td>
+        <td>{TICKET_NAMES[t.type] ?? t.type}</td>
+        <td>
+          <ResultPill r={t.result} />
+        </td>
+        <td className="num">{t.result === "pending" ? `${t.n} legs` : `${t.hit} of ${t.n}`}</td>
+        <td className="num">{pct(t.joint, 1)}</td>
+        <td className="num">{american(t.price)}</td>
+      </tr>
+      {open && (
+        <tr>
+          <td colSpan={6}>
+            <ul className="why">
+              {t.legs.map((l) => (
+                <li key={l.label}>
+                  {l.label} · model {pct(l.p)} · {american(l.price)} · <ResultPill r={l.result} />
+                  {l.actual != null && l.result !== "void" ? ` (finished with ${l.actual})` : ""}
+                </li>
+              ))}
+            </ul>
+          </td>
+        </tr>
+      )}
+    </>
+  );
+}
+
 function BoardTab() {
   const [gid, setGid] = useState(slate.games[0]?.id ?? "");
   const [open, setOpen] = useState<string | null>(null);
@@ -705,6 +833,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
     ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
+    ["track", "Track record", "M5 20V10M12 20V4M19 20v-7"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["scripts", "Game scripts", "M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3"],
     ["avail", "Availability", "M4 12l5 5L20 6"],
@@ -739,7 +868,8 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
           {nav.map(([id, label, d], i) => (
             <span key={id} style={{ display: "contents" }}>
               {i === 1 && <span className="navgrp">Picks</span>}
-              {i === 6 && <span className="navgrp">Model</span>}
+              {i === 4 && <span className="navgrp">Tools</span>}
+              {i === 7 && <span className="navgrp">Model</span>}
               <a href={`#${prefix}${id}`} aria-current={tab === id ? "page" : "false"}>
                 <Icon d={d} />
                 {label}
@@ -751,6 +881,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
           {tab === "home" && <HomeTab prefix={prefix} />}
           {tab === "sgp" && <SgpTab />}
           {tab === "multi" && <MultiTab />}
+          {tab === "track" && <TrackTab />}
           {tab === "board" && <BoardTab />}
           {tab === "scripts" && slate.games.map((g) => <ScriptCard g={g} key={g.id} />)}
           {tab === "avail" && <AvailTab />}
