@@ -79,6 +79,12 @@ def audit():
     for p in D["players"]:
         priced.setdefault(p["team"], {})[k1(p["name"])] = p
         priced_loose.setdefault(p["team"], {})[loose1(p["name"])] = p
+    live = HERE / "data/live_odds.json"   # games that have kicked off are no longer audited
+    if live.exists():
+        states = json.loads(live.read_text())["games"]
+        for g in D["games"]:
+            if states.get(f"{g['away']}@{g['home']}", {}).get("state", "pre") != "pre":
+                g["started"] = True
     playing = {t for g in D["games"] if not g.get("started") for t in (g["home"], g["away"])}
     game_of = {t: g["id"] for g in D["games"] for t in (g["home"], g["away"])}
 
@@ -127,11 +133,20 @@ def audit():
                        + ", but the snapshot has no number for him.")
                 alerts.append({**base, "type": "NOT_PRICED", "severity": "watch" if pending else "high", "why": why})
                 missing_by_pos.setdefault(r.pos, []).append(r.name)
-            else:
-                p = team_priced.get(r.key) or team_loose[lk]
-                if status in ("Out", "Doubtful") or (on_roster is not None and on_roster != "ACT"):
-                    alerts.append({**base, "type": "PRICED_BUT_OUT", "severity": "high", "snapshot_p": p["p"],
-                                   "why": f"priced at {p['p']:.0%} in the snapshot but now {status or 'off the active roster (' + str(on_roster) + ')'}."})
+        # Every priced player, whatever his role, is checked against today's report and roster.
+        for kname, p in team_priced.items():
+            lk = loose1(p["name"])
+            rep = report.get((team, kname)) or report.get((team, lk))
+            status = None if rep is None or pd.isna(rep.report_status) else rep.report_status
+            on_roster = active.get((team, kname)) or active.get((team, lk))
+            base = {"team": team, "game_id": game_of.get(team), "player": p["name"], "pos": p["pos"], "snapshot_p": p["p"],
+                    "report_status": status, "roster_status": on_roster, "resolved": kname in resolved}
+            if status in ("Out", "Doubtful") or (on_roster is not None and on_roster != "ACT"):
+                alerts.append({**base, "type": "PRICED_BUT_OUT", "severity": "high",
+                               "why": f"priced at {p['p']:.0%} in the snapshot but now {status or 'off the active roster (' + str(on_roster) + ')'}."})
+            elif status == "Questionable" and not p.get("singles"):
+                alerts.append({**base, "type": "QUESTIONABLE", "severity": "high",
+                               "why": f"priced at {p['p']:.0%} and now listed Questionable. Standing rule: Questionable players are singles only."})
         for pos, names in missing_by_pos.items():
             for kname, p in team_priced.items():
                 if p["pos"] == pos and not p.get("singles") and p["p"] >= 0.10:
@@ -143,11 +158,12 @@ def audit():
                            "why": "This week's injury report is not posted yet. Re-run after it posts."})
     out = {"season": season, "week": week, "snapshot_built": D["meta"].get("built"), "snapshot_injuries_as_of": D["meta"].get("data_asof"),
            "teams_with_report_posted": sorted(posted & playing), "alerts": alerts,
+           "started_games": [g["id"] for g in D["games"] if g.get("started")],
            "open": [a for a in alerts if not a.get("resolved") and a["type"] != "REPORT_PENDING"]}
     # What the pick builders must keep off every slip, ticket and hybrid until the alert is cleared.
-    out["hold_players"] = sorted({f"{a['team']}|{k1(a['player'])}" for a in out["open"] if a["type"] in ("ROLE_AT_RISK", "PRICED_BUT_OUT")})
+    out["hold_players"] = sorted({f"{a['team']}|{k1(a['player'])}" for a in out["open"] if a["type"] in ("ROLE_AT_RISK", "PRICED_BUT_OUT", "QUESTIONABLE")})
     out["hold_games"] = sorted({a["game_id"] for a in out["open"]
-                                if a.get("game_id") and (a["type"] == "TEAM_NOT_PRICED" or (a.get("pos") == "QB" and a["type"] in ("NOT_PRICED", "ROLE_AT_RISK", "PRICED_BUT_OUT")))})
+                                if a.get("game_id") and (a["type"] == "TEAM_NOT_PRICED" or (a.get("pos") == "QB" and a["type"] in ("NOT_PRICED", "ROLE_AT_RISK", "PRICED_BUT_OUT", "QUESTIONABLE")))})
     return out
 
 
@@ -172,7 +188,7 @@ def main():
     D = json.loads(CONSOLE_DATA.read_text(encoding="utf8").strip()[len("const D = "):].rstrip(";"))
     ids = {(p["team"], k1(p["name"])): p["id"] for p in D["players"]}
     confirmed = {ids[(a["team"], k1(a["player"]))]: a["why"] for a in out["open"]
-                 if a["severity"] == "high" and a["type"] in ("ROLE_AT_RISK", "PRICED_BUT_OUT") and (a["team"], k1(a["player"])) in ids}
+                 if a["severity"] == "high" and a["type"] in ("ROLE_AT_RISK", "PRICED_BUT_OUT", "QUESTIONABLE") and (a["team"], k1(a["player"])) in ids}
     (CONSOLE_DATA.parent / "freshness-update.js").write_text(JS.replace("__PAYLOAD__", json.dumps(confirmed)), encoding="utf8")
     out["confirmed_holds_in_console"] = len(confirmed)
     (HERE / "output").mkdir(exist_ok=True)

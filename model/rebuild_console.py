@@ -39,15 +39,18 @@ def main():
     P = {p["id"]: p for p in D["players"]}
     ids = {(p["team"], k1(p["name"])): p["id"] for p in D["players"]}
     confirmed = {ids[(a["team"], k1(a["player"]))] for a in fresh["open"]
-                 if a["severity"] == "high" and a["type"] in ("ROLE_AT_RISK", "PRICED_BUT_OUT") and (a["team"], k1(a["player"])) in ids}
+                 if a["severity"] == "high" and a["type"] in ("ROLE_AT_RISK", "PRICED_BUT_OUT", "QUESTIONABLE") and (a["team"], k1(a["player"])) in ids}
     held = {i for (t, n), i in ids.items() if f"{t}|{n}" in set(fresh["hold_players"])}
     withdrawn = stale | confirmed
     excluded = withdrawn | held
-    games = sorted({P[i]["game"] for i in withdrawn if i in P})
+    done = set(fresh.get("started_games", []))
+    games = sorted({P[i]["game"] for i in withdrawn if i in P} - done)
     atd_corr, leg_corr = D["corr"]["atd"], D["corr"]["legs"]
 
     def rho(a, b):
         pa, pb = P[a["id"]], P[b["id"]]
+        if pa["game"] != pb["game"]:
+            return 0.0   # legs in different games do not move together
         same = a["id"] == b["id"]
         rel = "SELF" if same else ("TM" if pa["team"] == pb["team"] else "OPP")
         if a["mk"] == "atd" and b["mk"] == "atd":
@@ -79,6 +82,48 @@ def main():
                 "hits": int(m["hits"][i]) if m.get("hits") else None, "n": m.get("n")}
 
     payload = {"sgp": {}, "script": {}, "props": {}, "games": games}
+
+    # --- Touchdown parlays under Algorithm picks: rebuilt whenever anyone is withdrawn, across every open game
+    blocked_games = done | set(fresh.get("hold_games", []))
+    pool = sorted([p for p in D["players"] if not p.get("singles") and p["id"] not in excluded and p["game"] not in blocked_games],
+                  key=lambda p: -p["p"])
+    td = lambda p: {"id": p["id"], "mk": "atd", "p": float(p["p"])}
+
+    def ticket(players):
+        legs = [td(p) for p in players]
+        return {"n": len(legs), "legs": [l["id"] for l in legs], "p": round(joint(legs), 5)}
+
+    def pick(n, positions=None, cap=None, need_wr=False):
+        """Best n scorers, one per team, optionally limited by position and by how many may share a position."""
+        chosen, teams, count = [], set(), {}
+        first = [next((p for p in pool if p["pos"] == "WR"), None)] if need_wr else []
+        for p in [x for x in first if x] + pool:
+            if len(chosen) == n:
+                break
+            if p in chosen or p["team"] in teams or (positions and p["pos"] not in positions):
+                continue
+            if cap and count.get(p["pos"], 0) >= cap:
+                continue
+            chosen.append(p); teams.add(p["team"]); count[p["pos"]] = count.get(p["pos"], 0) + 1
+        return sorted(chosen, key=lambda p: -p["p"]) if len(chosen) == n else None
+
+    styles = {"chalk": [pick(n) for n in (4, 6, 8, 10, 12)],
+              "balanced": [pick(n, cap=n // 2, need_wr=True) for n in (4, 6, 8, 10, 12)],
+              "air": [pick(n, positions=("WR", "TE")) for n in (4, 6, 8)]}
+    payload["atd_styles"] = {k: [ticket(t) for t in v if t] for k, v in styles.items()}
+    combos = []
+    for g in D["games"]:
+        if g["id"] in blocked_games:
+            continue
+        here = [p for p in pool if p["game"] == g["id"]]
+        for n in (2, 3):
+            if len(here) >= n and here[n - 1]["p"] >= 0.20:
+                legs = [td(p) for p in here[:n]]
+                combos.append({"game": g["id"], "n": n, "legs": [l["id"] for l in legs], "p": round(joint(legs), 5),
+                               "p_indep": round(float(np.prod([l["p"] for l in legs])), 5)})
+    payload["atd_combos"] = sorted(combos, key=lambda c: -c["p"])
+    print("touchdown parlays rebuilt:", {k: [(t["n"], t["p"]) for t in v] for k, v in payload["atd_styles"].items()}, "| per-game combos:", len(combos))
+    print("  chalk 4:", [P[i]["name"] for i in payload["atd_styles"]["chalk"][0]["legs"]] if payload["atd_styles"]["chalk"] else None)
     for gid in games:
         roster = [p for p in D["players"] if p["game"] == gid and not p.get("singles") and p["id"] not in excluded]
         left_out = sorted({P[i]["name"] for i in excluded if i in P and P[i]["game"] == gid})
@@ -174,6 +219,8 @@ def main():
           " var s=(D.script_sgp||[]).find(function(t){return t.game===gid});var r=U.script[gid];\n"
           " if(s&&r){s.ladder=r.ladder;s.hybrid1=r.hybrid1;s.hybrid2=r.hybrid2;s.notes=(s.notes||[]).concat([r.note])}});\n"
           "D.algo.sgp.sort(function(a,b){return order[a.game]-order[b.game]});\n"
+          "Object.keys(U.atd_styles).forEach(function(k){if(D.algo.atd_styles&&D.algo.atd_styles[k])D.algo.atd_styles[k].tickets=U.atd_styles[k]});\n"
+          "D.algo.atd=U.atd_styles.chalk;D.algo.atd_combos=U.atd_combos;\n"
           "D.script_sgp=(D.script_sgp||[]).filter(function(t){return t.ladder&&t.ladder.length});})();\n")
     (CONSOLE / "rebuild-update.js").write_text(js, encoding="utf8")
 

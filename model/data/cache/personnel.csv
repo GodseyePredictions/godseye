@@ -92,7 +92,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_02_SEA_ARI,ARI,0,0,0,0,0,0.4,,,
 2026_05_DET_ARI,ARI,2,2,0,0,2,0.8,"Isaiah Adams (OL, injury report); Paris Johnson (OL, injured reserve)","Will Johnson (CB, injured reserve); Andrew Wingard (S, injury report)",
 2026_07_DEN_ARI,ARI,2,2,0,1,1,0.8,"Paris Johnson (OL, injured reserve); Jon Gaines (OL, injury report)","Walter Nolen (DL, injury report); Andrew Wingard (S, injury report)",
-2026_10_LA_ARI,ARI,0,0,2,0,0,0.6,,,"Michael Wilson (WR, injured reserve); Kendrick Bourne (WR, injured reserve)"
+2026_10_LA_ARI,ARI,2,0,2,0,0,0.6,"Hjalte Froholdt (OL, injury report); Jon Gaines (OL, injury report)",,"Michael Wilson (WR, injured reserve); Kendrick Bourne (WR, injured reserve)"
 2026_12_WAS_ARI,ARI,0,0,0,0,0,0.6,,,
 2026_13_PHI_ARI,ARI,0,0,0,0,0,0.6,,,
 2026_15_NYJ_ARI,ARI,0,0,0,0,0,0.6,,,
@@ -295,7 +295,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_06_CHI_ATL,ATL,0,1,0,0,1,1.0,,"C.J. Henderson (CB, injury report)",
 2026_07_SF_ATL,ATL,0,1,1,1,0,1.0,,"Divine Deablo (LB, injury report)","Bijan Robinson (RB, injury report)"
 2026_09_CIN_ATL,ATL,0,0,1,0,0,1.0,,,"Bijan Robinson (RB, injury report)"
-2026_10_KC_ATL,ATL,0,0,0,0,0,1.0,,,
+2026_10_KC_ATL,ATL,0,1,0,1,0,1.0,,"Divine Deablo (LB, injury report)",
 2026_13_DET_ATL,ATL,0,0,0,0,0,1.0,,,
 2026_16_TB_ATL,ATL,0,0,0,0,0,1.0,,,
 2026_17_NO_ATL,ATL,0,0,0,0,0,1.0,,,
@@ -810,7 +810,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_05_BUF_LA,BUF,0,1,0,1,0,1.0,,"Ed Oliver (DT, injury report)",
 2026_06_BUF_LV,BUF,0,0,0,0,0,0.8,,,
 2026_09_BUF_MIN,BUF,0,0,0,0,0,0.8,,,
-2026_10_BUF_NYJ,BUF,0,0,0,0,0,0.6,,,
+2026_10_BUF_NYJ,BUF,1,0,0,0,0,0.6,"Spencer Brown (T, injury report)",,
 2026_13_BUF_NE,BUF,0,0,0,0,0,0.6,,,
 2026_14_BUF_GB,BUF,0,0,0,0,0,0.6,,,
 2026_16_BUF_DEN,BUF,0,0,0,0,0,0.6,,,
@@ -1012,7 +1012,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_03_CAR_CLE,CAR,1,2,0,2,0,0.4,"Taylor Moton (T, injured reserve)","Nic Scourton (LB, injured reserve); Claudin Cherelus (LB, injury report)",
 2026_06_CAR_PHI,CAR,1,2,0,0,2,0.8,"Monroe Freeling (T, injury report)","Jaycee Horn (CB, injured reserve); Michael Jackson (CB, injured reserve)",
 2026_08_CAR_GB,CAR,1,3,0,1,2,1.0,"Damien Lewis (G, injury report)","Akayleb Evans (CB, injury report); Jaelan Phillips (LB, injury report); Jaycee Horn (CB, injured reserve)",
-2026_10_CAR_NO,CAR,0,1,0,0,1,0.8,,"Akayleb Evans (CB, injured reserve)",
+2026_10_CAR_NO,CAR,0,2,0,1,1,0.8,,"Bobby Okereke (LB, injury report); Akayleb Evans (CB, injured reserve)",
 2026_12_CAR_TB,CAR,0,0,0,0,0,0.8,,,
 2026_13_CAR_MIN,CAR,0,0,0,0,0,0.8,,,
 2026_16_CAR_PIT,CAR,0,0,0,0,0,0.8,,,
@@ -1512,7 +1512,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_03_CAR_CLE,CLE,2,1,0,1,0,0.0,"KT Leveston (T, roster status DEV); Teven Jenkins (G, injury report)","Alex Wright (DE, injured reserve)",
 2026_04_PIT_CLE,CLE,1,0,0,0,0,1.0,"Elgton Jenkins (C, injury report)",,
 2026_06_BAL_CLE,CLE,0,0,0,0,0,1.0,,,
-2026_10_HOU_CLE,CLE,0,0,0,0,0,1.0,,,
+2026_10_HOU_CLE,CLE,0,1,0,0,1,1.0,,"Ronnie Hickman (S, injury report)",
 2026_12_LV_CLE,CLE,0,0,0,0,0,1.0,,,
 2026_13_CIN_CLE,CLE,0,0,0,0,0,1.0,,,
 2026_14_ATL_CLE,CLE,0,0,0,0,0,1.0,,,
@@ -1715,7 +1715,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_03_BAL_DAL,DAL,1,1,0,0,1,0.8,"Tyler Smith (OL, injured reserve)","Malik Hooker (S, injury report)",
 2026_05_TB_DAL,DAL,0,1,0,0,1,1.0,,"Jalen Thompson (S, injured reserve)",
 2026_08_ARI_DAL,DAL,0,1,0,1,0,0.8,,"Dee Winters (LB, injury report)",
-2026_10_SF_DAL,DAL,0,0,0,0,0,1.0,,,
+2026_10_SF_DAL,DAL,0,1,0,1,0,1.0,,"Donovan Ezeiruaku (LB, injury report)",
 2026_11_TEN_DAL,DAL,0,0,0,0,0,1.0,,,
 2026_12_PHI_DAL,DAL,0,0,0,0,0,1.0,,,
 2026_16_JAX_DAL,DAL,0,0,0,0,0,1.0,,,
@@ -2120,7 +2120,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_03_NYJ_DET,DET,0,2,0,0,2,0.6,,"Avonte Maddox (DB, injured reserve); Thomas Harper (S, injury report)",
 2026_07_GB_DET,DET,0,0,0,0,0,1.0,,,
 2026_08_MIN_DET,DET,0,0,0,0,0,0.8,,,
-2026_10_NE_DET,DET,0,1,0,1,0,0.8,,"Jack Campbell (LB, injured reserve)",
+2026_10_NE_DET,DET,0,2,0,1,1,0.8,,"Jack Campbell (LB, injured reserve); D.J. Reed (CB, injury report)",
 2026_11_TB_DET,DET,0,0,0,0,0,0.8,,,
 2026_12_CHI_DET,DET,0,0,0,0,0,0.8,,,
 2026_14_TEN_DET,DET,0,0,0,0,0,0.8,,,
@@ -2322,7 +2322,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_05_CHI_GB,GB,2,1,2,1,0,0.6,"Jacob Monk (C, injury report); Aaron Banks (G, injury report)","Edgerrin Cooper (LB, injured reserve)","Chris Brooks (RB, injury report); Jayden Reed (WR, injured reserve)"
 2026_06_DAL_GB,GB,0,1,1,1,0,0.8,,"Edgerrin Cooper (LB, injured reserve)","Chris Brooks (RB, injured reserve)"
 2026_08_CAR_GB,GB,2,1,0,1,0,0.8,"Sean Rhyan (C, injury report); Travis Glover (T, injury report)","Zaire Franklin (LB, injury report)",
-2026_10_MIN_GB,GB,0,0,0,0,0,0.6,,,
+2026_10_MIN_GB,GB,1,1,0,1,0,0.6,"Sean Rhyan (C, injury report)","Zaire Franklin (LB, injury report)",
 2026_14_BUF_GB,GB,0,0,0,0,0,0.6,,,
 2026_15_MIA_GB,GB,0,0,0,0,0,0.6,,,
 2026_17_HOU_GB,GB,0,0,0,0,0,0.6,,,
@@ -2637,7 +2637,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_05_HOU_TEN,HOU,0,0,0,0,0,1.0,,,
 2026_06_HOU_JAX,HOU,0,1,0,0,1,1.0,,"Jalen Pitre (S, injury report)",
 2026_09_HOU_LAC,HOU,0,1,1,0,1,1.0,,"Reed Blankenship (S, injury report)","Jaylin Noel (WR, injured reserve)"
-2026_10_HOU_CLE,HOU,0,0,0,0,0,1.0,,,
+2026_10_HOU_CLE,HOU,1,2,0,2,0,1.0,"Keylan Rutledge (C, injury report)","Danielle Hunter (DE, injury report); Azeez Al-Shaair (LB, injury report)",
 2026_13_HOU_PIT,HOU,0,0,0,0,0,1.0,,,
 2026_14_HOU_WAS,HOU,0,0,0,0,0,1.0,,,
 2026_16_HOU_PHI,HOU,0,0,0,0,0,1.0,,,
@@ -2736,7 +2736,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_03_HOU_IND,IND,0,0,1,0,0,1.0,,,"Alec Pierce (WR, injury report)"
 2026_06_TEN_IND,IND,0,1,0,1,0,1.0,,"Arden Key (DE, injured reserve)",
 2026_09_DAL_IND,IND,0,3,0,1,2,0.8,,"Akeem Davis-Gaither (LB, injury report); A.J. Haulcy (S, injury report); Justin Walley (CB, injury report)",
-2026_10_MIA_IND,IND,0,0,0,0,0,0.6,,,
+2026_10_MIA_IND,IND,1,1,0,1,0,0.6,"Jalen Travis (T, injury report)","Akeem Davis-Gaither (LB, injury report)",
 2026_12_NYG_IND,IND,0,0,0,0,0,0.6,,,
 2026_16_CIN_IND,IND,0,0,0,0,0,0.6,,,
 2026_18_JAX_IND,IND,0,0,0,0,0,0.6,,,
@@ -3259,7 +3259,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_04_KC_LV,KC,0,0,0,0,0,1.0,,,
 2026_07_KC_SEA,KC,1,0,1,0,0,1.0,"Jaylon Moore (OL, injury report)",,"Rashee Rice (WR, injury report)"
 2026_08_KC_DEN,KC,0,1,0,0,1,0.8,,"L'Jarius Sneed (CB, injured reserve)",
-2026_10_KC_ATL,KC,0,0,0,0,0,1.0,,,
+2026_10_KC_ATL,KC,1,0,0,0,0,1.0,"Jaylon Moore (OL, injury report)",,
 2026_12_KC_BUF,KC,0,0,0,0,0,1.0,,,
 2026_13_KC_LA,KC,0,0,0,0,0,1.0,,,
 2026_14_KC_CIN,KC,0,0,0,0,0,1.0,,,
@@ -3472,7 +3472,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_04_LA_PHI,LA,0,0,0,0,0,1.0,,,
 2026_07_LA_LV,LA,0,2,1,2,0,0.8,,"Nathan Landman (LB, injury report); Kobie Turner (DE, injured reserve)","Davante Adams (WR, injured reserve)"
 2026_09_LA_WAS,LA,0,1,1,0,1,1.0,,"Jaylen Watson (CB, injury report)","Davante Adams (WR, injured reserve)"
-2026_10_LA_ARI,LA,0,1,0,0,1,0.8,,"Jaylen Watson (CB, injured reserve)",
+2026_10_LA_ARI,LA,1,1,1,0,1,0.8,"Steve Avila (OL, injury report)","Jaylen Watson (CB, injured reserve)","Puka Nacua (WR, injured reserve)"
 2026_14_LA_SF,LA,0,0,0,0,0,0.8,,,
 2026_16_LA_SEA,LA,0,0,0,0,0,0.8,,,
 2026_17_LA_TB,LA,0,0,0,0,0,0.8,,,
@@ -4069,7 +4069,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_02_MIA_SF,MIA,0,0,0,0,0,0.8,,,
 2026_04_MIA_MIN,MIA,0,0,1,0,0,1.0,,,"De'Von Achane (RB, injured reserve)"
 2026_07_MIA_NYJ,MIA,0,0,0,0,0,0.8,,,
-2026_10_MIA_IND,MIA,0,1,0,1,0,1.0,,"Zach Sieler (DL, injured reserve)",
+2026_10_MIA_IND,MIA,1,1,1,1,0,1.0,"Aaron Brewer (C, injury report)","Zach Sieler (DL, injured reserve)","Chris Bell (WR, injury report)"
 2026_11_MIA_BUF,MIA,0,0,0,0,0,1.0,,,
 2026_13_MIA_DEN,MIA,0,0,0,0,0,1.0,,,
 2026_15_MIA_GB,MIA,0,0,0,0,0,1.0,,,
@@ -4273,7 +4273,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_03_MIN_TB,MIN,0,0,0,0,0,0.8,,,
 2026_05_MIN_NO,MIN,2,0,1,0,0,0.8,"Donovan Jackson (OL, injured reserve); Christian Darrisaw (T, injury report)",,"Josh Oliver (TE, injured reserve)"
 2026_08_MIN_DET,MIN,0,0,0,0,0,1.0,,,
-2026_10_MIN_GB,MIN,0,0,0,0,0,1.0,,,
+2026_10_MIN_GB,MIN,0,2,2,2,0,1.0,,"Blake Cashman (LB, injury report); Tyrion Ingram-Dawkins (DL, injury report)","T.J. Hockenson (TE, injury report); Jauan Jennings (WR, injury report)"
 2026_11_MIN_SF,MIN,0,0,0,0,0,1.0,,,
 2026_14_MIN_NE,MIN,0,0,0,0,0,1.0,,,
 2026_17_MIN_NYJ,MIN,0,0,0,0,0,1.0,,,
@@ -4590,7 +4590,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_05_MIN_NO,NO,0,1,1,1,0,1.0,,"Kaden Elliss (LB, injury report)","Kevin Austin (WR, roster status CUT)"
 2026_07_PIT_NO,NO,0,0,0,0,0,0.8,,,
 2026_09_CLE_NO,NO,0,0,0,0,0,0.8,,,
-2026_10_CAR_NO,NO,0,0,0,0,0,0.8,,,
+2026_10_CAR_NO,NO,2,0,0,0,0,0.8,"Taliese Fuaga (T, injury report); Erik McCoy (C, injury report)",,
 2026_13_GB_NO,NO,0,0,0,0,0,0.8,,,
 2026_16_ARI_NO,NO,0,0,0,0,0,0.8,,,
 2026_18_TB_NO,NO,0,0,0,0,0,0.8,,,
@@ -5710,7 +5710,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_02_SEA_ARI,SEA,1,0,0,0,0,1.0,"Anthony Bradford (G, injury report)",,
 2026_03_SEA_WAS,SEA,1,1,0,0,1,0.8,"Anthony Bradford (G, injured reserve)","Julian Love (S, injury report)",
 2026_06_SEA_DEN,SEA,0,1,0,1,0,1.0,,"Drake Thomas (LB, injury report)",
-2026_10_SEA_LV,SEA,0,0,0,0,0,0.8,,,
+2026_10_SEA_LV,SEA,1,1,0,1,0,0.8,"Charles Cross (T, injury report)","Leonard Williams (DT, injury report)",
 2026_12_SEA_SF,SEA,0,0,0,0,0,0.8,,,
 2026_15_SEA_PHI,SEA,0,0,0,0,0,0.8,,,
 2026_17_SEA_CAR,SEA,0,0,0,0,0,0.8,,,
@@ -6228,7 +6228,7 @@ game_id,team,ol_out,def_out,skill_out,front_out,back_out,ol_continuity,ol_out_na
 2026_02_PHI_TEN,TEN,0,2,0,1,1,0.6,,"Jaylen Harrell (LB, injured reserve); Kendell Brooks (DB, injured reserve)",
 2026_05_HOU_TEN,TEN,0,1,0,0,1,0.8,,"Amani Hooker (S, injury report)",
 2026_07_CLE_TEN,TEN,0,0,0,0,0,1.0,,,
-2026_10_JAX_TEN,TEN,0,0,0,0,0,1.0,,,
+2026_10_JAX_TEN,TEN,1,2,1,2,0,1.0,"Peter Skoronski (G, injury report)","Anthony Hill (LB, injury report); Cody Barton (LB, injury report)","Carnell Tate (WR, injury report)"
 2026_13_WAS_TEN,TEN,0,0,0,0,0,1.0,,,
 2026_15_IND_TEN,TEN,0,0,0,0,0,1.0,,,
 2026_17_PIT_TEN,TEN,0,0,0,0,0,1.0,,,

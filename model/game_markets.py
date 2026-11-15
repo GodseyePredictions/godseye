@@ -1118,7 +1118,7 @@ def main():
                         "alerts": [a for a in fresh["alerts"] if a["type"] != "REPORT_PENDING"],
                         "teams_awaiting_report": sorted({a["team"] for a in fresh["alerts"] if a["type"] == "REPORT_PENDING"})}
     hold_games = set(fresh["hold_games"])
-    started = {g["id"] for g in D["games"] if g.get("started")} if D else set()
+    started = ({g["id"] for g in D["games"] if g.get("started")} if D else set()) | set(fresh.get("started_games", []))
     up = up[~up.game_id.isin(started)]
     by_id = {g.game_id: g for g in up.itertuples(index=False)}
 
@@ -1315,7 +1315,16 @@ def main():
         # Odds Snipers are built for the next game day (or every game with GE_SNIPER_GAMES=all)
         open_games = up[up.checks_complete & ~up.game_id.isin(hold_games)]
         first_day = open_games.gameday.min() if len(open_games) else None
-        sniper_ids = set(open_games.game_id if os.environ.get("GE_SNIPER_GAMES") == "all" else open_games[open_games.gameday == first_day].game_id)
+        # by default only the next kickoff gets the full search (about three minutes a game)
+        kick = {}
+        if (HERE / "data/live_odds.json").exists():
+            kick = {f"{v['away']}@{v['home']}": v["kickoff"] for v in json.loads((HERE / "data/live_odds.json").read_text())["games"].values()}
+        when = lambda r: kick.get(f"{r.away}@{r.home}", str(r.gameday))
+        order = sorted(open_games.itertuples(index=False), key=when)
+        want = os.environ.get("GE_SNIPER_GAMES", "")
+        sniper_ids = (set(open_games.game_id) if want == "all" else set(want.split(",")) & set(open_games.game_id) if want
+                      else {r.game_id for r in order if when(r) == when(order[0])} if order else set())
+        featured_ids = set(open_games.game_id)
         for g in up.itertuples(index=False):
             if not g.checks_complete or g.game_id in hold_games:
                 continue   # no hybrid without the matchup checks, or while the game is on hold
@@ -1353,6 +1362,7 @@ def main():
 
             if g.game_id in sniper_ids:
                 out["snipers"].append(build_snipers(g, roster, rho, matchup, td_leg, alt_ladder, D, MK))
+            if g.game_id in featured_ids:
                 out["featured"].append(build_featured(g, roster, rho, matchup, td_leg, D, MK))
 
             ml, sp, tot = game_leg("ml"), game_leg("spread"), game_leg("total")
