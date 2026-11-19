@@ -83,3 +83,18 @@ def test_injury_report_posted_after_the_cutoff_is_not_used():
                                               "team": TEAMS[g.home][0], "player_name": "x", "status": "Out", "reason": None, "player_id": pid}])
     M = prep.master(frames)
     assert g.game_id not in M["out"]
+
+
+def test_boosted_minutes_inputs_ignore_that_game_and_later():
+    from nba import minutes as mn
+    from nba.pipeline import Pipeline
+    frames = make_league(seed=3)
+    g = frames["games"].sort_values("tip_utc")
+    target = g.iloc[len(g) * 2 // 3]
+    a = Pipeline(frames).D
+    b = Pipeline(corrupt_from(frames, target.tip_utc)).D
+    a = a[a.game_id == target.game_id].sort_values(["team_id", "player_id"])
+    b = b[b.game_id == target.game_id].sort_values(["team_id", "player_id"])
+    assert len(a) and a.m_l1.notna().any() and a.team_rank.notna().any()
+    diff = [c for c in mn.G_COLS if not np.allclose(a[c].to_numpy(float), b[c].to_numpy(float), equal_nan=True)]
+    assert diff == [], f"boosted minutes inputs changed when the future changed: {diff}"

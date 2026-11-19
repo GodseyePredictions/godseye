@@ -117,3 +117,22 @@ def test_rate_adjustments_are_itemised_capped_and_gated(pipe):
     assert (rows.gate_pts == ok.astype(int)).all()
     off = props.fit(pipe.D[pipe.D.season < 2026], CONFIG, {**CONFIG["factor_groups_on"], "form": False})
     assert not any(k.startswith("form") for k in off.coefs["fg2a"])
+
+
+def test_boosted_minutes_model_fits_predicts_and_explains(league):
+    from nba import minutes as mn
+    from nba.pipeline import Pipeline
+    cfg = dict(CONFIG, minutes_boost_min_rows=200)
+    p = Pipeline(league, cfg=cfg)
+    m = p.fit(2026)["minutes"]
+    assert m.boost is not None
+    gid = p.G[p.G.season == 2026].sort_values("tip").game_id.iloc[30]
+    rows = p.D[(p.D.game_id == gid) & (p.D.exp_out == 0) & p.D.base_min.notna()]
+    out = mn.apply(m, rows, cfg)
+    assert np.isfinite(out.e_min).all() and (out.e_min >= 0).all() and (out.e_min <= 41.5).all()
+    played = out[out.played == 1]
+    assert (played.e_min - played["min"]).abs().mean() < (played.base_min - played["min"]).abs().mean() + 1.5
+    moved = out[(out.e_min - out.base_min).abs() >= cfg["minutes_explain_gap"]]
+    assert all("vs baseline" in r for r in moved.role_change_reason)
+    off = Pipeline(league, cfg=dict(CONFIG, minutes_boosted=False)).fit(2026)["minutes"]
+    assert off.boost is None
