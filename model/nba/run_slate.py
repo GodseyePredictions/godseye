@@ -314,19 +314,29 @@ def write_site_file(payload: dict) -> None:
 
 def write_track_file(con) -> dict:
     """Every slip issued, by slate, with its result once graded (output/nba_track.json, read by the website).
-    For each date the last full-slate run is the issued one. Model-only preview tickets are not tracked."""
-    runs = pd.read_sql("SELECT slate_date, run_id, run_at FROM nba_runs WHERE kind='slate' ORDER BY run_at", con)
-    runs = runs.drop_duplicates("slate_date", keep="last")
+    For each date and game the last slate run that covered the game is the issued one, so a second run made
+    after the early games have tipped does not drop their slips. Multi-game slips come from the last run.
+    Model-only preview tickets are not tracked."""
+    allruns = pd.read_sql("SELECT slate_date, run_id, run_at FROM nba_runs WHERE kind='slate' ORDER BY run_at", con)
+    runs = allruns.drop_duplicates("slate_date", keep="last")
     sched = pd.read_sql("SELECT game_id, away || ' @ ' || home m FROM schedule", con).set_index("game_id").m.to_dict()
     slates, totals = [], {}
     for r in runs.itertuples():
-        T = pd.read_sql("SELECT * FROM nba_tickets WHERE run_id=? AND type NOT LIKE 'preview%'", con, params=[r.run_id])
+        rids = list(allruns[allruns.slate_date == r.slate_date].run_id)
+        q = ",".join("?" * len(rids))
+        T = pd.read_sql(f"SELECT * FROM nba_tickets WHERE run_id IN ({q}) AND type NOT LIKE 'preview%' ORDER BY run_at", con, params=rids)
         if T.empty:
             continue
-        L = pd.read_sql("SELECT leg_id, label, model_prob, price, result, actual FROM nba_legs WHERE run_id=?", con,
-                        params=[r.run_id]).set_index("leg_id")
+        per_game = T[T.game_id.isin(list(sched))]
+        last = per_game.groupby("game_id").run_id.last()
+        T = pd.concat([per_game[per_game.run_id == per_game.game_id.map(last)],
+                       T[~T.game_id.isin(list(sched)) & (T.run_id == r.run_id)]])
+        L = pd.read_sql(f"SELECT run_id, leg_id, label, model_prob, price, result, actual FROM nba_legs WHERE run_id IN ({q})", con,
+                        params=rids)
+        Lall = L
         tickets = []
         for t in T.itertuples():
+            L = Lall[Lall.run_id == t.run_id].set_index("leg_id")
             legs = [{"label": L.label[i], "p": float(L.model_prob[i]), "price": None if pd.isna(L.price[i]) else float(L.price[i]),
                      "result": L.result[i] if isinstance(L.result[i], str) else "pending",
                      "actual": None if pd.isna(L.actual[i]) else float(L.actual[i])} for i in json.loads(t.leg_ids) if i in L.index]

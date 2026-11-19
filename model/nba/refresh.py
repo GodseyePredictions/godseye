@@ -74,6 +74,11 @@ def pull_odds(con, ids: IdMap, games: pd.DataFrame) -> dict:
                 con.execute("DELETE FROM odds WHERE game_id=? AND source='espn-core' AND known_at=?", [g.game_id, rows[0]["known_at"] if rows else ""])
                 n += upsert(con, "odds", rows)
                 problems += bad
+                now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+                if rows and g.tip_utc > now:                      # main game lines, stamped with the props pull
+                    s, _ = fetch_data.summary(g.game_id, max_age=120, tag=now[:16])
+                    n += upsert(con, "odds", sources.espn_game_offers(s, g.game_id, rows[0]["known_at"],
+                                                                      (g.home_id, g.home), (g.away_id, g.away)))
             except FetchError as e:
                 problems.append(f"{g.game_id}: {e}")
         return {"status": "ok: DraftKings via ESPN (ODDS_API_KEY is not set)", "rows": n, "problems": problems}

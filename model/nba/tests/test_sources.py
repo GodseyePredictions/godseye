@@ -108,3 +108,16 @@ def test_draftkings_rungs_must_fit_the_over_under_line():
     assert [r for r, _ in choose_ladder(shuffled, 20.5)[0]] == [10, 15, 20, 21, 25, 40]
     odd = [(5, -800), (6, -900), (7, -120), (8, 150)]                       # 5+ priced shorter than 6+: dropped
     assert [r for r, _ in choose_ladder(odd, 6.5)[0]] == [6, 7, 8]
+
+
+def test_espn_game_offers_main_lines_with_prices():
+    from nba import sources
+    s = {"pickcenter": [{"provider": {"name": "DraftKings"}, "spread": 7.5, "overUnder": 227.5, "overOdds": -105.0, "underOdds": -115.0,
+                         "homeTeamOdds": {"moneyLine": 221, "spreadOdds": -112.0}, "awayTeamOdds": {"moneyLine": -269, "spreadOdds": -108.0}}]}
+    rows = sources.espn_game_offers(s, "g1", "2026-11-18T23:00:00+00:00", ("23", "SAC"), ("21", "PHX"))
+    got = {(r["market"], r["player_name"], r["side"]): (r["line"], r["price"]) for r in rows}
+    assert got[("ml", "SAC", "over")] == (0.0, 221.0) and got[("ml", "PHX", "over")] == (0.0, -269.0)
+    assert got[("spread", "SAC", "over")] == (7.5, -112.0) and got[("spread", "PHX", "over")] == (-7.5, -108.0)
+    assert got[("total", "Game", "over")] == (227.5, -105.0) and got[("total", "Game", "under")] == (227.5, -115.0)
+    assert all(r["book"] == "draftkings" for r in rows)
+    assert sources.espn_game_offers({}, "g1", "t", ("1", "A"), ("2", "B")) == []
