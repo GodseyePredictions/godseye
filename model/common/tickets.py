@@ -20,8 +20,13 @@ def joint(legs) -> float:
     acts = [l["active"] for l in legs if l.get("active") is not None]
     if acts:
         a = np.logical_and.reduce(acts)
-        return float(allhit[a].mean()) if a.any() else 0.0
-    return float(allhit.mean())
+        j = float(allhit[a].mean()) if a.any() else 0.0
+    else:
+        j = float(allhit.mean())
+    # Calibrated legs: the counted chance is scaled by each leg's calibrated/raw ratio (an approximation,
+    # since the simulations themselves are not re-weighted) and can never exceed the weakest leg.
+    ratio = float(np.prod([l.get("cal_ratio", 1.0) for l in legs]))
+    return j if ratio == 1.0 else min(j * ratio, min(l["p"] for l in legs))
 
 
 def product_price(legs) -> float | None:
@@ -34,14 +39,15 @@ def product_price(legs) -> float | None:
     return d
 
 
-def allowed(combo, cfg, allow_combo_component=False) -> bool:
+def allowed(combo, cfg, allow_combo_component=False, size: int | None = None) -> bool:
     per_player, scripts = {}, {}
     for l in combo:
         if l.get("player_id") is not None and l["kind"] == "prop":
             per_player.setdefault(l["player_id"], []).append(l["market"])
         if l.get("script"):
             scripts[l["script"]] = scripts.get(l["script"], 0) + 1
-    if any(len(v) > cfg["max_legs_per_player"] for v in per_player.values()):
+    cap = cfg.get("max_legs_per_player_by_size", {}).get(size, cfg["max_legs_per_player"])
+    if any(len(v) > cap for v in per_player.values()):
         return False
     if any(len(set(v)) < len(v) for v in per_player.values()):          # two rungs of one market for one player
         return False
@@ -72,7 +78,7 @@ def best_ticket(pool: list, size: int, cfg: dict, require_price: bool = True, ex
     for allow in ((False, True) if require_price else (False,)):
         for combo in combinations(pool, size):
             legs = list(combo) + (extra or [])
-            if not allowed(legs, cfg, allow):
+            if not allowed(legs, cfg, allow, size):
                 continue
             s = score(legs)
             if s["joint"] < floor or (require_price and s["ev"] is None):

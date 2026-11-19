@@ -120,6 +120,16 @@ CONFIG = {
     "multi_games": 3,                    # multi-game slips: this many games ...
     "multi_legs_per_game": [4, 5],       # ... with this many legs from each (12 and 15 props in all)
     "max_legs_per_player": 2,
+    "max_legs_per_player_by_size": {4: 1},   # a 4-leg slip rides on four different players
+    "sgp_leg_floor_by_market": {"reb": 0.75},   # rebounds missed most often on graded slates, so they need a higher floor
+    # Calibration from graded slates: per market, a shift on the log-odds scale fitted on legs the model called
+    # between cal_min_prob and cal_max_prob, shrunk toward zero by sample size and capped.
+    "calibration_on": True,
+    "calibration_markets": ["pts", "reb", "ast", "fg3m"],
+    "cal_min_prob": 0.60, "cal_max_prob": 0.97,
+    "cal_shrink_n": 150,                 # player-game-market samples at which half the measured shift is applied
+    "cal_min_n": 50,                     # under this many samples a market is left alone
+    "cal_max_shift": 0.40,               # cap on the log-odds shift
     "max_legs_same_script": 4,
     "upper_rung_rank": 2,                # in blowout-flagged games starters may use only their lowest rungs
     "single_min_ev": 0.02,

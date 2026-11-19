@@ -41,6 +41,8 @@ def now() -> str:
 
 def init(con):
     con.executescript(SCHEMA)
+    if "model_prob_raw" not in [r[1] for r in con.execute("PRAGMA table_info(nba_legs)")]:
+        con.execute("ALTER TABLE nba_legs ADD COLUMN model_prob_raw REAL")     # the probability before calibration
 
 
 def new_run(con, kind: str, slate_date: str, n_sims: int, note: str = "") -> tuple[str, str]:
@@ -59,7 +61,7 @@ def save_game(con, run_id, run_at, game_id, card: dict, text: str, proj_rows: li
         ok, why = eligibility(l)
         rows.append({"leg_id": l["id"], "run_id": run_id, "run_at": run_at, "game_id": game_id, "kind": l["kind"],
                      "player_id": l["player_id"], "team_id": l.get("team_id"), "label": l["label"], "market": l["market"],
-                     "line": l["line"], "side": l["side"], "model_prob": l["p"], "p_blowout": l["p_blowout"], "p_close": l["p_close"],
+                     "line": l["line"], "side": l["side"], "model_prob": l["p"], "model_prob_raw": l.get("p_raw", l["p"]), "p_blowout": l["p_blowout"], "p_close": l["p_close"],
                      "book": l["book"], "price": l["price"], "price_seen_at": l["price_seen_at"], "closing_price": None,
                      "gate_ok": int(l["gate_ok"]), "sgp_eligible": int(ok), "why_not": why, "reason": l.get("reason")})
     upsert(con, "nba_legs", rows)

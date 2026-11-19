@@ -120,3 +120,35 @@ def test_grading_results_and_cause_tags():
     assert tr["won"][0] == "won" and tr["void"][0] == "void" and tr["lost"][0] == "lost"
     assert tr["lost"][1] == ["blowout", "injury in game", "shooting variance"]
     assert card["eligible_legs"]["n"] == 5 and card["eligible_legs"]["hit"] == 2 and "REPORT CARD" in card["text"]
+
+
+def test_four_leg_slip_uses_four_players_and_rebounds_need_the_higher_floor():
+    pool = [leg("a", "pts", 0.85, seed=1), leg("a", "ast", 0.84, seed=2), leg("b", "pts", 0.8, seed=3),
+            leg("c", "pts", 0.8, seed=4), leg("d", "ast", 0.78, seed=5), leg("e", "fg3m", 0.76, seed=6)]
+    cfg = {**CONFIG, "ticket_min_joint": {4: 0.0, 6: 0.0, 8: 0.0}}
+    four = tk.best_ticket(pool, 4, cfg, require_price=False)
+    assert len({l["player_id"] for l in four["legs"]}) == 4
+    assert tk.allowed([pool[0], pool[1]], cfg, size=6) and not tk.allowed([pool[0], pool[1]], cfg, size=4)
+    assert not sgp.sgp_eligible(leg("a", "reb", 0.74))[0] and sgp.sgp_eligible(leg("a", "reb", 0.76))[0]
+    assert sgp.sgp_eligible(leg("a", "pts", 0.74))[0]
+
+
+def test_calibration_shift_is_fitted_shrunk_and_point_in_time():
+    import sqlite3
+    import numpy as np
+    from nba import calibrate, ledger
+    con = sqlite3.connect(":memory:")
+    ledger.init(con)
+    rng = np.random.default_rng(0)
+    rows = []
+    for i in range(400):                                  # forecasts of 75% that really hit 85%
+        rows.append(("l%d" % i, "r1", "2026-01-01T00:00:00", "g%d" % (i % 40), "prop", "p%d" % i, "pts", "over", 0.75,
+                     "won" if rng.random() < 0.85 else "lost", "2026-01-02T09:00:00"))
+    con.executemany("INSERT INTO nba_legs (leg_id, run_id, run_at, game_id, kind, player_id, market, side, model_prob, result, graded_at) "
+                    "VALUES (?,?,?,?,?,?,?,?,?,?,?)", rows)
+    cal = calibrate.fit(con, CONFIG)
+    c = cal["pts"]
+    assert 0 < c["shift"] < c["measured"] and c["shift"] <= CONFIG["cal_max_shift"]          # shrunk and capped
+    assert 0.75 < calibrate.apply(0.75, c["shift"]) < 0.85
+    assert calibrate.fit(con, CONFIG, before="2026-01-02T00:00:00") == {}                    # nothing graded yet at that time
+    assert calibrate.apply(0.75, 0.0) == 0.75 and "reb" not in cal

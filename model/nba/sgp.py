@@ -8,6 +8,7 @@ import pandas as pd
 
 from common import tickets as tk
 from common.odds_math import decimal_to_american, fair_american
+from nba import calibrate
 from nba import game_sim as gs
 from nba import player_sim as ps
 from nba import props
@@ -62,7 +63,12 @@ def reason_for(row, market: str) -> str:
     return lead or "at baseline: no adjustment above 1%"
 
 
-def build_legs(offers: pd.DataFrame, sims, players, gate: pd.DataFrame | None, team_names: dict, cfg=CONFIG) -> list[dict]:
+def leg_floor(market: str, cfg=CONFIG) -> float:
+    return cfg.get("sgp_leg_floor_by_market", {}).get(market, cfg["sgp_leg_floor"])
+
+
+def build_legs(offers: pd.DataFrame, sims, players, gate: pd.DataFrame | None, team_names: dict, cfg=CONFIG,
+               cal: dict | None = None) -> list[dict]:
     """Every offered rung with its model probability from the simulations and its eligibility checks."""
     legs = []
     if offers is None or offers.empty:
@@ -108,6 +114,14 @@ def build_legs(offers: pd.DataFrame, sims, players, gate: pd.DataFrame | None, t
                     "p_close": sp["close"], "price": None if pd.isna(o.price) else float(o.price), "book": o.book,
                     "price_seen_at": o.known_at, "hits": hits, "active": act, "script": script, "flagged_game": bool(flagged),
                     "label": label(o, both, team_names)})
+        leg["p_raw"] = leg["p"]
+        shift = (cal or {}).get(o.market, {}).get("shift", 0.0) if leg["kind"] == "prop" else 0.0
+        if shift:                                # calibration fitted on graded slates (nba/calibrate.py)
+            sgn = shift if o.side == "over" else -shift
+            for k in ("p", "p_blowout", "p_close"):
+                if leg[k] is not None:
+                    leg[k] = calibrate.apply(leg[k], sgn)
+            leg["cal_ratio"] = leg["p"] / leg["p_raw"] if leg["p_raw"] > 0 else 1.0
         leg["id"] = f"{sims.game_id}|{o.market}|{o.player_id}|{o.side}|{o.line:g}"
         legs.append(leg)
     return legs
@@ -121,12 +135,13 @@ def sgp_eligible(leg: dict, cfg=CONFIG, require_price=True) -> tuple[bool, str]:
         return False, "no book price"
     if not leg["eligible_player"]:
         return False, "player not confirmed in"
-    if leg["p"] < cfg["sgp_leg_floor"]:
-        return False, f"model probability {leg['p']:.0%} is under the floor"
+    floor = leg_floor(leg["market"], cfg)
+    if leg["p"] < floor:
+        return False, f"model probability {leg['p']:.0%} against a {floor:.0%} minimum is under the floor"
     if not leg["gate_ok"]:
         return False, "fails the shooting gate"
     if leg["flagged_game"]:
-        if leg["p_blowout"] is not None and leg["p_blowout"] < cfg["sgp_leg_floor"]:
+        if leg["p_blowout"] is not None and leg["p_blowout"] < floor:
             return False, "under the floor inside blowout simulations"
         if leg["starter"] and leg["side"] == "over" and leg["rung_rank"] > cfg["upper_rung_rank"]:
             return False, "starter's upper rung in a blowout-flagged game"

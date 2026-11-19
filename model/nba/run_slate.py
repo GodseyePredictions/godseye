@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 
 from nba import availability, grading, ledger, refresh, sgp, sources
+from nba import calibrate
 from nba import player_sim as ps
 from nba import props
 from nba.config import CONFIG
@@ -167,6 +168,7 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
     models = pl.fit(9999)
     run_id, run_at = ledger.new_run(con, "game" if only else "slate", games.date_et.iloc[0], n_sims or cfg["n_sims"])
     names = {**dict(zip(games.home_id, games.home)), **dict(zip(games.away_id, games.away))}
+    cal = calibrate.fit(con, cfg, before=started)                # from slates graded before this run began
     restr = known.set_index("player_id").minutes_restriction
     pl.D["minutes_restriction"] = pl.D.player_id.map(restr[~restr.index.duplicated()])
     slate, texts, per_game, book_used = [], [], {}, None
@@ -180,13 +182,13 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
         sims.save(HERE / "data" / "sims" / f"{g.game_id}_{run_id}.npz")       # the exact games the player simulation used
         card = sgp.script_card(inputs, sims, players, cfg)
         offers = offers_for(con, g.game_id, cfg)
-        legs = sgp.build_legs(offers, sims, players, gg, names, cfg)
+        legs = sgp.build_legs(offers, sims, players, gg, names, cfg, cal)
         preview = False
         if offers.empty and cfg["preview_tickets_without_prices"]:
             # model-only tickets: standard thresholds for confirmed players, no price, not checked against the book
             okp = set(gg[gg.ticket_eligible == 1].player_id)
             cand = players.players[players.players.player_id.isin(okp) & (players.players.e_min >= cfg["preview_min_minutes"])]
-            legs = sgp.build_legs(sgp.grid_offers(cand, cfg), sims, players, gg, names, cfg)
+            legs = sgp.build_legs(sgp.grid_offers(cand, cfg), sims, players, gg, names, cfg, cal)
             built = sgp.build_tickets(legs, sims, card, cfg, require_price=False)
             built["tickets"] = [t for t in built["tickets"] if t["type"] != "game_script"]
             built["notes"] = [n for n in built["notes"] if not n.startswith("game_script")]
@@ -200,6 +202,8 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                      "(set ODDS_API_KEY or load a bet365 sheet with: python3 -m nba.refresh csv FILE " + g.game_id + ")"]}
         else:
             built = sgp.build_tickets(legs, sims, card, cfg, require_price=True)
+            if cal:
+                built["notes"].append(calibrate.describe(cal))
         if not preview and not offers.empty:
             from common import tickets as tk
             pool = sgp.floor_rungs([l for l in legs if sgp.sgp_eligible(l, cfg, True)[0]])
