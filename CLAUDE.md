@@ -41,3 +41,9 @@ Project full probability distributions for NBA player props and build bet365 sam
 - **Multi-game slips:** 4 or 5 legs from each of 3 games (12 or 15 props), chosen by the algorithm's own joint probabilities. Every leg still needs 70%.
 - **Book:** bet365 or DraftKings. DraftKings milestone ladders are read from ESPN's odds API. Rule 5 still holds: only rungs the book lists, and a rung is used only when it fits the player's over/under line.
 - **Site:** landing page at `/`, NFL at `/nfl`, NBA at `/nba`.
+
+### Amendments (19 November 2026)
+
+- **4-leg slips use four different players.** 6-leg and 8-leg slips may still carry two legs on one player.
+- **Rebound legs need 75%.** Every other market keeps the 70% floor.
+- **Calibration from graded slates.** Each market's probabilities are shifted by what graded legs show, shrunk by sample size and capped (`model/nba/calibrate.py`). The ledger keeps the raw probability beside the calibrated one. All three settings live in `model/nba/config.py`.
