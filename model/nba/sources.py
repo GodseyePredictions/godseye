@@ -97,6 +97,31 @@ def _ladder_median(ladder: list) -> float:
     return pts[0][0] - 1.0 if pts[0][1] < 0.5 else pts[-1][0] + 0.5
 
 
+def espn_game_offers(summary: dict, game_id: str, known_at: str, home: tuple, away: tuple) -> list:
+    """DraftKings main game lines from ESPN's pickcenter as offer rows: moneyline, spread and total, each
+    with its own price. `home` and `away` are (team_id, abbreviation). Only the main line is published
+    there, so alternative spreads and totals are not available from this source."""
+    pc = summary.get("pickcenter") or []
+    if not pc:
+        return []
+    p = pc[0]
+    book = ((p.get("provider") or {}).get("name") or "?").lower()
+    ho, ao = p.get("homeTeamOdds") or {}, p.get("awayTeamOdds") or {}
+    base = {"known_at": known_at, "source": "espn-pickcenter", "book": book, "game_id": game_id, "is_close": 0}
+    rows = []
+    for (tid, ab), o, sign in ((home, ho, 1), (away, ao, -1)):
+        if o.get("moneyLine") is not None:
+            rows.append({**base, "market": "ml", "player_id": tid, "player_name": ab, "side": "over", "line": 0.0, "price": float(o["moneyLine"])})
+        if p.get("spread") is not None and o.get("spreadOdds") is not None:
+            rows.append({**base, "market": "spread", "player_id": tid, "player_name": ab, "side": "over",
+                         "line": sign * float(p["spread"]), "price": float(o["spreadOdds"])})
+    for side, k in (("over", "overOdds"), ("under", "underOdds")):
+        if p.get("overUnder") is not None and p.get(k) is not None:
+            rows.append({**base, "market": "total", "player_id": None, "player_name": "Game", "side": side,
+                         "line": float(p["overUnder"]), "price": float(p[k])})
+    return rows
+
+
 def choose_ladder(rungs: list, ou_line: float | None, need_line: bool = True) -> tuple[list, str]:
     """`rungs` is one player's rows for one market, as (rung, price). The feed sometimes mixes a second,
     different market into the same name, so no rung is trusted on its own. Each one must fit the player's

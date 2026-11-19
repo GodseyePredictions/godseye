@@ -198,6 +198,11 @@ def build_tickets(legs: list, sims, card: dict, cfg=CONFIG, require_price=True, 
     sgp_prices = sgp_prices or {}
     pool = floor_rungs([l for l in legs if sgp_eligible(l, cfg, require_price)[0]])
     out = {"tickets": [], "notes": []}
+    gl = [l for l in legs if l["kind"] == "game" and l.get("price") is not None]
+    if gl:                                           # every main game line with the model's chance next to the book's price
+        order = {"ml": 0, "spread": 1, "total": 2}
+        out["notes"].append("Game lines, model chance at the book's price: " + "; ".join(
+            f"{l['label']} {int(l['price']):+d} {l['p']:.0%}" for l in sorted(gl, key=lambda l: (order.get(l["market"], 9), -l["p"]))))
 
     def finish(kind, t):
         if t is None:
