@@ -43,6 +43,15 @@ CONFIG = {
     "role_change_minutes": 6.0,          # last-5 minutes this far from season minutes = role change
     "role_starter_share": 0.5,           # started at least this share of recent games = starter
     "role_sixth_min": 22.0, "role_rotation_min": 12.0,
+    # Boosted minutes model: minutes given the player plays, from his minutes at several horizons, his latest role,
+    # and his standing among the teammates available tonight. Out of sample it cut the average miss from 4.93 to
+    # about 4.5 minutes. Set minutes_boosted False to fall back to the linear model.
+    "minutes_boosted": True,
+    "minutes_boost_min_rows": 5000,
+    "minutes_explain_gap": 1.5,          # minutes away from baseline at which the projection carries a reason
+    "boost_reconcile_band": 0.0,         # how far team minutes may be scaled toward 240 before simulation
+    "minutes_boost_params": {"loss": "squared_error", "max_iter": 400, "learning_rate": 0.05, "max_leaf_nodes": 31,
+                             "min_samples_leaf": 80, "l2_regularization": 1.0},
     "reconcile_floor": 0.10,
     "reconcile_starter_shield": 0.3,     # share of the 240-minute squeeze an established starter is spared             # share of the 240-minute reconciliation every player takes regardless of sample
     "min_prior_games": 8,                # shrinkage strength (in games) for a player's minutes

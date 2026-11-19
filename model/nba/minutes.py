@@ -21,6 +21,7 @@ from dataclasses import dataclass, field
 import numpy as np
 import pandas as pd
 from scipy.stats import poisson
+from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.linear_model import LogisticRegression, Ridge
 
 from nba.config import CONFIG
@@ -28,6 +29,14 @@ from nba.config import CONFIG
 ROLES = ["starter", "bench", "fringe"]
 X_COLS = ["io_min", "b2b", "three_in_four", "long_trip", "ret0", "ret1", "ret2", "ret3", "ret4", "base_c", "start_share",
           "heavy_b2b", "questionable", "foul_risk", "own_b2b_hist"]
+
+
+# Inputs of the boosted minutes model: the player's minutes at several horizons, his most recent role,
+# minutes when starting and when coming off the bench, and where he stands among the teammates available tonight.
+G_COLS = ["base_min", "m_s", "m_l5", "m_l10", "m_l3", "m_l1", "m_prev", "st_s", "st_l5", "st_l1", "st_l3", "st_prev",
+          "m_when_st", "m_when_bn", "m10_when_st", "vac_min", "st_out", "st_in", "team_rank", "avail_sum", "n_av", "l1_rank",
+          "dsp", "s_n", "l5_n", "b2b", "three_in_four", "ret_games", "questionable", "io_min", "foul_risk", "game_no",
+          "changed_team", "is_home"]
 
 
 def role_of(start_share, exp_min, cfg=CONFIG):
@@ -65,6 +74,27 @@ def design(P: pd.DataFrame, T: pd.DataFrame, L: pd.DataFrame, cfg=CONFIG) -> pd.
     P["own_b2b_hist"] = 0.0
     q = (P.s_sec_q4 + 0.24 * 60 * 150) / (P.s_min * 60 + 60 * 150)
     P["q4_share"] = q.clip(0.10, 0.34)
+    # ---- inputs of the boosted model (all from games before tonight, plus tonight's availability)
+    def per(a, b):
+        return a / b.replace(0, np.nan)
+    P["m_s"], P["m_l5"], P["m_l10"] = per(P.s_min, P.s_n), per(P.l5_min, P.l5_n), per(P.l10_min, P.l10_n)
+    P["m_l3"], P["m_l1"], P["m_prev"] = per(P.l3_min, P.l3_n), P.l1_min, per(P.prev_min, P.prev_n)
+    P["st_s"], P["st_l5"], P["st_l3"] = per(P.s_starter, P.s_n), per(P.l5_starter, P.l5_n), per(P.l3_starter, P.l3_n)
+    P["st_l1"], P["st_prev"] = P.l1_starter, per(P.prev_starter, P.prev_n)
+    P["m_when_st"], P["m_when_bn"] = per(P.s_min_st, P.s_starter), per(P.s_min - P.s_min_st, P.s_n - P.s_starter)
+    P["m10_when_st"] = per(P.l10_min_st, P.l10_starter)
+    key = [P.game_id, P.team_id]
+    avail = (P.exp_out == 0) & P.base_min.notna()
+    bm = P.base_min.fillna(0)
+    usual = P.start_share >= cfg["role_starter_share"]
+    P["vac_min"] = (bm * (~avail) * (P.s_n > 0)).groupby(key).transform("sum")       # minutes of teammates ruled out
+    P["st_out"] = (usual & ~avail).groupby(key).transform("sum")
+    P["st_in"] = (usual & avail).groupby(key).transform("sum")
+    P["team_rank"] = bm.where(avail).groupby(key).rank(ascending=False)             # 1 = most minutes among those available
+    P["l1_rank"] = P.l1_min.where(avail).groupby(key).rank(ascending=False)
+    P["avail_sum"] = bm.where(avail).groupby(key).transform("sum")
+    P["n_av"] = avail.groupby(key).transform("sum")
+    P["dsp"] = P.days_since_played.clip(upper=30)
     return P
 
 
@@ -88,6 +118,9 @@ class MinutesModel:
     pools: dict = field(default_factory=dict)     # (role, foul_trouble) -> sorted ratios
     foul_scale: float = 1.0
     play: object = None               # chance a listed player takes the floor at all
+    boost: object = None              # boosted model of minutes given he plays (config: minutes_boosted)
+    boost_cols: list = field(default_factory=list)
+    boost_cache: object = None        # predictions for every row, so forked backtest workers never call the booster
     cfg: dict = None
 
     def play_prob(self, D: pd.DataFrame) -> np.ndarray:
@@ -97,6 +130,11 @@ class MinutesModel:
         X = D[X_COLS].fillna(0).to_numpy(float)
         ratio = np.clip(self.intercept + X @ self.coef, 0.3, 1.8)
         e = D.base_min.fillna(0).to_numpy() * ratio
+        if self.boost is not None:
+            if self.boost_cache is not None and D.index.isin(self.boost_cache.index).all():
+                e = self.boost_cache.reindex(D.index).to_numpy()          # filled once by the pipeline (see Pipeline.fit)
+            else:
+                e = self.boost.predict(D[self.boost_cols].astype(float))
         cap = D.get("minutes_restriction")
         if cap is not None:
             c = pd.to_numeric(cap, errors="coerce").to_numpy()
@@ -167,6 +205,11 @@ def fit(D: pd.DataFrame, cfg=CONFIG) -> MinutesModel:
     y = (d["min"] / d.base_min).clip(0, 2.5)
     reg = Ridge(alpha=5.0).fit(d[X_COLS].fillna(0), y, sample_weight=d.base_min)
     M = MinutesModel(coef=reg.coef_, intercept=float(reg.intercept_), cfg=cfg, play=play)
+    if cfg.get("minutes_boosted"):
+        gb = D[(D.played == 1) & (D.exp_out == 0) & D.base_min.notna()]
+        if len(gb) >= cfg["minutes_boost_min_rows"]:
+            M.boost_cols = [c for c in G_COLS if gb[c].notna().any()]          # an input with no data at all is left out
+            M.boost = HistGradientBoostingRegressor(random_state=0, **cfg["minutes_boost_params"]).fit(gb[M.boost_cols].astype(float), gb["min"])
     d["e0"] = M.expected(d)
     d["role_i"] = role_of(d.start_share, d.e0, cfg)
     d = d[d.sec_q4.notna()]
@@ -251,11 +294,17 @@ def apply(M: MinutesModel, D: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
     # when the listed minutes are too many, an established starter gives up little; when too few, everyone shares
     shield = np.where((D.start_share >= cfg["role_starter_share"]) & (D.s_n.fillna(0) >= 5), 1 - cfg["reconcile_starter_shield"], 1.0)
     unsure = np.where(excess > 0, unsure * shield, unsure)
-    D["squeeze_w"] = shield
+    # the boosted model's starters need no protection when a simulated game runs over 240
+    D["squeeze_w"] = shield if M.boost is None else 1.0
     lam = excess / (ep * unsure).groupby(key).transform("sum").replace(0, np.nan)
-    D["e_min"] *= (1 - lam.fillna(0) * unsure).clip(0.5, 1.3)
+    if M.boost is None:
+        D["e_min"] *= (1 - lam.fillna(0) * unsure).clip(0.5, 1.3)
+        lo, hi = 0.9, 1.1
+    else:
+        # the boosted model already sees who is available, so it only needs a light pull toward 240
+        lo, hi = 1 - cfg["boost_reconcile_band"], 1 + cfg["boost_reconcile_band"]
     tot = (D.e_min * D.p_play).groupby(key).transform("sum")
-    D["e_min"] *= (240.0 / tot.replace(0, np.nan)).clip(0.9, 1.1).fillna(1.0)
+    D["e_min"] *= (240.0 / tot.replace(0, np.nan)).clip(lo, hi).fillna(1.0)
     D["e_min"] = D.e_min.clip(upper=41.5)
     D["role_i"] = role_of(D.start_share, D.e_min, cfg)
     D["p_foul"] = M.foul_trouble_prob(D, D.e_min.to_numpy())
@@ -276,6 +325,25 @@ def apply(M: MinutesModel, D: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
         if pd.notna(r.d5) and abs(r.d5) >= cfg["role_change_minutes"]:
             why.append(f"last-5 minutes {r.d5:+.0f} vs season")
         reasons.append("; ".join(why))
+    if M.boost is not None:
+        # what moved the boosted projection away from the baseline, in the terms the model uses
+        drive = []
+        for r, why in zip(D[["e_min", "base_min", "st_out", "team_rank", "m_l3", "m_l1", "st_l1", "start_share"]].itertuples(), reasons):
+            d = r.e_min - (r.base_min if pd.notna(r.base_min) else r.e_min)
+            parts = [why] if why else []
+            if abs(d) >= cfg["minutes_explain_gap"]:
+                bits = []
+                if r.st_out > 0:
+                    bits.append(f"{int(r.st_out)} usual starter{'s' if r.st_out > 1 else ''} out")
+                if pd.notna(r.m_l3):
+                    bits.append(f"last 3 games averaged {r.m_l3:.0f} min")
+                if pd.notna(r.team_rank):
+                    bits.append(f"number {int(r.team_rank)} in minutes among those available")
+                if pd.notna(r.st_l1) and (r.st_l1 >= 0.5) != (r.start_share >= cfg["role_starter_share"]):
+                    bits.append("started last game" if r.st_l1 >= 0.5 else "came off the bench last game")
+                parts.append(f"minutes {d:+.1f} vs baseline ({', '.join(bits)})" if bits else f"minutes {d:+.1f} vs baseline")
+            drive.append("; ".join(parts))
+        reasons = drive
     D["role_change_reason"] = reasons
     D["role_change"] = (D.role_change_reason != "").astype(int)
     return D

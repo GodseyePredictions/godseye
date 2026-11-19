@@ -37,6 +37,10 @@ class Pipeline:
         tr = self.D[(self.D.season < before_season) & (self.D.pending == 0)]
         g = self.G[(self.G.season < before_season) & (self.G.pending == 0)]
         m = {"minutes": mn.fit(tr, self.cfg), "team": gs.fit_team_model(g), "rates": props.fit(tr, self.cfg, groups_on)}
+        mm = m["minutes"]
+        if mm.boost is not None:
+            # predict once here: the booster's thread pool does not survive the backtest's process fork
+            mm.boost_cache = pd.Series(mm.boost.predict(self.D[mm.boost_cols].astype(float)), index=self.D.index)
         self.models[before_season] = m
         return m
 

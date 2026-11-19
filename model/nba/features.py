@@ -97,12 +97,20 @@ def player_state(p: pd.DataFrame, cfg=CONFIG) -> pd.DataFrame:
     gp = pl.groupby("player_id", sort=False)
     l5 = gp[cols].rolling(cfg["form_games"], min_periods=1).sum().reset_index(level=0, drop=True).add_prefix("l5_")
     l10 = gp[cols].rolling(10, min_periods=1).sum().reset_index(level=0, drop=True).add_prefix("l10_")
+    # the last game and last three on their own, and minutes split by starting or coming off the bench:
+    # a player's most recent role is the best single guide to tonight's minutes
+    rc = ["min", "starter", "n"]
+    l1 = gp[rc].rolling(1, min_periods=1).sum().reset_index(level=0, drop=True).add_prefix("l1_")
+    l3 = gp[rc].rolling(3, min_periods=1).sum().reset_index(level=0, drop=True).add_prefix("l3_")
+    pl["min_st"] = pl["min"] * pl["starter"]
+    split = pl.groupby(["player_id", "season"], sort=False)[["min_st"]].cumsum().add_prefix("s_")
+    l10st = gp[["min_st"]].rolling(10, min_periods=1).sum().reset_index(level=0, drop=True).add_prefix("l10_")
     state = pd.concat([pl[["player_id", "known", "season", "team_id"]].rename(
-        columns={"season": "state_season", "team_id": "last_team"}), season, l5, l10], axis=1)
+        columns={"season": "state_season", "team_id": "last_team"}), season, l5, l10, l1, l3, split, l10st], axis=1)
     state["last_played"] = state["known"]
     out = _asof(p, state, "player_id")
     stale = out.state_season != out.season          # the latest state is from an earlier season
-    for c in cols:
+    for c in cols + ["min_st"]:
         out.loc[stale, "s_" + c] = 0.0
     out[[c for c in out if c.startswith("s_")]] = out[[c for c in out if c.startswith("s_")]].fillna(0.0)
     prev = pl.groupby(["player_id", "season"])[cols].sum().add_prefix("prev_").reset_index()
