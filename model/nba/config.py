@@ -128,7 +128,9 @@ CONFIG = {
     "ticket_min_joint": {4: 0.30, 5: 0.25, 6: 0.18, 8: 0.10},
     "multi_games": 3,                    # multi-game slips: this many games ...
     "multi_legs_per_game": [4, 5],       # ... with this many legs from each (12 and 15 props in all)
-    "multi_all_games_legs": 4,           # the all-games slip: this many legs from every game on the slate
+    # The all-games slip (this many legs from every game on the slate). Off by default: it is made on request
+    # as a PDF and is not shown on the site or the tracker. Set to 4 to issue it with every slate.
+    "multi_all_games_legs": None,
     "max_legs_per_player": 2,
     "max_legs_per_player_by_size": {4: 1},   # a 4-leg slip rides on four different players
     "sgp_leg_floor_by_market": {"reb": 0.75},   # rebounds missed most often on graded slates, so they need a higher floor
