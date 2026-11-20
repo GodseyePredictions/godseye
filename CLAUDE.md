@@ -47,3 +47,8 @@ Project full probability distributions for NBA player props and build bet365 sam
 - **4-leg slips use four different players.** 6-leg and 8-leg slips may still carry two legs on one player.
 - **Rebound legs need 75%.** Every other market keeps the 70% floor.
 - **Calibration from graded slates.** Each market's probabilities are shifted by what graded legs show, shrunk by sample size and capped (`model/nba/calibrate.py`). The ledger keeps the raw probability beside the calibrated one. All three settings live in `model/nba/config.py`.
+
+### Amendments (20 November 2026, from the owner)
+
+- **Never post results on the site.** No graded slips, records, units or "what cashed" on GodsEye (site or artifact). Grading still runs and is logged; results are reported to the owner in chat or as a private file only. Config: `site_show_results` stays False.
+- **The all-games slip is made on request only**, delivered as a PDF, and is not shown on the site.

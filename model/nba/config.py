@@ -126,6 +126,9 @@ CONFIG = {
     "sgp_sizes": [4, 6, 8],
     "sgp_markets": ["pts", "reb", "ast", "fg3m"],      # markets allowed on props tickets
     "ticket_min_joint": {4: 0.30, 5: 0.25, 6: 0.18, 8: 0.10},
+    # Results are never shown on the site: the public tracker file is written empty and the graded record goes
+    # to data/nba_track_private.json (not committed). Set True to publish results again.
+    "site_show_results": False,
     "multi_games": 3,                    # multi-game slips: this many games ...
     "multi_legs_per_game": [4, 5],       # ... with this many legs from each (12 and 15 props in all)
     # The all-games slip (this many legs from every game on the slate). Off by default: it is made on request

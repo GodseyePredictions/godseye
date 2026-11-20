@@ -39,7 +39,7 @@ const script = [
   ["What God's Eye is", "God's Eye is an AI algorithm prediction tool. It does not follow experts, the media or the crowd. It builds its own number for every player and every game."],
   ["How", "It reads the data, plays each game thousands of times, and counts how often each bet wins. Then it builds the same-game parlays it likes best and tells you the true chance of the whole slip."],
   ["What you get", "Algorithm picks for the NFL and the NBA, a builder that prices your own slip leg by leg, and a tracker that shows where your money really goes."],
-  ["The honest part", "It is a model, not a crystal ball. Every pick shows its chance of losing as clearly as its chance of winning, and we publish the record either way."],
+  ["The honest part", "It is a model, not a crystal ball. Every pick shows its chance of losing as clearly as its chance of winning."],
 ];
 
 const nflHow = [
@@ -51,7 +51,6 @@ const nflHow = [
 const nflExpect = [
   "Single floor legs (the 70 to 88% band) have hit 76 to 81% in testing: about four in five.",
   "A four-leg ticket of those legs cashes about four times in ten. Six legs, about one in four.",
-  "Last graded week: 18 of 64 tickets cashed, with legs hitting 73% against 71% expected.",
   "Losing weeks are normal. The touchdown model is tested against two seasons it never saw; the game-line model does not beat the closing line, so its game parlays are fair-price references.",
 ];
 const nflPlay = [
@@ -170,7 +169,6 @@ const NBA_ART: Record<string, { pose: Pose; team?: string }> = {
 const NBA_FEATURED = Object.keys(NBA_ART);
 
 export default function Home() {
-  const rec = locks.record;
   // The single-file preview carries the banner inline (window.GE_BANNER); the site serves it from /brand.
   const banner = (typeof window !== "undefined" && (window as { GE_BANNER?: string }).GE_BANNER) || "/brand/banner.jpg";
   const nbaTickets = nba.games.reduce((n, g) => n + g.tickets.length, 0);
@@ -340,8 +338,7 @@ export default function Home() {
               ))}
             </div>
             <p className="backing">
-              <strong>We back them with the record, win or lose.</strong> In the last graded week {rec.cashed} of the algorithm&apos;s{" "}
-              {rec.tickets} tickets cashed, and {rec.legs_hit}% of its legs hit against {rec.legs_exp}% expected. A parlay at{" "}
+              <strong>Every pick shows its chance of losing.</strong> A parlay at{" "}
               {pct(locks.locks[0]?.p ?? 0)} still loses more often than it wins: take a price better than the fair price shown, or pass.
             </p>
           </div>
@@ -436,7 +433,7 @@ export default function Home() {
                   <li>4-leg, 6-leg and 8-leg props SGPs for every game</li>
                   <li>Game script card: pace, margin, blowout risk</li>
                   <li>Projection board with the reasons for every number</li>
-                  <li>A track record of every slip issued, graded nightly</li>
+                  <li>Only players confirmed available appear on a slip</li>
                 </ul>
                 <span className="btn btn-primary">Open NBA</span>
               </Link>
