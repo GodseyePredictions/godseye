@@ -152,3 +152,16 @@ def test_calibration_shift_is_fitted_shrunk_and_point_in_time():
     assert 0.75 < calibrate.apply(0.75, c["shift"]) < 0.85
     assert calibrate.fit(con, CONFIG, before="2026-01-02T00:00:00") == {}                    # nothing graded yet at that time
     assert calibrate.apply(0.75, 0.0) == 0.75 and "reb" not in cal
+
+
+def test_all_games_slip_takes_one_ticket_from_every_game():
+    from nba import run_slate
+    def t(j, d):
+        return {"joint": j, "decimal": d, "legs": [leg("a", "pts", 0.8, seed=i) for i in range(4)]}
+    per = {g: {"matchup": g, 4: t(0.4, 3.0), 5: t(0.3, 4.0)} for g in ("g1", "g2", "g3", "g4")}
+    slips = {s["type"]: s for s in run_slate.multi_game_slips(per, CONFIG)}
+    big = slips["multi_all"]
+    assert big["n_legs"] == 16 and len(big["parts"]) == 4 and abs(big["joint"] - 0.4 ** 4) < 1e-12
+    assert "multi_12" in slips and len(slips["multi_12"]["parts"]) == 3
+    three = {s["type"] for s in run_slate.multi_game_slips({g: per[g] for g in ("g1", "g2", "g3")}, CONFIG)}
+    assert "multi_all" not in three                      # with three games it would repeat the 12-prop slip

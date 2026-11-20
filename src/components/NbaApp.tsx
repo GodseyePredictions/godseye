@@ -94,6 +94,7 @@ const TICKET_NAMES: Record<string, string> = {
   props_8: "8-leg props SGP",
   multi_12: "12 props, 3 games",
   multi_15: "15 props, 3 games",
+  multi_all: "All-games slip",
   game_script: "Game-script SGP",
   double_double: "Double-double ticket",
 };
@@ -468,7 +469,7 @@ function ResultPill({ r }: { r: string }) {
 
 function TrackTab() {
   const [open, setOpen] = useState<string | null>(null);
-  const order = ["props_4", "props_6", "props_8", "multi_12", "multi_15"];
+  const order = ["props_4", "props_6", "props_8", "multi_12", "multi_15", "multi_all"];
   const rows = order.filter((k) => track.totals[k]).map((k) => ({ k, ...track.totals[k] }));
   const all = rows.reduce((a, r) => ({ tickets: a.tickets + r.tickets, won: a.won + r.won, expected: a.expected + r.expected, units: a.units + r.units }), { tickets: 0, won: 0, expected: 0, units: 0 });
   return (

@@ -113,6 +113,19 @@ def multi_game_slips(per_game: dict, cfg=CONFIG) -> list:
                     "parts": [{"game_id": gid, "matchup": per_game[gid]["matchup"], "joint": j,
                                "legs": [{k: v for k, v in l.items() if k not in ("hits", "active")} for l in t["legs"]]}
                               for j, gid, t in pick]})
+    # one slip across every game on the slate: each game's best ticket of the configured size
+    n = cfg.get("multi_all_games_legs")
+    have = sorted(((t["joint"], gid, t) for gid, d in per_game.items() for t in [d.get(n)] if t), key=lambda x: -x[0]) if n else []
+    if len(have) > cfg["multi_games"] or (len(have) >= 2 and not out):
+        joint = float(np.prod([p[0] for p in have]))
+        dec = [p[2]["decimal"] for p in have]
+        price = float(np.prod(dec)) if all(dec) else None
+        out.append({"type": "multi_all", "n_legs": n * len(have), "joint": joint, "fair_price": fair_american(joint),
+                    "book_price": decimal_to_american(price) if price else None, "ev": joint * price - 1 if price else None,
+                    "price_is_estimate": True,
+                    "parts": [{"game_id": gid, "matchup": per_game[gid]["matchup"], "joint": j,
+                               "legs": [{k: v for k, v in l.items() if k not in ("hits", "active")} for l in t["legs"]]}
+                              for j, gid, t in have]})
     return out
 
 
