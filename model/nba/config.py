@@ -122,8 +122,16 @@ CONFIG = {
                          "pa": [10, 15, 20, 25, 30, 35]},
 
     # ---- tickets ----------------------------------------------------------------------------
-    "sgp_leg_floor": 0.70,
-    "sgp_sizes": [4, 6, 8],
+    # Raised from 0.70 on 20 November 2026: over six graded nights, slip legs the model called 70 to 74%
+    # hit 71% (110 legs) against 84% for legs at 74 to 82% (220 legs).
+    "sgp_leg_floor": 0.75,
+    "sgp_sizes": [4, 6],
+    # A second 4-leg slip on four players who are not on the first one, in place of the 8-leg: the 4-, 6- and
+    # 8-leg slips shared their core legs, so one miss lost all three.
+    "second_four_leg": True,
+    # Rebound legs hit 71% on slips against 80 to 86% for the other markets: one per slip at most, none on a 4-leg.
+    "max_legs_per_market": {"reb": 1},
+    "max_legs_per_market_by_size": {4: {"reb": 0}},
     "sgp_markets": ["pts", "reb", "ast", "fg3m"],      # markets allowed on props tickets
     "ticket_min_joint": {4: 0.30, 5: 0.25, 6: 0.18, 8: 0.10},
     # Results are never shown on the site: the public tracker file is written empty and the graded record goes

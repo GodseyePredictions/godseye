@@ -24,8 +24,8 @@ def leg(pid, market, p, price=-250, seed=0, kind="prop", **kw):
 
 def test_every_rule_for_a_same_game_parlay_leg():
     ok = lambda l, **k: sgp.sgp_eligible(l, CONFIG, **k)
-    assert ok(leg("a", "pts", 0.72))[0]
-    assert ok(leg("a", "pts", 0.69))[1].endswith("under the floor")
+    assert ok(leg("a", "pts", 0.76))[0]
+    assert ok(leg("a", "pts", 0.74))[1].endswith("under the floor")
     assert ok(leg("a", "pts", 0.8, eligible_player=False))[1] == "player not confirmed in"
     assert ok(leg("a", "pts", 0.8, gate_ok=False))[1] == "fails the shooting gate"
     assert ok(leg("a", "pts", 0.8, price=None))[1] == "no book price"
@@ -37,8 +37,8 @@ def test_every_rule_for_a_same_game_parlay_leg():
 
 def test_ticket_uses_joint_probability_and_limits():
     shared = np.random.default_rng(1).random(N) < 0.8
-    pool = [leg("a", "pts", 0.8, hits=shared), leg("b", "reb", 0.8, hits=shared), leg("c", "ast", 0.8, hits=shared),
-            leg("d", "pts", 0.8, hits=shared), leg("e", "reb", 0.75, seed=5), leg("a", "reb", 0.75, seed=6), leg("a", "ast", 0.75, seed=7)]
+    pool = [leg("a", "pts", 0.8, hits=shared), leg("b", "fg3m", 0.8, hits=shared), leg("c", "ast", 0.8, hits=shared),
+            leg("d", "pts", 0.8, hits=shared), leg("e", "fg3m", 0.75, seed=5), leg("a", "fg3m", 0.75, seed=6), leg("a", "ast", 0.75, seed=7)]
     t = tk.best_ticket(pool, 4, CONFIG)
     assert abs(t["joint"] - np.logical_and.reduce([l["hits"] for l in t["legs"]]).mean()) < 1e-12
     assert t["joint"] > 0.8 ** 4 + 0.1                                    # correlated legs: far above the naive product
@@ -48,8 +48,8 @@ def test_ticket_uses_joint_probability_and_limits():
 
 
 def test_combo_is_not_stacked_with_its_own_component():
-    pool = [leg("a", "pra", 0.8, seed=1), leg("a", "pts", 0.8, seed=2), leg("b", "reb", 0.8, seed=3), leg("c", "ast", 0.8, seed=4),
-            leg("d", "reb", 0.8, seed=5)]
+    pool = [leg("a", "pra", 0.8, seed=1), leg("a", "pts", 0.8, seed=2), leg("b", "fg3m", 0.8, seed=3), leg("c", "ast", 0.8, seed=4),
+            leg("d", "fg3m", 0.8, seed=5)]
     assert not tk.allowed([pool[0], pool[1], pool[2], pool[3]], CONFIG)
     assert tk.allowed([pool[0], pool[2], pool[3], pool[4]], CONFIG)
     assert not tk.allowed([leg("a", "pts", 0.8, seed=1), leg("a", "pts", 0.9, seed=2, line=7.5)], CONFIG)   # two rungs of one market
@@ -130,7 +130,26 @@ def test_four_leg_slip_uses_four_players_and_rebounds_need_the_higher_floor():
     assert len({l["player_id"] for l in four["legs"]}) == 4
     assert tk.allowed([pool[0], pool[1]], cfg, size=6) and not tk.allowed([pool[0], pool[1]], cfg, size=4)
     assert not sgp.sgp_eligible(leg("a", "reb", 0.74))[0] and sgp.sgp_eligible(leg("a", "reb", 0.76))[0]
-    assert sgp.sgp_eligible(leg("a", "pts", 0.74))[0]
+    low = dict(CONFIG, sgp_leg_floor=0.70)                      # a market floor still applies above a lower general floor
+    assert sgp.sgp_eligible(leg("a", "pts", 0.74), low)[0] and not sgp.sgp_eligible(leg("a", "reb", 0.74), low)[0]
+
+
+def test_rebound_cap_and_second_four_leg_slip():
+    reb = [leg(p, "reb", 0.85, seed=i) for i, p in enumerate("abcd")]
+    assert not tk.allowed([reb[0]], CONFIG, size=4)                         # no rebound leg on a 4-leg slip
+    assert tk.allowed([reb[0]], CONFIG, size=6) and not tk.allowed([reb[0], reb[1]], CONFIG, size=6)   # one at most elsewhere
+    pool = [leg(p, m, 0.8 + i / 200, seed=10 + i) for i, (p, m) in enumerate(
+        [("a", "pts"), ("b", "pts"), ("c", "ast"), ("d", "fg3m"), ("e", "pts"), ("f", "ast"), ("g", "fg3m"), ("h", "pts")])]
+    cfg = dict(CONFIG, ticket_min_joint={4: 0.0, 5: 0.0, 6: 0.0})
+
+    class S:
+        game_id = "g"
+    built = sgp.build_tickets(pool, S(), {"scripts": []}, cfg, require_price=True)
+    by = {t["type"]: t for t in built["tickets"]}
+    assert "props_8" not in by and {"props_4", "props_4b", "props_6"} <= set(by)
+    a, b = ({l["player_id"] for l in by[k]["legs"]} for k in ("props_4", "props_4b"))
+    assert len(a) == 4 and len(b) == 4 and not (a & b)                      # two independent slips
+    assert all(l["market"] != "reb" for k in ("props_4", "props_4b") for l in by[k]["legs"])
 
 
 def test_calibration_shift_is_fitted_shrunk_and_point_in_time():
