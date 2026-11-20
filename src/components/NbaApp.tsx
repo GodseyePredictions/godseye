@@ -90,6 +90,7 @@ type Tab = (typeof TABS)[number];
 
 const TICKET_NAMES: Record<string, string> = {
   props_4: "4-leg props SGP",
+  props_4b: "Second 4-leg props SGP",
   props_6: "6-leg props SGP",
   props_8: "8-leg props SGP",
   multi_12: "12 props, 3 games",
@@ -368,7 +369,7 @@ function SgpTab() {
             .filter((n) => !n.startsWith("MODEL-ONLY"))
             .map((n) => (
               <p className="sub" key={n}>
-                {n.replace("game_script:", "Game-script ticket:").replace("double_double:", "Double-double ticket:").replace("props_4:", "4-leg ticket:").replace("props_6:", "6-leg ticket:")}
+                {n.replace("game_script:", "Game-script ticket:").replace("double_double:", "Double-double ticket:").replace("props_4b:", "Second 4-leg ticket:").replace("props_4:", "4-leg ticket:").replace("props_6:", "6-leg ticket:")}
               </p>
             ))}
           {g.singles.length > 0 && (

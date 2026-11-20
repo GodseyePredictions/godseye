@@ -47,6 +47,14 @@ def allowed(combo, cfg, allow_combo_component=False, size: int | None = None) ->
         if l.get("script"):
             scripts[l["script"]] = scripts.get(l["script"], 0) + 1
     cap = cfg.get("max_legs_per_player_by_size", {}).get(size, cfg["max_legs_per_player"])
+    mcap = {**cfg.get("max_legs_per_market", {}), **cfg.get("max_legs_per_market_by_size", {}).get(size, {})}
+    if mcap:
+        counts = {}
+        for l in combo:
+            if l["kind"] == "prop":
+                counts[l["market"]] = counts.get(l["market"], 0) + 1
+        if any(counts.get(m, 0) > k for m, k in mcap.items()):
+            return False
     if any(len(v) > cap for v in per_player.values()):
         return False
     if any(len(set(v)) < len(v) for v in per_player.values()):          # two rungs of one market for one player

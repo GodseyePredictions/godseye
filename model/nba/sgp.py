@@ -237,6 +237,10 @@ def build_tickets(legs: list, sims, card: dict, cfg=CONFIG, require_price=True, 
         t = finish(f"props_{size}", tk.best_ticket(pool, size, cfg, require_price) if len(pool) >= size else None)
         if size == 4:
             four = t
+            if cfg.get("second_four_leg") and t is not None:
+                used = {l["player_id"] for l in t["legs"]}
+                rest = [l for l in pool if l["player_id"] not in used]
+                finish("props_4b", tk.best_ticket(rest, 4, cfg, require_price) if len(rest) >= 4 else None)
     # game-script variant: the 4-leg ticket plus one game leg that fits the likely scripts and adds value
     if four is not None:
         top = card["scripts"][0]["script"] if card.get("scripts") else ""

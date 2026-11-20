@@ -52,3 +52,6 @@ Project full probability distributions for NBA player props and build bet365 sam
 
 - **Never post results on the site.** No graded slips, records, units or "what cashed" on GodsEye (site or artifact). Grading still runs and is logged; results are reported to the owner in chat or as a private file only. Config: `site_show_results` stays False.
 - **The all-games slip is made on request only**, delivered as a PDF, and is not shown on the site.
+- **Leg floor is 75% in every market** (rule 3 said 70%). Slip legs the model called 70 to 74% hit 71% over six graded nights.
+- **Rebound legs:** at most one per slip, and none on a 4-leg slip.
+- **Slips per game:** a 4-leg, a second 4-leg on four different players, and a 6-leg. The 8-leg is dropped.
