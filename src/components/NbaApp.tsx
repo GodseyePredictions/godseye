@@ -834,7 +834,6 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
     ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
-    ["track", "Track record", "M5 20V10M12 20V4M19 20v-7"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["scripts", "Game scripts", "M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3"],
     ["avail", "Availability", "M4 12l5 5L20 6"],

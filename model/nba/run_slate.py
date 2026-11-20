@@ -375,7 +375,12 @@ def write_track_file(con, cfg=CONFIG) -> dict:
         slates.append({"date": r.slate_date, "issued_at": r.run_at, "tickets": tickets, "graded": len(graded),
                        "won": sum(t["result"] == "won" for t in graded)})
     out = {"made_at": ledger.now(), "slates": slates[::-1], "totals": totals}
-    (OUT / "nba_track.json").write_text(json.dumps(_clean(out), default=str, allow_nan=False))
+    if cfg.get("site_show_results", True):
+        (OUT / "nba_track.json").write_text(json.dumps(_clean(out), default=str, allow_nan=False))
+    else:
+        # the graded record stays private; the site's tracker file carries nothing
+        (HERE / "data" / "nba_track_private.json").write_text(json.dumps(_clean(out), default=str, allow_nan=False))
+        (OUT / "nba_track.json").write_text(json.dumps({"made_at": out["made_at"], "slates": [], "totals": {}}))
     return out
 
 

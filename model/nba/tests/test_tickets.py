@@ -167,3 +167,17 @@ def test_all_games_slip_takes_one_ticket_from_every_game():
     assert "multi_12" in slips and len(slips["multi_12"]["parts"]) == 3
     three = {s["type"] for s in run_slate.multi_game_slips({g: per[g] for g in ("g1", "g2", "g3")}, on)}
     assert "multi_all" not in three                      # with three games it would repeat the 12-prop slip
+
+
+def test_results_are_kept_off_the_site_file(tmp_path, monkeypatch):
+    from nba import run_slate
+    con = sqlite3.connect(":memory:")
+    con.executescript(SCHEMA)
+    ledger.init(con)
+    monkeypatch.setattr(run_slate, "OUT", tmp_path)
+    monkeypatch.setattr(run_slate, "HERE", tmp_path)
+    (tmp_path / "data").mkdir()
+    run_slate.write_track_file(con, dict(CONFIG, site_show_results=False))
+    public = json.loads((tmp_path / "nba_track.json").read_text())
+    assert public["slates"] == [] and public["totals"] == {}
+    assert (tmp_path / "data" / "nba_track_private.json").exists()
