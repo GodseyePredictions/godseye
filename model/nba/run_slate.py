@@ -329,7 +329,7 @@ def write_site_file(payload: dict) -> None:
     (OUT / "nba_site.json").write_text(json.dumps(_clean(site), default=str, allow_nan=False))
 
 
-def write_track_file(con) -> dict:
+def write_track_file(con, cfg=CONFIG) -> dict:
     """Every slip issued, by slate, with its result once graded (output/nba_track.json, read by the website).
     For each date and game the last slate run that covered the game is the issued one, so a second run made
     after the early games have tipped does not drop their slips. Multi-game slips come from the last run.
@@ -342,6 +342,8 @@ def write_track_file(con) -> dict:
         rids = list(allruns[allruns.slate_date == r.slate_date].run_id)
         q = ",".join("?" * len(rids))
         T = pd.read_sql(f"SELECT * FROM nba_tickets WHERE run_id IN ({q}) AND type NOT LIKE 'preview%' ORDER BY run_at", con, params=rids)
+        if not cfg.get("multi_all_games_legs"):
+            T = T[T.type != "multi_all"]                       # made on request only: kept off the tracker
         if T.empty:
             continue
         per_game = T[T.game_id.isin(list(sched))]
