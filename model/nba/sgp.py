@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from common import tickets as tk
-from common.odds_math import decimal_to_american, fair_american
+from common.odds_math import decimal_to_american, fair_american, to_decimal
 from nba import calibrate
 from nba import game_sim as gs
 from nba import player_sim as ps
@@ -140,6 +140,11 @@ def sgp_eligible(leg: dict, cfg=CONFIG, require_price=True) -> tuple[bool, str]:
         return False, f"model probability {leg['p']:.0%} against a {floor:.0%} minimum is under the floor"
     if not leg["gate_ok"]:
         return False, "fails the shooting gate"
+    gap = cfg.get("max_model_edge_vs_book")
+    if gap is not None and leg.get("price") is not None:
+        implied = 1.0 / to_decimal(leg["price"])
+        if leg["p"] - implied > gap:
+            return False, f"model {leg['p']:.0%} is more than {gap:.0%} above the book's {implied:.0%}"
     if leg["flagged_game"]:
         if leg["p_blowout"] is not None and leg["p_blowout"] < floor:
             return False, "under the floor inside blowout simulations"

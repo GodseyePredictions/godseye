@@ -200,3 +200,10 @@ def test_results_are_kept_off_the_site_file(tmp_path, monkeypatch):
     public = json.loads((tmp_path / "nba_track.json").read_text())
     assert public["slates"] == [] and public["totals"] == {}
     assert (tmp_path / "data" / "nba_track_private.json").exists()
+
+
+def test_leg_far_above_the_book_price_is_kept_off_slips():
+    ok, why = sgp.sgp_eligible(leg("a", "ast", 0.76, price=117))            # book implies 46%
+    assert not ok and "above the book" in why
+    assert sgp.sgp_eligible(leg("a", "ast", 0.80, price=-250))[0]            # book implies 71%: a normal gap
+    assert sgp.sgp_eligible(leg("a", "ast", 0.76, price=117), dict(CONFIG, max_model_edge_vs_book=None))[0]
