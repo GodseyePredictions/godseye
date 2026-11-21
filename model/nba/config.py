@@ -130,6 +130,9 @@ CONFIG = {
     # 8-leg slips shared their core legs, so one miss lost all three.
     "second_four_leg": True,
     # Rebound legs hit 71% on slips against 80 to 86% for the other markets: one per slip at most, none on a 4-leg.
+    # A leg the model rates far above the book's own price is far more likely a model error (a role change the
+    # model has not seen) than an edge: of 6 graded legs with a gap over 15 points, 1 hit. Such legs stay off slips.
+    "max_model_edge_vs_book": 0.15,
     "max_legs_per_market": {"reb": 1},
     "max_legs_per_market_by_size": {4: {"reb": 0}},
     "sgp_markets": ["pts", "reb", "ast", "fg3m"],      # markets allowed on props tickets
