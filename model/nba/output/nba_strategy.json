@@ -1,0 +1,174 @@
+{
+ "date": "2026-11-21",
+ "built": "Saturday 21 November 2026, slips from the 5:47 pm ET run",
+ "intro": "How to spread a bankroll across tonight's algorithm slips: single-game parlays first, one cross-game parlay for payout, and a small lotto slip.",
+ "bankrolls": [
+  {
+   "size": 200,
+   "staked": 170,
+   "reserve": 30,
+   "win_chance": 0.56,
+   "lose_all": 0.09,
+   "typical": 21,
+   "rows": [
+    {
+     "slip": "MEM @ MIN 4-leg A",
+     "type": "SGP",
+     "stake": 40,
+     "chance": 0.46,
+     "price": 219,
+     "profit": 70
+    },
+    {
+     "slip": "LAC @ DAL 4-leg A",
+     "type": "SGP",
+     "stake": 35,
+     "chance": 0.42,
+     "price": 207,
+     "profit": 58
+    },
+    {
+     "slip": "NO @ SA 4-leg A",
+     "type": "SGP",
+     "stake": 30,
+     "chance": 0.53,
+     "price": 124,
+     "profit": 30
+    },
+    {
+     "slip": "POR @ NY 6-leg",
+     "type": "SGP, higher payout",
+     "stake": 40,
+     "chance": 0.32,
+     "price": 439,
+     "profit": 140
+    },
+    {
+     "slip": "Cross-game 6-leg",
+     "type": "Cross-game parlay",
+     "stake": 20,
+     "chance": 0.36,
+     "price": 341,
+     "profit": 61
+    },
+    {
+     "slip": "Lotto slip, 20 legs",
+     "type": "Lotto",
+     "stake": 5,
+     "chance": 0.015,
+     "price": 16459,
+     "profit": 415
+    }
+   ]
+  },
+  {
+   "size": 100,
+   "staked": 80,
+   "reserve": 20,
+   "win_chance": 0.58,
+   "lose_all": 0.09,
+   "typical": 16,
+   "rows": [
+    {
+     "slip": "MEM @ MIN 4-leg A",
+     "type": "SGP",
+     "stake": 20,
+     "chance": 0.46,
+     "price": 219,
+     "profit": 35
+    },
+    {
+     "slip": "LAC @ DAL 4-leg A",
+     "type": "SGP",
+     "stake": 17,
+     "chance": 0.42,
+     "price": 207,
+     "profit": 28
+    },
+    {
+     "slip": "NO @ SA 4-leg A",
+     "type": "SGP",
+     "stake": 15,
+     "chance": 0.53,
+     "price": 124,
+     "profit": 15
+    },
+    {
+     "slip": "POR @ NY 6-leg",
+     "type": "SGP, higher payout",
+     "stake": 15,
+     "chance": 0.32,
+     "price": 439,
+     "profit": 53
+    },
+    {
+     "slip": "Cross-game 6-leg",
+     "type": "Cross-game parlay",
+     "stake": 10,
+     "chance": 0.36,
+     "price": 341,
+     "profit": 31
+    },
+    {
+     "slip": "Lotto slip, 20 legs",
+     "type": "Lotto",
+     "stake": 3,
+     "chance": 0.015,
+     "price": 16459,
+     "profit": 249
+    }
+   ]
+  }
+ ],
+ "cross_game": {
+  "name": "Cross-game 6-leg",
+  "chance": 0.36,
+  "price": 341,
+  "min_price": 190,
+  "legs": [
+   {
+    "game": "LAC @ DAL",
+    "label": "Zaccharie Risacher 6+ Points",
+    "p": 0.79,
+    "price": -220
+   },
+   {
+    "game": "LAC @ DAL",
+    "label": "Keaton Wagler 6+ Points",
+    "p": 0.84,
+    "price": -407
+   },
+   {
+    "game": "MEM @ MIN",
+    "label": "Cam Spencer 3+ Assists",
+    "p": 0.97,
+    "price": -840
+   },
+   {
+    "game": "MEM @ MIN",
+    "label": "LaMelo Ball 3+ Threes Made",
+    "p": 0.79,
+    "price": -291
+   },
+   {
+    "game": "NO @ SA",
+    "label": "Herbert Jones 1+ Threes Made",
+    "p": 0.81,
+    "price": -295
+   },
+   {
+    "game": "NO @ SA",
+    "label": "De'Aaron Fox 10+ Points",
+    "p": 0.87,
+    "price": -479
+   }
+  ]
+ },
+ "notes": [
+  "The single-game slips are on the Game SGPs tab with every leg. The lotto slip is each of tonight's five games' 4-leg A slip on one ticket.",
+  "About 85% of the stake is on single-game slips, 12% on the cross-game parlay and 3% on the lotto slip. One slip per game, so one bad game costs one stake.",
+  "The cross-game parlay and the lotto slip use legs from the same games as the core slips, so they win on the same nights. They add payout, not safety.",
+  "Chances come from 600,000 simulations using the model's own probabilities. Profit figures assume the book's real price pays about 20% less than listed on a same-game slip and about 10% less on the cross-game parlay. Those are estimates.",
+  "Place slips as issued, with no added legs. Never more than a quarter of the bankroll on one slip. Do not raise stakes to chase a loss. Nothing here is a guarantee: most bettors lose over time."
+ ]
+}

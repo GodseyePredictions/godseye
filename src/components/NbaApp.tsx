@@ -4,6 +4,7 @@ import { useState, useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
 import raw from "../../model/nba/output/nba_site.json";
 import rawTrack from "../../model/nba/output/nba_track.json";
+import rawStrategy from "../../model/nba/output/nba_strategy.json";
 
 /* The NBA side of the console. It mirrors the NFL console's layout and reads the latest slate
    written by `python3 -m nba.run_slate` (model/nba/output/nba_site.json). */
@@ -85,7 +86,7 @@ const track = rawTrack as unknown as {
 };
 const BOOK = slate.book === "draftkings" ? "DraftKings" : slate.book === "bet365" ? "bet365" : "the book";
 
-const TABS = ["home", "sgp", "multi", "track", "board", "scripts", "avail", "model"] as const;
+const TABS = ["home", "sgp", "multi", "strategy", "track", "board", "scripts", "avail", "model"] as const;
 type Tab = (typeof TABS)[number];
 
 const TICKET_NAMES: Record<string, string> = {
@@ -468,6 +469,140 @@ function ResultPill({ r }: { r: string }) {
   return <span className={`pill ${cls}`}>{r === "won" ? "Cashed" : r === "lost" ? "Lost" : r === "pending" ? "Pending" : "Void"}</span>;
 }
 
+type StrategyRow = { slip: string; type: string; stake: number; chance: number; price: number; profit: number };
+type Strategy = {
+  date: string;
+  built: string;
+  intro: string;
+  notes: string[];
+  bankrolls: { size: number; staked: number; reserve: number; win_chance: number; lose_all: number; typical: number; rows: StrategyRow[] }[];
+  cross_game: { name: string; chance: number; price: number; min_price: number; legs: { game: string; label: string; p: number; price: number }[] };
+};
+const strategy = rawStrategy as unknown as Strategy;
+
+function StrategyHead({ title, sub }: { title: string; sub?: string }) {
+  return (
+    <div className="section-head">
+      <div>
+        <h2>{title}</h2>
+        {sub && <p className="sub">{sub}</p>}
+      </div>
+    </div>
+  );
+}
+
+/** Staking plans for one night's slips at two bankroll sizes. Hidden once that night is over. */
+function StrategyTab() {
+  // the plan is for the slate dated `strategy.date` (Eastern); it goes stale the next morning
+  const [stale] = useState(() => new Date(Date.now() - 11 * 3600e3).toISOString().slice(0, 10) > strategy.date);
+  if (stale)
+    return (
+      <section className="panel">
+        <StrategyHead title="Bankroll strategy" />
+        <p className="empty">No bankroll strategy is posted for today&apos;s slate yet.</p>
+      </section>
+    );
+  return (
+    <>
+      <section className="panel">
+        <StrategyHead title="Bankroll strategy" sub={strategy.built} />
+        <p className="sub" style={{ maxWidth: "75ch" }}>
+          {strategy.intro}
+        </p>
+      </section>
+      {strategy.bankrolls.map((b) => (
+        <section className="panel" key={b.size}>
+          <StrategyHead title={`$${b.size} bankroll`} sub={`Stake $${b.staked}, hold $${b.reserve} in reserve`} />
+          <div className="kpis" style={{ marginBottom: 12 }}>
+            {[
+              ["Staked", `$${b.staked}`],
+              ["Chance of a winning night", pct(b.win_chance)],
+              ["Typical night", `about +$${b.typical}`],
+              ["Lose all staked", pct(b.lose_all)],
+            ].map(([k, v]) => (
+              <div className="kpi" key={k}>
+                <div className="k">{k}</div>
+                <div className="v">{v}</div>
+              </div>
+            ))}
+          </div>
+          <div className="scroll">
+            <table className="tbl">
+              <thead>
+                <tr>
+                  {["Slip", "Type", "Stake", "Model chance", "Listed price", "Profit if it cashes"].map((h) => (
+                    <th key={h}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {b.rows.map((r) => (
+                  <tr key={r.slip}>
+                    <td>
+                      <b>{r.slip}</b>
+                    </td>
+                    <td>{r.type}</td>
+                    <td className="num">${r.stake}</td>
+                    <td className="num">{pct(r.chance, r.chance < 0.1 ? 1 : 0)}</td>
+                    <td className="num">{american(r.price)}</td>
+                    <td className="num">about ${r.profit}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <td>Held in reserve</td>
+                  <td />
+                  <td className="num">${b.reserve}</td>
+                  <td />
+                  <td />
+                  <td />
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+      <section className="panel">
+        <StrategyHead
+          title={strategy.cross_game.name}
+          sub={`Model chance about ${pct(strategy.cross_game.chance)} · listed ${american(strategy.cross_game.price)} · take only at ${american(strategy.cross_game.min_price)} or better`}
+        />
+        <div className="scroll">
+          <table className="tbl">
+            <thead>
+              <tr>
+                <th>Game</th>
+                <th>Leg</th>
+                <th>Model</th>
+                <th>{BOOK}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {strategy.cross_game.legs.map((l) => (
+                <tr key={l.label}>
+                  <td>{l.game}</td>
+                  <td>
+                    <b>{l.label}</b>
+                  </td>
+                  <td className="num">{pct(l.p)}</td>
+                  <td className="num">{american(l.price)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section className="panel">
+        <StrategyHead title="How to use it" />
+        <ul className="why">
+          {strategy.notes.map((n) => (
+            <li key={n}>{n}</li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
+}
+
 function TrackTab() {
   const [open, setOpen] = useState<string | null>(null);
   const order = ["props_4", "props_6", "props_8", "multi_12", "multi_15", "multi_all"];
@@ -835,6 +970,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
     ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
+    ["strategy", "Bankroll strategy", "M4 19h16M6 16V8M11 16V5M16 16v-6"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["scripts", "Game scripts", "M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3"],
     ["avail", "Availability", "M4 12l5 5L20 6"],
@@ -882,6 +1018,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
           {tab === "home" && <HomeTab prefix={prefix} />}
           {tab === "sgp" && <SgpTab />}
           {tab === "multi" && <MultiTab />}
+          {tab === "strategy" && <StrategyTab />}
           {tab === "track" && <TrackTab />}
           {tab === "board" && <BoardTab />}
           {tab === "scripts" && slate.games.map((g) => <ScriptCard g={g} key={g.id} />)}
