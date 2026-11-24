@@ -140,6 +140,12 @@ CONFIG = {
     # Results are never shown on the site: the public tracker file is written empty and the graded record goes
     # to data/nba_track_private.json (not committed). Set True to publish results again.
     "site_show_results": False,
+    # Cashed slips showcase (owner, 24 November 2026): winning algorithm slips are listed on the site with an example
+    # stake, next to the count of every slip issued. Example stakes are illustrations, not bets that were placed.
+    "site_show_cashed": True,
+    "cashed_long_price": 300,            # a winning slip at this listed price or longer gets the smaller example stake
+    "cashed_stake_long": 50,
+    "cashed_stake_short": 85,
     "multi_games": 3,                    # multi-game slips: this many games ...
     "multi_legs_per_game": [4, 5],       # ... with this many legs from each (12 and 15 props in all)
     # The all-games slip (this many legs from every game on the slate). Off by default: it is made on request

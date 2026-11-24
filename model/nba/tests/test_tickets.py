@@ -207,3 +207,20 @@ def test_leg_far_above_the_book_price_is_kept_off_slips():
     assert not ok and "above the book" in why
     assert sgp.sgp_eligible(leg("a", "ast", 0.80, price=-250))[0]            # book implies 71%: a normal gap
     assert sgp.sgp_eligible(leg("a", "ast", 0.76, price=117), dict(CONFIG, max_model_edge_vs_book=None))[0]
+
+
+def test_cashed_showcase_lists_winners_with_example_stakes_and_the_full_count():
+    from nba import run_slate
+    leg_ = {"label": "A 10+ Points", "p": 0.8, "price": -300.0, "result": "won", "actual": 14.0}
+    track = {"made_at": "t", "slates": [{"date": "2026-11-11", "tickets": [
+        {"id": "w1", "game": "X @ Y", "type": "props_6", "result": "won", "joint": 0.3, "price": 400.0, "n": 6, "legs": [leg_]},
+        {"id": "w2", "game": "X @ Y", "type": "props_4", "result": "won", "joint": 0.4, "price": 150.0, "n": 4, "legs": [leg_]},
+        {"id": "l1", "game": "X @ Y", "type": "props_4b", "result": "lost", "joint": 0.4, "price": 120.0, "n": 4, "legs": [leg_]},
+        {"id": "p1", "game": "X @ Y", "type": "props_4", "result": "pending", "joint": 0.4, "price": 120.0, "n": 4, "legs": [leg_]}]}]}
+    c = run_slate.cashed_showcase(track, CONFIG)
+    assert c["issued"] == 3 and c["cashed"] == 2 and [s["id"] for s in c["slips"]] == ["w1", "w2"]      # losers are counted, not listed
+    long_, short = c["slips"]
+    assert long_["stake"] == CONFIG["cashed_stake_long"] and abs(long_["returned"] - 250.0) < 1e-9
+    assert short["stake"] == CONFIG["cashed_stake_short"] and abs(short["profit"] - 127.5) < 1e-9
+    assert c["nights"] == [{"date": "2026-11-11", "issued": 3, "cashed": 2}]
+    assert c["all_staked"] == 50 + 85 + 85 and abs(c["all_net"] - (250.0 + 212.5 - 220)) < 1e-9          # losers' stakes count against the total
