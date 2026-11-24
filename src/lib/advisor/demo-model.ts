@@ -11,6 +11,7 @@ import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import type { CallModel, ChatMessage, ModelReply } from "./agent.ts";
+import { MARKET_LABEL, type Market } from "./legs.ts";
 
 type Block = { type: string; [k: string]: unknown };
 const blocks = (m: ChatMessage): Block[] => (typeof m.content === "string" ? [{ type: "text", text: m.content }] : (m.content as unknown as Block[]));
@@ -37,7 +38,7 @@ const draftLegs = (draft: Record<string, unknown>): Leg[] =>
     side: (l.side as string) ?? null, odds: (l.odds as number) ?? null,
   }));
 const ratedLegs = (legs: Record<string, unknown>[]): Leg[] => legs.map((l) => ({ player: l.player as string, market: l.market as string, threshold: (l.threshold as number) ?? null, side: "over", odds: null }));
-const legName = (l: Record<string, unknown>) => `${l.player} ${l.market === "atd" ? "anytime touchdown" : `${l.threshold}+ ${String(l.market).replace("_", " ")}`}`;
+const legName = (l: Record<string, unknown>) => `${l.player} ${l.market === "atd" ? "anytime touchdown" : `${l.threshold}+ ${MARKET_LABEL[l.market as Market] ?? l.market}`}`;
 
 let n = 0;
 const say = (text: string): ModelReply => ({ content: [{ type: "text", text, citations: null }] as ModelReply["content"], stop_reason: "end_turn" });

@@ -1,4 +1,5 @@
 @import "./console-base.css";
+@import "../../styles/slip.css";
 
 /* The imported console keeps its original red, black and gold theme.
    This file adds: the logo, white "paper" cards for slips, and the tracker tabs. */
@@ -495,58 +496,337 @@
   font: inherit;
 }
 
-/* ---------- advisor chat ---------- */
+/* ---------- 2026 refresh: calmer chrome, slips that stand out ---------- */
+/* The console keeps its dark ground. Panels lose their heavy borders, the side menu becomes a quiet rail,
+   and every slip is white paper with a red title and black type. */
+:root {
+  --radius: 16px;
+}
+body {
+  background:
+    radial-gradient(1200px 520px at 12% -10%, rgb(214 25 43 / 0.16), transparent 60%),
+    #0b0a0c;
+}
+.panel {
+  border-radius: var(--radius);
+  border-color: rgb(255 255 255 / 0.07);
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.02));
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.05) inset;
+}
+.section-head h2 {
+  letter-spacing: 0.01em;
+}
+nav.tabs {
+  border-radius: var(--radius);
+  border-color: rgb(255 255 255 / 0.07);
+  background: rgb(18 16 19 / 0.82);
+  backdrop-filter: blur(14px);
+}
+nav.tabs a {
+  border-radius: 10px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+nav.tabs a:hover {
+  background: rgb(255 255 255 / 0.06);
+}
+nav.tabs a[aria-current="page"] {
+  background: #fff;
+  color: #0b0b0c;
+  box-shadow: none;
+  border-color: transparent;
+}
+nav.tabs a[aria-current="page"] svg {
+  color: var(--red);
+}
+.btn {
+  border-radius: 10px;
+}
+.btn.primary {
+  box-shadow: 0 8px 22px -8px rgb(214 25 43 / 0.7);
+}
+
+/* slips: white ground, red titles, black type */
+.ticket,
+.t-bet {
+  border-top: 0;
+  border-radius: 14px;
+  padding: 16px 16px 14px;
+  --gold: #0b0b0c;
+  --ink: #0b0b0c;
+  color: #0b0b0c;
+}
+.ticket .top {
+  padding-bottom: 10px;
+  border-bottom: 2px dashed #dcd8da;
+}
+.ticket .legsn,
+.ticket h3,
+.ticket h4,
+.ticket .kind,
+.t-bet .sub:first-child {
+  color: var(--red);
+}
+.ticket .legsn {
+  text-transform: uppercase;
+}
+.ticket .fair,
+.ticket .pct,
+.ticket ol,
+.ticket ol li,
+.ticket .num,
+.t-bet-leg,
+.t-bet .num {
+  color: #0b0b0c;
+}
+.ticket ol li span,
+.ticket ol li small {
+  color: #4d4a4c;
+}
+.t-bet .sub {
+  color: #4d4a4c;
+}
+.t-bet .t-up {
+  color: #0a7d45;
+}
+.t-bet .t-down {
+  color: #c62222;
+}
+.gs-slip {
+  --slip-cut: #0b0a0c;
+}
+
+/* ---------- advisor chat: mobile-first ---------- */
+.chat {
+  display: flex;
+  flex-direction: column;
+  min-height: min(78vh, 900px);
+  border: 1px solid rgb(255 255 255 / 0.07);
+  border-radius: var(--radius);
+  background: rgb(18 16 19 / 0.7);
+  overflow: hidden;
+}
+.chat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.07);
+}
+.chat-top h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 22px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.chat-top p {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.chat-demo {
+  display: block;
+  color: #ffcf6b;
+}
+.chat-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
 .chat-log {
-  display: grid;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
-  max-height: 60vh;
-  min-height: 180px;
+  padding: 14px;
   overflow-y: auto;
-  padding: 4px 2px 8px;
+  max-height: 64vh;
 }
 .chat-line {
-  max-width: 78ch;
+  display: flex;
+  max-width: min(92%, 68ch);
 }
 .chat-line.you {
-  justify-self: end;
-  text-align: left;
-}
-.chat-who {
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted, #9aa0a6);
-  margin-bottom: 3px;
+  align-self: flex-end;
 }
 .chat-text {
   white-space: pre-wrap;
   line-height: 1.5;
-  padding: 10px 13px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 15px;
+  padding: 10px 14px;
+  border-radius: 16px 16px 16px 4px;
+  background: rgb(255 255 255 / 0.07);
 }
 .chat-line.you .chat-text {
-  background: rgba(200, 30, 45, 0.16);
-  border-color: rgba(200, 30, 45, 0.35);
+  border-radius: 16px 16px 4px 16px;
+  background: var(--red);
+  color: #fff;
+}
+.chat-attach {
+  display: block;
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 2px;
 }
 .chat-activity {
   display: block;
   font-size: 12.5px;
-  color: var(--muted, #9aa0a6);
+  color: var(--muted);
 }
-.chat-input {
+.chat-card {
+  display: grid;
+  gap: 12px;
+  width: min(100%, 440px);
+  padding: 0 7px;
+}
+.chat-empty {
+  margin: auto;
+  max-width: 46ch;
+  text-align: center;
+  color: var(--muted);
+}
+.chat-starters {
   display: grid;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 14px;
 }
-.chat-input textarea {
+.chat-starters button,
+.chat-history li button {
   width: 100%;
-  resize: vertical;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.35);
+  text-align: left;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.04);
   color: inherit;
   font: inherit;
+  cursor: pointer;
+}
+.chat-starters button:hover,
+.chat-history li button:hover {
+  border-color: var(--red);
+}
+.chat-history {
+  padding: 14px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.07);
+  background: rgb(0 0 0 / 0.25);
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.chat-history h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.chat-history p {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.chat-history ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.chat-error {
+  margin: 0;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  color: #ffb4b4;
+  background: rgb(198 34 34 / 0.16);
+}
+.chat-compose {
+  padding: 10px 12px 12px;
+  border-top: 1px solid rgb(255 255 255 / 0.07);
+  background: rgb(0 0 0 / 0.3);
+}
+.chat-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.chat-row textarea {
+  flex: 1;
+  min-height: 44px;
+  max-height: 140px;
+  resize: none;
+  padding: 11px 14px;
+  border-radius: 22px;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.06);
+  color: inherit;
+  font: inherit;
+  font-size: 16px; /* 16px stops phones zooming the page when the field is focused */
+}
+.chat-attach-btn,
+.chat-send {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.06);
+  color: inherit;
+  cursor: pointer;
+}
+.chat-send {
+  padding: 0 18px;
+  border: 0;
+  background: var(--red);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+}
+.chat-send:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.chat-file {
+  font-size: 12.5px;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+.chat-file button {
+  background: none;
+  border: 0;
+  color: #ff8d97;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.chat-small {
+  margin: 8px 2px 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+@media (max-width: 720px) {
+  .chat {
+    min-height: calc(100dvh - 150px);
+    border-radius: 12px;
+  }
+  .chat-log {
+    max-height: none;
+  }
+  .chat-line {
+    max-width: 94%;
+  }
+}
+
+/* the floating bet-slip button would cover the chat's send button */
+.wrap[data-tab="advisor"] .fab {
+  display: none;
 }

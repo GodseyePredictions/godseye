@@ -93,7 +93,10 @@ const css = await build({
 
 // The landing page's stylesheet, without the Tailwind import (the page uses none of its classes).
 writeFileSync(path.join(tmp, "site.css"),
-  readFileSync(path.join(root, "src/app/(site)/globals.css"), "utf8").replace(/@import\s+"tailwindcss";/, ""));
+  readFileSync(path.join(root, "src/app/(site)/globals.css"), "utf8")
+    .replace(/@import\s+"tailwindcss";/, "")
+    // the console bundle above already carries the shared slip styles
+    .replace(/@import\s+"\.\.\/\.\.\/styles\/slip\.css";/, ""));
 const siteCss = await build({ entryPoints: [path.join(tmp, "site.css")], bundle: true, minify: true, write: false });
 const b64 = (f) => "data:image/jpeg;base64," + readFileSync(path.join(root, f)).toString("base64");
 const safe = (s) => s.replace(/<\/script/gi, "<\\/script");

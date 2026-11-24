@@ -18,6 +18,7 @@ import { ADVISOR_LIMITS, applySubscriptionEvent, chatAllowance, effectiveTier, p
 import { costUsd, logUsage, usageTotals } from "./advisor/usage.ts";
 import { bankrollStatus, logBetFor, sizeBetFor, userHistory } from "./advisor/user-tools.ts";
 import type { Bet } from "./bets.ts";
+import { picksOfTheDay } from "./picks-of-day.ts";
 import { openAccount } from "./staking.ts";
 import { FileStore } from "./store/file.ts";
 import { MemoryStore, newUser, validUserId, type UserRecord } from "./store/types.ts";
@@ -519,6 +520,23 @@ test("demo script: upload a slip, get the audit, ask for a swap, get a sized sta
   assert.equal(u.bets.length, 1);
   assert.equal(u.bets[0].stake, 20);
   assert.equal(u.conversations[0].display.filter((x) => x.type === "card").length, 5);
+});
+
+// ================= picks of the day =================
+test("picks of the day are the algorithm's own slips, one per game, ranked by its own chance", () => {
+  const day = picksOfTheDay(algo.picks.NBA);
+  assert.ok(day.topPerGame.length > 0);
+  assert.equal(new Set(day.topPerGame.map((p) => p.game)).size, day.topPerGame.length); // one per game
+  for (let i = 1; i < day.topPerGame.length; i++) assert.ok(day.topPerGame[i - 1].joint_probability! >= day.topPerGame[i].joint_probability!);
+  assert.deepEqual(day.best, day.topPerGame.slice(0, 3));
+  // each is the best slip the algorithm has for its game, unchanged
+  for (const p of day.topPerGame) {
+    const sameGame = algo.picks.NBA.picks.filter((x) => x.game === p.game && x.date === day.date);
+    assert.equal(p.joint_probability, Math.max(...sameGame.map((x) => x.joint_probability!)));
+    assert.ok(sameGame.includes(p));
+  }
+  const empty = picksOfTheDay({ ...algo.picks.NBA, picks: [], dates: [] });
+  assert.deepEqual([empty.best.length, empty.topPerGame.length, empty.date], [0, 0, null]);
 });
 
 // ================= storage =================

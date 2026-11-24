@@ -3,6 +3,10 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import locksJson from "../../../model/output/locks.json";
 import nba from "../../../model/nba/output/nba_site.json";
+import { Slip, american, pct as pc } from "@/components/Slip";
+import { nbaPicks } from "@/lib/advisor/picks";
+import { picksOfTheDay } from "@/lib/picks-of-day";
+import { ADVISOR_LIMITS } from "@/lib/advisor/subscription";
 
 /* The shape of model/output/locks.json (scripts/build-locks.py). Written out here so the page still builds
    in a week when a list is empty, for example a rebuild after every game has kicked off. */
@@ -234,270 +238,408 @@ export default function Home() {
     }
     return { name, ...NBA_ART[name], tag: "His team does not play tonight", rows: [], photo: photo(name) };
   });
+  const day = picksOfTheDay(nbaPicks(nba));
+  const dayLabel = day.date ? new Date(`${day.date}T12:00:00Z`).toLocaleDateString("en-CA", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" }) : null;
+  const heroSlips = day.best.length ? day.best : [];
+  const marquee = ["See the whole slip", "Algorithm picks only", "Bet smarter, survive the variance", "Every slip shows its chance of losing"];
+
   return (
-    <>
-      <header className="wrap top">
-        <Logo />
-        <nav aria-label="Main">
-          <a href="#how" className="hide-sm">
-            How it works
-          </a>
-          <a href="#locks" className="hide-sm">
-            Locks of the week
-          </a>
-          <a href="#nfl" className="hide-sm">
-            NFL explained
-          </a>
-          <Link href="/nfl" className="tab-link">
-            NFL
-          </Link>
-          <Link href="/nba" className="tab-link">
-            NBA
-          </Link>
-        </nav>
+    <div className="lp">
+      <a className="lp-skip" href="#main">
+        Skip to content
+      </a>
+      <header className="lp-nav">
+        <div className="lp-wrap lp-nav-in">
+          <Logo />
+          <nav aria-label="Main">
+            <a href="#picks">Picks of the day</a>
+            <a href="#how">How it works</a>
+            <a href="#tools">What you get</a>
+            <a href="#mission">Mission</a>
+            <a href="#faq">Questions</a>
+          </nav>
+          <div className="lp-sports" role="group" aria-label="Choose a sport">
+            <Link href="/nfl">NFL</Link>
+            <Link href="/nba">NBA</Link>
+          </div>
+        </div>
       </header>
 
-      <main>
-        <section className="eye-hero">
-          <img className="eye-banner" src={banner} alt="" width={1206} height={214} />
-          <div className="wrap eye-copy">
-            <p className="kicker">AI algorithm predictions · NFL and NBA</p>
-            <h1 className="display">
-              The eye sees <em>the whole slip</em>
-            </h1>
-            <p className="lede">
-              God&apos;s Eye is an AI algorithm prediction tool. It simulates every game thousands of times, prices every player prop, and
-              builds same-game parlays with the true chance of the whole ticket on the front.
-            </p>
-            <div className="actions">
-              <Link href="/nfl" className="btn btn-primary">
-                Open NFL
-              </Link>
-              <Link href="/nba" className="btn btn-ghost">
-                Open NBA
-              </Link>
-              <a href="#locks" className="btn btn-ghost">
-                Locks of the week
-              </a>
+      <main id="main">
+        {/* ---- hero: the product itself, a real algorithm slip ---- */}
+        <section className="lp-hero">
+          <img className="lp-hero-eye" src={banner} alt="" width={1206} height={214} />
+          <div className="lp-wrap lp-hero-in">
+            <div className="lp-hero-copy">
+              <h1>See the whole slip before you bet it.</h1>
+              <p>
+                Godseye plays every game thousands of times, prices every player prop, and prints the true chance of the whole ticket on the
+                front. No experts. No media picks. One algorithm, and it shows its work.
+              </p>
+              <div className="lp-cta">
+                <Link href="/nfl" className="lp-btn lp-btn-red">
+                  Open NFL
+                </Link>
+                <Link href="/nba" className="lp-btn lp-btn-white">
+                  Open NBA
+                </Link>
+                <a href="#picks" className="lp-btn lp-btn-line">
+                  Picks of the day
+                </a>
+              </div>
+              <p className="lp-hero-small">Not a sportsbook. You place bets with your own book and bring the slip here.</p>
+            </div>
+            <div className="lp-fan" aria-label="Slips from the algorithm">
+              {heroSlips.length ? (
+                heroSlips.slice(0, 3).map((p, i) => (
+                  <div className={`lp-fan-card f${i}`} key={p.game + p.kind}>
+                    <Slip
+                      title={p.game}
+                      meta="NBA"
+                      legs={p.legs.slice(0, 4).map((l) => ({ text: l.leg, value: pc(l.probability) }))}
+                      stats={[{ label: "Chance to hit", value: pc(p.joint_probability, 1), tone: "red" }, { label: "Legs", value: String(p.legs.length) }]}
+                    />
+                  </div>
+                ))
+              ) : (
+                <div className="lp-fan-card f0">
+                  <Slip title="Tonight's slate" meta="NBA" note="The next slips print here when the algorithm builds the slate." />
+                </div>
+              )}
             </div>
           </div>
         </section>
 
-        <section id="how" className="band band-deep">
-          <div className="wrap">
-            <h2 className="display">How it works</h2>
-            <p className="intro">
-              No experts. No media picks. No consensus. One algorithm that builds its own number for every leg and shows you how it got
-              there.
-            </p>
-            <div className="steps">
-              {steps.map((s) => (
-                <div key={s.n}>
-                  <span className="step-n">{s.n}</span>
-                  <h3>{s.h}</h3>
-                  <p>{s.p}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="script">
-              <h3>The 60-second version</h3>
-              <dl>
-                {script.map(([a, b]) => (
-                  <div key={a}>
-                    <dt>{a}</dt>
-                    <dd>{b}</dd>
-                  </div>
+        {/* ---- the scrolling logo band ---- */}
+        <div className="lp-marquee" aria-hidden="true">
+          <div className="lp-marquee-track">
+            {[0, 1].map((copy) => (
+              <div className="lp-marquee-set" key={copy}>
+                {marquee.map((t) => (
+                  <span className="lp-marquee-item" key={t}>
+                    <Logo href="#main" />
+                    <b>{t}</b>
+                  </span>
                 ))}
-              </dl>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ---- sport switch ---- */}
+        <section className="lp-band" id="sports">
+          <div className="lp-wrap">
+            <div className="lp-switch">
+              <Link href="/nfl" className="lp-sport nfl">
+                <span className="lp-sport-name">NFL</span>
+                <span className="lp-sport-line">{locks.locks.length ? `Week ${locks.week}: ${locks.locks.length} algorithm tickets open` : `Week ${locks.week} has kicked off. The next week prints on Tuesday.`}</span>
+                <ul>
+                  <li>Algorithm picks and the anytime-touchdown board</li>
+                  <li>A same-game parlay for every game</li>
+                  <li>Game scripts, weather and matchup reads</li>
+                </ul>
+                <span className="lp-sport-go">Go to NFL</span>
+              </Link>
+              <Link href="/nba" className="lp-sport nba">
+                <span className="lp-sport-name">NBA</span>
+                <span className="lp-sport-line">
+                  {nba.games.length} games and {nbaTickets} slips on the board
+                </span>
+                <ul>
+                  <li>Props same-game parlays for every game</li>
+                  <li>Pace, margin and blowout risk before any prop</li>
+                  <li>Only players confirmed available make a slip</li>
+                </ul>
+                <span className="lp-sport-go">Go to NBA</span>
+              </Link>
             </div>
           </div>
         </section>
 
-        <section id="locks" className="band">
-          <div className="wrap">
-            <h2 className="display">Locks of the week</h2>
-            <p className="intro">
-              NFL week {locks.week}. These are the algorithm&apos;s own top tickets: its three highest-probability same-game parlays, its best
-              touchdown double and its 4-leg touchdown ticket. Nothing here was hand-picked.
+        {/* ---- picks of the day ---- */}
+        <section className="lp-band lp-band-deep" id="picks">
+          <div className="lp-wrap">
+            <h2>The algorithm&apos;s picks of the day</h2>
+            <p className="lp-intro">
+              {dayLabel ? `NBA, ${dayLabel}. ` : ""}
+              These are the slips the algorithm gives the best chance of hitting, ranked by its own number. Nobody picked them by hand.
             </p>
-            <div className="locks">
-              {locks.locks.map((t) => (
-                <div className="slip lock" key={t.kind + t.matchup}>
-                  <div className="slip-head">
-                    <span>{t.kind}</span>
-                    <small>
-                      {t.matchup} · {t.when}
-                    </small>
-                  </div>
-                  {t.legs.map((l) => (
-                    <div className="leg" key={l.text}>
-                      <div className="leg-row">
-                        <span>{l.text}</span>
-                        <span className="num">{pct(l.p)}</span>
-                      </div>
-                      <div className="leg-sub">
-                        {l.team}
-                        {l.record ? ` · ${l.record}` : ""}
-                      </div>
-                    </div>
+            {day.best.length ? (
+              <>
+                <div className="gs-slips lp-day">
+                  {day.best.map((p, i) => (
+                    <Slip
+                      key={p.game + p.kind}
+                      title={p.game}
+                      meta={i === 0 ? "Game of the day" : p.kind}
+                      legs={p.legs.map((l) => ({ text: l.leg, value: pc(l.probability) }))}
+                      stats={[
+                        { label: "Chance to hit", value: pc(p.joint_probability, 1), tone: "red" },
+                        ...(p.book_price != null ? [{ label: p.price_is_estimate ? "Legs multiplied" : "Book odds", value: american(p.book_price) }] : []),
+                      ]}
+                    />
                   ))}
-                  <div className="slip-foot">
-                    <span>
-                      Model chance <b>{pct(t.p)}</b>
-                    </span>
-                    <span className="num">fair {fair(t.p)}</span>
-                  </div>
-                  <Link href={`/nfl#${t.tab}`} className="lock-link">
-                    See the reasons in the NFL console
-                  </Link>
+                </div>
+                {day.topPerGame.length > day.best.length && (
+                  <>
+                    <h3 className="lp-sub">Top slip for every other game</h3>
+                    <div className="gs-slips">
+                      {day.topPerGame.slice(day.best.length).map((p) => (
+                        <Slip
+                          key={p.game + p.kind}
+                          title={p.game}
+                          meta={p.kind}
+                          legs={p.legs.map((l) => ({ text: l.leg, value: pc(l.probability) }))}
+                          stats={[{ label: "Chance to hit", value: pc(p.joint_probability, 1), tone: "red" }]}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </>
+            ) : (
+              <p className="lp-empty">No slips are on the board right now. They print here as soon as the algorithm builds the next slate.</p>
+            )}
+            {locks.locks.length > 0 && (
+              <>
+                <h3 className="lp-sub">NFL week {locks.week}</h3>
+                <div className="gs-slips">
+                  {locks.locks.map((t) => (
+                    <Slip
+                      key={t.kind + t.matchup}
+                      title={t.matchup}
+                      meta={t.kind}
+                      legs={t.legs.map((l) => ({ text: l.text, sub: l.record || undefined, value: pct(l.p) }))}
+                      stats={[{ label: "Chance to hit", value: pct(t.p), tone: "red" }, { label: "Fair odds", value: fair(t.p) }]}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+            <p className="lp-fine">
+              Every slip shows its chance of losing. A parlay loses more often than it wins: take a price better than fair, or pass.
+            </p>
+            <div className="lp-cta">
+              <Link href="/nba" className="lp-btn lp-btn-red">
+                All NBA slips
+              </Link>
+              <Link href="/nfl" className="lp-btn lp-btn-line">
+                All NFL picks
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ---- how it works: a real sequence, so it is numbered ---- */}
+        <section className="lp-band" id="how">
+          <div className="lp-wrap">
+            <h2>How it works</h2>
+            <ol className="lp-steps">
+              {steps.map((st) => (
+                <li key={st.h}>
+                  <h3>{st.h}</h3>
+                  <p>{st.p}</p>
+                </li>
+              ))}
+            </ol>
+            <dl className="lp-story">
+              {script.map(([h, t]) => (
+                <div key={h}>
+                  <dt>{h}</dt>
+                  <dd>{t}</dd>
                 </div>
               ))}
-            </div>
-            {locks.locks.length === 0 ? (
-              <p className="backing">
-                <strong>Week {locks.week}&apos;s games have kicked off.</strong> The next tickets appear here when the algorithm builds the
-                coming week.
-              </p>
-            ) : (
-              <p className="backing">
-                <strong>Every pick shows its chance of losing.</strong> A parlay at {pct(locks.locks[0].p)} still loses more often than
-                it wins: take a price better than the fair price shown, or pass.
-              </p>
-            )}
+            </dl>
           </div>
         </section>
 
-        <section id="nfl" className="band band-deep">
-          <div className="wrap">
-            <p className="kicker">NFL · week {locks.week}</p>
-            <h2 className="display">How the NFL algorithm works</h2>
+        {/* ---- what you get ---- */}
+        <section className="lp-band lp-band-deep" id="tools">
+          <div className="lp-wrap">
+            <h2>What you get</h2>
+            <div className="lp-tools">
+              <Link href="/nfl#picks" className="lp-tool">
+                <h3>Algorithm picks</h3>
+                <p>Slips for every game with the chance of the whole ticket on the front and the reason behind every leg.</p>
+                <span>See the picks</span>
+              </Link>
+              <Link href="/nfl#shot" className="lp-tool">
+                <h3>Slip audit</h3>
+                <p>Upload a screenshot of your own slip. Each leg is rated or marked unrated, and you get a better version built from the algorithm.</p>
+                <span>Audit a slip</span>
+              </Link>
+              <Link href="/nfl#bankroll" className="lp-tool">
+                <h3>Bankroll Strategy</h3>
+                <p>Stakes in units and dollars, sized from the algorithm&apos;s chance and held inside the limits you set: stop-loss, nightly cap, cool-off.</p>
+                <span>Set your bankroll</span>
+              </Link>
+              <Link href="/nfl#advisor" className="lp-tool">
+                <h3>Your advisor</h3>
+                <p>A one-to-one chat that knows your slips and your bankroll. Every number it quotes comes from the algorithm, never a hunch.</p>
+                <span>Ask your advisor</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ---- goal and mission ---- */}
+        <section className="lp-band lp-mission" id="mission">
+          <div className="lp-wrap lp-mission-in">
+            <div>
+              <h2>Our goal</h2>
+              <p className="lp-statement">Every bettor sees the true chance of a slip before the book takes it.</p>
+            </div>
+            <div>
+              <h2>Our mission</h2>
+              <p className="lp-statement">
+                Replace hunches, hot takes and parlays built on hope with numbers anyone can check, and give bettors what it takes to stay in the
+                game: honest odds, disciplined stakes and limits they set themselves.
+              </p>
+            </div>
+            <ul className="lp-taglines">
+              <li>See the whole slip.</li>
+              <li>Bet smarter, survive the variance.</li>
+              <li>One algorithm. No opinions.</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* ---- the names you know, with the algorithm's numbers ---- */}
+        <section className="lp-band lp-band-deep" id="players">
+          <div className="lp-wrap">
+            <h2>The algorithm&apos;s numbers on the names you know</h2>
+            <h3 className="lp-sub">NFL, week {locks.week}</h3>
             <div className="stars">
               {nflStars.map((s) => (
                 <StarCard s={s} key={s.name} />
               ))}
             </div>
-            <p className="star-note">The algorithm&apos;s own numbers for this week. The percentage is its chance the player clears that mark. The cards carry no
-              photos yet.</p>
-            <div className="steps">
-              {nflHow.map(([h, p]) => (
-                <div key={h}>
+            <h3 className="lp-sub">NBA</h3>
+            <div className="stars">
+              {nbaStars.map((s) => (
+                <StarCard s={s} key={s.name} />
+              ))}
+            </div>
+            <p className="lp-fine">NFL: the chance the player clears that mark. NBA: projected averages if he takes the floor, with availability from the official injury report.</p>
+          </div>
+        </section>
+
+        {/* ---- the NFL guide ---- */}
+        <section className="lp-band" id="nfl-guide">
+          <div className="lp-wrap">
+            <h2>How the NFL algorithm works</h2>
+            <div className="lp-tools lp-guide">
+              {nflHow.map(([h, t]) => (
+                <div className="lp-tool" key={h}>
                   <h3>{h}</h3>
-                  <p>{p}</p>
+                  <p>{t}</p>
                 </div>
               ))}
             </div>
-            <div className="two">
+            <div className="lp-two">
               <div>
-                <h3 className="sub-h">What to expect</h3>
-                <ul className="plain">
+                <h3 className="lp-sub">What to expect</h3>
+                <ul className="lp-list">
                   {nflExpect.map((t) => (
                     <li key={t}>{t}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h3 className="sub-h">How to play it for a better hit rate</h3>
-                <ul className="plain">
-                  {nflPlay.map(([h, p]) => (
+                <h3 className="lp-sub">How to play it for a better hit rate</h3>
+                <ul className="lp-list">
+                  {nflPlay.map(([h, t]) => (
                     <li key={h}>
-                      <strong>{h}.</strong> {p}
+                      <strong>{h}.</strong> {t}
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-            <Link href="/nfl" className="btn btn-primary">
-              Open the NFL picks
-            </Link>
-          </div>
-        </section>
-
-        <section id="nba" className="band">
-          <div className="wrap">
-            <p className="kicker">NBA · tonight</p>
-            <h2 className="display">The NBA side</h2>
-            <p className="intro">
-              Every game is played 10,000 times before a single player number is produced. Each player&apos;s points, rebounds, assists
-              and threes are then counted inside those same games, and priced against DraftKings&apos; ladders.
-            </p>
-            <div className="stars">
-              {nbaStars.map((s) => (
-                <StarCard s={s} key={s.name} />
-              ))}
-            </div>
-            <p className="star-note">Tonight&apos;s projected averages if the player takes the floor. Availability is from the official NBA injury report.</p>
-            <Link href="/nba" className="btn btn-primary">
-              Open the NBA picks
-            </Link>
-          </div>
-        </section>
-
-        <section id="sports" className="band band-deep">
-          <div className="wrap">
-            <h2 className="display">Pick your sport</h2>
-            <div className="sport-cards">
-              <Link href="/nfl" className="sport-card">
-                <span className="sport-tag">NFL</span>
-                <h3>Week {locks.week} is live</h3>
-                <ul>
-                  <li>Algorithm picks and anytime-touchdown board</li>
-                  <li>A same-game parlay for every game</li>
-                  <li>Game parlays, hybrid SGPs and game scripts</li>
-                  <li>Build, audit and track your own slips</li>
-                </ul>
-                <span className="btn btn-primary">Open NFL</span>
-              </Link>
-              <Link href="/nba" className="sport-card">
-                <span className="sport-tag">NBA</span>
-                <h3>
-                  {nba.games.length} games, {nbaTickets} tickets tonight
-                </h3>
-                <ul>
-                  <li>4-leg, 6-leg and 8-leg props SGPs for every game</li>
-                  <li>Game script card: pace, margin, blowout risk</li>
-                  <li>Projection board with the reasons for every number</li>
-                  <li>Only players confirmed available appear on a slip</li>
-                </ul>
-                <span className="btn btn-primary">Open NBA</span>
+            <div className="lp-cta">
+              <Link href="/nfl" className="lp-btn lp-btn-red">
+                Open the NFL picks
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="band">
-          <div className="wrap">
-            <h2 className="display">Straight talk</h2>
-            <div className="straight">
-              <p>
-                <strong>God&apos;s Eye is not a sportsbook.</strong> You cannot place a bet here. You place bets with your own book and
-                bring the slip to us.
-              </p>
-              <p>
-                <strong>&quot;Lock&quot; is a name, not a guarantee.</strong> Every ticket shows its real chance. Sportsbooks price in an
-                edge and most bettors lose over time.
-              </p>
-              <p>
-                <strong>The NBA side is new.</strong> It prices against DraftKings ladders and flags a ticket when the model sees
-                negative value. Its test measured how often legs hit, not profit.
-              </p>
+        {/* ---- plans ---- */}
+        <section className="lp-band" id="plans">
+          <div className="lp-wrap">
+            <h2>Plans</h2>
+            <div className="lp-plans">
+              <div className="lp-plan">
+                <h3>Pro</h3>
+                <ul>
+                  <li>Every NFL and NBA algorithm slip</li>
+                  <li>Slip audits from a screenshot</li>
+                  <li>Bankroll Strategy and bet tracking</li>
+                  <li>{ADVISOR_LIMITS.dailyMessages.pro} advisor messages a day</li>
+                </ul>
+              </div>
+              <div className="lp-plan lp-plan-top">
+                <h3>Elite</h3>
+                <ul>
+                  <li>Everything in Pro</li>
+                  <li>Unlimited advisor messages</li>
+                  <li>Alerts when a saved leg is out, with a swap</li>
+                </ul>
+              </div>
             </div>
+            <p className="lp-fine">Pricing and sign-up open at launch.</p>
+          </div>
+        </section>
+
+        {/* ---- questions ---- */}
+        <section className="lp-band lp-band-deep" id="faq">
+          <div className="lp-wrap lp-faq">
+            <h2>Questions</h2>
+            <details>
+              <summary>Is Godseye a sportsbook?</summary>
+              <p>No. You cannot place a bet here. You bet with your own book and use Godseye to check the slip, size the stake and track the result.</p>
+            </details>
+            <details>
+              <summary>Where do the picks come from?</summary>
+              <p>From Godseye&apos;s own algorithms, one for each sport. There are no expert picks, media picks or consensus numbers anywhere on the site.</p>
+            </details>
+            <details>
+              <summary>What does &quot;unrated&quot; mean?</summary>
+              <p>The algorithm has no number for that leg, so it is left out of every calculation. Godseye never guesses to fill a gap.</p>
+            </details>
+            <details>
+              <summary>How are stakes worked out?</summary>
+              <p>A quarter of what the Kelly formula suggests, using the algorithm&apos;s chance and your book&apos;s price, capped by your risk profile and your own limits.</p>
+            </details>
+            <details>
+              <summary>Do you promise winning bets?</summary>
+              <p>No. Every slip shows its chance of losing, books price in an edge, and most bettors lose over time. The aim is better decisions, not guaranteed nights.</p>
+            </details>
           </div>
         </section>
       </main>
 
-      <footer className="foot">
-        <div className="wrap">
-          <p>
-            For adults of legal betting age in their province (18+ or 19+). God&apos;s Eye provides information and analysis, not betting
-            advice you should rely on for financial decisions.
-          </p>
-          <p>
-            If gambling is causing you harm, free and confidential help is available in every province. Set a budget and never bet money
-            you cannot afford to lose.
+      <footer className="lp-foot">
+        <div className="lp-wrap lp-foot-in">
+          <div>
+            <Logo />
+            <p>Bet smarter, survive the variance.</p>
+          </div>
+          <nav aria-label="Footer">
+            <Link href="/nfl">NFL</Link>
+            <Link href="/nba">NBA</Link>
+            <a href="#picks">Picks of the day</a>
+            <a href="#how">How it works</a>
+            <a href="#mission">Mission</a>
+            <a href="#faq">Questions</a>
+          </nav>
+          <p className="lp-legal">
+            For adults of legal betting age in their province (18+ or 19+). Godseye provides information and analysis, not a promise of results.
+            If gambling is causing you harm, free and confidential help is available in every province. Set a budget and never bet money you
+            cannot afford to lose.
           </p>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
