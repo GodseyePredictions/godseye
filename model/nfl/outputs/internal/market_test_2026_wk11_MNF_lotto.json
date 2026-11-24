@@ -1,0 +1,4 @@
+{"game":"2026_11_CIN_WAS","built_utc":"2026-11-23T23:50","type":"lotto test: 1 ATD + 3 market over/under matchers + lower-milestone props",
+ "atd":"Ja'Marr Chase","market_legs":[["Chig Okonkwo","rec","under",4.5],["Antonio Williams","rec","under",3.5],["Jayden Daniels","rush_yds","under",42.5]],
+ "props_8":[["Joe Burrow","pass_td",1],["Joe Burrow","pass_yds",225],["Ja'Marr Chase","rec",5],["Tee Higgins","rec_yds",30]],
+ "props_10_extra":[["Chase Brown","rush_yds",20],["Stefon Diggs","rec",2]]}

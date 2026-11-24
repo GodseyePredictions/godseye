@@ -1,0 +1,79 @@
+{
+ "2026_10_WAS_NYG": {
+  "short": "Light Rain",
+  "temp": 54.0,
+  "wind": 10.0,
+  "pop": 83,
+  "fetched": "2026-11-10T00:00-05:00"
+ },
+ "2026_10_KC_ATL": {
+  "short": "Partly Sunny",
+  "temp": 55.0,
+  "wind": 5.0,
+  "pop": 0,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_HOU_CLE": {
+  "short": "Slight Chance Rain Showers",
+  "temp": 47.0,
+  "wind": 12.0,
+  "pop": 21,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_MIN_GB": {
+  "short": "Sunny",
+  "temp": 47.0,
+  "wind": 2.0,
+  "pop": 0,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_MIA_IND": {
+  "short": "Partly Sunny",
+  "temp": 49.0,
+  "wind": 3.0,
+  "pop": 0,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_BUF_NYJ": {
+  "short": "Mostly Sunny",
+  "temp": 49.0,
+  "wind": 10.0,
+  "pop": 0,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_JAX_TEN": {
+  "short": "Sunny",
+  "temp": 53.0,
+  "wind": 5.0,
+  "pop": 0,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_LA_ARI": {
+  "short": "Sunny",
+  "temp": 75.0,
+  "wind": 5.0,
+  "pop": 0,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_SF_DAL": {
+  "short": "Slight Chance Rain Showers",
+  "temp": 49.0,
+  "wind": 10.0,
+  "pop": 20,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_PIT_CIN": {
+  "short": "Mostly Cloudy",
+  "temp": 43.0,
+  "wind": 0.0,
+  "pop": 0,
+  "fetched": "2026-11-15T15:42-05:00"
+ },
+ "2026_10_LAC_BAL": {
+  "short": "Mostly Clear",
+  "temp": 44.0,
+  "wind": 2.0,
+  "pop": 0,
+  "fetched": "2026-11-16T13:50-05:00"
+ }
+}

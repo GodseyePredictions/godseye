@@ -1,0 +1,72 @@
+{
+ "2026_11_IND_HOU": {
+  "short": "Partly Cloudy",
+  "temp": 67.0,
+  "wind": 0.0,
+  "pop": 0,
+  "fetched": "2026-11-19T18:51-05:00"
+ },
+ "2026_11_MIA_BUF": {
+  "short": "Partly Sunny",
+  "temp": 67.0,
+  "wind": 9.0,
+  "pop": 1,
+  "fetched": "2026-11-22T14:47-05:00"
+ },
+ "2026_11_BAL_CAR": {
+  "short": "Slight Chance Rain Showers",
+  "temp": 62.0,
+  "wind": 9.0,
+  "pop": 23,
+  "fetched": "2026-11-22T14:47-05:00"
+ },
+ "2026_11_NO_CHI": {
+  "short": "Chance Rain",
+  "temp": 52.0,
+  "wind": 15.0,
+  "pop": 32,
+  "fetched": "2026-11-22T14:48-05:00"
+ },
+ "2026_11_TEN_DAL": {
+  "short": "Partly Sunny",
+  "temp": 58.0,
+  "wind": 15.0,
+  "pop": 0,
+  "fetched": "2026-11-22T14:48-05:00"
+ },
+ "2026_11_ARI_KC": {
+  "short": "Sunny",
+  "temp": 48.0,
+  "wind": 13.0,
+  "pop": 0,
+  "fetched": "2026-11-22T14:48-05:00"
+ },
+ "2026_11_JAX_NYG": {
+  "short": "Slight Chance Light Rain",
+  "temp": 57.0,
+  "wind": 5.0,
+  "pop": 21,
+  "fetched": "2026-11-22T18:51-05:00"
+ },
+ "2026_11_LV_DEN": {
+  "short": "Mostly Sunny",
+  "temp": 45.0,
+  "wind": 7.0,
+  "pop": 0,
+  "fetched": "2026-11-22T19:40-05:00"
+ },
+ "2026_11_PIT_PHI": {
+  "short": "Chance Light Rain",
+  "temp": 66.0,
+  "wind": 5.0,
+  "pop": 34,
+  "fetched": "2026-11-22T14:48-05:00"
+ },
+ "2026_11_CIN_WAS": {
+  "short": "Mostly Cloudy",
+  "temp": 57.0,
+  "wind": 9.0,
+  "pop": 6,
+  "fetched": "2026-11-23T18:33-05:00"
+ }
+}

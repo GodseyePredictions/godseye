@@ -1,0 +1,258 @@
+{
+ "Safer 6-leg": {
+  "p": 0.534875,
+  "legs": [
+   "Jayden Daniels 20+ pass att",
+   "Joe Burrow 1+ pass TDs",
+   "Antonio Williams 1+ receptions",
+   "Joe Burrow 225+ pass yds",
+   "Stefon Diggs 2+ receptions",
+   "Ja'Marr Chase 5+ receptions"
+  ]
+ },
+ "Safer 8-leg": {
+  "p": 0.439525,
+  "legs": [
+   "Jayden Daniels 20+ pass att",
+   "Joe Burrow 1+ pass TDs",
+   "Antonio Williams 1+ receptions",
+   "Joe Burrow 225+ pass yds",
+   "Stefon Diggs 2+ receptions",
+   "Ja'Marr Chase 5+ receptions",
+   "Ja'Marr Chase 40+ rec yds",
+   "Stefon Diggs 20+ rec yds"
+  ]
+ },
+ "Safer 10-leg": {
+  "p": 0.3055,
+  "legs": [
+   "Jayden Daniels 20+ pass att",
+   "Joe Burrow 1+ pass TDs",
+   "Antonio Williams 1+ receptions",
+   "Joe Burrow 225+ pass yds",
+   "Stefon Diggs 2+ receptions",
+   "Ja'Marr Chase 5+ receptions",
+   "Ja'Marr Chase 40+ rec yds",
+   "Stefon Diggs 20+ rec yds",
+   "Tee Higgins 30+ rec yds",
+   "Chase Brown 20+ rush yds"
+  ]
+ },
+ "Higher 6-leg": {
+  "p": 0.241525,
+  "legs": [
+   "Jayden Daniels 1+ pass TDs",
+   "Joe Burrow 2+ pass TDs",
+   "Jayden Daniels 25+ pass att",
+   "Tee Higgins 4+ receptions",
+   "Tee Higgins 50+ rec yds",
+   "Stefon Diggs 3+ receptions"
+  ]
+ },
+ "Higher 8-leg": {
+  "p": 0.1551,
+  "legs": [
+   "Jayden Daniels 1+ pass TDs",
+   "Joe Burrow 2+ pass TDs",
+   "Jayden Daniels 25+ pass att",
+   "Tee Higgins 4+ receptions",
+   "Tee Higgins 50+ rec yds",
+   "Stefon Diggs 3+ receptions",
+   "Stefon Diggs 30+ rec yds",
+   "Joe Burrow 275+ pass yds"
+  ]
+ },
+ "Higher 10-leg": {
+  "p": 0.0879,
+  "legs": [
+   "Jayden Daniels 1+ pass TDs",
+   "Joe Burrow 2+ pass TDs",
+   "Jayden Daniels 25+ pass att",
+   "Tee Higgins 4+ receptions",
+   "Tee Higgins 50+ rec yds",
+   "Stefon Diggs 3+ receptions",
+   "Stefon Diggs 30+ rec yds",
+   "Joe Burrow 275+ pass yds",
+   "Antonio Williams 2+ receptions",
+   "Ja'Marr Chase 60+ rec yds"
+  ]
+ },
+ "ATD Ja'Marr Chase + Chase Brown": {
+  "p": 0.2838294537338907,
+  "legs": [
+   "Ja'Marr Chase",
+   "Chase Brown"
+  ]
+ },
+ "ATD Ja'Marr Chase + Tee Higgins": {
+  "p": 0.2806689505600608,
+  "legs": [
+   "Ja'Marr Chase",
+   "Tee Higgins"
+  ]
+ },
+ "ATD Chase Brown + Tee Higgins": {
+  "p": 0.21733781005963573,
+  "legs": [
+   "Chase Brown",
+   "Tee Higgins"
+  ]
+ },
+ "ATD Ja'Marr Chase + Samaje Perine": {
+  "p": 0.21107159924755065,
+  "legs": [
+   "Ja'Marr Chase",
+   "Samaje Perine"
+  ]
+ },
+ "ATD Ja'Marr Chase + Chase Brown + Tee Higgins": {
+  "p": 0.1258075,
+  "legs": [
+   "Ja'Marr Chase",
+   "Chase Brown",
+   "Tee Higgins"
+  ]
+ },
+ "ATD Ja'Marr Chase + Tee Higgins + Samaje Perine": {
+  "p": 0.0929175,
+  "legs": [
+   "Ja'Marr Chase",
+   "Tee Higgins",
+   "Samaje Perine"
+  ]
+ },
+ "ATD Ja'Marr Chase + Chase Brown + Stefon Diggs": {
+  "p": 0.0922775,
+  "legs": [
+   "Ja'Marr Chase",
+   "Chase Brown",
+   "Stefon Diggs"
+  ]
+ },
+ "ATD Ja'Marr Chase + Chase Brown + Samaje Perine": {
+  "p": 0.09163,
+  "legs": [
+   "Ja'Marr Chase",
+   "Chase Brown",
+   "Samaje Perine"
+  ]
+ },
+ "ATD Ja'Marr Chase + Chase Brown + Tee Higgins + Stefon Diggs": {
+  "p": 0.0413525,
+  "legs": [
+   "Ja'Marr Chase",
+   "Chase Brown",
+   "Tee Higgins",
+   "Stefon Diggs"
+  ]
+ },
+ "ATD Ja'Marr Chase + Chase Brown + Tee Higgins + Rachaad White": {
+  "p": 0.037905,
+  "legs": [
+   "Ja'Marr Chase",
+   "Chase Brown",
+   "Tee Higgins",
+   "Rachaad White"
+  ]
+ },
+ "6-leg \u00b7 1 TD \u00b7 Chase": {
+  "p": 0.24585,
+  "legs": [
+   "Ja'Marr Chase ANYTIME TD",
+   "Ja'Marr Chase 50+ rec yds",
+   "Joe Burrow 2+ pass TDs",
+   "Chig Okonkwo 2+ receptions",
+   "Joe Burrow 30+ pass att",
+   "Jayden Daniels 1+ pass TDs"
+  ]
+ },
+ "8-leg \u00b7 1 TD \u00b7 Chase": {
+  "p": 0.1816,
+  "legs": [
+   "Ja'Marr Chase ANYTIME TD",
+   "Ja'Marr Chase 50+ rec yds",
+   "Joe Burrow 2+ pass TDs",
+   "Chig Okonkwo 2+ receptions",
+   "Joe Burrow 30+ pass att",
+   "Jayden Daniels 1+ pass TDs",
+   "Jayden Daniels 150+ pass yds",
+   "Stefon Diggs 20+ rec yds"
+  ]
+ },
+ "6-leg \u00b7 2 TDs \u00b7 Chase + Higgins": {
+  "p": 0.14875,
+  "legs": [
+   "Tee Higgins ANYTIME TD",
+   "Ja'Marr Chase ANYTIME TD",
+   "Joe Burrow 2+ pass TDs",
+   "Tee Higgins 40+ rec yds",
+   "Joe Burrow 250+ pass yds",
+   "Jayden Daniels 1+ pass TDs"
+  ]
+ },
+ "8-leg \u00b7 2 TDs \u00b7 Chase + Higgins": {
+  "p": 0.112525,
+  "legs": [
+   "Tee Higgins ANYTIME TD",
+   "Ja'Marr Chase ANYTIME TD",
+   "Joe Burrow 2+ pass TDs",
+   "Tee Higgins 40+ rec yds",
+   "Joe Burrow 250+ pass yds",
+   "Jayden Daniels 1+ pass TDs",
+   "Jayden Daniels 150+ pass yds",
+   "Stefon Diggs 20+ rec yds"
+  ]
+ },
+ "6-leg \u00b7 2 TDs \u00b7 Chase + Brown": {
+  "p": 0.13845,
+  "legs": [
+   "Ja'Marr Chase ANYTIME TD",
+   "Chase Brown ANYTIME TD",
+   "Joe Burrow 2+ pass TDs",
+   "Ja'Marr Chase 50+ rec yds",
+   "Jayden Daniels 1+ pass TDs",
+   "Jayden Daniels 150+ pass yds"
+  ]
+ },
+ "8-leg \u00b7 2 TDs \u00b7 Chase + Brown": {
+  "p": 0.103775,
+  "legs": [
+   "Ja'Marr Chase ANYTIME TD",
+   "Chase Brown ANYTIME TD",
+   "Joe Burrow 2+ pass TDs",
+   "Ja'Marr Chase 50+ rec yds",
+   "Jayden Daniels 1+ pass TDs",
+   "Jayden Daniels 150+ pass yds",
+   "Stefon Diggs 20+ rec yds",
+   "Stefon Diggs 3+ receptions"
+  ]
+ },
+ "Lotto 8-leg": {
+  "p": 0.12094189928934142,
+  "legs": [
+   "1. Ja'Marr Chase ANYTIME TD",
+   "2. Chig Okonkwo UNDER 4.5 receptions (market line)",
+   "3. Antonio Williams UNDER 3.5 receptions (market line)",
+   "4. Jayden Daniels UNDER 42.5 rush yds (market line)",
+   "5. Joe Burrow 1+ pass TDs",
+   "6. Joe Burrow 225+ pass yds",
+   "7. Ja'Marr Chase 5+ receptions",
+   "8. Tee Higgins 30+ rec yds"
+  ]
+ },
+ "Lotto 10-leg": {
+  "p": 0.0868067863803306,
+  "legs": [
+   "1. Ja'Marr Chase ANYTIME TD",
+   "2. Chig Okonkwo UNDER 4.5 receptions (market line)",
+   "3. Antonio Williams UNDER 3.5 receptions (market line)",
+   "4. Jayden Daniels UNDER 42.5 rush yds (market line)",
+   "5. Joe Burrow 1+ pass TDs",
+   "6. Joe Burrow 225+ pass yds",
+   "7. Ja'Marr Chase 5+ receptions",
+   "8. Tee Higgins 30+ rec yds",
+   "9. Chase Brown 20+ rush yds",
+   "10. Stefon Diggs 2+ receptions"
+  ]
+ }
+}

@@ -1,0 +1,219 @@
+[
+ {
+  "type": "backup_qb",
+  "name": "Carson Wentz",
+  "team": "MIN",
+  "games": 2,
+  "pct": 0.915
+ },
+ {
+  "type": "injury",
+  "name": "Bam Knight",
+  "team": "ARI",
+  "status": "Out",
+  "note": "Concussion"
+ },
+ {
+  "type": "injury",
+  "name": "Brian Robinson",
+  "team": "ATL",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Zachariah Branch",
+  "team": "ATL",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Lamar Jackson",
+  "team": "BAL",
+  "status": "Out",
+  "note": "Thumb"
+ },
+ {
+  "type": "injury",
+  "name": "Tyler Huntley",
+  "team": "BAL",
+  "status": "Out",
+  "note": "Toe"
+ },
+ {
+  "type": "injury",
+  "name": "Josh Palmer",
+  "team": "BUF",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "KaVontae Turpin",
+  "team": "DAL",
+  "status": "Out",
+  "note": "Ribs"
+ },
+ {
+  "type": "injury",
+  "name": "Josh Whyle",
+  "team": "GB",
+  "status": "Out",
+  "note": "Concussion"
+ },
+ {
+  "type": "injury",
+  "name": "David Montgomery",
+  "team": "HOU",
+  "status": "Out",
+  "note": "Groin"
+ },
+ {
+  "type": "injury",
+  "name": "Terrance Ferguson",
+  "team": "LA",
+  "status": "Out",
+  "note": "Ankle"
+ },
+ {
+  "type": "injury",
+  "name": "David Njoku",
+  "team": "LAC",
+  "status": "Doubtful",
+  "note": "Fibula"
+ },
+ {
+  "type": "injury",
+  "name": "Brenen Thompson",
+  "team": "LAC",
+  "status": "Doubtful",
+  "note": "Quadricep"
+ },
+ {
+  "type": "injury",
+  "name": "Kyler Murray",
+  "team": "MIN",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Jauan Jennings",
+  "team": "MIN",
+  "status": "Out",
+  "note": "Calf"
+ },
+ {
+  "type": "injury",
+  "name": "Demond Claiborne",
+  "team": "MIN",
+  "status": "Out",
+  "note": "Knee"
+ },
+ {
+  "type": "injury",
+  "name": "A.J. Brown",
+  "team": "NE",
+  "status": "Out",
+  "note": "Ankle"
+ },
+ {
+  "type": "injury",
+  "name": "TreVeyon Henderson",
+  "team": "NE",
+  "status": "Out",
+  "note": "Illness"
+ },
+ {
+  "type": "injury",
+  "name": "CJ Donaldson",
+  "team": "NO",
+  "status": "Out",
+  "note": "Shoulder"
+ },
+ {
+  "type": "injury",
+  "name": "Cam Skattebo",
+  "team": "NYG",
+  "status": "Doubtful",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Garrett Wilson",
+  "team": "NYJ",
+  "status": "Out",
+  "note": "Concussion"
+ },
+ {
+  "type": "injury",
+  "name": "DeVonta Smith",
+  "team": "PHI",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Britain Covey",
+  "team": "PHI",
+  "status": "Out",
+  "note": "Knee"
+ },
+ {
+  "type": "injury",
+  "name": "Dontayvion Wicks",
+  "team": "PHI",
+  "status": "Out",
+  "note": "Ankle"
+ },
+ {
+  "type": "injury",
+  "name": "Sam Darnold",
+  "team": "SEA",
+  "status": "Out",
+  "note": "Quadricep"
+ },
+ {
+  "type": "injury",
+  "name": "Rashid Shaheed",
+  "team": "SEA",
+  "status": "Out",
+  "note": "Knee"
+ },
+ {
+  "type": "injury",
+  "name": "Mike Evans",
+  "team": "SF",
+  "status": "Out",
+  "note": "Ribs"
+ },
+ {
+  "type": "injury",
+  "name": "Christian Kirk",
+  "team": "SF",
+  "status": "Out",
+  "note": "Knee"
+ },
+ {
+  "type": "injury",
+  "name": "Deebo Samuel Sr.",
+  "team": "SF",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Dyami Brown",
+  "team": "WAS",
+  "status": "Out",
+  "note": "Calf"
+ },
+ {
+  "type": "injury",
+  "name": "Treylon Burks",
+  "team": "WAS",
+  "status": "Out",
+  "note": "Foot"
+ }
+]

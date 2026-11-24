@@ -1,0 +1,3916 @@
+{
+ "tickets": [
+  {
+   "slate": "Early",
+   "kind": "ATD ticket",
+   "name": "4-leg ATD",
+   "p": 0.0932,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.5,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Chuba Hubbard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.49,
+     "val": 2,
+     "hit": true
+    }
+   ],
+   "hits": 4,
+   "n": 4,
+   "cashed": true
+  },
+  {
+   "slate": "Early",
+   "kind": "ATD ticket",
+   "name": "6-leg ATD",
+   "p": 0.0197,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.5,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Chuba Hubbard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.49,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "atd",
+     "k": null,
+     "p": 0.47,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Woody Marks",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 5,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "ATD ticket",
+   "name": "8-leg ATD",
+   "p": 0.0031,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.5,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Chuba Hubbard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.49,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "atd",
+     "k": null,
+     "p": 0.47,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Woody Marks",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Jonathan Taylor",
+     "mk": "atd",
+     "k": null,
+     "p": 0.43,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Shough",
+     "mk": "atd",
+     "k": null,
+     "p": 0.36,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 5,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "ATD ticket",
+   "name": "10-leg ATD",
+   "p": 0.0005,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.5,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Chuba Hubbard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.49,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "atd",
+     "k": null,
+     "p": 0.47,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Woody Marks",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Jonathan Taylor",
+     "mk": "atd",
+     "k": null,
+     "p": 0.43,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Shough",
+     "mk": "atd",
+     "k": null,
+     "p": 0.36,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Breece Hall",
+     "mk": "atd",
+     "k": null,
+     "p": 0.39,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Emmett Johnson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.38,
+     "val": 2,
+     "hit": true
+    }
+   ],
+   "hits": 6,
+   "n": 10,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 4-leg",
+   "name": "KC @ ATL \u00b7 4-leg props",
+   "p": 0.518,
+   "legs": [
+    {
+     "name": "Bijan Robinson",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.81,
+     "val": 286,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.8,
+     "val": 43,
+     "hit": true
+    },
+    {
+     "name": "Patrick Mahomes",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.82,
+     "val": 5,
+     "hit": true
+    }
+   ],
+   "game": "KC @ ATL",
+   "hits": 4,
+   "n": 4,
+   "cashed": true
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 4-leg",
+   "name": "HOU @ CLE \u00b7 4-leg props",
+   "p": 0.434,
+   "legs": [
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 38,
+     "hit": true
+    },
+    {
+     "name": "Dalton Schultz",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.8,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.78,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Tank Dell",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.77,
+     "val": 3,
+     "hit": true
+    }
+   ],
+   "game": "HOU @ CLE",
+   "hits": 3,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 4-leg",
+   "name": "MIN @ GB \u00b7 4-leg props",
+   "p": 0.5479999999999999,
+   "legs": [
+    {
+     "name": "Jordan Mason",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.86,
+     "val": 59,
+     "hit": true
+    },
+    {
+     "name": "Tucker Kraft",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.84,
+     "val": 27,
+     "hit": true
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.8,
+     "val": 220,
+     "hit": true
+    }
+   ],
+   "game": "MIN @ GB",
+   "hits": 3,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 4-leg",
+   "name": "MIA @ IND \u00b7 4-leg props",
+   "p": 0.523,
+   "legs": [
+    {
+     "name": "Tyler Warren",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.87,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "Tyler Warren",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.83,
+     "val": 2,
+     "hit": false
+    },
+    {
+     "name": "Jonathan Taylor",
+     "mk": "carries",
+     "k": 15,
+     "p": 0.76,
+     "val": 16,
+     "hit": true
+    },
+    {
+     "name": "Jonathan Taylor",
+     "mk": "rush yds",
+     "k": 40,
+     "p": 0.75,
+     "val": 83,
+     "hit": true
+    }
+   ],
+   "game": "MIA @ IND",
+   "hits": 2,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 4-leg",
+   "name": "CAR @ NO \u00b7 4-leg props",
+   "p": 0.58,
+   "legs": [
+    {
+     "name": "Bryce Young",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.88,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Darren Waller",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.87,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.86,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Shough",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 1,
+     "hit": true
+    }
+   ],
+   "game": "CAR @ NO",
+   "hits": 2,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 4-leg",
+   "name": "BUF @ NYJ \u00b7 4-leg props",
+   "p": 0.474,
+   "legs": [
+    {
+     "name": "Braelon Allen",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Dalton Kincaid",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.78,
+     "val": 21,
+     "hit": false
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.76,
+     "val": 148,
+     "hit": false
+    }
+   ],
+   "game": "BUF @ NYJ",
+   "hits": 2,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 4-leg",
+   "name": "JAX @ TEN \u00b7 4-leg props",
+   "p": 0.528,
+   "legs": [
+    {
+     "name": "Tony Pollard",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.88,
+     "val": 8,
+     "hit": true
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.84,
+     "val": 88,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 39,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.78,
+     "val": 231,
+     "hit": true
+    }
+   ],
+   "game": "JAX @ TEN",
+   "hits": 4,
+   "n": 4,
+   "cashed": true
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 6-leg",
+   "name": "KC @ ATL \u00b7 6-leg props",
+   "p": 0.371,
+   "legs": [
+    {
+     "name": "Bijan Robinson",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.81,
+     "val": 286,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.8,
+     "val": 43,
+     "hit": true
+    },
+    {
+     "name": "Patrick Mahomes",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.82,
+     "val": 5,
+     "hit": true
+    },
+    {
+     "name": "Drake London",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 109,
+     "hit": true
+    },
+    {
+     "name": "Drake London",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.72,
+     "val": 6,
+     "hit": true
+    }
+   ],
+   "game": "KC @ ATL",
+   "hits": 6,
+   "n": 6,
+   "cashed": true
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 6-leg",
+   "name": "HOU @ CLE \u00b7 6-leg props",
+   "p": 0.303,
+   "legs": [
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 38,
+     "hit": true
+    },
+    {
+     "name": "Dalton Schultz",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.8,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.78,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Tank Dell",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.77,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Tank Dell",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.78,
+     "val": 21,
+     "hit": true
+    },
+    {
+     "name": "Nico Collins",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.74,
+     "val": 9,
+     "hit": true
+    }
+   ],
+   "game": "HOU @ CLE",
+   "hits": 5,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 6-leg",
+   "name": "MIN @ GB \u00b7 6-leg props",
+   "p": 0.409,
+   "legs": [
+    {
+     "name": "Jordan Mason",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.86,
+     "val": 59,
+     "hit": true
+    },
+    {
+     "name": "Tucker Kraft",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.84,
+     "val": 27,
+     "hit": true
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.8,
+     "val": 220,
+     "hit": true
+    },
+    {
+     "name": "Matthew Golden",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.81,
+     "val": 70,
+     "hit": true
+    },
+    {
+     "name": "Matthew Golden",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.77,
+     "val": 5,
+     "hit": true
+    }
+   ],
+   "game": "MIN @ GB",
+   "hits": 5,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 6-leg",
+   "name": "CAR @ NO \u00b7 6-leg props",
+   "p": 0.42200000000000004,
+   "legs": [
+    {
+     "name": "Bryce Young",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.88,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Darren Waller",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.87,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.86,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Shough",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bryce Young",
+     "mk": "pass att",
+     "k": 30,
+     "p": 0.81,
+     "val": 30,
+     "hit": true
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.74,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "game": "CAR @ NO",
+   "hits": 3,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 6-leg",
+   "name": "BUF @ NYJ \u00b7 6-leg props",
+   "p": 0.32,
+   "legs": [
+    {
+     "name": "Braelon Allen",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Dalton Kincaid",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.78,
+     "val": 21,
+     "hit": false
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.76,
+     "val": 148,
+     "hit": false
+    },
+    {
+     "name": "James Cook",
+     "mk": "rush yds",
+     "k": 60,
+     "p": 0.79,
+     "val": 157,
+     "hit": true
+    },
+    {
+     "name": "James Cook",
+     "mk": "carries",
+     "k": 15,
+     "p": 0.73,
+     "val": 18,
+     "hit": true
+    }
+   ],
+   "game": "BUF @ NYJ",
+   "hits": 4,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 6-leg",
+   "name": "JAX @ TEN \u00b7 6-leg props",
+   "p": 0.363,
+   "legs": [
+    {
+     "name": "Tony Pollard",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.88,
+     "val": 8,
+     "hit": true
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.84,
+     "val": 88,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 39,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.78,
+     "val": 231,
+     "hit": true
+    },
+    {
+     "name": "Trevor Lawrence",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Wan'Dale Robinson",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.74,
+     "val": 3,
+     "hit": false
+    }
+   ],
+   "game": "JAX @ TEN",
+   "hits": 5,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 8-leg",
+   "name": "KC @ ATL \u00b7 8-leg props",
+   "p": 0.256,
+   "legs": [
+    {
+     "name": "Bijan Robinson",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.81,
+     "val": 286,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.8,
+     "val": 43,
+     "hit": true
+    },
+    {
+     "name": "Patrick Mahomes",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.82,
+     "val": 5,
+     "hit": true
+    },
+    {
+     "name": "Drake London",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 109,
+     "hit": true
+    },
+    {
+     "name": "Drake London",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.72,
+     "val": 6,
+     "hit": true
+    },
+    {
+     "name": "Rashee Rice",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 82,
+     "hit": true
+    },
+    {
+     "name": "Rashee Rice",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.74,
+     "val": 5,
+     "hit": true
+    }
+   ],
+   "game": "KC @ ATL",
+   "hits": 8,
+   "n": 8,
+   "cashed": true
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 8-leg",
+   "name": "HOU @ CLE \u00b7 8-leg props",
+   "p": 0.2,
+   "legs": [
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 38,
+     "hit": true
+    },
+    {
+     "name": "Dalton Schultz",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.8,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.78,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Tank Dell",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.77,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Tank Dell",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.78,
+     "val": 21,
+     "hit": true
+    },
+    {
+     "name": "Nico Collins",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.74,
+     "val": 9,
+     "hit": true
+    },
+    {
+     "name": "Nico Collins",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.76,
+     "val": 94,
+     "hit": true
+    },
+    {
+     "name": "Dalton Schultz",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.63,
+     "val": 11,
+     "hit": false
+    }
+   ],
+   "game": "HOU @ CLE",
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 8-leg",
+   "name": "MIN @ GB \u00b7 8-leg props",
+   "p": 0.3,
+   "legs": [
+    {
+     "name": "Jordan Mason",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.86,
+     "val": 59,
+     "hit": true
+    },
+    {
+     "name": "Tucker Kraft",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.84,
+     "val": 27,
+     "hit": true
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.8,
+     "val": 220,
+     "hit": true
+    },
+    {
+     "name": "Matthew Golden",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.81,
+     "val": 70,
+     "hit": true
+    },
+    {
+     "name": "Matthew Golden",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.77,
+     "val": 5,
+     "hit": true
+    },
+    {
+     "name": "Christian Watson",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.8,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Christian Watson",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.77,
+     "val": 37,
+     "hit": true
+    }
+   ],
+   "game": "MIN @ GB",
+   "hits": 7,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 8-leg",
+   "name": "CAR @ NO \u00b7 8-leg props",
+   "p": 0.31,
+   "legs": [
+    {
+     "name": "Bryce Young",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.88,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Darren Waller",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.87,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.86,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Shough",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bryce Young",
+     "mk": "pass att",
+     "k": 30,
+     "p": 0.81,
+     "val": 30,
+     "hit": true
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.74,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tetairoa McMillan",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.82,
+     "val": 35,
+     "hit": true
+    },
+    {
+     "name": "Tetairoa McMillan",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.77,
+     "val": 3,
+     "hit": true
+    }
+   ],
+   "game": "CAR @ NO",
+   "hits": 5,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 8-leg",
+   "name": "BUF @ NYJ \u00b7 8-leg props",
+   "p": 0.215,
+   "legs": [
+    {
+     "name": "Braelon Allen",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Dalton Kincaid",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.78,
+     "val": 21,
+     "hit": false
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.76,
+     "val": 148,
+     "hit": false
+    },
+    {
+     "name": "James Cook",
+     "mk": "rush yds",
+     "k": 60,
+     "p": 0.79,
+     "val": 157,
+     "hit": true
+    },
+    {
+     "name": "James Cook",
+     "mk": "carries",
+     "k": 15,
+     "p": 0.73,
+     "val": 18,
+     "hit": true
+    },
+    {
+     "name": "Josh Allen",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.82,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Dalton Kincaid",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.7,
+     "val": 58,
+     "hit": true
+    }
+   ],
+   "game": "BUF @ NYJ",
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Props 8-leg",
+   "name": "JAX @ TEN \u00b7 8-leg props",
+   "p": 0.259,
+   "legs": [
+    {
+     "name": "Tony Pollard",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.88,
+     "val": 8,
+     "hit": true
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.84,
+     "val": 88,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 39,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.78,
+     "val": 231,
+     "hit": true
+    },
+    {
+     "name": "Trevor Lawrence",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Wan'Dale Robinson",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.74,
+     "val": 3,
+     "hit": false
+    },
+    {
+     "name": "Wan'Dale Robinson",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.74,
+     "val": 10,
+     "hit": false
+    },
+    {
+     "name": "Jakobi Meyers",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.82,
+     "val": 3,
+     "hit": true
+    }
+   ],
+   "game": "JAX @ TEN",
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 1 ATD",
+   "name": "KC @ ATL \u00b7 1 ATD + 7 props",
+   "game": "KC @ ATL",
+   "p": 0.182,
+   "legs": [
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.81,
+     "val": 286,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.8,
+     "val": 43,
+     "hit": true
+    },
+    {
+     "name": "Patrick Mahomes",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.82,
+     "val": 5,
+     "hit": true
+    },
+    {
+     "name": "Rashee Rice",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 82,
+     "hit": true
+    },
+    {
+     "name": "Rashee Rice",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.74,
+     "val": 5,
+     "hit": true
+    },
+    {
+     "name": "Patrick Mahomes",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.77,
+     "val": 348,
+     "hit": true
+    }
+   ],
+   "hits": 8,
+   "n": 8,
+   "cashed": true
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 2 ATD",
+   "name": "KC @ ATL \u00b7 2 ATD + 6 props",
+   "game": "KC @ ATL",
+   "p": 0.086,
+   "legs": [
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Drake London",
+     "mk": "atd",
+     "k": null,
+     "p": 0.37,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.81,
+     "val": 286,
+     "hit": true
+    },
+    {
+     "name": "Michael Penix Jr.",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.8,
+     "val": 43,
+     "hit": true
+    },
+    {
+     "name": "Drake London",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 109,
+     "hit": true
+    },
+    {
+     "name": "Patrick Mahomes",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.82,
+     "val": 5,
+     "hit": true
+    },
+    {
+     "name": "Rashee Rice",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 82,
+     "hit": true
+    }
+   ],
+   "hits": 7,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 1 ATD",
+   "name": "HOU @ CLE \u00b7 1 ATD + 7 props",
+   "game": "HOU @ CLE",
+   "p": 0.1,
+   "legs": [
+    {
+     "name": "Woody Marks",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Dalton Schultz",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.8,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "Woody Marks",
+     "mk": "rush yds",
+     "k": 50,
+     "p": 0.68,
+     "val": 50,
+     "hit": true
+    },
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 38,
+     "hit": true
+    },
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.78,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Tank Dell",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.77,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Tank Dell",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.78,
+     "val": 21,
+     "hit": true
+    },
+    {
+     "name": "Nico Collins",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.74,
+     "val": 9,
+     "hit": true
+    }
+   ],
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 2 ATD",
+   "name": "HOU @ CLE \u00b7 2 ATD + 6 props",
+   "game": "HOU @ CLE",
+   "p": 0.046,
+   "legs": [
+    {
+     "name": "Woody Marks",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Nico Collins",
+     "mk": "atd",
+     "k": null,
+     "p": 0.34,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.78,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Nico Collins",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.74,
+     "val": 9,
+     "hit": true
+    },
+    {
+     "name": "Dalton Schultz",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.8,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "C.J. Stroud",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 38,
+     "hit": true
+    },
+    {
+     "name": "Woody Marks",
+     "mk": "rush yds",
+     "k": 50,
+     "p": 0.68,
+     "val": 50,
+     "hit": true
+    },
+    {
+     "name": "Tank Dell",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.77,
+     "val": 3,
+     "hit": true
+    }
+   ],
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 1 ATD",
+   "name": "MIN @ GB \u00b7 1 ATD + 7 props",
+   "game": "MIN @ GB",
+   "p": 0.149,
+   "legs": [
+    {
+     "name": "Matthew Golden",
+     "mk": "atd",
+     "k": null,
+     "p": 0.39,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Matthew Golden",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.81,
+     "val": 70,
+     "hit": true
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.84,
+     "val": 27,
+     "hit": true
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.8,
+     "val": 220,
+     "hit": true
+    },
+    {
+     "name": "Jordan Mason",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.86,
+     "val": 59,
+     "hit": true
+    },
+    {
+     "name": "Tucker Kraft",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "Christian Watson",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.8,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Christian Watson",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.77,
+     "val": 37,
+     "hit": true
+    }
+   ],
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 2 ATD",
+   "name": "MIN @ GB \u00b7 2 ATD + 6 props",
+   "game": "MIN @ GB",
+   "p": 0.065,
+   "legs": [
+    {
+     "name": "Matthew Golden",
+     "mk": "atd",
+     "k": null,
+     "p": 0.39,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Christian Watson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.34,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.79,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Jordan Love",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.8,
+     "val": 220,
+     "hit": true
+    },
+    {
+     "name": "Matthew Golden",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.81,
+     "val": 70,
+     "hit": true
+    },
+    {
+     "name": "Christian Watson",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.8,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Jordan Mason",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.86,
+     "val": 59,
+     "hit": true
+    },
+    {
+     "name": "Tucker Kraft",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.85,
+     "val": 1,
+     "hit": false
+    }
+   ],
+   "hits": 5,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 1 ATD",
+   "name": "MIA @ IND \u00b7 1 ATD + 3 props",
+   "game": "MIA @ IND",
+   "p": 0.282,
+   "legs": [
+    {
+     "name": "Jonathan Taylor",
+     "mk": "atd",
+     "k": null,
+     "p": 0.43,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Warren",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.87,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "Tyler Warren",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.83,
+     "val": 2,
+     "hit": false
+    },
+    {
+     "name": "Jonathan Taylor",
+     "mk": "rush yds",
+     "k": 40,
+     "p": 0.75,
+     "val": 83,
+     "hit": true
+    }
+   ],
+   "hits": 1,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 2 ATD",
+   "name": "MIA @ IND \u00b7 2 ATD + 2 props",
+   "game": "MIA @ IND",
+   "p": 0.11199999999999999,
+   "legs": [
+    {
+     "name": "Jonathan Taylor",
+     "mk": "atd",
+     "k": null,
+     "p": 0.43,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Warren",
+     "mk": "atd",
+     "k": null,
+     "p": 0.34,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Warren",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.87,
+     "val": 1,
+     "hit": false
+    },
+    {
+     "name": "Jonathan Taylor",
+     "mk": "rush yds",
+     "k": 40,
+     "p": 0.75,
+     "val": 83,
+     "hit": true
+    }
+   ],
+   "hits": 1,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 1 ATD",
+   "name": "CAR @ NO \u00b7 1 ATD + 7 props",
+   "game": "CAR @ NO",
+   "p": 0.17600000000000002,
+   "legs": [
+    {
+     "name": "Chuba Hubbard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.49,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Bryce Young",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.88,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Darren Waller",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.87,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.86,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Shough",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.74,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Bryce Young",
+     "mk": "pass yds",
+     "k": 175,
+     "p": 0.78,
+     "val": 200,
+     "hit": true
+    },
+    {
+     "name": "Tetairoa McMillan",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.82,
+     "val": 35,
+     "hit": true
+    }
+   ],
+   "hits": 5,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 2 ATD",
+   "name": "CAR @ NO \u00b7 2 ATD + 6 props",
+   "game": "CAR @ NO",
+   "p": 0.105,
+   "legs": [
+    {
+     "name": "Chuba Hubbard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.49,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Chris Olave",
+     "mk": "atd",
+     "k": null,
+     "p": 0.45,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Shough",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bryce Young",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.88,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Darren Waller",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.87,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.86,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Chris Olave",
+     "mk": "receptions",
+     "k": 5,
+     "p": 0.8,
+     "val": 3,
+     "hit": false
+    },
+    {
+     "name": "Jalen Coker",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.74,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 3,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 1 ATD",
+   "name": "BUF @ NYJ \u00b7 1 ATD + 7 props",
+   "game": "BUF @ NYJ",
+   "p": 0.179,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "James Cook",
+     "mk": "rush yds",
+     "k": 60,
+     "p": 0.79,
+     "val": 157,
+     "hit": true
+    },
+    {
+     "name": "Braelon Allen",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.78,
+     "val": 21,
+     "hit": false
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.76,
+     "val": 148,
+     "hit": false
+    },
+    {
+     "name": "Dalton Kincaid",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Josh Allen",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.82,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Dalton Kincaid",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.7,
+     "val": 58,
+     "hit": true
+    }
+   ],
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 2 ATD",
+   "name": "BUF @ NYJ \u00b7 2 ATD + 6 props",
+   "game": "BUF @ NYJ",
+   "p": 0.099,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Josh Allen",
+     "mk": "atd",
+     "k": null,
+     "p": 0.51,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "James Cook",
+     "mk": "rush yds",
+     "k": 60,
+     "p": 0.79,
+     "val": 157,
+     "hit": true
+    },
+    {
+     "name": "Braelon Allen",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.76,
+     "val": 148,
+     "hit": false
+    },
+    {
+     "name": "Dalton Kincaid",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Geno Smith",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.7,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Dalton Kincaid",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.7,
+     "val": 58,
+     "hit": true
+    }
+   ],
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 1 ATD",
+   "name": "JAX @ TEN \u00b7 1 ATD + 7 props",
+   "game": "JAX @ TEN",
+   "p": 0.166,
+   "legs": [
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "atd",
+     "k": null,
+     "p": 0.47,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.84,
+     "val": 88,
+     "hit": true
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.88,
+     "val": 8,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 39,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.78,
+     "val": 231,
+     "hit": true
+    },
+    {
+     "name": "Trevor Lawrence",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Wan'Dale Robinson",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.74,
+     "val": 3,
+     "hit": false
+    },
+    {
+     "name": "Wan'Dale Robinson",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.74,
+     "val": 10,
+     "hit": false
+    }
+   ],
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "Hybrid 2 ATD",
+   "name": "JAX @ TEN \u00b7 2 ATD + 6 props",
+   "game": "JAX @ TEN",
+   "p": 0.095,
+   "legs": [
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "atd",
+     "k": null,
+     "p": 0.47,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.5,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Bhayshul Tuten",
+     "mk": "rush yds",
+     "k": 20,
+     "p": 0.84,
+     "val": 88,
+     "hit": true
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.88,
+     "val": 8,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass att",
+     "k": 25,
+     "p": 0.83,
+     "val": 39,
+     "hit": true
+    },
+    {
+     "name": "Cam Ward",
+     "mk": "pass yds",
+     "k": 150,
+     "p": 0.78,
+     "val": 231,
+     "hit": true
+    },
+    {
+     "name": "Trevor Lawrence",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.86,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Wan'Dale Robinson",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.74,
+     "val": 3,
+     "hit": false
+    }
+   ],
+   "hits": 7,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "ATD ticket",
+   "name": "4-leg ATD",
+   "p": 0.1216,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "atd",
+     "k": null,
+     "p": 0.71,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Javonte Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.67,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Kyren Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.61,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Jaylen Warren",
+     "mk": "atd",
+     "k": null,
+     "p": 0.41,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 1,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "ATD ticket",
+   "name": "6-leg ATD",
+   "p": 0.018000000000000002,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "atd",
+     "k": null,
+     "p": 0.71,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Javonte Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.67,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Kyren Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.61,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Jaylen Warren",
+     "mk": "atd",
+     "k": null,
+     "p": 0.41,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Chase Brown",
+     "mk": "atd",
+     "k": null,
+     "p": 0.33,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Zach Charbonnet",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 2,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "ATD ticket",
+   "name": "8-leg ATD",
+   "p": 0.0028000000000000004,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "atd",
+     "k": null,
+     "p": 0.71,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Javonte Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.67,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Kyren Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.61,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Jaylen Warren",
+     "mk": "atd",
+     "k": null,
+     "p": 0.41,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Chase Brown",
+     "mk": "atd",
+     "k": null,
+     "p": 0.33,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Zach Charbonnet",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Ashton Jeanty",
+     "mk": "atd",
+     "k": null,
+     "p": 0.42,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tyler Allgeier",
+     "mk": "atd",
+     "k": null,
+     "p": 0.36,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 2,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Props 4-leg",
+   "name": "LA @ ARI \u00b7 4-leg props",
+   "p": 0.36200000000000004,
+   "legs": [
+    {
+     "name": "Kyren Williams",
+     "mk": "rush yds",
+     "k": 40,
+     "p": 0.82,
+     "val": 23,
+     "hit": false
+    },
+    {
+     "name": "Blake Corum",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 100,
+     "hit": true
+    },
+    {
+     "name": "Blake Corum",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.63,
+     "val": 17,
+     "hit": true
+    },
+    {
+     "name": "Kyren Williams",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.76,
+     "val": 2,
+     "hit": true
+    }
+   ],
+   "game": "LA @ ARI",
+   "hits": 3,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Props 4-leg",
+   "name": "SF @ DAL \u00b7 4-leg props",
+   "p": 0.491,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.85,
+     "val": 62,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.82,
+     "val": 6,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.78,
+     "val": 74,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass yds",
+     "k": 200,
+     "p": 0.82,
+     "val": 343,
+     "hit": true
+    }
+   ],
+   "game": "SF @ DAL",
+   "hits": 4,
+   "n": 4,
+   "cashed": true
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Props 4-leg",
+   "name": "PIT @ CIN \u00b7 4-leg props",
+   "p": 0.509,
+   "legs": [
+    {
+     "name": "Jaylen Warren",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.87,
+     "val": 7,
+     "hit": false
+    },
+    {
+     "name": "Joe Burrow",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.84,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Aaron Rodgers",
+     "mk": "pass att",
+     "k": 20,
+     "p": 0.84,
+     "val": 29,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.82,
+     "val": 54,
+     "hit": true
+    }
+   ],
+   "game": "PIT @ CIN",
+   "hits": 3,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Props 6-leg",
+   "name": "LA @ ARI \u00b7 6-leg props",
+   "p": 0.228,
+   "legs": [
+    {
+     "name": "Kyren Williams",
+     "mk": "rush yds",
+     "k": 40,
+     "p": 0.82,
+     "val": 23,
+     "hit": false
+    },
+    {
+     "name": "Blake Corum",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 100,
+     "hit": true
+    },
+    {
+     "name": "Blake Corum",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.63,
+     "val": 17,
+     "hit": true
+    },
+    {
+     "name": "Kyren Williams",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.76,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Matthew Stafford",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.73,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Matthew Stafford",
+     "mk": "pass yds",
+     "k": 175,
+     "p": 0.79,
+     "val": 249,
+     "hit": true
+    }
+   ],
+   "game": "LA @ ARI",
+   "hits": 5,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Props 6-leg",
+   "name": "SF @ DAL \u00b7 6-leg props",
+   "p": 0.353,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.85,
+     "val": 62,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.82,
+     "val": 6,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.78,
+     "val": 74,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass yds",
+     "k": 200,
+     "p": 0.82,
+     "val": 343,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass att",
+     "k": 30,
+     "p": 0.79,
+     "val": 51,
+     "hit": true
+    },
+    {
+     "name": "CeeDee Lamb",
+     "mk": "receptions",
+     "k": 5,
+     "p": 0.8,
+     "val": 7,
+     "hit": true
+    }
+   ],
+   "game": "SF @ DAL",
+   "hits": 6,
+   "n": 6,
+   "cashed": true
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Props 6-leg",
+   "name": "PIT @ CIN \u00b7 6-leg props",
+   "p": 0.359,
+   "legs": [
+    {
+     "name": "Jaylen Warren",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.87,
+     "val": 7,
+     "hit": false
+    },
+    {
+     "name": "Joe Burrow",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.84,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Aaron Rodgers",
+     "mk": "pass att",
+     "k": 20,
+     "p": 0.84,
+     "val": 29,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.82,
+     "val": 54,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.71,
+     "val": 2,
+     "hit": false
+    },
+    {
+     "name": "Rico Dowdle",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    }
+   ],
+   "game": "PIT @ CIN",
+   "hits": 4,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Props 8-leg",
+   "name": "SF @ DAL \u00b7 8-leg props",
+   "p": 0.26,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.85,
+     "val": 62,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.82,
+     "val": 6,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.78,
+     "val": 74,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass yds",
+     "k": 200,
+     "p": 0.82,
+     "val": 343,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass att",
+     "k": 30,
+     "p": 0.79,
+     "val": 51,
+     "hit": true
+    },
+    {
+     "name": "CeeDee Lamb",
+     "mk": "receptions",
+     "k": 5,
+     "p": 0.8,
+     "val": 7,
+     "hit": true
+    },
+    {
+     "name": "CeeDee Lamb",
+     "mk": "rec yds",
+     "k": 60,
+     "p": 0.77,
+     "val": 72,
+     "hit": true
+    },
+    {
+     "name": "Brock Purdy",
+     "mk": "pass yds",
+     "k": 200,
+     "p": 0.8,
+     "val": 389,
+     "hit": true
+    }
+   ],
+   "game": "SF @ DAL",
+   "hits": 8,
+   "n": 8,
+   "cashed": true
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Props 8-leg",
+   "name": "PIT @ CIN \u00b7 8-leg props",
+   "p": 0.253,
+   "legs": [
+    {
+     "name": "Jaylen Warren",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.87,
+     "val": 7,
+     "hit": false
+    },
+    {
+     "name": "Joe Burrow",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.84,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Aaron Rodgers",
+     "mk": "pass att",
+     "k": 20,
+     "p": 0.84,
+     "val": 29,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.82,
+     "val": 54,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.71,
+     "val": 2,
+     "hit": false
+    },
+    {
+     "name": "Rico Dowdle",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Jaylen Warren",
+     "mk": "rush yds",
+     "k": 50,
+     "p": 0.76,
+     "val": 15,
+     "hit": false
+    },
+    {
+     "name": "Joe Burrow",
+     "mk": "pass att",
+     "k": 30,
+     "p": 0.85,
+     "val": 44,
+     "hit": true
+    }
+   ],
+   "game": "PIT @ CIN",
+   "hits": 5,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Hybrid 1 ATD",
+   "name": "LA @ ARI \u00b7 1 ATD + 6 props",
+   "game": "LA @ ARI",
+   "p": 0.145,
+   "legs": [
+    {
+     "name": "Kyren Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.61,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Kyren Williams",
+     "mk": "rush yds",
+     "k": 40,
+     "p": 0.82,
+     "val": 23,
+     "hit": false
+    },
+    {
+     "name": "Blake Corum",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 100,
+     "hit": true
+    },
+    {
+     "name": "Blake Corum",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.63,
+     "val": 17,
+     "hit": true
+    },
+    {
+     "name": "Matthew Stafford",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.73,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Matthew Stafford",
+     "mk": "pass yds",
+     "k": 175,
+     "p": 0.79,
+     "val": 249,
+     "hit": true
+    },
+    {
+     "name": "Tyler Higbee",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.71,
+     "val": 3,
+     "hit": true
+    }
+   ],
+   "hits": 5,
+   "n": 7,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Hybrid 2 ATD",
+   "name": "LA @ ARI \u00b7 2 ATD + 5 props",
+   "game": "LA @ ARI",
+   "p": 0.081,
+   "legs": [
+    {
+     "name": "Kyren Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.61,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Blake Corum",
+     "mk": "atd",
+     "k": null,
+     "p": 0.38,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Kyren Williams",
+     "mk": "rush yds",
+     "k": 40,
+     "p": 0.82,
+     "val": 23,
+     "hit": false
+    },
+    {
+     "name": "Blake Corum",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.79,
+     "val": 100,
+     "hit": true
+    },
+    {
+     "name": "Matthew Stafford",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.73,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Matthew Stafford",
+     "mk": "pass yds",
+     "k": 175,
+     "p": 0.79,
+     "val": 249,
+     "hit": true
+    },
+    {
+     "name": "Tyler Higbee",
+     "mk": "receptions",
+     "k": 2,
+     "p": 0.71,
+     "val": 3,
+     "hit": true
+    }
+   ],
+   "hits": 5,
+   "n": 7,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Hybrid 1 ATD",
+   "name": "SF @ DAL \u00b7 1 ATD + 7 props",
+   "game": "SF @ DAL",
+   "p": 0.23800000000000002,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "atd",
+     "k": null,
+     "p": 0.71,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Christian McCaffrey",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.85,
+     "val": 62,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass yds",
+     "k": 200,
+     "p": 0.82,
+     "val": 343,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass att",
+     "k": 30,
+     "p": 0.79,
+     "val": 51,
+     "hit": true
+    },
+    {
+     "name": "CeeDee Lamb",
+     "mk": "receptions",
+     "k": 5,
+     "p": 0.8,
+     "val": 7,
+     "hit": true
+    },
+    {
+     "name": "CeeDee Lamb",
+     "mk": "rec yds",
+     "k": 60,
+     "p": 0.77,
+     "val": 72,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.82,
+     "val": 6,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.78,
+     "val": 74,
+     "hit": true
+    }
+   ],
+   "hits": 8,
+   "n": 8,
+   "cashed": true
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Hybrid 2 ATD",
+   "name": "SF @ DAL \u00b7 2 ATD + 6 props",
+   "game": "SF @ DAL",
+   "p": 0.17600000000000002,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "atd",
+     "k": null,
+     "p": 0.71,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Javonte Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.67,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Christian McCaffrey",
+     "mk": "rush yds",
+     "k": 30,
+     "p": 0.85,
+     "val": 62,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass yds",
+     "k": 200,
+     "p": 0.82,
+     "val": 343,
+     "hit": true
+    },
+    {
+     "name": "Dak Prescott",
+     "mk": "pass att",
+     "k": 30,
+     "p": 0.79,
+     "val": 51,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.82,
+     "val": 6,
+     "hit": true
+    },
+    {
+     "name": "George Kittle",
+     "mk": "rec yds",
+     "k": 30,
+     "p": 0.78,
+     "val": 74,
+     "hit": true
+    },
+    {
+     "name": "CeeDee Lamb",
+     "mk": "receptions",
+     "k": 5,
+     "p": 0.8,
+     "val": 7,
+     "hit": true
+    }
+   ],
+   "hits": 7,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Hybrid 1 ATD",
+   "name": "PIT @ CIN \u00b7 1 ATD + 7 props",
+   "game": "PIT @ CIN",
+   "p": 0.171,
+   "legs": [
+    {
+     "name": "Ja'Marr Chase",
+     "mk": "atd",
+     "k": null,
+     "p": 0.51,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Joe Burrow",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.84,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Aaron Rodgers",
+     "mk": "pass att",
+     "k": 20,
+     "p": 0.84,
+     "val": 29,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.82,
+     "val": 54,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.71,
+     "val": 2,
+     "hit": false
+    },
+    {
+     "name": "Rico Dowdle",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Ja'Marr Chase",
+     "mk": "receptions",
+     "k": 4,
+     "p": 0.8,
+     "val": 11,
+     "hit": true
+    },
+    {
+     "name": "Joe Burrow",
+     "mk": "pass att",
+     "k": 30,
+     "p": 0.85,
+     "val": 44,
+     "hit": true
+    }
+   ],
+   "hits": 6,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "Hybrid 2 ATD",
+   "name": "PIT @ CIN \u00b7 2 ATD + 6 props",
+   "game": "PIT @ CIN",
+   "p": 0.094,
+   "legs": [
+    {
+     "name": "Ja'Marr Chase",
+     "mk": "atd",
+     "k": null,
+     "p": 0.51,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tee Higgins",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Joe Burrow",
+     "mk": "pass TDs",
+     "k": 1,
+     "p": 0.84,
+     "val": 4,
+     "hit": true
+    },
+    {
+     "name": "Aaron Rodgers",
+     "mk": "pass att",
+     "k": 20,
+     "p": 0.84,
+     "val": 29,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "rec yds",
+     "k": 20,
+     "p": 0.82,
+     "val": 54,
+     "hit": true
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "receptions",
+     "k": 3,
+     "p": 0.71,
+     "val": 2,
+     "hit": false
+    },
+    {
+     "name": "Rico Dowdle",
+     "mk": "receptions",
+     "k": 1,
+     "p": 0.83,
+     "val": 2,
+     "hit": true
+    },
+    {
+     "name": "Tee Higgins",
+     "mk": "rec yds",
+     "k": 40,
+     "p": 0.79,
+     "val": 66,
+     "hit": true
+    }
+   ],
+   "hits": 5,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "ATD mixed",
+   "name": "4-leg mixed ATD",
+   "p": 0.07259,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Chris Olave",
+     "mk": "atd",
+     "k": null,
+     "p": 0.45,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tetairoa McMillan",
+     "mk": "atd",
+     "k": null,
+     "p": 0.41,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 2,
+   "n": 4,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "ATD mixed",
+   "name": "6-leg mixed ATD",
+   "p": 0.01464,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Chris Olave",
+     "mk": "atd",
+     "k": null,
+     "p": 0.45,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tetairoa McMillan",
+     "mk": "atd",
+     "k": null,
+     "p": 0.41,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.5,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Parker Washington",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4,
+     "val": 1,
+     "hit": true
+    }
+   ],
+   "hits": 4,
+   "n": 6,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "ATD mixed",
+   "name": "8-leg mixed ATD",
+   "p": 0.00253,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Chris Olave",
+     "mk": "atd",
+     "k": null,
+     "p": 0.45,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tetairoa McMillan",
+     "mk": "atd",
+     "k": null,
+     "p": 0.41,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.5,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Parker Washington",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Woody Marks",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Matthew Golden",
+     "mk": "atd",
+     "k": null,
+     "p": 0.39,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 4,
+   "n": 8,
+   "cashed": false
+  },
+  {
+   "slate": "Early",
+   "kind": "ATD mixed",
+   "name": "10-leg mixed ATD",
+   "p": 0.00041,
+   "legs": [
+    {
+     "name": "James Cook",
+     "mk": "atd",
+     "k": null,
+     "p": 0.66,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Chris Olave",
+     "mk": "atd",
+     "k": null,
+     "p": 0.45,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Bijan Robinson",
+     "mk": "atd",
+     "k": null,
+     "p": 0.58,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Tetairoa McMillan",
+     "mk": "atd",
+     "k": null,
+     "p": 0.41,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Tony Pollard",
+     "mk": "atd",
+     "k": null,
+     "p": 0.5,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Parker Washington",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4,
+     "val": 1,
+     "hit": true
+    },
+    {
+     "name": "Woody Marks",
+     "mk": "atd",
+     "k": null,
+     "p": 0.44,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Matthew Golden",
+     "mk": "atd",
+     "k": null,
+     "p": 0.39,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Jonathan Taylor",
+     "mk": "atd",
+     "k": null,
+     "p": 0.43,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Xavier Worthy",
+     "mk": "atd",
+     "k": null,
+     "p": 0.37,
+     "val": 0,
+     "hit": false
+    }
+   ],
+   "hits": 4,
+   "n": 10,
+   "cashed": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "kind": "ATD mixed",
+   "name": "4-leg mixed ATD",
+   "p": 0.09218,
+   "legs": [
+    {
+     "name": "Christian McCaffrey",
+     "mk": "atd",
+     "k": null,
+     "p": 0.71,
+     "val": 3,
+     "hit": true
+    },
+    {
+     "name": "Ja'Marr Chase",
+     "mk": "atd",
+     "k": null,
+     "p": 0.51,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "Javonte Williams",
+     "mk": "atd",
+     "k": null,
+     "p": 0.67,
+     "val": 0,
+     "hit": false
+    },
+    {
+     "name": "DK Metcalf",
+     "mk": "atd",
+     "k": null,
+     "p": 0.37,
+     "val": 1,
+     "hit": true
+    }
+   ],
+   "hits": 2,
+   "n": 4,
+   "cashed": false
+  }
+ ],
+ "singles": [
+  {
+   "slate": "Early",
+   "name": "Chris Olave",
+   "p": 0.45,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Early",
+   "name": "Tetairoa McMillan",
+   "p": 0.41,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Early",
+   "name": "Parker Washington",
+   "p": 0.4,
+   "val": 1,
+   "hit": true
+  },
+  {
+   "slate": "Early",
+   "name": "Matthew Golden",
+   "p": 0.39,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Early",
+   "name": "Drake London",
+   "p": 0.37,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Early",
+   "name": "Xavier Worthy",
+   "p": 0.37,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Early",
+   "name": "Travis Kelce",
+   "p": 0.35,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Early",
+   "name": "Rashee Rice",
+   "p": 0.34,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Early",
+   "name": "Nico Collins",
+   "p": 0.34,
+   "val": 1,
+   "hit": true
+  },
+  {
+   "slate": "Early",
+   "name": "Tyler Warren",
+   "p": 0.34,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "name": "George Kittle",
+   "p": 0.53,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "name": "Ja'Marr Chase",
+   "p": 0.51,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "name": "CeeDee Lamb",
+   "p": 0.49,
+   "val": 1,
+   "hit": true
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "name": "Tee Higgins",
+   "p": 0.44,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "name": "Ryan Flournoy",
+   "p": 0.41,
+   "val": 1,
+   "hit": true
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "name": "DK Metcalf",
+   "p": 0.37,
+   "val": 1,
+   "hit": true
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "name": "Jordan Watkins",
+   "p": 0.3,
+   "val": 0,
+   "hit": false
+  },
+  {
+   "slate": "Afternoon+Evening",
+   "name": "Germie Bernard",
+   "p": 0.27,
+   "val": 0,
+   "hit": false
+  }
+ ]
+}

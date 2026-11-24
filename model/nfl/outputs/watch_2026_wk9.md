@@ -1,0 +1,91 @@
+# Watch · 2026 Week 9 · 2026-11-09T23:54Z
+
+## Roster moves
+- Andy Dalton: ATL ACT → ATL INA
+- Case Keenum: CHI ACT → CHI INA
+- Mike Evans: SF ACT → SF INA
+- Phillip Dorsett: LV DEV → LV CUT
+- Demarcus Robinson: SF RES → SF ACT
+- Jacoby Brissett: ARI ACT → ARI CUT
+- Tim Patrick: NYJ ACT → NYJ INA
+- Pharaoh Brown: IND ACT → IND INA
+- Deshaun Watson: CLE ACT → CLE INA
+- Mack Hollins: NE RES → NE ACT
+- Christian Kirk: SF ACT → SF RES
+- KhaDarel Hodge: SF DEV → SF ACT
+- Sam Darnold: SEA ACT → SEA INA
+- Lil'Jordan Humphrey: DEN ACT → DEN INA
+- A.J. Brown: NE ACT → NE INA
+- David Montgomery: HOU ACT → HOU INA
+- Deebo Samuel Sr.: SF ACT → SF INA
+- Salvon Ahmed: CHI DEV → CHI ACT
+- AJ Dillon: CAR ACT → CAR INA
+- Elijah Mitchell: PHI DEV → PHI ACT
+- Dyami Brown: WAS ACT → WAS RES
+- Sam Ehlinger: DEN ACT → DEN INA
+- DeVonta Smith: PHI ACT → PHI INA
+- Zach Wilson: NO ACT → NO INA
+- Britain Covey: PHI ACT → PHI INA
+- Bam Knight: ARI ACT → ARI INA
+- George Pickens: DAL ACT → DAL INA
+- Jerome Ford: ARI DEV → ARI ACT
+- James Mitchell: DAL DEV → DAL ACT
+- Rashid Shaheed: SEA ACT → SEA INA
+- Ronnie Rivers: LA RES → LA ACT
+- Jalen Tolbert: MIA ACT → MIA INA
+- Garrett Wilson: NYJ ACT → NYJ INA
+- Treylon Burks: WAS ACT → WAS INA
+- Velus Jones Jr.: SEA CUT → SEA DEV
+- Brian Robinson: ATL INA → ATL RES
+- KaVontae Turpin: DAL ACT → DAL INA
+- Zamir White: NO DEV → NO ACT
+- Dontayvion Wicks: PHI ACT → PHI INA
+- Will Mallory: IND ACT → IND INA
+- Ben VanSumeren: KC ACT → KC INA
+- Luke Schoonmaker: DAL ACT → DAL INA
+- Kendre Miller: NO ACT → NO CUT
+- Aidan O'Connell: LV ACT → LV INA
+- Josh Whyle: GB ACT → GB INA
+- Jacob Saylors: DET ACT → DET INA
+- Carlos Washington: MIA DEV → MIA ACT
+- Jalin Hyatt: NYG DEV → NYG ACT
+- Jake Haener: NYG CUT → NYG DEV
+- Cade Stover: HOU ACT → HOU INA
+- Treyton Welch: NO ACT → NO CUT
+- Shawn Bowman: ARI DEV → ARI ACT
+- Jabari Small: DET DEV → DET ACT
+- Cody Schrader: DEN DEV → DEN ACT
+- MarShawn Lloyd: GB ACT → GB INA
+- Jaylen Wright: MIA ACT → MIA INA
+- Phil Mafah: NYG DEV → NYG ACT
+- Pat Bryant: DEN RES → DEN ACT
+- Riley Leonard: IND ACT → IND INA
+- Thomas Fidone II: NYG ACT → NYG INA
+- Kyle Monangai: CHI ACT → CHI INA
+- Theo Wease Jr.: LAC ACT → LAC INA
+- Jackson Meeks: DET ACT → DET INA
+- Carter Runyon: LV CUT → LV DEV
+- Dont'e Thornton Jr.: LV ACT → LV INA
+- Kurtis Rourke: SF ACT → SF INA
+- Montorie Foster Jr: SEA DEV → SEA ACT
+- Drake Dabney: GB DEV → GB ACT
+- Cam Skattebo: NYG ACT → NYG INA
+- TreVeyon Henderson: NE ACT → NE INA
+- Malik Benson: LV ACT → LV INA
+- Garrett Nussmeier: KC ACT → KC INA
+- Jordan Hudson: DAL DEV → DAL ACT
+- Jordyn Tyson: NO RES → NO ACT
+- Justin Joly: MIA ACT → MIA INA
+- Taylen Green: CLE ACT → CLE INA
+- Athan Kaliakmanis: WAS ACT → WAS INA
+- Behren Morton: NE ACT → NE INA
+- Carsen Ryan: CLE CUT → CLE ACT
+- Dallen Bentley: DEN ACT → DEN INA
+- Haynes King: CAR ACT → CAR INA
+- Jaden Bradley: WAS DEV → WAS ACT
+- CJ Donaldson: NO ACT → NO INA
+- Brenen Thompson: LAC ACT → LAC INA
+- Ty Simpson: LA ACT → LA INA
+
+## Line moves
+- 2026_09_BUF_MIN: spread -3.0 → -3.5, total 43.5 → 45.5

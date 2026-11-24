@@ -1,0 +1,8 @@
+# Re-downloadable nflverse caches (about 131 MB). `python run.py download` restores them.
+data/pbp_*.parquet
+data/part_*.parquet
+data/ftn_*.parquet
+__pycache__/
+*.log
+outputs/site/
+deploy/index.html
