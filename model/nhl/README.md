@@ -37,7 +37,8 @@ Four things a later phase should know:
 
 - **Natural Stat Trick cannot be pulled.** Its Cloudflare answers 403 to any automated client. The on-ice rates, home/away
   and score-state splits the spec takes from it are built here from the NHL's own play-by-play and shift charts with
-  MoneyPuck's xG. Line-mate tables are not built yet.
+  MoneyPuck's xG. Line-mate tables are not built yet. Decision (owner, 24 November 2026): the engine runs on these
+  NHL-derived tables; hand exports are optional and only feed the spot-check.
 - **The NHL API has no injury feed.** Injured reserve comes from Daily Faceoff's line pages, scratches from each game's
   NHL record.
 - **The league's shift-chart feed is empty for some games** (141 of 4,320 on 24 November 2026, 84 of them this season).
