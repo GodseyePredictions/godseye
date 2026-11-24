@@ -7,7 +7,9 @@ Nothing is hand-picked: the page shows the algorithm's three highest-probability
 its highest-probability anytime-touchdown pair and its 4-leg anytime-touchdown ticket,
 each with the model's own chance of cashing, plus the season record of the algorithm's tickets.
 """
+import html
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,23 +27,57 @@ def game_label(gid):
     return {"matchup": f"{g['away']} @ {g['home']}", "when": f"{g['weekday']} {g['kick']}"}
 
 
+TAG = re.compile(r"<[^>]+>")
+WHY_MAX, WHY_CHARS, INTEL_MAX = 4, 420, 5
+
+
+def plain(text):
+    """The algorithm writes its reasons with bold labels for the console; the landing page shows them as plain text."""
+    t = html.unescape(TAG.sub("", text)).strip()
+    return t if len(t) <= WHY_CHARS else t[:WHY_CHARS].rsplit(" ", 1)[0] + "…"
+
+
+def reasons(items):
+    return [plain(x) for x in (items or [])[:WHY_MAX]]
+
+
+SCRIPT = {x["game"]: x.get("notes", []) for x in D.get("script_sgp") or []}
+
+
+def game_intel(gid):
+    """The algorithm's read of the game: where it is played, the market's lines, and its game-script notes."""
+    g = G[gid]
+    out = []
+    place = [g.get("venue"), g.get("roof"), "turf" if g.get("turf") else "grass" if g.get("turf") is not None else None]
+    wx = g.get("wx")
+    if wx and wx != "indoor":
+        place.append(wx)
+    out.append("Setting: " + ", ".join(x for x in place if x) + ".")
+    imp = g.get("implied") or {}
+    if g.get("total") is not None and imp:
+        out.append(f"Market: total {g['total']}; implied points " + ", ".join(f"{t} {v}" for t, v in imp.items()) + ".")
+    out += [plain(n) for n in SCRIPT.get(gid, [])[:INTEL_MAX - len(out)]]
+    return out
+
+
 def atd_leg(pid):
     p = P[pid]
-    return {"text": f"{p['name']} Anytime TD", "team": p["team"], "p": round(p["p"], 3)}
+    return {"text": f"{p['name']} Anytime TD", "team": p["team"], "p": round(p["p"], 3), "why": reasons(p.get("why"))}
 
 
 locks = []
 for t in sorted(D["algo"]["sgp"], key=lambda t: -t["p"])[:3]:
     if G[t["game"]].get("started"):
         continue
-    locks.append({"kind": "Same-game parlay", **game_label(t["game"]), "p": round(t["p"], 3), "tab": "sgp",
+    locks.append({"kind": "Same-game parlay", **game_label(t["game"]), "p": round(t["p"], 3), "tab": "sgp", "intel": game_intel(t["game"]),
                   "legs": [{"text": f"{P[l['id']]['name']} {l['k']}+ {MK.get(l['mk'], l['mk'])}", "team": P[l["id"]]["team"],
-                            "p": round(l["p"], 3), "record": f"cleared in {l['hits']} of {l['n']} games" if l.get("n") else ""}
+                            "p": round(l["p"], 3), "record": f"cleared in {l['hits']} of {l['n']} games" if l.get("n") else "",
+                            "why": reasons(l.get("why"))}
                            for l in t["legs"]]})
 pairs = [c for c in D["algo"]["atd_combos"] if c["n"] == 2 and not G[c["game"]].get("started")]
 if pairs:
     c = max(pairs, key=lambda c: c["p"])
-    locks.append({"kind": "Anytime TD double", **game_label(c["game"]), "p": round(c["p"], 3), "tab": "picks",
+    locks.append({"kind": "Anytime TD double", **game_label(c["game"]), "p": round(c["p"], 3), "tab": "picks", "intel": game_intel(c["game"]),
                   "legs": [atd_leg(i) for i in c["legs"]]})
 four = next((t for t in D["algo"]["atd"] if t["n"] == 4), None)
 if four:
