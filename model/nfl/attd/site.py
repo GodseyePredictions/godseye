@@ -368,13 +368,31 @@ def build_data(season: int, week: int) -> dict:
             "personnel": plog, "singles": singles, "rules": rules, "crossgame": xg, "script_sgp": script_out, "early": early}
 
 
+class SiteDataError(ValueError):
+    """The week's site data failed its checks and was not written."""
+
+
+SITE_JSON = OUT / "site" / "nfl_site.json"
+
+
 def write_site(season: int, week: int) -> Path:
     data = build_data(season, week)
+    # Nothing reaches the web app unless it is well-formed and inside the ticket rules.
+    from .site_check import check
+    errors, warnings = check(data, season, week)
+    for w in warnings:
+        print(f"site check warning: {w}")
+    if errors:
+        raise SiteDataError("site data refused:\n  " + "\n  ".join(errors[:25])
+                            + (f"\n  ... and {len(errors) - 25} more" if len(errors) > 25 else ""))
+    blob = json.dumps(data, separators=(",", ":"))
     tpl = (ROOT / "attd" / "site_template.html").read_text()
-    html = tpl.replace("/*__DATA__*/null", json.dumps(data, separators=(",", ":")))
+    html = tpl.replace("/*__DATA__*/null", blob)
     out = OUT / "site" / "gods_eye.html"
     out.parent.mkdir(exist_ok=True)
     out.write_text(html)
+    # The data on its own: scripts/import-console.py reads this file straight into the web app.
+    SITE_JSON.write_text(blob)
     # "as shipped" snapshot of every ticket on this build, for grading that never drifts with later rebuilds
     snap_dir = OUT / "shipped"
     snap_dir.mkdir(exist_ok=True)

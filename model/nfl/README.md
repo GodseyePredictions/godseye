@@ -114,3 +114,17 @@ checks need three more. Versions installed when this snapshot was taken:
 - The original `README.md` is now `USAGE.md` and the session's `CLAUDE.md` is
   `SESSION_NOTES.md`, so neither is mistaken for this repository's own files.
 - No model code was changed.
+
+## Changes since the snapshot
+
+- **Straight to the web app.** `python run.py site` now also writes the week's data on its own to
+  `outputs/site/nfl_site.json`. From the repository root, `npm run nfl:site` reads that file and this
+  folder's `attd/site_template.html` into the web app. No exported page is passed around by hand.
+- **A gate before the site.** `attd/site_check.py` checks every build before anything is written:
+  probabilities between 0 and 1, ladders that fall as rungs rise, yardage rungs in multiples of 5,
+  rushing and receiving yards ladders starting at 20+, no ticket more likely than its weakest leg,
+  no touchdown leg in a props SGP, and at most one leg under 65% on a ticket. A failed check stops
+  the build. Legs under the 70% floor and a slate where every game has kicked off are reported as
+  warnings.
+- **First tests.** `python -m pytest model/nfl/tests` (from the repository root) covers the gate and
+  the joint-probability maths. The rest of the module is still untested.

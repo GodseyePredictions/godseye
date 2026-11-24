@@ -124,7 +124,8 @@ def cmd_slip(a):
 def cmd_site(a):
     from attd.site import write_site
     p = write_site(a.season, a.week)
-    print(f"Wrote {p} ({p.stat().st_size // 1024} KB). Publish/redeploy it as the God's Eye artifact.")
+    print(f"Wrote {p} ({p.stat().st_size // 1024} KB) and {p.with_name('nfl_site.json').name} beside it.")
+    print("To put this build on the web app, run from the repository root:  npm run nfl:site")
 
 
 def cmd_grade_card(a):
