@@ -33,6 +33,17 @@ The "Platform rules" below apply to every sport.
 - Never promise wins or "guaranteed" nights. Copy says "bet smarter, survive the variance".
 - Support user-set stop-loss, profit lock, nightly exposure caps and cool-off.
 
+### Publishing the site (owner, 24 November 2026)
+
+The published site is https://claude.ai/artifact/SZGmtu64mAZsvzS7y2Hbxw. Every publish, from any session, for any sport, must be the same site with the same design:
+
+- **One build.** Pull main, then `node scripts/build-preview.mjs <file>` and publish that file to that link. Never publish an older saved file, a patched copy, or a page built some other way.
+- **One home page.** The landing page (`src/app/(site)/page.tsx`) is always the home page, refreshed with the latest algorithm output.
+- **One look.** The Godseye branding, the dark ground, and white slips with red titles and black type (`src/styles/slip.css`, `src/components/Slip.tsx`). New screens reuse these; they do not bring their own styles.
+- **Tickets are set slips.** Every algorithm ticket is shown as a slip with its legs, its chance to hit and its chance to miss. A button that only loads the bet slip is not a ticket. In the NFL console use `geSlip` (added by `scripts/import-console.py`).
+- **Check before publishing.** Open the built file, confirm the landing page, both consoles and the slips render with no page errors, then publish. If the build or a check fails, do not publish.
+- A change to the design is made in the repository and merged to main first, so the next publish from any session carries it.
+
 ### Engineering
 
 - Explore the existing repo and reuse what's there before adding new structure.
