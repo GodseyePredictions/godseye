@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 
 from nba import audit_export, availability, grading, ledger, refresh, sgp, sources
-from nba import calibrate
+from nba import bands, calibrate
 from nba import player_sim as ps
 from nba import props
 from nba.config import CONFIG
@@ -185,6 +185,7 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
     restr = known.set_index("player_id").minutes_restriction
     pl.D["minutes_restriction"] = pl.D.player_id.map(restr[~restr.index.duplicated()])
     slate, texts, per_game, book_used = [], [], {}, None
+    band_by_game, value_by_game = {}, {}
     (HERE / "data" / "sims").mkdir(parents=True, exist_ok=True)
     for g in games.itertuples():
         gg = gate[gate.game_id == g.game_id]
@@ -215,6 +216,11 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                      "(set ODDS_API_KEY or load a bet365 sheet with: python3 -m nba.refresh csv FILE " + g.game_id + ")"]}
         else:
             built = sgp.build_tickets(legs, sims, card, cfg, require_price=True)
+            band, band_notes = bands.band_tickets(legs, cfg)
+            built["tickets"] += band
+            built["notes"] += band_notes
+            band_by_game[g.game_id] = (card["matchup"], band)
+            value_by_game[g.game_id] = (card["matchup"], bands.value_locks(legs, cfg))
             if cal:
                 built["notes"].append(calibrate.describe(cal))
         if not preview and not offers.empty:
@@ -266,6 +272,9 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                                             "projections_changed": json.dumps(c["projections_changed"])}])
     OUT.mkdir(exist_ok=True)
     multi = multi_game_slips(per_game, cfg) if not only else []
+    if not only:
+        extra = [bands.value_parlay(value_by_game, cfg), bands.lotto(band_by_game, cfg) if cfg.get("lotto_slip") else None]
+        multi += [m for m in extra if m]
     for m in multi:
         tid = ledger.uuid.uuid4().hex[:12]
         m["id"] = tid
@@ -281,7 +290,9 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                      + (f"{m['book_price']:+d}" if m["book_price"] else "n/a") + f"  | ticket id {tid}\n"
                      + "\n".join(f"  {part['matchup']} ({part['joint']:.0%}): " + "; ".join(l["label"] for l in part["legs"]) for part in m["parts"]))
     payload = {"run_id": run_id, "run_at": run_at, "n_sims": n_sims or cfg["n_sims"], "games": slate, "status_changes": moved,
-               "multi": multi, "book": book_used}
+               "multi": multi, "book": book_used,
+               "value_locks": [{"game_id": gid, "matchup": mu, "legs": [{k: v for k, v in l.items() if k not in ("hits", "active")} for l in ls]}
+                               for gid, (mu, ls) in value_by_game.items()]}
     slim = {**payload, "games": [{k: v for k, v in g.items() if k != "audit"} for g in slate]}   # the audit data has its own file
     (OUT / "nba_slate.json").write_text(json.dumps(_clean(slim), indent=1, default=str))
     if not only:
@@ -331,6 +342,8 @@ def write_site_file(payload: dict) -> None:
                         for p in sorted(g["projections"], key=lambda x: -x["min_mean"]) if p["min_mean"] >= 10],
             "availability": [a for a in g["availability"] if a["status"] != "confirmed_in"]})
     site = {"run_at": payload["run_at"], "n_sims": payload["n_sims"], "games": games, "book": payload.get("book"),
+            "value_locks": [{"matchup": v["matchup"], "legs": [{k: l.get(k) for k in keep_leg} for l in v["legs"]]}
+                            for v in payload.get("value_locks", [])],
             "multi": [{**m, "parts": [{**p, "legs": [{k: l.get(k) for k in keep_leg} for l in p["legs"]]} for p in m["parts"]]}
                       for m in payload.get("multi", [])]}
     (OUT / "nba_site.json").write_text(json.dumps(_clean(site), default=str, allow_nan=False))
@@ -405,7 +418,8 @@ def write_track_file(con, cfg=CONFIG) -> dict:
     return out
 
 
-TYPE_NAMES = {"props_4": "4-leg SGP", "props_4b": "Second 4-leg SGP", "props_6": "6-leg SGP", "props_8": "8-leg SGP",
+TYPE_NAMES = {"band_safe6": "Safe 6-leg SGP", "band_real6": "Realistic 6-leg SGP", "band_up6": "Upside 6-leg SGP",
+              "value_locks": "Value locks parlay", "lotto": "Lotto slip", "props_4": "4-leg SGP", "props_4b": "Second 4-leg SGP", "props_6": "6-leg SGP", "props_8": "8-leg SGP",
               "multi_12": "12-prop multi-game slip", "multi_15": "15-prop multi-game slip", "game_script": "Game-script SGP"}
 
 

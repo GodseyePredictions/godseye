@@ -151,6 +151,17 @@ CONFIG = {
     # The all-games slip (this many legs from every game on the slate). Off by default: it is made on request
     # as a PDF and is not shown on the site or the tracker. Set to 4 to issue it with every slate.
     "multi_all_games_legs": None,
+    # Price-band slips (owner, 24 November 2026): per game, the highest-chance 6-leg slip whose listed price (leg prices
+    # multiplied) falls in each band. Every leg still clears the slip rules. An empty list turns them off.
+    "price_band_slips": [{"key": "band_safe6", "min_price": 100, "max_price": 200},
+                         {"key": "band_real6", "min_price": 201, "max_price": 300},
+                         {"key": "band_up6", "min_price": 301, "max_price": 400}],
+    "price_band_size": 6,
+    "price_band_pool": 26,               # strongest qualifying legs searched for the band slips
+    "value_lock_price_range": (-300, 100),   # "value locks": slip-eligible legs priced inside this range
+    "value_parlay_legs": 6,              # the value-locks parlay takes this many of them across the slate ...
+    "value_parlay_min_legs": 4,          # ... and is not issued with fewer than this
+    "lotto_slip": True,                  # every game's longest band slip joined into one (shown on the site, owner 24 November)
     "max_legs_per_player": 2,
     "max_legs_per_player_by_size": {4: 1},   # a 4-leg slip rides on four different players
     "sgp_leg_floor_by_market": {"reb": 0.75},   # rebounds missed most often on graded slates, so they need a higher floor
