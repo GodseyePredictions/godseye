@@ -98,6 +98,12 @@ Each update runs in one transaction with the user's row locked, so two requests 
 
 Point the endpoint at `customer.subscription.created`, `.updated` and `.deleted`. A cancel archives the user's chat history for 90 days and a return inside that time restores it. Late or repeated events are ignored. The checkout page itself is not built: it needs the Stripe account and logins.
 
+## The owner page
+
+`/owner` is a private summary for the owner: subscribers by plan, advisor messages and API cost per user, and the algorithm's full NBA record (slips issued, cashed and lost). It is not linked from the site, is kept out of search engines, and is not part of the shareable single-file app.
+
+Set `OWNER_KEY` (an environment variable, at least 24 characters) and type it on the page. Without it the page and `GET /api/owner/summary` refuse everyone. The key is held in memory only, so reloading locks the page again.
+
 ## What is not built yet
 
 Logins, a checkout page, live odds and sportsbook sync. Bankroll settings, tracked bets and saved slips in the consoles are still stored in the visitor's browser until logins exist; advisor conversations are stored on the server.

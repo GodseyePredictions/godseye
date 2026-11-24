@@ -5,6 +5,7 @@ import pg from "pg";
 import { ADVISOR_LIMITS, chatAllowance, visibleConversations } from "./advisor/subscription.ts";
 import { BILLING_CONFIG, BillingError, handleStripeWebhook, readEvent, sign, tierForPrice, verifySignature } from "./billing/stripe.ts";
 import type { Bet } from "./bets.ts";
+import { OWNER_CONFIG, ownerAccess, ownerSummary } from "./owner.ts";
 import { openAccount } from "./staking.ts";
 import { PgStore } from "./store/postgres.ts";
 import { MemoryStore, type Conversation, type UserRecord } from "./store/types.ts";
@@ -125,6 +126,40 @@ test("subscribe, cancel and return: the plan gates the chat and history is archi
   assert.equal((await store.get(USER)).subscription.status, "past_due");
   assert.deepEqual(await send(store, { type: "invoice.paid", created: 1 }, back), { handled: false, note: "ignored: not a subscription event" });
   assert.equal(await status(() => send(store, subEvent({ price: "price_other", created: Math.floor(back.getTime() / 1000) + 9 }), back)), 422);
+});
+
+// ================= the owner's summary =================
+test("the owner's summary needs the owner key, and counts subscribers, usage and the record", async () => {
+  const key = "k".repeat(OWNER_CONFIG.minKeyLength);
+  assert.equal(ownerAccess(`Bearer ${key}`, { OWNER_KEY: key }), "ok");
+  assert.equal(ownerAccess(`bearer ${key}`, { OWNER_KEY: key }), "ok");
+  assert.equal(ownerAccess(`Bearer ${key}x`, { OWNER_KEY: key }), "denied");
+  assert.equal(ownerAccess(null, { OWNER_KEY: key }), "denied");
+  assert.equal(ownerAccess("Bearer ", { OWNER_KEY: key }), "denied");
+  assert.equal(ownerAccess("Bearer short", { OWNER_KEY: "short" }), "not-set-up", "a weak key is refused even when it matches");
+  assert.equal(ownerAccess("Bearer ", {}), "not-set-up");
+
+  const store = new MemoryStore(() => NOW);
+  const entry = (daysAgo: number, costUsd: number) => ({ at: new Date(NOW.getTime() - daysAgo * 86_400_000).toISOString(), model: "claude-sonnet-5-5", purpose: "chat" as const, inputTokens: 1, outputTokens: 1, cacheReadTokens: 0, cacheWriteTokens: 0, costUsd });
+  await store.update("user_own_pro01", (u) => {
+    u.subscription = { tier: "pro", status: "active" };
+    u.account = openAccount(500, "balanced", NOW);
+    u.usage.push(entry(1, 0.5), entry(10, 0.25), entry(40, 1));
+    u.messageLog.push(NOW.toISOString(), NOW.toISOString());
+  });
+  await store.update("user_own_elite", (u) => { u.subscription = { tier: "elite", status: "past_due" }; u.usage.push(entry(2, 2)); });
+  await store.update("user_own_gone1", (u) => { u.subscription = { tier: "none", status: "canceled" }; });
+  await store.update("user_own_free1", () => undefined);
+
+  const s = await ownerSummary(store, NOW, { from: "2026-11-11", to: "2026-11-23", issued: 10, cashed: 4, all_staked: 600, all_net: -35.5 });
+  assert.deepEqual(s.users, { total: 4, byPlan: { none: 2, pro: 1, elite: 1 }, pastDue: 1, canceled: 1, withBankroll: 1 });
+  assert.deepEqual(s.advisor.cost, { last7Days: 2.5, last30Days: 2.75, allTime: 3.75 });
+  assert.deepEqual(s.advisor.calls, { last7Days: 2, last30Days: 3, allTime: 4 });
+  assert.equal(s.advisor.messagesToday, 2);
+  assert.deepEqual(s.advisor.top.map((r) => [r.user, r.cost30]), [["user_own_elite", 2], ["user_own_pro01", 0.75]]);
+  assert.deepEqual(s.nba, { from: "2026-11-11", to: "2026-11-23", issued: 10, cashed: 4, lost: 6, hitRate: 0.4, exampleStaked: 600, exampleNet: -35.5 });
+  assert.equal((await ownerSummary(store, NOW, null)).nba, null);
+  assert.equal((await ownerSummary(new MemoryStore(), NOW, {})).users.total, 0);
 });
 
 // ================= the Postgres store =================
