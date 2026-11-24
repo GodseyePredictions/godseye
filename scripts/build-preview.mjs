@@ -11,6 +11,11 @@ const root = path.resolve(import.meta.dirname, "..");
 const out = process.argv[2];
 if (!out) throw new Error("Usage: node scripts/build-preview.mjs <output.html>");
 const tmp = mkdtempSync(path.join(tmpdir(), "ge-preview-"));
+// The NFL console's own script draws into the element with id "main". In this file every view shares one
+// document, so no other view may use that id, or the console is drawn over it.
+for (const f of ["src/app/(site)/page.tsx", "src/components/InfoPages.tsx", "src/components/NbaApp.tsx"]) {
+  if (/id="main"/.test(readFileSync(path.join(root, f), "utf8"))) throw new Error(`${f} uses id="main", which belongs to the NFL console`);
+}
 
 // React comes from the page's <script> tags (UMD globals), not from the bundle.
 writeFileSync(path.join(tmp, "react.js"), "module.exports = window.React;");
@@ -25,26 +30,35 @@ import ReactDOM from "react-dom";
 import ConsoleApp from "${path.join(root, "src/components/ConsoleApp.tsx")}";
 import NbaApp from "${path.join(root, "src/components/NbaApp.tsx")}";
 import Home from "${path.join(root, "src/app/(site)/page.tsx")}";
+import { ContactPage, PrivacyPage, ResponsibleGamblingPage, TermsPage } from "${path.join(root, "src/components/InfoPages.tsx")}";
 window.GE_INLINE = true;
 
 // One page, three views. The view is read from the address: nothing (or a landing section) is the landing
 // page, "nba-..." is the NBA side, anything else is an NFL console tab.
 const LANDING = ["", "how", "locks", "sports", "nfl", "nba"];
-const viewOf = (h) => (h.startsWith("nba-") ? "nba" : LANDING.includes(h) ? "site" : "nfl");
+const INFO = { "terms": TermsPage, "privacy": PrivacyPage, "responsible-gambling": ResponsibleGamblingPage, "contact": ContactPage };
+const viewOf = (h) => (h.startsWith("nba-") ? "nba" : INFO[h] ? "info" : LANDING.includes(h) ? "site" : "nfl");
+const siteCss = (view) => view === "site" || view === "info";
 const sub = (cb) => { window.addEventListener("hashchange", cb); return () => window.removeEventListener("hashchange", cb); };
 function applyStyles(view) {
-  document.getElementById("css-site").media = view === "site" ? "all" : "not all";
-  document.getElementById("css-console").media = view === "site" ? "not all" : "all";
+  document.getElementById("css-site").media = siteCss(view) ? "all" : "not all";
+  document.getElementById("css-console").media = siteCss(view) ? "not all" : "all";
 }
 // Site-style links ("/", "/nfl#sgp", "/nba") are turned into views of this page.
 document.addEventListener("click", (e) => {
   const a = e.target.closest && e.target.closest("a[href]");
   if (!a) return;
   const href = a.getAttribute("href");
+  // A section link on the landing or an information page scrolls there. It must not change the address,
+  // because some section names ("picks") are also NFL console tabs.
+  if (href.startsWith("#") && href.length > 1 && siteCss(viewOf(location.hash.slice(1)))) {
+    const target = a.closest(".lp") && a.closest(".lp").querySelector("[id='" + href.slice(1).replace(/'/g, "") + "']");
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth" }); return; }
+  }
   if (!href.startsWith("/")) return;
   e.preventDefault();
   const [path, tab] = href.split("#");
-  const next = path === "/nba" ? "nba-" + (tab || "home") : path === "/nfl" || path === "/app" ? tab || "home" : "";
+  const next = path === "/nba" ? "nba-" + (tab || "home") : path === "/nfl" || path === "/app" ? tab || "home" : INFO[path.slice(1)] ? path.slice(1) : "";
   if (next) location.hash = next;
   else { history.replaceState(null, "", location.pathname + location.search); window.dispatchEvent(new HashChangeEvent("hashchange")); }
   window.scrollTo(0, 0);
@@ -56,6 +70,7 @@ function Shell() {
   return (
     <>
       <div hidden={view !== "site"}><Home /></div>
+      {view === "info" ? React.createElement(INFO[hash]) : null}
       <div hidden={view !== "nfl"}><ConsoleApp eyeSrc={window.GE_EYE} homeHref="/" /></div>
       <div hidden={view !== "nba"}><NbaApp prefix="nba-" /></div>
     </>
@@ -95,8 +110,9 @@ const css = await build({
 writeFileSync(path.join(tmp, "site.css"),
   readFileSync(path.join(root, "src/app/(site)/globals.css"), "utf8")
     .replace(/@import\s+"tailwindcss";/, "")
-    // the console bundle above already carries the shared slip styles
-    .replace(/@import\s+"\.\.\/\.\.\/styles\/slip\.css";/, ""));
+    // the shared slip styles are inlined here: only one of the two stylesheets is switched on at a time
+    .replace(/@import\s+"\.\.\/\.\.\/styles\/slip\.css";/, () => readFileSync(path.join(root, "src/styles/slip.css"), "utf8")));
+if (!readFileSync(path.join(tmp, "site.css"), "utf8").includes(".gs-slip")) throw new Error("The slip styles were not inlined into the landing page's stylesheet");
 const siteCss = await build({ entryPoints: [path.join(tmp, "site.css")], bundle: true, minify: true, write: false });
 const b64 = (f) => "data:image/jpeg;base64," + readFileSync(path.join(root, f)).toString("base64");
 const safe = (s) => s.replace(/<\/script/gi, "<\\/script");

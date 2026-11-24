@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { SiteFooter } from "@/components/InfoPages";
 import { Logo } from "@/components/Logo";
 import locksJson from "../../../model/output/locks.json";
 import nba from "../../../model/nba/output/nba_site.json";
@@ -245,7 +246,7 @@ export default function Home() {
 
   return (
     <div className="lp">
-      <a className="lp-skip" href="#main">
+      <a className="lp-skip" href="#content">
         Skip to content
       </a>
       <header className="lp-nav">
@@ -265,7 +266,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main id="main">
+      <main id="content">
         {/* ---- hero: the product itself, a real algorithm slip ---- */}
         <section className="lp-hero">
           <img className="lp-hero-eye" src={banner} alt="" width={1206} height={214} />
@@ -317,7 +318,7 @@ export default function Home() {
               <div className="lp-marquee-set" key={copy}>
                 {marquee.map((t) => (
                   <span className="lp-marquee-item" key={t}>
-                    <Logo href="#main" />
+                    <Logo href="#content" />
                     <b>{t}</b>
                   </span>
                 ))}
@@ -619,27 +620,14 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="lp-foot">
-        <div className="lp-wrap lp-foot-in">
-          <div>
-            <Logo />
-            <p>Bet smarter, survive the variance.</p>
-          </div>
-          <nav aria-label="Footer">
-            <Link href="/nfl">NFL</Link>
-            <Link href="/nba">NBA</Link>
-            <a href="#picks">Picks of the day</a>
-            <a href="#how">How it works</a>
-            <a href="#mission">Mission</a>
-            <a href="#faq">Questions</a>
-          </nav>
-          <p className="lp-legal">
-            For adults of legal betting age in their province (18+ or 19+). Godseye provides information and analysis, not a promise of results.
-            If gambling is causing you harm, free and confidential help is available in every province. Set a budget and never bet money you
-            cannot afford to lose.
-          </p>
-        </div>
-      </footer>
+      <SiteFooter>
+        <Link href="/nfl">NFL</Link>
+        <Link href="/nba">NBA</Link>
+        <a href="#picks">Picks of the day</a>
+        <a href="#how">How it works</a>
+        <a href="#mission">Mission</a>
+        <a href="#faq">Questions</a>
+      </SiteFooter>
     </div>
   );
 }

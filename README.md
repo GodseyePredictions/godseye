@@ -110,6 +110,10 @@ The NFL player-prop and anytime-touchdown algorithm is in `model/nfl` (see `mode
 
 builds the landing page, the NFL console and the NBA side into one HTML file (the Claude artifact). In that file the three share one page: no address is the landing page, `#home`, `#picks` and the other console tabs are NFL, and `#nba-home`, `#nba-sgp` and so on are NBA. Rebuild and republish it after a new NFL import or a new NBA slate.
 
+## Information pages
+
+`/terms`, `/privacy`, `/responsible-gambling` and `/contact` are written in `src/components/InfoPages.tsx`. The facts they print (support address, help lines, betting ages, the "last updated" date) are in `src/lib/site.ts`. The legal wording is a first draft and has not been reviewed by a lawyer; the help-line numbers and ages should be checked against each province before launch. Set `NEXT_PUBLIC_SITE_URL` when hosted so share previews, `robots.txt` and `sitemap.xml` carry the real address.
+
 ## Player photos on the landing page
 
 The featured-player cards show initials unless a photo exists at `public/players/<name-slug>.jpg` (for example `patrick-mahomes.jpg`, `shai-gilgeous-alexander.jpg`). No photos ship with the repo. Add only images you hold a licence for, then re-run `python3 -I scripts/build-locks.py` and rebuild.
