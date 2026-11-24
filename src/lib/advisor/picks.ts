@@ -70,7 +70,9 @@ type NbaRaw = {
   games: { home: string; away: string; tip_utc?: string; preview?: boolean; notes?: string[]; card?: { date?: string; matchup?: string };
            tickets?: { type: string; joint: number; book_price?: number | null; price_is_estimate?: boolean; legs: NbaLeg[] }[]; singles?: NbaLeg[] }[];
 };
-const NBA_KIND: Record<string, string> = { props_4: "4-leg props same-game parlay", props_4b: "second 4-leg props same-game parlay", props_6: "6-leg props same-game parlay" };
+const NBA_KIND: Record<string, string> = { props_4: "4-leg props same-game parlay", props_4b: "second 4-leg props same-game parlay", props_6: "6-leg props same-game parlay",
+  band_safe6: "safe 6-leg same-game parlay (+100 to +200)", band_real6: "realistic 6-leg same-game parlay (+201 to +300)",
+  band_up6: "upside 6-leg same-game parlay (+301 to +400)" };
 
 export function nbaPicks(data: unknown): PicksIndex {
   const D = data as NbaRaw;

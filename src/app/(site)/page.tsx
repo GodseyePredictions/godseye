@@ -28,6 +28,35 @@ type NflStar = {
 const locks = locksJson as unknown as { stars: NflStar[]; photos: string[]; season: number; week: number; built: string; locks: Lock[] };
 
 const pct = (p: number) => `${Math.round(p * 100)}%`;
+
+/* Tonight's NBA board for the landing page, straight from the NBA algorithm's output: per game the Lock (its
+   highest-chance 4-leg slip) and the price-band 6-leg slips, then the multi-game slips with the lotto ticket last. */
+type NbaSiteLeg = { label: string; p: number };
+type NbaSiteTicket = { type: string; joint: number; book_price: number | null; legs: NbaSiteLeg[] };
+type NbaSiteMulti = { type: string; n_legs: number; joint: number; book_price: number | null; parts: { matchup: string; legs: NbaSiteLeg[] }[] };
+const NBA_BANDS: [string, string][] = [
+  ["band_safe6", "Safe 6-leg"],
+  ["band_real6", "Realistic 6-leg"],
+  ["band_up6", "Upside 6-leg"],
+];
+const NBA_MULTI_TITLE: Record<string, string> = { value_locks: "Locks parlay", lotto: "Lotto ticket" };
+function nbaBoardOf(site: unknown) {
+  const S = site as { games: { home: string; away: string; preview?: boolean; tickets: NbaSiteTicket[] }[]; multi?: NbaSiteMulti[] };
+  const games = S.games
+    .filter((g) => !g.preview)
+    .map((g) => {
+      const fours = g.tickets.filter((t) => t.type === "props_4" || t.type === "props_4b");
+      const lock = fours.length ? fours.reduce((a, b) => (b.joint > a.joint ? b : a)) : null;
+      const bands = NBA_BANDS.flatMap(([k, name]) => g.tickets.filter((t) => t.type === k).map((t) => ({ ...t, meta: name })));
+      return { game: `${g.away} @ ${g.home}`, slips: [...(lock ? [{ ...lock, meta: "Lock" }] : []), ...bands] };
+    })
+    .filter((g) => g.slips.length > 0);
+  const multi = [...(S.multi ?? [])]
+    .sort((a, b) => Number(a.type === "lotto") - Number(b.type === "lotto"))
+    .map((m) => ({ ...m, title: NBA_MULTI_TITLE[m.type] ?? `${m.n_legs} props, ${m.parts.length} games` }));
+  return { games, multi };
+}
+const nbaBoard = nbaBoardOf(nba);
 /** The price at which a bet with this chance breaks even (American odds). */
 function fair(p: number) {
   const d = 1 / p;
@@ -413,6 +442,64 @@ export default function Home() {
               </>
             ) : (
               <p className="lp-empty">No slips are on the board right now. They print here as soon as the algorithm builds the next slate.</p>
+            )}
+            {nbaBoard.games.length > 0 && (
+              <>
+                <h3 className="lp-sub" id="nba-slips">
+                  NBA: every game, by price
+                </h3>
+                <p className="lp-intro">
+                  For each game: the Lock (the algorithm&apos;s highest-chance 4-leg slip), then three 6-leg slips chosen by price. Safe pays
+                  +100 to +200, realistic +201 to +300, upside +301 to +400. Every leg is rated 75% or better. Prices are the book&apos;s
+                  leg prices multiplied together; a real same-game price pays less.
+                </p>
+                {nbaBoard.games.map((g) => (
+                  <div key={g.game}>
+                    <h3 className="lp-sub">{g.game}</h3>
+                    <div className="gs-slips">
+                      {g.slips.map((t) => (
+                        <Slip
+                          key={g.game + t.meta}
+                          title={g.game}
+                          meta={t.meta}
+                          legs={t.legs.map((l) => ({ text: l.label, value: pc(l.p) }))}
+                          stats={[
+                            { label: "Chance to hit", value: pc(t.joint, 1), tone: "red" },
+                            { label: "Chance to miss", value: pc(1 - t.joint, 1) },
+                            ...(t.book_price != null ? [{ label: "Legs multiplied", value: american(t.book_price) }] : []),
+                          ]}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+                {nbaBoard.multi.length > 0 && (
+                  <>
+                    <h3 className="lp-sub" id="nba-multi-slips">
+                      NBA: multi-game slips and the lotto ticket
+                    </h3>
+                    <p className="lp-intro">
+                      Slips that join legs from several games. The lotto ticket is a long shot by design: every leg has to hit, and it
+                      loses far more often than it wins. Stake it small.
+                    </p>
+                    <div className="gs-slips">
+                      {nbaBoard.multi.map((m) => (
+                        <Slip
+                          key={m.title}
+                          title={m.title}
+                          meta={`${m.n_legs} legs`}
+                          legs={m.parts.flatMap((p) => p.legs.map((l) => ({ text: l.label, sub: p.matchup, value: pc(l.p) })))}
+                          stats={[
+                            { label: "Chance to hit", value: pc(m.joint, 1), tone: "red" },
+                            { label: "Chance to miss", value: pc(1 - m.joint, 1) },
+                            ...(m.book_price != null ? [{ label: "Legs multiplied", value: american(m.book_price) }] : []),
+                          ]}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </>
             )}
             {locks.locks.length > 0 && (
               <>
