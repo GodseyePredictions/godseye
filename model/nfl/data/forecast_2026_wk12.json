@@ -1,86 +1,86 @@
 {
  "2026_12_PHI_DAL": {
   "short": "Sunny",
-  "temp": 57.0,
-  "wind": 5.0,
+  "temp": 54.0,
+  "wind": 10.0,
   "pop": 0,
-  "fetched": "2026-11-24T13:23-05:00"
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_KC_BUF": {
-  "short": "Light Rain",
-  "temp": 37.0,
-  "wind": 10.0,
-  "pop": 99,
-  "fetched": "2026-11-24T13:23-05:00"
+  "short": "Rain",
+  "temp": 38.0,
+  "wind": 12.0,
+  "pop": 100,
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_DEN_PIT": {
   "short": "Light Rain",
   "temp": 43.0,
   "wind": 21.0,
   "pop": 79,
-  "fetched": "2026-11-24T13:23-05:00"
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_NO_CIN": {
   "short": "Chance Light Rain",
   "temp": 53.0,
   "wind": 10.0,
-  "pop": 29,
-  "fetched": "2026-11-24T13:23-05:00"
+  "pop": 45,
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_LV_CLE": {
-  "short": "Chance Light Rain",
+  "short": "Light Rain Likely",
   "temp": 45.0,
-  "wind": 13.0,
-  "pop": 40,
-  "fetched": "2026-11-24T13:23-05:00"
+  "wind": 14.0,
+  "pop": 56,
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_BAL_HOU": {
   "short": "Mostly Sunny",
   "temp": 73.0,
-  "wind": 10.0,
+  "wind": 15.0,
   "pop": 0,
-  "fetched": "2026-11-24T13:23-05:00"
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_NYG_IND": {
   "short": "Chance Light Rain",
   "temp": 50.0,
   "wind": 10.0,
-  "pop": 37,
-  "fetched": "2026-11-24T13:23-05:00"
+  "pop": 51,
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_NYJ_MIA": {
   "short": "Chance Rain Showers",
   "temp": 76.0,
-  "wind": 8.0,
-  "pop": 40,
-  "fetched": "2026-11-24T13:23-05:00"
+  "wind": 9.0,
+  "pop": 45,
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_TEN_JAX": {
-  "short": "Mostly Cloudy",
-  "temp": 64.0,
+  "short": "Slight Chance Rain Showers",
+  "temp": 65.0,
   "wind": 5.0,
-  "pop": 12,
-  "fetched": "2026-11-24T13:23-05:00"
+  "pop": 15,
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_WAS_ARI": {
-  "short": "Mostly Sunny",
+  "short": "Sunny",
   "temp": 76.0,
   "wind": 5.0,
   "pop": 0,
-  "fetched": "2026-11-24T13:23-05:00"
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_SEA_SF": {
-  "short": "Light Rain",
-  "temp": 62.0,
+  "short": "Light Rain Likely",
+  "temp": 63.0,
   "wind": 12.0,
-  "pop": 80,
-  "fetched": "2026-11-24T13:23-05:00"
+  "pop": 63,
+  "fetched": "2026-11-24T16:51-05:00"
  },
  "2026_12_CAR_TB": {
   "short": "Isolated Rain Showers",
-  "temp": 68.0,
+  "temp": 66.0,
   "wind": 5.0,
-  "pop": 17,
-  "fetched": "2026-11-24T13:23-05:00"
+  "pop": 15,
+  "fetched": "2026-11-24T16:51-05:00"
  }
 }
