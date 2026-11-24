@@ -20,6 +20,7 @@ import {
 import { checkSlip } from "@/lib/slip";
 import { ScriptsTab } from "./ScriptsTab";
 import { HybridsTab, MarketsTab } from "./MarketsTab";
+import { SlipAudit } from "./SlipAudit";
 import { BankrollStrategy, setSlipQuote, stakeForSlip, subscribeAccount } from "./BankrollStrategy";
 
 // Legs handed from a model ticket to the Paste a slip tab.
@@ -290,6 +291,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             {extra === "hybrids" && <HybridsTab />}
             {extra === "paste" && (
               <PasteTab
+                bets={bets}
                 onSave={(b) => {
                   setBets((prev) => [b, ...prev]);
                   window.location.hash = "bets";
@@ -336,7 +338,7 @@ function Head({ title, sub }: { title: string; sub?: string }) {
   );
 }
 
-function PasteTab({ onSave }: { onSave: (b: Bet) => void }) {
+function PasteTab({ onSave, bets }: { onSave: (b: Bet) => void; bets: Bet[] }) {
   const [text, setText] = useState("");
   const [legs, setLegs] = useState<Leg[]>(() => pastePrefill ?? []);
   useEffect(() => {
@@ -483,8 +485,10 @@ function PasteTab({ onSave }: { onSave: (b: Bet) => void }) {
                 </li>
               ))}
             </ul>
+            <SlipAudit legs={valid} sport={sport} bets={bets} />
             <button
               className="btn primary"
+              style={{ marginTop: 14 }}
               disabled={stakeNum <= 0}
               onClick={() =>
                 onSave({

@@ -164,6 +164,11 @@ test("NFL ticket rules", () => {
   assert.ok(rulesOf(["Patrick Mahomes 250+ Passing Yards", "Travis Kelce 3+ Receptions"], NFL).includes("unrated"));
 });
 
+test("touchdown legs are not held to the props floor", () => {
+  // two anytime-TD legs at 50% and 42%: an anytime-TD ticket, so neither the 70% floor nor the 65% rule applies
+  assert.deepEqual(rulesOf(["Josh Jacobs Anytime TD", "Josh Allen Anytime TD"], NFL), []);
+});
+
 test("NBA ticket rules are the NBA's own", () => {
   // 77% clears the NFL's 70% floor but is fine in the NBA too (75%); 31% is under it
   assert.deepEqual(rulesOf(["Pascal Siakam 20+ Points", "Andrew Nembhard 6+ Assists"], NBA), []);

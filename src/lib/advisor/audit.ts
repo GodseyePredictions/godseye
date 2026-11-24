@@ -85,13 +85,15 @@ export function auditLeg(leg: SlipLeg, catalog: Catalog): LegAudit {
     return { ...base, parsed, status: "unrated", unrated: "market-not-rated",
              note: parsed.side === "under"
                ? `The algorithm rates milestones (for example 20+), not unders, for ${player}.`
-               : `The algorithm does not rate ${MARKET_LABEL[parsed.market]} for ${player}.` };
+               : catalog.sport === "NBA"
+                 ? `No ${MARKET_LABEL[parsed.market]} leg for ${player} is among tonight's posted NBA picks, so it is unrated here.`
+                 : `The algorithm does not rate ${MARKET_LABEL[parsed.market]} for ${player}.` };
 
   const match = market.find((l) => l.threshold === parsed.threshold);
   if (!match) {
     const ratedRungs = market.map((l) => l.threshold).filter((k): k is number => k !== null).sort((a, b) => a - b);
     return { ...base, parsed, status: "unrated", unrated: "rung-not-rated", ratedRungs,
-             note: `The algorithm does not rate ${rung(parsed.market, parsed.threshold)} for ${player}. It rates ${ratedRungs.map((k) => `${k}+`).join(", ")}.` };
+             note: `${catalog.sport === "NBA" ? "Tonight's posted NBA picks do not include" : "The algorithm does not rate"} ${rung(parsed.market, parsed.threshold)} for ${player}. ${catalog.sport === "NBA" ? "They include" : "It rates"} ${ratedRungs.map((k) => `${k}+`).join(", ")}.` };
   }
   const priced = typeof leg.odds === "number" && Number.isFinite(leg.odds) && Math.abs(leg.odds) >= 100;
   return {
@@ -108,13 +110,15 @@ function ruleFindings(sport: Sport, legs: LegAudit[]): RuleFinding[] {
   const rated = legs.filter((l) => l.status === "rated" && l.match);
   if (legs.length < 2) return out;
 
-  const below = rated.filter((l) => (l.prob as number) < rules.floor);
+  // the floor and the weak-leg rule are about prop legs; an anytime touchdown is a different kind of ticket
+  const props = rated.filter((l) => l.match!.market !== "atd");
+  const below = props.filter((l) => (l.prob as number) < rules.floor);
   if (below.length)
     out.push({ level: "info", rule: "floor",
                detail: `${below.length} leg${below.length > 1 ? "s are" : " is"} under the ${pct(rules.floor)} floor Godseye uses for parlay legs: ${below.map((l) => `${l.match!.player} ${rung(l.match!.market, l.match!.threshold)} (${pct(l.prob as number)})`).join("; ")}.` });
 
   if (rules.weak !== null && rules.maxWeak !== null) {
-    const weak = rated.filter((l) => (l.prob as number) < rules.weak!);
+    const weak = props.filter((l) => (l.prob as number) < rules.weak!);
     if (weak.length > rules.maxWeak)
       out.push({ level: "warn", rule: "weak-legs",
                  detail: `${weak.length} legs are under ${pct(rules.weak)}. Godseye allows at most ${rules.maxWeak} on a ticket.` });
@@ -139,7 +143,7 @@ function ruleFindings(sport: Sport, legs: LegAudit[]): RuleFinding[] {
   const unrated = legs.length - rated.length;
   if (unrated)
     out.push({ level: "warn", rule: "unrated",
-               detail: `${unrated} of ${legs.length} legs are unrated, so the algorithm cannot say anything about this slip as a whole.` });
+               detail: `${unrated} of ${legs.length} legs ${unrated > 1 ? "are" : "is"} unrated, so the algorithm cannot say anything about this slip as a whole.` });
   return out;
 }
 
