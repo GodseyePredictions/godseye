@@ -1,8 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  PROFILES, bettingDay, checkLimits, formatStake, openAccount, sizeBet, sizeSlate, stakingWeek, tonightFrom,
-  unitFor, withWeeklyUnit, type Account, type Tonight,
+  CUSTOM_BOUNDS, PROFILES, bettingDay, checkLimits, clampCustom, formatStake, openAccount, sizeBet, sizeSlate, stakingWeek,
+  termsOf, tonightFrom, unitFor, withWeeklyUnit, type Account, type CustomProfile, type Tonight,
 } from "./staking.ts";
 import { kellyStake } from "./odds.ts";
 
@@ -200,4 +200,68 @@ test("stakes read in units and dollars", () => {
   assert.equal(formatStake(1.5, 15), "1.5u ($15)");
   assert.equal(formatStake(2, 20), "2u ($20)");
   assert.equal(formatStake(0.5, 1.25), "0.5u ($1.25)");
+});
+
+// ---------- custom profile: the user's own risk tolerance, in units ----------
+const custom = (c: CustomProfile, bankroll = 1000) => openAccount(bankroll, "custom", WED, {}, c);
+
+test("a custom profile sets the unit and the caps in units", () => {
+  const a = custom({ unitPct: 0.005, maxBetUnits: 3, maxNightlyUnits: 10 });
+  assert.equal(a.unit!.size, 5); // 0.5% of $1000
+  const l = checkLimits(a, QUIET, WED);
+  assert.equal(l.maxBet, 15); // 3 units
+  assert.equal(l.nightlyCap, 50); // 10 units
+  // 55% at +100: quarter-Kelly $25, held to 3 units
+  const s = sizeBet({ prob: 0.55, price: 100 }, a, QUIET, WED);
+  assert.equal(s.label, "3u ($15)");
+  assert.equal(s.cappedBy, "max-bet");
+});
+
+test("a custom profile is still quarter-Kelly underneath", () => {
+  const a = custom({ unitPct: 0.02, maxBetUnits: 2.5, maxNightlyUnits: 7.5 }); // caps at the ceiling: 5% a bet
+  const s = sizeBet({ prob: 0.53, price: 100 }, a, QUIET, WED); // quarter-Kelly 1.5% = $15, well under the $50 cap
+  assert.equal(s.units, 0.7); // $15 is 0.75 of a $20 unit, rounded down to a tenth
+  assert.equal(s.dollars, 14);
+  assert.equal(s.cappedBy, null);
+});
+
+test("custom settings cannot go past the hard ceilings", () => {
+  const wild = clampCustom({ unitPct: 0.5, maxBetUnits: 100, maxNightlyUnits: 1000 });
+  assert.equal(wild.unitPct, CUSTOM_BOUNDS.unitPct.max);
+  const t = termsOf({ profile: "custom", custom: { unitPct: 0.5, maxBetUnits: 100, maxNightlyUnits: 1000 } });
+  near(t.maxBetPct, CUSTOM_BOUNDS.maxBetPct);
+  near(t.maxNightlyPct, CUSTOM_BOUNDS.maxNightlyPct);
+  for (const unitPct of [0.0025, 0.01, 0.02]) {
+    const u = termsOf({ profile: "custom", custom: { unitPct, maxBetUnits: 999, maxNightlyUnits: 999 } });
+    assert.ok(u.maxBetPct <= CUSTOM_BOUNDS.maxBetPct + 1e-9);
+    assert.ok(u.maxNightlyPct <= CUSTOM_BOUNDS.maxNightlyPct + 1e-9);
+  }
+  const s = sizeBet({ prob: 0.9, price: 100 }, custom({ unitPct: 0.5, maxBetUnits: 100, maxNightlyUnits: 1000 }), QUIET, WED);
+  assert.ok(s.dollars! <= 50);
+});
+
+test("custom settings that are missing or broken fall back to safe values", () => {
+  assert.deepEqual(clampCustom(undefined), { unitPct: 0.01, maxBetUnits: 2, maxNightlyUnits: 5 });
+  const c = clampCustom({ unitPct: Number.NaN, maxBetUnits: -4, maxNightlyUnits: 0 });
+  assert.equal(c.unitPct, 0.01);
+  assert.equal(c.maxBetUnits, CUSTOM_BOUNDS.minUnits);
+  assert.equal(c.maxNightlyUnits, CUSTOM_BOUNDS.minUnits); // a night is never capped below one bet
+  assert.equal(clampCustom({ unitPct: 0.01, maxBetUnits: 3, maxNightlyUnits: 1 }).maxNightlyUnits, 3);
+});
+
+test("choosing a different unit share applies at once; a loss still does not move it", () => {
+  const a = acct(1000, "balanced"); // $10 unit
+  const now = new Date("2026-11-27T20:00:00Z"); // same week
+  const switched = withWeeklyUnit({ ...a, profile: "custom", custom: { unitPct: 0.02, maxBetUnits: 2, maxNightlyUnits: 5 } }, now);
+  assert.equal(switched.unit!.size, 20);
+  const afterLoss = withWeeklyUnit({ ...switched, bankroll: 700 }, now);
+  assert.equal(afterLoss.unit!.size, 20);
+  const back = withWeeklyUnit({ ...afterLoss, profile: "balanced" }, now);
+  assert.equal(back.unit!.size, 7); // back to 1%, set from the bankroll at that moment
+});
+
+test("accounts saved before custom profiles keep working", () => {
+  const old: Account = { bankroll: 1000, profile: "balanced", unit: { size: 10, weekOf: "2026-11-24" }, limits: {} };
+  assert.equal(withWeeklyUnit(old, WED), old);
+  assert.equal(sizeBet({ prob: 0.55, price: 100 }, old, QUIET, WED).label, "2u ($20)");
 });

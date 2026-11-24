@@ -5,7 +5,8 @@
  * Rules it implements (see CLAUDE.md, "Staking" and "Responsible gambling"):
  *  - quarter-Kelly on the algorithm's probability, never anyone's guess;
  *  - capped by the risk profile's maximum per bet and maximum nightly exposure;
- *  - a unit is 1% of bankroll, set once a week and not moved by a win or a loss in between;
+ *  - a unit is 1% of bankroll (or the user's own share in a Custom profile), set once a week and not moved
+ *    by a win or a loss in between;
  *  - a leg or slip the algorithm has not rated gets no stake number at all ("unrated");
  *  - the user's own stop-loss, profit lock, nightly cap and cool-off always win over a suggestion.
  *
@@ -25,13 +26,61 @@ export const DAY_TURNOVER_UTC_HOUR = 10;
 /** The staking week starts on Tuesday, after Monday night's games. 0 = Sunday. */
 export const WEEK_START_DAY = 2;
 
-export type ProfileId = "conservative" | "balanced" | "aggressive";
+export type PresetId = "conservative" | "balanced" | "aggressive";
+export type ProfileId = PresetId | "custom";
 export type Profile = { label: string; blurb: string; maxBetPct: number; maxNightlyPct: number };
-export const PROFILES: Record<ProfileId, Profile> = {
+export const PROFILES: Record<PresetId, Profile> = {
   conservative: { label: "Conservative", blurb: "Up to 1% of bankroll on a bet, 3% in a night.", maxBetPct: 0.01, maxNightlyPct: 0.03 },
   balanced: { label: "Balanced", blurb: "Up to 2% of bankroll on a bet, 5% in a night.", maxBetPct: 0.02, maxNightlyPct: 0.05 },
   aggressive: { label: "Aggressive", blurb: "Up to 3% of bankroll on a bet, 8% in a night.", maxBetPct: 0.03, maxNightlyPct: 0.08 },
 };
+
+/**
+ * A Custom profile: the user's own risk tolerance, in units.
+ * Sizing is still quarter-Kelly; these only set how big a unit is and where the caps sit.
+ */
+export type CustomProfile = {
+  /** One unit as a share of bankroll, e.g. 0.01 for 1%. */
+  unitPct: number;
+  /** The most units on one bet. */
+  maxBetUnits: number;
+  /** The most units staked in one night. */
+  maxNightlyUnits: number;
+};
+/** How far a Custom profile may go. Anything outside is pulled back to the nearest allowed value. */
+export const CUSTOM_BOUNDS = {
+  unitPct: { min: 0.0025, max: 0.02 },
+  /** No single bet above this share of bankroll, whatever the unit settings multiply out to. */
+  maxBetPct: 0.05,
+  /** No night above this share of bankroll. */
+  maxNightlyPct: 0.15,
+  minUnits: 0.5,
+};
+export const CUSTOM_DEFAULT: CustomProfile = { unitPct: UNIT_PCT, maxBetUnits: 2, maxNightlyUnits: 5 };
+
+const clamp = (x: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, x));
+const finite = (x: unknown, fallback: number) => (typeof x === "number" && Number.isFinite(x) ? x : fallback);
+
+/** A Custom profile pulled inside the bounds. A night can never be capped below a single bet. */
+export function clampCustom(c: Partial<CustomProfile> | undefined): CustomProfile {
+  const b = CUSTOM_BOUNDS;
+  const unitPct = clamp(finite(c?.unitPct, CUSTOM_DEFAULT.unitPct), b.unitPct.min, b.unitPct.max);
+  const maxBetUnits = clamp(finite(c?.maxBetUnits, CUSTOM_DEFAULT.maxBetUnits), b.minUnits, b.maxBetPct / unitPct);
+  const maxNightlyUnits = clamp(finite(c?.maxNightlyUnits, CUSTOM_DEFAULT.maxNightlyUnits), maxBetUnits, b.maxNightlyPct / unitPct);
+  const r = (x: number) => Math.round(x * 100) / 100;
+  return { unitPct, maxBetUnits: r(maxBetUnits), maxNightlyUnits: r(maxNightlyUnits) };
+}
+
+/** The numbers the engine sizes with, whichever kind of profile the account uses. */
+export type Terms = { unitPct: number; maxBetPct: number; maxNightlyPct: number };
+export function termsOf(account: Pick<Account, "profile" | "custom">): Terms {
+  if (account.profile === "custom") {
+    const c = clampCustom(account.custom);
+    return { unitPct: c.unitPct, maxBetPct: c.unitPct * c.maxBetUnits, maxNightlyPct: c.unitPct * c.maxNightlyUnits };
+  }
+  const p = PROFILES[account.profile] ?? PROFILES.balanced;
+  return { unitPct: UNIT_PCT, maxBetPct: p.maxBetPct, maxNightlyPct: p.maxNightlyPct };
+}
 
 /** Limits the user sets for themselves. Each one can only make the engine stricter. */
 export type Limits = {
@@ -48,8 +97,10 @@ export type Limits = {
 export type Account = {
   bankroll: number;
   profile: ProfileId;
-  /** This week's unit, fixed when the week began. */
-  unit: { size: number; weekOf: string } | null;
+  /** The user's own settings, used when `profile` is "custom". */
+  custom?: CustomProfile;
+  /** This week's unit, fixed when the week began. `pct` is the share of bankroll it was set at. */
+  unit: { size: number; weekOf: string; pct?: number } | null;
   limits: Limits;
 };
 
@@ -72,24 +123,27 @@ export function stakingWeek(now: Date): string {
   return new Date(d.getTime() - back * 24 * HOUR).toISOString().slice(0, 10);
 }
 
-/** One unit for a bankroll. */
-export function unitFor(bankroll: number): number {
-  return cents(Math.max(0, bankroll) * UNIT_PCT);
+/** One unit for a bankroll, at 1% or at the share given. */
+export function unitFor(bankroll: number, unitPct: number = UNIT_PCT): number {
+  return cents(Math.max(0, bankroll) * unitPct);
 }
 
 /**
  * The account with this week's unit in place. Inside a week the unit never changes, whatever has
  * happened to the bankroll; when a new week starts it is set again from the bankroll at that moment.
+ * Choosing a different unit share (a Custom profile, or leaving one) is a deliberate change and applies at once.
  */
 export function withWeeklyUnit(account: Account, now: Date): Account {
   const weekOf = stakingWeek(now);
-  if (account.unit && account.unit.weekOf === weekOf && account.unit.size > 0) return account;
-  return { ...account, unit: { size: unitFor(account.bankroll), weekOf } };
+  const pct = termsOf(account).unitPct;
+  const u = account.unit;
+  if (u && u.weekOf === weekOf && u.size > 0 && (u.pct ?? UNIT_PCT) === pct) return account;
+  return { ...account, unit: { size: unitFor(account.bankroll, pct), weekOf, pct } };
 }
 
 /** A fresh account. Setting up (or deliberately resetting) a bankroll is the one time the unit is set mid-week. */
-export function openAccount(bankroll: number, profile: ProfileId, now: Date, limits: Limits = {}): Account {
-  return withWeeklyUnit({ bankroll, profile, unit: null, limits }, now);
+export function openAccount(bankroll: number, profile: ProfileId, now: Date, limits: Limits = {}, custom?: CustomProfile): Account {
+  return withWeeklyUnit({ bankroll, profile, unit: null, limits, ...(custom ? { custom } : {}) }, now);
 }
 
 /** Tonight's staking and settled result, from the user's tracked bets. */
@@ -121,7 +175,7 @@ export type LimitState = {
 };
 
 export function checkLimits(account: Account, tonight: Tonight, now: Date): LimitState {
-  const profile = PROFILES[account.profile];
+  const profile = termsOf(account);
   const bankroll = Number.isFinite(account.bankroll) ? Math.max(0, account.bankroll) : 0;
   const own = account.limits.nightlyCap;
   const nightlyCap = cents(Math.min(bankroll * profile.maxNightlyPct, own !== undefined && own >= 0 ? own : Infinity));

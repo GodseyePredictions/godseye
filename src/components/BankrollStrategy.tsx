@@ -5,7 +5,13 @@
 import { useState, useSyncExternalStore } from "react";
 import { decimalToAmerican, formatAmerican, type Bet } from "@/lib/bets";
 import {
+  CUSTOM_BOUNDS,
+  CUSTOM_DEFAULT,
   PROFILES,
+  clampCustom,
+  termsOf,
+  type CustomProfile,
+  type PresetId,
   checkLimits,
   formatStake,
   openAccount,
@@ -30,7 +36,7 @@ function valid(a: unknown): a is Account {
     !!x &&
     typeof x.bankroll === "number" &&
     x.bankroll >= 0 &&
-    x.profile in PROFILES &&
+    (x.profile === "custom" || x.profile in PROFILES) &&
     typeof x.limits === "object" &&
     x.limits !== null
   );
@@ -211,7 +217,16 @@ export function BankrollStrategy({
   const account = saved ? withWeeklyUnit(saved, now) : null;
   const tonight = tonightFrom(bets, now);
   const limits = account ? checkLimits(account, tonight, now) : null;
-  const profile = account ? PROFILES[account.profile] : null;
+  const terms = account ? termsOf(account) : null;
+  const custom =
+    account?.profile === "custom" ? clampCustom(account.custom) : null;
+  const setCustom = (patch: Partial<CustomProfile>) =>
+    account &&
+    save({ custom: clampCustom({ ...clampCustom(account.custom), ...patch }) });
+  const num = (text: string) => {
+    const n = Number(text.replace(/[%u\s]/g, ""));
+    return Number.isFinite(n) && n > 0 ? n : undefined;
+  };
   const unit = account?.unit?.size ?? 0;
   const inUnits = (dollars: number) =>
     unit > 0 ? `${Math.round((dollars / unit) * 10) / 10}u` : "";
@@ -271,17 +286,86 @@ export function BankrollStrategy({
                 <span>Risk profile</span>
                 <select
                   value={account.profile}
-                  onChange={(e) =>
-                    save({ profile: e.target.value as ProfileId })
-                  }
+                  onChange={(e) => {
+                    const profile = e.target.value as ProfileId;
+                    save(
+                      profile === "custom"
+                        ? {
+                            profile,
+                            custom: clampCustom(
+                              account.custom ?? CUSTOM_DEFAULT,
+                            ),
+                          }
+                        : { profile },
+                    );
+                  }}
                 >
-                  {(Object.keys(PROFILES) as ProfileId[]).map((id) => (
+                  {(Object.keys(PROFILES) as PresetId[]).map((id) => (
                     <option key={id} value={id}>
                       {PROFILES[id].label}: {PROFILES[id].blurb}
                     </option>
                   ))}
+                  <option value="custom">
+                    Custom: set your own unit size and limits.
+                  </option>
                 </select>
               </label>
+            )}
+            {account && custom && (
+              // keyed on the saved values, so a number pulled back to its limit shows the value actually in force
+              <div
+                key={`${custom.unitPct}-${custom.maxBetUnits}-${custom.maxNightlyUnits}`}
+              >
+                <label className="t-field" style={{ marginTop: 12 }}>
+                  <span>
+                    Unit size (% of bankroll, {CUSTOM_BOUNDS.unitPct.min * 100}{" "}
+                    to {CUSTOM_BOUNDS.unitPct.max * 100})
+                  </span>
+                  <input
+                    inputMode="decimal"
+                    defaultValue={Math.round(custom.unitPct * 10000) / 100}
+                    onBlur={(e) => {
+                      const n = num(e.target.value);
+                      if (n !== undefined) setCustom({ unitPct: n / 100 });
+                    }}
+                  />
+                </label>
+                <label className="t-field" style={{ marginTop: 12 }}>
+                  <span>
+                    Most units on one bet (up to{" "}
+                    {Math.round(
+                      (CUSTOM_BOUNDS.maxBetPct / custom.unitPct) * 10,
+                    ) / 10}
+                    u, which is {CUSTOM_BOUNDS.maxBetPct * 100}% of bankroll)
+                  </span>
+                  <input
+                    inputMode="decimal"
+                    defaultValue={custom.maxBetUnits}
+                    onBlur={(e) => {
+                      const n = num(e.target.value);
+                      if (n !== undefined) setCustom({ maxBetUnits: n });
+                    }}
+                  />
+                </label>
+                <label className="t-field" style={{ marginTop: 12 }}>
+                  <span>
+                    Most units in one night (up to{" "}
+                    {Math.round(
+                      (CUSTOM_BOUNDS.maxNightlyPct / custom.unitPct) * 10,
+                    ) / 10}
+                    u, which is {CUSTOM_BOUNDS.maxNightlyPct * 100}% of
+                    bankroll)
+                  </span>
+                  <input
+                    inputMode="decimal"
+                    defaultValue={custom.maxNightlyUnits}
+                    onBlur={(e) => {
+                      const n = num(e.target.value);
+                      if (n !== undefined) setCustom({ maxNightlyUnits: n });
+                    }}
+                  />
+                </label>
+              </div>
             )}
             {!account && (
               <div className="t-row">
@@ -291,7 +375,7 @@ export function BankrollStrategy({
               </div>
             )}
           </div>
-          {account && limits && profile && (
+          {account && limits && terms && (
             <dl className="kv">
               <dt>One unit this week</dt>
               <dd>{usd(unit)}</dd>
@@ -309,21 +393,24 @@ export function BankrollStrategy({
         </div>
         {account && (
           <p className="t-note">
-            A unit is 1% of your bankroll. It is set at the start of each week
-            (Tuesday) and does not move after a win or a loss in between, so one
-            bad night does not change how you bet the next.
-            {unitFor(account.bankroll) !== unit && (
+            A unit is {Math.round((terms?.unitPct ?? 0.01) * 10000) / 100}% of
+            your bankroll. It is set at the start of each week (Tuesday) and
+            does not move after a win or a loss in between, so one bad night
+            does not change how you bet the next.
+            {unitFor(account.bankroll, terms?.unitPct) !== unit && (
               <>
                 {" "}
                 Your bankroll now gives a unit of{" "}
-                {usd(unitFor(account.bankroll))}; it takes over on Tuesday.{" "}
+                {usd(unitFor(account.bankroll, terms?.unitPct))}; it takes over
+                on Tuesday.{" "}
                 <button
                   className="t-x"
                   onClick={() =>
                     save({
                       unit: {
-                        size: unitFor(account.bankroll),
+                        size: unitFor(account.bankroll, terms?.unitPct),
                         weekOf: account.unit!.weekOf,
+                        pct: terms?.unitPct,
                       },
                     })
                   }
@@ -507,7 +594,7 @@ export function BankrollStrategy({
                   <input
                     inputMode="decimal"
                     defaultValue={account.limits.nightlyCap ?? ""}
-                    placeholder={`profile allows ${usd(Math.round(account.bankroll * PROFILES[account.profile].maxNightlyPct * 100) / 100)}`}
+                    placeholder={`profile allows ${usd(Math.round(account.bankroll * (terms?.maxNightlyPct ?? 0) * 100) / 100)}`}
                     onBlur={(e) =>
                       setLimit({ nightlyCap: amount(e.target.value) })
                     }
