@@ -55,3 +55,7 @@ Project full probability distributions for NBA player props and build bet365 sam
 - **Leg floor is 75% in every market** (rule 3 said 70%). Slip legs the model called 70 to 74% hit 71% over six graded nights.
 - **Rebound legs:** at most one per slip, and none on a 4-leg slip.
 - **Slips per game:** a 4-leg, a second 4-leg on four different players, and a 6-leg. The 8-leg is dropped.
+
+### Amendments (24 November 2026, from the owner)
+
+- **Cashed slips showcase.** Winning algorithm slips are listed on a "Cashed slips" tab (site and artifact), each with an example stake and what it would have returned. This is the one exception to "never post results": the full tracker stays private (`site_show_results` False). The page always states how many slips were issued and how many lost, that stakes are examples and not bets placed, and what the same stakes on every slip would have netted. Config: `site_show_cashed`, `cashed_long_price`, `cashed_stake_long`, `cashed_stake_short`.
