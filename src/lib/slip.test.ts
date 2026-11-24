@@ -426,3 +426,96 @@ test("the tools chain: parsed JSON, then grade, then suggestions", () => {
   assert.equal(s.swap[0].to.threshold, 225);
   assert.throws(() => gradeSlipTool({ sport: "NBA", legs, total_odds: null }, { NFL }), /NBA/);
 });
+
+// ================= NBA: the combined chance from the algorithm's audit data =================
+type AuditFile = {
+  run_at: string;
+  games: { id: string; home: string; away: string; ladder: { player_id: string; name: string; market: string; line: number; side: string; p: number }[]; corr: Record<string, number> }[];
+  checks: { legs: { player_id: string; market: string; line: number; side: string }[]; counted: number; independent: number }[];
+};
+const AUDIT = JSON.parse(readFileSync(new URL("../../fixtures/algo/nba-audit-sample.json", import.meta.url), "utf8")) as AuditFile;
+const NBA_SITE = { run_at: AUDIT.run_at, games: [{ home: "HOM", away: "AWY", singles: [], tickets: [] }] };
+const NBA_FULL = nbaCatalog(NBA_SITE, AUDIT);
+const nbaLeg = (id: string, market: string, k: number, side = "over") =>
+  NBA_FULL.legs.find((l) => l.playerId === id && l.market === market && l.threshold === k && l.side === side)!;
+
+test("NBA: with the audit data every rated rung is in the catalogue, and only from the same run", () => {
+  assert.equal(NBA_FULL.legs.length, AUDIT.games[0].ladder.length);
+  assert.ok(NBA_FULL.corr && "pairs" in NBA_FULL.corr);
+  assert.ok(NBA_FULL.legs.every((l) => l.playerId && l.gameId === "g1" && l.team));
+  // an over on 6.5 is the 7+ milestone; an under keeps its line
+  assert.equal(nbaLeg("h1", "ast", 7).prob, AUDIT.games[0].ladder.find((l) => l.player_id === "h1" && l.market === "ast" && l.line === 6.5)!.p);
+  assert.ok(nbaLeg("h2", "pts", 21.5, "under"));
+  // audit data from another run, or for a game not on tonight's slate, is not used
+  assert.equal(nbaCatalog({ ...NBA_SITE, run_at: "another run" }, AUDIT).corr, undefined);
+  assert.equal(nbaCatalog({ run_at: AUDIT.run_at, games: [{ home: "XXX", away: "YYY", singles: [], tickets: [] }] }, AUDIT).legs.length, 0);
+  assert.equal(nbaCatalog({ run_at: AUDIT.run_at, games: [{ home: "HOM", away: "AWY", preview: true }] }, AUDIT).legs.length, 0);
+  assert.equal(nbaCatalog(NBA_SITE, { run_at: AUDIT.run_at, games: [] }).corr, undefined);
+});
+
+test("NBA: the combined chance matches what the algorithm's simulations counted", () => {
+  let total = 0, totalNaive = 0;
+  for (const c of AUDIT.checks) {
+    const legs = c.legs.map((l) => nbaLeg(l.player_id, l.market, l.side === "over" ? Math.floor(l.line) + 1 : l.line, l.side));
+    assert.ok(legs.every(Boolean));
+    const p = jointProbability(legs, NBA_FULL.corr)!;
+    near(p, c.counted, 0.02);
+    total += Math.abs(p - c.counted);
+    totalNaive += Math.abs(c.independent - c.counted);
+  }
+  const mean = total / AUDIT.checks.length;
+  assert.ok(mean < 0.006, `mean error ${mean}`);
+  assert.ok(mean < (totalNaive / AUDIT.checks.length) / 5, "far closer than multiplying the legs");
+});
+
+test("NBA: linked legs move the chance the right way, and an under turns the link round", () => {
+  const guardAst = nbaLeg("h1", "ast", 7), centrePts = nbaLeg("h2", "pts", 16), homeReb = nbaLeg("h2", "reb", 10), awayReb = nbaLeg("a2", "reb", 9);
+  assert.ok(jointProbability([guardAst, centrePts], NBA_FULL.corr)! > guardAst.prob * centrePts.prob + 0.01);
+  assert.ok(jointProbability([homeReb, awayReb], NBA_FULL.corr)! < homeReb.prob * awayReb.prob - 0.005);
+  const under = nbaLeg("h2", "pts", 21.5, "under");
+  assert.ok(jointProbability([guardAst, under], NBA_FULL.corr)! < guardAst.prob * under.prob);
+  // two rungs of one market on one player: close to the harder rung alone
+  const lo = nbaLeg("h1", "pts", 18), hi = nbaLeg("h1", "pts", 26);
+  near(jointProbability([lo, hi], NBA_FULL.corr)!, hi.prob, 0.03);
+  // a leg whose player is not in the audit data cannot be combined
+  assert.equal(jointProbability([guardAst, { ...centrePts, playerId: undefined }], NBA_FULL.corr), null);
+});
+
+test("NBA: a user's slip is graded with a combined chance and suggestions follow the NBA ticket rules", () => {
+  const name = (id: string) => AUDIT.games[0].ladder.find((l) => l.player_id === id)!.name;
+  const L = (id: string, market: string, k: number): SlipLegInput => ({ player: name(id), market: market as SlipLegInput["market"], threshold: k, side: "over", text: `${name(id)} ${k}+ ${market}` });
+  const slip = [L("h1", "ast", 7), L("h2", "pts", 12), L("a1", "pts", 28), L("a2", "reb", 9)];
+  const g = gradeSlip(slip, NBA_FULL, { totalOdds: 600 });
+  assert.equal(g.unrated, 0);
+  assert.ok(g.joint !== null && g.joint > 0 && g.joint < 1);
+  near(g.joint!, jointProbability(slip.map((l) => nbaLeg(AUDIT.games[0].ladder.find((x) => x.name === l.player)!.player_id, l.market!, l.threshold!)), NBA_FULL.corr)!, 1e-12);
+  assert.ok(g.rules.some((r) => r.rule === "floor"));
+
+  // legs under the floor move down to a safer rung on the same player; the user's own choices are kept
+  const s = suggestChanges(g, NBA_FULL, { legCount: 4 });
+  assert.ok(s.improved, "it proposes a better version");
+  assert.ok(s.improved!.legs.every((l) => l.prob >= 0.75), "every leg clears the 75% floor");
+  assert.deepEqual(s.improved!.legs.map((l) => l.player), slip.map((l) => l.player));
+  assert.ok(s.improved!.joint! > g.joint!);
+  for (const x of s.swap) assert.ok(NBA_FULL.legs.includes(x.to));
+
+  // legs the algorithm adds to reach four: floor rungs, the four props markets, no rebound leg, four different players
+  const two = [L("h1", "ast", 5), L("h2", "pts", 12)];
+  const four = suggestChanges(gradeSlip(two, NBA_FULL), NBA_FULL, { legCount: 4 });
+  assert.equal(four.add.length, 2);
+  const out = four.improved!.legs;
+  assert.ok(out.every((l) => l.prob >= 0.75 && ["pts", "reb", "ast", "fg3m"].includes(l.market)));
+  assert.equal(out.filter((l) => l.market === "reb").length, 0, "no rebound leg added to a 4-leg slip");
+  assert.equal(new Set(out.map((l) => l.player)).size, 4, "a 4-leg slip uses four different players");
+  for (const x of four.add) assert.ok(NBA_FULL.legs.includes(x.leg), "an added leg is a rung the algorithm rated tonight");
+
+  // a 6-leg request may carry one rebound leg, never two
+  const six = suggestChanges(gradeSlip(two, NBA_FULL), NBA_FULL, { legCount: 6 });
+  assert.equal(six.improved!.legs.length, 6);
+  assert.ok((six.improved?.legs ?? []).filter((l) => l.market === "reb").length <= 1);
+
+  // a leg the algorithm has no rung for stays unrated
+  const u = gradeSlip([L("h1", "ast", 7), { player: name("h3"), market: "ast", threshold: 3, side: "over", text: "x" }], NBA_FULL);
+  assert.equal(u.unrated, 1);
+  assert.match(u.legs[1].note ?? "", /no assists rung|unrated/i);
+});

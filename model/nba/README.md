@@ -39,3 +39,7 @@ Supporting files: `config.py` (every threshold), `store.py` (tables and the poin
     python3 -m nba.validate                    # writes output/backtest_report.json and the tables in docs/nba_backtest.md
 
 Results and limits are in `docs/nba_backtest.md`. In short: there are no historical book prices in this project, so the backtest measures calibration and hit rates, not profit.
+
+## Audit data for the website
+
+Each full slate run also writes `output/nba_audit.json` (`nba/audit_export.py`): for every game with book prices, every offered player-prop rung for a confirmed player with its model probability, and one correlation per pair of (player, market) measured from that night's simulations. The website uses it to rate a user's own slip and to work out its combined chance; it never changes a projection or a ticket. The export is wrapped so that a failure is recorded in the game's notes and the slate still completes. Settings: `audit_export`, `audit_corr_min`, `audit_min_active_sims` in `config.py`. `python3 -I scripts/make-nba-audit-fixture.py` regenerates the made-up game the web tests check the combined chance against.

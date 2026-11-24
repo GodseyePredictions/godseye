@@ -13,6 +13,7 @@ import { nbaPicks, nflPicks } from "./picks.ts";
 type Cached = { mtime: number; data: unknown } | null;
 let nflCache: Cached = null;
 let nbaCache: Cached = null;
+let nbaAuditCache: Cached = null;
 
 function loadNfl(): unknown | null {
   try {
@@ -36,11 +37,23 @@ function loadNba(): unknown | null {
   }
 }
 
+/** The NBA run's audit data (every rated rung, and correlations). Missing or unreadable: the catalog falls back to posted picks. */
+function loadNbaAudit(): unknown | null {
+  try {
+    const file = path.join(process.cwd(), "model/nba/output/nba_audit.json");
+    const mtime = statSync(file).mtimeMs;
+    if (nbaAuditCache?.mtime !== mtime) nbaAuditCache = { mtime, data: JSON.parse(readFileSync(file, "utf8")) };
+    return nbaAuditCache.data;
+  } catch {
+    return null;
+  }
+}
+
 export function loadAlgorithmData(): Pick<AdvisorContext, "catalogs" | "intel" | "picks"> {
   const nfl = loadNfl();
   const nba = loadNba();
   return {
-    catalogs: { ...(nfl ? { NFL: nflCatalog(nfl) } : {}), ...(nba ? { NBA: nbaCatalog(nba) } : {}) },
+    catalogs: { ...(nfl ? { NFL: nflCatalog(nfl) } : {}), ...(nba ? { NBA: nbaCatalog(nba, loadNbaAudit() ?? undefined) } : {}) },
     intel: { ...(nfl ? { NFL: nflIntel(nfl) } : {}), ...(nba ? { NBA: nbaIntel(nba) } : {}) },
     picks: { ...(nfl ? { NFL: nflPicks(nfl) } : {}), ...(nba ? { NBA: nbaPicks(nba) } : {}) },
   };

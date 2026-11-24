@@ -1,5 +1,5 @@
 /**
- * The chance that every leg of a slip hits, from the NFL algorithm's own numbers.
+ * The chance that every leg of a slip hits, from each sport's own algorithm numbers.
  *
  * This is the console's correlation engine (public/console/app.js, `rho` and `jointPN`) moved here so the
  * server, the chat advisor and the site all run one copy. It does not invent anything: each leg's chance
@@ -9,7 +9,7 @@
  * Method: a Gaussian copula. Within a game, draw correlated normal variables and count the share of
  * draws in which every leg clears its threshold. Legs are never multiplied as if unrelated.
  */
-import type { NflCorr, RatedLeg } from "./legs.ts";
+import type { Corr, NbaCorr, RatedLeg } from "./legs.ts";
 
 export const DEFAULT_SIMS = 60_000;
 /** Two rungs of one market for one player rise and fall together almost perfectly. */
@@ -61,9 +61,21 @@ function cholesky(S: number[][]): number[][] | null {
   return L;
 }
 
-/** How two legs move together, from the algorithm's fitted tables. Different games: not at all. */
-export function legCorrelation(a: RatedLeg, b: RatedLeg, corr: NflCorr): number {
+/**
+ * NBA: the pair's correlation as measured in tonight's simulations. It describes the two stat lines, so an
+ * under leg turns the sign round. A pair the algorithm did not list is too weak to matter and counts as unrelated.
+ */
+function nbaCorrelation(a: RatedLeg, b: RatedLeg, corr: NbaCorr): number {
+  const flip = a.side === b.side ? 1 : -1;
+  if (a.playerId === b.playerId && a.market === b.market) return flip * SAME_MARKET_SELF;
+  const x = [`${a.playerId}:${a.market}`, `${b.playerId}:${b.market}`].sort();
+  return flip * (corr.pairs[a.gameId!]?.[`${x[0]}|${x[1]}`] ?? 0);
+}
+
+/** How two legs move together, from the algorithm's own tables. Different games: not at all. */
+export function legCorrelation(a: RatedLeg, b: RatedLeg, corr: Corr): number {
   if (!a.gameId || a.gameId !== b.gameId) return 0;
+  if ("pairs" in corr) return nbaCorrelation(a, b, corr);
   const rel = a.playerId === b.playerId ? "SELF" : a.team === b.team ? "TM" : "OPP";
   if (a.market === "atd" && b.market === "atd") {
     if (rel === "OPP") return corr.atd.OPP ?? 0.03;
@@ -115,9 +127,9 @@ export function gameJoint(probs: number[], sigma: number[][], sims = DEFAULT_SIM
 
 /**
  * The chance every leg hits. Null when it cannot be worked out from the algorithm's output:
- * no legs, or legs without the ids and correlation tables the engine needs (NBA today).
+ * no legs, or legs without the ids and correlation tables the engine needs.
  */
-export function jointProbability(legs: RatedLeg[], corr: NflCorr | undefined, sims = DEFAULT_SIMS): number | null {
+export function jointProbability(legs: RatedLeg[], corr: Corr | undefined, sims = DEFAULT_SIMS): number | null {
   if (!legs.length) return null;
   if (legs.length === 1) return legs[0].prob;
   if (!corr || legs.some((l) => !l.gameId || !l.playerId)) return null;

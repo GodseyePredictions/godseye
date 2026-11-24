@@ -172,6 +172,10 @@ CONFIG = {
     # "rung and price not checked at the book". They cannot be marked as placed. Set False to print "no bet" instead.
     "preview_tickets_without_prices": True,
     "preview_min_minutes": 18.0,
+    # audit export (nba/audit_export.py): what the website needs to rate a user's own slip
+    "audit_export": True,
+    "audit_corr_min": 0.02,              # pairs weaker than this are left out of the file
+    "audit_min_active_sims": 200,        # simulations where both players play, needed to measure a pair
     "script_dependence_gap": 0.10,       # a leg "depends on a script" when its chance differs this much between scripts
     "combo_component_ev_gain": 0.02,     # a combo may sit with its own component only if EV improves by this much
     "dd_ticket_max_legs": 3,
