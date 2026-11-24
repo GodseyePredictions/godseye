@@ -6,11 +6,12 @@ import {
   type AdvisorContext, type CallModel, type ChatMessage, type ModelReply, type TurnEvent,
 } from "./advisor/agent.ts";
 import { gameIntel, nbaIntel, nflIntel, playerIntel } from "./advisor/intel.ts";
-import { nbaCatalog, nflCatalog, parseConsoleData } from "./advisor/legs.ts";
+import { nbaCatalog, nflCatalog } from "./advisor/legs.ts";
 import { openAccount } from "./staking.ts";
 
-// ---------- the real output files, so the tools are exercised on real shapes ----------
-const nflRaw = parseConsoleData(readFileSync(new URL("../../public/console/data.js", import.meta.url), "utf8"));
+// ---------- real output, so the tools are exercised on real shapes ----------
+// NFL comes from a frozen sample: the live file changes weekly and has no open legs once a week is over.
+const nflRaw = JSON.parse(readFileSync(new URL("../../fixtures/algo/nfl-sample.json", import.meta.url), "utf8"));
 const nbaRaw = JSON.parse(readFileSync(new URL("../../model/nba/output/nba_site.json", import.meta.url), "utf8"));
 const NOW = new Date("2026-11-25T23:00:00Z");
 const ctx: AdvisorContext = {

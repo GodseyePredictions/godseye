@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { fairAmerican, gameJoint, jointProbability, normInv } from "./advisor/joint.ts";
-import { nbaCatalog, nflCatalog, parseConsoleData, type Catalog, type RatedLeg } from "./advisor/legs.ts";
+import { nbaCatalog, nflCatalog, type Catalog, type RatedLeg } from "./advisor/legs.ts";
 import { gradeSlip, type SlipLegInput } from "./slip/grade.ts";
 import { recheckSlip, toSavedLeg, type SavedSlip } from "./slip/recheck.ts";
 import { ParsedSlipSchema, oddsToAmerican, stakeToDollars, toDraft } from "./slip/schema.ts";
@@ -104,13 +104,12 @@ test("without correlations a parlay's chance is not stated", () => {
   assert.equal(jointProbability([nba.legs[0]], nba.corr), 0.8);
 });
 
-test("matches the console's own simulation on the real week's data", () => {
+test("matches the console's own simulation on a frozen sample of real output", () => {
   // The console showed this 5-leg WAS @ NYG slip at 21.6% (19.2% if the legs were unrelated).
-  const real = nflCatalog(parseConsoleData(readFileSync(new URL("../../public/console/data.js", import.meta.url), "utf8")));
+  const real = nflCatalog(JSON.parse(readFileSync(new URL("../../fixtures/algo/nfl-sample.json", import.meta.url), "utf8")));
   const want: [string, string, number | null][] = [
     ["Devin Singletary", "atd", null], ["Isaiah Likely", "rec", 2], ["Devin Singletary", "rec", 1], ["Isaiah Likely", "rec_yds", 20], ["Rachaad White", "rush_yds", 20]];
   const legs = want.map(([p, m, k]) => find(real, p, m, k));
-  if (legs.some((l) => !l)) return; // a later week's data: these players are not on the slate
   near(jointProbability(legs, real.corr)!, 0.216, 0.0015);
   near(legs.reduce((a, l) => a * l.prob, 1), 0.192, 0.0015);
 });
@@ -396,7 +395,7 @@ const FIXTURES = fileURLToPath(new URL("../../fixtures/slips/", import.meta.url)
 test("every fixture's expected JSON matches the schema and grades without error", () => {
   const files = readdirSync(FIXTURES).filter((f) => f.endsWith(".expected.json"));
   assert.ok(files.length >= 3, "expected at least three fixtures");
-  const real = nflCatalog(parseConsoleData(readFileSync(new URL("../../public/console/data.js", import.meta.url), "utf8")));
+  const real = nflCatalog(JSON.parse(readFileSync(new URL("../../fixtures/algo/nfl-sample.json", import.meta.url), "utf8")));
   for (const f of files) {
     const raw = JSON.parse(readFileSync(FIXTURES + f, "utf8"));
     assert.ok(ParsedSlipSchema.safeParse(raw).success, f);
