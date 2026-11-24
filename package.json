@@ -12,12 +12,15 @@
     "slip:read": "node scripts/read-slip.ts",
     "slip:fixtures": "node scripts/make-slip-fixtures.mjs",
     "usage:report": "node scripts/usage-report.ts",
+    "db:migrate": "node scripts/db-migrate.ts",
     "pretest": "node scripts/ensure-deps.mjs",
     "prebuild": "node scripts/ensure-deps.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.13.0",
+    "@types/pg": "^8.23.1",
     "next": "16.4.6",
+    "pg": "^8.23.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "zod": "^4.6.7"

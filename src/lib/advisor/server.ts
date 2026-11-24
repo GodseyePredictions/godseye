@@ -1,17 +1,18 @@
 /**
  * What the advisor's API routes share on the server: the user store, the model, and who is asking.
  */
-import { validUserId } from "../store/types.ts";
-import { FileStore } from "../store/file.ts";
+import { validUserId, type UserStore } from "../store/types.ts";
+import { openStore } from "../store/open.ts";
 import { readSlipImage, type ImageType } from "../slip/vision.ts";
 import { ADVISOR_MODEL, callClaude } from "./claude.ts";
 import { demoEnabled, demoModel, demoReadImage } from "./demo-model.ts";
 import { loadAlgorithmData } from "./server-data.ts";
 import type { ServiceDeps } from "./service.ts";
 
-let store: FileStore | null = null;
-export function userStore(): FileStore {
-  store ??= new FileStore();
+let store: UserStore | null = null;
+/** Postgres when DATABASE_URL is set, local files otherwise. */
+export function userStore(): UserStore {
+  store ??= openStore();
   return store;
 }
 

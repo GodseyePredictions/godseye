@@ -1,14 +1,14 @@
-/* API cost per subscriber, from the local user store.
+/* API cost per subscriber, from the user store (Postgres when DATABASE_URL is set, local files otherwise).
 
    Usage: npm run usage:report            every user, all time
           npm run usage:report -- 7       the last 7 days */
 import { effectiveTier } from "../src/lib/advisor/subscription.ts";
 import { usageTotals } from "../src/lib/advisor/usage.ts";
-import { FileStore } from "../src/lib/store/file.ts";
+import { openStore } from "../src/lib/store/open.ts";
 
 const days = Number(process.argv[2]);
 const since = days > 0 ? new Date(Date.now() - days * 86_400_000) : undefined;
-const store = new FileStore();
+const store = openStore();
 const rows = [];
 for (const id of await store.list()) {
   const u = await store.get(id);

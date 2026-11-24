@@ -22,6 +22,10 @@ export type Subscription = {
   canceledAt?: string | null;
   /** After a cancel: history is kept, hidden, until this time (ISO), then deleted. */
   archivedUntil?: string | null;
+  /** The payment provider's customer id, once they have paid. */
+  customerId?: string | null;
+  /** When the last applied billing event was created (ISO), so a late or repeated one is ignored. */
+  lastEventAt?: string | null;
 };
 
 export type Profile = {

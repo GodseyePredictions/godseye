@@ -1,6 +1,7 @@
 -- Godseye user data, for Postgres. Mirrors src/lib/store/types.ts (UserRecord).
--- Not applied anywhere yet: the app runs on the local file store (src/lib/store/file.ts) until a database exists.
--- The Postgres store implements the same UserStore interface against these tables.
+-- Apply with `npm run db:migrate` (needs DATABASE_URL). Safe to run again.
+-- src/lib/store/postgres.ts implements the UserStore interface against these tables. Without DATABASE_URL
+-- the app runs on the local file store (src/lib/store/file.ts).
 
 create table if not exists users (
   id                  text primary key,           -- the login provider's user id
@@ -11,7 +12,9 @@ create table if not exists users (
   subscription_status text not null default 'none' check (subscription_status in ('none', 'active', 'past_due', 'canceled')),
   current_period_end  timestamptz,
   canceled_at         timestamptz,
-  archived_until      timestamptz                 -- after a cancel, history is held until this time
+  archived_until      timestamptz,                -- after a cancel, history is held until this time
+  billing_customer_id text,                       -- the payment provider's customer id
+  billing_event_at    timestamptz                 -- when the last applied billing event was created, to ignore late ones
 );
 
 create table if not exists bets (
@@ -25,7 +28,8 @@ create table if not exists bets (
   status       text not null check (status in ('open', 'won', 'lost', 'push')),
   price        integer,                           -- American odds for the whole bet
   closing_odds integer,
-  model_chance double precision                   -- the algorithm's chance when the bet was logged
+  model_chance double precision,                  -- the algorithm's chance when the bet was logged
+  data         jsonb not null                     -- the whole bet as the app holds it; the columns above are for queries
 );
 create index if not exists bets_user_placed on bets (user_id, placed_at desc);
 
@@ -36,7 +40,8 @@ create table if not exists saved_slips (
   saved_at timestamptz not null,
   sport    text not null,
   built    text not null,                         -- which algorithm build the legs were rated on
-  legs     jsonb not null
+  legs     jsonb not null,
+  data     jsonb not null                         -- the whole saved slip as the app holds it
 );
 
 create table if not exists conversations (
