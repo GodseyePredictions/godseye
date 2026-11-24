@@ -1,5 +1,6 @@
 "use client";
 
+import { BankrollStrategy, type Pick as StakePick } from "./BankrollStrategy";
 import { useState, useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
 import raw from "../../model/nba/output/nba_site.json";
@@ -492,20 +493,32 @@ function StrategyHead({ title, sub }: { title: string; sub?: string }) {
 }
 
 /** Staking plans for one night's slips at two bankroll sizes. Hidden once that night is over. */
+const TICKET_NAME: Record<string, string> = { props_4: "4-leg props SGP", props_4b: "Second 4-leg props SGP", props_6: "6-leg props SGP" };
+/** Tonight's slips and singles for the "size a pick" box. A slip's multiplied leg prices are an estimate, so no price is filled in for it. */
+const stakePicks: StakePick[] = slate.games
+  .filter((g) => !g.preview)
+  .flatMap((g) => [
+    ...g.tickets.map((t) => ({
+      id: t.id,
+      label: `${g.away} @ ${g.home}: ${TICKET_NAME[t.type] ?? t.type}`,
+      chance: t.joint,
+      price: t.price_is_estimate ? null : t.book_price,
+    })),
+    ...g.singles
+      .filter((l) => l.price != null)
+      .map((l, i) => ({ id: `${g.id}-single-${i}`, label: `${g.away} @ ${g.home}: ${l.label} (single)`, chance: l.p, price: l.price })),
+  ]);
+
+/** The personal bankroll settings, then the posted staking plan for one night's slips. The plan is hidden once that night is over. */
 function StrategyTab() {
   // the plan is for the slate dated `strategy.date` (Eastern); it goes stale the next morning
   const [stale] = useState(() => new Date(Date.now() - 11 * 3600e3).toISOString().slice(0, 10) > strategy.date);
-  if (stale)
-    return (
-      <section className="panel">
-        <StrategyHead title="Bankroll strategy" />
-        <p className="empty">No bankroll strategy is posted for today&apos;s slate yet.</p>
-      </section>
-    );
+  if (stale) return <BankrollStrategy picks={stakePicks} />;
   return (
     <>
+      <BankrollStrategy picks={stakePicks} />
       <section className="panel">
-        <StrategyHead title="Bankroll strategy" sub={strategy.built} />
+        <StrategyHead title="Posted plan for tonight" sub={strategy.built} />
         <p className="sub" style={{ maxWidth: "75ch" }}>
           {strategy.intro}
         </p>
@@ -970,7 +983,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
     ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
-    ["strategy", "Bankroll strategy", "M4 19h16M6 16V8M11 16V5M16 16v-6"],
+    ["strategy", "Bankroll Strategy", "M4 19h16M6 16V8M11 16V5M16 16v-6"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["scripts", "Game scripts", "M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3"],
     ["avail", "Availability", "M4 12l5 5L20 6"],
