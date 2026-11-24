@@ -66,9 +66,9 @@ The conversation, the bankroll settings and tracked bets live in the browser and
 
 ## What is not built yet
 
-Logins, subscriptions, the AI advisor chat, live odds and sportsbook sync. Bets are stored in the visitor's browser until accounts exist.
+Logins, subscriptions, a database, live odds and sportsbook sync. Bets, bankroll settings, saved slips and advisor conversations are stored in the visitor's browser until accounts exist.
 
-The separate team-rating model in `model/` is documented in `model/README.md`.
+The NFL player-prop and anytime-touchdown algorithm is in `model/nfl` (see `model/nfl/README.md`). The NFL game-market and team-rating code in `model/` is documented in `model/README.md`, and the NBA module in `model/nba/README.md`. Each sport's algorithm is separate.
 
 ## The shareable single-file app
 
