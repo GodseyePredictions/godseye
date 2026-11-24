@@ -224,3 +224,43 @@ def test_cashed_showcase_lists_winners_with_example_stakes_and_the_full_count():
     assert short["stake"] == CONFIG["cashed_stake_short"] and abs(short["profit"] - 127.5) < 1e-9
     assert c["nights"] == [{"date": "2026-11-11", "issued": 3, "cashed": 2}]
     assert c["all_staked"] == 50 + 85 + 85 and abs(c["all_net"] - (250.0 + 212.5 - 220)) < 1e-9          # losers' stakes count against the total
+
+
+def test_band_slips_land_in_their_price_band_and_a_band_out_of_reach_is_a_note():
+    import numpy as np
+    from nba import bands
+    rng = np.random.default_rng(3)
+
+    def leg_(i, p, price):
+        return {"kind": "prop", "player_id": f"p{i}", "team_id": "1", "starter": True, "gate_ok": True, "eligible_player": True, "rung_rank": 1,
+                "market": "pts", "line": 9.5, "side": "over", "p": p, "p_blowout": p, "p_close": p, "price": price, "hits": rng.random(4000) < p,
+                "active": None, "script": None, "flagged_game": False, "label": f"P{i} 10+ Points", "id": f"g|pts|p{i}|over|9.5"}
+    legs = [leg_(i, 0.80, -300.0) for i in range(8)] + [leg_(8, 0.60, 110.0)]            # the last leg is under the floor
+    cfg = {**CONFIG, "price_band_slips": [{"key": "a", "min_price": 301, "max_price": 500}, {"key": "b", "min_price": 2000, "max_price": 3000}]}
+    out, notes = bands.band_tickets(legs, cfg)
+    assert [t["type"] for t in out] == ["a"] and len(out[0]["legs"]) == 6 and 301 <= out[0]["book_price"] <= 500
+    assert all(l["p"] >= CONFIG["sgp_leg_floor"] for l in out[0]["legs"])
+    assert len(notes) == 1 and notes[0].startswith("b: no bet")
+    # the lotto slip joins each game's longest band slip; its chance is the product of the games' counted chances
+    lot = bands.lotto({"g1": ("A @ B", out), "g2": ("C @ D", out)}, cfg)
+    assert lot["n_legs"] == 12 and abs(lot["joint"] - out[0]["joint"] ** 2) < 1e-12
+    assert bands.lotto({"g1": ("A @ B", out), "g2": ("C @ D", [])}, cfg) is None           # a game with no band slip: no lotto
+
+
+def test_value_locks_keep_the_price_range_and_the_parlay_takes_one_leg_per_player():
+    import numpy as np
+    from nba import bands
+    hits = np.ones(100, dtype=bool)
+
+    def leg_(pid, market, p, price):
+        return {"kind": "prop", "player_id": pid, "team_id": "1", "starter": True, "gate_ok": True, "eligible_player": True, "rung_rank": 1,
+                "market": market, "line": 2.5, "side": "over", "p": p, "p_blowout": p, "p_close": p, "price": price, "hits": hits,
+                "active": None, "script": None, "flagged_game": False, "label": f"{pid} {market}", "id": f"g|{market}|{pid}|over|2.5"}
+    legs = [leg_("a", "pts", 0.80, -290.0), leg_("a", "reb", 0.79, -250.0), leg_("b", "reb", 0.78, -240.0), leg_("c", "reb", 0.77, -230.0),
+            leg_("d", "pts", 0.90, -900.0), leg_("e", "pts", 0.70, -150.0)]
+    v = bands.value_locks(legs, CONFIG)
+    assert [l["player_id"] for l in v] == ["a", "a", "b", "c"]                            # -900 is outside the range; 70% is under the floor
+    par = bands.value_parlay({"g1": ("A @ B", v), "g2": ("C @ D", [leg_("x", "ast", 0.76, -200.0), leg_("y", "pts", 0.76, -210.0)])},
+                             {**CONFIG, "value_parlay_legs": 4, "value_parlay_min_legs": 4})
+    picked = [l["label"] for p in par["parts"] for l in p["legs"]]
+    assert picked == ["a pts", "b reb", "x ast", "y pts"]                                 # one leg per player, one rebound leg per game

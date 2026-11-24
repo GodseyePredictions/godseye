@@ -82,7 +82,10 @@ type Multi = {
   ev: number | null;
   parts: { matchup: string; joint: number; legs: Leg[] }[];
 };
-const slate = raw as unknown as { run_at: string; n_sims: number; games: Game[]; book: string | null; multi: Multi[] };
+const slate = raw as unknown as {
+  run_at: string; n_sims: number; games: Game[]; book: string | null; multi: Multi[];
+  value_locks?: { matchup: string; legs: Leg[] }[];
+};
 type TrackLeg = { label: string; p: number; price: number | null; result: string; actual: number | null };
 type TrackTicket = { id: string; game: string; type: string; result: string; joint: number; price: number | null; hit: number; n: number; legs: TrackLeg[] };
 const track = rawTrack as unknown as {
@@ -103,6 +106,11 @@ const TICKET_NAMES: Record<string, string> = {
   multi_12: "12 props, 3 games",
   multi_15: "15 props, 3 games",
   multi_all: "All-games slip",
+  band_safe6: "Safe 6-leg SGP (+100 to +200)",
+  band_real6: "Realistic 6-leg SGP (+201 to +300)",
+  band_up6: "Upside 6-leg SGP (+301 to +400)",
+  value_locks: "Locks parlay",
+  lotto: "Lotto slip",
   game_script: "Game-script SGP",
   double_double: "Double-double ticket",
 };
@@ -156,12 +164,13 @@ function StatusPill({ status }: { status: string }) {
   return <span className={`pill ${cls}`}>{status.replace("_", " ")}</span>;
 }
 
-function TicketCard({ t, game }: { t: Ticket; game: Game }) {
+function TicketCard({ t, game, lock }: { t: Ticket; game: Game; lock?: boolean }) {
   const kind = t.type.replace("preview_", "");
   return (
     <div className="ticket">
       <div className="top">
         <span className="legsn" style={{ fontSize: 20 }}>
+          {lock && <span className="pill gold" style={{ marginRight: 8, verticalAlign: "middle" }}>Lock</span>}
           {TICKET_NAMES[kind] ?? kind}
         </span>
         <span className="fair num">{t.book_price == null ? `fair ${american(t.fair_price)}` : american(t.book_price)}</span>
@@ -321,6 +330,7 @@ function HomeTab({ prefix }: { prefix: string }) {
           ))}
         </div>
       </section>
+      <ValueLocks />
       {best.length > 0 && (
         <section className="panel">
           <div className="section-head">
@@ -343,6 +353,61 @@ function HomeTab({ prefix }: { prefix: string }) {
       )}
     </>
   );
+}
+
+
+/** Slip-eligible legs priced in the value range, with the parlay the algorithm builds from them. */
+function ValueLocks() {
+  const rows = (slate.value_locks ?? []).flatMap((v) => v.legs.map((l) => ({ m: v.matchup, l }))).sort((a, b) => b.l.p - a.l.p);
+  const parlay = slate.multi?.find((m) => m.type === "value_locks");
+  if (!rows.length) return null;
+  return (
+    <section className="panel">
+      <div className="section-head">
+        <div>
+          <h2>Locks of the evening</h2>
+          <p className="sub">
+            The algorithm&apos;s strongest legs priced between −300 and +100 at {BOOK}. Every one clears the slip rules.
+            {parlay && <> The parlay built from them is under Multi-game slips: {pct(parlay.joint, 1)} chance, {american(parlay.book_price)}.</>}
+          </p>
+        </div>
+      </div>
+      <div className="scroll">
+        <table className="tbl">
+          <thead>
+            <tr>
+              {["Leg", "Game", "Model", BOOK].map((h) => (
+                <th key={h}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(({ m, l }) => (
+              <tr key={m + l.label}>
+                <td>
+                  <b>{l.label}</b>
+                </td>
+                <td>{m}</td>
+                <td className="num">
+                  <Prob p={l.p} />
+                </td>
+                <td className="num">{american(l.price)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+/** The game's lock is its highest-chance 4-leg slip; it goes first, then the standard slips, then the price bands. */
+const SLIP_ORDER = ["props_4", "props_4b", "props_6", "props_8", "band_safe6", "band_real6", "band_up6", "game_script", "double_double"];
+function orderedTickets(g: Game): { t: Ticket; lock: boolean }[] {
+  const fours = g.tickets.filter((t) => t.type === "props_4" || t.type === "props_4b");
+  const lock = fours.length ? fours.reduce((a, b) => (b.joint > a.joint ? b : a)) : null;
+  const rank = (t: Ticket) => (t === lock ? -1 : SLIP_ORDER.indexOf(t.type) < 0 ? 99 : SLIP_ORDER.indexOf(t.type));
+  return [...g.tickets].sort((a, b) => rank(a) - rank(b)).map((t) => ({ t, lock: t === lock }));
 }
 
 /** The game a home-page card asked the Game SGPs tab to open on; null shows every game. */
@@ -401,8 +466,8 @@ function SgpTab() {
           <GameHeader g={g} />
           {g.tickets.length > 0 ? (
             <div className="nba-tickets" style={{ marginTop: 12 }}>
-              {g.tickets.map((t) => (
-                <TicketCard t={t} game={g} key={t.id} />
+              {orderedTickets(g).map(({ t, lock }) => (
+                <TicketCard t={t} game={g} lock={lock} key={t.id} />
               ))}
             </div>
           ) : (
@@ -463,8 +528,8 @@ function MultiTab() {
     <>
       <section className="panel">
         <p className="sub" style={{ margin: 0 }}>
-          The strongest ticket from each of the three best games, joined into one slip. Games do not affect each other, so the
-          slip&apos;s chance is each game&apos;s counted chance multiplied together. Prices are {BOOK}&apos;s leg prices.
+          Slips that join legs from several games. Games do not affect each other, so a slip&apos;s chance is each game&apos;s
+          counted chance multiplied together. Prices are {BOOK}&apos;s leg prices multiplied; the lotto slip is a long shot by design.
         </p>
       </section>
       {slate.multi.map((m) => (
@@ -472,6 +537,7 @@ function MultiTab() {
           <div className="section-head">
             <div>
               <h2>
+                {m.type === "lotto" ? "Lotto slip: " : m.type === "value_locks" ? "Locks parlay: " : ""}
                 {m.n_legs} props across {m.parts.length} games
               </h2>
               <p className="sub">
