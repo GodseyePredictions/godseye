@@ -71,16 +71,36 @@ How it is put together:
 - `src/lib/advisor/guard.ts`: the check on every reply. A percentage, price, dollar amount, unit stake or named leg that no tool returned is not shown: the model is asked to rewrite once, then a safe reply is used.
 - `src/lib/advisor/user-tools.ts`, `picks.ts`, `intel.ts`, `src/lib/slip/tools.ts`: the tools. `size_bet` takes legs and a price, never a probability.
 - `src/lib/advisor/memory.ts`: stored conversations and the profile summary. Users can view and clear both from the History button.
-- `src/lib/advisor/subscription.ts`: plan check, daily message caps (`ADVISOR_LIMITS`), archive on cancel and restore on return. A payment provider's webhook calls `applySubscriptionEvent`; no provider is wired yet, so `ADVISOR_DEV_TIER` grants a plan locally.
+- `src/lib/advisor/subscription.ts`: plan check, daily message caps (`ADVISOR_LIMITS`), archive on cancel and restore on return. The Stripe webhook (below) calls `applySubscriptionEvent`; `ADVISOR_DEV_TIER` grants a plan locally without payments.
 - `src/lib/advisor/usage.ts` and `npm run usage:report`: token usage and API cost per user.
-- `src/lib/store/`: the per-user store. Local files under `.data/` today; `db/schema.sql` has the matching Postgres tables.
+- `src/lib/store/`: the per-user store. Postgres when `DATABASE_URL` is set (`postgres.ts`, tables in `db/schema.sql`), local files under `.data/` otherwise.
 - `src/lib/advisor/claude.ts`: the model call. `ADVISOR_MODEL` defaults to `claude-sonnet-5-5`.
 
 There is no sign-in yet: the user id is an anonymous id the browser keeps. Do not put the API routes on a public address before logins are in, because anyone who found them could spend the API key and an id proves nothing about who is asking.
 
+## The database
+
+User records (profile, bankroll, bets, saved slips, conversations, subscription, API usage) go to Postgres when `DATABASE_URL` is set, and to local files otherwise. Any Postgres works (Neon is the plan for the hosted site).
+
+    DATABASE_URL=postgres://... npm run db:migrate      # creates the tables in db/schema.sql; safe to run again
+
+Each update runs in one transaction with the user's row locked, so two requests for the same user cannot overwrite each other. The store's own test runs only when given a scratch database (it uses and drops a `godseye_test` schema):
+
+    TEST_DATABASE_URL=postgres://... npm test
+
+## Subscriptions (Stripe)
+
+`POST /api/billing/webhook` receives Stripe's subscription events, checks the signature, and turns them into plan changes (`src/lib/billing/stripe.ts`). To connect a Stripe account, set three environment variables and one thing at checkout:
+
+- `STRIPE_WEBHOOK_SECRET`: the signing secret of the webhook endpoint.
+- `STRIPE_PRICE_PRO` and `STRIPE_PRICE_ELITE`: the price ids of each plan (comma separated if a plan has monthly and yearly prices).
+- The subscription's metadata must carry `godseye_user`, the user's id.
+
+Point the endpoint at `customer.subscription.created`, `.updated` and `.deleted`. A cancel archives the user's chat history for 90 days and a return inside that time restores it. Late or repeated events are ignored. The checkout page itself is not built: it needs the Stripe account and logins.
+
 ## What is not built yet
 
-Logins, subscriptions, a database, live odds and sportsbook sync. Bets, bankroll settings, saved slips and advisor conversations are stored in the visitor's browser until accounts exist.
+Logins, a checkout page, live odds and sportsbook sync. Bankroll settings, tracked bets and saved slips in the consoles are still stored in the visitor's browser until logins exist; advisor conversations are stored on the server.
 
 The NFL player-prop and anytime-touchdown algorithm is in `model/nfl` (see `model/nfl/README.md`). The NFL game-market and team-rating code in `model/` is documented in `model/README.md`, and the NBA module in `model/nba/README.md`. Each sport's algorithm is separate.
 
