@@ -2083,3 +2083,100 @@ a.lp-tool:hover {
     font-size: 1.15rem;
   }
 }
+
+/* ---------- owner page (private) ---------- */
+.own-gate {
+  display: grid;
+  gap: 10px;
+  max-width: 380px;
+}
+.own-gate label {
+  color: var(--lp-dim);
+  font-size: 0.9rem;
+}
+.own-gate input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--lp-line);
+  background: #fff;
+  color: #131115;
+  font: inherit;
+}
+.own-gate button,
+.own-bar button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--lp-red);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.own-gate button:disabled,
+.own-bar button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.own-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: var(--lp-dim);
+  font-size: 0.9rem;
+}
+.own-bar span {
+  margin-right: auto;
+}
+.own-bar button + button {
+  background: transparent;
+  border: 1px solid var(--lp-line);
+}
+.own-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.own-tile {
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  background: #fff;
+  border-radius: 10px;
+  border-top: 4px solid var(--lp-red);
+  color: #131115;
+}
+.own-tile span {
+  color: var(--lp-red);
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+}
+.own-tile strong {
+  color: #131115;
+  font-family: var(--font-display), sans-serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.own-tile small {
+  color: #5b5257;
+}
+.own-table {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+.own-table table {
+  min-width: 640px;
+}
+.own-table td {
+  font-variant-numeric: tabular-nums;
+}
+.lp-doc .own-note {
+  font-size: 0.9rem;
+}
