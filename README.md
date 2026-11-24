@@ -53,16 +53,30 @@ Limits today: the joint chance is NFL only (the NBA output carries no correlatio
 
 ## The advisor chat
 
-"Advisor chat" (on both the NFL and NBA sides) is the 1-to-1 chat. A user types a question or attaches a slip screenshot; the advisor answers using the algorithms' output and the bankroll engine.
+"Advisor chat" (on both the NFL and NBA sides) is one agent for every subscriber, made personal by that user's own record: profile, bankroll, recent slips, and a running summary of earlier conversations, all loaded on every message.
 
-It needs the same `ANTHROPIC_API_KEY` in `.env.local` as the screenshot audit. Then `npm run dev` and open http://localhost:3000/nfl#advisor.
+Try it locally with the real model (needs `ANTHROPIC_API_KEY` in `.env.local`):
 
-- `src/lib/advisor/agent.ts` holds the advisor's instructions and the loop: call the model, run the tools it asks for, send the results back. The model call is passed in, so the loop is tested without the network.
-- `src/lib/advisor/claude.ts` is the model call. The model is `ADVISOR_MODEL` (default `claude-opus-5-5`).
-- Tools: `parse_slip`, `grade_slip`, `suggest_changes` (`src/lib/slip/tools.ts`), `get_player_intel` and `get_game_intel` (`src/lib/advisor/intel.ts`). Every number the advisor quotes comes back from one of them.
-- `src/app/api/advisor/route.ts` is the endpoint; `src/components/AdvisorChat.tsx` is the screen.
+    ADVISOR_DEV_TIER=pro npm run dev          # then open http://localhost:3000/nfl#advisor
 
-The conversation, the bankroll settings and tracked bets live in the browser and are sent with each message until accounts exist. The endpoint has no sign-in yet, so do not put it on a public address before logins are in: anyone who found it could spend the API key.
+Or without an API key, on a scripted stand-in that is clearly labelled in the chat and exercises everything except the model itself:
+
+    ADVISOR_DEMO=1 npm run dev
+
+Demo walk-through: attach `fixtures/slips/bet365-sgp.png` and send "Is this worth playing?", then "yes", then "can you swap anything to make it better?", then "my book has the new one at +320, how much?", then "placed it, $20 at +320".
+
+How it is put together:
+
+- `src/lib/advisor/agent.ts`: the instructions (the hard rules), the eleven tools and the loop. The model call is passed in, so the loop is tested without the network.
+- `src/lib/advisor/guard.ts`: the check on every reply. A percentage, price, dollar amount, unit stake or named leg that no tool returned is not shown: the model is asked to rewrite once, then a safe reply is used.
+- `src/lib/advisor/user-tools.ts`, `picks.ts`, `intel.ts`, `src/lib/slip/tools.ts`: the tools. `size_bet` takes legs and a price, never a probability.
+- `src/lib/advisor/memory.ts`: stored conversations and the profile summary. Users can view and clear both from the History button.
+- `src/lib/advisor/subscription.ts`: plan check, daily message caps (`ADVISOR_LIMITS`), archive on cancel and restore on return. A payment provider's webhook calls `applySubscriptionEvent`; no provider is wired yet, so `ADVISOR_DEV_TIER` grants a plan locally.
+- `src/lib/advisor/usage.ts` and `npm run usage:report`: token usage and API cost per user.
+- `src/lib/store/`: the per-user store. Local files under `.data/` today; `db/schema.sql` has the matching Postgres tables.
+- `src/lib/advisor/claude.ts`: the model call. `ADVISOR_MODEL` defaults to `claude-sonnet-5-5`.
+
+There is no sign-in yet: the user id is an anonymous id the browser keeps. Do not put the API routes on a public address before logins are in, because anyone who found them could spend the API key and an id proves nothing about who is asking.
 
 ## What is not built yet
 

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Python
 __pycache__/
+
+# local user store (advisor conversations, usage) until the database exists
+/.data/

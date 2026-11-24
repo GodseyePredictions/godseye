@@ -122,7 +122,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
   }, []);
 
   return (
-    <div className="wrap">
+    <div className="wrap" data-tab={extra ?? ""}>
       <header className="mast">
         <div className="brand">
           <Logo eyeSrc={eyeSrc} href={homeHref} />

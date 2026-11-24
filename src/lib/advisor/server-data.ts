@@ -8,6 +8,7 @@ import path from "node:path";
 import type { AdvisorContext } from "./agent.ts";
 import { nbaIntel, nflIntel } from "./intel.ts";
 import { nbaCatalog, nflCatalog, parseConsoleData } from "./legs.ts";
+import { nbaPicks, nflPicks } from "./picks.ts";
 
 type Cached = { mtime: number; data: unknown } | null;
 let nflCache: Cached = null;
@@ -35,11 +36,12 @@ function loadNba(): unknown | null {
   }
 }
 
-export function loadAlgorithmData(): Pick<AdvisorContext, "catalogs" | "intel"> {
+export function loadAlgorithmData(): Pick<AdvisorContext, "catalogs" | "intel" | "picks"> {
   const nfl = loadNfl();
   const nba = loadNba();
   return {
     catalogs: { ...(nfl ? { NFL: nflCatalog(nfl) } : {}), ...(nba ? { NBA: nbaCatalog(nba) } : {}) },
     intel: { ...(nfl ? { NFL: nflIntel(nfl) } : {}), ...(nba ? { NBA: nbaIntel(nba) } : {}) },
+    picks: { ...(nfl ? { NFL: nflPicks(nfl) } : {}), ...(nba ? { NBA: nbaPicks(nba) } : {}) },
   };
 }

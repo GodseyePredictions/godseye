@@ -1,0 +1,176 @@
+/* The Godseye slip: a white paper ticket on the dark site. White ground, red titles, black type.
+   Used wherever a slip, a pick, an audit or a stake is shown: the landing page, both consoles and the chat.
+   Imported by src/app/(site)/globals.css and src/app/(console)/console.css. */
+
+.gs-slip {
+  --slip-ink: #0b0b0c;
+  --slip-sub: #4d4a4c;
+  --slip-rule: #dcd8da;
+  --slip-red: #d6192b;
+  --slip-good: #0a7d45;
+  --slip-bad: #c62222;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: var(--slip-ink);
+  border-radius: 14px;
+  padding: 16px 18px 14px;
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.6) inset,
+    0 18px 40px -12px rgb(0 0 0 / 0.65);
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+/* the tear-off notches of a printed ticket, cut into the sides where the header ends */
+.gs-slip::before,
+.gs-slip::after {
+  content: "";
+  position: absolute;
+  top: var(--slip-notch, 58px);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--slip-cut, #0d0b0d);
+}
+.gs-slip::before {
+  left: -7px;
+}
+.gs-slip::after {
+  right: -7px;
+}
+.gs-slip.plain::before,
+.gs-slip.plain::after {
+  display: none;
+}
+
+.gs-slip-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  min-height: 34px;
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+  border-bottom: 2px dashed var(--slip-rule);
+}
+.gs-slip-title {
+  margin: 0;
+  font-family: var(--font-display, var(--display)), Impact, sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--slip-red);
+}
+.gs-slip-meta {
+  font-size: 12.5px;
+  color: var(--slip-sub);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.gs-slip-legs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gs-slip-legs li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--slip-rule);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--slip-ink);
+}
+.gs-slip-legs li:last-child {
+  border-bottom: 0;
+}
+.gs-slip-legs li small {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--slip-sub);
+}
+.gs-slip-legs .num {
+  font-weight: 700;
+  white-space: nowrap;
+}
+.gs-slip-legs li.out {
+  text-decoration: line-through;
+  color: var(--slip-sub);
+}
+.gs-slip-legs li.in .num {
+  color: var(--slip-good);
+}
+
+.gs-slip-foot {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 6px 14px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 2px solid var(--slip-ink);
+}
+.gs-slip-foot div {
+  display: flex;
+  flex-direction: column;
+}
+.gs-slip-foot dt,
+.gs-slip-foot span {
+  font-size: 11.5px;
+  color: var(--slip-sub);
+}
+.gs-slip-foot dd,
+.gs-slip-foot b {
+  margin: 0;
+  font-family: var(--font-display, var(--display)), Impact, sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.1;
+  color: var(--slip-ink);
+}
+.gs-slip-foot .red {
+  color: var(--slip-red);
+}
+.gs-slip-foot .good {
+  color: var(--slip-good);
+}
+.gs-slip-foot .bad {
+  color: var(--slip-bad);
+}
+
+.gs-slip-note {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--slip-sub);
+}
+.gs-slip-note.warn {
+  color: var(--slip-bad);
+  font-weight: 600;
+}
+.gs-slip a {
+  color: var(--slip-red);
+  font-weight: 600;
+}
+.gs-slip-big {
+  margin: 6px 0 2px;
+  font-family: var(--font-display, var(--display)), Impact, sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--slip-ink);
+}
+
+/* a row or grid of slips */
+.gs-slips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
