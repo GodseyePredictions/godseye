@@ -830,3 +830,31 @@ nav.tabs a[aria-current="page"] svg {
 .wrap[data-tab="advisor"] .fab {
   display: none;
 }
+
+/* ---------- set slips: every algorithm ticket in the console is the white Godseye slip ---------- */
+.ge-set {
+  margin: 12px 0 6px;
+  align-items: start;
+}
+.ge-set-title {
+  margin: 18px 0 6px;
+  font-family: var(--display), sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.ladder > .ge-block {
+  grid-column: 1 / -1;
+}
+.gs-slip .ge-slip-add {
+  margin-top: 14px;
+  align-self: flex-start;
+  background: #d6192b;
+  border: 0;
+  color: #fff;
+  font-weight: 700;
+}
+.gs-slip .ge-slip-add:hover {
+  background: #b01222;
+}
