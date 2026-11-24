@@ -1,5 +1,73 @@
 # Godseye Predictions
 
+Godseye is a paid sports betting prediction platform. Subscribers log in, see algo picks, get their own bet slips audited, size bets with a bankroll engine, and talk to a 1-to-1 chat advisor. NFL first, NBA next, CFB after.
+
+## One algorithm per sport
+
+Each sport has its own algorithm. NFL has its own, NBA has its own, CFB will have its own. They are separate from one another.
+
+- **Code:** NFL lives in `model/*.py` (plus the imported console in `public/console`). NBA lives in `model/nba/`. Neither imports the other. Only sport-neutral helpers (HTTP, odds maths, odds feed, ticket search) go in `model/common/`.
+- **Rules:** ticket rules, probability floors and book formats are per sport. A rule in one sport's section does not apply to another sport unless that sport's section says so. When the two disagree, the section for the sport being worked on wins.
+- **Output:** each algorithm writes its own output. A pick shown under a sport comes only from that sport's algorithm.
+- **Changes:** work on one sport must not change or break another sport's code, config or output.
+
+The "Platform rules" below apply to every sport.
+
+## Platform rules (all sports)
+
+### Non-negotiable product rules
+
+- **Algo picks only.** Every pick, leg, swap or add comes from the Godseye algorithm for that sport. No expert, media or consensus picks. Web lookups are for official injuries, inactives and rosters only.
+- **The LLM never does the math.** Claude reads screenshots, calls tools and explains results. Probabilities, edges, correlations and stakes come only from the Python algos and the staking engine. If a tool doesn't return a number, the agent doesn't state one.
+- **Unrated means unrated.** A leg the algo doesn't cover is labelled "unrated". Never guess.
+
+### Staking
+
+- Users set a bankroll and a risk profile. Stakes are shown in units and dollars, e.g. "1.5u ($15)".
+- Sizing is quarter-Kelly using algo probabilities, capped by the profile's max per bet and max nightly exposure.
+- Unit size is recalculated weekly, not after every loss.
+- One shared staking module is the only source of stake numbers. UI and chat agent both call it.
+
+### Responsible gambling
+
+- Never promise wins or "guaranteed" nights. Copy says "bet smarter, survive the variance".
+- Support user-set stop-loss, profit lock, nightly exposure caps and cool-off.
+
+### Engineering
+
+- Explore the existing repo and reuse what's there before adding new structure.
+- Keep algos (Python) separate from the web app. The web app reads algo output from the database.
+- Write tests for all math (staking, grading, slip parsing validation).
+- Never commit secrets. Use environment variables.
+- Commit after each working feature with a clear message.
+
+## NFL algorithm: standing rules
+
+These rules apply to the NFL algorithm only.
+
+### Ticket rules
+
+- SGP legs default to floor milestone rungs with roughly 70%+ hit probability. Edge rungs are for straight singles only.
+- At most one leg under 65% on any ticket.
+- Props SGPs (props and INTs only) are kept separate from anytime-TD tickets. Never mix TD legs into a props SGP.
+- Analyze the full game script and blowout risk before setting any props.
+- SGPs consider player props from both teams and take the best legs regardless of side.
+- Always factor defensive personnel availability, OC/DC scheme tendencies, and home/away, turf/grass, dome/open-air and weather splits.
+- Anytime-TD picks are driven by defensive matchups and red-zone usage, not recent scoring.
+
+### bet365 milestone format
+
+- Player props are one-sided milestone ladders (e.g. 150+/175+/200+ pass yds), not over/unders.
+- Rungs come in steps of 5. Rushing and receiving yards ladders start at 20+.
+- Only suggest rungs the book actually offers.
+
+## CFB algorithm: standing rules
+
+Not built yet. It will be its own algorithm with its own rules. Until the owner sets them, it starts from the NFL ticket rules and bet365 milestone format, with these differences:
+
+- CFB ladders have no receptions markets and no low rushing rungs.
+- Only suggest rungs the book actually offers.
+
 ## NBA module: standing rules
 
 These rules apply to every session that touches the NBA player-prop module. The module is being built separately first and will be added to Godseye alongside the existing NFL algo.
