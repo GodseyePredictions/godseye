@@ -37,7 +37,7 @@ const NUM = String.raw`(\d+(?:\.\d+)?)`;
 
 /** Returns null when no market can be read, or a prop has no number. */
 export function parseLeg(text: string): ParsedLeg | null {
-  const raw = text.replace(/[−–—]/g, "-").replace(/\s+/g, " ").trim();
+  const raw = text.replace(/[\u2212\u2013\u2014]/g, "-").replace(/\s+/g, " ").trim();
   const lower = raw.toLowerCase();
 
   let market: Market | null = null;

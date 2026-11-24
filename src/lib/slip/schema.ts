@@ -48,7 +48,7 @@ export type ParsedSlip = z.infer<typeof ParsedSlipSchema>;
 /** A price as printed, in American odds. Null when it is not a price this code recognises. */
 export function oddsToAmerican(text: string | null | undefined): number | null {
   if (!text) return null;
-  const t = text.replace(/[−–—]/g, "-").replace(/\s/g, "").replace(/^@/, "");
+  const t = text.replace(/[\u2212\u2013\u2014]/g, "-").replace(/\s/g, "").replace(/^@/, "");
   if (/^(evs|evens?)$/i.test(t)) return 100;
   const frac = /^(\d+)\/(\d+)$/.exec(t);
   if (frac) {

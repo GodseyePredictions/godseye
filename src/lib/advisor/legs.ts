@@ -144,8 +144,8 @@ const SUFFIX = /\b(jr|sr|ii|iii|iv|v)\b/g;
 /** "Kelly Oubre Jr." and "kelly oubre" compare equal. */
 export function normName(name: string): string {
   return name
-    .normalize("NFD").replace(/[̀-ͯ]/g, "")
-    .toLowerCase().replace(/[.'’`]/g, "").replace(/-/g, " ")
+    .normalize("NFD").replace(/\p{M}/gu, "")
+    .toLowerCase().replace(/[.'\u2019`]/g, "").replace(/-/g, " ")
     .replace(SUFFIX, " ").replace(/\s+/g, " ").trim();
 }
 
