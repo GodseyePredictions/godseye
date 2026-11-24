@@ -1,0 +1,303 @@
+[
+ {
+  "type": "override",
+  "name": "Deshaun Watson",
+  "team": "CLE",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (QB), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Cade Stover",
+  "team": "HOU",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (TE), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "MarShawn Lloyd",
+  "team": "GB",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (RB), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Tyjae Spears",
+  "team": "TEN",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (RB), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Quinn Ewers",
+  "team": "JAX",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (QB), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Pharaoh Brown",
+  "team": "IND",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (TE), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Jalen Tolbert",
+  "team": "MIA",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (WR), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Jaylen Wright",
+  "team": "MIA",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (RB), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Kenny Pickett",
+  "team": "CAR",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (QB), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Garrett Wilson",
+  "team": "NYJ",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (WR), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Skyler Bell",
+  "team": "BUF",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (WR), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Rashid Shaheed",
+  "team": "SEA",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (WR), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Bam Knight",
+  "team": "ARI",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (RB), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "KaVontae Turpin",
+  "team": "DAL",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (WR), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Luke Schoonmaker",
+  "team": "DAL",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (TE), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "George Pickens",
+  "team": "DAL",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (WR), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Deebo Samuel Sr.",
+  "team": "SF",
+  "status": "OUT",
+  "note": "Official inactive Nov 15 (WR), ESPN game-day roster"
+ },
+ {
+  "type": "override",
+  "name": "Ladd McConkey",
+  "team": "LAC",
+  "status": "OUT",
+  "note": "ESPN Out (WR, Back), swept 2026-11-16"
+ },
+ {
+  "type": "injury",
+  "name": "Zachariah Branch",
+  "team": "ATL",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Jonathon Brooks",
+  "team": "CAR",
+  "status": "Doubtful",
+  "note": "Groin"
+ },
+ {
+  "type": "injury",
+  "name": "Andrei Iosivas",
+  "team": "CIN",
+  "status": "Doubtful",
+  "note": "Thumb"
+ },
+ {
+  "type": "injury",
+  "name": "Michael Burton",
+  "team": "CLE",
+  "status": "Out",
+  "note": "Calf"
+ },
+ {
+  "type": "injury",
+  "name": "Tyler Goodson",
+  "team": "DAL",
+  "status": "Out",
+  "note": "Ankle"
+ },
+ {
+  "type": "injury",
+  "name": "Jake Ferguson",
+  "team": "DAL",
+  "status": "Out",
+  "note": "Knee"
+ },
+ {
+  "type": "injury",
+  "name": "Jonathan Mingo",
+  "team": "DAL",
+  "status": "Out",
+  "note": "Ankle"
+ },
+ {
+  "type": "injury",
+  "name": "Josh Jacobs",
+  "team": "GB",
+  "status": "Out",
+  "note": "Finger"
+ },
+ {
+  "type": "injury",
+  "name": "Josh Whyle",
+  "team": "GB",
+  "status": "Out",
+  "note": "Concussion"
+ },
+ {
+  "type": "injury",
+  "name": "Brevin Jordan",
+  "team": "HOU",
+  "status": "Out",
+  "note": "Finger"
+ },
+ {
+  "type": "injury",
+  "name": "Marvin Harrison Jr.",
+  "team": "HOU",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Mo Alie-Cox",
+  "team": "IND",
+  "status": "Out",
+  "note": "Groin"
+ },
+ {
+  "type": "injury",
+  "name": "Terrance Ferguson",
+  "team": "LA",
+  "status": "Out",
+  "note": "Ankle"
+ },
+ {
+  "type": "injury",
+  "name": "Brenen Thompson",
+  "team": "LAC",
+  "status": "Doubtful",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "Jared Wayne",
+  "team": "MIA",
+  "status": "Out",
+  "note": "Quadricep"
+ },
+ {
+  "type": "injury",
+  "name": "Chris Bell",
+  "team": "MIA",
+  "status": "Doubtful",
+  "note": "Knee"
+ },
+ {
+  "type": "injury",
+  "name": "Kyler Murray",
+  "team": "MIN",
+  "status": "Out",
+  "note": "Hamstring"
+ },
+ {
+  "type": "injury",
+  "name": "T.J. Hockenson",
+  "team": "MIN",
+  "status": "Out",
+  "note": "Wrist"
+ },
+ {
+  "type": "injury",
+  "name": "Jauan Jennings",
+  "team": "MIN",
+  "status": "Out",
+  "note": "Calf"
+ },
+ {
+  "type": "injury",
+  "name": "TreVeyon Henderson",
+  "team": "NE",
+  "status": "Out",
+  "note": "Illness"
+ },
+ {
+  "type": "injury",
+  "name": "CJ Donaldson",
+  "team": "NO",
+  "status": "Out",
+  "note": "Shoulder"
+ },
+ {
+  "type": "injury",
+  "name": "Sam Darnold",
+  "team": "SEA",
+  "status": "Out",
+  "note": "Ribs"
+ },
+ {
+  "type": "injury",
+  "name": "Mike Evans",
+  "team": "SF",
+  "status": "Out",
+  "note": "Achilles"
+ },
+ {
+  "type": "injury",
+  "name": "Carnell Tate",
+  "team": "TEN",
+  "status": "Out",
+  "note": "Shoulder"
+ },
+ {
+  "type": "injury",
+  "name": "Colson Yankoff",
+  "team": "WAS",
+  "status": "Out",
+  "note": "Knee"
+ }
+]

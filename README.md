@@ -15,15 +15,16 @@ A Next.js site with three sections:
 
 ## Updating the weekly picks
 
-The console is imported from its exported HTML page:
+The NFL console takes its numbers straight from the NFL algorithm in `model/nfl`. After the algorithm's weekly build:
 
-    python3 -I scripts/import-console.py path/to/console.html
+    cd model/nfl
+    python run.py site --season 2026 --week 12     # checks the data, then writes outputs/site/nfl_site.json
+    cd ../..
+    npm run nfl:site                                # puts it on the site and refreshes "Locks of the week"
 
-Then refresh the landing page's "Locks of the week" from the new data:
+The first command refuses to write anything if the data is malformed or breaks a ticket rule (`model/nfl/attd/site_check.py`). The second rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic from `model/nfl/attd/site_template.html`, patched for this site), `src/app/(console)/console-base.css` and `model/output/locks.json`. Site-specific styling lives in `src/app/(console)/console.css`.
 
-    python3 -I scripts/build-locks.py
-
-The first command rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic, patched for this site) and `src/app/(console)/console-base.css`. Site-specific styling lives in `src/app/(console)/console.css`.
+An exported console page can still be imported by hand with `python3 -I scripts/import-console.py path/to/console.html`.
 
 ## Auditing a slip from a screenshot
 
@@ -65,9 +66,9 @@ The conversation, the bankroll settings and tracked bets live in the browser and
 
 ## What is not built yet
 
-Logins, subscriptions, the AI advisor chat, live odds and sportsbook sync. Bets are stored in the visitor's browser until accounts exist.
+Logins, subscriptions, a database, live odds and sportsbook sync. Bets, bankroll settings, saved slips and advisor conversations are stored in the visitor's browser until accounts exist.
 
-The separate team-rating model in `model/` is documented in `model/README.md`.
+The NFL player-prop and anytime-touchdown algorithm is in `model/nfl` (see `model/nfl/README.md`). The NFL game-market and team-rating code in `model/` is documented in `model/README.md`, and the NBA module in `model/nba/README.md`. Each sport's algorithm is separate.
 
 ## The shareable single-file app
 

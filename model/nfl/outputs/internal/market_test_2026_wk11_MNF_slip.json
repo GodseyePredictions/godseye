@@ -1,0 +1,4 @@
+{"game":"2026_11_CIN_WAS","built_utc":"2026-11-23T23:20","source":"DraftKings lines via ESPN core API propBets (lines only, no prices)",
+ "rule":"model side >=59%, in-model role, line inside model ladder, season record on that side >=50%, last three not all against",
+ "legs":[["Chig Okonkwo","rec","under",4.5,0.72],["Chig Okonkwo","rec_yds","under",41.5,0.63],["Antonio Williams","rec","under",3.5,0.62],["Stefon Diggs","rec_yds","under",54.5,0.62],["Stefon Diggs","rec","under",4.5,0.64],["Jayden Daniels","rush_yds","under",42.5,0.61],["Chase Brown","rec_yds","under",28.5,0.63],["Tee Higgins","rec","under",5.5,0.59]],
+ "rejected":[["Rachaad White","rush_yds","over",20.5,0.70,"Croskey-Merritt activated; not in model"],["Rachaad White","rec","over",1.5,0.67,"same role doubt, questionable"],["Ja'Marr Chase","rec_yds","under",102.5,0.68,"last three all over (141,155,231)"],["Chase Brown","carries","under",11.5,0.61,"season record 4/9"]]}

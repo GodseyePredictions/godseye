@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --test src/lib/*.test.ts",
+    "nfl:site": "python3 -I scripts/import-console.py && python3 -I scripts/build-locks.py",
     "slip:read": "node scripts/read-slip.ts",
     "slip:fixtures": "node scripts/make-slip-fixtures.mjs"
   },

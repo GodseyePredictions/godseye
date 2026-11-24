@@ -1,0 +1,798 @@
+{
+ "game": "2026_11_IND_HOU",
+ "locked_at": "2026-11-20T00:40:15+00:00",
+ "site_version": 38,
+ "pdf": "outputs/official/OFFICIAL_2026_Wk11_TNF_IND_HOU.pdf",
+ "pdf_sha256": "949e556bf8ac665f08e012016f6b782ccff2573ee0e6382e75d1aaba4a8d7e0c",
+ "build": "matchup reads on; Montgomery eligible by override; official inactives applied; total 44.5",
+ "recommended": [
+  "Props 4-leg",
+  "6-leg 1 ATD",
+  "ATD choose 2",
+  "6-leg 2 ATD"
+ ],
+ "tickets": [
+  {
+   "ticket": "Props 4-leg",
+   "p": 0.47623,
+   "legs": [
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8201
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.8184
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8019
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 20,
+     "p": 0.7784
+    }
+   ]
+  },
+  {
+   "ticket": "Props 6-leg",
+   "p": 0.25848,
+   "legs": [
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8201
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.8184
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8019
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 20,
+     "p": 0.7784
+    },
+    {
+     "player_id": "00-0034383",
+     "name": "Dalton Schultz",
+     "team": "HOU",
+     "mk": "rec_yds",
+     "k": 20,
+     "p": 0.7647
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_td",
+     "k": 1,
+     "p": 0.6643
+    }
+   ]
+  },
+  {
+   "ticket": "Props 8-leg",
+   "p": 0.14012,
+   "legs": [
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8201
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.8184
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8019
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 20,
+     "p": 0.7784
+    },
+    {
+     "player_id": "00-0034383",
+     "name": "Dalton Schultz",
+     "team": "HOU",
+     "mk": "rec_yds",
+     "k": 20,
+     "p": 0.7647
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_td",
+     "k": 1,
+     "p": 0.6643
+    },
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "rec",
+     "k": 4,
+     "p": 0.7242
+    },
+    {
+     "player_id": "00-0038618",
+     "name": "Xavier Hutchinson",
+     "team": "HOU",
+     "mk": "rec_yds",
+     "k": 20,
+     "p": 0.7324
+    }
+   ]
+  },
+  {
+   "ticket": "Lotto 9-leg",
+   "p": 0.3418,
+   "legs": [
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 20,
+     "p": 0.9266
+    },
+    {
+     "player_id": "00-0038618",
+     "name": "Xavier Hutchinson",
+     "team": "HOU",
+     "mk": "rec",
+     "k": 1,
+     "p": 0.9215
+    },
+    {
+     "player_id": "00-0039163",
+     "name": "C.J. Stroud",
+     "team": "HOU",
+     "mk": "pass_td",
+     "k": 1,
+     "p": 0.9155
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rec",
+     "k": 1,
+     "p": 0.9165
+    },
+    {
+     "player_id": "00-0039163",
+     "name": "C.J. Stroud",
+     "team": "HOU",
+     "mk": "pass_att",
+     "k": 25,
+     "p": 0.8884
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 20,
+     "p": 0.7784
+    },
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8539
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8201
+    },
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "rec_yds",
+     "k": 40,
+     "p": 0.8252
+    }
+   ]
+  },
+  {
+   "ticket": "6-leg 1 ATD",
+   "p": 0.17683,
+   "legs": [
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4552
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 20,
+     "p": 0.7784
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8201
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.8184
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8019
+    },
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "rec",
+     "k": 4,
+     "p": 0.7242
+    }
+   ]
+  },
+  {
+   "ticket": "6-leg 2 ATD",
+   "p": 0.08908,
+   "legs": [
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.407
+    },
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4552
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 20,
+     "p": 0.7784
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8201
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.8184
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8019
+    }
+   ]
+  },
+  {
+   "ticket": "8-leg 1 ATD",
+   "p": 0.09935,
+   "legs": [
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4552
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 20,
+     "p": 0.7784
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8201
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.8184
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8019
+    },
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "rec",
+     "k": 4,
+     "p": 0.7242
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_td",
+     "k": 1,
+     "p": 0.6643
+    },
+    {
+     "player_id": "00-0034383",
+     "name": "Dalton Schultz",
+     "team": "HOU",
+     "mk": "rec_yds",
+     "k": 20,
+     "p": 0.7647
+    }
+   ]
+  },
+  {
+   "ticket": "8-leg 2 ATD",
+   "p": 0.05382,
+   "legs": [
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.407
+    },
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4552
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 20,
+     "p": 0.7784
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 3,
+     "p": 0.8201
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.8184
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "carries",
+     "k": 10,
+     "p": 0.8019
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_td",
+     "k": 1,
+     "p": 0.6643
+    },
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "rec",
+     "k": 4,
+     "p": 0.7242
+    }
+   ]
+  },
+  {
+   "ticket": "ATD choose 2",
+   "p": 0.1778,
+   "legs": [
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4552
+    },
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.407
+    }
+   ]
+  },
+  {
+   "ticket": "ATD choose 3",
+   "p": 0.07062,
+   "legs": [
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4552
+    },
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.407
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "atd",
+     "k": null,
+     "p": 0.3769
+    }
+   ]
+  },
+  {
+   "ticket": "ATD choose 4",
+   "p": 0.02211,
+   "legs": [
+    {
+     "player_id": "00-0036554",
+     "name": "Nico Collins",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.4552
+    },
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.407
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "atd",
+     "k": null,
+     "p": 0.3769
+    },
+    {
+     "player_id": "00-0034383",
+     "name": "Dalton Schultz",
+     "team": "HOU",
+     "mk": "atd",
+     "k": null,
+     "p": 0.3401
+    }
+   ]
+  },
+  {
+   "ticket": "Aggressive SGP 6-leg",
+   "p": 0.07375,
+   "legs": [
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 25,
+     "p": 0.5622
+    },
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.583
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec_yds",
+     "k": 30,
+     "p": 0.6072
+    },
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "rec",
+     "k": 1,
+     "p": 0.6187
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 4,
+     "p": 0.6669
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 40,
+     "p": 0.6882
+    }
+   ]
+  },
+  {
+   "ticket": "Aggressive SGP 8-leg",
+   "p": 0.035,
+   "legs": [
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_att",
+     "k": 25,
+     "p": 0.5622
+    },
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "rush_yds",
+     "k": 30,
+     "p": 0.583
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec_yds",
+     "k": 30,
+     "p": 0.6072
+    },
+    {
+     "player_id": "00-0035685",
+     "name": "David Montgomery",
+     "team": "HOU",
+     "mk": "rec",
+     "k": 1,
+     "p": 0.6187
+    },
+    {
+     "player_id": "00-0040128",
+     "name": "Tyler Warren",
+     "team": "IND",
+     "mk": "rec",
+     "k": 4,
+     "p": 0.6669
+    },
+    {
+     "player_id": "00-0036223",
+     "name": "Jonathan Taylor",
+     "team": "IND",
+     "mk": "rush_yds",
+     "k": 40,
+     "p": 0.6882
+    },
+    {
+     "player_id": "00-0035710",
+     "name": "Daniel Jones",
+     "team": "IND",
+     "mk": "pass_td",
+     "k": 1,
+     "p": 0.6643
+    },
+    {
+     "player_id": "00-0034383",
+     "name": "Dalton Schultz",
+     "team": "HOU",
+     "mk": "rec_yds",
+     "k": 30,
+     "p": 0.6647
+    }
+   ]
+  }
+ ],
+ "atd_board": [
+  {
+   "name": "Nico Collins",
+   "pos": "WR",
+   "team": "HOU",
+   "p": 0.4552
+  },
+  {
+   "name": "David Montgomery",
+   "pos": "RB",
+   "team": "HOU",
+   "p": 0.407
+  },
+  {
+   "name": "Jonathan Taylor",
+   "pos": "RB",
+   "team": "IND",
+   "p": 0.3769
+  },
+  {
+   "name": "Dalton Schultz",
+   "pos": "TE",
+   "team": "HOU",
+   "p": 0.3401
+  },
+  {
+   "name": "Xavier Hutchinson",
+   "pos": "WR",
+   "team": "HOU",
+   "p": 0.2925
+  },
+  {
+   "name": "Tank Dell",
+   "pos": "WR",
+   "team": "HOU",
+   "p": 0.2886
+  },
+  {
+   "name": "Laquon Treadwell",
+   "pos": "WR",
+   "team": "IND",
+   "p": 0.2358
+  },
+  {
+   "name": "Kayshon Boutte",
+   "pos": "WR",
+   "team": "HOU",
+   "p": 0.2339
+  },
+  {
+   "name": "Emari Demercado",
+   "pos": "RB",
+   "team": "HOU",
+   "p": 0.2267
+  },
+  {
+   "name": "Tyler Warren",
+   "pos": "TE",
+   "team": "IND",
+   "p": 0.2029
+  },
+  {
+   "name": "Foster Moreau",
+   "pos": "TE",
+   "team": "HOU",
+   "p": 0.1404
+  },
+  {
+   "name": "Anthony Richardson",
+   "pos": "QB",
+   "team": "IND",
+   "p": 0.1261
+  },
+  {
+   "name": "Seth McGowan",
+   "pos": "RB",
+   "team": "IND",
+   "p": 0.1155
+  }
+ ]
+}

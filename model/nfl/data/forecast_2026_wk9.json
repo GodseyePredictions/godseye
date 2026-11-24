@@ -1,0 +1,72 @@
+{
+ "2026_09_DEN_CAR": {
+  "short": "Sunny",
+  "temp": 67.0,
+  "wind": 7.0,
+  "pop": 0,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_DAL_IND": {
+  "short": "Sunny",
+  "temp": 57.0,
+  "wind": 10.0,
+  "pop": 0,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_NYJ_KC": {
+  "short": "Sunny",
+  "temp": 61.0,
+  "wind": 3.0,
+  "pop": 0,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_DET_MIA": {
+  "short": "Mostly Sunny",
+  "temp": 83.0,
+  "wind": 6.0,
+  "pop": 9,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_NYG_PHI": {
+  "short": "Sunny",
+  "temp": 60.0,
+  "wind": 10.0,
+  "pop": 0,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_LA_WAS": {
+  "short": "Sunny",
+  "temp": 64.0,
+  "wind": 9.0,
+  "pop": 0,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_LV_SF": {
+  "short": "Sunny",
+  "temp": 70.0,
+  "wind": 6.0,
+  "pop": 0,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_GB_NE": {
+  "short": "Sunny",
+  "temp": 56.0,
+  "wind": 13.0,
+  "pop": 0,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_ARI_SEA": {
+  "short": "Partly Sunny",
+  "temp": 55.0,
+  "wind": 10.0,
+  "pop": 7,
+  "fetched": "2026-11-08T15:25-05:00"
+ },
+ "2026_09_TB_CHI": {
+  "short": "Clear",
+  "temp": 51.0,
+  "wind": 10.0,
+  "pop": 0,
+  "fetched": "2026-11-08T15:25-05:00"
+ }
+}

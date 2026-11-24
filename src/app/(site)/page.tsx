@@ -1,8 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import locks from "../../../model/output/locks.json";
+import locksJson from "../../../model/output/locks.json";
 import nba from "../../../model/nba/output/nba_site.json";
+
+/* The shape of model/output/locks.json (scripts/build-locks.py). Written out here so the page still builds
+   in a week when a list is empty, for example a rebuild after every game has kicked off. */
+type LockLeg = { text: string; team: string; p: number; record?: string };
+type Lock = { kind: string; matchup: string; when: string; p: number; tab: string; legs: LockLeg[] };
+type NflStar = {
+  name: string;
+  on_slate: boolean;
+  team?: string;
+  pos?: string;
+  game?: string;
+  when?: string;
+  atd?: number;
+  singles_only?: boolean;
+  lines?: { text: string; p: number; record?: string }[];
+};
+const locks = locksJson as unknown as { stars: NflStar[]; photos: string[]; season: number; week: number; built: string; locks: Lock[] };
 
 const pct = (p: number) => `${Math.round(p * 100)}%`;
 /** The price at which a bet with this chance breaks even (American odds). */
@@ -321,7 +338,7 @@ export default function Home() {
                       </div>
                       <div className="leg-sub">
                         {l.team}
-                        {"record" in l && l.record ? ` · ${l.record}` : ""}
+                        {l.record ? ` · ${l.record}` : ""}
                       </div>
                     </div>
                   ))}
@@ -337,10 +354,17 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="backing">
-              <strong>Every pick shows its chance of losing.</strong> A parlay at{" "}
-              {pct(locks.locks[0]?.p ?? 0)} still loses more often than it wins: take a price better than the fair price shown, or pass.
-            </p>
+            {locks.locks.length === 0 ? (
+              <p className="backing">
+                <strong>Week {locks.week}&apos;s games have kicked off.</strong> The next tickets appear here when the algorithm builds the
+                coming week.
+              </p>
+            ) : (
+              <p className="backing">
+                <strong>Every pick shows its chance of losing.</strong> A parlay at {pct(locks.locks[0].p)} still loses more often than
+                it wins: take a price better than the fair price shown, or pass.
+              </p>
+            )}
           </div>
         </section>
 

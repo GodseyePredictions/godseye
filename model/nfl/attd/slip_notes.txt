@@ -1,0 +1,7 @@
+Model: a structural layer (team TDs × each player's share of the opportunities) plus gradient boosting, refit on every game through the most recent one. Out-of-sample 2025–26: log loss 0.387, AUC 0.76. On the 223 shipped ATD legs in your ledger it priced slightly better than the old engine (0.646 vs 0.652), but the gap isn't significant.
+Personnel: the official injury report is applied (Out/Doubtful removed), plus data/personnel.csv overrides. Jacoby Brissett is removed from ARI (traded to BAL per your ledger; the nflverse roster lags). Re-run at inactives, about 90 minutes before each kickoff.
+Singles only (kept off every ticket): Questionable players, and anyone who missed 2+ of his team's last 4 games.
+Play-at cushion: WR +6 points, TE/QB +4, RB +3. WRs that made tickets ran about 7 points hot in the 2026 ledger (a selection effect), so they need the longest prices.
+Long tickets compound small errors: an 8–12 leg ticket at a few percent or less is a lottery ticket even when every leg is fairly priced. Size by quarter-Kelly. The 4- and 6-leg are the tickets the model actually likes.
+Weather: NWS kickoff-hour forecasts for every outdoor US game. International games have no NWS coverage, so weather there is treated as neutral.
+Top-end calibration: in the 2026 walk-forward, players priced 60%+ scored 77% of the time (34 legs); in 2025–26 backtesting the same bucket ran about 4 points over. Treat 65%+ RBs as roughly fair.
