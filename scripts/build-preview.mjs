@@ -153,5 +153,12 @@ ${safe(js.outputFiles[0].text)}
 ${safe(readFileSync(path.join(root, "public/console/app.js"), "utf8"))}
 </script>
 `;
+// The published site always has the same parts (CLAUDE.md, "Publishing the site"). Refuse to write a file without them.
+for (const [what, found] of [
+  ["the landing page", js.outputFiles[0].text.includes("lp-hero")],
+  ["the white slip styles on the landing page", siteText.includes(".gs-slip")],
+  ["the white slip styles in the consoles", cssText.includes(".gs-slip")],
+  ["set slips in the NFL console", readFileSync(path.join(root, "public/console/app.js"), "utf8").includes("function geSlip(")],
+]) if (!found) throw new Error(`The build is missing ${what}`);
 writeFileSync(out, html);
 console.log(`${out}: ${(html.length / 1e6).toFixed(2)} MB`);
