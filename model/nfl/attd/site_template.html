@@ -95,6 +95,7 @@ h3{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.4px
 .btn.sm{padding:4px 8px;font-size:12px}
 .btn.on{background:var(--ink,#111);color:var(--bg,#fff);border-color:transparent}
 /* cashed slips: white tickets on the dark console */
+nav.tabs a[hidden]{display:none}
 .lgbar{display:flex;gap:8px;margin:4px 0 12px}
 .lgtab{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.08em;text-transform:uppercase;padding:8px 26px;border-radius:10px;border:1px solid var(--line2);background:var(--raise2);color:var(--muted)}
 .lgtab.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:var(--red-glow)}
@@ -886,7 +887,7 @@ function render(){
   if(sameTab) requestAnimationFrame(()=>window.scrollTo(0,y));   // never jump the page on an add/remove
 }
 function cashedNav(){const a=document.querySelector('nav.tabs a[data-tab="cashed"]');if(a)a.hidden=!(D.cashed||D.cashed_nba)}
-function route(){cashedNav();const h=location.hash.slice(1);state.tab=["home","picks","sgp","mysgp","build","board","audit","cashed","model"].includes(h)?h:"home";render()}
+function route(){const h=location.hash.slice(1);cashedNav();state.tab=["home","picks","sgp","mysgp","build","board","audit","cashed","model"].includes(h)?h:"home";render()}
 
 document.addEventListener("click",e=>{
   const t=e.target.closest("button");if(!t)return;const d=t.dataset;
