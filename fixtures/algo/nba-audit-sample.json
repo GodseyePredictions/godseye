@@ -1,0 +1,1724 @@
+{
+ "run_at": "2026-11-24T00:00:00+00:00",
+ "note": "Made-up game for tests. Not real players or results.",
+ "games": [
+  {
+   "id": "g1",
+   "home": "HOM",
+   "away": "AWY",
+   "ladder": [
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "pts",
+     "line": 17.5,
+     "side": "over",
+     "p": 0.8386166666666667,
+     "price": -200.0,
+     "note": "model 84% is more than 15% above the book's 67%",
+     "team": "HOM"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "pts",
+     "line": 21.5,
+     "side": "over",
+     "p": 0.6200666666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "pts",
+     "line": 25.5,
+     "side": "over",
+     "p": 0.38053333333333333,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h2",
+     "name": "h2",
+     "team_id": "1",
+     "market": "pts",
+     "line": 11.5,
+     "side": "over",
+     "p": 0.84455,
+     "price": -200.0,
+     "note": "model 84% is more than 15% above the book's 67%",
+     "team": "HOM"
+    },
+    {
+     "player_id": "h2",
+     "name": "h2",
+     "team_id": "1",
+     "market": "pts",
+     "line": 15.5,
+     "side": "over",
+     "p": 0.6223,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h2",
+     "name": "h2",
+     "team_id": "1",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over",
+     "p": 0.3883666666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h3",
+     "name": "h3",
+     "team_id": "1",
+     "market": "pts",
+     "line": 4.5,
+     "side": "over",
+     "p": 0.8729014986614626,
+     "price": -200.0,
+     "note": "model 87% is more than 15% above the book's 67%",
+     "team": "HOM"
+    },
+    {
+     "player_id": "h3",
+     "name": "h3",
+     "team_id": "1",
+     "market": "pts",
+     "line": 7.5,
+     "side": "over",
+     "p": 0.525607345692912,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over",
+     "p": 0.8215333333333333,
+     "price": -200.0,
+     "note": "model 82% is more than 15% above the book's 67%",
+     "team": "AWY"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "pts",
+     "line": 23.5,
+     "side": "over",
+     "p": 0.6138,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "pts",
+     "line": 27.5,
+     "side": "over",
+     "p": 0.3835166666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a2",
+     "name": "a2",
+     "team_id": "2",
+     "market": "pts",
+     "line": 10.5,
+     "side": "over",
+     "p": 0.87245,
+     "price": -200.0,
+     "note": "model 87% is more than 15% above the book's 67%",
+     "team": "AWY"
+    },
+    {
+     "player_id": "a2",
+     "name": "a2",
+     "team_id": "2",
+     "market": "pts",
+     "line": 13.5,
+     "side": "over",
+     "p": 0.6723666666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a3",
+     "name": "a3",
+     "team_id": "2",
+     "market": "pts",
+     "line": 3.5,
+     "side": "over",
+     "p": 0.8931,
+     "price": -200.0,
+     "note": "model 89% is more than 15% above the book's 67%",
+     "team": "AWY"
+    },
+    {
+     "player_id": "a3",
+     "name": "a3",
+     "team_id": "2",
+     "market": "pts",
+     "line": 6.5,
+     "side": "over",
+     "p": 0.5327833333333334,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "reb",
+     "line": 2.5,
+     "side": "over",
+     "p": 0.7327666666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h2",
+     "name": "h2",
+     "team_id": "1",
+     "market": "reb",
+     "line": 7.5,
+     "side": "over",
+     "p": 0.7874,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h2",
+     "name": "h2",
+     "team_id": "1",
+     "market": "reb",
+     "line": 9.5,
+     "side": "over",
+     "p": 0.6103,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "reb",
+     "line": 3.5,
+     "side": "over",
+     "p": 0.7006166666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a2",
+     "name": "a2",
+     "team_id": "2",
+     "market": "reb",
+     "line": 6.5,
+     "side": "over",
+     "p": 0.8040833333333334,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a2",
+     "name": "a2",
+     "team_id": "2",
+     "market": "reb",
+     "line": 8.5,
+     "side": "over",
+     "p": 0.6217,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over",
+     "p": 0.8419333333333333,
+     "price": -200.0,
+     "note": "model 84% is more than 15% above the book's 67%",
+     "team": "HOM"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "ast",
+     "line": 6.5,
+     "side": "over",
+     "p": 0.6379166666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "ast",
+     "line": 8.5,
+     "side": "over",
+     "p": 0.4241666666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over",
+     "p": 0.7951333333333334,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "ast",
+     "line": 6.5,
+     "side": "over",
+     "p": 0.5305,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a2",
+     "name": "a2",
+     "team_id": "2",
+     "market": "ast",
+     "line": 1.5,
+     "side": "over",
+     "p": 0.7868833333333334,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over",
+     "p": 0.7847833333333334,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over",
+     "p": 0.5639166666666666,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "h3",
+     "name": "h3",
+     "team_id": "1",
+     "market": "fg3m",
+     "line": 0.5,
+     "side": "over",
+     "p": 0.6895093697615652,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over",
+     "p": 0.6987833333333333,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over",
+     "p": 0.44611666666666666,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "a3",
+     "name": "a3",
+     "team_id": "2",
+     "market": "fg3m",
+     "line": 0.5,
+     "side": "over",
+     "p": 0.6232666666666666,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "h1",
+     "name": "h1",
+     "team_id": "1",
+     "market": "pra",
+     "line": 30.5,
+     "side": "over",
+     "p": 0.7176166666666667,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    },
+    {
+     "player_id": "a1",
+     "name": "a1",
+     "team_id": "2",
+     "market": "pra",
+     "line": 32.5,
+     "side": "over",
+     "p": 0.7048,
+     "price": -200.0,
+     "note": null,
+     "team": "AWY"
+    },
+    {
+     "player_id": "h2",
+     "name": "h2",
+     "team_id": "1",
+     "market": "pts",
+     "line": 21.5,
+     "side": "under",
+     "p": 0.7060333333333333,
+     "price": -200.0,
+     "note": null,
+     "team": "HOM"
+    }
+   ],
+   "corr": {
+    "a1:ast|a1:fg3m": 0.115,
+    "a1:ast|a1:pra": 0.576,
+    "a1:ast|a1:pts": 0.289,
+    "a1:ast|a1:reb": 0.15,
+    "a1:ast|a2:ast": 0.127,
+    "a1:ast|a2:pts": 0.257,
+    "a1:ast|a2:reb": 0.182,
+    "a1:ast|a3:fg3m": 0.076,
+    "a1:ast|a3:pts": 0.181,
+    "a1:ast|h1:ast": 0.163,
+    "a1:ast|h1:fg3m": 0.129,
+    "a1:ast|h1:pra": 0.301,
+    "a1:ast|h1:pts": 0.281,
+    "a1:ast|h1:reb": 0.131,
+    "a1:ast|h2:pts": 0.192,
+    "a1:ast|h2:reb": 0.192,
+    "a1:ast|h3:fg3m": 0.083,
+    "a1:ast|h3:pts": 0.191,
+    "a1:fg3m|a1:pra": 0.194,
+    "a1:fg3m|a1:pts": 0.176,
+    "a1:fg3m|a1:reb": 0.091,
+    "a1:fg3m|a2:ast": 0.075,
+    "a1:fg3m|a2:pts": 0.158,
+    "a1:fg3m|a2:reb": 0.114,
+    "a1:fg3m|a3:fg3m": 0.041,
+    "a1:fg3m|a3:pts": 0.116,
+    "a1:fg3m|h1:ast": 0.108,
+    "a1:fg3m|h1:fg3m": 0.075,
+    "a1:fg3m|h1:pra": 0.196,
+    "a1:fg3m|h1:pts": 0.182,
+    "a1:fg3m|h1:reb": 0.086,
+    "a1:fg3m|h2:pts": 0.127,
+    "a1:fg3m|h2:reb": 0.109,
+    "a1:fg3m|h3:fg3m": 0.055,
+    "a1:fg3m|h3:pts": 0.108,
+    "a1:pra|a1:pts": 0.903,
+    "a1:pra|a1:reb": 0.503,
+    "a1:pra|a2:ast": 0.221,
+    "a1:pra|a2:pts": 0.424,
+    "a1:pra|a2:reb": 0.371,
+    "a1:pra|a3:fg3m": 0.126,
+    "a1:pra|a3:pts": 0.308,
+    "a1:pra|h1:ast": 0.279,
+    "a1:pra|h1:fg3m": 0.216,
+    "a1:pra|h1:pra": 0.509,
+    "a1:pra|h1:pts": 0.481,
+    "a1:pra|h1:reb": 0.191,
+    "a1:pra|h2:pts": 0.331,
+    "a1:pra|h2:reb": 0.276,
+    "a1:pra|h3:fg3m": 0.147,
+    "a1:pra|h3:pts": 0.325,
+    "a1:pts|a1:reb": 0.23,
+    "a1:pts|a2:ast": 0.201,
+    "a1:pts|a2:pts": 0.384,
+    "a1:pts|a2:reb": 0.292,
+    "a1:pts|a3:fg3m": 0.113,
+    "a1:pts|a3:pts": 0.28,
+    "a1:pts|h1:ast": 0.253,
+    "a1:pts|h1:fg3m": 0.195,
+    "a1:pts|h1:pra": 0.472,
+    "a1:pts|h1:pts": 0.438,
+    "a1:pts|h1:reb": 0.209,
+    "a1:pts|h2:pts": 0.301,
+    "a1:pts|h2:reb": 0.298,
+    "a1:pts|h3:fg3m": 0.135,
+    "a1:pts|h3:pts": 0.296,
+    "a1:reb|a2:ast": 0.104,
+    "a1:reb|a2:pts": 0.198,
+    "a1:reb|a2:reb": 0.331,
+    "a1:reb|a3:fg3m": 0.062,
+    "a1:reb|a3:pts": 0.148,
+    "a1:reb|h1:ast": 0.133,
+    "a1:reb|h1:fg3m": 0.104,
+    "a1:reb|h1:pra": 0.214,
+    "a1:reb|h1:pts": 0.228,
+    "a1:reb|h1:reb": -0.021,
+    "a1:reb|h2:pts": 0.158,
+    "a1:reb|h2:reb": -0.027,
+    "a1:reb|h3:fg3m": 0.068,
+    "a1:reb|h3:pts": 0.152,
+    "a2:ast|a2:pts": 0.173,
+    "a2:ast|a2:reb": 0.13,
+    "a2:ast|a3:fg3m": 0.051,
+    "a2:ast|a3:pts": 0.13,
+    "a2:ast|h1:ast": 0.112,
+    "a2:ast|h1:fg3m": 0.091,
+    "a2:ast|h1:pra": 0.213,
+    "a2:ast|h1:pts": 0.201,
+    "a2:ast|h1:reb": 0.092,
+    "a2:ast|h2:pts": 0.136,
+    "a2:ast|h2:reb": 0.138,
+    "a2:ast|h3:fg3m": 0.049,
+    "a2:ast|h3:pts": 0.135,
+    "a2:pts|a2:reb": 0.258,
+    "a2:pts|a3:fg3m": 0.101,
+    "a2:pts|a3:pts": 0.24,
+    "a2:pts|h1:ast": 0.218,
+    "a2:pts|h1:fg3m": 0.171,
+    "a2:pts|h1:pra": 0.415,
+    "a2:pts|h1:pts": 0.388,
+    "a2:pts|h1:reb": 0.181,
+    "a2:pts|h2:pts": 0.263,
+    "a2:pts|h2:reb": 0.255,
+    "a2:pts|h3:fg3m": 0.12,
+    "a2:pts|h3:pts": 0.263,
+    "a2:reb|a3:fg3m": 0.072,
+    "a2:reb|a3:pts": 0.18,
+    "a2:reb|h1:ast": 0.167,
+    "a2:reb|h1:fg3m": 0.132,
+    "a2:reb|h1:pra": 0.27,
+    "a2:reb|h1:pts": 0.287,
+    "a2:reb|h1:reb": -0.021,
+    "a2:reb|h2:pts": 0.198,
+    "a2:reb|h2:reb": -0.041,
+    "a2:reb|h3:fg3m": 0.088,
+    "a2:reb|h3:pts": 0.196,
+    "a3:fg3m|a3:pts": 0.074,
+    "a3:fg3m|h1:ast": 0.064,
+    "a3:fg3m|h1:fg3m": 0.05,
+    "a3:fg3m|h1:pra": 0.122,
+    "a3:fg3m|h1:pts": 0.113,
+    "a3:fg3m|h1:reb": 0.059,
+    "a3:fg3m|h2:pts": 0.082,
+    "a3:fg3m|h2:reb": 0.075,
+    "a3:fg3m|h3:fg3m": 0.039,
+    "a3:fg3m|h3:pts": 0.069,
+    "a3:pts|h1:ast": 0.164,
+    "a3:pts|h1:fg3m": 0.131,
+    "a3:pts|h1:pra": 0.303,
+    "a3:pts|h1:pts": 0.28,
+    "a3:pts|h1:reb": 0.135,
+    "a3:pts|h2:pts": 0.194,
+    "a3:pts|h2:reb": 0.187,
+    "a3:pts|h3:fg3m": 0.085,
+    "a3:pts|h3:pts": 0.174,
+    "h1:ast|h1:fg3m": 0.116,
+    "h1:ast|h1:pra": 0.623,
+    "h1:ast|h1:pts": 0.251,
+    "h1:ast|h1:reb": 0.115,
+    "h1:ast|h2:pts": 0.521,
+    "h1:ast|h2:reb": 0.173,
+    "h1:ast|h3:fg3m": 0.077,
+    "h1:ast|h3:pts": 0.168,
+    "h1:fg3m|h1:pra": 0.21,
+    "h1:fg3m|h1:pts": 0.194,
+    "h1:fg3m|h1:reb": 0.089,
+    "h1:fg3m|h2:pts": 0.135,
+    "h1:fg3m|h2:reb": 0.132,
+    "h1:fg3m|h3:fg3m": 0.063,
+    "h1:fg3m|h3:pts": 0.134,
+    "h1:pra|h1:pts": 0.874,
+    "h1:pra|h1:reb": 0.444,
+    "h1:pra|h2:pts": 0.468,
+    "h1:pra|h2:reb": 0.357,
+    "h1:pra|h3:fg3m": 0.144,
+    "h1:pra|h3:pts": 0.316,
+    "h1:pts|h1:reb": 0.206,
+    "h1:pts|h2:pts": 0.299,
+    "h1:pts|h2:reb": 0.287,
+    "h1:pts|h3:fg3m": 0.133,
+    "h1:pts|h3:pts": 0.295,
+    "h1:reb|h2:pts": 0.138,
+    "h1:reb|h2:reb": 0.315,
+    "h1:reb|h3:fg3m": 0.072,
+    "h1:reb|h3:pts": 0.148,
+    "h2:pts|h2:reb": 0.204,
+    "h2:pts|h3:fg3m": 0.09,
+    "h2:pts|h3:pts": 0.202,
+    "h2:reb|h3:fg3m": 0.086,
+    "h2:reb|h3:pts": 0.195,
+    "h3:fg3m|h3:pts": 0.089
+   }
+  }
+ ],
+ "checks": [
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "reb",
+     "line": 3.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 6.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 17.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 7.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2488,
+   "independent": 0.1926
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 21.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2862,
+   "independent": 0.2408
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 6.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.5121,
+   "independent": 0.5006
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 21.5,
+     "side": "under"
+    },
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 23.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "pts",
+     "line": 6.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2226,
+   "independent": 0.2309
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 9.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 11.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "pts",
+     "line": 3.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.3636,
+   "independent": 0.3042
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 13.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 9.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.1825,
+   "independent": 0.116
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 7.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "reb",
+     "line": 6.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "fg3m",
+     "line": 0.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2869,
+   "independent": 0.2634
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 17.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 6.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.3862,
+   "independent": 0.3491
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 13.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 9.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.4443,
+   "independent": 0.4103
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 27.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pra",
+     "line": 30.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 7.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.1083,
+   "independent": 0.0414
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "reb",
+     "line": 3.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.5594,
+   "independent": 0.5498
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "pra",
+     "line": 30.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 9.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.4394,
+   "independent": 0.3598
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "pra",
+     "line": 32.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 13.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pra",
+     "line": 30.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.4057,
+   "independent": 0.2704
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 8.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "reb",
+     "line": 3.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2833,
+   "independent": 0.2441
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 8.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pra",
+     "line": 32.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.3364,
+   "independent": 0.299
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 7.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 8.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "pts",
+     "line": 6.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 13.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.073,
+   "independent": 0.0356
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "reb",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "fg3m",
+     "line": 0.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "pts",
+     "line": 6.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2189,
+   "independent": 0.191
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "pts",
+     "line": 6.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 27.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 21.5,
+     "side": "under"
+    },
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.0915,
+   "independent": 0.0802
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pra",
+     "line": 30.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "reb",
+     "line": 6.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.5557,
+   "independent": 0.4858
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pra",
+     "line": 30.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pra",
+     "line": 32.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 27.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.311,
+   "independent": 0.1633
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.3285,
+   "independent": 0.3088
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 25.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2681,
+   "independent": 0.2321
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 27.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "ast",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 25.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "pts",
+     "line": 6.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.1324,
+   "independent": 0.0612
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a3",
+     "market": "fg3m",
+     "line": 0.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 7.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 7.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 27.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.0815,
+   "independent": 0.0441
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 8.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 13.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.3166,
+   "independent": 0.2852
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 10.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 21.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.3538,
+   "independent": 0.3051
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 7.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "reb",
+     "line": 3.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "reb",
+     "line": 6.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 9.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.1502,
+   "independent": 0.1004
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a2",
+     "market": "ast",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 7.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 27.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 21.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.1033,
+   "independent": 0.0382
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 15.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h3",
+     "market": "pts",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pra",
+     "line": 32.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "reb",
+     "line": 6.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.1292,
+   "independent": 0.0774
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 8.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 15.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.213,
+   "independent": 0.1489
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 6.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 13.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2946,
+   "independent": 0.2492
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a3",
+     "market": "pts",
+     "line": 6.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 2.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.3217,
+   "independent": 0.3004
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h2",
+     "market": "pts",
+     "line": 11.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 13.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 9.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a2",
+     "market": "ast",
+     "line": 1.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2783,
+   "independent": 0.214
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 19.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 21.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 7.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.4055,
+   "independent": 0.3189
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h3",
+     "market": "fg3m",
+     "line": 0.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 21.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "reb",
+     "line": 2.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2621,
+   "independent": 0.2189
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 7.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.4854,
+   "independent": 0.4633
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a2",
+     "market": "pts",
+     "line": 10.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "reb",
+     "line": 3.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "ast",
+     "line": 4.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.5153,
+   "independent": 0.486
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "pra",
+     "line": 32.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "reb",
+     "line": 3.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.5578,
+   "independent": 0.4938
+  },
+  {
+   "legs": [
+    {
+     "player_id": "a1",
+     "market": "pra",
+     "line": 32.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "pts",
+     "line": 23.5,
+     "side": "over"
+    },
+    {
+     "player_id": "a1",
+     "market": "fg3m",
+     "line": 1.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "reb",
+     "line": 2.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 21.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2644,
+   "independent": 0.1374
+  },
+  {
+   "legs": [
+    {
+     "player_id": "h2",
+     "market": "reb",
+     "line": 9.5,
+     "side": "over"
+    },
+    {
+     "player_id": "h1",
+     "market": "pts",
+     "line": 25.5,
+     "side": "over"
+    }
+   ],
+   "counted": 0.2737,
+   "independent": 0.2322
+  }
+ ]
+}

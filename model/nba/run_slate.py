@@ -15,7 +15,7 @@ from datetime import datetime, timedelta, timezone
 import numpy as np
 import pandas as pd
 
-from nba import availability, grading, ledger, refresh, sgp, sources
+from nba import audit_export, availability, grading, ledger, refresh, sgp, sources
 from nba import calibrate
 from nba import player_sim as ps
 from nba import props
@@ -232,7 +232,13 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
         for t, tid in zip(built["tickets"], tids):
             text += f"\n  ticket id for [{t['type']}]: {tid}"
         texts.append(text)
-        slate.append({"card": card, "projections": prow, "preview": preview, "tip_utc": g.tip_utc, "home": g.home, "away": g.away,
+        audit = None
+        if cfg.get("audit_export") and not preview and not offers.empty:
+            try:                                 # an extra for the website: it must never stop a slate
+                audit = audit_export.block(legs, players, cfg)
+            except Exception as e:               # noqa: BLE001
+                built["notes"].append(f"audit export skipped: {type(e).__name__}: {e}")
+        slate.append({"card": card, "projections": prow, "preview": preview, "tip_utc": g.tip_utc, "home": g.home, "away": g.away, "audit": audit,
                       "home_id": g.home_id, "away_id": g.away_id,
                       "tickets": [{"id": tid, "type": t["type"], "joint": t["joint"], "book_price": t["book_price"],
                                    "fair_price": t["fair_price"], "ev": t["ev"], "price_is_estimate": bool(t.get("price_is_estimate")),
@@ -276,7 +282,8 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                      + "\n".join(f"  {part['matchup']} ({part['joint']:.0%}): " + "; ".join(l["label"] for l in part["legs"]) for part in m["parts"]))
     payload = {"run_id": run_id, "run_at": run_at, "n_sims": n_sims or cfg["n_sims"], "games": slate, "status_changes": moved,
                "multi": multi, "book": book_used}
-    (OUT / "nba_slate.json").write_text(json.dumps(_clean(payload), indent=1, default=str))
+    slim = {**payload, "games": [{k: v for k, v in g.items() if k != "audit"} for g in slate]}   # the audit data has its own file
+    (OUT / "nba_slate.json").write_text(json.dumps(_clean(slim), indent=1, default=str))
     if not only:
         write_site_file(payload)
     write_track_file(con)
@@ -327,6 +334,16 @@ def write_site_file(payload: dict) -> None:
             "multi": [{**m, "parts": [{**p, "legs": [{k: l.get(k) for k in keep_leg} for l in p["legs"]]} for p in m["parts"]]}
                       for m in payload.get("multi", [])]}
     (OUT / "nba_site.json").write_text(json.dumps(_clean(site), default=str, allow_nan=False))
+    # the audit data goes in its own file: it is large, and only the slip audit and the advisor read it
+    audit = {"run_at": payload["run_at"], "games": []}
+    for g in payload["games"]:
+        a = g.get("audit")
+        if not a or not a.get("ladder"):
+            continue
+        abbr = {str(g["home_id"]): g["home"], str(g["away_id"]): g["away"]}
+        audit["games"].append({"id": g["card"]["game_id"], "home": g["home"], "away": g["away"],
+                               "ladder": [{**l, "team": abbr.get(str(l.get("team_id")), "")} for l in a["ladder"]], "corr": a["corr"]})
+    (OUT / "nba_audit.json").write_text(json.dumps(_clean(audit), default=str, allow_nan=False))
 
 
 def write_track_file(con, cfg=CONFIG) -> dict:

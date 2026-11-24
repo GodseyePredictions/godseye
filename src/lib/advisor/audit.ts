@@ -17,6 +17,13 @@ export const TICKET_RULES = {
   NBA: { floor: 0.75, weak: null as number | null, maxWeak: null as number | null, maxRebounds: 1 },
 };
 
+/** NBA props tickets (CLAUDE.md, 11 and 20 November): what the algorithm may put on one when it suggests a leg. */
+export const NBA_PROPS_RULES = {
+  markets: ["pts", "reb", "ast", "fg3m"] as string[],
+  /** Slips of this many legs or fewer carry no rebound leg and one leg per player. */
+  smallSlip: 4,
+};
+
 export type SlipLeg = { text: string; /** The leg's own price, American odds, if the slip shows one. */ odds?: number | null };
 
 export type Unrated =
@@ -90,14 +97,16 @@ export function auditParsed(parsed: ParsedLeg | null, leg: SlipLeg, catalog: Cat
              note: parsed.side === "under"
                ? `The algorithm rates milestones (for example 20+), not unders, for ${player}.`
                : catalog.sport === "NBA"
-                 ? `No ${MARKET_LABEL[parsed.market]} leg for ${player} is among tonight's posted NBA picks, so it is unrated here.`
+                 ? catalog.corr
+                   ? `The algorithm has no ${MARKET_LABEL[parsed.market]} rung for ${player} tonight, so it is unrated here.`
+                   : `No ${MARKET_LABEL[parsed.market]} leg for ${player} is among tonight's posted NBA picks, so it is unrated here.`
                  : `The algorithm does not rate ${MARKET_LABEL[parsed.market]} for ${player}.` };
 
   const match = market.find((l) => l.threshold === parsed.threshold);
   if (!match) {
     const ratedRungs = market.map((l) => l.threshold).filter((k): k is number => k !== null).sort((a, b) => a - b);
     return { ...base, parsed, status: "unrated", unrated: "rung-not-rated", ratedRungs,
-             note: `${catalog.sport === "NBA" ? "Tonight's posted NBA picks do not include" : "The algorithm does not rate"} ${rung(parsed.market, parsed.threshold)} for ${player}. ${catalog.sport === "NBA" ? "They include" : "It rates"} ${ratedRungs.map((k) => `${k}+`).join(", ")}.` };
+             note: `${catalog.sport === "NBA" && !catalog.corr ? "Tonight's posted NBA picks do not include" : "The algorithm does not rate"} ${rung(parsed.market, parsed.threshold)} for ${player}. ${catalog.sport === "NBA" && !catalog.corr ? "They include" : "It rates"} ${ratedRungs.map((k) => `${k}+`).join(", ")}.` };
   }
   const priced = typeof leg.odds === "number" && Number.isFinite(leg.odds) && Math.abs(leg.odds) >= 100;
   return {

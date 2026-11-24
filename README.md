@@ -49,7 +49,7 @@ Where things live:
 - `src/lib/slip/suggest.ts` proposes changes from algorithm output only. `recheck.ts` re-grades saved slips when the algorithm's numbers are rebuilt.
 - `src/lib/slip/tools.ts` exposes `parse_slip`, `grade_slip` and `suggest_changes` for the chat agent.
 
-Limits today: the joint chance is NFL only (the NBA output carries no correlations); suggested rungs come from the algorithm's ladder because there is no book price feed, so the user checks the rung and types the new price; saved slips and alerts live in the browser until accounts exist.
+Limits today: an NBA slip gets a joint chance once the nightly run has written `model/nba/output/nba_audit.json` (every rated rung and the correlations measured in that night's simulations; see `model/nba/audit_export.py`), and until then only legs on the posted slips are rated; suggested rungs come from the algorithm's ladder because there is no book price feed, so the user checks the rung and types the new price; saved slips and alerts live in the browser until accounts exist.
 
 ## The advisor chat
 

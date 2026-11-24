@@ -16,7 +16,8 @@ export function loadCatalog(sport: Sport): Promise<Catalog> {
       ? fetch("/console/data.js")
           .then((r) => (r.ok ? r.text() : Promise.reject(new Error("no data"))))
           .then((t) => nflCatalog(parseConsoleData(t)))
-      : import("../../model/nba/output/nba_site.json").then((m) => nbaCatalog(m.default));
+      : Promise.all([import("../../model/nba/output/nba_site.json"), import("../../model/nba/output/nba_audit.json").catch(() => null)])
+          .then(([site, audit]) => nbaCatalog(site.default, audit?.default));
   // a failed load is not remembered, so the next visit tries again
   cache[sport]!.catch(() => delete cache[sport]);
   return cache[sport]!;

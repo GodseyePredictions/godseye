@@ -51,13 +51,20 @@ export type RatedLeg = {
 /** The measured correlations the NFL algorithm ships with its weekly output. */
 export type NflCorr = { atd: Record<string, number>; legs: Record<string, number> & { _rel?: Record<string, number> } };
 
+/**
+ * The correlations the NBA algorithm measures from each night's simulations (model/nba/audit_export.py):
+ * one number per pair of (player, market) in a game, keyed "playerId:market|playerId:market" in sorted order.
+ */
+export type NbaCorr = { kind: "nba"; pairs: Record<string, Record<string, number>> };
+export type Corr = NflCorr | NbaCorr;
+
 export type Catalog = {
   sport: Sport;
   /** When the algorithm built this output, as it wrote it. */
   built: string;
   legs: RatedLeg[];
-  /** NFL only: without it, the chance of a multi-leg slip cannot be worked out and is not stated. */
-  corr?: NflCorr;
+  /** Without it, the chance of a multi-leg slip cannot be worked out and is not stated. */
+  corr?: Corr;
   /** Players whose game has already kicked off. They have no legs in `legs`. */
   startedPlayers?: string[];
 };
@@ -112,15 +119,31 @@ export function parseConsoleData(source: string): unknown {
   return JSON.parse(source.slice(source.indexOf("{"), source.lastIndexOf("}") + 1));
 }
 
-// ---------- NBA: the slate (model/nba/output/nba_site.json) ----------
+// ---------- NBA: the slate (model/nba/output/nba_site.json) and its audit data (nba_audit.json) ----------
 type NbaLeg = { name?: string; market?: string; line?: number; side?: string; p?: number };
 type NbaData = {
   run_at?: string;
   games: { home: string; away: string; preview?: boolean; singles?: NbaLeg[]; tickets?: { legs: NbaLeg[] }[] }[];
 };
+type NbaAudit = {
+  run_at?: string;
+  games?: {
+    id: string; home: string; away: string; corr?: Record<string, number>;
+    ladder?: (NbaLeg & { player_id?: string; team?: string; note?: string | null })[];
+  }[];
+};
 const NBA_MARKETS = new Set<string>(["pts", "reb", "ast", "fg3m", "stl", "blk", "pra", "pr", "pa"]);
 
-export function nbaCatalog(data: unknown): Catalog {
+/** An over on 5.5 is the 6+ milestone; an under on 5.5 is "5 or fewer", kept as its line. */
+const nbaThreshold = (side: Side, line: number) => (side === "over" ? Math.floor(line) + 1 : line);
+
+/**
+ * Every NBA leg the algorithm rated tonight. With the audit data (written by the same run) that is every
+ * offered rung for every confirmed player, with the ids and correlations the joint-probability engine needs.
+ * Without it, or if it is from a different run, only the legs on the posted slips are rated and a multi-leg
+ * slip gets no combined chance.
+ */
+export function nbaCatalog(data: unknown, audit?: unknown): Catalog {
   const D = data as NbaData;
   const seen = new Map<string, RatedLeg>();
   for (const g of D.games) {
@@ -130,13 +153,33 @@ export function nbaCatalog(data: unknown): Catalog {
     for (const l of all) {
       if (!l.name || !l.market || !NBA_MARKETS.has(l.market) || typeof l.line !== "number" || typeof l.p !== "number") continue;
       const side: Side = l.side === "under" ? "under" : "over";
-      // an over on 5.5 is the 6+ milestone; an under on 5.5 is "5 or fewer", kept as its line
-      const threshold = side === "over" ? Math.floor(l.line) + 1 : l.line;
+      const threshold = nbaThreshold(side, l.line);
       const leg: RatedLeg = { sport: "NBA", player: l.name, game, market: l.market as Market, threshold, side, prob: l.p };
       seen.set(`${l.name}|${l.market}|${side}|${threshold}`, leg);
     }
   }
-  return { sport: "NBA", built: D.run_at ?? "", legs: [...seen.values()] };
+  const A = audit as NbaAudit | undefined;
+  // numbers from two different runs must never be mixed
+  if (!A?.games?.length || !D.run_at || A.run_at !== D.run_at) return { sport: "NBA", built: D.run_at ?? "", legs: [...seen.values()] };
+
+  const live = new Set(D.games.filter((g) => !g.preview).map((g) => `${g.away} @ ${g.home}`));
+  const pairs: NbaCorr["pairs"] = {};
+  for (const g of A.games) {
+    const game = `${g.away} @ ${g.home}`;
+    if (!live.has(game)) continue;
+    pairs[g.id] = g.corr ?? {};
+    for (const l of g.ladder ?? []) {
+      if (!l.name || !l.player_id || !l.market || !NBA_MARKETS.has(l.market) || typeof l.line !== "number" || typeof l.p !== "number") continue;
+      const side: Side = l.side === "under" ? "under" : "over";
+      const threshold = nbaThreshold(side, l.line);
+      seen.set(`${l.name}|${l.market}|${side}|${threshold}`, {
+        sport: "NBA", player: l.name, team: l.team || undefined, game, market: l.market as Market, threshold, side, prob: l.p,
+        playerId: l.player_id, gameId: g.id, risk: l.note ?? null,
+      });
+    }
+  }
+  // a posted leg whose player is not in the audit data has no id; the engine then declines to combine it
+  return { sport: "NBA", built: D.run_at, legs: [...seen.values()], corr: { kind: "nba", pairs } };
 }
 
 // ---------- names ----------

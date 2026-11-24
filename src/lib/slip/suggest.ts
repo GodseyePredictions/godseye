@@ -5,10 +5,10 @@
  * ladder is not known here (there is no price feed), so every swap and add carries the note to check the
  * rung is offered, and the improved slip has no book price until the user re-prices it.
  *
- * Without the algorithm's correlations (NBA today) there is no joint chance, so only rule-based removals
+ * Without the algorithm's correlations (an NBA night with no audit data) there is no joint chance, so only rule-based removals
  * and same-player safer rungs are suggested, and no "improved" chance is stated.
  */
-import { TICKET_RULES } from "../advisor/audit.ts";
+import { NBA_PROPS_RULES, TICKET_RULES } from "../advisor/audit.ts";
 import { fairAmerican, jointProbability } from "../advisor/joint.ts";
 import { MARKET_LABEL, type Catalog, type Market, type RatedLeg } from "../advisor/legs.ts";
 import { GRADE_CONFIG, ratedLegs, ruleCheck, type SlipGrade } from "./grade.ts";
@@ -33,6 +33,14 @@ export function validRung(market: Market, k: number | null): boolean {
   if (k === null || !(k > 0)) return false;
   if (YARDS.includes(market) && k % 5 !== 0) return false;
   return k >= (LADDER_START[market] ?? 0);
+}
+
+/** NBA ticket structure: at most one rebound leg, none on a small slip, and a small slip has one leg per player. */
+function nbaFits(current: RatedLeg[], c: RatedLeg, size: number): boolean {
+  const small = size <= NBA_PROPS_RULES.smallSlip;
+  if (c.market === "reb" && (small || current.filter((l) => l.market === "reb").length >= (TICKET_RULES.NBA.maxRebounds ?? 0))) return false;
+  if (small && current.some((l) => l.player === c.player)) return false;
+  return true;
 }
 
 export const legLabel = (l: RatedLeg) => (l.market === "atd" ? `${l.player} anytime touchdown` : `${l.player} ${l.threshold}+ ${MARKET_LABEL[l.market]}`);
@@ -100,6 +108,8 @@ function candidatePool(catalog: Catalog, games: Set<string>, floor: number): Rat
   const seen = new Set<string>();
   for (const l of catalog.legs) {
     if (!l.gameId || !games.has(l.gameId) || l.singlesOnly || l.market === "atd" || unavailable(l.injury)) continue;
+    // NBA props tickets: four markets only, and never a rung the algorithm put a warning on
+    if (catalog.sport === "NBA" && (!NBA_PROPS_RULES.markets.includes(l.market) || l.risk)) continue;
     const key = `${l.player}|${l.market}`;
     if (seen.has(key)) continue;
     seen.add(key);
@@ -190,6 +200,7 @@ export function suggestChanges(grade: SlipGrade, catalog: Catalog, prefs: Prefer
     while (work.length < ratedTarget) {
       const current = work.map((w) => w.leg);
       pool = pool.filter((c) => !current.some((l) => l.player === c.player && l.market === c.market));
+      if (grade.sport === "NBA") pool = pool.filter((c) => nbaFits(current, c, ratedTarget));
       let best: { leg: RatedLeg; p: number } | null = null;
       for (const c of pool) {
         const p = joint([...current, c]);
@@ -228,6 +239,7 @@ export function suggestChanges(grade: SlipGrade, catalog: Catalog, prefs: Prefer
       if (!flagged) continue;
       for (const c of pool) {
         if (c.market !== w.leg.market || c.pos !== w.leg.pos || work.some((x) => x.leg.player === c.player && x.leg.market === c.market)) continue;
+        if (grade.sport === "NBA" && !nbaFits(work.filter((x) => x.index !== w.index).map((x) => x.leg), c, work.length)) continue;
         const p = joint(work.map((x) => (x.index === w.index ? c : x.leg))) as number;
         if (p > base + SUGGEST_CONFIG.minSwapGain && (!best || p > best.p)) best = { index: w.index, to: c, p };
       }
