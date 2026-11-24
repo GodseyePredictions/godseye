@@ -1,0 +1,2316 @@
+{
+ "games": [
+  "2026_12_GB_LA",
+  "2026_12_CHI_DET",
+  "2026_12_PHI_DAL",
+  "2026_12_KC_BUF",
+  "2026_12_DEN_PIT",
+  "2026_12_NO_CIN",
+  "2026_12_BAL_HOU",
+  "2026_12_NYG_IND",
+  "2026_12_NYJ_MIA",
+  "2026_12_ATL_MIN",
+  "2026_12_TEN_JAX",
+  "2026_12_NE_LAC",
+  "2026_12_WAS_ARI",
+  "2026_12_SEA_SF",
+  "2026_12_LV_CLE",
+  "2026_12_CAR_TB"
+ ],
+ "sgp": {
+  "2026_12_GB_LA": {
+   "4": {
+    "p": 0.51515,
+    "legs": [
+     "Tyler Higbee 1+ receptions",
+     "Tucker Kraft 2+ receptions",
+     "Matthew Stafford 175+ pass yds",
+     "Jordan Love 175+ pass yds"
+    ]
+   },
+   "6": {
+    "p": 0.36845,
+    "legs": [
+     "Tyler Higbee 1+ receptions",
+     "Tucker Kraft 2+ receptions",
+     "Matthew Stafford 175+ pass yds",
+     "Jordan Love 175+ pass yds",
+     "Jordan Love 30+ pass att",
+     "Matthew Stafford 30+ pass att"
+    ]
+   },
+   "8": {
+    "p": 0.282125,
+    "legs": [
+     "Tyler Higbee 1+ receptions",
+     "Tucker Kraft 2+ receptions",
+     "Matthew Stafford 175+ pass yds",
+     "Jordan Love 175+ pass yds",
+     "Jordan Love 30+ pass att",
+     "Matthew Stafford 30+ pass att",
+     "Matthew Golden 3+ receptions",
+     "Matthew Golden 30+ rec yds"
+    ]
+   }
+  },
+  "2026_12_CHI_DET": {
+   "4": {
+    "p": 0.55955,
+    "legs": [
+     "Jared Goff 20+ pass att",
+     "Colston Loveland 20+ rec yds",
+     "Jameson Williams 2+ receptions",
+     "Kalif Raymond 1+ receptions"
+    ]
+   },
+   "6": {
+    "p": 0.41925,
+    "legs": [
+     "Jared Goff 20+ pass att",
+     "Colston Loveland 20+ rec yds",
+     "Jameson Williams 2+ receptions",
+     "Kalif Raymond 1+ receptions",
+     "Jameson Williams 20+ rec yds",
+     "D'Andre Swift 1+ receptions"
+    ]
+   },
+   "8": {
+    "p": 0.29715,
+    "legs": [
+     "Jared Goff 20+ pass att",
+     "Colston Loveland 20+ rec yds",
+     "Jameson Williams 2+ receptions",
+     "Kalif Raymond 1+ receptions",
+     "Jameson Williams 20+ rec yds",
+     "D'Andre Swift 1+ receptions",
+     "Jared Goff 175+ pass yds",
+     "Caleb Williams 225+ pass yds"
+    ]
+   }
+  },
+  "2026_12_PHI_DAL": {
+   "4": {
+    "p": 0.437075,
+    "legs": [
+     "Javonte Williams 1+ receptions",
+     "Javonte Williams 15+ carries",
+     "Dak Prescott 30+ pass att",
+     "Saquon Barkley 10+ carries"
+    ]
+   },
+   "6": {
+    "p": 0.318775,
+    "legs": [
+     "Javonte Williams 1+ receptions",
+     "Javonte Williams 15+ carries",
+     "Dak Prescott 30+ pass att",
+     "Saquon Barkley 10+ carries",
+     "Saquon Barkley 40+ rush yds",
+     "CeeDee Lamb 5+ receptions"
+    ]
+   },
+   "8": {
+    "p": 0.250025,
+    "legs": [
+     "Javonte Williams 1+ receptions",
+     "Javonte Williams 15+ carries",
+     "Dak Prescott 30+ pass att",
+     "Saquon Barkley 10+ carries",
+     "Saquon Barkley 40+ rush yds",
+     "CeeDee Lamb 5+ receptions",
+     "CeeDee Lamb 40+ rec yds",
+     "Dak Prescott 200+ pass yds"
+    ]
+   }
+  },
+  "2026_12_KC_BUF": {
+   "4": {
+    "p": 0.505575,
+    "legs": [
+     "Patrick Mahomes 25+ pass att",
+     "Keon Coleman 1+ receptions",
+     "Patrick Mahomes 150+ pass yds",
+     "Josh Allen 25+ pass att"
+    ]
+   },
+   "6": {
+    "p": 0.330675,
+    "legs": [
+     "Patrick Mahomes 25+ pass att",
+     "Keon Coleman 1+ receptions",
+     "Patrick Mahomes 150+ pass yds",
+     "Josh Allen 25+ pass att",
+     "Josh Downs 2+ receptions",
+     "James Cook 1+ receptions"
+    ]
+   },
+   "8": {
+    "p": 0.221275,
+    "legs": [
+     "Patrick Mahomes 25+ pass att",
+     "Keon Coleman 1+ receptions",
+     "Patrick Mahomes 150+ pass yds",
+     "Josh Allen 25+ pass att",
+     "Josh Downs 2+ receptions",
+     "James Cook 1+ receptions",
+     "Rashee Rice 20+ rec yds",
+     "Josh Downs 20+ rec yds"
+    ]
+   }
+  },
+  "2026_12_DEN_PIT": {
+   "4": {
+    "p": 0.432675,
+    "legs": [
+     "Aaron Rodgers 20+ pass att",
+     "Bo Nix 25+ pass att",
+     "Germie Bernard 2+ receptions",
+     "Jaylen Warren 30+ rush yds"
+    ]
+   },
+   "6": {
+    "p": 0.25985,
+    "legs": [
+     "Aaron Rodgers 20+ pass att",
+     "Bo Nix 25+ pass att",
+     "Germie Bernard 2+ receptions",
+     "Jaylen Warren 30+ rush yds",
+     "Jaylen Warren 10+ carries",
+     "Pat Freiermuth 2+ receptions"
+    ]
+   },
+   "8": null
+  },
+  "2026_12_NO_CIN": {
+   "4": {
+    "p": 0.50075,
+    "legs": [
+     "Alvin Kamara 1+ receptions",
+     "Chase Brown 20+ rush yds",
+     "Chris Olave 4+ receptions",
+     "Joe Burrow 30+ pass att"
+    ]
+   },
+   "6": {
+    "p": 0.3536,
+    "legs": [
+     "Alvin Kamara 1+ receptions",
+     "Chase Brown 20+ rush yds",
+     "Chris Olave 4+ receptions",
+     "Joe Burrow 30+ pass att",
+     "Chris Olave 40+ rec yds",
+     "Chase Brown 3+ receptions"
+    ]
+   },
+   "8": {
+    "p": 0.231925,
+    "legs": [
+     "Alvin Kamara 1+ receptions",
+     "Chase Brown 20+ rush yds",
+     "Chris Olave 4+ receptions",
+     "Joe Burrow 30+ pass att",
+     "Chris Olave 40+ rec yds",
+     "Chase Brown 3+ receptions",
+     "Tyler Shough 150+ pass yds",
+     "Ja'Marr Chase 50+ rec yds"
+    ]
+   }
+  },
+  "2026_12_BAL_HOU": {
+   "4": {
+    "p": 0.6008,
+    "legs": [
+     "Dalton Schultz 1+ receptions",
+     "Derrick Henry 10+ carries",
+     "Derrick Henry 30+ rush yds",
+     "C.J. Stroud 1+ pass TDs"
+    ]
+   },
+   "6": {
+    "p": 0.4165,
+    "legs": [
+     "Dalton Schultz 1+ receptions",
+     "Derrick Henry 10+ carries",
+     "Derrick Henry 30+ rush yds",
+     "C.J. Stroud 1+ pass TDs",
+     "Nico Collins 3+ receptions",
+     "Jacoby Brissett 20+ pass att"
+    ]
+   },
+   "8": {
+    "p": 0.280775,
+    "legs": [
+     "Dalton Schultz 1+ receptions",
+     "Derrick Henry 10+ carries",
+     "Derrick Henry 30+ rush yds",
+     "C.J. Stroud 1+ pass TDs",
+     "Nico Collins 3+ receptions",
+     "Jacoby Brissett 20+ pass att",
+     "Nico Collins 40+ rec yds",
+     "Zay Flowers 4+ receptions"
+    ]
+   }
+  },
+  "2026_12_NYG_IND": {
+   "4": {
+    "p": 0.50605,
+    "legs": [
+     "Cam Skattebo 1+ receptions",
+     "Jonathan Taylor 10+ carries",
+     "Jonathan Taylor 30+ rush yds",
+     "Isaiah Likely 20+ rec yds"
+    ]
+   },
+   "6": {
+    "p": 0.2933,
+    "legs": [
+     "Cam Skattebo 1+ receptions",
+     "Jonathan Taylor 10+ carries",
+     "Jonathan Taylor 30+ rush yds",
+     "Isaiah Likely 20+ rec yds",
+     "Malik Nabers 40+ rec yds",
+     "J.J. McCarthy 150+ pass yds"
+    ]
+   },
+   "8": {
+    "p": 0.1745,
+    "legs": [
+     "Cam Skattebo 1+ receptions",
+     "Jonathan Taylor 10+ carries",
+     "Jonathan Taylor 30+ rush yds",
+     "Isaiah Likely 20+ rec yds",
+     "Malik Nabers 40+ rec yds",
+     "J.J. McCarthy 150+ pass yds",
+     "J.J. McCarthy 20+ pass att",
+     "Malachi Fields 20+ rec yds"
+    ]
+   }
+  },
+  "2026_12_NYJ_MIA": {
+   "4": {
+    "p": 0.47015,
+    "legs": [
+     "Breece Hall 30+ rush yds",
+     "Garrett Wilson 3+ receptions",
+     "Garrett Wilson 40+ rec yds",
+     "Breece Hall 15+ carries"
+    ]
+   },
+   "6": {
+    "p": 0.342275,
+    "legs": [
+     "Breece Hall 30+ rush yds",
+     "Garrett Wilson 3+ receptions",
+     "Garrett Wilson 40+ rec yds",
+     "Breece Hall 15+ carries",
+     "Ollie Gordon II 10+ carries",
+     "Ollie Gordon II 40+ rush yds"
+    ]
+   },
+   "8": {
+    "p": 0.188275,
+    "legs": [
+     "Breece Hall 30+ rush yds",
+     "Garrett Wilson 3+ receptions",
+     "Garrett Wilson 40+ rec yds",
+     "Breece Hall 15+ carries",
+     "Ollie Gordon II 10+ carries",
+     "Ollie Gordon II 40+ rush yds",
+     "Geno Smith 1+ pass TDs",
+     "Adonai Mitchell 2+ receptions"
+    ]
+   }
+  },
+  "2026_12_ATL_MIN": {
+   "4": {
+    "p": 0.435875,
+    "legs": [
+     "Michael Penix Jr. 20+ pass att",
+     "Aaron Jones 20+ rush yds",
+     "Kyle Pitts 2+ receptions",
+     "Aaron Jones 10+ carries"
+    ]
+   },
+   "6": {
+    "p": 0.288675,
+    "legs": [
+     "Michael Penix Jr. 20+ pass att",
+     "Aaron Jones 20+ rush yds",
+     "Kyle Pitts 2+ receptions",
+     "Aaron Jones 10+ carries",
+     "Drake London 20+ rec yds",
+     "Justin Jefferson 30+ rec yds"
+    ]
+   },
+   "8": {
+    "p": 0.2011,
+    "legs": [
+     "Michael Penix Jr. 20+ pass att",
+     "Aaron Jones 20+ rush yds",
+     "Kyle Pitts 2+ receptions",
+     "Aaron Jones 10+ carries",
+     "Drake London 20+ rec yds",
+     "Justin Jefferson 30+ rec yds",
+     "Drake London 3+ receptions",
+     "Justin Jefferson 4+ receptions"
+    ]
+   }
+  },
+  "2026_12_TEN_JAX": {
+   "4": {
+    "p": 0.4605,
+    "legs": [
+     "Bhayshul Tuten 1+ receptions",
+     "Bhayshul Tuten 20+ rush yds",
+     "Parker Washington 3+ receptions",
+     "Cam Ward 25+ pass att"
+    ]
+   },
+   "6": {
+    "p": 0.35045,
+    "legs": [
+     "Bhayshul Tuten 1+ receptions",
+     "Bhayshul Tuten 20+ rush yds",
+     "Parker Washington 3+ receptions",
+     "Cam Ward 25+ pass att",
+     "Cam Ward 150+ pass yds",
+     "Parker Washington 40+ rec yds"
+    ]
+   },
+   "8": {
+    "p": 0.2254,
+    "legs": [
+     "Bhayshul Tuten 1+ receptions",
+     "Bhayshul Tuten 20+ rush yds",
+     "Parker Washington 3+ receptions",
+     "Cam Ward 25+ pass att",
+     "Cam Ward 150+ pass yds",
+     "Parker Washington 40+ rec yds",
+     "Brenton Strange 2+ receptions",
+     "Jakobi Meyers 20+ rec yds"
+    ]
+   }
+  },
+  "2026_12_NE_LAC": {
+   "4": {
+    "p": 0.5362,
+    "legs": [
+     "Rhamondre Stevenson 1+ receptions",
+     "Omarion Hampton 30+ rush yds",
+     "Omarion Hampton 10+ carries",
+     "Mack Hollins 2+ receptions"
+    ]
+   },
+   "6": {
+    "p": 0.3798,
+    "legs": [
+     "Rhamondre Stevenson 1+ receptions",
+     "Omarion Hampton 30+ rush yds",
+     "Omarion Hampton 10+ carries",
+     "Mack Hollins 2+ receptions",
+     "Mack Hollins 20+ rec yds",
+     "Justin Herbert 20+ pass att"
+    ]
+   },
+   "8": {
+    "p": 0.19785,
+    "legs": [
+     "Rhamondre Stevenson 1+ receptions",
+     "Omarion Hampton 30+ rush yds",
+     "Omarion Hampton 10+ carries",
+     "Mack Hollins 2+ receptions",
+     "Mack Hollins 20+ rec yds",
+     "Justin Herbert 20+ pass att",
+     "Tre Harris 2+ receptions",
+     "Rhamondre Stevenson 20+ rush yds"
+    ]
+   }
+  },
+  "2026_12_WAS_ARI": {
+   "4": {
+    "p": 0.50575,
+    "legs": [
+     "Antonio Williams 2+ receptions",
+     "Tyler Allgeier 1+ receptions",
+     "Antonio Williams 20+ rec yds",
+     "Trey McBride 40+ rec yds"
+    ]
+   },
+   "6": {
+    "p": 0.28735,
+    "legs": [
+     "Antonio Williams 2+ receptions",
+     "Tyler Allgeier 1+ receptions",
+     "Antonio Williams 20+ rec yds",
+     "Trey McBride 40+ rec yds",
+     "Stefon Diggs 3+ receptions",
+     "Tyler Allgeier 20+ rush yds"
+    ]
+   },
+   "8": null
+  },
+  "2026_12_SEA_SF": {
+   "4": {
+    "p": 0.501025,
+    "legs": [
+     "Brock Purdy 25+ pass att",
+     "Jaxon Smith-Njigba 5+ receptions",
+     "George Kittle 3+ receptions",
+     "Jaxon Smith-Njigba 50+ rec yds"
+    ]
+   },
+   "6": {
+    "p": 0.339625,
+    "legs": [
+     "Brock Purdy 25+ pass att",
+     "Jaxon Smith-Njigba 5+ receptions",
+     "George Kittle 3+ receptions",
+     "Jaxon Smith-Njigba 50+ rec yds",
+     "George Kittle 20+ rec yds",
+     "AJ Barner 2+ receptions"
+    ]
+   },
+   "8": {
+    "p": 0.197275,
+    "legs": [
+     "Brock Purdy 25+ pass att",
+     "Jaxon Smith-Njigba 5+ receptions",
+     "George Kittle 3+ receptions",
+     "Jaxon Smith-Njigba 50+ rec yds",
+     "George Kittle 20+ rec yds",
+     "AJ Barner 2+ receptions",
+     "Christian McCaffrey 30+ rush yds",
+     "Brock Purdy 1+ pass TDs"
+    ]
+   }
+  },
+  "2026_12_LV_CLE": {
+   "4": {
+    "p": 0.5482,
+    "legs": [
+     "Michael Mayer 1+ receptions",
+     "Ashton Jeanty 20+ rush yds",
+     "Denzel Boston 2+ receptions",
+     "Denzel Boston 20+ rec yds"
+    ]
+   },
+   "6": {
+    "p": 0.35545,
+    "legs": [
+     "Michael Mayer 1+ receptions",
+     "Ashton Jeanty 20+ rush yds",
+     "Denzel Boston 2+ receptions",
+     "Denzel Boston 20+ rec yds",
+     "Quinshon Judkins 1+ receptions",
+     "Quinshon Judkins 30+ rush yds"
+    ]
+   },
+   "8": {
+    "p": 0.213525,
+    "legs": [
+     "Michael Mayer 1+ receptions",
+     "Ashton Jeanty 20+ rush yds",
+     "Denzel Boston 2+ receptions",
+     "Denzel Boston 20+ rec yds",
+     "Quinshon Judkins 1+ receptions",
+     "Quinshon Judkins 30+ rush yds",
+     "Ashton Jeanty 10+ carries",
+     "KC Concepcion 20+ rec yds"
+    ]
+   }
+  },
+  "2026_12_CAR_TB": {
+   "4": {
+    "p": 0.5228,
+    "legs": [
+     "Tetairoa McMillan 2+ receptions",
+     "Bucky Irving 1+ receptions",
+     "Tetairoa McMillan 30+ rec yds",
+     "Kenny Gainwell 1+ receptions"
+    ]
+   },
+   "6": {
+    "p": 0.3543,
+    "legs": [
+     "Tetairoa McMillan 2+ receptions",
+     "Bucky Irving 1+ receptions",
+     "Tetairoa McMillan 30+ rec yds",
+     "Kenny Gainwell 1+ receptions",
+     "Bryce Young 1+ pass TDs",
+     "Baker Mayfield 25+ pass att"
+    ]
+   },
+   "8": {
+    "p": 0.2645,
+    "legs": [
+     "Tetairoa McMillan 2+ receptions",
+     "Bucky Irving 1+ receptions",
+     "Tetairoa McMillan 30+ rec yds",
+     "Kenny Gainwell 1+ receptions",
+     "Bryce Young 1+ pass TDs",
+     "Baker Mayfield 25+ pass att",
+     "Bryce Young 175+ pass yds",
+     "Baker Mayfield 175+ pass yds"
+    ]
+   }
+  }
+ },
+ "hyb": {
+  "2026_12_GB_LA": {
+   "hybrid6_1": {
+    "p": 0.202,
+    "legs": [
+     "Blake Corum ANYTIME TD",
+     "Tyler Higbee 1+ receptions",
+     "Blake Corum 30+ rush yds",
+     "Matthew Stafford 175+ pass yds",
+     "Jordan Love 175+ pass yds",
+     "Jordan Love 30+ pass att"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.0861,
+    "legs": [
+     "Blake Corum ANYTIME TD",
+     "Matthew Golden ANYTIME TD",
+     "Matthew Golden 3+ receptions",
+     "Tyler Higbee 1+ receptions",
+     "Blake Corum 30+ rush yds",
+     "Matthew Stafford 175+ pass yds"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.15715,
+    "legs": [
+     "Blake Corum ANYTIME TD",
+     "Tyler Higbee 1+ receptions",
+     "Blake Corum 30+ rush yds",
+     "Matthew Stafford 175+ pass yds",
+     "Jordan Love 175+ pass yds",
+     "Jordan Love 30+ pass att",
+     "Matthew Golden 3+ receptions",
+     "Matthew Golden 30+ rec yds"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.071025,
+    "legs": [
+     "Blake Corum ANYTIME TD",
+     "Matthew Golden ANYTIME TD",
+     "Matthew Golden 3+ receptions",
+     "Tyler Higbee 1+ receptions",
+     "Blake Corum 30+ rush yds",
+     "Matthew Stafford 175+ pass yds",
+     "Jordan Love 1+ pass TDs",
+     "Jordan Love 175+ pass yds"
+    ]
+   }
+  },
+  "2026_12_CHI_DET": {
+   "hybrid6_1": {
+    "p": 0.361575,
+    "legs": [
+     "Jahmyr Gibbs ANYTIME TD",
+     "Jahmyr Gibbs 15+ carries",
+     "Jared Goff 20+ pass att",
+     "Jameson Williams 2+ receptions",
+     "Jameson Williams 20+ rec yds",
+     "Colston Loveland 20+ rec yds"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.23405,
+    "legs": [
+     "Jahmyr Gibbs ANYTIME TD",
+     "D'Andre Swift ANYTIME TD",
+     "Jared Goff 20+ pass att",
+     "Jameson Williams 2+ receptions",
+     "Jameson Williams 20+ rec yds",
+     "Jahmyr Gibbs 15+ carries"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.260325,
+    "legs": [
+     "Jahmyr Gibbs ANYTIME TD",
+     "Jahmyr Gibbs 15+ carries",
+     "Jared Goff 20+ pass att",
+     "Jameson Williams 2+ receptions",
+     "Jameson Williams 20+ rec yds",
+     "Colston Loveland 20+ rec yds",
+     "Jared Goff 175+ pass yds",
+     "Kalif Raymond 1+ receptions"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.177325,
+    "legs": [
+     "Jahmyr Gibbs ANYTIME TD",
+     "D'Andre Swift ANYTIME TD",
+     "Jared Goff 20+ pass att",
+     "Jameson Williams 2+ receptions",
+     "Jameson Williams 20+ rec yds",
+     "Jahmyr Gibbs 15+ carries",
+     "Colston Loveland 20+ rec yds",
+     "Jared Goff 175+ pass yds"
+    ]
+   }
+  },
+  "2026_12_PHI_DAL": {
+   "hybrid6_1": {
+    "p": 0.271525,
+    "legs": [
+     "Javonte Williams ANYTIME TD",
+     "Javonte Williams 1+ receptions",
+     "CeeDee Lamb 5+ receptions",
+     "Saquon Barkley 10+ carries",
+     "CeeDee Lamb 40+ rec yds",
+     "Saquon Barkley 40+ rush yds"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.18085,
+    "legs": [
+     "Javonte Williams ANYTIME TD",
+     "CeeDee Lamb ANYTIME TD",
+     "CeeDee Lamb 5+ receptions",
+     "Javonte Williams 15+ carries",
+     "Dak Prescott 200+ pass yds",
+     "Dak Prescott 30+ pass att"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.2159,
+    "legs": [
+     "Javonte Williams ANYTIME TD",
+     "Javonte Williams 1+ receptions",
+     "CeeDee Lamb 5+ receptions",
+     "Saquon Barkley 10+ carries",
+     "CeeDee Lamb 40+ rec yds",
+     "Saquon Barkley 40+ rush yds",
+     "Dak Prescott 30+ pass att",
+     "Dak Prescott 200+ pass yds"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.105175,
+    "legs": [
+     "Javonte Williams ANYTIME TD",
+     "CeeDee Lamb ANYTIME TD",
+     "CeeDee Lamb 5+ receptions",
+     "Javonte Williams 15+ carries",
+     "Dak Prescott 200+ pass yds",
+     "Dak Prescott 30+ pass att",
+     "George Pickens 4+ receptions",
+     "Saquon Barkley 10+ carries"
+    ]
+   }
+  },
+  "2026_12_KC_BUF": {
+   "hybrid6_1": {
+    "p": 0.27625,
+    "legs": [
+     "James Cook ANYTIME TD",
+     "Patrick Mahomes 25+ pass att",
+     "James Cook 60+ rush yds",
+     "Patrick Mahomes 150+ pass yds",
+     "Josh Downs 2+ receptions",
+     "Keon Coleman 1+ receptions"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.14775,
+    "legs": [
+     "James Cook ANYTIME TD",
+     "Josh Allen ANYTIME TD",
+     "Patrick Mahomes 25+ pass att",
+     "James Cook 60+ rush yds",
+     "Patrick Mahomes 1+ pass TDs",
+     "Josh Downs 2+ receptions"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.182725,
+    "legs": [
+     "James Cook ANYTIME TD",
+     "Patrick Mahomes 25+ pass att",
+     "James Cook 60+ rush yds",
+     "Patrick Mahomes 150+ pass yds",
+     "Josh Downs 2+ receptions",
+     "Keon Coleman 1+ receptions",
+     "Rashee Rice 3+ receptions",
+     "Josh Allen 25+ pass att"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.103325,
+    "legs": [
+     "James Cook ANYTIME TD",
+     "Josh Allen ANYTIME TD",
+     "Patrick Mahomes 25+ pass att",
+     "James Cook 60+ rush yds",
+     "Patrick Mahomes 1+ pass TDs",
+     "Josh Downs 2+ receptions",
+     "Rashee Rice 3+ receptions",
+     "Keon Coleman 1+ receptions"
+    ]
+   }
+  },
+  "2026_12_DEN_PIT": {
+   "hybrid6_1": {
+    "p": 0.12025,
+    "legs": [
+     "Jonah Coleman ANYTIME TD",
+     "Aaron Rodgers 20+ pass att",
+     "Germie Bernard 2+ receptions",
+     "Bo Nix 25+ pass att",
+     "Rico Dowdle 1+ receptions",
+     "Jaylen Warren 30+ rush yds"
+    ]
+   },
+   "hybrid6_2": null,
+   "hybrid8_1": {
+    "p": 0.070875,
+    "legs": [
+     "Jonah Coleman ANYTIME TD",
+     "Aaron Rodgers 20+ pass att",
+     "Germie Bernard 2+ receptions",
+     "Bo Nix 25+ pass att",
+     "Rico Dowdle 1+ receptions",
+     "Jaylen Warren 30+ rush yds",
+     "Jaylen Warren 10+ carries",
+     "Pat Freiermuth 2+ receptions"
+    ]
+   },
+   "hybrid8_2": null
+  },
+  "2026_12_NO_CIN": {
+   "hybrid6_1": {
+    "p": 0.24415,
+    "legs": [
+     "Ja'Marr Chase ANYTIME TD",
+     "Chris Olave 4+ receptions",
+     "Chris Olave 40+ rec yds",
+     "Joe Burrow 2+ pass TDs",
+     "Tyler Shough 150+ pass yds",
+     "Ja'Marr Chase 6+ receptions"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.134625,
+    "legs": [
+     "Ja'Marr Chase ANYTIME TD",
+     "Tee Higgins ANYTIME TD",
+     "Joe Burrow 2+ pass TDs",
+     "Chris Olave 4+ receptions",
+     "Chris Olave 40+ rec yds",
+     "Tyler Shough 150+ pass yds"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.170925,
+    "legs": [
+     "Ja'Marr Chase ANYTIME TD",
+     "Chris Olave 4+ receptions",
+     "Chris Olave 40+ rec yds",
+     "Joe Burrow 2+ pass TDs",
+     "Tyler Shough 150+ pass yds",
+     "Ja'Marr Chase 6+ receptions",
+     "Tyler Shough 30+ pass att",
+     "Chase Brown 20+ rush yds"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.097475,
+    "legs": [
+     "Ja'Marr Chase ANYTIME TD",
+     "Tee Higgins ANYTIME TD",
+     "Joe Burrow 2+ pass TDs",
+     "Chris Olave 4+ receptions",
+     "Chris Olave 40+ rec yds",
+     "Tyler Shough 150+ pass yds",
+     "Tyler Shough 30+ pass att",
+     "Ja'Marr Chase 6+ receptions"
+    ]
+   }
+  },
+  "2026_12_BAL_HOU": {
+   "hybrid6_1": {
+    "p": 0.245375,
+    "legs": [
+     "Nico Collins ANYTIME TD",
+     "Nico Collins 3+ receptions",
+     "C.J. Stroud 1+ pass TDs",
+     "Derrick Henry 10+ carries",
+     "Derrick Henry 30+ rush yds",
+     "Dalton Schultz 1+ receptions"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.13435,
+    "legs": [
+     "Derrick Henry ANYTIME TD",
+     "Nico Collins ANYTIME TD",
+     "Nico Collins 3+ receptions",
+     "Derrick Henry 10+ carries",
+     "Dalton Schultz 1+ receptions",
+     "C.J. Stroud 1+ pass TDs"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.182025,
+    "legs": [
+     "Nico Collins ANYTIME TD",
+     "Nico Collins 3+ receptions",
+     "C.J. Stroud 1+ pass TDs",
+     "Derrick Henry 10+ carries",
+     "Derrick Henry 30+ rush yds",
+     "Dalton Schultz 1+ receptions",
+     "Jacoby Brissett 20+ pass att",
+     "C.J. Stroud 25+ pass att"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.102225,
+    "legs": [
+     "Derrick Henry ANYTIME TD",
+     "Nico Collins ANYTIME TD",
+     "Nico Collins 3+ receptions",
+     "Derrick Henry 10+ carries",
+     "Dalton Schultz 1+ receptions",
+     "C.J. Stroud 1+ pass TDs",
+     "Jacoby Brissett 20+ pass att",
+     "C.J. Stroud 25+ pass att"
+    ]
+   }
+  },
+  "2026_12_NYG_IND": {
+   "hybrid6_1": {
+    "p": 0.202,
+    "legs": [
+     "Cam Skattebo ANYTIME TD",
+     "Cam Skattebo 1+ receptions",
+     "Isaiah Likely 20+ rec yds",
+     "Jonathan Taylor 10+ carries",
+     "Jonathan Taylor 30+ rush yds",
+     "Isaiah Likely 3+ receptions"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.0808,
+    "legs": [
+     "Cam Skattebo ANYTIME TD",
+     "Malik Nabers ANYTIME TD",
+     "Cam Skattebo 1+ receptions",
+     "Malik Nabers 40+ rec yds",
+     "Isaiah Likely 20+ rec yds",
+     "Jonathan Taylor 10+ carries"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.1332,
+    "legs": [
+     "Cam Skattebo ANYTIME TD",
+     "Cam Skattebo 1+ receptions",
+     "Isaiah Likely 20+ rec yds",
+     "Jonathan Taylor 10+ carries",
+     "Jonathan Taylor 30+ rush yds",
+     "Isaiah Likely 3+ receptions",
+     "Malik Nabers 40+ rec yds",
+     "Malik Nabers 5+ receptions"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.064925,
+    "legs": [
+     "Cam Skattebo ANYTIME TD",
+     "Malik Nabers ANYTIME TD",
+     "Cam Skattebo 1+ receptions",
+     "Malik Nabers 40+ rec yds",
+     "Isaiah Likely 20+ rec yds",
+     "Jonathan Taylor 10+ carries",
+     "Isaiah Likely 3+ receptions",
+     "Jonathan Taylor 30+ rush yds"
+    ]
+   }
+  },
+  "2026_12_NYJ_MIA": {
+   "hybrid6_1": {
+    "p": 0.192375,
+    "legs": [
+     "Breece Hall ANYTIME TD",
+     "Breece Hall 30+ rush yds",
+     "Garrett Wilson 3+ receptions",
+     "Garrett Wilson 40+ rec yds",
+     "Ollie Gordon II 10+ carries",
+     "Ollie Gordon II 40+ rush yds"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.083925,
+    "legs": [
+     "Breece Hall ANYTIME TD",
+     "Ollie Gordon II ANYTIME TD",
+     "Breece Hall 30+ rush yds",
+     "Ollie Gordon II 10+ carries",
+     "Garrett Wilson 3+ receptions",
+     "Garrett Wilson 40+ rec yds"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.105275,
+    "legs": [
+     "Breece Hall ANYTIME TD",
+     "Breece Hall 30+ rush yds",
+     "Garrett Wilson 3+ receptions",
+     "Garrett Wilson 40+ rec yds",
+     "Ollie Gordon II 10+ carries",
+     "Ollie Gordon II 40+ rush yds",
+     "Geno Smith 1+ pass TDs",
+     "Adonai Mitchell 2+ receptions"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.04905,
+    "legs": [
+     "Breece Hall ANYTIME TD",
+     "Ollie Gordon II ANYTIME TD",
+     "Breece Hall 30+ rush yds",
+     "Ollie Gordon II 10+ carries",
+     "Garrett Wilson 3+ receptions",
+     "Garrett Wilson 40+ rec yds",
+     "Geno Smith 1+ pass TDs",
+     "Adonai Mitchell 2+ receptions"
+    ]
+   }
+  },
+  "2026_12_ATL_MIN": {
+   "hybrid6_1": {
+    "p": 0.162925,
+    "legs": [
+     "Aaron Jones ANYTIME TD",
+     "Aaron Jones 20+ rush yds",
+     "Jordan Mason 20+ rush yds",
+     "Michael Penix Jr. 20+ pass att",
+     "Jordan Mason 10+ carries",
+     "Drake London 20+ rec yds"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.083,
+    "legs": [
+     "Aaron Jones ANYTIME TD",
+     "Bijan Robinson ANYTIME TD",
+     "Aaron Jones 20+ rush yds",
+     "Jordan Mason 20+ rush yds",
+     "Michael Penix Jr. 20+ pass att",
+     "Jordan Mason 10+ carries"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.11185,
+    "legs": [
+     "Aaron Jones ANYTIME TD",
+     "Aaron Jones 20+ rush yds",
+     "Jordan Mason 20+ rush yds",
+     "Michael Penix Jr. 20+ pass att",
+     "Jordan Mason 10+ carries",
+     "Drake London 20+ rec yds",
+     "Drake London 3+ receptions",
+     "Bijan Robinson 2+ receptions"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.057525,
+    "legs": [
+     "Aaron Jones ANYTIME TD",
+     "Bijan Robinson ANYTIME TD",
+     "Aaron Jones 20+ rush yds",
+     "Jordan Mason 20+ rush yds",
+     "Michael Penix Jr. 20+ pass att",
+     "Jordan Mason 10+ carries",
+     "Bijan Robinson 2+ receptions",
+     "Drake London 20+ rec yds"
+    ]
+   }
+  },
+  "2026_12_TEN_JAX": {
+   "hybrid6_1": {
+    "p": 0.243,
+    "legs": [
+     "Bhayshul Tuten ANYTIME TD",
+     "Bhayshul Tuten 20+ rush yds",
+     "Cam Ward 25+ pass att",
+     "Cam Ward 150+ pass yds",
+     "Parker Washington 3+ receptions",
+     "Parker Washington 40+ rec yds"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.13985,
+    "legs": [
+     "Bhayshul Tuten ANYTIME TD",
+     "Parker Washington ANYTIME TD",
+     "Bhayshul Tuten 20+ rush yds",
+     "Parker Washington 3+ receptions",
+     "Cam Ward 25+ pass att",
+     "Cam Ward 150+ pass yds"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.160175,
+    "legs": [
+     "Bhayshul Tuten ANYTIME TD",
+     "Bhayshul Tuten 20+ rush yds",
+     "Cam Ward 25+ pass att",
+     "Cam Ward 150+ pass yds",
+     "Parker Washington 3+ receptions",
+     "Parker Washington 40+ rec yds",
+     "Brenton Strange 2+ receptions",
+     "Trevor Lawrence 2+ pass TDs"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.098475,
+    "legs": [
+     "Bhayshul Tuten ANYTIME TD",
+     "Parker Washington ANYTIME TD",
+     "Bhayshul Tuten 20+ rush yds",
+     "Parker Washington 3+ receptions",
+     "Cam Ward 25+ pass att",
+     "Cam Ward 150+ pass yds",
+     "Trevor Lawrence 2+ pass TDs",
+     "Brenton Strange 2+ receptions"
+    ]
+   }
+  },
+  "2026_12_NE_LAC": {
+   "hybrid6_1": {
+    "p": 0.1463,
+    "legs": [
+     "Omarion Hampton ANYTIME TD",
+     "Omarion Hampton 30+ rush yds",
+     "Rhamondre Stevenson 1+ receptions",
+     "Mack Hollins 2+ receptions",
+     "Mack Hollins 20+ rec yds",
+     "Justin Herbert 20+ pass att"
+    ]
+   },
+   "hybrid6_2": null,
+   "hybrid8_1": {
+    "p": 0.0766,
+    "legs": [
+     "Omarion Hampton ANYTIME TD",
+     "Omarion Hampton 30+ rush yds",
+     "Rhamondre Stevenson 1+ receptions",
+     "Mack Hollins 2+ receptions",
+     "Mack Hollins 20+ rec yds",
+     "Justin Herbert 20+ pass att",
+     "Tre Harris 2+ receptions",
+     "Rhamondre Stevenson 20+ rush yds"
+    ]
+   },
+   "hybrid8_2": null
+  },
+  "2026_12_WAS_ARI": {
+   "hybrid6_1": {
+    "p": 0.147025,
+    "legs": [
+     "Trey McBride ANYTIME TD",
+     "Trey McBride 40+ rec yds",
+     "Antonio Williams 2+ receptions",
+     "Antonio Williams 20+ rec yds",
+     "Stefon Diggs 3+ receptions",
+     "Tyler Allgeier 1+ receptions"
+    ]
+   },
+   "hybrid6_2": null,
+   "hybrid8_1": {
+    "p": 0.100075,
+    "legs": [
+     "Trey McBride ANYTIME TD",
+     "Trey McBride 40+ rec yds",
+     "Antonio Williams 2+ receptions",
+     "Antonio Williams 20+ rec yds",
+     "Stefon Diggs 3+ receptions",
+     "Tyler Allgeier 1+ receptions",
+     "Stefon Diggs 20+ rec yds",
+     "Jayden Daniels 20+ rush yds"
+    ]
+   },
+   "hybrid8_2": null
+  },
+  "2026_12_SEA_SF": {
+   "hybrid6_1": {
+    "p": 0.2974,
+    "legs": [
+     "Christian McCaffrey ANYTIME TD",
+     "Brock Purdy 25+ pass att",
+     "George Kittle 3+ receptions",
+     "Jaxon Smith-Njigba 5+ receptions",
+     "George Kittle 20+ rec yds",
+     "Jaxon Smith-Njigba 50+ rec yds"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.1488,
+    "legs": [
+     "Christian McCaffrey ANYTIME TD",
+     "Jaxon Smith-Njigba ANYTIME TD",
+     "Jaxon Smith-Njigba 5+ receptions",
+     "Brock Purdy 25+ pass att",
+     "George Kittle 3+ receptions",
+     "George Kittle 20+ rec yds"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.2007,
+    "legs": [
+     "Christian McCaffrey ANYTIME TD",
+     "Brock Purdy 25+ pass att",
+     "George Kittle 3+ receptions",
+     "Jaxon Smith-Njigba 5+ receptions",
+     "George Kittle 20+ rec yds",
+     "Jaxon Smith-Njigba 50+ rec yds",
+     "Christian McCaffrey 30+ rush yds",
+     "Keenan Allen 2+ receptions"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.1018,
+    "legs": [
+     "Christian McCaffrey ANYTIME TD",
+     "Jaxon Smith-Njigba ANYTIME TD",
+     "Jaxon Smith-Njigba 5+ receptions",
+     "Brock Purdy 25+ pass att",
+     "George Kittle 3+ receptions",
+     "George Kittle 20+ rec yds",
+     "Christian McCaffrey 30+ rush yds",
+     "Keenan Allen 2+ receptions"
+    ]
+   }
+  },
+  "2026_12_LV_CLE": {
+   "hybrid6_1": {
+    "p": 0.1849,
+    "legs": [
+     "Quinshon Judkins ANYTIME TD",
+     "Michael Mayer 1+ receptions",
+     "Quinshon Judkins 30+ rush yds",
+     "Ashton Jeanty 2+ receptions",
+     "Denzel Boston 2+ receptions",
+     "Ashton Jeanty 20+ rush yds"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.0791,
+    "legs": [
+     "Quinshon Judkins ANYTIME TD",
+     "Ashton Jeanty ANYTIME TD",
+     "Michael Mayer 1+ receptions",
+     "Ashton Jeanty 2+ receptions",
+     "Quinshon Judkins 30+ rush yds",
+     "Denzel Boston 2+ receptions"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.12385,
+    "legs": [
+     "Quinshon Judkins ANYTIME TD",
+     "Michael Mayer 1+ receptions",
+     "Quinshon Judkins 30+ rush yds",
+     "Ashton Jeanty 2+ receptions",
+     "Denzel Boston 2+ receptions",
+     "Ashton Jeanty 20+ rush yds",
+     "Denzel Boston 20+ rec yds",
+     "KC Concepcion 20+ rec yds"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.054275,
+    "legs": [
+     "Quinshon Judkins ANYTIME TD",
+     "Ashton Jeanty ANYTIME TD",
+     "Michael Mayer 1+ receptions",
+     "Ashton Jeanty 2+ receptions",
+     "Quinshon Judkins 30+ rush yds",
+     "Denzel Boston 2+ receptions",
+     "Denzel Boston 20+ rec yds",
+     "KC Concepcion 20+ rec yds"
+    ]
+   }
+  },
+  "2026_12_CAR_TB": {
+   "hybrid6_1": {
+    "p": 0.271425,
+    "legs": [
+     "Bucky Irving ANYTIME TD",
+     "Tetairoa McMillan 2+ receptions",
+     "Tetairoa McMillan 30+ rec yds",
+     "Bucky Irving 1+ receptions",
+     "Darren Waller 1+ receptions",
+     "Baker Mayfield 25+ pass att"
+    ]
+   },
+   "hybrid6_2": {
+    "p": 0.134475,
+    "legs": [
+     "Bucky Irving ANYTIME TD",
+     "Chuba Hubbard ANYTIME TD",
+     "Tetairoa McMillan 2+ receptions",
+     "Tetairoa McMillan 30+ rec yds",
+     "Darren Waller 1+ receptions",
+     "Bucky Irving 50+ rush yds"
+    ]
+   },
+   "hybrid8_1": {
+    "p": 0.1982,
+    "legs": [
+     "Bucky Irving ANYTIME TD",
+     "Tetairoa McMillan 2+ receptions",
+     "Tetairoa McMillan 30+ rec yds",
+     "Bucky Irving 1+ receptions",
+     "Darren Waller 1+ receptions",
+     "Baker Mayfield 25+ pass att",
+     "Bryce Young 1+ pass TDs",
+     "Baker Mayfield 175+ pass yds"
+    ]
+   },
+   "hybrid8_2": {
+    "p": 0.09365,
+    "legs": [
+     "Bucky Irving ANYTIME TD",
+     "Chuba Hubbard ANYTIME TD",
+     "Tetairoa McMillan 2+ receptions",
+     "Tetairoa McMillan 30+ rec yds",
+     "Darren Waller 1+ receptions",
+     "Bucky Irving 50+ rush yds",
+     "Chuba Hubbard 1+ receptions",
+     "Baker Mayfield 175+ pass yds"
+    ]
+   }
+  }
+ },
+ "atd": {
+  "slate": [
+   {
+    "n": 4,
+    "p": 0.20258769935873872,
+    "legs": [
+     "Jahmyr Gibbs 70%",
+     "Bucky Irving 64%",
+     "Javonte Williams 67%",
+     "Christian McCaffrey 67%"
+    ]
+   },
+   {
+    "n": 6,
+    "p": 0.07378087231643884,
+    "legs": [
+     "Jahmyr Gibbs 70%",
+     "Bucky Irving 64%",
+     "Javonte Williams 67%",
+     "Christian McCaffrey 67%",
+     "James Cook 65%",
+     "Bhayshul Tuten 56%"
+    ]
+   },
+   {
+    "n": 8,
+    "p": 0.01937266540609628,
+    "legs": [
+     "Jahmyr Gibbs 70%",
+     "Bucky Irving 64%",
+     "Javonte Williams 67%",
+     "Christian McCaffrey 67%",
+     "James Cook 65%",
+     "Bhayshul Tuten 56%",
+     "D'Andre Swift 57%",
+     "Cam Skattebo 46%"
+    ]
+   },
+   {
+    "n": 10,
+    "p": 0.003633900253147643,
+    "legs": [
+     "Jahmyr Gibbs 70%",
+     "Bucky Irving 64%",
+     "Javonte Williams 67%",
+     "Christian McCaffrey 67%",
+     "James Cook 65%",
+     "Bhayshul Tuten 56%",
+     "D'Andre Swift 57%",
+     "Cam Skattebo 46%",
+     "Aaron Jones 44%",
+     "Chase Brown 43%"
+    ]
+   }
+  ],
+  "Wed_Thu_Fri": {
+   "label": "Wednesday, Thanksgiving and Friday",
+   "games": [
+    "2026_12_GB_LA",
+    "2026_12_CHI_DET",
+    "2026_12_PHI_DAL",
+    "2026_12_KC_BUF",
+    "2026_12_DEN_PIT"
+   ],
+   "versions": {
+    "ground": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.17558710051707402,
+      "legs": [
+       "Jahmyr Gibbs 70%",
+       "Javonte Williams 67%",
+       "James Cook 65%",
+       "D'Andre Swift 57%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.028551349813983374,
+      "legs": [
+       "Jahmyr Gibbs 70%",
+       "Javonte Williams 67%",
+       "James Cook 65%",
+       "D'Andre Swift 57%",
+       "Blake Corum 47%",
+       "Emmett Johnson 34%"
+      ]
+     }
+    ],
+    "air": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.037213754255625946,
+      "legs": [
+       "Amon-Ra St. Brown 52%",
+       "CeeDee Lamb 47%",
+       "Colston Loveland 41%",
+       "DJ Moore 37%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.0029238922864090076,
+      "legs": [
+       "Amon-Ra St. Brown 52%",
+       "CeeDee Lamb 47%",
+       "Colston Loveland 41%",
+       "DJ Moore 37%",
+       "Matthew Golden 34%",
+       "Travis Kelce 23%"
+      ]
+     }
+    ],
+    "mixed": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.08856830431024243,
+      "legs": [
+       "Jahmyr Gibbs 70%",
+       "CeeDee Lamb 47%",
+       "James Cook 65%",
+       "Colston Loveland 41%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.014346964390002043,
+      "legs": [
+       "Jahmyr Gibbs 70%",
+       "CeeDee Lamb 47%",
+       "James Cook 65%",
+       "Colston Loveland 41%",
+       "Blake Corum 47%",
+       "Matthew Golden 34%"
+      ]
+     }
+    ],
+    "matchup": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.14403903437948187,
+      "legs": [
+       "Jahmyr Gibbs 70%",
+       "Javonte Williams 67%",
+       "James Cook 65%",
+       "Blake Corum 47%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.028551349813983374,
+      "legs": [
+       "Jahmyr Gibbs 70%",
+       "Javonte Williams 67%",
+       "James Cook 65%",
+       "Blake Corum 47%",
+       "D'Andre Swift 57%",
+       "Emmett Johnson 34%"
+      ]
+     }
+    ],
+    "fav": [],
+    "combo": [
+     {
+      "n": 4,
+      "mix": "3 ground + 1 air",
+      "p": 0.1304259522677706,
+      "legs": [
+       "James Cook 65%",
+       "D'Andre Swift 57%",
+       "Javonte Williams 67%",
+       "Amon-Ra St. Brown 52%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "4 ground + 2 air",
+      "p": 0.021127383066556184,
+      "legs": [
+       "James Cook 65%",
+       "D'Andre Swift 57%",
+       "Javonte Williams 67%",
+       "Blake Corum 47%",
+       "Amon-Ra St. Brown 52%",
+       "Matthew Golden 34%"
+      ]
+     },
+     {
+      "n": 8,
+      "mix": "5 ground + 3 air",
+      "p": 0.001843547126697016,
+      "legs": [
+       "James Cook 65%",
+       "Javonte Williams 67%",
+       "Jonah Coleman 35%",
+       "Emmett Johnson 34%",
+       "Blake Corum 47%",
+       "Colston Loveland 41%",
+       "Amon-Ra St. Brown 52%",
+       "Matthew Golden 34%"
+      ]
+     }
+    ]
+   },
+   "board": [
+    {
+     "name": "Jahmyr Gibbs",
+     "pos_group": "RB",
+     "team": "DET",
+     "p_attd": 0.703,
+     "singles_only": false
+    },
+    {
+     "name": "Javonte Williams",
+     "pos_group": "RB",
+     "team": "DAL",
+     "p_attd": 0.672,
+     "singles_only": false
+    },
+    {
+     "name": "James Cook",
+     "pos_group": "RB",
+     "team": "BUF",
+     "p_attd": 0.652,
+     "singles_only": false
+    },
+    {
+     "name": "D'Andre Swift",
+     "pos_group": "RB",
+     "team": "CHI",
+     "p_attd": 0.567,
+     "singles_only": false
+    },
+    {
+     "name": "Kenneth Walker III",
+     "pos_group": "RB",
+     "team": "KC",
+     "p_attd": 0.538,
+     "singles_only": true
+    },
+    {
+     "name": "Amon-Ra St. Brown",
+     "pos_group": "WR",
+     "team": "DET",
+     "p_attd": 0.52,
+     "singles_only": false
+    },
+    {
+     "name": "Kyren Williams",
+     "pos_group": "RB",
+     "team": "LA",
+     "p_attd": 0.487,
+     "singles_only": false
+    },
+    {
+     "name": "CeeDee Lamb",
+     "pos_group": "WR",
+     "team": "DAL",
+     "p_attd": 0.47,
+     "singles_only": false
+    },
+    {
+     "name": "Blake Corum",
+     "pos_group": "RB",
+     "team": "LA",
+     "p_attd": 0.468,
+     "singles_only": false
+    },
+    {
+     "name": "Jameson Williams",
+     "pos_group": "WR",
+     "team": "DET",
+     "p_attd": 0.459,
+     "singles_only": false
+    },
+    {
+     "name": "Josh Allen",
+     "pos_group": "QB",
+     "team": "BUF",
+     "p_attd": 0.451,
+     "singles_only": false
+    },
+    {
+     "name": "George Pickens",
+     "pos_group": "WR",
+     "team": "DAL",
+     "p_attd": 0.451,
+     "singles_only": false
+    },
+    {
+     "name": "Colston Loveland",
+     "pos_group": "TE",
+     "team": "CHI",
+     "p_attd": 0.407,
+     "singles_only": false
+    },
+    {
+     "name": "DJ Moore",
+     "pos_group": "WR",
+     "team": "BUF",
+     "p_attd": 0.368,
+     "singles_only": false
+    }
+   ],
+   "held": [
+    [
+     "Saquon Barkley",
+     "PHI",
+     "backup-QB offence (no established starter (Joe Milton III is the most recent passer at 17% of season attempts))"
+    ],
+    [
+     "Kyren Williams",
+     "LA",
+     "displaced: Ronnie Rivers is back and out-carried him last game"
+    ]
+   ],
+   "swaps": [
+    {
+     "name": "Ground 4-leg",
+     "pp": 0.17588,
+     "ph": 0.08752,
+     "pe": 0.23212666666666668,
+     "changes": [
+      [
+       "D'Andre Swift",
+       "Colston Loveland"
+      ],
+      [
+       "James Cook",
+       "Josh Allen"
+      ]
+     ]
+    },
+    {
+     "name": "Combo 4-leg (3 ground + 1 air)",
+     "pp": 0.13073333333333334,
+     "ph": 0.12510666666666667,
+     "pe": 0.21924,
+     "changes": [
+      [
+       "Amon-Ra St. Brown",
+       "Jahmyr Gibbs"
+      ],
+      [
+       "D'Andre Swift",
+       "Colston Loveland"
+      ]
+     ]
+    },
+    {
+     "name": "Combo 6-leg (4 ground + 2 air)",
+     "pp": 0.021013333333333332,
+     "ph": 0.010073333333333333,
+     "pe": 0.02966,
+     "changes": [
+      [
+       "Matthew Golden",
+       "Christian Watson"
+      ],
+      [
+       "Blake Corum",
+       "Tyler Higbee"
+      ]
+     ]
+    }
+   ]
+  },
+  "Sun_early": {
+   "label": "Sunday 11am MST",
+   "games": [
+    "2026_12_NO_CIN",
+    "2026_12_BAL_HOU",
+    "2026_12_NYG_IND",
+    "2026_12_NYJ_MIA",
+    "2026_12_ATL_MIN",
+    "2026_12_TEN_JAX"
+   ],
+   "versions": {
+    "ground": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.04822630252816422,
+      "legs": [
+       "Bhayshul Tuten 56%",
+       "Cam Skattebo 46%",
+       "Aaron Jones 44%",
+       "Chase Brown 43%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.009182097001857263,
+      "legs": [
+       "Bhayshul Tuten 56%",
+       "Cam Skattebo 46%",
+       "Aaron Jones 44%",
+       "Chase Brown 43%",
+       "Derrick Henry 47%",
+       "Breece Hall 40%"
+      ]
+     }
+    ],
+    "air": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.03969194076409327,
+      "legs": [
+       "Ja'Marr Chase 54%",
+       "Parker Washington 45%",
+       "Nico Collins 43%",
+       "Malik Nabers 38%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.0048639036408549795,
+      "legs": [
+       "Ja'Marr Chase 54%",
+       "Parker Washington 45%",
+       "Nico Collins 43%",
+       "Malik Nabers 38%",
+       "Justin Jefferson 37%",
+       "Chris Olave 33%"
+      ]
+     }
+    ],
+    "mixed": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.06206851213245912,
+      "legs": [
+       "Bhayshul Tuten 56%",
+       "Ja'Marr Chase 54%",
+       "Derrick Henry 47%",
+       "Nico Collins 43%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.01052218080683247,
+      "legs": [
+       "Bhayshul Tuten 56%",
+       "Ja'Marr Chase 54%",
+       "Derrick Henry 47%",
+       "Nico Collins 43%",
+       "Cam Skattebo 46%",
+       "Justin Jefferson 37%"
+      ]
+     }
+    ],
+    "matchup": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.06206851213245912,
+      "legs": [
+       "Ja'Marr Chase 54%",
+       "Bhayshul Tuten 56%",
+       "Derrick Henry 47%",
+       "Nico Collins 43%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.012511415322652406,
+      "legs": [
+       "Ja'Marr Chase 54%",
+       "Bhayshul Tuten 56%",
+       "Derrick Henry 47%",
+       "Nico Collins 43%",
+       "Aaron Jones 44%",
+       "Cam Skattebo 46%"
+      ]
+     }
+    ],
+    "fav": [],
+    "combo": [
+     {
+      "n": 4,
+      "mix": "3 ground + 1 air",
+      "p": 0.06554546909404893,
+      "legs": [
+       "Derrick Henry 47%",
+       "Bhayshul Tuten 56%",
+       "Cam Skattebo 46%",
+       "Ja'Marr Chase 54%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "4 ground + 2 air",
+      "p": 0.012511415322652406,
+      "legs": [
+       "Derrick Henry 47%",
+       "Bhayshul Tuten 56%",
+       "Aaron Jones 44%",
+       "Cam Skattebo 46%",
+       "Ja'Marr Chase 54%",
+       "Nico Collins 43%"
+      ]
+     },
+     {
+      "n": 8,
+      "mix": "5 ground + 3 air",
+      "p": 0.0018362629085259324,
+      "legs": [
+       "Bijan Robinson 43%",
+       "Derrick Henry 47%",
+       "Bhayshul Tuten 56%",
+       "Cam Skattebo 46%",
+       "Breece Hall 40%",
+       "Ja'Marr Chase 54%",
+       "Nico Collins 43%",
+       "Justin Jefferson 37%"
+      ]
+     }
+    ]
+   },
+   "board": [
+    {
+     "name": "Bhayshul Tuten",
+     "pos_group": "RB",
+     "team": "JAX",
+     "p_attd": 0.559,
+     "singles_only": false
+    },
+    {
+     "name": "Ja'Marr Chase",
+     "pos_group": "WR",
+     "team": "CIN",
+     "p_attd": 0.538,
+     "singles_only": false
+    },
+    {
+     "name": "Derrick Henry",
+     "pos_group": "RB",
+     "team": "BAL",
+     "p_attd": 0.474,
+     "singles_only": false
+    },
+    {
+     "name": "Cam Skattebo",
+     "pos_group": "RB",
+     "team": "NYG",
+     "p_attd": 0.46,
+     "singles_only": false
+    },
+    {
+     "name": "Parker Washington",
+     "pos_group": "WR",
+     "team": "JAX",
+     "p_attd": 0.453,
+     "singles_only": false
+    },
+    {
+     "name": "Tee Higgins",
+     "pos_group": "WR",
+     "team": "CIN",
+     "p_attd": 0.441,
+     "singles_only": false
+    },
+    {
+     "name": "Aaron Jones",
+     "pos_group": "RB",
+     "team": "MIN",
+     "p_attd": 0.438,
+     "singles_only": false
+    },
+    {
+     "name": "Nico Collins",
+     "pos_group": "WR",
+     "team": "HOU",
+     "p_attd": 0.429,
+     "singles_only": false
+    },
+    {
+     "name": "Chase Brown",
+     "pos_group": "RB",
+     "team": "CIN",
+     "p_attd": 0.428,
+     "singles_only": false
+    },
+    {
+     "name": "Bijan Robinson",
+     "pos_group": "RB",
+     "team": "ATL",
+     "p_attd": 0.426,
+     "singles_only": false
+    },
+    {
+     "name": "Samaje Perine",
+     "pos_group": "RB",
+     "team": "CIN",
+     "p_attd": 0.42,
+     "singles_only": false
+    },
+    {
+     "name": "Woody Marks",
+     "pos_group": "RB",
+     "team": "HOU",
+     "p_attd": 0.413,
+     "singles_only": true
+    },
+    {
+     "name": "Breece Hall",
+     "pos_group": "RB",
+     "team": "NYJ",
+     "p_attd": 0.402,
+     "singles_only": false
+    },
+    {
+     "name": "Jakobi Meyers",
+     "pos_group": "WR",
+     "team": "JAX",
+     "p_attd": 0.399,
+     "singles_only": false
+    }
+   ],
+   "held": [
+    [
+     "Jonathan Taylor",
+     "IND",
+     "backup-QB offence (no established starter (Anthony Richardson is the most recent passer at 1% of season attempts))"
+    ],
+    [
+     "Ollie Gordon II",
+     "MIA",
+     "backup-QB offence (no established starter (Kyle McCord is the most recent passer at 24% of season attempts))"
+    ],
+    [
+     "Caleb Douglas",
+     "MIA",
+     "backup-QB offence (no established starter (Kyle McCord is the most recent passer at 24% of season attempts))"
+    ],
+    [
+     "Samaje Perine",
+     "CIN",
+     "unproven workload (6.5 carries a game recently)"
+    ],
+    [
+     "Chris Rodriguez Jr.",
+     "JAX",
+     "unproven workload (6.5 carries a game recently)"
+    ]
+   ],
+   "swaps": [
+    {
+     "name": "Ground 4-leg",
+     "pp": 0.04799333333333333,
+     "ph": 0.050853333333333334,
+     "pe": 0.08985333333333333,
+     "changes": [
+      [
+       "Chase Brown",
+       "Ja'Marr Chase"
+      ],
+      [
+       "Aaron Jones",
+       "Justin Jefferson"
+      ]
+     ]
+    },
+    {
+     "name": "Combo 4-leg (3 ground + 1 air)",
+     "pp": 0.06508666666666667,
+     "ph": 0.032646666666666664,
+     "pe": 0.09096666666666667,
+     "changes": [
+      [
+       "Cam Skattebo",
+       "Malik Nabers"
+      ],
+      [
+       "Derrick Henry",
+       "Zay Flowers"
+      ]
+     ]
+    },
+    {
+     "name": "Combo 6-leg (4 ground + 2 air)",
+     "pp": 0.012806666666666666,
+     "ph": 0.005613333333333333,
+     "pe": 0.017526666666666666,
+     "changes": [
+      [
+       "Nico Collins",
+       "Tank Dell"
+      ],
+      [
+       "Aaron Jones",
+       "Justin Jefferson"
+      ]
+     ]
+    }
+   ]
+  },
+  "Sun_late_Mon": {
+   "label": "Sunday afternoon, Sunday night and Monday",
+   "games": [
+    "2026_12_NE_LAC",
+    "2026_12_WAS_ARI",
+    "2026_12_SEA_SF",
+    "2026_12_LV_CLE",
+    "2026_12_CAR_TB"
+   ],
+   "versions": {
+    "ground": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.06355055915713492,
+      "legs": [
+       "Bucky Irving 64%",
+       "Christian McCaffrey 67%",
+       "Quinshon Judkins 39%",
+       "Ashton Jeanty 37%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.01097938490648461,
+      "legs": [
+       "Bucky Irving 64%",
+       "Christian McCaffrey 67%",
+       "Quinshon Judkins 39%",
+       "Ashton Jeanty 37%",
+       "Chuba Hubbard 45%",
+       "Zach Charbonnet 38%"
+      ]
+     }
+    ],
+    "air": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.010939494642996785,
+      "legs": [
+       "Jaxon Smith-Njigba 38%",
+       "George Kittle 31%",
+       "Trey McBride 31%",
+       "Harold Fannin Jr. 29%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.0009726370449658062,
+      "legs": [
+       "Jaxon Smith-Njigba 38%",
+       "George Kittle 31%",
+       "Trey McBride 31%",
+       "Harold Fannin Jr. 29%",
+       "Tetairoa McMillan 30%",
+       "Stefon Diggs 29%"
+      ]
+     }
+    ],
+    "mixed": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.05130629878137506,
+      "legs": [
+       "Christian McCaffrey 67%",
+       "Jaxon Smith-Njigba 38%",
+       "Bucky Irving 64%",
+       "Trey McBride 31%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.00687023779696191,
+      "legs": [
+       "Christian McCaffrey 67%",
+       "Jaxon Smith-Njigba 38%",
+       "Bucky Irving 64%",
+       "Trey McBride 31%",
+       "Chuba Hubbard 45%",
+       "Stefon Diggs 29%"
+      ]
+     }
+    ],
+    "matchup": [
+     {
+      "n": 4,
+      "mix": "",
+      "p": 0.07635396891522278,
+      "legs": [
+       "Bucky Irving 64%",
+       "Christian McCaffrey 67%",
+       "Quinshon Judkins 39%",
+       "Chuba Hubbard 45%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "",
+      "p": 0.008830452335063164,
+      "legs": [
+       "Bucky Irving 64%",
+       "Christian McCaffrey 67%",
+       "Quinshon Judkins 39%",
+       "Chuba Hubbard 45%",
+       "Ashton Jeanty 37%",
+       "Trey McBride 31%"
+      ]
+     }
+    ],
+    "fav": [],
+    "combo": [
+     {
+      "n": 4,
+      "mix": "3 ground + 1 air",
+      "p": 0.07499997220290221,
+      "legs": [
+       "Chuba Hubbard 45%",
+       "Christian McCaffrey 67%",
+       "Bucky Irving 64%",
+       "Jaxon Smith-Njigba 38%"
+      ]
+     },
+     {
+      "n": 6,
+      "mix": "4 ground + 2 air",
+      "p": 0.00912863566272931,
+      "legs": [
+       "Chuba Hubbard 45%",
+       "Quinshon Judkins 39%",
+       "Christian McCaffrey 67%",
+       "Bucky Irving 64%",
+       "Trey McBride 31%",
+       "Jaxon Smith-Njigba 38%"
+      ]
+     },
+     {
+      "n": 8,
+      "mix": "5 ground + 3 air",
+      "p": 0.001017406989424752,
+      "legs": [
+       "Chuba Hubbard 45%",
+       "Quinshon Judkins 39%",
+       "Ashton Jeanty 37%",
+       "Christian McCaffrey 67%",
+       "Bucky Irving 64%",
+       "Trey McBride 31%",
+       "Jaxon Smith-Njigba 38%",
+       "Stefon Diggs 29%"
+      ]
+     }
+    ]
+   },
+   "board": [
+    {
+     "name": "Christian McCaffrey",
+     "pos_group": "RB",
+     "team": "SF",
+     "p_attd": 0.671,
+     "singles_only": false
+    },
+    {
+     "name": "Bucky Irving",
+     "pos_group": "RB",
+     "team": "TB",
+     "p_attd": 0.639,
+     "singles_only": false
+    },
+    {
+     "name": "Chuba Hubbard",
+     "pos_group": "RB",
+     "team": "CAR",
+     "p_attd": 0.446,
+     "singles_only": false
+    },
+    {
+     "name": "Quinshon Judkins",
+     "pos_group": "RB",
+     "team": "CLE",
+     "p_attd": 0.395,
+     "singles_only": false
+    },
+    {
+     "name": "Jacory Croskey-Merritt",
+     "pos_group": "RB",
+     "team": "WAS",
+     "p_attd": 0.395,
+     "singles_only": true
+    },
+    {
+     "name": "Jaxon Smith-Njigba",
+     "pos_group": "WR",
+     "team": "SEA",
+     "p_attd": 0.384,
+     "singles_only": false
+    },
+    {
+     "name": "Zach Charbonnet",
+     "pos_group": "RB",
+     "team": "SEA",
+     "p_attd": 0.379,
+     "singles_only": false
+    },
+    {
+     "name": "Ashton Jeanty",
+     "pos_group": "RB",
+     "team": "LV",
+     "p_attd": 0.368,
+     "singles_only": false
+    },
+    {
+     "name": "Mike Evans",
+     "pos_group": "WR",
+     "team": "SF",
+     "p_attd": 0.345,
+     "singles_only": true
+    },
+    {
+     "name": "Omarion Hampton",
+     "pos_group": "RB",
+     "team": "LAC",
+     "p_attd": 0.316,
+     "singles_only": false
+    },
+    {
+     "name": "George Kittle",
+     "pos_group": "TE",
+     "team": "SF",
+     "p_attd": 0.313,
+     "singles_only": false
+    },
+    {
+     "name": "Trey McBride",
+     "pos_group": "TE",
+     "team": "ARI",
+     "p_attd": 0.308,
+     "singles_only": false
+    },
+    {
+     "name": "Tetairoa McMillan",
+     "pos_group": "WR",
+     "team": "CAR",
+     "p_attd": 0.299,
+     "singles_only": false
+    },
+    {
+     "name": "Stefon Diggs",
+     "pos_group": "WR",
+     "team": "WAS",
+     "p_attd": 0.289,
+     "singles_only": false
+    }
+   ],
+   "held": [],
+   "swaps": [
+    {
+     "name": "Ground 4-leg",
+     "pp": 0.06268,
+     "ph": 0.04654,
+     "pe": 0.0915,
+     "changes": [
+      [
+       "Quinshon Judkins",
+       "Harold Fannin Jr."
+      ]
+     ]
+    },
+    {
+     "name": "Combo 4-leg (3 ground + 1 air)",
+     "pp": 0.07446,
+     "ph": 0.05004666666666667,
+     "pe": 0.11654666666666667,
+     "changes": [
+      [
+       "Jaxon Smith-Njigba",
+       "Zach Charbonnet"
+      ],
+      [
+       "Chuba Hubbard",
+       "Tetairoa McMillan"
+      ]
+     ]
+    },
+    {
+     "name": "Combo 6-leg (4 ground + 2 air)",
+     "pp": 0.0093,
+     "ph": 0.006606666666666667,
+     "pe": 0.01524,
+     "changes": [
+      [
+       "Trey McBride",
+       "Tyler Allgeier"
+      ],
+      [
+       "Jaxon Smith-Njigba",
+       "Zach Charbonnet"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ "bq": {
+  "MIA": "no established starter (Kyle McCord is the most recent passer at 24% of season attempts)",
+  "PHI": "no established starter (Joe Milton III is the most recent passer at 17% of season attempts)",
+  "IND": "no established starter (Anthony Richardson is the most recent passer at 1% of season attempts)"
+ }
+}
