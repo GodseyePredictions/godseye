@@ -6,13 +6,14 @@ import locksJson from "../../../model/output/locks.json";
 import nba from "../../../model/nba/output/nba_site.json";
 import { Slip, american, pct as pc } from "@/components/Slip";
 import { nbaPicks } from "@/lib/advisor/picks";
+import { nbaWhy } from "@/lib/lock-intel";
 import { picksOfTheDay } from "@/lib/picks-of-day";
 import { ADVISOR_LIMITS } from "@/lib/advisor/subscription";
 
 /* The shape of model/output/locks.json (scripts/build-locks.py). Written out here so the page still builds
    in a week when a list is empty, for example a rebuild after every game has kicked off. */
-type LockLeg = { text: string; team: string; p: number; record?: string };
-type Lock = { kind: string; matchup: string; when: string; p: number; tab: string; legs: LockLeg[] };
+type LockLeg = { text: string; team: string; p: number; record?: string; why?: string[] };
+type Lock = { kind: string; matchup: string; when: string; p: number; tab: string; legs: LockLeg[]; intel?: string[] };
 type NflStar = {
   name: string;
   on_slate: boolean;
@@ -242,6 +243,10 @@ export default function Home() {
   const day = picksOfTheDay(nbaPicks(nba));
   const dayLabel = day.date ? new Date(`${day.date}T12:00:00Z`).toLocaleDateString("en-CA", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" }) : null;
   const heroSlips = day.best.length ? day.best : [];
+  const nbaReasons = (p: { game: string; legs: { leg: string }[] }) => {
+    const w = nbaWhy(nba, p.game);
+    return w ? { intel: w.intel, legs: p.legs.map((l) => ({ text: l.leg, why: w.legs[l.leg] ?? [] })) } : undefined;
+  };
   const marquee = ["See the whole slip", "Algorithm picks only", "Bet smarter, survive the variance", "Every slip shows its chance of losing"];
 
   return (
@@ -253,7 +258,7 @@ export default function Home() {
         <div className="lp-wrap lp-nav-in">
           <Logo />
           <nav aria-label="Main">
-            <a href="#picks">Picks of the day</a>
+            <a href="#picks">Algo Locks</a>
             <a href="#how">How it works</a>
             <a href="#tools">What you get</a>
             <a href="#mission">Mission</a>
@@ -285,7 +290,7 @@ export default function Home() {
                   Open NBA
                 </Link>
                 <a href="#picks" className="lp-btn lp-btn-line">
-                  Picks of the day
+                  Algo Locks
                 </a>
               </div>
               <p className="lp-hero-small">Not a sportsbook. You place bets with your own book and bring the slip here.</p>
@@ -360,11 +365,13 @@ export default function Home() {
         {/* ---- picks of the day ---- */}
         <section className="lp-band lp-band-deep" id="picks">
           <div className="lp-wrap">
-            <h2>The algorithm&apos;s picks of the day</h2>
+            <h2>Algo Locks</h2>
             <p className="lp-intro">
-              {dayLabel ? `NBA, ${dayLabel}. ` : ""}
-              These are the slips the algorithm gives the best chance of hitting, ranked by its own number. Nobody picked them by hand.
+              The slips the algorithm gives the best chance of hitting, ranked by its own number, with its reasoning under each one. Nobody
+              picked them by hand. &ldquo;Lock&rdquo; is our name for the algorithm&apos;s strongest slips, not a promise: each one shows how
+              often it misses.
             </p>
+            <h3 className="lp-sub">{dayLabel ? `NBA, ${dayLabel}` : "NBA"}</h3>
             {day.best.length ? (
               <>
                 <div className="gs-slips lp-day">
@@ -374,8 +381,10 @@ export default function Home() {
                       title={p.game}
                       meta={i === 0 ? "Game of the day" : p.kind}
                       legs={p.legs.map((l) => ({ text: l.leg, value: pc(l.probability) }))}
+                      why={nbaReasons(p)}
                       stats={[
                         { label: "Chance to hit", value: pc(p.joint_probability, 1), tone: "red" },
+                        { label: "Chance to miss", value: pc(1 - (p.joint_probability as number), 1) },
                         ...(p.book_price != null ? [{ label: p.price_is_estimate ? "Legs multiplied" : "Book odds", value: american(p.book_price) }] : []),
                       ]}
                     />
@@ -391,7 +400,11 @@ export default function Home() {
                           title={p.game}
                           meta={p.kind}
                           legs={p.legs.map((l) => ({ text: l.leg, value: pc(l.probability) }))}
-                          stats={[{ label: "Chance to hit", value: pc(p.joint_probability, 1), tone: "red" }]}
+                          why={nbaReasons(p)}
+                          stats={[
+                            { label: "Chance to hit", value: pc(p.joint_probability, 1), tone: "red" },
+                            { label: "Chance to miss", value: pc(1 - (p.joint_probability as number), 1) },
+                          ]}
                         />
                       ))}
                     </div>
@@ -403,7 +416,7 @@ export default function Home() {
             )}
             {locks.locks.length > 0 && (
               <>
-                <h3 className="lp-sub">NFL week {locks.week}</h3>
+                <h3 className="lp-sub">NFL, week {locks.week}</h3>
                 <div className="gs-slips">
                   {locks.locks.map((t) => (
                     <Slip
@@ -411,7 +424,12 @@ export default function Home() {
                       title={t.matchup}
                       meta={t.kind}
                       legs={t.legs.map((l) => ({ text: l.text, sub: l.record || undefined, value: pct(l.p) }))}
-                      stats={[{ label: "Chance to hit", value: pct(t.p), tone: "red" }, { label: "Fair odds", value: fair(t.p) }]}
+                      why={{ intel: t.intel, legs: t.legs.map((l) => ({ text: l.text, why: l.why ?? [] })) }}
+                      stats={[
+                        { label: "Chance to hit", value: pct(t.p), tone: "red" },
+                        { label: "Chance to miss", value: pct(1 - t.p) },
+                        { label: "Fair odds", value: fair(t.p) },
+                      ]}
                     />
                   ))}
                 </div>
@@ -623,7 +641,7 @@ export default function Home() {
       <SiteFooter>
         <Link href="/nfl">NFL</Link>
         <Link href="/nba">NBA</Link>
-        <a href="#picks">Picks of the day</a>
+        <a href="#picks">Algo Locks</a>
         <a href="#how">How it works</a>
         <a href="#mission">Mission</a>
         <a href="#faq">Questions</a>

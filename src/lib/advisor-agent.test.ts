@@ -594,3 +594,27 @@ test("screenshots are dropped from the kept history; a long history is cut at th
   assert.equal(typeof cut[0].content, "string");
   assert.equal(cut[cut.length - 1].content, "answer 29");
 });
+
+// ================= the reasoning shown under a slip =================
+test("an NBA slip's reasoning is the algorithm's own game read and leg reasons", async () => {
+  const { nbaWhy } = await import("./lock-intel.ts");
+  const data = { games: [{ home: "IND", away: "OKC", card: {
+      pace: { ours: 101.66 }, total: { simulated: 226.44, market: 226.5 }, margin_home: { simulated: -4.5 }, win_prob_home: 0.3708, blowout_prob: 0.4208, close_prob: 0.4671,
+      scripts: [{ script: "Close game decided late", probability: 0.4193, who: "starters gain" }, { script: "OKC lead big", probability: 0.2935 }, { script: "third", probability: 0.1 }] },
+    tickets: [{ legs: [{ label: "A One 6+ Assists", reason: "role: B out; assists +9% from last-5 form", p_blowout: 0.776, p_close: 0.822 }, { label: "C Two 20+ Points", reason: null }] }],
+    singles: [{ label: "A One 6+ Assists", reason: "a different reason" }] },
+    { home: "LAL", away: "UTAH", preview: true, card: {} }] };
+  const w = nbaWhy(data, "OKC @ IND")!;
+  assert.deepEqual(w.intel, [
+    "Simulated result: OKC by 4.5; IND win 37% of simulations.",
+    "Simulated total 226.4 (book 226.5); pace 101.7 possessions.",
+    "Blowout risk 42%; close finish 47%.",
+    "42%: Close game decided late (starters gain).",
+    "29%: OKC lead big.",
+  ]);
+  assert.deepEqual(w.legs["A One 6+ Assists"], ["role: B out", "assists +9% from last-5 form", "hits 82% in close games, 78% in blowouts"]);
+  assert.equal(w.legs["C Two 20+ Points"], undefined, "a leg with no stated reason gets none made up");
+  assert.equal(nbaWhy(data, "UTAH @ LAL"), null, "a preview game has no slips to explain");
+  assert.equal(nbaWhy(data, "NOPE @ NONE"), null);
+  assert.deepEqual(nbaWhy({ games: [{ home: "A", away: "B" }] }, "B @ A"), { intel: [], legs: {} });
+});

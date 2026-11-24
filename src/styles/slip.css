@@ -174,3 +174,42 @@
   gap: 18px;
   align-items: stretch;
 }
+
+/* the reasoning behind a slip, folded under its legs */
+.gs-slip-why {
+  margin-top: 12px;
+  border-top: 1px dashed #d9d2d5;
+  padding-top: 10px;
+  color: #131115;
+}
+.gs-slip-why summary {
+  cursor: pointer;
+  color: #d6192b;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  list-style-position: inside;
+}
+.gs-slip-why summary:focus-visible {
+  outline: 2px solid #d6192b;
+  outline-offset: 3px;
+}
+.gs-slip-why h4 {
+  margin: 12px 0 4px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #131115;
+}
+.gs-slip-why ul {
+  margin: 0;
+  padding-left: 16px;
+  list-style: disc;
+}
+.gs-slip-why li {
+  margin: 0 0 4px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #3a3237;
+  overflow-wrap: anywhere;
+}

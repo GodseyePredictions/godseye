@@ -2180,3 +2180,8 @@ a.lp-tool:hover {
 .lp-doc .own-note {
   font-size: 0.9rem;
 }
+
+/* a slip with its reasoning open grows on its own; its neighbours keep their height */
+.lp .gs-slips {
+  align-items: start;
+}

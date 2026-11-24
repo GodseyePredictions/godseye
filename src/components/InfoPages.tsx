@@ -96,7 +96,7 @@ export function ResponsibleGamblingPage() {
     >
       <h2>What we will never tell you</h2>
       <ul>
-        <li>That a pick is a lock, a sure thing or guaranteed. Every slip on this site shows its chance of losing next to its chance of winning.</li>
+        <li>That a pick is a sure thing or guaranteed. &ldquo;Algo Locks&rdquo; is our name for the algorithm&apos;s highest-chance slips, not a promise: every slip on this site shows its chance of losing next to its chance of winning.</li>
         <li>To chase a loss, raise your stake after a bad night, or bet more than your plan allows.</li>
         <li>That a number exists when the algorithm has not rated a leg. It is marked unrated and left at that.</li>
       </ul>
