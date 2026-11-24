@@ -10,7 +10,7 @@ import { tonightFrom } from "@/lib/staking";
 import { readAccount, subscribeAccount } from "./BankrollStrategy";
 
 const cache: Partial<Record<Sport, Promise<Catalog>>> = {};
-function loadCatalog(sport: Sport): Promise<Catalog> {
+export function loadCatalog(sport: Sport): Promise<Catalog> {
   cache[sport] ??=
     sport === "NFL"
       ? fetch("/console/data.js")

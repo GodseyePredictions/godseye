@@ -9,7 +9,7 @@
  * `runTool` executes a call. `parse_slip` needs the vision model, so its image handler is passed in
  * by the server (src/lib/slip/vision.ts); everything else is plain code and runs anywhere.
  */
-import type { Catalog, Market, Side, Sport } from "../advisor/legs.ts";
+import { MARKET_LABEL, type Catalog, type Market, type Side, type Sport } from "../advisor/legs.ts";
 import type { Account, Tonight } from "../staking.ts";
 import { gradeSlip, type SlipGrade, type SlipLegInput } from "./grade.ts";
 import { MARKET_VALUES, draftMarket, toDraft, type SlipDraft } from "./schema.ts";
@@ -20,10 +20,16 @@ export type Money = { account?: Account | null; tonight?: Tonight; now?: Date };
 
 /** The confirmed draft, as the legs the grader takes. */
 export function draftToInput(draft: SlipDraft): SlipLegInput[] {
-  return draft.legs.map((l) => ({
-    player: l.player, market: draftMarket(l), threshold: l.threshold, side: l.side, odds: l.odds,
-    text: [l.player, l.market === "atd" ? "anytime touchdown" : `${l.threshold ?? ""}${l.side === "under" ? " under" : l.threshold !== null ? "+" : ""} ${l.marketText}`].filter(Boolean).join(" ").replace(/\s+/g, " ").trim(),
-  }));
+  return draft.legs.map((l) => {
+    const market = draftMarket(l);
+    const what = l.market === "atd" ? "anytime touchdown"
+      : market ? `${l.side === "under" ? "under " : ""}${l.threshold ?? "?"}${l.side === "under" ? "" : "+"} ${MARKET_LABEL[market]}`
+      : l.marketText; // not a player prop, or not read: show what the slip printed
+    return {
+      player: l.player, market, threshold: l.threshold, side: l.side, odds: l.odds, other: l.market === "other",
+      text: [l.player, what].filter(Boolean).join(" ").replace(/\s+/g, " ").trim() || "Unread leg",
+    };
+  });
 }
 
 /** parse_slip, second half: validate the vision model's JSON and build the draft the user confirms. */

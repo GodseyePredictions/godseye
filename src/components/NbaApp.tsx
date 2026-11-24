@@ -1,5 +1,6 @@
 "use client";
 
+import { ScreenshotAudit } from "./ScreenshotAudit";
 import { PasteTab } from "./PasteSlip";
 import { NO_BETS, readBets, subscribeBets, writeBets } from "./betsStore";
 import { BankrollStrategy, type Pick as StakePick } from "./BankrollStrategy";
@@ -89,7 +90,7 @@ const track = rawTrack as unknown as {
 };
 const BOOK = slate.book === "draftkings" ? "DraftKings" : slate.book === "bet365" ? "bet365" : "the book";
 
-const TABS = ["home", "sgp", "multi", "strategy", "paste", "track", "board", "scripts", "avail", "model"] as const;
+const TABS = ["home", "sgp", "multi", "strategy", "shot", "paste", "track", "board", "scripts", "avail", "model"] as const;
 type Tab = (typeof TABS)[number];
 
 const TICKET_NAMES: Record<string, string> = {
@@ -1015,6 +1016,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
     ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
     ["strategy", "Bankroll Strategy", "M4 19h16M6 16V8M11 16V5M16 16v-6"],
+    ["shot", "Audit a screenshot", "M4 8h3l2-3h6l2 3h3v11H4zM12 17a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7z"],
     ["paste", "Paste a slip", "M9 4h6v3H9zM7 5H5v15h14V5h-2M8 12h8M8 16h5"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["scripts", "Game scripts", "M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3"],
@@ -1051,7 +1053,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
             <span key={id} style={{ display: "contents" }}>
               {i === 1 && <span className="navgrp">Picks</span>}
               {i === 4 && <span className="navgrp">Tools</span>}
-              {i === 8 && <span className="navgrp">Model</span>}
+              {i === 9 && <span className="navgrp">Model</span>}
               <a href={`#${prefix}${id}`} aria-current={tab === id ? "page" : "false"}>
                 <Icon d={d} />
                 {label}
@@ -1064,6 +1066,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
           {tab === "sgp" && <SgpTab />}
           {tab === "multi" && <MultiTab />}
           {tab === "strategy" && <StrategyTab />}
+          {tab === "shot" && <ScreenshotAudit defaultSport="NBA" />}
           {tab === "paste" && <NbaPaste />}
           {tab === "track" && <TrackTab />}
           {tab === "board" && <BoardTab />}

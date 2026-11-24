@@ -25,6 +25,31 @@ Then refresh the landing page's "Locks of the week" from the new data:
 
 The first command rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic, patched for this site) and `src/app/(console)/console-base.css`. Site-specific styling lives in `src/app/(console)/console.css`.
 
+## Auditing a slip from a screenshot
+
+"Audit a screenshot" (on both the NFL and NBA sides) reads a bet slip image, asks the user to confirm what was read, grades it against the algorithm and suggests removals, swaps and adds.
+
+Try it locally:
+
+    echo "ANTHROPIC_API_KEY=your-key" > .env.local     # never committed
+    npm install
+    npm run dev
+
+Open http://localhost:3000/nfl#shot and upload `fixtures/slips/bet365-sgp.png`. The sample slips are drawn by `npm run slip:fixtures` from made-up data for the week in `public/console/data.js`; they are not captures from a sportsbook.
+
+To check the screenshot reader on its own, against the expected reading beside each sample:
+
+    ANTHROPIC_API_KEY=your-key npm run slip:read -- fixtures/slips/bet365-sgp.png
+
+Where things live:
+
+- `src/lib/slip/vision.ts` sends the image to Claude (`claude-sonnet-5-5`), which only transcribes. `schema.ts` validates the result and converts prices in code.
+- `src/lib/slip/grade.ts` grades each leg and the whole slip. The joint chance comes from `src/lib/advisor/joint.ts`, the console's correlation engine, never from multiplying legs.
+- `src/lib/slip/suggest.ts` proposes changes from algorithm output only. `recheck.ts` re-grades saved slips when the algorithm's numbers are rebuilt.
+- `src/lib/slip/tools.ts` exposes `parse_slip`, `grade_slip` and `suggest_changes` for the chat agent.
+
+Limits today: the joint chance is NFL only (the NBA output carries no correlations); suggested rungs come from the algorithm's ladder because there is no book price feed, so the user checks the rung and types the new price; saved slips and alerts live in the browser until accounts exist.
+
 ## What is not built yet
 
 Logins, subscriptions, the AI advisor chat, live odds and sportsbook sync. Bets are stored in the visitor's browser until accounts exist.

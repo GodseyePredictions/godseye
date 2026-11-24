@@ -35,6 +35,8 @@ export type SlipLegInput = {
   odds?: number | null;
   /** How the leg read on the slip, for display. */
   text?: string;
+  /** True for a leg that is not a player prop (a moneyline, spread, total or anything else). */
+  other?: boolean;
 };
 
 export type LegFlag = "negative-value" | "fights-script" | "out" | "questionable" | "singles-only" | "below-floor";
@@ -118,7 +120,13 @@ export function gradeSlip(input: SlipLegInput[], catalog: Catalog, opts: GradeOp
     const parsed = l.player && l.market && l.side && (l.market === "atd" || l.threshold !== null)
       ? { player: l.player, market: l.market, threshold: l.market === "atd" ? null : l.threshold, side: l.side }
       : null;
-    return auditParsed(parsed, { text: label(l), odds: l.odds ?? null }, catalog);
+    const a = auditParsed(parsed, { text: label(l), odds: l.odds ?? null }, catalog);
+    if (parsed) return a;
+    return {
+      ...a,
+      note: l.other ? "Not a player prop. The algorithms rate player props only, so this leg is unrated."
+        : "This leg is missing its player, market or number, so it could not be graded.",
+    };
   });
   const matches = audited.map((a) => (a.status === "rated" ? a.match : null));
   const rated = matches.filter((m): m is RatedLeg => !!m);

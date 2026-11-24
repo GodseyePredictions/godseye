@@ -3,9 +3,6 @@
 import { toDraft } from "@/lib/slip/schema";
 import { IMAGE_TYPES, MAX_IMAGE_BYTES, SlipReadError, readSlipImage, type ImageType } from "@/lib/slip/vision";
 
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
-
 export async function POST(request: Request) {
   let file: File | null = null;
   try {

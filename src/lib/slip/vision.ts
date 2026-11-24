@@ -28,8 +28,10 @@ Read only what is printed in the image.
 - If the image is not a bet slip, set "is_bet_slip" to false and return no legs.`;
 
 export class SlipReadError extends Error {
-  constructor(message: string, readonly status = 502) {
+  readonly status: number;
+  constructor(message: string, status = 502) {
     super(message);
+    this.status = status;
   }
 }
 
@@ -38,7 +40,12 @@ let client: Anthropic | null = null;
 /** The model's reading of the image, already validated against the schema. */
 export async function readSlipImage(image: { data: Buffer | Uint8Array; mediaType: ImageType }): Promise<ParsedSlip> {
   if (image.data.byteLength > MAX_IMAGE_BYTES) throw new SlipReadError("That image is larger than 5 MB. Crop it to the slip and try again.", 413);
-  client ??= new Anthropic();
+  try {
+    client ??= new Anthropic();
+  } catch {
+    // the SDK found no credential in the environment
+    throw new SlipReadError("The screenshot reader is not set up on this server: no Claude API key was found (ANTHROPIC_API_KEY).", 503);
+  }
   let response;
   try {
     response = await client.beta.messages.parse({
@@ -65,6 +72,9 @@ export async function readSlipImage(image: { data: Buffer | Uint8Array; mediaTyp
     if (error instanceof Anthropic.RateLimitError) throw new SlipReadError("The screenshot reader is busy. Try again in a minute.", 429);
     if (error instanceof Anthropic.BadRequestError) throw new SlipReadError(`The image could not be read: ${error.message}`, 400);
     if (error instanceof Anthropic.APIError) throw new SlipReadError(`The screenshot reader failed (${error.status ?? "no status"}). Try again.`, 502);
+    // The SDK raises a plain Error, before any request is sent, when it finds no credential in the environment.
+    if (error instanceof Error && /authentication method/i.test(error.message))
+      throw new SlipReadError("The screenshot reader is not set up on this server: no Claude API key was found (ANTHROPIC_API_KEY).", 503);
     throw error;
   }
   if (response.stop_reason === "refusal") throw new SlipReadError("The screenshot reader declined this image. Paste the slip as text instead.", 422);
