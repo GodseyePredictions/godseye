@@ -11,6 +11,7 @@
     "nfl:site": "python3 -I scripts/import-console.py && python3 -I scripts/build-locks.py",
     "slip:read": "node scripts/read-slip.ts",
     "slip:fixtures": "node scripts/make-slip-fixtures.mjs",
+    "usage:report": "node scripts/usage-report.ts",
     "pretest": "node scripts/ensure-deps.mjs",
     "prebuild": "node scripts/ensure-deps.mjs"
   },
