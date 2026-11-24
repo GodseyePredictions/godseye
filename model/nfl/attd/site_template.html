@@ -94,25 +94,6 @@ h3{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.4px
 .btn.ghost{background:transparent}
 .btn.sm{padding:4px 8px;font-size:12px}
 .btn.on{background:var(--ink,#111);color:var(--bg,#fff);border-color:transparent}
-/* every set slip is a white ticket, the same look as the site's slips (.gs-slip) */
-.ticket{--ink:#0b0b0c;--muted:#4d4a4c;--dim:#6b6468;--line:#dcd8da;--line2:#c9c3c6;--raise:#fff;--raise2:#f3f0f1;--chip:#efecee;--gold:#8a5f12;--warn:#9a5b00;--good:#0a7d45;--bad:#c62222;--warn-soft:#fdf0d7;--good-soft:#d9f5e5;--bad-soft:#fde3e3;--gold-soft:#f6ead0;
-  background:#fff;color:#0b0b0c;border:0;border-radius:14px;padding:16px 18px 14px;gap:8px;box-shadow:0 1px rgba(255,255,255,.6) inset,0 18px 40px -12px rgba(0,0,0,.65);font-variant-numeric:tabular-nums}
-.ticket:hover{border-color:transparent}
-.ticket .top{align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:2px dashed #dcd8da}
-.ticket .legsn,.ticket h3{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.05;letter-spacing:.01em;text-transform:uppercase;color:#d6192b}
-.ticket .fair{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.05;color:#0b0b0c;white-space:nowrap}
-.ticket .pct{font-family:var(--body);font-size:12.5px;color:#4d4a4c}
-.ticket ol{list-style:none;margin:0;padding:0;font-size:14px;font-weight:600;color:#0b0b0c}
-.ticket ol li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid #dcd8da}
-.ticket ol li:last-child{border-bottom:0}
-.ticket ol li span{color:#0b0b0c;font-weight:700;white-space:nowrap}
-.ticket .sub,.ticket .empty{color:#4d4a4c}
-.ticket .btn{background:#0b0b0c;border-color:#0b0b0c;color:#fff}
-.ticket .btn.primary{background:#d6192b;border-color:#d6192b;box-shadow:none;margin-top:auto}
-.ticket .btn.ghost{background:transparent;color:#0b0b0c;border-color:#c9c3c6}
-.ticket .prob,.ticket .prob[data-heat]{background:#efecee;color:#0b0b0c}
-.ticket .intel dd,.ticket .gchip b{color:#0b0b0c}
-.ticket .sgprow .slot{color:#d6192b}
 /* cashed slips: white tickets on the dark console */
 nav.tabs a[hidden]{display:none}
 .lgbar{display:flex;gap:8px;margin:4px 0 12px}
@@ -696,12 +677,10 @@ function renderScriptSGP(){
   return S.map((t,gi)=>{const g=G[t.game]; const top=t.ladder[t.ladder.length-1];
     return `<section class="panel"><div class="section-head"><div><h2>${gameLabel(g)}</h2><div class="envline">${envPills(g)}</div></div></div>
       <div class="scriptbox"><div class="lbl">Game script</div>${t.notes.map(n=>`<div class="sub">${esc(n)}</div>`).join("")}${t.reads?`<div class="sub" style="color:var(--warn,#c80)">${t.reads==="consensus"?"Agreed slip: every leg is priced by the model and was cleared by at least 60% of that role against this defence this season.":"Matchup reads on for this game: legs are steered by how each role has done against this defence this season."} Probabilities are the model's.</div>`:""}</div>
-      <div class="ladder" style="margin:12px 0 6px">${t.ladder.map(x=>`<div class="ticket"><div class="top"><span class="legsn">${x.n}-leg props SGP</span><span class="fair">${am(x.p)}</span></div><div class="pct">${pct(x.p)} to hit</div>
-            <ol>${x.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>
-            <button class="btn primary" data-script-load="${gi}|ladder|${x.n}">Load into slip</button></div>`).join("")}</div>
+      <div class="row" style="margin:10px 0 6px">${t.ladder.map(x=>`<button class="btn ${x.n===4?"primary":""}" data-script-load="${gi}|ladder|${x.n}">${x.n}-leg · ${pct(x.p)} · fair ${am(x.p)}</button>`).join("")}</div>
       <p class="sub">Each longer ticket extends the shorter one. Legs ranked by probability with script fit as the tiebreaker; ≤2 legs per player.</p>
-      ${top?`<details style="margin-top:6px"><summary class="sub" style="cursor:pointer;color:var(--gold);font-weight:600">Why these legs</summary>${top.legs.map(legrow).join("")}</details>`:""}
-      <div class="ladder" style="margin-top:12px">
+      ${top?top.legs.map(legrow).join(""):""}
+      <div class="grid2" style="margin-top:12px">
         ${["lotto","hybrid1","h61","hybrid2","h81","h82","ag6","ag8"].map(k=>{const h=t[k]; if(!h) return ""; const na=h.legs.filter(l=>l.mk==="atd").length; const ttl=k==="lotto"?`${h.legs.length}-leg lotto · the most likely legs`:k.startsWith("ag")?`Aggressive SGP · ${h.legs.length}-leg · higher milestones`:`${h.legs.length}-leg · ${na} anytime TD${na>1?"s":""} + ${h.legs.length-na} props`;
           return `<div class="ticket"><div class="top"><span class="legsn">${ttl}</span><span class="fair">${am(h.p)}</span></div><div class="pct">${pct(h.p)} to hit</div>
             <ol>${h.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>

@@ -95,56 +95,6 @@ function renderPersonnel(){
       <div><h3>Ruled Out / Doubtful (official report)</h3><p class="sub">${inj.length?inj.map(x=>`${esc(x.name)} (${esc(x.team)}${x.note?", "+esc(x.note):""})`).join(" · "):"None on this slate."}</p></div>
     </div></section>`;
 }
-function renderCashed(){
-  const f=state.cashF||(state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"}); if(!f.lg) f.lg="nfl";
-  const money=v=>"$"+Number(v).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
-  const amS=a=>a==null?"–":(a>0?"+":"")+Math.round(a);
-  const opt=(k,vals)=>vals.map(([v,l])=>`<button class="btn sm${f[k]===v?" on":""}" data-cashf="${k}|${v}">${l}</button>`).join(" ");
-  const lgbar=`<div class="lgbar">${[["nfl","NFL"],["nba","NBA"]].map(([v,l])=>`<button class="lgtab${f.lg===v?" on":""}" data-cashf="lg|${v}">${l}</button>`).join("")}</div>`;
-  const card=(title,pills,legs,meta,stake,ret)=>`<div class="cslip">
-     <div class="ctitle">${esc(title)}</div><div class="cpills">${pills}</div>
-     <ol>${legs}</ol>
-     <div class="cmeta">${meta}</div>
-     ${stake?`<div class="cmoney"><div><span class="clbl">Example stake</span><b class="cstake">${money(stake)}</b></div><div class="cret"><span class="clbl">Cashed</span><b class="cval">${money(ret)}</b></div></div>`:""}</div>`;
-  const grid=cards=>`<div class="cgrid">${cards||`<section class="panel"><p class="sub">No slips match these filters.</p></section>`}</div>`;
-  if(f.lg==="nba"){const N=D.cashed_nba;
-    if(!N||!N.slips.length) return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2></div></div>${lgbar}<p class="sub">No NBA slips have been loaded yet.</p></section>`;
-    const day=d=>new Date(d+"T12:00:00Z").toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:"UTC"});
-    const dates=[...new Set(N.slips.map(s=>s.date))].sort().reverse();
-    const S=N.slips.filter(s=>(f.n==="all"||String(s.n_legs)===f.n)&&(f.week==="all"||s.date===f.week));
-    const tot=S.reduce((a,s)=>({st:a.st+s.stake,rt:a.rt+s.returned}),{st:0,rt:0});
-    const cards=S.slice().sort((a,b)=>b.date.localeCompare(a.date)||b.price-a.price).map(s=>card(`${s.game} · ${s.type}`,
-      `<span class="cpill">${day(s.date)}</span><span class="cpill win">${s.n_legs}-leg cashed</span>`,
-      s.legs.map(l=>`<li>${esc(l.label)} <span class="cact">(${esc(l.actual)})</span></li>`).join(""),
-      `<span>Model ${pct(s.chance)}</span><span>Price <b>${amS(s.price)}</b></span>`,s.stake,s.returned)).join("");
-    return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2>
-      <p class="sub">NBA slips the algorithm issued that won, ${day(N.from)} to ${day(N.to)}. This page lists winning slips only; losing slips are not shown. <b>Stakes and returns are examples. They are not bets that were placed.</b></p></div></div>
-      ${lgbar}
-      <div class="cfilt">${opt("n",[["all","Any legs"],["4","4-leg"],["6","6-leg"],["8","8-leg"]])}</div>
-      <div class="cfilt">${opt("week",[["all","All nights"],...dates.map(d=>[d,day(d)])])}</div>
-      <p class="sub" style="margin-top:10px">${S.length} slips shown · example stakes ${money(tot.st)} · cashed ${money(tot.rt)}</p></section>${grid(cards)}`;
-  }
-  const C=D.cashed;
-  if(!C) return `<section class="panel"><h2>Cashed slips</h2>${lgbar}<p class="sub">No graded record has been built yet.</p></section>`;
-  const kindL={SGP:"Props SGP","SGP+TD":"SGP with TD",ATD:"Anytime TD"};
-  const S=C.slips.filter(s=>(f.kind==="all"||s.kind===f.kind)&&(f.n==="all"||String(s.n)===f.n)&&(f.week==="all"||String(s.week)===f.week));
-  const tot=S.reduce((a,s)=>({st:a.st+(s.stake||0),rt:a.rt+(s.ret||0)}),{st:0,rt:0});
-  const weeks=[...new Set(C.slips.map(s=>s.week))].sort((a,b)=>b-a);
-  const cards=S.slice().sort((a,b)=>b.week-a.week||(b.fair||0)-(a.fair||0)).map(s=>card(s.title,
-     `<span class="cpill">Week ${s.week}</span><span class="cpill">${kindL[s.kind]||s.kind}</span><span class="cpill win">${s.n}-leg cashed</span>`,
-     s.legs.map(l=>`<li>${esc(l.t)} <span class="cact">(${esc(l.r)})</span></li>`).join(""),
-     `<span>Model ${s.p?pct(s.p):"–"}</span><span>Fair price <b>${amS(s.fair)}</b></span>`,s.stake,s.ret)).join("");
-  const aw=[...new Set(C.atd_legs.map(a=>a.week))].sort((a,b)=>b-a).map(w=>`<tr><td>Week ${w}</td><td>${C.atd_legs.filter(a=>a.week===w).map(a=>`${esc(a.name)}${a.fair!=null?` <span class="sub">(${amS(a.fair)})</span>`:""}`).join(" · ")}</td></tr>`).join("");
-  return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2>
-    <p class="sub">Slips the algorithm issued that won, graded exactly as shipped against final box scores. <b>Stakes and returns are examples at the model's fair price. They are not bets that were placed</b>, and a sportsbook's price for the same slip would differ. This page lists winning slips only; losing slips are not shown. Built ${esc(C.built)}.</p></div></div>
-    ${lgbar}
-    <div class="cfilt">${opt("kind",[["all","All types"],["SGP","Props SGP"],["SGP+TD","SGP with TD"],["ATD","Anytime TD"]])}</div>
-    <div class="cfilt">${opt("n",[["all","Any legs"],["2","2-leg"],["4","4-leg"],["6","6-leg"],["8","8-leg"]])}</div>
-    <div class="cfilt">${opt("week",[["all","All weeks"],...weeks.map(w=>[String(w),"Week "+w])])}</div>
-    <p class="sub" style="margin-top:10px">${S.length} slips shown · example stakes ${money(tot.st)} · cashed ${money(tot.rt)} at fair prices</p></section>
-  ${grid(cards)}
-  <section class="panel"><h3>Anytime TD picks that scored</h3><p class="sub">Every touchdown pick on an issued slip or pick list that scored, with the model's fair price where saved.</p><div class="tblwrap" style="overflow-x:auto"><table><tbody>${aw}</tbody></table></div></section>`;
-}
 function renderModel(){const R=D.rules||{};
   return `<section class="panel"><div class="section-head"><div><h2>Model &amp; rules</h2>
     <p class="sub">What every ATD and props number on this platform considers, the standing rules from your ledger, and how the model has tested. Data only: play-by-play, snap counts, rosters, injury reports, Vegas lines, NWS weather. No media or expert picks.</p></div></div></section>
@@ -293,13 +243,12 @@ function renderPicks(){
     const tiers=tk.filter(t=>t.ticket.includes("|"+b)).sort((a,c)=>a.legs.length-c.legs.length);
     if(!tiers.length) return `<div class="ticket"><h3>${b==="floor"?"Floor SGP":"Aggressive SGP"}</h3><div class="empty">No legs qualify</div></div>`;
     const top=tiers[tiers.length-1];
-    return `<div class="ticket"><h3>${b==="floor"?"Floor SGP · 70–88% legs":"Aggressive SGP · 55–68% legs"}</h3>
-      <ol>${top.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(legP(l)??0,0)}</span></li>`).join("")}</ol>
-      <div class="row">${tiers.map(t=>`<button class="btn sm" data-load-prop="${esc(t.ticket)}">${t.legs.length}-leg · ${pct(t.p)} · ${am(t.p)}</button>`).join("")}</div></div>`}).join("");
+    return `<div class="ge-block"><h3 class="ge-set-title">${b==="floor"?"Floor SGP · 70–88% legs":"Aggressive SGP · 55–68% legs"}</h3>
+      <div class="gs-slips ge-set">${tiers.map(t=>geSlip(`${t.legs.length}-leg ${b==="floor"?"floor":"aggressive"} SGP`,gameLabel(G[sel]),t.legs,t.p,`data-load-prop="${esc(t.ticket)}"`)).join("")}</div></div>`}).join("");
   const combos=D.algo.props.filter(t=>t.ticket.startsWith("combo")).sort((a,c)=>a.legs.length-c.legs.length);
   const scriptSummary=(D.script_sgp||[]).length?`<section class="panel"><div class="section-head"><div><h2>Script SGPs</h2>
       <p class="sub">Game read first, then the legs. 4/6/8/10-leg props ladders and the two anytime-TD hybrids per game.</p></div></div>
-      <div class="row">${D.script_sgp.map((t,gi)=>{const top=t.ladder[0];return top?`<button class="btn" data-script-load="${gi}|ladder|${top.n}">${gameLabel(G[t.game])} · ${top.n}-leg · ${pct(top.p)}</button>`:""}).join("")}
+      <div class="row">${D.script_sgp.map((t,gi)=>{const top=t.ladder[0];return top?`<a class="btn" href="#sgp">${gameLabel(G[t.game])} · ${top.n}-leg · ${pct(top.p)}</a>`:""}).join("")}
       <a class="btn primary" href="#sgp">Open Game SGPs</a></div></section>`:"";
   const atdSection=anyTickets?`<section class="panel"><div class="section-head"><div><h2>Algorithm ATD parlays</h2>
       <p class="sub">One player per team (teammates split TDs). Each parlay builds on the one before it. Pick the variance you want:</p></div></div>
@@ -315,9 +264,10 @@ function renderPicks(){
       <div class="ladder" style="margin-top:12px">${blocks}</div></section>
     ${combos.length?`<section class="panel"><div class="section-head"><div><h2>Cross-game prop combos</h2>
       <p class="sub">Floor legs, at most 2 per game and 1 per team.</p></div></div>
-      <div class="row">${combos.map(t=>`<button class="btn" data-load-prop="${esc(t.ticket)}">${t.legs.length}-leg · ${pct(t.p)} · fair ${am(t.p)}</button>`).join("")}</div></section>`:""}`+renderPersonnel();
+      <div class="gs-slips ge-set">${combos.map(t=>geSlip(`${t.legs.length}-leg cross-game`,"Floor legs",t.legs,t.p,`data-load-prop="${esc(t.ticket)}"`)).join("")}</div></section>`:""}`+renderPersonnel();
 }
 
+function geSlip(title,meta,legs,p,load){const lp=l=>l.p??legP(l);return `<article class="gs-slip"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3><span class="gs-slip-meta">${esc(meta)}</span></header><ul class="gs-slip-legs">${legs.map(l=>`<li><span>${esc(legLabel(l).replace(" — ",": "))}${l.n?`<small>cleared in ${l.hits} of ${l.n} games</small>`:""}</span><span class="num">${pct(lp(l)??0,0)}</span></li>`).join("")}</ul><dl class="gs-slip-foot"><div><dt>Chance to hit</dt><dd class="red">${pct(p)}</dd></div><div><dt>Chance to miss</dt><dd>${pct(1-p)}</dd></div><div><dt>Fair odds</dt><dd>${am(p)}</dd></div></dl><button class="btn ge-slip-add" ${load}>Add to bet slip</button></article>`}
 function renderScriptSGP(){
   const S=D.script_sgp||[]; if(!S.length) return "";
   const fitpill=f=>f>=0.25?`<span class="pill good">script +${f.toFixed(2)}</span>`:f<=-0.25?`<span class="pill bad">script ${f.toFixed(2)}</span>`:"";
@@ -325,16 +275,12 @@ function renderScriptSGP(){
   return S.map((t,gi)=>{const g=G[t.game]; const top=t.ladder[t.ladder.length-1];
     return `<section class="panel"><div class="section-head"><div><h2>${gameLabel(g)}</h2><div class="envline">${envPills(g)}</div></div></div>
       <div class="scriptbox"><div class="lbl">Game script</div>${t.notes.map(n=>`<div class="sub">${esc(n)}</div>`).join("")}${t.reads?`<div class="sub" style="color:var(--warn,#c80)">${t.reads==="consensus"?"Agreed slip: every leg is priced by the model and was cleared by at least 60% of that role against this defence this season.":"Matchup reads on for this game: legs are steered by how each role has done against this defence this season."} Probabilities are the model's.</div>`:""}</div>
-      <div class="ladder" style="margin:12px 0 6px">${t.ladder.map(x=>`<div class="ticket"><div class="top"><span class="legsn">${x.n}-leg props SGP</span><span class="fair">${am(x.p)}</span></div><div class="pct">${pct(x.p)} to hit</div>
-            <ol>${x.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>
-            <button class="btn primary" data-script-load="${gi}|ladder|${x.n}">Load into slip</button></div>`).join("")}</div>
+      <div class="gs-slips ge-set">${t.ladder.map(x=>geSlip(`${x.n}-leg SGP`,gameLabel(g),x.legs,x.p,`data-script-load="${gi}|ladder|${x.n}"`)).join("")}</div>
       <p class="sub">Each longer ticket extends the shorter one. Legs ranked by probability with script fit as the tiebreaker; ≤2 legs per player.</p>
-      ${top?`<details style="margin-top:6px"><summary class="sub" style="cursor:pointer;color:var(--gold);font-weight:600">Why these legs</summary>${top.legs.map(legrow).join("")}</details>`:""}
-      <div class="ladder" style="margin-top:12px">
+      ${top?`<h3 class="ge-set-title">Leg by leg: why each one is on the ${top.n}-leg</h3>`+top.legs.map(legrow).join(""):""}
+      <div class="gs-slips ge-set" style="margin-top:14px">
         ${["lotto","hybrid1","h61","hybrid2","h81","h82","ag6","ag8"].map(k=>{const h=t[k]; if(!h) return ""; const na=h.legs.filter(l=>l.mk==="atd").length; const ttl=k==="lotto"?`${h.legs.length}-leg lotto · the most likely legs`:k.startsWith("ag")?`Aggressive SGP · ${h.legs.length}-leg · higher milestones`:`${h.legs.length}-leg · ${na} anytime TD${na>1?"s":""} + ${h.legs.length-na} props`;
-          return `<div class="ticket"><div class="top"><span class="legsn">${ttl}</span><span class="fair">${am(h.p)}</span></div><div class="pct">${pct(h.p)} to hit</div>
-            <ol>${h.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>
-            <button class="btn primary" data-script-load="${gi}|${k}|0">Load into slip</button></div>`}).join("")}
+          return geSlip(ttl,gameLabel(g),h.legs,h.p,`data-script-load="${gi}|${k}|0"`)}).join("")}
       </div></section>`}).join("");
 }
 function renderSGP(){
@@ -531,12 +477,11 @@ let lastTab=null;
 function render(){
   const y=window.scrollY, sameTab=lastTab===state.tab; lastTab=state.tab;
   document.querySelectorAll("nav.tabs a").forEach(a=>a.setAttribute("aria-current",a.dataset.tab===state.tab?"page":"false"));
-  $("#main").innerHTML=state.tab==="build"?renderBuild():state.tab==="board"?renderBoard():state.tab==="sgp"?renderSGP():state.tab==="mysgp"?renderMySGP():state.tab==="audit"?renderAudit():state.tab==="cashed"?renderCashed():state.tab==="model"?renderModel():state.tab==="home"?renderHome():renderPicks();
+  $("#main").innerHTML=state.tab==="build"?renderBuild():state.tab==="board"?renderBoard():state.tab==="sgp"?renderSGP():state.tab==="mysgp"?renderMySGP():state.tab==="audit"?renderAudit():state.tab==="model"?renderModel():state.tab==="home"?renderHome():renderPicks();
   renderSlip(); heatify();
   if(sameTab) requestAnimationFrame(()=>window.scrollTo(0,y));   // never jump the page on an add/remove
 }
-function cashedNav(){const a=document.querySelector('nav.tabs a[data-tab="cashed"]');if(a)a.hidden=!(D.cashed||D.cashed_nba)}
-function route(){const h=location.hash.slice(1);const extra=(window.GE_EXTRA_TABS||[]).includes(h);$("#main").hidden=extra;if(extra){state.tab=h;document.querySelectorAll("nav.tabs a").forEach(a=>a.setAttribute("aria-current",a.dataset.tab===h?"page":"false"));renderSlip();return}cashedNav();state.tab=["home","picks","sgp","mysgp","build","board","audit","cashed","model"].includes(h)?h:"home";render()}
+function route(){const h=location.hash.slice(1);const extra=(window.GE_EXTRA_TABS||[]).includes(h);$("#main").hidden=extra;if(extra){state.tab=h;document.querySelectorAll("nav.tabs a").forEach(a=>a.setAttribute("aria-current",a.dataset.tab===h?"page":"false"));renderSlip();return}state.tab=["home","picks","sgp","mysgp","build","board","audit","model"].includes(h)?h:"home";render()}
 
 document.addEventListener("click",e=>{
   const t=e.target.closest("button");if(!t)return;const d=t.dataset;
@@ -798,7 +743,6 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 });
 
 document.addEventListener("click",e=>{ if(state.tab==="audit"&&e.target.closest("#slip button")) setTimeout(()=>{$("#main").innerHTML=renderAudit()},0) });
-document.addEventListener("click",e=>{const t=e.target.closest("[data-cashf]");if(!t)return;const [k,v]=t.dataset.cashf.split("|");const F=state.cashF||(state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"});F[k]=v;if(k==="lg"){F.kind="all";F.n="all";F.week="all"}render()});
 document.addEventListener("click",e=>{ if(e.target.closest("#fab")) openSlip(true); else if(e.target.closest("[data-close-slip]")||e.target.id==="scrim") openSlip(false) });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") openSlip(false) });
 window.addEventListener("hashchange",route);

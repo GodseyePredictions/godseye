@@ -89,48 +89,6 @@ h3{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.4px
 .btn.primary:hover{background:#e41f31}
 .btn.ghost{background:transparent}
 .btn.sm{padding:4px 8px;font-size:12px}
-.btn.on{background:var(--ink,#111);color:var(--bg,#fff);border-color:transparent}
-/* every set slip is a white ticket, the same look as the site's slips (.gs-slip) */
-.ticket{--ink:#0b0b0c;--muted:#4d4a4c;--dim:#6b6468;--line:#dcd8da;--line2:#c9c3c6;--raise:#fff;--raise2:#f3f0f1;--chip:#efecee;--gold:#8a5f12;--warn:#9a5b00;--good:#0a7d45;--bad:#c62222;--warn-soft:#fdf0d7;--good-soft:#d9f5e5;--bad-soft:#fde3e3;--gold-soft:#f6ead0;
-  background:#fff;color:#0b0b0c;border:0;border-radius:14px;padding:16px 18px 14px;gap:8px;box-shadow:0 1px rgba(255,255,255,.6) inset,0 18px 40px -12px rgba(0,0,0,.65);font-variant-numeric:tabular-nums}
-.ticket:hover{border-color:transparent}
-.ticket .top{align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:2px dashed #dcd8da}
-.ticket .legsn,.ticket h3{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.05;letter-spacing:.01em;text-transform:uppercase;color:#d6192b}
-.ticket .fair{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.05;color:#0b0b0c;white-space:nowrap}
-.ticket .pct{font-family:var(--body);font-size:12.5px;color:#4d4a4c}
-.ticket ol{list-style:none;margin:0;padding:0;font-size:14px;font-weight:600;color:#0b0b0c}
-.ticket ol li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid #dcd8da}
-.ticket ol li:last-child{border-bottom:0}
-.ticket ol li span{color:#0b0b0c;font-weight:700;white-space:nowrap}
-.ticket .sub,.ticket .empty{color:#4d4a4c}
-.ticket .btn{background:#0b0b0c;border-color:#0b0b0c;color:#fff}
-.ticket .btn.primary{background:#d6192b;border-color:#d6192b;box-shadow:none;margin-top:auto}
-.ticket .btn.ghost{background:transparent;color:#0b0b0c;border-color:#c9c3c6}
-.ticket .prob,.ticket .prob[data-heat]{background:#efecee;color:#0b0b0c}
-.ticket .intel dd,.ticket .gchip b{color:#0b0b0c}
-.ticket .sgprow .slot{color:#d6192b}
-/* cashed slips: white tickets on the dark console */
-nav.tabs a[hidden]{display:none}
-.lgbar{display:flex;gap:8px;margin:4px 0 12px}
-.lgtab{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:.08em;text-transform:uppercase;padding:8px 26px;border-radius:10px;border:1px solid var(--line2);background:var(--raise2);color:var(--muted)}
-.lgtab.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:var(--red-glow)}
-.cfilt{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
-.cgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
-.cslip{background:#fff;color:#111;border-radius:14px;padding:16px;border:1px solid #e4e0e2;box-shadow:0 10px 30px rgba(0,0,0,.45);display:flex;flex-direction:column;gap:8px}
-.cslip .ctitle{font-family:var(--display);font-weight:800;font-size:21px;line-height:1.1;letter-spacing:.3px;text-transform:uppercase;color:#0a090b}
-.cslip .cpills{display:flex;gap:6px;flex-wrap:wrap}
-.cslip .cpill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:#efecee;color:#3a3438}
-.cslip .cpill.win{background:#d9f5e5;color:#0d6b3a}
-.cslip ol{margin:2px 0 0 20px;padding:0;color:#000;font-size:14px;font-weight:500}
-.cslip ol li{margin-bottom:2px}
-.cslip .cact{color:#5d5559;font-weight:400}
-.cslip .cmeta{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#4a4347}
-.cslip .cmeta b{color:#000;font-family:var(--mono)}
-.cslip .cmoney{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;border-top:2px solid #111;padding-top:10px;margin-top:auto}
-.cslip .clbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4a4347}
-.cslip .cstake{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.05;color:#000}
-.cslip .cret{text-align:right}
-.cslip .cval{font-family:var(--display);font-weight:800;font-size:38px;line-height:1;color:#c8101f}
 a.btn{text-decoration:none;color:var(--ink);display:inline-block}
 
 /* tables + heat */
