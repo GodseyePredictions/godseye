@@ -1,0 +1,14 @@
+{
+  "is_bet_slip": true,
+  "book": "bet365",
+  "bet_type": "same_game_parlay",
+  "legs": [
+    { "sport": "NFL", "game": "WAS Commanders @ NY Giants", "player": "Isaiah Likely", "market": "rec", "market_text": "2+ Receptions", "threshold": 2, "side": "milestone", "odds_text": null, "unreadable": [] },
+    { "sport": "NFL", "game": "WAS Commanders @ NY Giants", "player": "Rachaad White", "market": "rush_yds", "market_text": "20+ Rushing Yards", "threshold": 20, "side": "milestone", "odds_text": null, "unreadable": [] },
+    { "sport": "NFL", "game": "WAS Commanders @ NY Giants", "player": "Isaiah Likely", "market": "rec_yds", "market_text": "20+ Receiving Yards", "threshold": 20, "side": "milestone", "odds_text": null, "unreadable": [] },
+    { "sport": "NFL", "game": "WAS Commanders @ NY Giants", "player": "Devin Singletary", "market": "atd", "market_text": "Anytime Touchdown Scorer", "threshold": null, "side": null, "odds_text": null, "unreadable": [] }
+  ],
+  "total_odds_text": "+450",
+  "stake_text": "$25.00",
+  "unreadable": []
+}

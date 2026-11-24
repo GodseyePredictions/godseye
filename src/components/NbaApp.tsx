@@ -1,5 +1,10 @@
 "use client";
 
+import { AdvisorChat } from "./AdvisorChat";
+import { ScreenshotAudit } from "./ScreenshotAudit";
+import { PasteTab } from "./PasteSlip";
+import { NO_BETS, readBets, subscribeBets, writeBets } from "./betsStore";
+import { BankrollStrategy, type Pick as StakePick } from "./BankrollStrategy";
 import { useState, useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
 import raw from "../../model/nba/output/nba_site.json";
@@ -87,7 +92,7 @@ const track = rawTrack as unknown as {
 };
 const BOOK = slate.book === "draftkings" ? "DraftKings" : slate.book === "bet365" ? "bet365" : "the book";
 
-const TABS = ["home", "sgp", "multi", "strategy", "cashed", "track", "board", "scripts", "avail", "model"] as const;
+const TABS = ["home", "sgp", "multi", "strategy", "cashed", "advisor", "shot", "paste", "track", "board", "scripts", "avail", "model"] as const;
 type Tab = (typeof TABS)[number];
 
 const TICKET_NAMES: Record<string, string> = {
@@ -493,20 +498,32 @@ function StrategyHead({ title, sub }: { title: string; sub?: string }) {
 }
 
 /** Staking plans for one night's slips at two bankroll sizes. Hidden once that night is over. */
+const TICKET_NAME: Record<string, string> = { props_4: "4-leg props SGP", props_4b: "Second 4-leg props SGP", props_6: "6-leg props SGP" };
+/** Tonight's slips and singles for the "size a pick" box. A slip's multiplied leg prices are an estimate, so no price is filled in for it. */
+const stakePicks: StakePick[] = slate.games
+  .filter((g) => !g.preview)
+  .flatMap((g) => [
+    ...g.tickets.map((t) => ({
+      id: t.id,
+      label: `${g.away} @ ${g.home}: ${TICKET_NAME[t.type] ?? t.type}`,
+      chance: t.joint,
+      price: t.price_is_estimate ? null : t.book_price,
+    })),
+    ...g.singles
+      .filter((l) => l.price != null)
+      .map((l, i) => ({ id: `${g.id}-single-${i}`, label: `${g.away} @ ${g.home}: ${l.label} (single)`, chance: l.p, price: l.price })),
+  ]);
+
+/** The personal bankroll settings, then the posted staking plan for one night's slips. The plan is hidden once that night is over. */
 function StrategyTab() {
   // the plan is for the slate dated `strategy.date` (Eastern); it goes stale the next morning
   const [stale] = useState(() => new Date(Date.now() - 11 * 3600e3).toISOString().slice(0, 10) > strategy.date);
-  if (stale)
-    return (
-      <section className="panel">
-        <StrategyHead title="Bankroll strategy" />
-        <p className="empty">No bankroll strategy is posted for today&apos;s slate yet.</p>
-      </section>
-    );
+  if (stale) return <BankrollStrategy picks={stakePicks} />;
   return (
     <>
+      <BankrollStrategy picks={stakePicks} />
       <section className="panel">
-        <StrategyHead title="Bankroll strategy" sub={strategy.built} />
+        <StrategyHead title="Posted plan for tonight" sub={strategy.built} />
         <p className="sub" style={{ maxWidth: "75ch" }}>
           {strategy.intro}
         </p>
@@ -1063,6 +1080,35 @@ function ModelTab() {
   );
 }
 
+/** Paste a slip on the NBA side. A saved bet joins the same list the NFL side's "My bets" shows. */
+function NbaPaste() {
+  const bets = useSyncExternalStore(subscribeBets, readBets, () => NO_BETS);
+  const [saved, setSaved] = useState(0);
+  return (
+    <>
+      {saved > 0 && (
+        <section className="panel">
+          <p className="sub" style={{ margin: 0 }}>
+            Saved. It counts toward tonight in Bankroll Strategy, and it is listed with your other bets under{" "}
+            <a href="/nfl#bets">My bets</a>, where you mark it won or lost.
+          </p>
+        </section>
+      )}
+      {/* a new key after each save gives an empty form */}
+      <PasteTab
+        key={saved}
+        defaultSport="NBA"
+        bets={bets}
+        onSave={(b) => {
+          writeBets([b, ...readBets()]);
+          setSaved((n) => n + 1);
+        }}
+      />
+      <p className="t-note">Your bets are saved in this browser only. They are not sent anywhere, and clearing your browser data removes them.</p>
+    </>
+  );
+}
+
 export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
   const raw_hash = useSyncExternalStore(subscribeHash, readHash, () => "");
   const hash = raw_hash.startsWith(prefix) ? raw_hash.slice(prefix.length) : "";
@@ -1071,8 +1117,11 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
     ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
-    ["strategy", "Bankroll strategy", "M4 19h16M6 16V8M11 16V5M16 16v-6"],
+    ["strategy", "Bankroll Strategy", "M4 19h16M6 16V8M11 16V5M16 16v-6"],
     ["cashed", "Cashed slips", "M5 12l4 4 10-10M4 20h16"],
+    ["advisor", "Advisor chat", "M4 5h16v11H9l-5 4z"],
+    ["shot", "Audit a screenshot", "M4 8h3l2-3h6l2 3h3v11H4zM12 17a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7z"],
+    ["paste", "Paste a slip", "M9 4h6v3H9zM7 5H5v15h14V5h-2M8 12h8M8 16h5"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["scripts", "Game scripts", "M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3"],
     ["avail", "Availability", "M4 12l5 5L20 6"],
@@ -1108,7 +1157,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
             <span key={id} style={{ display: "contents" }}>
               {i === 1 && <span className="navgrp">Picks</span>}
               {i === 5 && <span className="navgrp">Tools</span>}
-              {i === 8 && <span className="navgrp">Model</span>}
+              {i === 11 && <span className="navgrp">Model</span>}
               <a href={`#${prefix}${id}`} aria-current={tab === id ? "page" : "false"}>
                 <Icon d={d} />
                 {label}
@@ -1122,6 +1171,9 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
           {tab === "multi" && <MultiTab />}
           {tab === "strategy" && <StrategyTab />}
           {tab === "cashed" && <CashedTab />}
+          {tab === "advisor" && <AdvisorChat sport="NBA" />}
+          {tab === "shot" && <ScreenshotAudit defaultSport="NBA" />}
+          {tab === "paste" && <NbaPaste />}
           {tab === "track" && <TrackTab />}
           {tab === "board" && <BoardTab />}
           {tab === "scripts" && slate.games.map((g) => <ScriptCard g={g} key={g.id} />)}

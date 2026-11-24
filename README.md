@@ -25,6 +25,44 @@ Then refresh the landing page's "Locks of the week" from the new data:
 
 The first command rewrites `public/console/data.js` (the week's model data), `public/console/app.js` (the console logic, patched for this site) and `src/app/(console)/console-base.css`. Site-specific styling lives in `src/app/(console)/console.css`.
 
+## Auditing a slip from a screenshot
+
+"Audit a screenshot" (on both the NFL and NBA sides) reads a bet slip image, asks the user to confirm what was read, grades it against the algorithm and suggests removals, swaps and adds.
+
+Try it locally:
+
+    echo "ANTHROPIC_API_KEY=your-key" > .env.local     # never committed
+    npm install
+    npm run dev
+
+Open http://localhost:3000/nfl#shot and upload `fixtures/slips/bet365-sgp.png`. The sample slips are drawn by `npm run slip:fixtures` from made-up data for the week in `public/console/data.js`; they are not captures from a sportsbook.
+
+To check the screenshot reader on its own, against the expected reading beside each sample:
+
+    ANTHROPIC_API_KEY=your-key npm run slip:read -- fixtures/slips/bet365-sgp.png
+
+Where things live:
+
+- `src/lib/slip/vision.ts` sends the image to Claude (`claude-sonnet-5-5`), which only transcribes. `schema.ts` validates the result and converts prices in code.
+- `src/lib/slip/grade.ts` grades each leg and the whole slip. The joint chance comes from `src/lib/advisor/joint.ts`, the console's correlation engine, never from multiplying legs.
+- `src/lib/slip/suggest.ts` proposes changes from algorithm output only. `recheck.ts` re-grades saved slips when the algorithm's numbers are rebuilt.
+- `src/lib/slip/tools.ts` exposes `parse_slip`, `grade_slip` and `suggest_changes` for the chat agent.
+
+Limits today: the joint chance is NFL only (the NBA output carries no correlations); suggested rungs come from the algorithm's ladder because there is no book price feed, so the user checks the rung and types the new price; saved slips and alerts live in the browser until accounts exist.
+
+## The advisor chat
+
+"Advisor chat" (on both the NFL and NBA sides) is the 1-to-1 chat. A user types a question or attaches a slip screenshot; the advisor answers using the algorithms' output and the bankroll engine.
+
+It needs the same `ANTHROPIC_API_KEY` in `.env.local` as the screenshot audit. Then `npm run dev` and open http://localhost:3000/nfl#advisor.
+
+- `src/lib/advisor/agent.ts` holds the advisor's instructions and the loop: call the model, run the tools it asks for, send the results back. The model call is passed in, so the loop is tested without the network.
+- `src/lib/advisor/claude.ts` is the model call. The model is `ADVISOR_MODEL` (default `claude-opus-5-5`).
+- Tools: `parse_slip`, `grade_slip`, `suggest_changes` (`src/lib/slip/tools.ts`), `get_player_intel` and `get_game_intel` (`src/lib/advisor/intel.ts`). Every number the advisor quotes comes back from one of them.
+- `src/app/api/advisor/route.ts` is the endpoint; `src/components/AdvisorChat.tsx` is the screen.
+
+The conversation, the bankroll settings and tracked bets live in the browser and are sent with each message until accounts exist. The endpoint has no sign-in yet, so do not put it on a public address before logins are in: anyone who found it could spend the API key.
+
 ## What is not built yet
 
 Logins, subscriptions, the AI advisor chat, live odds and sportsbook sync. Bets are stored in the visitor's browser until accounts exist.
