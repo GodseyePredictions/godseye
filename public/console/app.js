@@ -160,65 +160,6 @@ function renderHome(){
     </div>`;
 }
 state.atdStyle=state.atdStyle||"chalk";
-function renderEarly(){
-  const E=D.early; if(!E||!E.games||!E.games.length) return "";
-  const pc=p=>p<0.01?(p*100).toFixed(2)+"%":pct(p);
-  const lab=esc(E.label), sub=`${E.games.length} game${E.games.length>1?"s":""} kicking ${esc(E.kick_et)}`;
-  const atd=(E.atd||[]).map(t=>`<div class="ticket">
-      <div class="top"><span class="legsn">${t.n}-LEG ATD</span><span class="fair">${am(t.p)}</span></div>
-      <div class="pct">${pc(t.p)} to hit · bet if bet365 pays better than ${am(t.p)}</div>
-      <ol>${t.legs.map(id=>`<li>${esc(P[id].name)} <span>${P[id].pos} ${P[id].team} · ${pct(P[id].p,0)}</span></li>`).join("")}</ol>
-      ${(t.exc||[]).length?`<div class="sub" style="color:var(--warn,#c80)">Rule exception: ${t.exc.map(esc).join(", ")}${''} (normally singles: returning or inheriting the job). Used only because the clean pool ran out at ${t.n-t.exc.length} legs.</div>`:""}
-      <button class="btn primary" data-early-load="atd|${t.n}">Load into slip</button></div>`).join("");
-  const cush=p=>P[p].cushion||0.06;
-  const wr=(E.wrte||[]).length?`<h3 style="margin:16px 0 4px">${lab} receivers and tight ends · singles</h3>
-    <p class="sub">Clean pass-catchers at 25% or better: not on the injury report, not returning, not on a replacement-quarterback offence. Take one only at the play-at price or longer. Tap + to add to the slip.</p>
-    <div style="overflow-x:auto"><table class="tbl" style="width:100%;font-size:12.5px;border-collapse:collapse"><thead><tr style="text-align:left;color:var(--muted)"><th>Player</th><th>Game</th><th>TD chance</th><th>Fair</th><th>Play at</th><th>Red-zone tgt share</th><th>End-zone tgt share</th><th>Expected vs actual TD/g</th><th>Season</th><th></th></tr></thead><tbody>
-    ${E.wrte.map(w=>{const p=P[w.id];return `<tr style="border-top:1px solid var(--line,#333)"><td><b>${esc(p.name)}</b> <span style="color:var(--muted)">${p.pos} ${p.team}</span></td><td>${gameLabel(G[p.game])}</td><td><span class="prob">${pct(p.p,0)}</span></td><td>${am(p.p)}</td><td><b>${am(p.p-cush(w.id))}</b></td><td>${pct(w.rz??0,0)}</td><td>${pct(w.ez??0,0)}</td><td>${(w.xtd??0).toFixed(2)} / ${(w.td??0).toFixed(2)}</td><td>${w.tds??0} TD in ${w.g??0}</td><td><button class="btn sm" data-add-leg="${w.id}|atd|" aria-label="Add leg">+</button></td></tr>`}).join("")}</tbody></table></div>`:"";
-  const mixed=(E.atd_mixed||[]).length?`<h3 style="margin:16px 0 4px">${lab} combo ATD tickets · ground and air</h3>
-    <p class="sub">The most likely mix of backs and pass-catchers at each size, one player per team. Less likely than the all-ground tickets, paid longer.</p>
-    <div class="ladder" style="margin-top:8px">${E.atd_mixed.map(t=>`<div class="ticket">
-      <div class="top"><span class="legsn">${t.n}-LEG COMBO · ${esc(t.mix||"")}</span><span class="fair">${am(t.p)}</span></div>
-      <div class="pct">${pc(t.p)} to hit · bet if bet365 pays better than ${am(t.p)}</div>
-      <ol>${t.legs.map(id=>`<li>${esc(P[id].name)} <span>${P[id].pos} ${P[id].team} · ${pct(P[id].p,0)}</span></li>`).join("")}</ol>
-      <button class="btn" data-early-load="mixed|${t.n}">Load into slip</button></div>`).join("")}</div>`:"";
-  const hedges=(E.hedges||[]).length?`<h3 style="margin:16px 0 4px">${lab} ATD hedge slips · three options</h3>
-    <p class="sub">Each option pairs a primary slip with a hedge. In the hedge the two least likely legs are swapped for the next-best scorer on the same team.</p>
-    <div class="ladder" style="margin-top:8px">${E.hedges.map((h,i)=>`<div class="ticket">
-      <div class="top"><span class="legsn">OPTION ${i+1} · ${esc(h.name)}</span><span class="fair">${pc(h.pe)} either</span></div>
-      <div class="pct">Primary ${pc(h.pp)} · fair ${am(h.pp)}</div>
-      <ol>${h.primary.map(id=>`<li>${esc(P[id].name)} <span>${P[id].pos} ${P[id].team} · ${pct(P[id].p,0)}</span></li>`).join("")}</ol>
-      <button class="btn sm" data-early-load="hp|${i}">Load primary</button>
-      <div class="pct" style="margin-top:8px">Hedge ${pc(h.ph)} · fair ${am(h.ph)}</div>
-      <ol>${h.hedge.map(id=>`<li>${h.primary.includes(id)?esc(P[id].name):`<b>${esc(P[id].name)}</b>`} <span>${P[id].pos} ${P[id].team} · ${pct(P[id].p,0)}</span></li>`).join("")}</ol>
-      <button class="btn sm" data-early-load="hh|${i}">Load hedge</button></div>`).join("")}</div>`:"";
-  const held=(E.held||[]).length?`<p class="sub" style="margin-top:8px"><b>Held off parlays, singles only:</b> ${E.held.map(h=>`${esc(h[0])} (${esc(h[1])}): ${esc(h[2])}`).join(" · ")}</p>`:"";
-  const pg=(E.per_game||[]).map((o,i)=>{const g=G[o.game]; const top=o.ladder.filter(x=>x.n<=8).slice(-1)[0]||o.ladder[0];
-    if(!top) return "";
-    return `<div class="ticket"><div class="top"><span class="legsn">${gameLabel(g)}</span><span class="fair">${o.ladder[0]?pct(o.ladder[0].p):""}</span></div>
-      <div class="pct">${esc((o.notes||[]).slice(-1)[0]||"")}</div>
-      <ol>${top.legs.map((l,j)=>`<li${j===3||j===5?' style="border-bottom:1px dashed var(--line,#444)"':""}>${esc(legLabel(l))} <span>${l.n?`${l.hits}/${l.n} · `:""}${pct(l.p,0)}</span></li>`).join("")}</ol>
-      <div class="row">${o.ladder.filter(x=>x.n<=8).map(x=>`<button class="btn sm ${x.n===4?"primary":""}" data-early-load="game|${i}|${x.n}">${x.n}-leg · ${pct(x.p)} · ${am(x.p)}</button>`).join("")}</div>
-      ${["h81","h82"].map(k=>{const h=o[k]; if(!h) return ""; const na=h.legs.filter(l=>l.mk==="atd").length;
-        return `<details style="margin-top:8px"><summary class="sub"><b>${na} ATD + ${h.legs.length-na} props · ${h.legs.length} legs</b> · ${pc(h.p)} · fair ${am(h.p)}</summary>
-          <ol>${h.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>
-          <button class="btn sm" data-early-load="hyb|${i}|${k}">Load into slip</button></details>`}).join("")}</div>`}).join("");
-  const ms=(E.master||[]).map(m=>{const k=Object.keys(m.p_at_least).length; const half=Math.ceil(k/2);
-    return `<div class="ticket"><div class="top"><span class="legsn">MASTER · ${m.n} PER GAME · ${m.legs_total} LEGS</span><span class="fair">${am(m.p_all)}</span></div>
-      <div class="pct">All ${k} games cash together: ${pc(m.p_all)} · expect ${m.exp_cash.toFixed(1)} of ${k} game tickets and ${m.exp_legs.toFixed(0)} of ${m.legs_total} legs · ${half}+ games cash ${pct(m.p_at_least[half])}</div>${(m.missing||[]).length?`<div class="sub" style="color:var(--warn,#c80)">No ${m.n}-leg for ${m.missing.map(g=>gameLabel(G[g])).join(", ")}: too few legs clear the rules there (replacement quarterback), so that game sits out this slip.</div>`:""}
-      ${m.games.map(r=>`<div class="sub" style="margin-top:6px"><b>${gameLabel(G[r.game])}</b> · ${pct(r.p)} · fair ${am(r.p)}</div>
-        <ol>${r.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>`).join("")}
-      <button class="btn primary" data-early-load="master|${m.n}">Load all ${m.legs_total} legs into slip</button></div>`}).join("");
-  return `<section class="panel"><div class="section-head"><div><h2>${lab} ATDs</h2>
-      <p class="sub">${sub}. Anytime-TD parlays from these games only: running backs and quarterbacks, one per team, each ticket extends the one before it. Receivers, flagged players and backup-QB offences are singles.</p></div></div>
-      <div class="ladder" style="margin-top:10px">${atd||'<div class="empty">Not enough parlay-eligible legs in this window.</div>'}</div>${held}${mixed}${hedges}${wr}</section>
-    <section class="panel"><div class="section-head"><div><h2>${lab} Algo Picks per game</h2>
-      <p class="sub">Each game read on its own script, then its best props in order. The 4-leg is the top four; the 6 and 8 extend it (dashed lines mark the cut). No TD legs.</p></div></div>
-      <div class="ladder" style="margin-top:10px">${pg}</div></section>
-    <section class="panel"><div class="section-head"><div><h2>Master Slip · ${lab} Football Player Props</h2>
-      <p class="sub">Every ${lab} game's top 4, top 6 and top 8 props on one slip. Each game block is its own same-game parlay; the headline price is all games landing together.</p></div></div>
-      <div class="ladder" style="margin-top:10px">${ms}</div></section>`;
-}
 function renderPicks(){
   const styles=D.algo.atd_styles||{chalk:{label:"Chalk",desc:"",tickets:D.algo.atd}};
   const st=styles[state.atdStyle]?state.atdStyle:"chalk";
@@ -255,10 +196,10 @@ function renderPicks(){
       <p class="sub">One player per team (teammates split TDs). Each parlay builds on the one before it. Pick the variance you want:</p></div></div>
       ${styleBar}<div class="ladder" style="margin-top:10px">${atd}</div></section>`
     :`<section class="panel"><div class="section-head"><div><h2>Algorithm ATD picks</h2>
-      <p class="sub">${D.games.length===1?"One game on the slate: choose 2, 3 or 4 scorers. Ranked on the play-at probability and priced with the measured teammate and opponent correlations. Flagged players and backup-QB pass-catchers are left out."
-        :"Too few parlay-eligible players for 4-leg tickets. In-game scorer combos instead:"}</p></div></div>
+      <p class="sub">${D.games.length===1?"One game on the slate, so the one-player-per-team parlays cannot be built. These are the in-game anytime-TD doubles and trebles among parlay-eligible RB/QB legs, priced with the measured teammate/opponent correlations; WR/TE and flagged players are singles."
+        :"Too few parlay-eligible players for 4-leg tickets. In-game doubles and trebles instead:"}</p></div></div>
       <div class="ladder" style="margin-top:10px">${comboCards||'<div class="empty">No parlay-eligible pair clears 25%. Play the board as singles.</div>'}</div></section>`;
-  return renderKPIs()+renderEarly()+atdSection+scriptSummary+`
+  return renderKPIs()+atdSection+scriptSummary+`
     <section class="panel"><div class="section-head"><div><h2>Props SGPs by game</h2>
       <p class="sub">bet365 milestone legs. Props SGPs never carry TD legs. Questionable / returning players are singles only.</p></div></div>
       <div class="rail">${games.map(g=>`<button class="gchip" data-pgame="${g.id}" aria-pressed="${g.id===sel}"><b>${gameLabel(g)}</b><small>${esc(g.weekday.slice(0,3))} ${esc(g.kick)}${qbNote(g)?" · <span class=\"qbflag\">backup QB</span>":""}</small></button>`).join("")}</div>
@@ -274,12 +215,12 @@ function renderScriptSGP(){
   const legrow=(l,i)=>{const p=P[l.id];return `<div class="sgprow"><span class="slot">${i+1}</span><div class="sgpleg"><div class="line1"><span class="nm">${esc(legLabel(l))}<small>${p.pos} · ${p.team}</small></span>${l.n?`<span class="pill">${l.hits}/${l.n} this season</span>`:""}${fitpill(l.fit)}<span class="prob">${pct(l.p,0)}</span><button class="btn sm" data-add-leg="${l.id}|${l.mk}|${l.k??""}" aria-label="Add leg">+</button></div>${l.why&&l.why.length?`<div class="sub">${l.why.map(esc).join(" · ")}</div>`:""}</div></div>`};
   return S.map((t,gi)=>{const g=G[t.game]; const top=t.ladder[t.ladder.length-1];
     return `<section class="panel"><div class="section-head"><div><h2>${gameLabel(g)}</h2><div class="envline">${envPills(g)}</div></div></div>
-      <div class="scriptbox"><div class="lbl">Game script</div>${t.notes.map(n=>`<div class="sub">${esc(n)}</div>`).join("")}${t.reads?`<div class="sub" style="color:var(--warn,#c80)">${t.reads==="consensus"?"Agreed slip: every leg is priced by the model and was cleared by at least 60% of that role against this defence this season.":"Matchup reads on for this game: legs are steered by how each role has done against this defence this season."} Probabilities are the model's.</div>`:""}</div>
+      <div class="scriptbox"><div class="lbl">Game script</div>${t.notes.map(n=>`<div class="sub">${esc(n)}</div>`).join("")}</div>
       <div class="row" style="margin:10px 0 6px">${t.ladder.map(x=>`<button class="btn ${x.n===4?"primary":""}" data-script-load="${gi}|ladder|${x.n}">${x.n}-leg · ${pct(x.p)} · fair ${am(x.p)}</button>`).join("")}</div>
       <p class="sub">Each longer ticket extends the shorter one. Legs ranked by probability with script fit as the tiebreaker; ≤2 legs per player.</p>
       ${top?top.legs.map(legrow).join(""):""}
       <div class="grid2" style="margin-top:12px">
-        ${["lotto","hybrid1","h61","hybrid2","h81","h82","ag6","ag8"].map(k=>{const h=t[k]; if(!h) return ""; const na=h.legs.filter(l=>l.mk==="atd").length; const ttl=k==="lotto"?`${h.legs.length}-leg lotto · the most likely legs`:k.startsWith("ag")?`Aggressive SGP · ${h.legs.length}-leg · higher milestones`:`${h.legs.length}-leg · ${na} anytime TD${na>1?"s":""} + ${h.legs.length-na} props`;
+        ${["hybrid1","hybrid2"].map(k=>{const h=t[k]; if(!h) return ""; const ttl=k==="hybrid1"?"1 anytime TD + 4 props":"2 anytime TDs + 4 props";
           return `<div class="ticket"><div class="top"><span class="legsn">${ttl}</span><span class="fair">${am(h.p)}</span></div><div class="pct">${pct(h.p)} to hit</div>
             <ol>${h.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>
             <button class="btn primary" data-script-load="${gi}|${k}|0">Load into slip</button></div>`}).join("")}
@@ -375,7 +316,7 @@ function renderSlip(){
   const s=state.slip, legs=s.legs;
   updateFab(legs.length?jointP(legs):0);
   s.legMargin??="6";
-  if(!legs.length){ $("#slip").innerHTML=`<div class="sliphead"><h2>Bet slip</h2>${CLOSE}</div>
+  if(!legs.length){ if(window.GE_STAKE)window.GE_STAKE(0,0,true,0); $("#slip").innerHTML=`<div class="sliphead"><h2>Bet slip</h2>${CLOSE}</div>
     <div class="empty">Load an algorithm parlay or add players from <a href="#build" data-close-slip>Build a slip</a>.</div>${savedHTML()}`; return }
   // keep focus/caret while re-rendering on every keystroke
   const ae=document.activeElement, focusId=ae&&ae.id, caret=ae&&ae.selectionStart;
@@ -457,7 +398,7 @@ function renderSlip(){
     <dl class="kv"><dt>Price implies</dt><dd>${pct(imp)}</dd>
       <dt>Edge (model − price)</dt><dd style="color:var(${pj>imp?"--good":"--bad"})">${(pj-imp>=0?"+":"")+((pj-imp)*100).toFixed(1)} pts</dd>
       <dt>Expected value of this bet</dt><dd style="color:var(${ev>0?"--good":"--bad"})">${(ev>=0?"+":"")+money(stake*ev)}</dd>
-      <dt>Quarter-Kelly stake (bankroll ${money(bank)})</dt><dd>${money(bank*kelly/4)}</dd></dl>
+      <dt>Suggested stake (<a href="#bankroll" data-close-slip>Bankroll Strategy</a>)</dt><dd>${window.GE_STAKE?esc(window.GE_STAKE(pj,bookDec,estimated,legs.length)):"–"}</dd></dl>
 
     <div><h3>Cash-out ladder</h3>
       <p class="sub">${lost?"A leg has lost, so the slip is dead.":"What this slip should be worth as legs land, in kickoff order. bet365's offer is usually below fair value; take a cash-out only if it beats the fair value on the row you're at."}</p>
@@ -465,8 +406,7 @@ function renderSlip(){
 
     <details class="settings"><summary>Assumptions</summary><div class="fields" style="margin-top:8px">
       <label for="f-legm">Book margin per leg %<input id="f-legm" data-field="legMargin" value="${esc(s.legMargin)}" inputmode="decimal"></label>
-      <label for="f-margin">Cash-out margin %<input id="f-margin" data-field="margin" value="${esc(s.margin)}" inputmode="decimal"></label>
-      <label for="f-bank">Bankroll ($)<input id="f-bank" data-field="bankroll" value="${esc(s.bankroll)}" inputmode="decimal"></label></div>
+      <label for="f-margin">Cash-out margin %<input id="f-margin" data-field="margin" value="${esc(s.margin)}" inputmode="decimal"></label></div>
       <p class="sub">Price order: your total slip price, else each game's SGP price (or leg odds) multiplied across games, else estimates. The estimated price applies the per-leg margin to the model's fair odds until you type bet365's real odds. Same-game parlays get repriced by bet365, so type the SGP price shown on your slip.</p></details>
     <div class="row"><button class="btn primary" data-track>Track this bet</button><button class="btn" data-save>Save slip</button><button class="btn" data-copy>Copy slip</button></div>${savedHTML()}`;
   heatify(document.getElementById("slip"));
@@ -489,13 +429,6 @@ function route(){const h=location.hash.slice(1);const extra=(window.GE_EXTRA_TAB
 document.addEventListener("click",e=>{
   const t=e.target.closest("button");if(!t)return;const d=t.dataset;
   if(d.loadCombo!=null){const t=D.algo.atd_combos[+d.loadCombo];loadLegs(t.legs.map(id=>({id,mk:"atd",k:null})),`${gameLabel(G[t.game])} ${t.n}-leg ATD`)}
-  else if(d.earlyLoad){const [kind,a,b]=d.earlyLoad.split("|");const E=D.early;
-    if(kind==="hp"||kind==="hh"){const h=E.hedges[+a];loadLegs((kind==="hp"?h.primary:h.hedge).map(id=>({id,mk:"atd",k:null})),`Hedge option ${+a+1} ${kind==="hp"?"primary":"hedge"}`)}
-    else if(kind==="hyb"){const o=E.per_game[+a];const h=o[b];loadLegs(h.legs.map(l=>({id:l.id,mk:l.mk,k:l.k})),`${gameLabel(G[o.game])} ATD hybrid`)}
-    else if(kind==="mixed"){const tk=E.atd_mixed.find(x=>x.n==a);loadLegs(tk.legs.map(id=>({id,mk:"atd",k:null})),`${E.label} ${tk.n}-leg mixed ATD`)}
-    else if(kind==="atd"){const tk=E.atd.find(x=>x.n==a);loadLegs(tk.legs.map(id=>({id,mk:"atd",k:null})),`${E.label} ${tk.n}-leg ATD`)}
-    else if(kind==="game"){const o=E.per_game[+a];const tk=o.ladder.find(x=>x.n==b);loadLegs(tk.legs.map(l=>({id:l.id,mk:l.mk,k:l.k})),`${gameLabel(G[o.game])} ${tk.n}-leg`)}
-    else if(kind==="master"){const m=E.master.find(x=>x.n==a);loadLegs(m.games.flatMap(r=>r.legs.map(l=>({id:l.id,mk:l.mk,k:l.k}))),`Master ${m.n}-per-game`)}}
   else if(d.loadAtd){const [st,n]=d.loadAtd.split("|");const sty=(D.algo.atd_styles||{})[st];const tk=(sty?sty.tickets:D.algo.atd).find(x=>x.n==n);loadLegs(tk.legs.map(id=>({id,mk:"atd",k:null})),`${sty?sty.label+" ":""}${tk.n}-leg ATD`)}
   else if(d.atdStyle){state.atdStyle=d.atdStyle;render()}
   else if(d.loadXg){const [k,i]=d.loadXg.split("|");const t=D.crossgame[k][+i];loadLegs(t.legs.map(l=>({id:l.id,mk:l.mk,k:l.k})),`Cross-game ${t.n}-leg`)}
@@ -504,7 +437,7 @@ document.addEventListener("click",e=>{
   else if(d.pgame){state.propsGame=d.pgame;render()}
   else if(d.scriptLoad){const [gi,k,n]=d.scriptLoad.split("|");const t=D.script_sgp[+gi];const legs=k==="ladder"?t.ladder.find(x=>x.n==n).legs:t[k].legs;loadLegs(legs.map(l=>({id:l.id,mk:l.mk,k:l.k})),`${gameLabel(G[t.game])} ${k==="ladder"?n+"-leg":"hybrid"} SGP`)}
   else if(d.addSgp!=null){const t=D.algo.sgp[+d.addSgp];appendLegs(t.legs.map(l=>({id:l.id,mk:l.mk,k:l.k})),`${gameLabel(G[t.game])} SGP`)}
-  else if(d.addLeg){const [id,mk,k]=d.addLeg.split("|");addLeg({id,mk,k:(k===""||k==null)?null:parseInt(k)})}
+  else if(d.addLeg){const [id,mk,k]=d.addLeg.split("|");addLeg({id,mk,k:parseInt(k)})}
   else if(d.game){state.game=d.game;render()}
   else if(d.addAtd){addLeg({id:d.addAtd,mk:"atd",k:null})}
   else if(d.addProp){const [id,mk]=d.addProp.split("|");const k=parseInt(document.getElementById(`sel-${id}-${mk}`).value);addLeg({id,mk,k})}

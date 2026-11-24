@@ -8,12 +8,16 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --test src/lib/*.test.ts",
-    "nfl:site": "python3 -I scripts/import-console.py && python3 -I scripts/build-locks.py"
+    "nfl:site": "python3 -I scripts/import-console.py && python3 -I scripts/build-locks.py",
+    "slip:read": "node scripts/read-slip.ts",
+    "slip:fixtures": "node scripts/make-slip-fixtures.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.13.0",
     "next": "16.4.6",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "4.3.3",
