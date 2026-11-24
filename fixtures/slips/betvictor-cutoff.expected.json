@@ -1,0 +1,13 @@
+{
+  "is_bet_slip": true,
+  "book": "BetVictor",
+  "bet_type": "parlay",
+  "legs": [
+    { "sport": "NFL", "game": "Commanders v Giants", "player": "Isaiah Likely", "market": "rec", "market_text": "Receptions · Over 1.5", "threshold": 1.5, "side": "over", "odds_text": "1.17", "unreadable": [] },
+    { "sport": "NFL", "game": "Commanders v Giants", "player": null, "market": "other", "market_text": "New York Giants Handicap -2.5", "threshold": -2.5, "side": null, "odds_text": "1.91", "unreadable": [] },
+    { "sport": null, "game": null, "player": "Rachaad White", "market": null, "market_text": "", "threshold": null, "side": null, "odds_text": "2.43", "unreadable": ["market", "threshold", "side", "game"] }
+  ],
+  "total_odds_text": "5.42",
+  "stake_text": null,
+  "unreadable": ["stake"]
+}

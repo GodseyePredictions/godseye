@@ -1,0 +1,11 @@
+{
+  "is_bet_slip": true,
+  "book": "bet365",
+  "bet_type": "single",
+  "legs": [
+    { "sport": "NFL", "game": "WAS Commanders @ NY Giants", "player": "Rachaad White", "market": "rush_yds", "market_text": "Player Rushing Yards · 20+", "threshold": 20, "side": "milestone", "odds_text": "-300", "unreadable": [] }
+  ],
+  "total_odds_text": "-300",
+  "stake_text": "$30.00",
+  "unreadable": []
+}

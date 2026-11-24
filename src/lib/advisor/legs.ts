@@ -35,21 +35,43 @@ export type RatedLeg = {
   prob: number;
   /** True when the algorithm marks the player as a single only (not a parlay leg) this week. */
   singlesOnly?: boolean;
+  /** The algorithm's own ids and context. Present for NFL, where the correlation engine needs them. */
+  playerId?: string;
+  pos?: string;
+  gameId?: string;
+  /** The official injury designation the algorithm loaded, if any (for example "Questionable"). */
+  injury?: string | null;
+  /** The algorithm's own risk note for this leg (game script, blowout, role). */
+  risk?: string | null;
+  /** How often this milestone was cleared this season: `hits` of `games`. */
+  hits?: number | null;
+  games?: number | null;
 };
+
+/** The measured correlations the NFL algorithm ships with its weekly output. */
+export type NflCorr = { atd: Record<string, number>; legs: Record<string, number> & { _rel?: Record<string, number> } };
 
 export type Catalog = {
   sport: Sport;
   /** When the algorithm built this output, as it wrote it. */
   built: string;
   legs: RatedLeg[];
+  /** NFL only: without it, the chance of a multi-leg slip cannot be worked out and is not stated. */
+  corr?: NflCorr;
+  /** Players whose game has already kicked off. They have no legs in `legs`. */
+  startedPlayers?: string[];
 };
 
 // ---------- NFL: the console data (public/console/data.js) ----------
 type NflData = {
   meta: { built?: string };
   games: { id: string; away: string; home: string; started?: boolean }[];
-  players: { id: string; name: string; team: string; game: string; p: number; singles?: boolean }[];
-  props: Record<string, Record<string, { k: number[]; p: number[] }>>;
+  players: {
+    id: string; name: string; team: string; game: string; p: number; singles?: boolean; pos?: string;
+    inj?: string | null; risk?: string | null; riskm?: Record<string, string> | null;
+  }[];
+  props: Record<string, Record<string, { k: number[]; p: number[]; hits?: number[]; n?: number }>>;
+  corr?: NflCorr;
 };
 const NFL_MARKETS = new Set<string>(["pass_yds", "pass_td", "pass_att", "rush_yds", "carries", "rec", "rec_yds"]);
 
@@ -58,19 +80,31 @@ export function nflCatalog(data: unknown): Catalog {
   const D = data as NflData;
   const open = new Map(D.games.filter((g) => !g.started).map((g) => [g.id, `${g.away} @ ${g.home}`]));
   const legs: RatedLeg[] = [];
+  const startedPlayers: string[] = [];
   for (const p of D.players) {
     const game = open.get(p.game);
-    if (!game) continue;
-    const base = { sport: "NFL" as const, player: p.name, team: p.team, game, singlesOnly: !!p.singles };
-    if (Number.isFinite(p.p)) legs.push({ ...base, market: "atd", threshold: null, side: "over", prob: p.p });
+    if (!game) {
+      startedPlayers.push(p.name);
+      continue;
+    }
+    const base = {
+      sport: "NFL" as const, player: p.name, team: p.team, game, singlesOnly: !!p.singles,
+      playerId: p.id, pos: p.pos, gameId: p.game, injury: p.inj ?? null,
+    };
+    if (Number.isFinite(p.p))
+      legs.push({ ...base, market: "atd", threshold: null, side: "over", prob: p.p, risk: p.risk ?? null });
     for (const [mk, lad] of Object.entries(D.props[p.id] ?? {})) {
       if (!NFL_MARKETS.has(mk)) continue;
       lad.k.forEach((k, i) => {
-        if (Number.isFinite(lad.p[i])) legs.push({ ...base, market: mk as Market, threshold: k, side: "over", prob: lad.p[i] });
+        if (Number.isFinite(lad.p[i]))
+          legs.push({
+            ...base, market: mk as Market, threshold: k, side: "over", prob: lad.p[i],
+            risk: p.riskm?.[mk] ?? p.risk ?? null, hits: lad.hits?.[i] ?? null, games: lad.n ?? null,
+          });
       });
     }
   }
-  return { sport: "NFL", built: D.meta.built ?? "", legs };
+  return { sport: "NFL", built: D.meta.built ?? "", legs, corr: D.corr, startedPlayers };
 }
 
 /** Parse public/console/data.js (`const D = {...};`) into its data object. */

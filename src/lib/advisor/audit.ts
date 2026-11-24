@@ -65,8 +65,12 @@ const rung = (mk: Market, k: number | null) => (mk === "atd" ? "anytime touchdow
 const pct = (p: number) => `${Math.round(p * 100)}%`;
 
 export function auditLeg(leg: SlipLeg, catalog: Catalog): LegAudit {
+  return auditParsed(parseLeg(leg.text), leg, catalog);
+}
+
+/** The same audit for a leg whose fields are already known, for example from a confirmed screenshot. */
+export function auditParsed(parsed: ParsedLeg | null, leg: SlipLeg, catalog: Catalog): LegAudit {
   const base = { text: leg.text, prob: null, match: null, ratedRungs: [] as number[], candidates: [] as string[], edge: null };
-  const parsed = parseLeg(leg.text);
   if (!parsed)
     return { ...base, parsed: null, status: "unrated", unrated: "unreadable",
              note: "Could not read this leg as a player, a market and a number." };
