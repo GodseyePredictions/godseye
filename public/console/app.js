@@ -316,7 +316,7 @@ function renderSlip(){
   const s=state.slip, legs=s.legs;
   updateFab(legs.length?jointP(legs):0);
   s.legMargin??="6";
-  if(!legs.length){ $("#slip").innerHTML=`<div class="sliphead"><h2>Bet slip</h2>${CLOSE}</div>
+  if(!legs.length){ if(window.GE_STAKE)window.GE_STAKE(0,0,true,0); $("#slip").innerHTML=`<div class="sliphead"><h2>Bet slip</h2>${CLOSE}</div>
     <div class="empty">Load an algorithm parlay or add players from <a href="#build" data-close-slip>Build a slip</a>.</div>${savedHTML()}`; return }
   // keep focus/caret while re-rendering on every keystroke
   const ae=document.activeElement, focusId=ae&&ae.id, caret=ae&&ae.selectionStart;
@@ -398,7 +398,7 @@ function renderSlip(){
     <dl class="kv"><dt>Price implies</dt><dd>${pct(imp)}</dd>
       <dt>Edge (model − price)</dt><dd style="color:var(${pj>imp?"--good":"--bad"})">${(pj-imp>=0?"+":"")+((pj-imp)*100).toFixed(1)} pts</dd>
       <dt>Expected value of this bet</dt><dd style="color:var(${ev>0?"--good":"--bad"})">${(ev>=0?"+":"")+money(stake*ev)}</dd>
-      <dt>Quarter-Kelly stake (bankroll ${money(bank)})</dt><dd>${money(bank*kelly/4)}</dd></dl>
+      <dt>Suggested stake (<a href="#bankroll" data-close-slip>Bankroll Strategy</a>)</dt><dd>${window.GE_STAKE?esc(window.GE_STAKE(pj,bookDec,estimated,legs.length)):"–"}</dd></dl>
 
     <div><h3>Cash-out ladder</h3>
       <p class="sub">${lost?"A leg has lost, so the slip is dead.":"What this slip should be worth as legs land, in kickoff order. bet365's offer is usually below fair value; take a cash-out only if it beats the fair value on the row you're at."}</p>
@@ -406,8 +406,7 @@ function renderSlip(){
 
     <details class="settings"><summary>Assumptions</summary><div class="fields" style="margin-top:8px">
       <label for="f-legm">Book margin per leg %<input id="f-legm" data-field="legMargin" value="${esc(s.legMargin)}" inputmode="decimal"></label>
-      <label for="f-margin">Cash-out margin %<input id="f-margin" data-field="margin" value="${esc(s.margin)}" inputmode="decimal"></label>
-      <label for="f-bank">Bankroll ($)<input id="f-bank" data-field="bankroll" value="${esc(s.bankroll)}" inputmode="decimal"></label></div>
+      <label for="f-margin">Cash-out margin %<input id="f-margin" data-field="margin" value="${esc(s.margin)}" inputmode="decimal"></label></div>
       <p class="sub">Price order: your total slip price, else each game's SGP price (or leg odds) multiplied across games, else estimates. The estimated price applies the per-leg margin to the model's fair odds until you type bet365's real odds. Same-game parlays get repriced by bet365, so type the SGP price shown on your slip.</p></details>
     <div class="row"><button class="btn primary" data-track>Track this bet</button><button class="btn" data-save>Save slip</button><button class="btn" data-copy>Copy slip</button></div>${savedHTML()}`;
   heatify(document.getElementById("slip"));

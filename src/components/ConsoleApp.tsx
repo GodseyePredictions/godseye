@@ -20,6 +20,7 @@ import {
 import { checkSlip } from "@/lib/slip";
 import { ScriptsTab } from "./ScriptsTab";
 import { HybridsTab, MarketsTab } from "./MarketsTab";
+import { BankrollStrategy, setSlipQuote, stakeForSlip, subscribeAccount } from "./BankrollStrategy";
 
 // Legs handed from a model ticket to the Paste a slip tab.
 let pastePrefill: Leg[] | null = null;
@@ -28,7 +29,7 @@ import backtest from "../../model/output/backtest.json";
 
 /* The eight console tabs are drawn by /console/app.js into #main.
    The four tracker tabs below are drawn by React into #extra. */
-const EXTRA_TABS = ["markets", "hybrids", "paste", "bets", "report", "scripts", "games"] as const;
+const EXTRA_TABS = ["markets", "hybrids", "paste", "bets", "report", "bankroll", "scripts", "games"] as const;
 type ExtraTab = (typeof EXTRA_TABS)[number];
 
 declare global {
@@ -37,6 +38,9 @@ declare global {
     __geConsoleLoading?: boolean;
     /** Set by the single-file preview build, where the console scripts are already on the page. */
     GE_INLINE?: boolean;
+    /** Called by the console's bet slip: the suggested stake line for the slip on show (HTML-safe text). */
+    GE_STAKE?: (chance: number, decimal: number, estimated: boolean, legs: number) => string;
+    renderSlip?: () => void;
   }
 }
 
@@ -115,6 +119,32 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
   const bets = useSyncExternalStore(subscribeBets, readBets, () => EMPTY);
   const setBets = (fn: (prev: Bet[]) => Bet[]) => writeBets(fn(readBets()));
   const [loadError, setLoadError] = useState("");
+
+  // The console's bet slip asks the staking engine for its stake line; nothing in the console sizes a bet itself.
+  useEffect(() => {
+    window.GE_STAKE = (chance, decimal, estimated, legs) => {
+      if (!(legs > 0)) {
+        setSlipQuote(null);
+        return "";
+      }
+      const q = { legs, chance, decimal, estimated };
+      setSlipQuote(q);
+      const s = stakeForSlip(q, readBets());
+      if (!s) return "set your bankroll first";
+      if (estimated) return "type your book's price to size it";
+      return s.status === "bet" ? s.label : s.status === "blocked" ? "none: a limit is in force" : s.status === "unrated" ? "unrated" : "no bet at this price";
+    };
+    const redraw = () => window.renderSlip?.();
+    const stopAccount = subscribeAccount(redraw);
+    listeners.add(redraw);
+    window.addEventListener("ge-bets", redraw);
+    redraw();
+    return () => {
+      stopAccount();
+      listeners.delete(redraw);
+      window.removeEventListener("ge-bets", redraw);
+    };
+  }, []);
 
   useEffect(() => {
     if (window.__geConsoleLoading) return;
@@ -217,6 +247,10 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             <Icon d="M5 20V10M12 20V4M19 20v-7" />
             My report
           </a>
+          <a href="#bankroll" data-tab="bankroll">
+            <Icon d="M4 8h16v11H4zM4 8l3-4h10l3 4M15 13.5h2" />
+            Bankroll Strategy
+          </a>
           <span className="navgrp">Model</span>
           <a href="#model" data-tab="model">
             <Icon
@@ -264,6 +298,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             )}
             {extra === "bets" && <BetsTab bets={bets} setBets={setBets} />}
             {extra === "report" && <ReportTab bets={bets} />}
+            {extra === "bankroll" && <BankrollStrategy bets={bets} />}
             {extra === "scripts" && <ScriptsTab />}
             {extra === "games" && <GamesTab />}
             {extra && ["paste", "bets", "report"].includes(extra) && (

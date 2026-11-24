@@ -61,6 +61,24 @@ js = patch(
     '<button class="btn" data-save>Save slip</button>',
     '<button class="btn primary" data-track>Track this bet</button><button class="btn" data-save>Save slip</button>',
 )
+# 4. Stakes come from the site's staking engine (src/lib/staking.ts) only: the slip shows its answer and
+#    drops its own bankroll field and quarter-Kelly sum.
+js = patch(
+    js,
+    """      <dt>Quarter-Kelly stake (bankroll ${money(bank)})</dt><dd>${money(bank*kelly/4)}</dd></dl>""",
+    """      <dt>Suggested stake (<a href="#bankroll" data-close-slip>Bankroll Strategy</a>)</dt><dd>${window.GE_STAKE?esc(window.GE_STAKE(pj,bookDec,estimated,legs.length)):"–"}</dd></dl>""",
+)
+js = patch(
+    js,
+    """
+      <label for="f-bank">Bankroll ($)<input id="f-bank" data-field="bankroll" value="${esc(s.bankroll)}" inputmode="decimal"></label></div>""",
+    """</div>""",
+)
+js = patch(
+    js,
+    """  if(!legs.length){ $("#slip").innerHTML=""",
+    """  if(!legs.length){ if(window.GE_STAKE)window.GE_STAKE(0,0,true,0); $("#slip").innerHTML=""",
+)
 js += r"""
 
 /* ---------- godseye site: send the slip to "My bets" ---------- */
