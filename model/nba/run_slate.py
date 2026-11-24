@@ -380,8 +380,45 @@ def write_track_file(con, cfg=CONFIG) -> dict:
     else:
         # the graded record stays private; the site's tracker file carries nothing
         (HERE / "data" / "nba_track_private.json").write_text(json.dumps(_clean(out), default=str, allow_nan=False))
-        (OUT / "nba_track.json").write_text(json.dumps({"made_at": out["made_at"], "slates": [], "totals": {}}))
+        public = json.dumps({"made_at": None, "slates": [], "totals": {}})       # no timestamp: grading must not change this file
+        if not (OUT / "nba_track.json").exists() or (OUT / "nba_track.json").read_text() != public:
+            (OUT / "nba_track.json").write_text(public)
+    if cfg.get("site_show_cashed"):
+        (OUT / "nba_cashed.json").write_text(json.dumps(_clean(cashed_showcase(out, cfg)), default=str, allow_nan=False))
     return out
+
+
+TYPE_NAMES = {"props_4": "4-leg SGP", "props_4b": "Second 4-leg SGP", "props_6": "6-leg SGP", "props_8": "8-leg SGP",
+              "multi_12": "12-prop multi-game slip", "multi_15": "15-prop multi-game slip", "game_script": "Game-script SGP"}
+
+
+def cashed_showcase(track: dict, cfg=CONFIG) -> dict:
+    """The winning algorithm slips, newest night first, each with an example stake and what it would have
+    returned at the listed price. The count of every slip issued goes with it, so the list is never read as
+    the whole record. `track` is the full record from write_track_file."""
+    slips, issued, nights, all_staked = [], 0, [], 0.0
+    rule = lambda px: cfg["cashed_stake_long"] if px >= cfg["cashed_long_price"] else cfg["cashed_stake_short"]
+    for s in track["slates"]:
+        graded = [t for t in s["tickets"] if t["result"] in ("won", "lost") and t.get("price")]
+        if not graded:
+            continue
+        issued += len(graded)
+        all_staked += sum(rule(float(t["price"])) for t in graded)        # the same example stake on every slip, winners and losers
+        won = [t for t in graded if t["result"] == "won"]
+        nights.append({"date": s["date"], "issued": len(graded), "cashed": len(won)})
+        for t in sorted(won, key=lambda t: -t["price"]):
+            px = float(t["price"])
+            stake = rule(px)
+            dec = 1 + px / 100 if px > 0 else 1 + 100 / -px
+            slips.append({"id": t["id"], "date": s["date"], "game": t["game"], "type": TYPE_NAMES.get(t["type"], t["type"]),
+                          "n_legs": t["n"], "price": px, "chance": round(float(t["joint"]), 4), "stake": stake,
+                          "returned": round(stake * dec, 2), "profit": round(stake * (dec - 1), 2),
+                          "legs": [{"label": l["label"], "actual": l["actual"]} for l in t["legs"]]})
+    return {"made_at": track["made_at"], "from": min((n["date"] for n in nights), default=None),
+            "to": max((n["date"] for n in nights), default=None), "issued": issued, "cashed": len(slips), "nights": nights,
+            "all_staked": round(all_staked, 2), "all_net": round(sum(x["returned"] for x in slips) - all_staked, 2),
+            "stake_rule": {"long_price": cfg["cashed_long_price"], "long": cfg["cashed_stake_long"], "short": cfg["cashed_stake_short"]},
+            "slips": slips}
 
 
 def watch(con, cfg=CONFIG) -> dict:
