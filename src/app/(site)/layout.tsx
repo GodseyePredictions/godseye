@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, Saira_Condensed } from "next/font/google";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 
 const display = Saira_Condensed({
@@ -15,9 +16,21 @@ const body = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "godseye predictions: check the slip before you place it",
-  description:
-    "NFL model picks, a same-game parlay builder, slip audits and a tracker for Canadian bettors. See the model's number for every leg and how your own bets really perform.",
+  metadataBase: new URL(SITE.url),
+  title: { default: `${SITE.name}: see the whole slip before you bet it`, template: `%s | ${SITE.name}` },
+  description: SITE.description,
+  applicationName: SITE.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: SITE.name,
+    title: `${SITE.name}: see the whole slip before you bet it`,
+    description: SITE.description,
+    url: "/",
+    locale: "en_CA",
+    images: [{ url: "/brand/banner.jpg", width: 1206, height: 214, alt: "The Godseye eye" }],
+  },
+  twitter: { card: "summary_large_image", title: SITE.name, description: SITE.description, images: ["/brand/banner.jpg"] },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

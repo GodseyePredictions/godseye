@@ -1180,7 +1180,8 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
       </div>
       <footer className="foot">
         For adults of legal betting age in their province. Model output is information, not a promise: most bettors lose over time. If
-        gambling is causing you harm, free and confidential help is available in every province.
+        gambling is causing you harm, free and confidential help is available in every province:{" "}
+        <a href="/responsible-gambling">where to get help</a>. <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>
       </footer>
     </div>
   );

@@ -296,7 +296,8 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
         move with his receivers&apos; yards. Cash-out values are estimates; bet365 sets its own
         offer. godseye is not a sportsbook and cannot promise winning bets. For adults of legal
         betting age in their province (18+ or 19+). If gambling is causing you harm, free and
-        confidential help is available in every province.
+        confidential help is available in every province:{" "}
+        <a href="/responsible-gambling">where to get help</a>. <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>
       </p>
     </div>
   );

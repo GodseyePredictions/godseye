@@ -1912,3 +1912,174 @@ a.lp-tool:hover {
 .lp .stars {
   margin-bottom: 8px;
 }
+
+/* ---------- information pages: terms, privacy, responsible gambling, contact ---------- */
+.lp-doc {
+  padding: 56px 0 80px;
+}
+.lp-doc-in {
+  max-width: 760px;
+}
+.lp-doc h1 {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+.lp-doc h2 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin: 40px 0 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--lp-line);
+}
+.lp-doc p,
+.lp-doc li {
+  color: var(--lp-dim);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+.lp-doc p {
+  margin: 0 0 14px;
+}
+.lp-doc .lp-doc-lede {
+  color: var(--lp-chalk);
+  font-size: 1.15rem;
+}
+.lp-doc ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  list-style: disc;
+}
+.lp-doc li {
+  margin-bottom: 8px;
+}
+.lp-doc li::marker {
+  color: var(--lp-red);
+}
+.lp-doc strong {
+  color: var(--lp-chalk);
+}
+.lp-doc a,
+.lp-legal a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--lp-red);
+  text-underline-offset: 3px;
+}
+.lp-doc a:hover,
+.lp-legal a:hover {
+  color: var(--flood-text);
+}
+.lp-doc-table {
+  overflow-x: auto;
+  margin: 0 0 14px;
+  background: #fff;
+  border-radius: 10px;
+  border-top: 4px solid var(--lp-red);
+}
+.lp-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #131115;
+  font-size: 0.95rem;
+}
+.lp-doc thead th {
+  text-align: left;
+  color: var(--lp-red);
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 12px 14px 8px;
+}
+.lp-doc tbody th,
+.lp-doc tbody td {
+  text-align: left;
+  padding: 10px 14px;
+  border-top: 1px solid #e6e0e2;
+  font-weight: 500;
+  color: #131115;
+}
+.lp-doc tbody th {
+  font-weight: 700;
+}
+.lp-doc table a {
+  color: #131115;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.lp-doc .lp-doc-date {
+  margin-top: 40px;
+  font-size: 0.85rem;
+}
+
+/* ---------- small fixes found in the phone pass ---------- */
+/* footer: with the information links the list is long, so it sits under the logo instead of beside it */
+@media (min-width: 860px) {
+  .lp-foot-in {
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+    align-items: start;
+  }
+  .lp-foot nav {
+    justify-content: flex-end;
+    padding-top: 14px;
+  }
+}
+/* header: on a phone the lockup shrinks so it clears the NFL and NBA buttons */
+@media (max-width: 520px) {
+  .lp-nav .logo {
+    gap: 8px;
+    min-width: 0;
+  }
+  .lp-nav .logo-eye {
+    height: 34px;
+  }
+  .lp-nav .logo-name {
+    font-size: 22px;
+  }
+  .lp-nav .logo-tag {
+    font-size: 8px;
+    letter-spacing: 0.3em;
+  }
+  .lp-nav .logo-swoosh {
+    width: 84px;
+    height: 6px;
+  }
+  .lp-sports a {
+    padding: 7px 12px;
+    font-size: 16px;
+  }
+}
+/* help-line table: one block per service on a phone, so the phone number is never off screen */
+@media (max-width: 560px) {
+  .lp-doc thead {
+    display: none;
+  }
+  .lp-doc tbody tr {
+    display: block;
+    padding: 12px 14px;
+    border-top: 1px solid #e6e0e2;
+  }
+  .lp-doc tbody tr:first-child {
+    border-top: 0;
+  }
+  .lp-doc tbody th,
+  .lp-doc tbody td {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+  .lp-doc tbody th {
+    color: var(--lp-red);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .lp-doc table a {
+    font-size: 1.15rem;
+  }
+}
