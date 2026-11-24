@@ -18,6 +18,7 @@ import {
 } from "@/lib/bets";
 import { ScriptsTab } from "./ScriptsTab";
 import { HybridsTab, MarketsTab } from "./MarketsTab";
+import { AdvisorChat } from "./AdvisorChat";
 import { PasteTab } from "./PasteSlip";
 import { ScreenshotAudit } from "./ScreenshotAudit";
 import { NO_BETS, readBets, subscribeBets, writeBets } from "./betsStore";
@@ -30,7 +31,7 @@ import backtest from "../../model/output/backtest.json";
 
 /* The eight console tabs are drawn by /console/app.js into #main.
    The four tracker tabs below are drawn by React into #extra. */
-const EXTRA_TABS = ["markets", "hybrids", "shot", "paste", "bets", "report", "bankroll", "scripts", "games"] as const;
+const EXTRA_TABS = ["markets", "hybrids", "advisor", "shot", "paste", "bets", "report", "bankroll", "scripts", "games"] as const;
 type ExtraTab = (typeof EXTRA_TABS)[number];
 
 declare global {
@@ -194,6 +195,11 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             <Icon d="M4 12l5 5L20 6" />
             Audit slip
           </a>
+          <span className="navgrp">Advisor</span>
+          <a href="#advisor" data-tab="advisor">
+            <Icon d="M4 5h16v11H9l-5 4z" />
+            Advisor chat
+          </a>
           <a href="#shot" data-tab="shot">
             <Icon d="M4 8h3l2-3h6l2 3h3v11H4zM12 17a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7z" />
             Audit a screenshot
@@ -252,6 +258,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
               />
             )}
             {extra === "hybrids" && <HybridsTab />}
+            {extra === "advisor" && <AdvisorChat sport="NFL" />}
             {extra === "shot" && <ScreenshotAudit defaultSport="NFL" />}
             {extra === "paste" && (
               <PasteTab

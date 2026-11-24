@@ -50,6 +50,19 @@ Where things live:
 
 Limits today: the joint chance is NFL only (the NBA output carries no correlations); suggested rungs come from the algorithm's ladder because there is no book price feed, so the user checks the rung and types the new price; saved slips and alerts live in the browser until accounts exist.
 
+## The advisor chat
+
+"Advisor chat" (on both the NFL and NBA sides) is the 1-to-1 chat. A user types a question or attaches a slip screenshot; the advisor answers using the algorithms' output and the bankroll engine.
+
+It needs the same `ANTHROPIC_API_KEY` in `.env.local` as the screenshot audit. Then `npm run dev` and open http://localhost:3000/nfl#advisor.
+
+- `src/lib/advisor/agent.ts` holds the advisor's instructions and the loop: call the model, run the tools it asks for, send the results back. The model call is passed in, so the loop is tested without the network.
+- `src/lib/advisor/claude.ts` is the model call. The model is `ADVISOR_MODEL` (default `claude-opus-5-5`).
+- Tools: `parse_slip`, `grade_slip`, `suggest_changes` (`src/lib/slip/tools.ts`), `get_player_intel` and `get_game_intel` (`src/lib/advisor/intel.ts`). Every number the advisor quotes comes back from one of them.
+- `src/app/api/advisor/route.ts` is the endpoint; `src/components/AdvisorChat.tsx` is the screen.
+
+The conversation, the bankroll settings and tracked bets live in the browser and are sent with each message until accounts exist. The endpoint has no sign-in yet, so do not put it on a public address before logins are in: anyone who found it could spend the API key.
+
 ## What is not built yet
 
 Logins, subscriptions, the AI advisor chat, live odds and sportsbook sync. Bets are stored in the visitor's browser until accounts exist.
