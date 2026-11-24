@@ -302,7 +302,7 @@ function HomeTab({ prefix }: { prefix: string }) {
         </div>
         <div className="nba-grid">
           {slate.games.map((g) => (
-            <a className="nba-card" href={`#${prefix}scripts`} key={g.id}>
+            <a className="nba-card" href={`#${prefix}sgp`} onClick={() => { sgpGame = g.id; }} key={g.id}>
               <h3>
                 {g.away} @ {g.home}
               </h3>
@@ -345,10 +345,46 @@ function HomeTab({ prefix }: { prefix: string }) {
   );
 }
 
+/** The game a home-page card asked the Game SGPs tab to open on; null shows every game. */
+let sgpGame: string | null = null;
+
 function SgpTab() {
   const anyPreview = slate.games.some((g) => g.preview);
+  const [gid, setGid] = useState<string | null>(() => sgpGame);
+  const pick = (id: string | null) => {
+    sgpGame = id;
+    setGid(id);
+  };
+  const shown = slate.games.filter((g) => gid === null || g.id === gid);
+  const nSlips = slate.games.reduce((a, g) => a + g.tickets.length, 0);
   return (
     <>
+      <section className="panel">
+        <div className="section-head">
+          <div>
+            <h2>Game SGPs</h2>
+            <p className="sub">
+              {nSlips} slips across {slate.games.length} games. Pick a game to see only its slips.
+            </p>
+          </div>
+        </div>
+        <div className="rail">
+          <button className="gchip" aria-pressed={gid === null} onClick={() => pick(null)}>
+            <b>All games</b>
+            <small>{nSlips} slips</small>
+          </button>
+          {slate.games.map((g) => (
+            <button className="gchip" aria-pressed={gid === g.id} onClick={() => pick(g.id)} key={g.id}>
+              <b>
+                {g.away} @ {g.home}
+              </b>
+              <small>
+                {tipTime(g.tip_utc)} · {g.tickets.length} {g.tickets.length === 1 ? "slip" : "slips"}
+              </small>
+            </button>
+          ))}
+        </div>
+      </section>
       {anyPreview && (
         <section className="panel">
           <div className="warns">
@@ -360,7 +396,7 @@ function SgpTab() {
           </div>
         </section>
       )}
-      {slate.games.map((g) => (
+      {shown.map((g) => (
         <section className="panel" key={g.id}>
           <GameHeader g={g} />
           {g.tickets.length > 0 ? (
