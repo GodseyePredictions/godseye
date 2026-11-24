@@ -380,7 +380,9 @@ def write_track_file(con, cfg=CONFIG) -> dict:
     else:
         # the graded record stays private; the site's tracker file carries nothing
         (HERE / "data" / "nba_track_private.json").write_text(json.dumps(_clean(out), default=str, allow_nan=False))
-        (OUT / "nba_track.json").write_text(json.dumps({"made_at": out["made_at"], "slates": [], "totals": {}}))
+        public = json.dumps({"made_at": None, "slates": [], "totals": {}})       # no timestamp: grading must not change this file
+        if not (OUT / "nba_track.json").exists() or (OUT / "nba_track.json").read_text() != public:
+            (OUT / "nba_track.json").write_text(public)
     return out
 
 
