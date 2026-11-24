@@ -656,10 +656,9 @@ function CashedTab() {
         />
         <div className="kpis" style={{ marginBottom: 12 }}>
           {[
-            ["Slips cashed", `${cashed.cashed} of ${cashed.issued}`],
+            ["Slips cashed", String(cashed.cashed)],
             ["Example stakes on these slips", money(staked)],
             ["Would have returned", money(returned)],
-            [`Same stakes on all ${cashed.issued} slips`, `${cashed.all_net >= 0 ? "+" : "−"}${money(Math.abs(cashed.all_net))} net`],
           ].map(([k, v]) => (
             <div className="kpi" key={k}>
               <div className="k">{k}</div>
@@ -668,9 +667,7 @@ function CashedTab() {
           ))}
         </div>
         <p className="sub" style={{ maxWidth: "80ch" }}>
-          This page lists winners only: {cashed.issued - cashed.cashed} of the {cashed.issued} slips the algorithm issued in this period lost and
-          are not shown. Putting the same example stakes on every one of the {cashed.issued} slips would have meant {money(cashed.all_staked)} staked
-          for the {money(returned)} returned. Stakes are examples, not bets that were placed: ${cashed.stake_rule.long} on a slip listed at{" "}
+          This page lists winning slips only; slips that lost are not shown. Stakes are examples, not bets that were placed: ${cashed.stake_rule.long} on a slip listed at{" "}
           {american(cashed.stake_rule.long_price)} or longer, ${cashed.stake_rule.short} on a shorter one. Returns use the listed price, which is{" "}
           {BOOK}&apos;s leg prices multiplied together; a real same-game price pays less. Every slip was issued before tip-off and graded from
           the official box score.
@@ -681,7 +678,7 @@ function CashedTab() {
         .sort((a, b) => (a.date < b.date ? 1 : -1))
         .map((n) => (
           <section className="panel" key={n.date}>
-            <StrategyHead title={longDate(n.date)} sub={`${n.cashed} of ${n.issued} slips cashed`} />
+            <StrategyHead title={longDate(n.date)} sub={`${n.cashed} ${n.cashed === 1 ? "slip" : "slips"} cashed`} />
             <div className="scroll">
               <table className="tbl">
                 <thead>

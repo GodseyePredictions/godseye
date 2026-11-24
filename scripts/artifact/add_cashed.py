@@ -23,15 +23,14 @@ window.GECashed=function(){
   var staked=0,returned=0;C.slips.forEach(function(x){staked+=x.stake;returned+=x.returned});
   var R=C.stake_rule;
   var out=[e("section",{className:"panel",key:"intro"},head("Cashed slips","Algorithm slips that won, "+day(C.from)+" to "+day(C.to)),
-    e("div",{className:"kpis",style:{marginBottom:12}},kpi("Slips cashed",C.cashed+" of "+C.issued),kpi("Example stakes on these slips",money(staked)),
-      kpi("Would have returned",money(returned)),kpi("Same stakes on all "+C.issued+" slips",(C.all_net>=0?"+":"−")+money(Math.abs(C.all_net))+" net")),
-    e("p",{className:"sub",style:{maxWidth:"80ch"}},"This page lists winners only: "+(C.issued-C.cashed)+" of the "+C.issued+" slips the algorithm issued in this period lost and are not shown. "
-      +"Putting the same example stakes on every one of the "+C.issued+" slips would have meant "+money(C.all_staked)+" staked for the "+money(returned)+" returned. "
+    e("div",{className:"kpis",style:{marginBottom:12}},kpi("Slips cashed",String(C.cashed)),kpi("Example stakes on these slips",money(staked)),
+      kpi("Would have returned",money(returned))),
+    e("p",{className:"sub",style:{maxWidth:"80ch"}},"This page lists winning slips only; slips that lost are not shown. "
       +"Stakes are examples, not bets that were placed: $"+R.long+" on a slip listed at "+am(R.long_price)+" or longer, $"+R.short+" on a shorter one. "
       +"Returns use the listed price, which is DraftKings' leg prices multiplied together; a real same-game price pays less. "
       +"Every slip was issued before tip-off and graded from the official box score."))];
   C.nights.filter(function(n){return n.cashed>0}).sort(function(a,b){return a.date<b.date?1:-1}).forEach(function(n){
-    out.push(e("section",{className:"panel",key:n.date},head(day(n.date),n.cashed+" of "+n.issued+" slips cashed"),
+    out.push(e("section",{className:"panel",key:n.date},head(day(n.date),n.cashed+(n.cashed===1?" slip":" slips")+" cashed"),
       e("div",{className:"scroll"},e("table",{className:"tbl"},
         e("thead",null,e("tr",null,["Slip","Listed price","Example stake","Would have returned","Profit"].map(function(h){return e("th",{key:h},h)}))),
         e("tbody",null,C.slips.filter(function(x){return x.date===n.date}).map(function(x){return e("tr",{key:x.id},
