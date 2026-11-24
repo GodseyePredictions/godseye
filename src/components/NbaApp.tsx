@@ -95,7 +95,7 @@ const track = rawTrack as unknown as {
 };
 const BOOK = slate.book === "draftkings" ? "DraftKings" : slate.book === "bet365" ? "bet365" : "the book";
 
-const TABS = ["home", "sgp", "multi", "strategy", "cashed", "advisor", "shot", "paste", "track", "board", "scripts", "avail", "model"] as const;
+const TABS = ["home", "sgp", "multi", "lotto", "strategy", "cashed", "advisor", "shot", "paste", "track", "board", "scripts", "avail", "model"] as const;
 type Tab = (typeof TABS)[number];
 
 const TICKET_NAMES: Record<string, string> = {
@@ -529,11 +529,47 @@ function MultiTab() {
       <section className="panel">
         <p className="sub" style={{ margin: 0 }}>
           Slips that join legs from several games. Games do not affect each other, so a slip&apos;s chance is each game&apos;s
-          counted chance multiplied together. Prices are {BOOK}&apos;s leg prices multiplied; the lotto slip is a long shot by design.
+          counted chance multiplied together. Prices are {BOOK}&apos;s leg prices multiplied. The lotto ticket has its own tab.
         </p>
       </section>
-      {slate.multi.map((m) => (
-        <section className="panel" key={m.id}>
+      {slate.multi
+        .filter((m) => m.type !== "lotto")
+        .map((m) => (
+          <MultiSlip m={m} key={m.id} />
+        ))}
+    </>
+  );
+}
+
+/** The lotto ticket: every game's longest price-band slip joined into one long shot. */
+function LottoTab() {
+  const lotto = slate.multi?.find((m) => m.type === "lotto");
+  if (!lotto)
+    return (
+      <section className="panel">
+        <div className="section-head">
+          <h2>Lotto ticket</h2>
+        </div>
+        <p className="empty">No lotto ticket today: it needs a price-band slip in every game on the slate.</p>
+      </section>
+    );
+  return (
+    <>
+      <section className="panel">
+        <p className="sub" style={{ margin: 0 }}>
+          One long-shot slip for the night: each game&apos;s longest-priced 6-leg slip joined into one. Every leg is still rated 75% or
+          better on its own, but all {lotto.n_legs} have to hit. The model gives it a {pct(lotto.joint, 1)} chance, so expect it to lose
+          about {Math.round(1 / lotto.joint) - 1} times in {Math.round(1 / lotto.joint)}. Stake it small.
+        </p>
+      </section>
+      <MultiSlip m={lotto} />
+    </>
+  );
+}
+
+function MultiSlip({ m }: { m: Multi }) {
+  return (
+        <section className="panel">
           <div className="section-head">
             <div>
               <h2>
@@ -567,8 +603,6 @@ function MultiTab() {
             ))}
           </div>
         </section>
-      ))}
-    </>
   );
 }
 
@@ -1216,6 +1250,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
     ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
+    ["lotto", "Lotto ticket", "M4 8h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4zM10 8v10"],
     ["strategy", "Bankroll Strategy", "M4 19h16M6 16V8M11 16V5M16 16v-6"],
     ["cashed", "Cashed slips", "M5 12l4 4 10-10M4 20h16"],
     ["advisor", "Advisor chat", "M4 5h16v11H9l-5 4z"],
@@ -1255,8 +1290,8 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
           {nav.map(([id, label, d], i) => (
             <span key={id} style={{ display: "contents" }}>
               {i === 1 && <span className="navgrp">Picks</span>}
-              {i === 5 && <span className="navgrp">Tools</span>}
-              {i === 11 && <span className="navgrp">Model</span>}
+              {i === 6 && <span className="navgrp">Tools</span>}
+              {i === 12 && <span className="navgrp">Model</span>}
               <a href={`#${prefix}${id}`} aria-current={tab === id ? "page" : "false"}>
                 <Icon d={d} />
                 {label}
@@ -1268,6 +1303,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
           {tab === "home" && <HomeTab prefix={prefix} />}
           {tab === "sgp" && <SgpTab />}
           {tab === "multi" && <MultiTab />}
+          {tab === "lotto" && <LottoTab />}
           {tab === "strategy" && <StrategyTab />}
           {tab === "cashed" && <CashedTab />}
           {tab === "advisor" && <AdvisorChat sport="NBA" />}
