@@ -10,7 +10,9 @@
     "test": "node --test src/lib/*.test.ts",
     "nfl:site": "python3 -I scripts/import-console.py && python3 -I scripts/build-locks.py",
     "slip:read": "node scripts/read-slip.ts",
-    "slip:fixtures": "node scripts/make-slip-fixtures.mjs"
+    "slip:fixtures": "node scripts/make-slip-fixtures.mjs",
+    "pretest": "node scripts/ensure-deps.mjs",
+    "prebuild": "node scripts/ensure-deps.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.13.0",
