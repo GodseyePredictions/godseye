@@ -325,10 +325,12 @@ function renderScriptSGP(){
   return S.map((t,gi)=>{const g=G[t.game]; const top=t.ladder[t.ladder.length-1];
     return `<section class="panel"><div class="section-head"><div><h2>${gameLabel(g)}</h2><div class="envline">${envPills(g)}</div></div></div>
       <div class="scriptbox"><div class="lbl">Game script</div>${t.notes.map(n=>`<div class="sub">${esc(n)}</div>`).join("")}${t.reads?`<div class="sub" style="color:var(--warn,#c80)">${t.reads==="consensus"?"Agreed slip: every leg is priced by the model and was cleared by at least 60% of that role against this defence this season.":"Matchup reads on for this game: legs are steered by how each role has done against this defence this season."} Probabilities are the model's.</div>`:""}</div>
-      <div class="row" style="margin:10px 0 6px">${t.ladder.map(x=>`<button class="btn ${x.n===4?"primary":""}" data-script-load="${gi}|ladder|${x.n}">${x.n}-leg · ${pct(x.p)} · fair ${am(x.p)}</button>`).join("")}</div>
+      <div class="ladder" style="margin:12px 0 6px">${t.ladder.map(x=>`<div class="ticket"><div class="top"><span class="legsn">${x.n}-leg props SGP</span><span class="fair">${am(x.p)}</span></div><div class="pct">${pct(x.p)} to hit</div>
+            <ol>${x.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>
+            <button class="btn primary" data-script-load="${gi}|ladder|${x.n}">Load into slip</button></div>`).join("")}</div>
       <p class="sub">Each longer ticket extends the shorter one. Legs ranked by probability with script fit as the tiebreaker; ≤2 legs per player.</p>
-      ${top?top.legs.map(legrow).join(""):""}
-      <div class="grid2" style="margin-top:12px">
+      ${top?`<details style="margin-top:6px"><summary class="sub" style="cursor:pointer;color:var(--gold);font-weight:600">Why these legs</summary>${top.legs.map(legrow).join("")}</details>`:""}
+      <div class="ladder" style="margin-top:12px">
         ${["lotto","hybrid1","h61","hybrid2","h81","h82","ag6","ag8"].map(k=>{const h=t[k]; if(!h) return ""; const na=h.legs.filter(l=>l.mk==="atd").length; const ttl=k==="lotto"?`${h.legs.length}-leg lotto · the most likely legs`:k.startsWith("ag")?`Aggressive SGP · ${h.legs.length}-leg · higher milestones`:`${h.legs.length}-leg · ${na} anytime TD${na>1?"s":""} + ${h.legs.length-na} props`;
           return `<div class="ticket"><div class="top"><span class="legsn">${ttl}</span><span class="fair">${am(h.p)}</span></div><div class="pct">${pct(h.p)} to hit</div>
             <ol>${h.legs.map(l=>`<li>${esc(legLabel(l))} <span>${pct(l.p,0)}</span></li>`).join("")}</ol>
