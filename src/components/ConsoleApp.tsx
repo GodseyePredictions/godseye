@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
 import {
   averageClv,
@@ -10,17 +10,16 @@ import {
   decimalToAmerican,
   formatAmerican,
   groupBy,
-  parseSlip,
   summarize,
   type Bet,
   type Leg,
   type Status,
   type Summary,
 } from "@/lib/bets";
-import { checkSlip } from "@/lib/slip";
 import { ScriptsTab } from "./ScriptsTab";
 import { HybridsTab, MarketsTab } from "./MarketsTab";
-import { SlipAudit } from "./SlipAudit";
+import { PasteTab } from "./PasteSlip";
+import { NO_BETS, readBets, subscribeBets, writeBets } from "./betsStore";
 import { BankrollStrategy, setSlipQuote, stakeForSlip, subscribeAccount } from "./BankrollStrategy";
 
 // Legs handed from a model ticket to the Paste a slip tab.
@@ -43,45 +42,6 @@ declare global {
     GE_STAKE?: (chance: number, decimal: number, estimated: boolean, legs: number) => string;
     renderSlip?: () => void;
   }
-}
-
-// ---------- bets store (this browser's storage, until accounts exist) ----------
-const STORE = "godseye.bets.v1";
-const EMPTY: Bet[] = [];
-const listeners = new Set<() => void>();
-let cache: Bet[] | null = null;
-
-function readBets(): Bet[] {
-  if (cache === null) {
-    try {
-      cache = JSON.parse(localStorage.getItem(STORE) ?? "[]") as Bet[];
-    } catch {
-      cache = [];
-    }
-  }
-  return cache;
-}
-function writeBets(next: Bet[]) {
-  cache = next;
-  try {
-    localStorage.setItem(STORE, JSON.stringify(next));
-  } catch {
-    /* storage unavailable: keep in memory for this visit */
-  }
-  listeners.forEach((l) => l());
-}
-function subscribeBets(cb: () => void) {
-  // The console's "Track this bet" button writes to storage and fires this event.
-  const reload = () => {
-    cache = null;
-    cb();
-  };
-  listeners.add(cb);
-  window.addEventListener("ge-bets", reload);
-  return () => {
-    listeners.delete(cb);
-    window.removeEventListener("ge-bets", reload);
-  };
 }
 
 function subscribeHash(cb: () => void) {
@@ -117,7 +77,7 @@ function Icon({ d, circle }: { d: string; circle?: number }) {
 export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; homeHref?: string } = {}) {
   const hash = useSyncExternalStore(subscribeHash, readHash, () => "");
   const extra = (EXTRA_TABS as readonly string[]).includes(hash) ? (hash as ExtraTab) : null;
-  const bets = useSyncExternalStore(subscribeBets, readBets, () => EMPTY);
+  const bets = useSyncExternalStore(subscribeBets, readBets, () => NO_BETS);
   const setBets = (fn: (prev: Bet[]) => Bet[]) => writeBets(fn(readBets()));
   const [loadError, setLoadError] = useState("");
 
@@ -137,13 +97,11 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
     };
     const redraw = () => window.renderSlip?.();
     const stopAccount = subscribeAccount(redraw);
-    listeners.add(redraw);
-    window.addEventListener("ge-bets", redraw);
+    const stopBets = subscribeBets(redraw);
     redraw();
     return () => {
       stopAccount();
-      listeners.delete(redraw);
-      window.removeEventListener("ge-bets", redraw);
+      stopBets();
     };
   }, []);
 
@@ -292,6 +250,10 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             {extra === "paste" && (
               <PasteTab
                 bets={bets}
+                prefill={pastePrefill}
+                onPrefillUsed={() => {
+                  pastePrefill = null;
+                }}
                 onSave={(b) => {
                   setBets((prev) => [b, ...prev]);
                   window.location.hash = "bets";
@@ -334,180 +296,6 @@ function Head({ title, sub }: { title: string; sub?: string }) {
         <h2>{title}</h2>
         {sub && <p className="sub">{sub}</p>}
       </div>
-    </div>
-  );
-}
-
-function PasteTab({ onSave, bets }: { onSave: (b: Bet) => void; bets: Bet[] }) {
-  const [text, setText] = useState("");
-  const [legs, setLegs] = useState<Leg[]>(() => pastePrefill ?? []);
-  useEffect(() => {
-    pastePrefill = null;
-  }, []);
-  const [stake, setStake] = useState("25");
-  const [book, setBook] = useState("bet365");
-  const [sport, setSport] = useState("NFL");
-  const [parseMsg, setParseMsg] = useState("");
-
-  const stakeNum = Number(stake) > 0 ? Number(stake) : 0;
-  const valid = useMemo(
-    () => legs.filter((l) => Number.isFinite(l.odds) && Math.abs(l.odds) >= 100),
-    [legs],
-  );
-  const review = useMemo(() => checkSlip(valid, stakeNum), [valid, stakeNum]);
-
-  const readText = () => {
-    const found = parseSlip(text);
-    if (!found.length) {
-      setParseMsg(
-        "No legs found. Put each leg on its own line and end it with the odds, like: Bills -3.5 -110",
-      );
-      return;
-    }
-    setParseMsg("");
-    setLegs((prev) => [...prev, ...found]);
-    setText("");
-  };
-  const update = (i: number, patch: Partial<Leg>) =>
-    setLegs((prev) => prev.map((l, j) => (j === i ? { ...l, ...patch } : l)));
-
-  return (
-    <div className="t-cols">
-      <section className="panel">
-        <Head
-          title="Paste a slip"
-          sub="For any bet from any book or sport, including ones the model does not cover. One leg per line, odds last."
-        />
-        <label className="t-field">
-          <span>Your slip</span>
-          <textarea
-            rows={4}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder={"Bills -3.5 -110\nJosh Allen over 249.5 pass yds -115"}
-          />
-        </label>
-        {parseMsg && <p className="t-err">{parseMsg}</p>}
-        <div className="t-row">
-          <button className="btn primary" onClick={readText}>
-            Add legs
-          </button>
-          <button
-            className="btn"
-            onClick={() => setLegs((p) => [...p, { description: "", odds: -110 }])}
-          >
-            Add a leg by hand
-          </button>
-        </div>
-
-        {legs.map((l, i) => (
-          <div className="t-leg" key={i}>
-            <label className="t-field t-grow">
-              <span>Leg {i + 1}</span>
-              <input
-                value={l.description}
-                onChange={(e) => update(i, { description: e.target.value })}
-                placeholder="Bills -3.5"
-              />
-            </label>
-            <label className="t-field t-narrow">
-              <span>Odds</span>
-              <input
-                inputMode="numeric"
-                value={Number.isFinite(l.odds) ? String(l.odds) : ""}
-                onChange={(e) =>
-                  update(i, { odds: e.target.value === "" ? NaN : Number(e.target.value) })
-                }
-              />
-            </label>
-            <label className="t-field t-mid">
-              <span>Game (optional)</span>
-              <input
-                value={l.game ?? ""}
-                onChange={(e) => update(i, { game: e.target.value })}
-                placeholder="BUF @ MIA"
-              />
-            </label>
-            <button
-              className="t-x"
-              aria-label={`Remove leg ${i + 1}`}
-              onClick={() => setLegs((p) => p.filter((_, j) => j !== i))}
-            >
-              Remove
-            </button>
-          </div>
-        ))}
-
-        {legs.length > 0 && (
-          <div className="t-leg">
-            <label className="t-field t-narrow">
-              <span>Stake ($)</span>
-              <input inputMode="decimal" value={stake} onChange={(e) => setStake(e.target.value)} />
-            </label>
-            <label className="t-field t-mid">
-              <span>Sportsbook</span>
-              <input value={book} onChange={(e) => setBook(e.target.value)} />
-            </label>
-            <label className="t-field t-narrow">
-              <span>Sport</span>
-              <select value={sport} onChange={(e) => setSport(e.target.value)}>
-                <option>NFL</option>
-                <option>NBA</option>
-                <option>Other</option>
-              </select>
-            </label>
-          </div>
-        )}
-      </section>
-
-      <section className="panel">
-        {valid.length === 0 ? (
-          <>
-            <Head title="Review" />
-            <p className="empty">
-              Add at least one leg and the review appears here: payout, what the prices imply, and
-              anything worth a second look.
-            </p>
-          </>
-        ) : (
-          <>
-            <Head
-              title={`${valid.length === 1 ? "Single" : `${valid.length}-leg parlay`} at ${formatAmerican(decimalToAmerican(review.decimal))}`}
-            />
-            <p className="t-big num">
-              {money(stakeNum)} to win {money(review.toWin)}
-            </p>
-            <ul className="t-findings">
-              {review.findings.map((f, i) => (
-                <li key={i} className={f.level}>
-                  <strong>{f.title}</strong>
-                  <span>{f.detail}</span>
-                </li>
-              ))}
-            </ul>
-            <SlipAudit legs={valid} sport={sport} bets={bets} />
-            <button
-              className="btn primary"
-              style={{ marginTop: 14 }}
-              disabled={stakeNum <= 0}
-              onClick={() =>
-                onSave({
-                  id: crypto.randomUUID(),
-                  placedAt: new Date().toISOString(),
-                  sport,
-                  book: book.trim(),
-                  legs: valid.map((l) => ({ ...l, description: l.description.trim() || "Leg" })),
-                  stake: stakeNum,
-                  status: "open",
-                })
-              }
-            >
-              Save to my bets
-            </button>
-            {stakeNum <= 0 && <p className="t-err">Enter a stake above zero to save this bet.</p>}
-          </>
-        )}
-      </section>
     </div>
   );
 }

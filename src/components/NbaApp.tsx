@@ -1,5 +1,7 @@
 "use client";
 
+import { PasteTab } from "./PasteSlip";
+import { NO_BETS, readBets, subscribeBets, writeBets } from "./betsStore";
 import { BankrollStrategy, type Pick as StakePick } from "./BankrollStrategy";
 import { useState, useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
@@ -87,7 +89,7 @@ const track = rawTrack as unknown as {
 };
 const BOOK = slate.book === "draftkings" ? "DraftKings" : slate.book === "bet365" ? "bet365" : "the book";
 
-const TABS = ["home", "sgp", "multi", "strategy", "track", "board", "scripts", "avail", "model"] as const;
+const TABS = ["home", "sgp", "multi", "strategy", "paste", "track", "board", "scripts", "avail", "model"] as const;
 type Tab = (typeof TABS)[number];
 
 const TICKET_NAMES: Record<string, string> = {
@@ -975,6 +977,35 @@ function ModelTab() {
   );
 }
 
+/** Paste a slip on the NBA side. A saved bet joins the same list the NFL side's "My bets" shows. */
+function NbaPaste() {
+  const bets = useSyncExternalStore(subscribeBets, readBets, () => NO_BETS);
+  const [saved, setSaved] = useState(0);
+  return (
+    <>
+      {saved > 0 && (
+        <section className="panel">
+          <p className="sub" style={{ margin: 0 }}>
+            Saved. It counts toward tonight in Bankroll Strategy, and it is listed with your other bets under{" "}
+            <a href="/nfl#bets">My bets</a>, where you mark it won or lost.
+          </p>
+        </section>
+      )}
+      {/* a new key after each save gives an empty form */}
+      <PasteTab
+        key={saved}
+        defaultSport="NBA"
+        bets={bets}
+        onSave={(b) => {
+          writeBets([b, ...readBets()]);
+          setSaved((n) => n + 1);
+        }}
+      />
+      <p className="t-note">Your bets are saved in this browser only. They are not sent anywhere, and clearing your browser data removes them.</p>
+    </>
+  );
+}
+
 export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
   const raw_hash = useSyncExternalStore(subscribeHash, readHash, () => "");
   const hash = raw_hash.startsWith(prefix) ? raw_hash.slice(prefix.length) : "";
@@ -984,6 +1015,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
     ["sgp", "Game SGPs", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
     ["multi", "Multi-game slips", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
     ["strategy", "Bankroll Strategy", "M4 19h16M6 16V8M11 16V5M16 16v-6"],
+    ["paste", "Paste a slip", "M9 4h6v3H9zM7 5H5v15h14V5h-2M8 12h8M8 16h5"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["scripts", "Game scripts", "M4 5h16M4 12h10M4 19h16M17 9l3 3-3 3"],
     ["avail", "Availability", "M4 12l5 5L20 6"],
@@ -1019,7 +1051,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
             <span key={id} style={{ display: "contents" }}>
               {i === 1 && <span className="navgrp">Picks</span>}
               {i === 4 && <span className="navgrp">Tools</span>}
-              {i === 7 && <span className="navgrp">Model</span>}
+              {i === 8 && <span className="navgrp">Model</span>}
               <a href={`#${prefix}${id}`} aria-current={tab === id ? "page" : "false"}>
                 <Icon d={d} />
                 {label}
@@ -1032,6 +1064,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
           {tab === "sgp" && <SgpTab />}
           {tab === "multi" && <MultiTab />}
           {tab === "strategy" && <StrategyTab />}
+          {tab === "paste" && <NbaPaste />}
           {tab === "track" && <TrackTab />}
           {tab === "board" && <BoardTab />}
           {tab === "scripts" && slate.games.map((g) => <ScriptCard g={g} key={g.id} />)}

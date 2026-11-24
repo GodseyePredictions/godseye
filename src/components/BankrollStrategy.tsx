@@ -2,6 +2,7 @@
 
 /* The Bankroll Strategy tab. It only collects settings and shows results:
    every stake number comes from src/lib/staking.ts, the one staking engine. */
+import { NO_BETS, readBets, subscribeBets } from "./betsStore";
 import { useState, useSyncExternalStore } from "react";
 import { decimalToAmerican, formatAmerican, type Bet } from "@/lib/bets";
 import {
@@ -116,34 +117,6 @@ export function stakeForSlip(
   );
 }
 
-// ---------- tracked bets, for pages that do not hold the bets store themselves ----------
-const BETS_STORE = "godseye.bets.v1";
-const NO_BETS: Bet[] = [];
-let betsCache: Bet[] | null = null;
-function readStoredBets(): Bet[] {
-  if (betsCache === null) {
-    try {
-      const raw = JSON.parse(localStorage.getItem(BETS_STORE) ?? "[]");
-      betsCache = Array.isArray(raw) ? (raw as Bet[]) : NO_BETS;
-    } catch {
-      betsCache = NO_BETS;
-    }
-  }
-  return betsCache;
-}
-function subscribeStoredBets(cb: () => void) {
-  const reload = () => {
-    betsCache = null;
-    cb();
-  };
-  window.addEventListener("ge-bets", reload);
-  window.addEventListener("storage", reload);
-  return () => {
-    window.removeEventListener("ge-bets", reload);
-    window.removeEventListener("storage", reload);
-  };
-}
-
 /** One of the algorithm's own slips or singles, offered in the "size a pick" box. */
 export type Pick = {
   id: string;
@@ -195,8 +168,8 @@ export function BankrollStrategy({
   picks?: Pick[];
 }) {
   const stored = useSyncExternalStore(
-    subscribeStoredBets,
-    readStoredBets,
+    subscribeBets,
+    readBets,
     () => NO_BETS,
   );
   const bets = given ?? stored;
