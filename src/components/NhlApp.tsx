@@ -15,7 +15,7 @@ type Leg = {
 };
 type Multi = {
   id: string; kind: string; title: string; chance: number; miss: number; fair_price: number; games: string[]; how_chosen: string | null;
-  rungs_verified: boolean; priced: boolean; start_utc: string; legs: Leg[];
+  rungs_verified: boolean; priced: boolean; start_utc: string; includes_early?: string[]; legs: Leg[];
 };
 type Cashed = {
   id: string; date: string; title: string; game: string; final: string; made_at: string; chance: number; fair_price: number;
@@ -31,7 +31,7 @@ type Projection = {
   sog: number; pts: number; goals: number; ast: number; hits: number; blk: number; atg: number;
 };
 type Game = {
-  id: string; label: string; home: string; away: string; start_utc: string; venue: string | null; paper: boolean;
+  id: string; label: string; home: string; away: string; start_utc: string; venue: string | null; paper: boolean; early: boolean;
   made_after_start: boolean; notes: string[];
   goalies: Record<string, { name: string | null; status: string; ok: boolean }>;
   lines_ok: Record<string, boolean>;
@@ -48,7 +48,7 @@ type Game = {
   projections: Projection[];
 };
 type Slate = {
-  date: string; made_at: string; status: string; preview: boolean; early: boolean; sims: number; floor: number; games: Game[]; multi: Multi[];
+  date: string; made_at: string; status: string; preview: boolean; early: boolean; mixed?: boolean; sims: number; floor: number; games: Game[]; multi: Multi[];
   cashed: Cashed[]; skipped: string[];
 };
 
@@ -101,7 +101,9 @@ function TicketSlip({ t, g }: { t: Ticket; g: Game }) {
       ]}
       why={why}
       warn={
-        slate.early
+        g.early
+          ? "Early slip: this game's goalies or lines were not all confirmed when it was made. It is re-run before puck drop. Rungs are not checked at a book; no stake is suggested."
+          : slate.early
           ? "Early slip: issued before goalies and lines were confirmed. It is re-issued once they are. Rungs and prices are not checked at a book; no stake is suggested."
           : slate.preview
           ? "Preview: goalies and lines are not all confirmed. This slip is re-run before puck drop and is not final."
@@ -202,6 +204,8 @@ function MultiSlip({ t }: { t: Multi }) {
           ? "Early slip: issued before goalies and lines were confirmed. It is re-issued once they are. Rungs and prices are not checked at a book; no stake is suggested."
           : slate.preview
           ? "Preview: goalies and lines are not all confirmed. This slip is re-run before puck drop and is not final."
+          : t.kind === "lotto" && (t.includes_early ?? []).length
+            ? `A longshot by design, and it uses games whose goalies or lines were not all confirmed (${(t.includes_early ?? []).join(", ")}). It misses far more often than it hits. Fair price, not a book's. No stake is suggested.`
           : t.kind === "lotto"
             ? "A longshot by design: it misses far more often than it hits. The price shown is the model's fair price, not a book's. No stake is suggested."
             : !t.rungs_verified
@@ -308,7 +312,9 @@ function HomeTab({ prefix }: { prefix: string }) {
         </div>
       </div>
       <p className="sub">
-        {slate.early
+        {slate.mixed
+          ? "Gated slips where both goalies and both teams' lines are confirmed. Games still waiting on a confirmation carry early slips on today's personnel and are re-run before puck drop. Test slips: no stake on props."
+          : slate.early
           ? "Early card. Issued before goalies and lines were confirmed; each game is re-issued once they are. Slips are logged and graded."
           : slate.preview
           ? "Preview. Goalies and lines are not all confirmed yet, so these slips will be re-run before puck drop and are not final."
@@ -327,6 +333,7 @@ function HomeTab({ prefix }: { prefix: string }) {
               <span className={`pill ${g.sim.blowout_flag ? "bad" : ""}`}>Blowout {pct(g.sim.blowout_prob)}</span>
             </span>
             <span className="sub">
+              {g.early ? "Early · " : "Confirmed · "}
               {g.tickets.length ? `${g.tickets.length} slips` : "No slip"} · goalies {Object.values(g.goalies).every((x) => x.ok) ? "confirmed" : "not both confirmed"}
             </span>
           </a>

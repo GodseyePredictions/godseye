@@ -90,6 +90,7 @@ gates:
   key_linemates: 2                # a player's line-mates this deep must also pass the injury check
   preview: false                  # true (or `slate --preview`): goalie and lines gates are noted, not enforced, and nothing is written to the ledger
   issue_early: false              # with preview (or `slate --early`): the early card is logged and graded, and re-issued game by game as gates pass
+  early_fallback: true            # a gated run re-issues a game that has not passed its goalie and lines gates as an early slip on the latest personnel
   require_book_rung: false        # true: a leg with no listed rung is removed (the spec's gate 4). false: paper mode, see tickets.paper_ladders
 
 sim:
