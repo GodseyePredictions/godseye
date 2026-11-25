@@ -164,8 +164,10 @@ def atd_parlay_pool(W: pd.DataFrame, bq: dict):
     if {"returning", "sh_carries_lag1"} <= set(W.columns):
         ret = W[(W.pos_group == "RB") & W.returning.fillna(False).astype(bool)]
         top = ret.sort_values("sh_carries_lag1", ascending=False).drop_duplicates("team").set_index("team")
+        keep = {n.lower() for n in override_names()}       # owner's read in data/ticket_overrides.txt lifts this hold
         m = (ok.pos_group == "RB") & ok.team.isin(top.index) & \
-            (ok.sh_carries_lag1.fillna(0) < ok.team.map(top.sh_carries_lag1).fillna(0))
+            (ok.sh_carries_lag1.fillna(0) < ok.team.map(top.sh_carries_lag1).fillna(0)) & \
+            ~ok.name.str.lower().isin(keep)
         held += [(r["name"], r.team, f"displaced: {top.loc[r.team, 'name']} is back and out-carried him last game")
                  for _, r in ok[m & (ok.p_attd >= 0.2)].iterrows()]
         ok = ok[~m]
