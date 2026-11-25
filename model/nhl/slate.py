@@ -124,10 +124,15 @@ def run(con, cfg, date_et: str, as_of: str | None = None, include_started: bool 
     season = int(sched[0]["season"]) if sched else cfg["seasons"]["current"]
     ctx = context.build(tables, as_of, season, cfg, lines)
     games, skipped = [], []
+    prev = json.loads(SLATE.read_text()) if SLATE.exists() else {}
+    kept = {g["game_id"]: g for g in prev.get("games", [])} if prev.get("date") == date_et else {}
     for g in sched:
         started = g["start_utc"].replace("Z", "+00:00") <= as_of
         if started and not include_started:
-            skipped.append(f"{g['away']} @ {g['home']}: already started")
+            if g["game_id"] in kept:                              # under way: its slips were locked at puck drop and stay on the board
+                games.append(kept[g["game_id"]])
+            else:
+                skipped.append(f"{g['away']} @ {g['home']}: already started")
             continue
         try:
             out = run_game(g, ctx, tables, con, cfg, as_of)

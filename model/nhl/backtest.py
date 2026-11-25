@@ -126,7 +126,7 @@ def run(con, cfg, n_sims: int | None = None, first_season: int | None = None, lo
                 for r in ladders[m]:
                     p, y = (X >= r).mean(0), actual[m] >= r
                     cal[m][r].add(p, y)
-                    ok = p >= cfg["tickets"]["floor_prob"]
+                    ok = p >= cfg["tickets"].get("floor_prob_by_market", {}).get(m, cfg["tickets"]["floor_prob"])
                     if ok.any():
                         floor[m].add(p[ok], y[ok])
             for t in (h, a):
@@ -138,7 +138,7 @@ def run(con, cfg, n_sims: int | None = None, first_season: int | None = None, lo
                 for r in ladders["saves"]:
                     p = float((x >= r).mean())
                     cal["saves"][r].add(p, sv >= r)
-                    if p >= cfg["tickets"]["floor_prob"]:
+                    if p >= cfg["tickets"].get("floor_prob_by_market", {}).get("saves", cfg["tickets"]["floor_prob"]):
                         floor["saves"].add(p, sv >= r)
             done += 1
         if done and done % 400 < len(G):

@@ -51,6 +51,28 @@ a ladder source is connected and the fourth gate applies as written.
 negative-binomial mixing is set near zero; trailing teams shoot and score more and leading teams block more, but leading
 teams hit less, not more; and tied games tighten up late, which the sim needs to reproduce the league's 22% overtime rate.
 
+## Backtest (`output/backtest_report.json`)
+
+Walk-forward over 4,093 games (2023-24 to 23 November 2026), 2,000 simulated games each, every game priced only with
+what was known before its date. Starting goalies and dressed skaters are taken as known; there are no game-day lines.
+The scoring scale, shot spread and saves floor in `config.yaml` were set from this same backtest, so these numbers are
+in-sample for those three settings.
+
+| Market | Legs at or above the floor | Model said | Actually hit |
+| --- | --- | --- | --- |
+| Shots on goal | 14,210 | 76.3% | 78.7% |
+| Hits | 56,876 | 80.4% | 82.0% |
+| Blocked shots | 26,055 | 76.8% | 80.0% |
+| Points | 812 | 73.6% | 79.1% |
+| Saves (floor 85%) | 2,096 | 88.8% | 86.9% |
+
+- **Moneyline:** calibrated (home win predicted 53.2%, actual 54.3%) and better than the base rate (Brier 0.2386 against 0.2482).
+- **Puck line:** the favourite at -1.5 is over-rated by about two points (38.4% predicted, 36.4% actual).
+- **Totals:** no better than the base rate, so totals are left out of game-line closers.
+- **Saves:** the weakest prop. Legs the model calls 85 to 95% hit two to four points less often, so saves legs need 85%.
+- **Assists and anytime scorers** almost never reach 70%, so they do not appear in props SGPs.
+- **ROI and closing line value: not available.** No historical NHL prices are held. Until they are, no market is live.
+
 ## Sources
 
 | Source | Module | What is taken | Status |

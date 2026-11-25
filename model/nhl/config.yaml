@@ -95,7 +95,8 @@ sim:
   halves_per_period: 2            # the score state is re-read this many times a period
   team_sd: 0.0                    # gamma spread of a team's scoring from game to game (negative binomial). Fitted: 4,320 games show
   pace_sd: 0.0                    #   goals slightly under-dispersed (variance/mean 0.97), so the mixing is kept close to Poisson
-  shot_sd: 0.12                   # game-to-game spread of a team's shot volume beyond Poisson (backtest: saves legs ran over-confident without it)
+  shot_sd: 0.18                   # game-to-game spread of a team's shot volume beyond Poisson (backtest: saves legs ran over-confident without it)
+  goal_scale: 1.03                # backtest over 4,093 games: simulated scoring ran 3% under actual
   season_goal_prior_xg: 600       # this season's goals-per-xG is shrunk toward 1.00 by this many expected goals
   tied_late_factor: 0.6           # scoring in a tied game's last ten minutes; tuned so the sim's overtime rate matches the league's
   en_window_sec: 180              # the trailing team pulls its goalie with about 3 minutes left (tuned to the league's empty-net goals)
@@ -139,6 +140,7 @@ props:
 # ------------------------------------------------------------------ Phase 4: correlation and tickets
 tickets:
   floor_prob: 0.70                # SGP legs are floor rungs at 70%+
+  floor_prob_by_market: {saves: 0.85}   # backtest: saves legs the model called 85-90% hit about 82%; skater markets hit at or above their call
   sub65_prob: 0.65
   max_sub65_legs: 1
   sizes: [4, 6]
@@ -157,6 +159,7 @@ tickets:
   kelly_fraction: 0.25
   kelly_cap: 0.03
   closer_min_edge: 0.04
+  closer_markets: [ml, spread]    # totals are left out: in backtest the model's totals did not beat the base rate
   paper_ladders:                  # used only when no book ladder is in hand; legs are marked "rung not verified"
     sog: [2, 3, 4, 5]
     pts: [1, 2]
