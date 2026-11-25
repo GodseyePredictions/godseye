@@ -11,7 +11,7 @@ from datetime import date, datetime, timedelta, timezone
 import pandas as pd
 
 from nhl import store
-from nhl.slate import LEDGER, OUT
+from nhl.slate import CASHED, LEDGER, OUT
 
 REPORT = OUT / "nhl_report_card.json"
 SKATER = {"sog": "SUM(sog)", "goals": "SUM(g)", "ast": "SUM(a1 + a2)", "pts": "SUM(g + a1 + a2)", "hits": "SUM(hits)", "blk": "SUM(blocks)"}
@@ -58,11 +58,14 @@ def grade_leg(leg: dict, a: dict) -> dict:
 
 
 def grade_ticket(t: dict, a: dict) -> dict:
-    legs = [grade_leg(l, a) for l in t["legs"]]
+    """`a`: one game's actuals, or {game_id: actuals} for a multi-game slip (each leg names its game)."""
+    multi = "home" not in a
+    legs = [grade_leg(l, a[l["game_id"]] if multi else a) for l in t["legs"]]
     live = [l for l in legs if l["result"] != "void"]
     result = "void" if not live else ("won" if all(l["result"] == "won" for l in live) else "lost")
     return {**t, "legs": legs, "graded": True, "result": result, "legs_won": sum(l["result"] == "won" for l in live),
-            "legs_counted": len(live), "final": f"{a['away']} {a['away_goals']}, {a['home']} {a['home_goals']} ({a['decided']})",
+            "legs_counted": len(live),
+            "final": "; ".join(f"{x['away']} {x['away_goals']}, {x['home']} {x['home_goals']} ({x['decided']})" for x in (a.values() if multi else [a])),
             "graded_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
 
@@ -75,16 +78,18 @@ def run(con) -> dict:
     for i, t in enumerate(ledger["tickets"]):
         if t.get("graded"):
             continue
-        gid = t["game_id"]
-        if gid not in cache:
-            cache[gid] = actuals(con, gid)
-        if cache[gid] is None:
+        ids = t.get("game_ids") or [t["game_id"]]
+        for gid in ids:
+            if gid not in cache:
+                cache[gid] = actuals(con, gid)
+        if any(cache[gid] is None for gid in ids):
             waiting.append(t["id"])
             continue
-        ledger["tickets"][i] = grade_ticket(t, cache[gid])
+        ledger["tickets"][i] = grade_ticket(t, {gid: cache[gid] for gid in ids} if t.get("game_ids") else cache[ids[0]])
         graded.append(ledger["tickets"][i])
     LEDGER.write_text(json.dumps(ledger, indent=1, default=str))
     report_card(ledger)
+    cashed(ledger)
     return {"graded": graded, "waiting": waiting}
 
 
@@ -119,4 +124,21 @@ def report_card(ledger: dict, today: date | None = None) -> dict:
            "all_time": card(legs), "tickets": by_kind,
            "note": "private: results are reported to the owner, not posted on the site"}
     REPORT.write_text(json.dumps(out, indent=1))
+    return out
+
+
+def cashed(ledger: dict) -> dict:
+    """The winning slips, for the site's "Cashed slips" tab (owner, 24 November 2026). Winning slips only: the page
+    says so, shows no count of slips issued or lost, and the full record stays in the private report card."""
+    slips = []
+    for t in ledger["tickets"]:
+        if t.get("graded") and t.get("result") == "won" and not t.get("made_after_start"):
+            slips.append({"id": t["id"], "date": t["id"][:10], "title": t["title"], "game": t.get("game") or " + ".join(t.get("games", [])),
+                          "final": t["final"], "made_at": t["made_at"], "chance": t["chance"], "fair_price": t["fair_price"],
+                          "rungs_verified": t.get("rungs_verified", False), "priced": t.get("priced", False),
+                          "legs": [{"label": l["label"], "prob": l["prob"], "actual": l["actual"], "price": l.get("price")} for l in t["legs"]
+                                   if l["result"] == "won"]})
+    out = {"slips": sorted(slips, key=lambda s: s["id"], reverse=True),
+           "note": "winning slips only; losing slips are not shown here"}
+    CASHED.write_text(json.dumps(out, indent=1, default=str))
     return out

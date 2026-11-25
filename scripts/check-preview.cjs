@@ -20,8 +20,13 @@ const { chromium } = require('playwright');
   r.nhlHome = await p.evaluate(() => [...document.querySelectorAll('div:not([hidden]) > .wrap .nba-card h3')].map(x => x.textContent));
   await p.screenshot({ path: out + '/nhl-home.png' });
   await p.evaluate(() => { location.hash = 'nhl-sgp'; }); await p.waitForTimeout(600);
-  r.nhlSlips = await p.evaluate(() => [...document.querySelectorAll('div:not([hidden]) > .wrap .gs-slip')].map(s => ({ title: s.querySelector('.gs-slip-title')?.textContent, legs: s.querySelectorAll('.gs-slip-legs li').length, foot: [...s.querySelectorAll('.gs-slip-foot div')].map(d => d.textContent) })));
+  r.nhlSlips = await p.evaluate(() => [...document.querySelectorAll('div:not([hidden]) > .wrap .gs-slip')].slice(0, 4).map(s => ({ title: s.querySelector('.gs-slip-title')?.textContent, legs: s.querySelectorAll('.gs-slip-legs li').length, foot: [...s.querySelectorAll('.gs-slip-foot div')].map(d => d.textContent) })));
   await p.screenshot({ path: out + '/nhl-sgp.png', fullPage: true });
+  for (const tab of ['multi', 'cashed']) {
+    await p.evaluate((t) => { location.hash = 'nhl-' + t; }, tab); await p.waitForTimeout(500);
+    r['nhl_' + tab] = await p.evaluate(() => [...document.querySelectorAll('div:not([hidden]) > .wrap .gs-slip')].map(s => ({ title: s.querySelector('.gs-slip-title')?.textContent, legs: s.querySelectorAll('.gs-slip-legs li').length, why: s.querySelectorAll('.gs-slip-why li').length, foot: [...s.querySelectorAll('.gs-slip-foot div')].map(d => d.textContent) })));
+    await p.screenshot({ path: out + '/nhl-' + tab + '.png', fullPage: true });
+  }
   await p.evaluate(() => { location.hash = 'nhl-board'; }); await p.waitForTimeout(400);
   r.board = await p.evaluate(() => document.querySelectorAll('div:not([hidden]) > .wrap .tbl tbody tr').length);
   await p.evaluate(() => { location.hash = 'nhl-model'; }); await p.waitForTimeout(400);

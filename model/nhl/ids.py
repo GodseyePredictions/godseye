@@ -35,7 +35,7 @@ def slug(abbrev: str) -> str:
 
 
 def load_aliases(path: Path | None = None) -> dict:
-    """Spellings a source uses that differ from the NHL's (data/name_aliases.csv: alias, name). Added by hand, one at a time."""
+    """Spellings a source uses that differ from the NHL's (data/name_aliases.csv: alias, then the NHL name or, for two players who share a name, the NHL id). Added by hand, one at a time."""
     path = path or HERE / "data" / "name_aliases.csv"
     if not path.exists():
         return {}
@@ -49,7 +49,9 @@ class PlayerIndex:
 
     def __init__(self, players, aliases: dict | None = None):
         self.by_team, self.by_name, self.unmatched = {}, {}, []
-        self.aliases = {norm(a): norm(b) for a, b in (load_aliases() if aliases is None else aliases).items()}
+        raw = load_aliases() if aliases is None else aliases
+        self.aliases = {norm(a): norm(b) for a, b in raw.items() if not str(b).strip().isdigit()}
+        self.alias_ids = {norm(a): int(b) for a, b in raw.items() if str(b).strip().isdigit()}   # two players, one name: by NHL id
         for p in players:
             n = norm(p["name"])
             self.by_team.setdefault((p["team"], n), []).append(p["player_id"])
@@ -57,6 +59,8 @@ class PlayerIndex:
 
     def find(self, name: str, team_abbrev: str | None = None):
         n = norm(name)
+        if n in self.alias_ids:
+            return self.alias_ids[n]
         n = self.aliases.get(n, n)
         hit = self.by_team.get((team_abbrev, n)) if team_abbrev else None
         if not hit:

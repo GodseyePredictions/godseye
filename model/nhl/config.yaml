@@ -19,6 +19,8 @@ sources:
     api.the-odds-api.com: 1.0
   retries: 4
   schedule_max_age_sec: 21600     # current-season schedule is re-read after 6 hours
+  live_week_max_age_sec: 600      # the current week of the schedule (game states) is re-read after 10 minutes
+  partner_country: CA             # the NHL's partner book differs by country: CA is FanDuel, US is DraftKings (owner, 24 November: not DraftKings)
   recent_game_max_age_sec: 3600   # games from the last two days may still be corrected by the league
   empty_shifts_retry_sec: 86400   # a game whose shift chart came back empty is asked for again after a day
   moneypuck_max_age_sec: 43200    # current-season shot file is rebuilt nightly
@@ -86,6 +88,7 @@ gates:
   goalie_statuses: [Confirmed]    # Daily Faceoff labels that pass the goalie gate
   lines_max_age_hours: 30         # line combinations and PP units older than this are not "game-day"
   key_linemates: 2                # a player's line-mates this deep must also pass the injury check
+  preview: false                  # true (or `slate --preview`): goalie and lines gates are noted, not enforced, and nothing is written to the ledger
   require_book_rung: false        # true: a leg with no listed rung is removed (the spec's gate 4). false: paper mode, see tickets.paper_ladders
 
 sim:
@@ -139,17 +142,20 @@ props:
 
 # ------------------------------------------------------------------ Phase 4: correlation and tickets
 tickets:
-  floor_prob: 0.70                # SGP legs are floor rungs at 70%+
+  floor_prob: 0.70                # slip legs are floor rungs at 70%+
   floor_prob_by_market: {saves: 0.85}   # backtest: saves legs the model called 85-90% hit about 82%; skater markets hit at or above their call
   sub65_prob: 0.65
   max_sub65_legs: 1
-  sizes: [4, 6]
+  sizes: [4, 6, 8]                # owner, 24 November 2026: 4-, 6- and 8-leg slips, props and game lines on one slip
   max_legs_per_player: 1
   max_legs_same_line_points: 2
   max_legs_same_script: 3
-  max_legs_per_market: {saves: 1}
+  max_legs_per_market: {saves: 1, hits: 2, blk: 2, sog: 3, pts: 3, ast: 2, goals: 2}   # keeps a slip from being one market over and over
+  max_legs_per_market_by_size: {4: {sog: 2, pts: 2}, 8: {hits: 3, blk: 3}}
+  max_game_line_legs: 2           # at most one side (moneyline or puck line) and one total
   sgp_candidate_pool: 18
-  ticket_min_joint: {4: 0.30, 6: 0.18}
+  sgp_candidate_pool_by_size: {8: 16}
+  ticket_min_joint: {4: 0.25, 6: 0.12, 8: 0.06}
   combo_component_ev_gain: 0.0
   saves_cap_blowout: true         # no saves leg on the goalie facing the favourite when the blowout flag is up
   atg_legs: 2
@@ -167,6 +173,19 @@ tickets:
     hits: [1, 2, 3, 4, 5]
     blk: [1, 2, 3, 4]
     saves: [20, 25, 30, 35]
+  paper_game_lines:               # game lines tried when the book's own line is not in hand, or beside it
+    spread: [-1.5, 1.5, 2.5]
+    total: [4.5, 5.5, 6.5, 7.5]
+  multi:                          # owner, 24 November 2026: one 2-game slip, one 3-game slip, one lotto ticket
+    games: [2, 3]
+    legs_per_game: 3
+    lotto_min_decimal: 51.0       # +5000 or longer, at the model's fair price
+    lotto_max_decimal: 151.0      # ... and not so long it is a throwaway
+    lotto_leg_prob: [0.33, 0.60]  # each lotto leg's own chance: real longshot rungs, not floor rungs
+    lotto_markets: [goals, pts, ast, sog, ml]
+    lotto_max_legs_per_game: 2
+    lotto_min_games: 3
+    lotto_legs: [6, 10]
 
 grading:
   saves_include_ot: true

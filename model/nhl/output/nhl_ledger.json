@@ -16,7 +16,9 @@
      "prob": 0.8823,
      "price": null,
      "fair_price": -750,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Vasily Podkolzin 1+ hits",
@@ -30,7 +32,9 @@
      "prob": 0.8318,
      "price": null,
      "fair_price": -495,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Mathieu Joseph 1+ hits",
@@ -44,7 +48,9 @@
      "prob": 0.8014,
      "price": null,
      "fair_price": -404,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Trent Frederic 1+ hits",
@@ -58,7 +64,9 @@
      "prob": 0.7913,
      "price": null,
      "fair_price": -379,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.4677,
@@ -74,7 +82,12 @@
    "start_utc": "2026-11-25T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false
+   "graded": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "VGK 5, EDM 3 (REG)",
+   "graded_at": "2026-11-25T04:24:09+00:00"
   },
   {
    "kind": "sgp6",
@@ -92,7 +105,9 @@
      "prob": 0.8823,
      "price": null,
      "fair_price": -750,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Vasily Podkolzin 1+ hits",
@@ -106,7 +121,9 @@
      "prob": 0.8318,
      "price": null,
      "fair_price": -495,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Mathieu Joseph 1+ hits",
@@ -120,7 +137,9 @@
      "prob": 0.8014,
      "price": null,
      "fair_price": -404,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Trent Frederic 1+ hits",
@@ -134,7 +153,9 @@
      "prob": 0.7913,
      "price": null,
      "fair_price": -379,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Connor Murphy 1+ blocked shots",
@@ -148,7 +169,9 @@
      "prob": 0.7902,
      "price": null,
      "fair_price": -377,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Kasperi Kapanen 1+ hits",
@@ -162,7 +185,9 @@
      "prob": 0.7666,
      "price": null,
      "fair_price": -328,
-     "rung_verified": false
+     "rung_verified": false,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.2852,
@@ -178,7 +203,12 @@
    "start_utc": "2026-11-25T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false
+   "graded": true,
+   "result": "won",
+   "legs_won": 6,
+   "legs_counted": 6,
+   "final": "VGK 5, EDM 3 (REG)",
+   "graded_at": "2026-11-25T04:24:09+00:00"
   }
  ]
 }

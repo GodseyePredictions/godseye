@@ -86,7 +86,16 @@ NHL engine spec lives in `model/nhl/SPEC.md` (the spec calls this `godseye/nhl/`
 - All five phases are built as a test build (owner, 24 November 2026: build it out, publish, test and grade). What is built and how it runs is in `model/nhl/README.md`.
 - **Test slips until validated.** No NHL market has been tested against closing lines (no historical prices are held), so the site labels NHL slips as test slips and suggests no stake on props.
 - **Paper mode.** With no prop ladder connected, legs use the spec's standard milestone rungs and are marked "rung not verified". Never present such a rung as one the book offers.
-- **Results are not posted on the site.** Grading is logged in `model/nhl/output/` and reported to the owner in chat.
+- **Results are not posted on the site**, with one exception below. Grading is logged in `model/nhl/output/` and reported to the owner in chat.
+
+### Amendments (24 November 2026, from the owner)
+
+- **Slips per game: a 4-leg, a 6-leg and an 8-leg**, with props and game lines combined on one slip. Markets considered: shots, goals, points, assists, hits, blocks, saves, moneyline, puck line, total. (The spec kept props SGPs and game lines apart and had no 8-leg.) Every leg is still a floor rung; the anytime-scorer slip stays.
+- **Multi-game slips:** one 2-game slip and one 3-game slip from the games the model reads best, and one **lotto ticket** at +5000 or longer on the model's fair price, built from longshot rungs. The lotto is the only slip that uses legs under the floor.
+- **Every pick carries its breakdown:** the numbers behind it, written by `model/nhl/explain.py` from the engine's own output. Never write a reason by hand.
+- **Game lines come from FanDuel**, not DraftKings (the NHL's partner feed for Canada). No prop prices are connected yet.
+- **Cashed slips tab.** Winning NHL slips are shown on a "Cashed slips" tab, under the same terms as the NBA one: winning slips only, the page says losing slips are not shown, no count of slips issued or lost. A slip made after puck drop is never shown. The full record stays private.
+- **Preview runs.** Before goalies and lines are confirmed, `slate --preview` shows the board with the goalie and lines gates noted but not enforced. A preview is labelled as one and is never logged or graded.
 - All thresholds live in `model/nhl/config.yaml`.
 - If a data source cannot supply something the spec asks for, say so. Do not substitute silently.
 

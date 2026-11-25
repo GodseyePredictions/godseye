@@ -71,7 +71,7 @@ def wide_rates(ctx: dict) -> pd.DataFrame:
         cols = [f"{s}60" for s in RATE_STATS]
         w = pr.pivot(index="player_id", columns="strength", values=cols)
         w.columns = [f"{c}_{s}" for c, s in w.columns]
-        fin = pr.drop_duplicates("player_id").set_index("player_id")[["finishing", "gp"]]
+        fin = pr.drop_duplicates("player_id").set_index("player_id")[["finishing"]]
         ctx["_wide"] = w.join(fin).fillna(0.0)
     return ctx["_wide"]
 

@@ -312,7 +312,11 @@ def main(argv):
         day = argv[1] if len(argv) > 1 and not argv[1].startswith("--") else today_et()
         if "--no-refresh" not in argv:
             gameday(con, CONFIG, day)
+        if "--preview" in argv:
+            CONFIG["gates"]["preview"] = True
         out = slate.run(con, CONFIG, day, include_started="--include-started" in argv)
+        for t in out.get("multi", []):
+            log(f"{t['title']}: {t['chance']:.2%} (fair {t['fair_price']:+d}) across {', '.join(t['games'])}")
         for g in out["games"]:
             log(f"{g['label']}: " + (", ".join(f"{t['kind']} {t['chance']:.0%}" for t in g["tickets"]) or "no ticket") +
                 ("  [paper]" if g["paper"] else ""))

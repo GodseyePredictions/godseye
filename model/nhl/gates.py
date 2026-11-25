@@ -1,6 +1,6 @@
 """The four gates. Any fail removes the leg.
 
-1. Starting goalie confirmed for both teams: without it, no leg on that game's totals, saves or scoring props.
+1. Starting goalie confirmed for both teams: without it, no leg on that game's totals, sides, saves or scoring props.
 2. Game-day line combinations and power-play units in hand for the player's team.
 3. Injury and scratch check passed for the player and his key line-mates.
 4. The rung exists on the book's ladder. With no ladder in hand the engine can run in paper mode
@@ -9,8 +9,7 @@
 """
 from datetime import datetime, timedelta
 
-GOALIE_DEPENDENT = {"total", "saves", "pts", "ast", "goals", "atg", "ml", "ml3", "spread"}
-SCORING_PROPS = {"saves", "pts", "ast", "goals", "atg", "total"}
+SCORING_PROPS = {"saves", "pts", "ast", "goals", "atg", "total", "ml", "ml3", "spread"}   # everything the goalie in net decides
 
 
 def _t(s):
@@ -61,11 +60,14 @@ def lineup_flags(lines_rows: list) -> dict:
 
 
 def leg_passes(leg: dict, gates: dict, flags: dict, cfg) -> tuple[bool, str]:
-    """(passes, reason it does not). `leg`: market, team, player_id, rung_verified."""
-    if leg["market"] in SCORING_PROPS and not gates["goalies_ok"]:
+    """(passes, reason it does not). `leg`: market, team, player_id, rung_verified.
+    In preview mode (gates.preview) the goalie and lines gates are reported on the slate but not enforced: the slips
+    show what the board would look like, are labelled as a preview and are not written to the ledger."""
+    preview = cfg["gates"].get("preview", False)
+    if leg["market"] in SCORING_PROPS and not gates["goalies_ok"] and not preview:
         return False, "starting goalie not confirmed"
     if leg.get("player_id") is not None and leg["market"] != "saves":
-        if not gates["lines"][leg["team"]]["ok"]:
+        if not gates["lines"][leg["team"]]["ok"] and not preview:
             return False, "lines not confirmed"
         if leg["player_id"] in flags:
             return False, flags[leg["player_id"]]
