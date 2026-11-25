@@ -1,10 +1,11 @@
 /**
  * Pull the player-prop rungs the sportsbooks list for one NFL game, with their prices, from The Odds API.
  *
- *   node scripts/nfl-listings.ts 2026_12_GB_LA
+ *   npm run nfl:listings -- 2026_12_GB_LA
  *
  * The key travels in the x-api-key header. In the cloud environment the network proxy adds it from the saved
- * credential; elsewhere set ODDS_API_KEY.
+ * credential; elsewhere set ODDS_API_KEY. Node only goes through that proxy with NODE_USE_ENV_PROXY=1, which the
+ * npm script sets; without it the request skips the proxy and the feed answers 401.
  *
  * Writes model/output/nfl_listed_rungs.json. These prices are only used to confirm a rung is listed and to show
  * what a leg pays. They are never an input to a probability (CLAUDE.md, "Odds never make a pick").
