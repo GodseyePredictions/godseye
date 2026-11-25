@@ -8,7 +8,18 @@ import raw from "../../model/nhl/output/nhl_site.json";
 /* The NHL side of the console. It mirrors the NBA console's layout and reads the latest slate written by
    `python3 -m nhl.run_daily slate` (model/nhl/output/nhl_site.json). Every ticket is shown as a set slip. */
 
-type Leg = { label: string; market: string; team: string | null; prob: number; price: number | null; fair_price: number; rung_verified: boolean };
+type Leg = {
+  label: string; market: string; team: string | null; prob: number; price: number | null; fair_price: number; rung_verified: boolean;
+  why?: string[]; game?: string | null;
+};
+type Multi = {
+  id: string; kind: string; title: string; chance: number; miss: number; fair_price: number; games: string[]; how_chosen: string | null;
+  rungs_verified: boolean; priced: boolean; start_utc: string; legs: Leg[];
+};
+type Cashed = {
+  id: string; date: string; title: string; game: string; final: string; made_at: string; chance: number; fair_price: number;
+  rungs_verified: boolean; legs: { label: string; prob: number; actual: number | string | null; price: number | null }[];
+};
 type Ticket = {
   id: string; kind: string; title: string; chance: number; miss: number; fair_price: number; lift: number; priced: boolean;
   rungs_verified: boolean; edge: number | null; book: string | null; kelly_stake: number | null; legs: Leg[];
@@ -35,10 +46,13 @@ type Game = {
   removed_count: number;
   projections: Projection[];
 };
-type Slate = { date: string; made_at: string; status: string; sims: number; floor: number; games: Game[]; skipped: string[] };
+type Slate = {
+  date: string; made_at: string; status: string; preview: boolean; sims: number; floor: number; games: Game[]; multi: Multi[];
+  cashed: Cashed[]; skipped: string[];
+};
 
 const slate = raw as unknown as Slate;
-const TABS = ["home", "sgp", "board", "model"] as const;
+const TABS = ["home", "sgp", "multi", "cashed", "board", "model"] as const;
 type Tab = (typeof TABS)[number];
 
 function subscribeHash(cb: () => void) {
@@ -68,6 +82,7 @@ function TicketSlip({ t, g }: { t: Ticket; g: Game }) {
         ? `The legs hit together ${t.lift >= 1 ? "more" : "less"} often than their separate chances multiplied (${t.lift.toFixed(2)}x): the chance is counted from the same simulated games`
         : `Model chance ${pct(t.chance, 1)} against ${t.edge != null ? pct(t.chance - t.edge, 1) : "the listed price"} implied by the price with the vig removed`,
     ],
+    legs: t.legs.map((l) => ({ text: l.label, why: l.why ?? [] })),
   };
   return (
     <Slip
@@ -85,9 +100,11 @@ function TicketSlip({ t, g }: { t: Ticket; g: Game }) {
       ]}
       why={why}
       warn={
-        !t.rungs_verified
-          ? "Test slip: no book ladder is connected for NHL props, so these rungs and prices are not checked at the book. No stake is suggested."
-          : undefined
+        slate.preview
+          ? "Preview: goalies and lines are not all confirmed. This slip is re-run before puck drop and is not final."
+          : !t.rungs_verified
+            ? "Test slip: no book ladder is connected for NHL props, so these rungs and prices are not checked at the book. No stake is suggested."
+            : undefined
       }
       note={
         t.kind === "closer" && t.edge != null
@@ -154,6 +171,121 @@ function GamePanel({ g }: { g: Game }) {
   );
 }
 
+function MultiSlip({ t }: { t: Multi }) {
+  return (
+    <Slip
+      title={t.title}
+      meta={`${t.games.length} games · first puck drop ${dropTime(t.start_utc)}`}
+      legs={t.legs.map((l) => ({
+        text: l.label,
+        sub: `${l.game ?? ""} · model ${pct(l.prob)} · fair ${american(l.fair_price)}${l.rung_verified ? "" : " · rung not verified"}`,
+        value: l.price == null ? pct(l.prob) : american(l.price),
+      }))}
+      stats={[
+        { label: "Chance to hit", value: pct(t.chance, t.chance < 0.1 ? 2 : 1), tone: "good" },
+        { label: "Chance to miss", value: pct(t.miss, t.chance < 0.1 ? 2 : 1), tone: "bad" },
+        { label: "Fair price", value: american(t.fair_price), tone: "red" },
+      ]}
+      why={{
+        intel: [
+          `How it was chosen: ${t.how_chosen ?? "by the algorithm"}`,
+          "Legs in the same game are counted together from that game's simulated games; different games are independent, so their chances are multiplied",
+          `Games: ${t.games.join(", ")}`,
+        ],
+        legs: t.legs.map((l) => ({ text: l.label, why: l.why ?? [] })),
+      }}
+      warn={
+        slate.preview
+          ? "Preview: goalies and lines are not all confirmed. This slip is re-run before puck drop and is not final."
+          : t.kind === "lotto"
+            ? "A longshot by design: it misses far more often than it hits. The price shown is the model's fair price, not a book's. No stake is suggested."
+            : !t.rungs_verified
+              ? "Test slip: rungs and prices are not checked at the book. No stake is suggested."
+              : undefined
+      }
+    />
+  );
+}
+
+function MultiTab() {
+  const multis = slate.multi.filter((t) => t.kind !== "lotto");
+  const lotto = slate.multi.filter((t) => t.kind === "lotto");
+  return (
+    <>
+      <section className="panel">
+        <div className="section-head">
+          <div>
+            <h2>Multi-game slips</h2>
+            <p className="sub">The games the model reads best, three legs from each. Open &quot;Why the algorithm rates it&quot; for the breakdown of every pick.</p>
+          </div>
+        </div>
+        {multis.length ? (
+          <div className="nba-tickets">
+            {multis.map((t) => (
+              <MultiSlip t={t} key={t.id} />
+            ))}
+          </div>
+        ) : (
+          <p className="sub">No multi-game slip: not enough games passed every gate.</p>
+        )}
+      </section>
+      <section className="panel">
+        <div className="section-head">
+          <div>
+            <h2>Lotto ticket</h2>
+            <p className="sub">One longshot at +5000 or longer on the model&apos;s fair price, built from each player&apos;s most likely longshot rung.</p>
+          </div>
+        </div>
+        {lotto.length ? (
+          <div className="nba-tickets">
+            {lotto.map((t) => (
+              <MultiSlip t={t} key={t.id} />
+            ))}
+          </div>
+        ) : (
+          <p className="sub">No lotto ticket: the board does not hold enough qualifying longshot legs across three games.</p>
+        )}
+      </section>
+    </>
+  );
+}
+
+function CashedTab() {
+  return (
+    <section className="panel">
+      <div className="section-head">
+        <div>
+          <h2>Cashed slips</h2>
+          <p className="sub">
+            Winning NHL algorithm slips only. Losing slips are not shown here. These were test slips: the rungs were not checked at a book and no
+            bet was placed.
+          </p>
+        </div>
+      </div>
+      {slate.cashed.length ? (
+        <div className="nba-tickets">
+          {slate.cashed.map((c) => (
+            <Slip
+              key={c.id}
+              title={c.title}
+              meta={`${c.game} · ${c.date}`}
+              legs={c.legs.map((l) => ({ text: l.label, sub: `model ${pct(l.prob)} · finished with ${l.actual}`, value: "Hit", state: "in" as const }))}
+              stats={[
+                { label: "Result", value: "Cashed", tone: "good" },
+                { label: "Model chance", value: pct(c.chance, 1) },
+                { label: "Fair price", value: american(c.fair_price), tone: "red" },
+              ]}
+              note={`Final: ${c.final}. Slip made ${builtAt(c.made_at)}, before puck drop.`}
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="sub">No cashed slips yet.</p>
+      )}
+    </section>
+  );
+}
+
 function HomeTab({ prefix }: { prefix: string }) {
   const tickets = slate.games.reduce((n, g) => n + g.tickets.length, 0);
   return (
@@ -166,7 +298,11 @@ function HomeTab({ prefix }: { prefix: string }) {
           </p>
         </div>
       </div>
-      <p className="sub">Test slate. The NHL model is new and has not yet been checked against closing lines. Slips are for testing and grading, not staking.</p>
+      <p className="sub">
+        {slate.preview
+          ? "Preview. Goalies and lines are not all confirmed yet, so these slips will be re-run before puck drop and are not final."
+          : "Test slate. The NHL model is new and has not yet been checked against closing lines. Slips are for testing and grading, not staking."}
+      </p>
       <div className="nba-grid">
         {slate.games.map((g) => (
           <a className="nba-card" href={`#${prefix}sgp`} key={g.id}>
@@ -260,7 +396,8 @@ function ModelTab() {
         <ul className="sub" style={{ paddingLeft: 18 }}>
           <li>Every game is simulated {slate.sims.toLocaleString()} times before any prop is set. Props are drawn inside those same games.</li>
           <li>A slip&apos;s chance is the share of simulated games in which every leg hits, never the legs multiplied.</li>
-          <li>Slip legs are floor rungs at {pct(slate.floor)} or better. Anytime goal scorers go on their own slip.</li>
+          <li>Slip legs are floor rungs at {pct(slate.floor)} or better (saves 85%), from shots, points, assists, goals, hits, blocks, saves, moneyline, puck line and total.</li>
+          <li>The lotto ticket is the exception: longshot rungs on purpose, at +5000 or longer on the model&apos;s fair price.</li>
           <li>No confirmed starting goalie, no leg on that game&apos;s total, saves or scoring props. No game-day lines, no legs on that team&apos;s skaters.</li>
           <li>Picks come only from the Godseye NHL algorithm. No expert, media or consensus picks.</li>
         </ul>
@@ -276,6 +413,8 @@ export default function NhlApp({ prefix = "" }: { prefix?: string } = {}) {
   const nav: [Tab, string, string][] = [
     ["home", "Home", "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"],
     ["sgp", "Game slips", "M8 12h8M12 8v8M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"],
+    ["multi", "Multi-game & lotto", "M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"],
+    ["cashed", "Cashed slips", "M5 12l4 4 10-10M4 20h16"],
     ["board", "Projection board", "M4 6h16M4 12h16M4 18h10"],
     ["model", "Model & rules", "M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"],
   ];
@@ -315,6 +454,8 @@ export default function NhlApp({ prefix = "" }: { prefix?: string } = {}) {
         <div style={{ minWidth: 0 }}>
           {tab === "home" && <HomeTab prefix={prefix} />}
           {tab === "sgp" && slate.games.map((g) => <GamePanel g={g} key={g.id} />)}
+          {tab === "multi" && <MultiTab />}
+          {tab === "cashed" && <CashedTab />}
           {tab === "board" && <BoardTab />}
           {tab === "model" && <ModelTab />}
         </div>

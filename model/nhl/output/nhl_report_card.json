@@ -1,0 +1,50 @@
+{
+ "as_of": "2026-11-25",
+ "week": [
+  {
+   "market": "blk",
+   "legs": 1,
+   "won": 1,
+   "hit_rate": 1.0,
+   "model_avg": 0.7902
+  },
+  {
+   "market": "hits",
+   "legs": 9,
+   "won": 9,
+   "hit_rate": 1.0,
+   "model_avg": 0.82
+  }
+ ],
+ "all_time": [
+  {
+   "market": "blk",
+   "legs": 1,
+   "won": 1,
+   "hit_rate": 1.0,
+   "model_avg": 0.7902
+  },
+  {
+   "market": "hits",
+   "legs": 9,
+   "won": 9,
+   "hit_rate": 1.0,
+   "model_avg": 0.82
+  }
+ ],
+ "tickets": {
+  "sgp4": {
+   "tickets": 1,
+   "won": 1,
+   "void": 0,
+   "model_avg": 0.4677
+  },
+  "sgp6": {
+   "tickets": 1,
+   "won": 1,
+   "void": 0,
+   "model_avg": 0.2852
+  }
+ },
+ "note": "private: results are reported to the owner, not posted on the site"
+}

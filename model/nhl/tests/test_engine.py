@@ -207,25 +207,30 @@ def test_tickets_follow_the_rules(world):
     out = tickets.build(PS, S, open_gates(), {}, [], {**summ, "blowout_flag": False}, [], cfg)
     kinds = [t["kind"] for t in out["tickets"]]
     assert kinds[:2] == ["sgp4", "sgp6"] and "atg" in kinds and "closer" not in kinds
+    assert out["multi_part"] and len(out["multi_part"]["legs"]) == cfg["tickets"]["multi"]["legs_per_game"]
     for t in out["tickets"]:
         assert t["miss"] == pytest.approx(1 - t["chance"], abs=1e-4)
         if t["kind"].startswith("sgp"):
             assert len(t["legs"]) == int(t["kind"][3:])
             assert all(l["prob"] >= cfg["tickets"]["floor_prob"] for l in t["legs"])
-            assert all(l["market"] != "goals" for l in t["legs"])                # scorers never sit in a props SGP
-            assert len({l["player_id"] for l in t["legs"]}) == len(t["legs"])
-            assert sum(l["market"] == "saves" for l in t["legs"]) <= 1
+            players = [l["player_id"] for l in t["legs"] if l["player_id"] is not None]
+            assert len(set(players)) == len(players)                             # one leg per player
+            assert sum(l["market"] == "saves" for l in t["legs"]) <= 1 and sum(l["market"] == "hits" for l in t["legs"]) <= 3
+            assert sum(l["market"] in ("ml", "spread") for l in t["legs"]) <= 1 and sum(l["market"] == "total" for l in t["legs"]) <= 1
             assert not t["rungs_verified"] and not t["priced"]                   # no book ladder in hand: marked as such
         if t["kind"] == "atg":
             assert all(l["market"] == "goals" and "anytime goal scorer" in l["label"] for l in t["legs"])
-    pool = {(l["market"], l["player_id"]): l for l in out["pool"]}
-    assert len(pool) == len(out["pool"])                                         # one floor rung per player and market
+    pool = {(l["market"], l["player_id"], l["side"]): l for l in out["pool"]}
+    assert len(pool) == len(out["pool"])                                         # one floor rung per player and market, one line per side
 
 
 def test_floor_rung_is_the_highest_rung_that_clears_the_floor(cfg):
     mk = lambda rung, p: {"market": "sog", "player_id": 1, "rung": rung, "p": p}
-    got = tickets.floor_rungs([mk(2, 0.9), mk(3, 0.74), mk(4, 0.5), {"market": "goals", "player_id": 1, "rung": 1, "p": 0.9}], cfg)
-    assert [(l["market"], l["rung"]) for l in got] == [("sog", 3)]
+    got = tickets.floor_rungs([mk(2, 0.9), mk(3, 0.74), mk(4, 0.5), {"market": "goals", "player_id": 1, "rung": 1, "p": 0.4}], cfg)
+    assert [(l["market"], l["rung"]) for l in got] == [("sog", 3)]                # a 40% scorer is not a floor rung
+    gl = lambda line, p, v: {"kind": "game", "market": "total", "side": "over", "line": line, "p": p, "rung_verified": v}
+    assert tickets.floor_rungs([gl(4.5, 0.82, False), gl(5.5, 0.71, False)], cfg)[0]["line"] == 5.5      # the tightest line that clears
+    assert tickets.floor_rungs([gl(4.5, 0.82, True), gl(5.5, 0.71, False)], cfg)[0]["line"] == 4.5       # the book's own line first
 
 
 def test_blowout_guard_and_gates_remove_legs_with_a_reason(world):
@@ -238,7 +243,7 @@ def test_blowout_guard_and_gates_remove_legs_with_a_reason(world):
     assert not any(l["market"] == "saves" and l["team"] == S.away for l in legs)
     closed = {**open_gates(), "goalies_ok": False}
     legs, removed = tickets.build_legs(PS, S, closed, {}, [], {**summ, "blowout_flag": False}, cfg)
-    assert {l["market"] for l in legs} <= {"sog", "hits", "blk"}
+    assert {l["market"] for l in legs} <= {"sog", "hits", "blk"}                 # no sides, totals, saves or scoring props
 
 
 def test_book_rungs_replace_the_paper_ladder_and_a_closer_needs_an_edge(world):
@@ -350,3 +355,78 @@ def test_started_games_keep_their_locked_slips(tmp_path, monkeypatch, db, cfg):
     out = slate.run(db, cfg, g[1], as_of="2027-01-01T00:00:00+00:00")
     assert [x["label"] for x in out["games"] if x["game_id"] == g[0]] == ["kept"]
     assert json.loads((tmp_path / "site.json").read_text())["games"][0]["label"] == "kept"
+
+
+def test_slip_rules_for_game_lines_and_saves(cfg):
+    leg = lambda m, team, **k: {"market": m, "team": team, "player_id": k.get("pid"), "p": 0.8, "line_slot": None}
+    assert tickets.nhl_allowed([leg("ml", "NYR"), leg("total", None)], cfg)
+    assert not tickets.nhl_allowed([leg("ml", "NYR"), leg("spread", "NYR")], cfg)                  # one side only
+    assert not tickets.nhl_allowed([leg("total", None), leg("total", None)], cfg)
+    assert not tickets.nhl_allowed([leg("saves", "NYR", pid=1), leg("ml", "NYR")], cfg)            # a goalie's saves over and his team to win
+    assert tickets.nhl_allowed([leg("saves", "NYR", pid=1), leg("ml", "BOS")], cfg)
+
+
+def test_multi_game_slips_and_the_lotto(world):
+    S, PS, cfg = world["S"], world["PS"], world["cfg"]
+    games = []
+    for i, label in enumerate(("A @ B", "C @ D", "E @ F", "G @ H")):
+        out = tickets.build(PS, S, open_gates(), {}, [], {**game_sim.summary(S, cfg), "blowout_flag": False}, [], cfg)
+        games.append({"game_id": i, "label": label, "legs": out["legs"], "multi_part": out["multi_part"], "gates_ok": i != 3})
+    multis = tickets.multi_game(games, cfg)
+    assert [t["kind"] for t in multis] == ["multi2", "multi3"]
+    two = multis[0]
+    assert len(two["legs"]) == 2 * cfg["tickets"]["multi"]["legs_per_game"] and 3 not in two["game_ids"]   # a game that failed a gate is not used
+    part = games[0]["multi_part"]["joint"]
+    assert two["chance"] == pytest.approx(part * part, abs=1e-4)                                   # counted inside a game, multiplied across games
+    assert {l["game"] for l in two["legs"]} == set(two["games"])
+    lot = tickets.lotto(games, cfg)
+    if lot:                                                                                        # the made-up league may not hold enough longshots
+        m = cfg["tickets"]["multi"]
+        assert 1 / lot["chance"] >= m["lotto_min_decimal"] and len(set(lot["game_ids"])) >= m["lotto_min_games"]
+        assert all(m["lotto_leg_prob"][0] <= l["prob"] <= m["lotto_leg_prob"][1] for l in lot["legs"])
+    assert tickets.lotto(games[:1], cfg) is None and tickets.multi_game(games[:1], cfg) == []
+
+
+def test_preview_notes_the_gates_but_keeps_the_legs(world, cfg):
+    g = gates.game_gates(GAME, [goalie_row("NYR", "Unconfirmed"), goalie_row("BOS", "Unconfirmed")], [], cfg)
+    leg = {"market": "pts", "team": "NYR", "player_id": 100, "rung_verified": False}
+    assert gates.leg_passes(leg, g, {}, cfg) == (False, "starting goalie not confirmed")
+    cfg["gates"]["preview"] = True
+    assert gates.leg_passes(leg, g, {}, cfg)[0] and gates.leg_passes({**leg, "market": "ml", "player_id": None}, g, {}, cfg)[0]
+    assert gates.leg_passes(leg, g, {100: "injured reserve"}, cfg) == (False, "injured reserve")   # injuries still remove a leg
+
+
+def test_multi_game_grading_and_cashed_slips(db, league, tmp_path, monkeypatch):
+    g1, g2 = league["games"].iloc[-1], league["games"].iloc[-2]
+    acts = {int(g.game_id): grade.actuals(db, int(g.game_id)) for g in (g1, g2)}
+    legs = []
+    for gid, a in acts.items():
+        pid = int(a["skaters"].sog.idxmax())
+        legs.append({"label": f"x{gid}", "market": "sog", "player_id": pid, "rung": 1, "prob": 0.8, "game_id": gid})
+    t = grade.grade_ticket({"id": "2026-10-23-multi2", "kind": "multi2", "title": "2-game slip", "chance": 0.4, "fair_price": 150,
+                            "games": ["a", "b"], "game_ids": list(acts), "made_at": "t", "legs": legs}, acts)
+    assert t["result"] == "won" and t["legs_won"] == 2 and ";" in t["final"]
+    monkeypatch.setattr(grade, "CASHED", tmp_path / "c.json")
+    lost = {**t, "id": "2026-10-23-lotto", "result": "lost"}
+    late = {**t, "id": "2026-10-23-late", "made_after_start": True}
+    c = grade.cashed({"tickets": [t, lost, late, {"id": "x", "graded": False}]})
+    assert [s["id"] for s in c["slips"]] == ["2026-10-23-multi2"]                                  # winners only, and never one made after puck drop
+    assert "losing slips are not shown" in c["note"] and c["slips"][0]["game"] == "a + b"
+
+
+def test_every_slip_leg_carries_its_reasons(world):
+    from nhl import explain
+    S, PS, cfg = world["S"], world["PS"], world["cfg"]
+    summ = {**game_sim.summary(S, cfg), "blowout_flag": False}
+    recent = explain.recent_form(world["tables"], "2026-12-31T00:00:00+00:00")
+    ex = explain.Explainer(PS, S, world["lam"], world["ctx"], recent, [], summ, S.n)
+    out = tickets.build(PS, S, open_gates(), {}, [], summ, [], cfg, explain=ex)
+    for t in out["tickets"]:
+        for l in t["legs"]:
+            assert len(l["why"]) >= 3 and l["why"][-1].startswith("Hit in ")
+    pid = int(PS.players.player_id.iloc[0])
+    assert len(recent[pid]["sog"]) == 10 and "saves" in recent[113]
+    why = ex({"kind": "prop", "market": "sog", "player_id": pid, "rung": 1, "p": 0.9, "mean": 2.0, "rung_verified": False})
+    assert any(w.startswith("Reached 1+ in") for w in why) and any("per 60" in w for w in why)
+    side = ex({"kind": "game", "market": "spread", "side": S.home, "line": 1.5, "p": 0.8, "rung_verified": False})
+    assert any("win by two or more" in w for w in side) and side[0].startswith("Simulated score")

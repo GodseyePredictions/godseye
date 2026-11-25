@@ -1,0 +1,93 @@
+{
+ "slips": [
+  {
+   "id": "2026-11-24-VGK-EDM-sgp6",
+   "date": "2026-11-24",
+   "title": "6-leg props SGP",
+   "game": "VGK @ EDM",
+   "final": "VGK 5, EDM 3 (REG)",
+   "made_at": "2026-11-25T00:38:48+00:00",
+   "chance": 0.2852,
+   "fair_price": 251,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Colton Dach 1+ hits",
+     "prob": 0.8823,
+     "actual": 4,
+     "price": null
+    },
+    {
+     "label": "Vasily Podkolzin 1+ hits",
+     "prob": 0.8318,
+     "actual": 4,
+     "price": null
+    },
+    {
+     "label": "Mathieu Joseph 1+ hits",
+     "prob": 0.8014,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Trent Frederic 1+ hits",
+     "prob": 0.7913,
+     "actual": 1,
+     "price": null
+    },
+    {
+     "label": "Connor Murphy 1+ blocked shots",
+     "prob": 0.7902,
+     "actual": 1,
+     "price": null
+    },
+    {
+     "label": "Kasperi Kapanen 1+ hits",
+     "prob": 0.7666,
+     "actual": 2,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-24-VGK-EDM-sgp4",
+   "date": "2026-11-24",
+   "title": "4-leg props SGP",
+   "game": "VGK @ EDM",
+   "final": "VGK 5, EDM 3 (REG)",
+   "made_at": "2026-11-25T00:38:48+00:00",
+   "chance": 0.4677,
+   "fair_price": 114,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Colton Dach 1+ hits",
+     "prob": 0.8823,
+     "actual": 4,
+     "price": null
+    },
+    {
+     "label": "Vasily Podkolzin 1+ hits",
+     "prob": 0.8318,
+     "actual": 4,
+     "price": null
+    },
+    {
+     "label": "Mathieu Joseph 1+ hits",
+     "prob": 0.8014,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Trent Frederic 1+ hits",
+     "prob": 0.7913,
+     "actual": 1,
+     "price": null
+    }
+   ]
+  }
+ ],
+ "note": "winning slips only; losing slips are not shown here"
+}

@@ -56,8 +56,10 @@ def season_schedule(season: int, root, cfg, current: bool = False) -> list[dict]
     first = _json(f"{WEB}/schedule/{season}-10-15", root, cfg, max_age)
     day, end = first["regularSeasonStartDate"], first["regularSeasonEndDate"]
     rows, seen = [], set()
+    today = datetime.now(timezone.utc).date()
     while day <= end:
-        doc = _json(f"{WEB}/schedule/{day}", root, cfg, max_age)
+        live = current and abs((date.fromisoformat(day) - today).days) <= 8     # this week's game states change by the hour
+        doc = _json(f"{WEB}/schedule/{day}", root, cfg, cfg["sources"]["live_week_max_age_sec"] if live else max_age)
         for r in parse_schedule_week(doc, tuple(cfg["seasons"]["game_types"])):
             if r["game_id"] not in seen and r["season"] == season:
                 seen.add(r["game_id"]); rows.append(r)
@@ -234,7 +236,7 @@ def parse_partner_odds(doc: dict, known_at: str) -> list[dict]:
 def partner_odds(root, cfg) -> list[dict]:
     """The partner feed only serves the current odds date; callers keep the games they want by id."""
     from datetime import datetime as _dt, timezone as _tz
-    url = f"{WEB}/partner-game/US/now"
+    url = f"{WEB}/partner-game/{cfg['sources']['partner_country']}/now"
     host = url.split("/")[2]
     body, at = get(url, root, min_interval=cfg["sources"]["min_interval"].get(host, 0.5), retries=cfg["sources"]["retries"],
                    max_age=cfg["sources"]["gameday_max_age_sec"], tag=_dt.now(_tz.utc).strftime("%Y%m%dT%H") )

@@ -15,6 +15,7 @@ Run everything from `model/`.
     python3 -m nhl.run_daily gameday       # goalies, lines and PP units, referees, odds and ladders
     python3 -m nhl.run_daily watch         # from 90 minutes before puck drop, gameday every 30 minutes until goalies are confirmed
     python3 -m nhl.run_daily slate [DATE]  # gameday refresh, then gates, sim, props and tickets for every game not started
+    python3 -m nhl.run_daily slate [DATE] --preview   # the board before goalies and lines confirm: labelled, never logged or graded
     python3 -m nhl.run_daily grade         # nightly ingest, then grade finished tickets and rewrite the report card
     python3 -m nhl.backtest [SIMS] [FIRST_SEASON]   # walk-forward backtest, writes output/backtest_report.json
     python3 -m nhl.run_daily derive [UTC]  # rebuild the derived tables as of a time
@@ -35,14 +36,16 @@ night is a few dozen requests. `data/nhl.sqlite` and `data/raw/` are not committ
 3. `props/` - shots, hits and blocks drawn around each simulated game's own script; goals and assists handed out from that
    game's team goals (points are the joint draw); saves are the opponent's simulated shots minus goals, with pull risk.
 4. `correlation.py` - a slip's chance is the share of simulated games in which every leg hits.
-5. `tickets.py` - floor rungs at 70%+, a 4-leg and a 6-leg props SGP, an anytime-scorer slip on its own, and a game-line
-   closer when the edge over the listed price clears the bar. Blowout guard, two-points-per-line and saves rules applied.
+5. `tickets.py` - floor rungs at 70%+ (saves 85%+). Per game a 4-leg, a 6-leg and an 8-leg slip that mix props and game
+   lines, an anytime-scorer slip, and a game-line closer when the edge over the listed price clears the bar. Across games
+   a 2-game slip, a 3-game slip and a lotto ticket at +5000 or longer. `explain.py` writes the breakdown of every pick.
 6. `grade.py` - grades the ledger from the NHL's play-by-play and writes the private report card.
 
 Outputs in `output/`: `nhl_site.json` (what the site shows; no results), `nhl_slate.json` (full detail), `nhl_ledger.json`
-(every ticket with the time it was made, locked at puck drop), `nhl_report_card.json`, `backtest_report.json`.
+(every ticket with the time it was made, locked at puck drop), `nhl_report_card.json`, `nhl_cashed.json` (winning slips
+only, for the Cashed slips tab), `backtest_report.json`.
 
-**Paper mode.** The only prices in hand are DraftKings game lines from the NHL's own partner feed. No prop ladder is
+**Paper mode.** The only prices in hand are FanDuel game lines from the NHL's own partner feed (`sources.partner_country`). No prop ladder is
 connected (no `ODDS_API_KEY`, no bet365 sheet), so `gates.require_book_rung` is false: props legs use the spec's standard
 milestone rungs (`tickets.paper_ladders`), are marked "rung not verified", carry no price and no stake. Set it to true once
 a ladder source is connected and the fourth gate applies as written.

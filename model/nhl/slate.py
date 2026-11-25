@@ -9,12 +9,13 @@ from pathlib import Path
 
 import pandas as pd
 
-from nhl import context, gates as gates_mod, props, store, tickets
+from nhl import context, explain, gates as gates_mod, props, store, tickets
 from nhl.ingest import refs
 from nhl.sim import game_sim
 
 OUT = Path(__file__).parent / "output"
 SLATE, LEDGER, SITE = OUT / "nhl_slate.json", OUT / "nhl_ledger.json", OUT / "nhl_site.json"
+CASHED = OUT / "nhl_cashed.json"
 
 
 def now_iso() -> str:
@@ -26,7 +27,7 @@ def latest(con, table: str, key: str, as_of: str, where: str = "1=1", params=())
                            f"GROUP BY {key}) x ON t.{key} = x.k AND t.known_at = x.m WHERE {where}", [as_of, *params, *params])
 
 
-def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None = None) -> dict:
+def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None = None, recent: dict | None = None) -> dict:
     home, away = game["home"], game["away"]
     goalie_rows = latest(con, "goalie_starts", "team", as_of, "date_et = ?", [game["date_et"]]).to_dict("records")
     lines = ctx["lines"] if ctx.get("lines") is not None else pd.DataFrame()
@@ -35,6 +36,8 @@ def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None 
     line_rows = [{k: clean(v) for k, v in r.items()} for r in line_rows]
     line_rows = [{**r, "player_id": None if r["player_id"] is None else int(r["player_id"])} for r in line_rows]
     G = gates_mod.game_gates(game, goalie_rows, line_rows, cfg)
+    if cfg["gates"].get("preview"):                               # said, not enforced: the final run enforces them
+        G["notes"] = [n.split(":")[0] + ": legs that depend on it are shown as a preview and will be re-run" for n in G["notes"]]
     flags = gates_mod.lineup_flags(line_rows)
     rosters, absent = {}, {}
     for t in (home, away):
@@ -56,7 +59,9 @@ def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None 
     odds_rows = latest(con, "odds", "game_id", as_of, "game_id = ?", [game["game_id"]]).to_dict("records")
     lines_priced = game_sim.price_markets(S, odds_rows, cfg)
     PS = props.simulate(S, rosters, gctx, cfg, game_id=game["game_id"], goalies={t: gk[t] or {} for t in (home, away)})
-    T = tickets.build(PS, S, G, flags, odds_rows, summ, lines_priced, cfg)
+    ex = explain.Explainer(PS, S, lam, gctx, recent or {}, lines_priced, summ, S.n)
+    T = tickets.build(PS, S, G, flags, odds_rows, summ, lines_priced, cfg, explain=ex)
+    gates_ok = G["goalies_ok"] and all(v["ok"] for v in G["lines"].values())
     probs = game_sim.market_probs(S)
     fair = lambda k: {"prob": round(probs[k], 4), "fair_price": tickets.fair_american(probs[k])}
     proj = []
@@ -70,6 +75,15 @@ def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None 
     for t in T["tickets"]:
         t["id"] = f"{game['date_et']}-{away}-{home}-{t['kind']}"
         t["game"], t["game_id"], t["made_at"], t["start_utc"] = label, game["game_id"], as_of, game["start_utc"]
+        for l in t["legs"]:
+            l["game"], l["game_id"] = label, game["game_id"]
+    for l in T["legs"]:
+        l["game"], l["game_id"] = label, game["game_id"]
+        if l["market"] in cfg["tickets"]["multi"]["lotto_markets"] and cfg["tickets"]["multi"]["lotto_leg_prob"][0] <= l["p"] <= cfg["tickets"]["multi"]["lotto_leg_prob"][1]:
+            l["why"] = ex(l)
+    if T.get("multi_part"):
+        for l in T["multi_part"]["legs"]:
+            l["game"], l["game_id"] = label, game["game_id"]
     return {"game_id": game["game_id"], "label": label, "home": home, "away": away, "date_et": game["date_et"],
             "start_utc": game["start_utc"], "venue": game.get("venue"), "gates": G, "referees": crew,
             "expected": {t: {"goals": round(lam[t]["lam"], 3), "sog": round(lam[t]["sog_mean"], 1), "pp_min": round(lam[t]["pp_sec"] / 60, 2),
@@ -84,7 +98,12 @@ def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None 
             "goalies": {t: {k: v for k, v in PS.goalies[t].items() if k not in ("saves", "pulled")} for t in (home, away)},
             "tickets": T["tickets"], "pool": T["pool"], "removed": T["removed"][:60], "removed_count": len(T["removed"]),
             "notes": G["notes"] + T.get("notes", []), "projections": sorted(proj, key=lambda x: -x["toi_min"]),
-            "paper": paper, "sims": S.n}
+            "paper": paper, "sims": S.n, "gates_ok": bool(gates_ok), "preview": bool(cfg["gates"].get("preview")),
+            "_legs": T["legs"], "_multi_part": T.get("multi_part")}
+
+
+def _site_leg(l: dict) -> dict:
+    return {k: l.get(k) for k in ("label", "market", "team", "prob", "price", "fair_price", "rung_verified", "why", "game")}
 
 
 def site_export(slate: dict, cfg) -> dict:
@@ -105,13 +124,18 @@ def site_export(slate: dict, cfg) -> dict:
             "tickets": [{"id": t["id"], "kind": t["kind"], "title": t["title"], "chance": t["chance"], "miss": t["miss"],
                          "fair_price": t["fair_price"], "lift": t["lift"], "priced": t["priced"], "rungs_verified": t["rungs_verified"],
                          "edge": t.get("edge"), "book": t.get("book"), "kelly_stake": t.get("kelly_stake"),
-                         "legs": [{k: l[k] for k in ("label", "market", "team", "prob", "price", "fair_price", "rung_verified")} for l in t["legs"]]}
+                         "legs": [_site_leg(l) for l in t["legs"]]}
                         for t in g["tickets"]],
             "removed_count": g["removed_count"],
             "projections": [{k: p[k] for k in ("player", "team", "pos", "toi_min", "line", "pp", "sog", "pts", "goals", "ast", "hits", "blk", "atg")}
                             for p in g["projections"][:40]]})
-    return {"date": slate["date"], "made_at": slate["made_at"], "status": slate["status"], "sims": cfg["sim"]["n_sims"],
-            "floor": cfg["tickets"]["floor_prob"], "games": games, "skipped": slate["skipped"]}
+    multi = [{"id": t["id"], "kind": t["kind"], "title": t["title"], "chance": t["chance"], "miss": t["miss"], "fair_price": t["fair_price"],
+              "games": t["games"], "how_chosen": t.get("how_chosen"), "rungs_verified": t["rungs_verified"], "priced": t["priced"],
+              "start_utc": t["start_utc"], "legs": [_site_leg(l) for l in t["legs"]]} for t in slate.get("multi", [])]
+    cashed = json.loads(CASHED.read_text()) if CASHED.exists() else {"slips": []}
+    return {"date": slate["date"], "made_at": slate["made_at"], "status": slate["status"], "preview": slate.get("preview", False),
+            "sims": cfg["sim"]["n_sims"], "floor": cfg["tickets"]["floor_prob"], "games": games, "multi": multi,
+            "cashed": cashed["slips"], "skipped": slate["skipped"]}
 
 
 def run(con, cfg, date_et: str, as_of: str | None = None, include_started: bool = False) -> dict:
@@ -123,6 +147,8 @@ def run(con, cfg, date_et: str, as_of: str | None = None, include_started: bool 
                             "ON l.team = m.team AND l.known_at = m.k", [as_of])
     season = int(sched[0]["season"]) if sched else cfg["seasons"]["current"]
     ctx = context.build(tables, as_of, season, cfg, lines)
+    recent = explain.recent_form(tables, as_of)
+    preview = bool(cfg["gates"].get("preview"))
     games, skipped = [], []
     prev = json.loads(SLATE.read_text()) if SLATE.exists() else {}
     kept = {g["game_id"]: g for g in prev.get("games", [])} if prev.get("date") == date_et else {}
@@ -135,25 +161,45 @@ def run(con, cfg, date_et: str, as_of: str | None = None, include_started: bool 
                 skipped.append(f"{g['away']} @ {g['home']}: already started")
             continue
         try:
-            out = run_game(g, ctx, tables, con, cfg, as_of)
+            out = run_game(g, ctx, tables, con, cfg, as_of, recent=recent)
             out["made_after_start"] = bool(started)
             games.append(out)
         except Exception as e:                                    # one game's failure must not lose the slate
             skipped.append(f"{g['away']} @ {g['home']}: not run ({type(e).__name__}: {e})")
-    slate = {"date": date_et, "made_at": as_of, "games": games, "skipped": skipped,
-             "status": "test slate: no NHL market has been validated against closing lines yet"}
+    live = [g for g in games if "_legs" in g and not g.get("made_after_start")]
+    ready = [{"game_id": g["game_id"], "label": g["label"], "legs": g["_legs"], "multi_part": g["_multi_part"],
+              "gates_ok": g["gates_ok"] or preview} for g in live]
+    multis = tickets.multi_game(ready, cfg)
+    lot = tickets.lotto(ready, cfg)
+    multis += [lot] if lot else []
+    starts = {g["game_id"]: g["start_utc"] for g in games}
+    for t in multis:
+        t["id"] = f"{date_et}-{t['kind']}"
+        t["made_at"], t["start_utc"] = as_of, min(starts[i] for i in t["game_ids"])
+    kept_multi = prev.get("multi", []) if prev.get("date") == date_et else []
+    locked = {t["kind"]: t for t in kept_multi if t["start_utc"].replace("Z", "+00:00") <= as_of}   # its first game is under way
+    multis = [locked.get(t["kind"], t) for t in multis] + [t for k, t in locked.items() if k not in {m["kind"] for m in multis}]
+    for g in games:
+        g.pop("_legs", None); g.pop("_multi_part", None)
+    slate = {"date": date_et, "made_at": as_of, "games": games, "multi": multis, "skipped": skipped, "preview": preview,
+             "status": ("preview: goalies and lines are not all confirmed yet, so these slips are not final and are not being graded"
+                        if preview else "test slate: no NHL market has been validated against closing lines yet")}
     OUT.mkdir(exist_ok=True)
     SLATE.write_text(json.dumps(slate, indent=1, default=str))
     SITE.write_text(json.dumps(site_export(slate, cfg), indent=1, default=str))
+    if preview:
+        return slate                                              # a preview is shown, never logged or graded
     ledger = json.loads(LEDGER.read_text()) if LEDGER.exists() else {"tickets": []}
     by_id = {t["id"]: t for t in ledger["tickets"]}
-    for g in games:
-        for t in g["tickets"]:
-            old = by_id.get(t["id"])
-            if old and (old.get("graded") or old["start_utc"].replace("Z", "+00:00") <= as_of):
-                continue                                          # locked at puck drop
-            by_id[t["id"]] = {**{k: v for k, v in t.items() if k != "pairs"}, "paper": g["paper"],
-                              "made_after_start": g["made_after_start"], "graded": False}
+    entries = [({k: v for k, v in t.items() if k != "pairs"}, g["paper"], g["made_after_start"]) for g in games for t in g["tickets"]]
+    entries += [(t, not t["rungs_verified"], False) for t in multis]
+    for t, paper, late in entries:
+        old = by_id.get(t["id"])
+        if old and (old.get("graded") or old["start_utc"].replace("Z", "+00:00") <= as_of):
+            continue                                              # locked at puck drop
+        if t["start_utc"].replace("Z", "+00:00") <= as_of and not late:
+            continue
+        by_id[t["id"]] = {**t, "paper": paper, "made_after_start": late, "graded": False}
     ledger["tickets"] = sorted(by_id.values(), key=lambda t: (t["start_utc"], t["id"]))
     LEDGER.write_text(json.dumps(ledger, indent=1, default=str))
     return slate
