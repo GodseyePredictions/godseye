@@ -27,10 +27,11 @@ def collapse(pgs: pd.DataFrame) -> pd.DataFrame:
     return d.groupby(keys, as_index=False)[["toi", "toi_on"] + STATS].sum(min_count=1)
 
 
-def build(pgs: pd.DataFrame, season: int, cfg) -> pd.DataFrame:
-    """pgs: player_game_strength rows known before the date being priced."""
+def build(pgs: pd.DataFrame, season: int, cfg, collapsed: bool = False) -> pd.DataFrame:
+    """pgs: player_game_strength rows known before the date being priced (or `collapse`d already)."""
     c = cfg["rates"]
-    d = collapse(pgs[pgs.season.isin([season, season - 1])])
+    d = pgs[pgs.season.isin([season, season - 1])]
+    d = d.copy() if collapsed else collapse(d)
     d[STATS] = d[STATS].fillna(0.0)
     d["w"] = np.where(d.season == season, 1.0, c["prior_season_weight"])
     cur = d[d.season == season]
@@ -57,9 +58,10 @@ def build(pgs: pd.DataFrame, season: int, cfg) -> pd.DataFrame:
     for col in STATS:
         t = "toi_on" if col in ON_ICE else "toi"
         st, rt = S[t].to_numpy(), R[t].to_numpy()
-        w_recent = c["player_weight_recent"] * rt / (rt + prior_sec)
+        w_recent = c["player_weight_recent"] * rt / (rt + prior_sec + 1e-9)
         lg_rate = (lg[col] / lg[t] * 3600).reindex(lg_idx).to_numpy()
-        shrunk = (S[col].to_numpy() + lg_rate * prior_sec / 3600) / (st + prior_sec) * 3600
+        ps = prior_sec * c.get("player_prior_scale", {}).get(col, 1.0)
+        shrunk = (S[col].to_numpy() + lg_rate * ps / 3600) / (st + ps) * 3600
         recent = np.where(rt > 0, R[col].to_numpy() / np.maximum(rt, 1) * 3600, shrunk)
         out[f"{col}60"] = (1 - w_recent) * shrunk + w_recent * recent
         out[f"{col}60_raw"] = np.where(st > 0, S[col].to_numpy() / np.maximum(st, 1) * 3600, np.nan)

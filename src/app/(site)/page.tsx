@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/InfoPages";
 import { Logo } from "@/components/Logo";
 import locksJson from "../../../model/output/locks.json";
 import nba from "../../../model/nba/output/nba_site.json";
+import nhl from "../../../model/nhl/output/nhl_site.json";
 import { Slip, american, pct as pc } from "@/components/Slip";
 import { nbaPicks } from "@/lib/advisor/picks";
 import { nbaWhy } from "@/lib/lock-intel";
@@ -296,6 +297,7 @@ export default function Home() {
           <div className="lp-sports" role="group" aria-label="Choose a sport">
             <Link href="/nfl">NFL</Link>
             <Link href="/nba">NBA</Link>
+            <Link href="/nhl">NHL</Link>
           </div>
         </div>
       </header>
@@ -386,6 +388,18 @@ export default function Home() {
                   <li>Only players confirmed available make a slip</li>
                 </ul>
                 <span className="lp-sport-go">Go to NBA</span>
+              </Link>
+              <Link href="/nhl" className="lp-sport nba">
+                <span className="lp-sport-name">NHL</span>
+                <span className="lp-sport-line">
+                  {nhl.games.length} {nhl.games.length === 1 ? "game" : "games"} and {nhl.games.reduce((n, g) => n + g.tickets.length, 0)} test slips on the board
+                </span>
+                <ul>
+                  <li>Every game simulated 20,000 times before any prop</li>
+                  <li>Shots, hits, blocks, points and saves from the same games</li>
+                  <li>No confirmed goalie, no scoring leg</li>
+                </ul>
+                <span className="lp-sport-go">Go to NHL</span>
               </Link>
             </div>
           </div>
@@ -728,6 +742,7 @@ export default function Home() {
       <SiteFooter>
         <Link href="/nfl">NFL</Link>
         <Link href="/nba">NBA</Link>
+        <Link href="/nhl">NHL</Link>
         <a href="#picks">Algo Locks</a>
         <a href="#how">How it works</a>
         <a href="#mission">Mission</a>

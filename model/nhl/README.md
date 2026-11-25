@@ -4,8 +4,9 @@ A standalone engine: its own data, tables, config and (in later phases) models a
 or NBA code; only `model/common/` is shared. The spec is `SPEC.md`. The spec's `godseye/nhl/` is `model/nhl/` in this
 repository and its `godseye/shared/` is `model/common/`.
 
-**Built so far: Phase 1, data ingest and derived tables.** Gates, the game sim, props, correlation, tickets, backtest and
-grading are Phases 2 to 5 and are not here yet. Nothing in this module produces a pick.
+**Built so far: all five phases, as a test build.** Ingest and derived tables (Phase 1), gates and game sim (2), player
+props (3), correlation and tickets (4), backtest and grading (5). No NHL market has been tested against closing lines,
+because the project holds no historical NHL prices, so by the spec's own rule no market is live: slips are test slips.
 
 Run everything from `model/`.
 
@@ -13,6 +14,9 @@ Run everything from `model/`.
     python3 -m nhl.run_daily nightly       # schedule, finished games, MoneyPuck xG, rosters, every derived table
     python3 -m nhl.run_daily gameday       # goalies, lines and PP units, referees, odds and ladders
     python3 -m nhl.run_daily watch         # from 90 minutes before puck drop, gameday every 30 minutes until goalies are confirmed
+    python3 -m nhl.run_daily slate [DATE]  # gameday refresh, then gates, sim, props and tickets for every game not started
+    python3 -m nhl.run_daily grade         # nightly ingest, then grade finished tickets and rewrite the report card
+    python3 -m nhl.backtest [SIMS] [FIRST_SEASON]   # walk-forward backtest, writes output/backtest_report.json
     python3 -m nhl.run_daily derive [UTC]  # rebuild the derived tables as of a time
     python3 -m nhl.run_daily status
     python3 -m nhl.spotcheck               # the Phase 1 check: 3 teams' xG and 5 players' TOI against the sources
@@ -20,6 +24,32 @@ Run everything from `model/`.
 
 The first `nightly` pulls three seasons plus the current one (about 13,000 requests, 25 minutes) into `data/raw/`; after that a
 night is a few dozen requests. `data/nhl.sqlite` and `data/raw/` are not committed.
+
+## Order of work for one game (`slate.py`)
+
+1. `gates.py` - both starting goalies confirmed, game-day lines in hand, injury check on the player and his line-mates,
+   rung on the book's ladder. Any fail removes the leg, and the slate says which and why.
+2. `sim/game_sim.py` - expected goals by strength (5v5, power play, shorthanded), then the itemised adjustments (opposing
+   goalie's GSAx, home ice, rest and travel, absent regulars), then 20,000 simulated games: score effects re-read every
+   half-period, the empty-net window, overtime and shootout. League constants are measured from the store (`sim/fit.py`).
+3. `props/` - shots, hits and blocks drawn around each simulated game's own script; goals and assists handed out from that
+   game's team goals (points are the joint draw); saves are the opponent's simulated shots minus goals, with pull risk.
+4. `correlation.py` - a slip's chance is the share of simulated games in which every leg hits.
+5. `tickets.py` - floor rungs at 70%+, a 4-leg and a 6-leg props SGP, an anytime-scorer slip on its own, and a game-line
+   closer when the edge over the listed price clears the bar. Blowout guard, two-points-per-line and saves rules applied.
+6. `grade.py` - grades the ledger from the NHL's play-by-play and writes the private report card.
+
+Outputs in `output/`: `nhl_site.json` (what the site shows; no results), `nhl_slate.json` (full detail), `nhl_ledger.json`
+(every ticket with the time it was made, locked at puck drop), `nhl_report_card.json`, `backtest_report.json`.
+
+**Paper mode.** The only prices in hand are DraftKings game lines from the NHL's own partner feed. No prop ladder is
+connected (no `ODDS_API_KEY`, no bet365 sheet), so `gates.require_book_rung` is false: props legs use the spec's standard
+milestone rungs (`tickets.paper_ladders`), are marked "rung not verified", carry no price and no stake. Set it to true once
+a ladder source is connected and the fourth gate applies as written.
+
+**What the sim found in the data** (4,320 games): goals are slightly under-dispersed (variance/mean 0.97), so the
+negative-binomial mixing is set near zero; trailing teams shoot and score more and leading teams block more, but leading
+teams hit less, not more; and tied games tighten up late, which the sim needs to reproduce the league's 22% overtime rate.
 
 ## Sources
 

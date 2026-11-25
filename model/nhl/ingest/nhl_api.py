@@ -200,3 +200,42 @@ def parse_roster(doc: dict, team: str) -> list[dict]:
 
 def roster(team: str, root, cfg) -> list[dict]:
     return parse_roster(_json(f"{WEB}/roster/{team}/current", root, cfg, cfg["sources"]["schedule_max_age_sec"]), team)
+
+
+# ------------------------------------------------------------------ the league's betting partner (game lines only)
+def parse_partner_odds(doc: dict, known_at: str) -> list[dict]:
+    """Moneyline, 60-minute three-way, puck line and total from the partner book the NHL shows (odds rows)."""
+    book = ((doc.get("bettingPartner") or {}).get("name") or "partner").lower()
+    rows = []
+    for g in doc.get("games", []):
+        for side in ("homeTeam", "awayTeam"):
+            team = g[side]["abbrev"]
+            for o in g[side].get("odds", []):
+                kind, q, price = o.get("description"), (o.get("qualifier") or "").strip(), o.get("value")
+                if price is None:
+                    continue
+                base = {"known_at": known_at, "source": "nhl-partner", "book": book, "game_id": g["gameId"], "player_id": None,
+                        "price": float(price), "is_close": 0}
+                if kind == "MONEY_LINE_2_WAY":
+                    rows.append({**base, "market": "ml", "player_name": team, "side": "team", "line": 0.0})
+                elif kind == "MONEY_LINE_3_WAY":
+                    if q.lower() == "draw":
+                        if side == "homeTeam":
+                            rows.append({**base, "market": "ml3", "player_name": "Draw", "side": "draw", "line": 0.0})
+                    else:
+                        rows.append({**base, "market": "ml3", "player_name": team, "side": "team", "line": 0.0})
+                elif kind == "PUCK_LINE" and q:
+                    rows.append({**base, "market": "spread", "player_name": team, "side": "team", "line": float(q)})
+                elif kind == "OVER_UNDER" and q[:1] in ("O", "U"):
+                    rows.append({**base, "market": "total", "player_name": "", "side": "over" if q[0] == "O" else "under", "line": float(q[1:])})
+    return rows
+
+
+def partner_odds(root, cfg) -> list[dict]:
+    """The partner feed only serves the current odds date; callers keep the games they want by id."""
+    from datetime import datetime as _dt, timezone as _tz
+    url = f"{WEB}/partner-game/US/now"
+    host = url.split("/")[2]
+    body, at = get(url, root, min_interval=cfg["sources"]["min_interval"].get(host, 0.5), retries=cfg["sources"]["retries"],
+                   max_age=cfg["sources"]["gameday_max_age_sec"], tag=_dt.now(_tz.utc).strftime("%Y%m%dT%H") )
+    return parse_partner_odds(json.loads(body), at)

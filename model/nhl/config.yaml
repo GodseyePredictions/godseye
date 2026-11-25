@@ -44,6 +44,7 @@ rates:
     ev: 300
     pp: 60
     pk: 60
+  player_prior_scale: {hits: 0.3, blocks: 0.5}   # hits and blocks settle quickly: a smaller prior than scoring stats (backtest: high-hit legs ran 8 points under)
   player_weight_recent: 0.30      # recent form (last 10) is shrunk toward the season rate
   finishing_prior_xg: 60          # goals above expected are shrunk hard: this many expected goals of league-average finishing
   goalie_min_starts: 15           # GSAx is shrunk toward league average; below this many starts it is all prior
@@ -79,3 +80,90 @@ spotcheck:
   team_xg_tolerance: 0.03         # our team xG vs MoneyPuck's season file, relative
   player_toi_tolerance: 0.03      # our TOI by strength vs the league's own, relative
   player_toi_abs_min: 1.0         # ... or within this many minutes over the season, whichever is looser
+
+# ------------------------------------------------------------------ Phase 2: gates and game sim
+gates:
+  goalie_statuses: [Confirmed]    # Daily Faceoff labels that pass the goalie gate
+  lines_max_age_hours: 30         # line combinations and PP units older than this are not "game-day"
+  key_linemates: 2                # a player's line-mates this deep must also pass the injury check
+  require_book_rung: false        # true: a leg with no listed rung is removed (the spec's gate 4). false: paper mode, see tickets.paper_ladders
+
+sim:
+  n_sims: 20000
+  n_sims_backtest: 2000
+  seed: 20261124
+  halves_per_period: 2            # the score state is re-read this many times a period
+  team_sd: 0.0                    # gamma spread of a team's scoring from game to game (negative binomial). Fitted: 4,320 games show
+  pace_sd: 0.0                    #   goals slightly under-dispersed (variance/mean 0.97), so the mixing is kept close to Poisson
+  shot_sd: 0.12                   # game-to-game spread of a team's shot volume beyond Poisson (backtest: saves legs ran over-confident without it)
+  season_goal_prior_xg: 600       # this season's goals-per-xG is shrunk toward 1.00 by this many expected goals
+  tied_late_factor: 0.6           # scoring in a tied game's last ten minutes; tuned so the sim's overtime rate matches the league's
+  en_window_sec: 180              # the trailing team pulls its goalie with about 3 minutes left (tuned to the league's empty-net goals)
+  en_step_sec: 30
+  en_max_deficit: 2               # ... when down 1 or 2
+  extra_attacker_g60: 5.5         # the trailing side's scoring rate with six skaters
+  extra_attacker_sog60: 45.0
+  ot_sog_per_team: 1.7
+  so_home_win: 0.5
+  ot_strength_weight: 0.5         # how much of the two teams' scoring ratio carries into overtime
+  b2b_goals_for: 0.97             # second night of a back-to-back
+  b2b_goals_against: 1.03
+  rest_diff_per_day: 0.005        # per day of rest advantage, capped at 2 days
+  tz_per_hour: 0.004              # per hour of time zone crossed since the last game, capped at 3
+  injury_loss: 0.35               # share of an absent regular's expected goals the next man up does not replace
+  injury_recent_games: 10         # an absence already covered by the team's recent games is not removed twice
+  blowout_margin: 3               # lead after two periods that counts as a blowout
+  blowout_flag_prob: 0.22
+  edge_tiers:                     # model probability minus no-vig implied probability
+    lean: 0.02
+    play: 0.04
+    strong: 0.07
+
+# ------------------------------------------------------------------ Phase 3: player props
+props:
+  dispersion:                     # gamma spread on a player's own rate (0 = Poisson)
+    sog: 0.08
+    hits: 0.15
+    blk: 0.22
+  linemate_boost: 4.0             # weight on the scorer's line-mates when assists are handed out
+  team_reconcile: 0.5             # how far player shot projections are scaled toward the team's simulated total
+  blowout_top_line_trim: 0.06     # top-line ice time lost when leading by the blowout margin after two periods
+  trailing_top_line_boost: 0.03   # top-line ice time gained when trailing after two periods
+  top_line_forwards: 3
+  top_pair_defence: 2
+  pull_deficit: 3                 # a starter this far behind after two periods may be pulled
+  pull_prob: 0.45
+  min_toi_sec: 420                # skaters projected under this are not priced
+  dress_recent_team_games: 3      # without game-day lines, a skater counts as dressed if he played in one of these
+
+# ------------------------------------------------------------------ Phase 4: correlation and tickets
+tickets:
+  floor_prob: 0.70                # SGP legs are floor rungs at 70%+
+  sub65_prob: 0.65
+  max_sub65_legs: 1
+  sizes: [4, 6]
+  max_legs_per_player: 1
+  max_legs_same_line_points: 2
+  max_legs_same_script: 3
+  max_legs_per_market: {saves: 1}
+  sgp_candidate_pool: 18
+  ticket_min_joint: {4: 0.30, 6: 0.18}
+  combo_component_ev_gain: 0.0
+  saves_cap_blowout: true         # no saves leg on the goalie facing the favourite when the blowout flag is up
+  atg_legs: 2
+  atg_min_prob: 0.30
+  single_min_ev: 0.03
+  single_min_prob: 0.0
+  kelly_fraction: 0.25
+  kelly_cap: 0.03
+  closer_min_edge: 0.04
+  paper_ladders:                  # used only when no book ladder is in hand; legs are marked "rung not verified"
+    sog: [2, 3, 4, 5]
+    pts: [1, 2]
+    ast: [1, 2]
+    hits: [1, 2, 3, 4, 5]
+    blk: [1, 2, 3, 4]
+    saves: [20, 25, 30, 35]
+
+grading:
+  saves_include_ot: true

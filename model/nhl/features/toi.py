@@ -25,9 +25,10 @@ SLOTS = {"f1": ("F", 0, 3), "f2": ("F", 3, 6), "f3": ("F", 6, 9), "f4": ("F", 9,
          "d1": ("D", 0, 2), "d2": ("D", 2, 4), "d3": ("D", 4, 6)}
 
 
-def base(pgs: pd.DataFrame, season: int, cfg) -> pd.DataFrame:
+def base(pgs: pd.DataFrame, season: int, cfg, collapsed: bool = False) -> pd.DataFrame:
     c = cfg["toi"]
-    d = collapse(pgs[pgs.season.isin([season, season - 1])])
+    d = pgs[pgs.season.isin([season, season - 1])]
+    d = d if collapsed else collapse(d)
     wide = d.pivot_table(index=["player_id", "game_id", "season", "known_at", "team", "group"], columns="strength", values="toi",
                          aggfunc="sum", fill_value=0).reset_index()
     for s in SPLIT:
@@ -54,12 +55,12 @@ def base(pgs: pd.DataFrame, season: int, cfg) -> pd.DataFrame:
 
 
 def project(pgs: pd.DataFrame, season: int, cfg, lines: pd.DataFrame | None = None, team_pp_sec: dict | None = None,
-            as_of: str | None = None) -> pd.DataFrame:
+            as_of: str | None = None, collapsed: bool = False) -> pd.DataFrame:
     """Seconds of EV / PP / PK ice time per game for every skater seen this season or last.
 
     lines: the latest Daily Faceoff rows per team (with player_id). team_pp_sec: {team: power-play seconds per game}."""
     c = cfg["toi"]
-    out = base(pgs, season, cfg)
+    out = base(pgs, season, cfg, collapsed)
     for s in SPLIT:
         out[s] = out[f"{s}_base"]
     out["ev_slot"], out["pp_unit"], out["in_lineup"], out["notes"] = None, None, None, ""
