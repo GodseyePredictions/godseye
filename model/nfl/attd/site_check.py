@@ -12,7 +12,7 @@ from __future__ import annotations
 
 REQUIRED_KEYS = ("meta", "games", "players", "props", "corr", "algo", "singles", "rules")
 YARD_MARKETS = ("pass_yds", "rush_yds", "rec_yds")
-LOW_RUNG_FLOOR = {"rush_yds": 20, "rec_yds": 20}   # bet365 rushing and receiving yards ladders start at 20+
+LOW_RUNG_FLOOR = {"rush_yds": 20, "rec_yds": 20, "rec": 2}   # bet365 rushing and receiving yards ladders start at 20+, receptions at 2+
 MAX_LEGS_UNDER = 1        # at most one leg under WEAK_LEG on any ticket
 WEAK_LEG = 0.65
 SGP_FLOOR = 0.70          # SGP legs are floor rungs; a leg below this is reported, not refused
