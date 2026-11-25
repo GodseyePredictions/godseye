@@ -41,3 +41,68 @@ export function ladderChance(start: number, goal: number, price: number, chance:
   const rungs = rungsNeeded(start, goal, price);
   return { rungs, chance: Number.isFinite(rungs) ? chance ** rungs : 0 };
 }
+
+// ---------- a ladder with cash-outs ----------
+export type CashOutRules = {
+  /** After winning this rung, the starting stake is taken out for good. Null: never. */
+  stakeBackAfterRung: number | null;
+  /** From this rung on, this share of each win's balance is banked and the rest rolls. */
+  bankFromRung: number;
+  bankShare: number;
+};
+export type LadderRung = {
+  rung: number;
+  /** What goes on this rung. */
+  stake: number;
+  /** What it returns if it wins. */
+  returns: number;
+  /** Taken out after this rung wins. */
+  cashOut: number;
+  /** Everything taken out so far, this rung included. */
+  banked: number;
+  /** What rolls onto the next rung. */
+  rolls: number;
+  /** Banked plus what is still riding. */
+  total: number;
+};
+
+/**
+ * The rungs of a cash-out ladder at one planning price, up to the rung where banked money plus the
+ * balance still riding reaches the goal. Every rung is assumed to win: this is the plan, not a forecast.
+ */
+export function cashOutLadder(start: number, goal: number, price: number, rules: CashOutRules, maxRungs = 60): LadderRung[] {
+  const d = toDecimal(price);
+  const out: LadderRung[] = [];
+  if (!(start > 0) || !(d > 1) || !(rules.bankShare >= 0 && rules.bankShare < 1)) return out;
+  let stake = start, banked = 0;
+  for (let rung = 1; rung <= maxRungs; rung++) {
+    const returns = cents(stake * d);
+    if (banked + returns >= goal) {
+      // the goal is reached: everything comes off
+      out.push({ rung, stake, returns, cashOut: returns, banked: cents(banked + returns), rolls: 0, total: cents(banked + returns) });
+      return out;
+    }
+    let cashOut = 0;
+    if (rules.stakeBackAfterRung === rung) cashOut += Math.min(start, returns);
+    if (rung >= rules.bankFromRung) cashOut += (returns - cashOut) * rules.bankShare;
+    cashOut = cents(cashOut);
+    banked = cents(banked + cashOut);
+    const rolls = cents(returns - cashOut);
+    out.push({ rung, stake, returns, cashOut, banked, rolls, total: cents(banked + rolls) });
+    stake = rolls;
+  }
+  return out;
+}
+
+/**
+ * The first rung played as two equal slips in different games, each with this chance at this price:
+ * the chance both win, exactly one wins, and neither wins, and the balance in each case.
+ */
+export function splitStart(start: number, price: number, chance: number) {
+  const half = start / 2, win = cents(half * toDecimal(price));
+  return {
+    both: { chance: chance * chance, balance: cents(2 * win) },
+    one: { chance: 2 * chance * (1 - chance), balance: win },
+    none: { chance: (1 - chance) * (1 - chance), balance: 0 },
+  };
+}
