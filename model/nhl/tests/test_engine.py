@@ -448,3 +448,26 @@ def test_early_card_is_logged_and_a_plain_preview_is_not(tmp_path, monkeypatch, 
     led = json.loads((tmp_path / "LEDGER.json").read_text())["tickets"]
     assert out["early"] and not out["preview"] and led and all(t["early"] and not t["graded"] for t in led)
     assert json.loads((tmp_path / "SITE.json").read_text())["early"] is True
+
+
+def test_gated_run_reissues_unconfirmed_games_as_early(tmp_path, monkeypatch, db, cfg):
+    from nhl import slate
+    for name in ("SLATE", "LEDGER", "SITE", "CASHED"):
+        monkeypatch.setattr(slate, name, tmp_path / f"{name}.json")
+    monkeypatch.setattr(slate, "OUT", tmp_path)
+    g = db.execute("SELECT date_et FROM schedule ORDER BY start_utc DESC LIMIT 1").fetchone()
+    cfg["sim"]["n_sims"] = 400
+    cfg["props"]["min_toi_sec"] = 60
+    cfg["gates"]["early_fallback"] = False
+    strict = slate.run(db, cfg, g[0], as_of="2026-10-23T12:00:00+00:00")         # no goalies or lines in the store: nothing confirmed
+    assert all(not x.get("early") for x in strict["games"]) and not strict["mixed"]
+    assert all({l["market"] for t in x["tickets"] for l in t["legs"]} <= {"goals"} for x in strict["games"])
+    cfg["gates"]["early_fallback"] = True
+    out = slate.run(db, cfg, g[0], as_of="2026-10-23T12:00:00+00:00")
+    assert out["mixed"] and all(x["early"] for x in out["games"])
+    assert any(len(t["legs"]) >= 4 for x in out["games"] for t in x["tickets"])
+    led = json.loads((tmp_path / "LEDGER.json").read_text())["tickets"]
+    assert led and all(t["early"] for t in led if t["kind"].startswith("sgp"))
+    site = json.loads((tmp_path / "SITE.json").read_text())
+    assert site["mixed"] and all(x["early"] for x in site["games"])
+    assert not any(t["kind"].startswith("multi") for t in out["multi"])               # 2- and 3-game slips use confirmed games only
