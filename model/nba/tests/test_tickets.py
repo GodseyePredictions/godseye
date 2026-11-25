@@ -244,7 +244,9 @@ def test_band_slips_land_in_their_price_band_and_a_band_out_of_reach_is_a_note()
     # the lotto slip joins each game's longest band slip; its chance is the product of the games' counted chances
     lot = bands.lotto({"g1": ("A @ B", out), "g2": ("C @ D", out)}, cfg)
     assert lot["n_legs"] == 12 and abs(lot["joint"] - out[0]["joint"] ** 2) < 1e-12
-    assert bands.lotto({"g1": ("A @ B", out), "g2": ("C @ D", [])}, cfg) is None           # a game with no band slip: no lotto
+    assert bands.lotto({"g1": ("A @ B", out), "g2": ("C @ D", [])}, {**cfg, "lotto_games": 2}) is None   # too few games with a band slip
+    big = {f"g{i}": (f"T{i} @ U{i}", out) for i in range(9)}
+    assert bands.lotto(big, cfg)["n_legs"] == 6 * cfg["lotto_games"]                        # a 9-game slate still makes a 3-game lotto
 
 
 def test_value_locks_keep_the_price_range_and_the_parlay_takes_one_leg_per_player():

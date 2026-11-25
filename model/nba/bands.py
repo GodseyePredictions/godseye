@@ -94,10 +94,14 @@ def value_parlay(per_game: dict, cfg=CONFIG) -> dict | None:
 def lotto(per_game: dict, cfg=CONFIG) -> dict | None:
     """Every game's longest-priced band slip joined into one. per_game: {game_id: (matchup, band tickets)}."""
     order = [b["key"] for b in (cfg.get("price_band_slips") or [])][::-1]
-    parts = []
+    cands = []
     for gid, (mu, ts) in per_game.items():
         t = next((t for k in order for t in ts if t["type"] == k), None)
-        if t is None:
-            return None                      # a lotto slip needs every game on the slate
-        parts.append((gid, mu, t["legs"]))
+        if t is not None:
+            cands.append((t["joint"], gid, mu, t["legs"]))
+    n = cfg.get("lotto_games", 3)
+    if len(cands) < min(n, len(per_game)):
+        return None                          # every game it draws from needs a band slip
+    # the games whose longest band slip the model rates highest, so a big slate does not make a 50-leg slip
+    parts = [(gid, mu, legs) for _, gid, mu, legs in sorted(cands, key=lambda c: -c[0])[:n]]
     return _cross("lotto", parts) if len(parts) >= 2 else None
