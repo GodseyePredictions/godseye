@@ -28,10 +28,9 @@ function Card({ s }: { s: S }) {
       stats={[
         { label: "Chance to hit", value: pct(s.p, 1), tone: "red" },
         { label: "Chance to miss", value: pct(1 - s.p, 1) },
-        { label: "Book legs multiplied", value: s.listedMultiplied == null ? "–" : american(s.listedMultiplied) },
-        { label: "Algorithm's fair price", value: american(s.fair) },
+        { label: "Books' leg prices combined", value: s.listedMultiplied == null ? "–" : american(s.listedMultiplied) },
       ]}
-      note={[s.note, "The book's same-game price will be shorter than its legs multiplied. Check the price in the app: the fair price is the algorithm's, not a market price."].filter(Boolean).join(" ")}
+      note={s.note}
     />
   );
 }
@@ -66,8 +65,8 @@ export function NflTonight() {
           <div>
             <h2>Tonight: {T.game}</h2>
             <p className="sub">
-              {T.kickoff} · {T.venue}. Made {made} ET from the algorithm&apos;s build of {T.built_from}. The slip outlined in red in each tier is the
-              algorithm&apos;s pick; the other is the next-best Godseye slip.
+              {T.kickoff} · {T.venue}. Made {made} ET from the algorithm&apos;s build of {T.built_from}. Each leg is set by its matchup and carries the price a
+              sportsbook lists for that rung. The slip outlined in red in each tier is the algorithm&apos;s pick.
             </p>
           </div>
         </div>
@@ -75,7 +74,7 @@ export function NflTonight() {
           {T.rules.map((r) => (
             <li key={r}>{r}</li>
           ))}
-          <li>Rungs checked against {T.listings.source} listings. bet365 is not in that feed: check each rung in the app before placing.</li>
+          <li>Prices from {T.listings.source}, pulled {new Date(T.listings.pulled_at).toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" })} ET.</li>
         </ul>
       </section>
       {bySize(T.sgps).map((g) => (
@@ -97,7 +96,6 @@ export function NflTonight() {
               <tr>
                 <th>Player</th>
                 <th>Chance</th>
-                <th>Fair</th>
                 <th>Listed</th>
                 <th>Note</th>
               </tr>
@@ -109,7 +107,6 @@ export function NflTonight() {
                     <b>{p.name}</b> <small>{p.team} {p.pos}</small>
                   </td>
                   <td className="num">{pct(p.p, 1)}</td>
-                  <td className="num">{american(p.fair)}</td>
                   <td className="num">{p.listed || "–"}</td>
                   <td>{p.flag}</td>
                 </tr>
@@ -142,7 +139,6 @@ export function NflTonight() {
               stats={[
                 { label: "Chance to hit", value: pct(s.p, 1), tone: "red" },
                 { label: "Chance to miss", value: pct(1 - s.p, 1) },
-                { label: "Fair price", value: american(s.fair) },
               ]}
               note={s.note}
             />
@@ -156,7 +152,7 @@ export function NflTonight() {
           ))}
         </ul>
       </section>
-      {T.lotto && <Tier title="Lotto" sub="A longshot: +1500 or longer on the algorithm's fair price." slips={[T.lotto]} />}
+      {T.lotto && <Tier title="Lotto" sub="A longshot: the algorithm makes it 1 in 15 or less likely." slips={[T.lotto]} />}
     </>
   );
 }
