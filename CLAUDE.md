@@ -22,6 +22,15 @@ The "Platform rules" below apply to every sport.
 - **Unrated means unrated.** A leg the algo doesn't cover is labelled "unrated". Never guess.
 - **Odds never make a pick (owner, 25 November 2026).** Every probability and every pick comes from the sport's own algorithm and its own inputs: its metrics, game intel, personnel, offensive and defensive matchups, travel, indoor or outdoor, turf or grass, weather, and offensive and defensive play-calling tendencies. Sportsbook odds are never an input to a probability and never a reason to add, drop or change a leg. Odds are used for three things only: to confirm the book lists a rung, to keep a slip inside its price range (so legs are not added to chase a bigger payout), and to tell the user what a slip pays. An algorithm corrects itself from graded results, not from book prices.
 
+### How every slip is made (owner, 25 November 2026)
+
+No slip for NFL, NBA or NHL is generated or published unless it goes through all four steps, in this order:
+
+1. **Matchups first.** Read the game through the sport's own metrics: offence against the defence that faces it (rush offence vs this rush defence, receivers vs the coverage on receivers, tight ends vs the coverage on tight ends; the NBA and NHL equivalents), offensive and defensive play-calling tendencies, personnel, travel, turf or grass, indoor or outdoor, weather.
+2. **Find the mismatches.** Mark each player's matchup strong, neutral or weak from those metrics, with the reason.
+3. **Set each rung by the mismatch.** A strong mismatch may take a higher rung; a neutral matchup takes a floor rung; a weak one stays conservative or comes off the slip. Not every leg is the lowest rung.
+4. **Price from the live feed.** Every leg carries the price a sportsbook lists for that exact rung (The Odds API, key in `ODDS_API_KEY`), and a leg with no listed rung is not used. Nothing public shows a price that did not come from a book. The algorithm's own fair price is never shown as a price.
+
 ### Staking
 
 - Users set a bankroll and a risk profile. Stakes are shown in units and dollars, e.g. "1.5u ($15)".
