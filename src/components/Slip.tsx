@@ -8,7 +8,7 @@ export type SlipReasons = { intel?: string[]; legs?: { text: string; why: string
 export type SlipStat = { label: string; value: string; tone?: "red" | "good" | "bad" };
 
 export function Slip({
-  title, meta, legs, stats, note, warn, big, children, plain, why,
+  title, meta, legs, stats, note, warn, big, children, plain, why, badge, pick,
 }: {
   title: string;
   meta?: string;
@@ -23,10 +23,15 @@ export function Slip({
   plain?: boolean;
   /** Shown folded under the legs: why the algorithm rates this slip as it does. */
   why?: SlipReasons;
+  /** A tag above the title, such as "Algo pick". */
+  badge?: string;
+  /** Outline the slip as the algorithm's pick. */
+  pick?: boolean;
 }) {
   const reasons = why && ((why.intel?.length ?? 0) > 0 || (why.legs ?? []).some((l) => l.why.length > 0)) ? why : null;
   return (
-    <article className={plain ? "gs-slip plain" : "gs-slip"}>
+    <article className={["gs-slip", plain ? "plain" : "", pick ? "pick" : ""].filter(Boolean).join(" ")}>
+      {badge && <span className={pick ? "gs-badge" : "gs-badge alt"}>{badge}</span>}
       <header className="gs-slip-head">
         <h3 className="gs-slip-title">{title}</h3>
         {meta && <span className="gs-slip-meta">{meta}</span>}
