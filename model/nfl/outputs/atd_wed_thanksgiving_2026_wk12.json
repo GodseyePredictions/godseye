@@ -1,0 +1,352 @@
+{
+ "games": [
+  "2026_12_GB_LA",
+  "2026_12_CHI_DET",
+  "2026_12_PHI_DAL",
+  "2026_12_KC_BUF"
+ ],
+ "versions": {
+  "ground": [
+   {
+    "n": 4,
+    "mix": "",
+    "p": 0.17759300142578596,
+    "legs": [
+     {
+      "name": "Jahmyr Gibbs",
+      "team": "DET",
+      "p": 0.7026683055181681
+     },
+     {
+      "name": "Javonte Williams",
+      "team": "DAL",
+      "p": 0.6721956770460322
+     },
+     {
+      "name": "James Cook",
+      "team": "BUF",
+      "p": 0.643004584122445
+     },
+     {
+      "name": "D'Andre Swift",
+      "team": "CHI",
+      "p": 0.5808885731963257
+     }
+    ]
+   },
+   {
+    "n": 6,
+    "mix": "",
+    "p": 0.028109936966070424,
+    "legs": [
+     {
+      "name": "Jahmyr Gibbs",
+      "team": "DET",
+      "p": 0.7026683055181681
+     },
+     {
+      "name": "Javonte Williams",
+      "team": "DAL",
+      "p": 0.6721956770460322
+     },
+     {
+      "name": "James Cook",
+      "team": "BUF",
+      "p": 0.643004584122445
+     },
+     {
+      "name": "D'Andre Swift",
+      "team": "CHI",
+      "p": 0.5808885731963257
+     },
+     {
+      "name": "Blake Corum",
+      "team": "LA",
+      "p": 0.46234271216133666
+     },
+     {
+      "name": "Emmett Johnson",
+      "team": "KC",
+      "p": 0.3381137814725774
+     }
+    ]
+   }
+  ],
+  "air": [
+   {
+    "n": 4,
+    "mix": "",
+    "p": 0.03533909841662408,
+    "legs": [
+     {
+      "name": "Amon-Ra St. Brown",
+      "team": "DET",
+      "p": 0.5199837646246952
+     },
+     {
+      "name": "CeeDee Lamb",
+      "team": "DAL",
+      "p": 0.47271786818401706
+     },
+     {
+      "name": "Colston Loveland",
+      "team": "CHI",
+      "p": 0.40604139795288413
+     },
+     {
+      "name": "DJ Moore",
+      "team": "BUF",
+      "p": 0.3489656877845688
+     }
+    ]
+   },
+   {
+    "n": 6,
+    "mix": "",
+    "p": 0.0027451535121986942,
+    "legs": [
+     {
+      "name": "Amon-Ra St. Brown",
+      "team": "DET",
+      "p": 0.5199837646246952
+     },
+     {
+      "name": "CeeDee Lamb",
+      "team": "DAL",
+      "p": 0.47271786818401706
+     },
+     {
+      "name": "Colston Loveland",
+      "team": "CHI",
+      "p": 0.40604139795288413
+     },
+     {
+      "name": "DJ Moore",
+      "team": "BUF",
+      "p": 0.3489656877845688
+     },
+     {
+      "name": "Matthew Golden",
+      "team": "GB",
+      "p": 0.33888814298921244
+     },
+     {
+      "name": "Travis Kelce",
+      "team": "KC",
+      "p": 0.2228767206421254
+     }
+    ]
+   }
+  ],
+  "mixed": [
+   {
+    "n": 4,
+    "mix": "",
+    "p": 0.0875389188416485,
+    "legs": [
+     {
+      "name": "Jahmyr Gibbs",
+      "team": "DET",
+      "p": 0.7026683055181681
+     },
+     {
+      "name": "CeeDee Lamb",
+      "team": "DAL",
+      "p": 0.47271786818401706
+     },
+     {
+      "name": "James Cook",
+      "team": "BUF",
+      "p": 0.643004584122445
+     },
+     {
+      "name": "Colston Loveland",
+      "team": "CHI",
+      "p": 0.40604139795288413
+     }
+    ]
+   },
+   {
+    "n": 6,
+    "mix": "",
+    "p": 0.013970389054188759,
+    "legs": [
+     {
+      "name": "Jahmyr Gibbs",
+      "team": "DET",
+      "p": 0.7026683055181681
+     },
+     {
+      "name": "CeeDee Lamb",
+      "team": "DAL",
+      "p": 0.47271786818401706
+     },
+     {
+      "name": "James Cook",
+      "team": "BUF",
+      "p": 0.643004584122445
+     },
+     {
+      "name": "Colston Loveland",
+      "team": "CHI",
+      "p": 0.40604139795288413
+     },
+     {
+      "name": "Blake Corum",
+      "team": "LA",
+      "p": 0.46234271216133666
+     },
+     {
+      "name": "Matthew Golden",
+      "team": "GB",
+      "p": 0.33888814298921244
+     }
+    ]
+   }
+  ],
+  "matchup": [
+   {
+    "n": 4,
+    "mix": "",
+    "p": 0.17759300142578596,
+    "legs": [
+     {
+      "name": "Jahmyr Gibbs",
+      "team": "DET",
+      "p": 0.7026683055181681
+     },
+     {
+      "name": "Javonte Williams",
+      "team": "DAL",
+      "p": 0.6721956770460322
+     },
+     {
+      "name": "James Cook",
+      "team": "BUF",
+      "p": 0.643004584122445
+     },
+     {
+      "name": "D'Andre Swift",
+      "team": "CHI",
+      "p": 0.5808885731963257
+     }
+    ]
+   },
+   {
+    "n": 6,
+    "mix": "",
+    "p": 0.028109936966070424,
+    "legs": [
+     {
+      "name": "Jahmyr Gibbs",
+      "team": "DET",
+      "p": 0.7026683055181681
+     },
+     {
+      "name": "Javonte Williams",
+      "team": "DAL",
+      "p": 0.6721956770460322
+     },
+     {
+      "name": "James Cook",
+      "team": "BUF",
+      "p": 0.643004584122445
+     },
+     {
+      "name": "D'Andre Swift",
+      "team": "CHI",
+      "p": 0.5808885731963257
+     },
+     {
+      "name": "Blake Corum",
+      "team": "LA",
+      "p": 0.46234271216133666
+     },
+     {
+      "name": "Emmett Johnson",
+      "team": "KC",
+      "p": 0.3381137814725774
+     }
+    ]
+   }
+  ],
+  "combo": [
+   {
+    "n": 4,
+    "mix": "3 ground + 1 air",
+    "p": 0.13190063620308715,
+    "legs": [
+     {
+      "name": "James Cook",
+      "team": "BUF",
+      "p": 0.643004584122445
+     },
+     {
+      "name": "D'Andre Swift",
+      "team": "CHI",
+      "p": 0.5808885731963257
+     },
+     {
+      "name": "Javonte Williams",
+      "team": "DAL",
+      "p": 0.6721956770460322
+     },
+     {
+      "name": "Amon-Ra St. Brown",
+      "team": "DET",
+      "p": 0.5199837646246952
+     }
+    ]
+   },
+   {
+    "n": 6,
+    "mix": "4 ground + 2 air",
+    "p": 0.02105010238458002,
+    "legs": [
+     {
+      "name": "James Cook",
+      "team": "BUF",
+      "p": 0.643004584122445
+     },
+     {
+      "name": "D'Andre Swift",
+      "team": "CHI",
+      "p": 0.5808885731963257
+     },
+     {
+      "name": "Javonte Williams",
+      "team": "DAL",
+      "p": 0.6721956770460322
+     },
+     {
+      "name": "Blake Corum",
+      "team": "LA",
+      "p": 0.46234271216133666
+     },
+     {
+      "name": "Amon-Ra St. Brown",
+      "team": "DET",
+      "p": 0.5199837646246952
+     },
+     {
+      "name": "Matthew Golden",
+      "team": "GB",
+      "p": 0.33888814298921244
+     }
+    ]
+   }
+  ]
+ },
+ "held": [
+  [
+   "Saquon Barkley",
+   "PHI",
+   "backup-QB offence (no established starter (Joe Milton III is the most recent passer at 17% of season attempts))"
+  ],
+  [
+   "Kyren Williams",
+   "LA",
+   "displaced: Ronnie Rivers is back and out-carried him last game"
+  ]
+ ]
+}
