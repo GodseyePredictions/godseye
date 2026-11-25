@@ -1,7 +1,10 @@
 /**
  * Pull the player-prop rungs the sportsbooks list for one NFL game, with their prices, from The Odds API.
  *
- *   ODDS_API_KEY=... node scripts/nfl-listings.ts 2026_12_GB_LA
+ *   node scripts/nfl-listings.ts 2026_12_GB_LA
+ *
+ * The key travels in the x-api-key header. In the cloud environment the network proxy adds it from the saved
+ * credential; elsewhere set ODDS_API_KEY.
  *
  * Writes model/output/nfl_listed_rungs.json. These prices are only used to confirm a rung is listed and to show
  * what a leg pays. They are never an input to a probability (CLAUDE.md, "Odds never make a pick").
@@ -16,10 +19,10 @@ const MARKETS: Record<string, string> = {
 };
 const NAMES: Record<string, string> = { draftkings: "DraftKings", fanduel: "FanDuel" };
 
-const key = process.env.ODDS_API_KEY;
+const key = process.env.ODDS_API_KEY ?? "proxy-injected";
 const gid = process.argv[2];
-if (!key || !gid) {
-  console.error("Usage: ODDS_API_KEY=... node scripts/nfl-listings.ts <game_id>");
+if (!gid) {
+  console.error("Usage: node scripts/nfl-listings.ts <game_id>");
   process.exit(1);
 }
 const root = new URL("..", import.meta.url).pathname;
@@ -29,12 +32,12 @@ const game = D.games.find((g: { id: string }) => g.id === gid);
 if (!game) throw new Error(`No game ${gid} in the NFL data`);
 
 const get = async (url: string) => {
-  const r = await fetch(url);
+  const r = await fetch(url, { headers: { "x-api-key": key } });
   if (!r.ok) throw new Error(`${r.status} from the odds feed: ${(await r.text()).replaceAll(key, "<key>").slice(0, 200)}`);
   return { body: await r.json(), left: r.headers.get("x-requests-remaining") };
 };
 const team = (abbr: string) => (D.meta.team_names?.[abbr] as string | undefined) ?? abbr;
-const { body: events } = await get(`${API}/events?apiKey=${key}`);
+const { body: events } = await get(`${API}/events`);
 const day = new Date(`${game.day}T12:00:00Z`).getTime();
 const ev = (events as { id: string; home_team: string; away_team: string; commence_time: string }[]).find((e) => {
   const t = new Date(e.commence_time).getTime();
@@ -45,7 +48,7 @@ function teamWord(abbr: string) {
   return w[abbr] ?? abbr.toLowerCase();
 }
 if (!ev) throw new Error(`The odds feed has no event for ${game.away} @ ${game.home}`);
-const { body, left } = await get(`${API}/events/${ev.id}/odds?apiKey=${key}&regions=us&markets=${Object.keys(MARKETS).join(",")}&oddsFormat=american&bookmakers=${BOOKS.join(",")}`);
+const { body, left } = await get(`${API}/events/${ev.id}/odds?regions=us&markets=${Object.keys(MARKETS).join(",")}&oddsFormat=american&bookmakers=${BOOKS.join(",")}`);
 
 const rows = new Map<string, { player: string; market: string; k: number | null; prices: Record<string, number> }>();
 for (const b of body.bookmakers ?? []) for (const m of b.markets ?? []) {
