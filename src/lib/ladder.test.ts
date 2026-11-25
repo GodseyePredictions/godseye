@@ -36,3 +36,37 @@ test("at fair prices a ladder's chance is about start over goal, whatever the pr
   // an edge is the only thing that lifts it: the same -200 price with a true 72% play
   assert.ok(ladderChance(100, 50_000, -200, 0.72).chance > 2 * fav.chance);
 });
+
+test("a cash-out ladder banks on schedule and stops when banked plus riding reaches the goal", async () => {
+  const { cashOutLadder } = await import("./ladder.ts");
+  // no cash-outs: the plain ladder, 9 rungs at even money
+  const plain = cashOutLadder(100, 50_000, 100, { stakeBackAfterRung: null, bankFromRung: 99, bankShare: 0 });
+  assert.equal(plain.length, 9);
+  assert.deepEqual(plain.map((r) => r.returns), [200, 400, 800, 1600, 3200, 6400, 12800, 25600, 51200]);
+  assert.equal(plain[8].total, 51200);
+  assert.equal(plain[8].rolls, 0, "at the goal everything comes off");
+
+  const r = cashOutLadder(100, 50_000, 100, { stakeBackAfterRung: 3, bankFromRung: 5, bankShare: 0.25 });
+  assert.deepEqual([r[2].returns, r[2].cashOut, r[2].rolls], [800, 100, 700], "the stake comes back after rung 3");
+  assert.deepEqual([r[3].stake, r[3].returns, r[3].cashOut], [700, 1400, 0]);
+  assert.deepEqual([r[4].returns, r[4].cashOut, r[4].rolls, r[4].banked], [2800, 700, 2100, 800], "a quarter is banked from rung 5");
+  for (const x of r) {
+    assert.equal(x.total, Math.round((x.banked + x.rolls) * 100) / 100);
+    assert.ok(x.cashOut >= 0 && x.rolls >= 0);
+  }
+  const last = r[r.length - 1];
+  assert.ok(last.total >= 50_000 && r[r.length - 2].total < 50_000);
+  assert.ok(r.length > plain.length, "banking along the way costs extra rungs");
+  // money banked is never put back at risk
+  for (let i = 1; i < r.length; i++) assert.ok(r[i].banked >= r[i - 1].banked);
+  assert.deepEqual(cashOutLadder(0, 50_000, 100, { stakeBackAfterRung: null, bankFromRung: 1, bankShare: 0.2 }), []);
+});
+
+test("a split start: two half-stake slips in different games", async () => {
+  const { splitStart } = await import("./ladder.ts");
+  const s = splitStart(100, 100, 0.5);
+  assert.deepEqual([s.both.balance, s.one.balance, s.none.balance], [200, 100, 0]);
+  near(s.both.chance + s.one.chance + s.none.chance, 1, 1e-12);
+  near(s.one.chance, 0.5, 1e-12);
+  assert.equal(splitStart(100, 150, 0.45).one.balance, 125);
+});
