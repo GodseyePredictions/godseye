@@ -94,7 +94,7 @@ function topSlips(pool: RatedLeg[], n: number, fixed: RatedLeg[] = [], count = 2
   return out.sort((a, b) => b.p - a.p);
 }
 
-type Slip = { title: string; kind: string; pick: boolean; p: number; fair: number; legs: { text: string; p: number; record: string; listed: string; why: string[] }[]; note?: string };
+type Slip = { title: string; kind: string; pick: boolean; p: number; fair: number; listedMultiplied: number | null; legs: { text: string; p: number; record: string; listed: string; why: string[] }[]; note?: string };
 const players = Object.fromEntries((D.players as { name: string; why?: string[]; risk?: string | null; team: string; pos: string }[]).map((p) => [p.name, p]));
 const strip = (t: string) => t.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'");
 const whyOf = (l: RatedLeg) => {
@@ -104,6 +104,9 @@ const whyOf = (l: RatedLeg) => {
 };
 const toSlip = (title: string, kind: string, b: Built, pick: boolean, note?: string): Slip => ({
   title, kind, pick, p: b.p, fair: fairAmerican(b.p) as number, note,
+  // the listed prices of the legs multiplied together: what the books charge leg by leg. A book prices a same-game
+  // parlay lower than this. Shown so the slip's price is never mistaken for the algorithm's fair price.
+  listedMultiplied: (() => { const d = b.legs.reduce((a, l) => { const bp = best(priceOf(l)); return a * (bp ? toDecimal(bp[1]) : NaN); }, 1); return Number.isFinite(d) ? (d >= 2 ? Math.round((d - 1) * 100) : Math.round(-100 / (d - 1))) : null; })(),
   legs: b.legs.map((l) => { const bp = best(priceOf(l)); return { text: text(l), p: l.prob, record: l.hits != null && l.games ? `cleared in ${l.hits} of ${l.games} games` : "", listed: bp ? `${bp[0] === "draftkings" ? "DraftKings" : "FanDuel"} ${bp[1] > 0 ? "+" : ""}${bp[1]}` : "", why: whyOf(l) }; }),
 });
 
