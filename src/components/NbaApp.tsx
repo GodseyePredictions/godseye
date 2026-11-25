@@ -7,7 +7,7 @@ import { NO_BETS, readBets, subscribeBets, writeBets } from "./betsStore";
 import { BankrollStrategy, type Pick as StakePick } from "./BankrollStrategy";
 import { useState, useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
-import { Slip } from "@/components/Slip";
+import { CashedSlip, Slip } from "@/components/Slip";
 import raw from "../../model/nba/output/nba_site.json";
 import rawTrack from "../../model/nba/output/nba_track.json";
 import rawStrategy from "../../model/nba/output/nba_strategy.json";
@@ -744,6 +744,8 @@ const money = (v: number) => `$${v.toLocaleString("en-US", { minimumFractionDigi
 const longDate = (d: string) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" });
 
 /** Winning algorithm slips with an example stake. The count of every slip issued is always shown with them. */
+const shortDate = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+
 function CashedTab() {
   if (!cashed.slips.length)
     return (
@@ -765,7 +767,7 @@ function CashedTab() {
           {[
             ["Slips cashed", String(cashed.cashed)],
             ["Example stakes on these slips", money(staked)],
-            ["Would have returned", money(returned)],
+            ["Cashed", money(returned)],
           ].map(([k, v]) => (
             <div className="kpi" key={k}>
               <div className="k">{k}</div>
@@ -790,16 +792,15 @@ function CashedTab() {
               {cashed.slips
                 .filter((s) => s.date === n.date)
                 .map((s) => (
-                  <Slip
+                  <CashedSlip
                     key={s.id}
-                    title={s.game}
-                    meta={s.type}
-                    legs={s.legs.map((l) => ({ text: l.label, value: l.actual == null ? undefined : String(l.actual), state: "in" as const }))}
-                    stats={[
-                      { label: "Listed price", value: american(s.price) },
-                      { label: "Example stake", value: money(s.stake) },
-                      { label: "Would have returned", value: money(s.returned), tone: "good" },
-                    ]}
+                    title={`${s.game} · ${s.type}`}
+                    pills={[shortDate(s.date)]}
+                    legs={s.legs.map((l) => l.label)}
+                    model={pct(s.chance, 1)}
+                    price={american(s.price)}
+                    stake={money(s.stake)}
+                    cashed={money(s.returned)}
                   />
                 ))}
             </div>

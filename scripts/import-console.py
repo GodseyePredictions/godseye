@@ -120,13 +120,17 @@ js = patch(
 #     Cashed slips (owner, 24 November): the same white slip, NFL slips only (NBA and NHL have their own tabs)
 _a = js.index("const card=(title,pills,legs,meta,stake,ret)=>")
 _b = js.index("const grid=cards=>", _a)
-js = js[:_a] + """const card=(title,pills,legs,meta,stake,ret)=>`<article class="gs-slip"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="cpills">${pills}</div><ul class="gs-slip-legs ge-cashed-legs">${legs}</ul><p class="gs-slip-note ge-cashed-meta">${meta}</p>${stake?`<dl class="gs-slip-foot"><div><dt>Example stake</dt><dd>${money(stake)}</dd></div><div><dt>Cashed</dt><dd class="good">${money(ret)}</dd></div></dl>`:""}</article>`;
+js = js[:_a] + """const card=(title,pills,legs,meta,stake,ret)=>`<article class="gs-slip gs-cashed"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="gs-cashed-pills">${pills}</div><ul class="gs-slip-legs gs-checks">${legs}</ul><p class="gs-cashed-meta">${meta}</p><dl class="gs-slip-foot gs-cashed-foot">${stake?`<div><dt>Example stake</dt><dd>${money(stake)}</dd></div>`:""}<div><dt>Cashed</dt><dd class="red">${stake?money(ret):"✓"}</dd></div></dl></article>`;
   """ + js[_b:]
 js = patch(js, """const grid=cards=>`<div class="cgrid">${cards||""", """const grid=cards=>`<div class="gs-slips ge-set">${cards||""")
 _a = js.index("const lgbar=`<div class=\"lgbar\">")
 _b = js.index("\n", _a)
 js = js[:_a] + 'const lgbar="";' + js[_b:]
 js = patch(js, 'state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"}); if(!f.lg) f.lg="nfl";', 'state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"}); f.lg="nfl";')
+js = patch(js, '''`<span class="cpill">Week ${s.week}</span><span class="cpill">${kindL[s.kind]||s.kind}</span><span class="cpill win">${s.n}-leg cashed</span>`,''',
+               '''`<span>Week ${s.week}</span><span>${kindL[s.kind]||s.kind}</span><span class="win">${s.n}-leg cashed</span>`,''')
+js = patch(js, '''s.legs.map(l=>`<li>${esc(l.t)} <span class="cact">(${esc(l.r)})</span></li>`).join(""),''',
+               '''s.legs.map(l=>`<li><span>${esc(l.t)}</span></li>`).join(""),''')
 #     the home page's shortcuts open the Game SGPs tab, where the slips are
 js = patch(
     js,
