@@ -3,6 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
 import { CashedSlip, Slip, american, pct } from "@/components/Slip";
+import { NHL_CASHED_WAGER, cashedReturn, dollars } from "@/lib/cashed";
 import raw from "../../model/nhl/output/nhl_site.json";
 
 /* The NHL side of the console. It mirrors the NBA console's layout and reads the latest slate written by
@@ -261,8 +262,9 @@ function CashedTab() {
         <div>
           <h2>Cashed slips</h2>
           <p className="sub">
-            Winning NHL algorithm slips only. Losing slips are not shown here. These were test slips: the rungs were not checked at a book and no
-            bet was placed.
+            Winning NHL algorithm slips only. Losing slips are not shown here. Each slip is shown at a {dollars(NHL_CASHED_WAGER)} wager,
+            cashed at the algorithm&apos;s fair price for the slip; a sportsbook&apos;s price would differ. These were test slips: the rungs were
+            not checked at a book and no bet was placed.
           </p>
         </div>
       </div>
@@ -277,8 +279,12 @@ function CashedTab() {
               model={pct(c.chance, 1)}
               price={american(c.fair_price)}
               priceLabel="Fair price"
-              stake={null}
-              cashed={null}
+              stake={dollars(NHL_CASHED_WAGER)}
+              stakeLabel="Wager"
+              cashed={(() => {
+                const r = cashedReturn(NHL_CASHED_WAGER, c.fair_price);
+                return r == null ? null : dollars(r);
+              })()}
             />
           ))}
         </div>

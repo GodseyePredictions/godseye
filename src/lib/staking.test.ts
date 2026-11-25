@@ -265,3 +265,17 @@ test("accounts saved before custom profiles keep working", () => {
   assert.equal(withWeeklyUnit(old, WED), old);
   assert.equal(sizeBet({ prob: 0.55, price: 100 }, old, QUIET, WED).label, "2u ($20)");
 });
+
+test("a cashed slip's return is the wager times the slip's decimal odds", async () => {
+  const { cashedReturn, dollars, NHL_CASHED_WAGER } = await import("./cashed.ts");
+  assert.equal(NHL_CASHED_WAGER, 125);
+  assert.equal(cashedReturn(125, 251), 438.75);
+  assert.equal(cashedReturn(125, 114), 267.5);
+  assert.equal(cashedReturn(125, -150), 208.33);
+  assert.equal(cashedReturn(125, 100), 250);
+  assert.equal(cashedReturn(125, null), null);
+  assert.equal(cashedReturn(125, 50), null, "not American odds");
+  assert.equal(cashedReturn(0, 251), null);
+  assert.equal(dollars(438.75), "$438.75");
+  assert.equal(dollars(1250), "$1,250.00");
+});

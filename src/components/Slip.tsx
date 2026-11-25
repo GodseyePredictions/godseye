@@ -95,7 +95,7 @@ export const american = (a: number | null | undefined) => (a == null || !Number.
  * "n-leg cashed", every leg with a green check, the model's chance and the price, then the example stake and what it cashed.
  */
 export function CashedSlip({
-  title, pills, legs, model, price, priceLabel = "Price", stake, cashed,
+  title, pills, legs, model, price, priceLabel = "Price", stake, stakeLabel = "Example stake", cashed,
 }: {
   title: string;
   /** Short tags, such as the date or week and the slip type. "n-leg cashed" is added after them. */
@@ -105,6 +105,8 @@ export function CashedSlip({
   price: string | null;
   priceLabel?: string;
   stake: string | null;
+  /** "Example stake" by default; the NHL tab says "Wager". */
+  stakeLabel?: string;
   cashed: string | null;
 }) {
   return (
@@ -136,7 +138,7 @@ export function CashedSlip({
       <dl className="gs-slip-foot gs-cashed-foot">
         {stake && (
           <div>
-            <dt>Example stake</dt>
+            <dt>{stakeLabel}</dt>
             <dd>{stake}</dd>
           </div>
         )}
