@@ -81,7 +81,7 @@ function TicketSlip({ t, g }: { t: Ticket; g: Game }) {
       `${g.sim.favourite} is the favourite; blowout by the favourite after two periods in ${pct(g.sim.favourite_blowout_prob)} of them`,
       t.legs.length > 1
         ? `The legs hit together ${t.lift >= 1 ? "more" : "less"} often than their separate chances multiplied (${t.lift.toFixed(2)}x): the chance is counted from the same simulated games`
-        : `Model chance ${pct(t.chance, 1)} against ${t.edge != null ? pct(t.chance - t.edge, 1) : "the listed price"} implied by the price with the vig removed`,
+        : `Model chance ${pct(t.chance, 1)}, from the simulated games alone`,
     ],
     legs: t.legs.map((l) => ({ text: l.label, why: l.why ?? [] })),
   };
@@ -112,8 +112,8 @@ function TicketSlip({ t, g }: { t: Ticket; g: Game }) {
             : undefined
       }
       note={
-        t.kind === "closer" && t.edge != null
-          ? `${t.book} price ${american(t.legs[0].price)} · model edge ${pct(t.edge, 1)}. The NHL model has not been tested against closing lines.`
+        t.kind === "closer"
+          ? `The algorithm's own pick: the listed line it rates most likely. ${t.book ?? "The book"} lists it at ${american(t.legs[0].price)}; the price is not an input to the pick.`
           : undefined
       }
     />

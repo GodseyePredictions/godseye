@@ -224,16 +224,13 @@ def build(PS, S, gates: dict, flags: dict, odds_rows: list, summary: dict, game_
     if scorers:
         pick = [{**l, "label": f"{l['player']} anytime goal scorer", "why": explain(l) if explain else []} for l in scorers[:c["atg_legs"]]]
         out["tickets"].append(_ticket("atg", "Anytime goal scorer", pick, cfg))
-    closers = [g for g in game_lines if g["edge"] >= c["closer_min_edge"] and g["market"] in c["closer_markets"]]
+    # Odds never make a pick (owner, 25 November 2026): the closer is the listed side or total the model itself rates most
+    # likely, if that clears the bar. The book's line only confirms the line exists and says what it pays.
+    listed = [l for l in legs if l.get("kind") == "game" and l.get("rung_verified") and l["market"] in c["closer_markets"]]
+    closers = sorted([l for l in listed if l["p"] >= c["closer_min_prob"]], key=lambda l: -l["p"])
     if closers and gates["goalies_ok"]:
-        g = closers[0]
-        leg = next((l for l in legs if l.get("kind") == "game" and (l["market"], l["side"], l["line"]) == (g["market"], g["side"], float(g["line"]))), None)
-        if leg:
-            leg = {**leg, "why": explain(leg) if explain else []}
-            stake = min(kelly_stake(leg["p"], g["price"], c["kelly_fraction"]), c["kelly_cap"])
-            out["tickets"].append(_ticket("closer", "Game-line closer", [leg], cfg,
-                                          {"book": g["book"], "edge": g["edge"], "tier": g["tier"], "implied_prob": g["implied_prob"],
-                                           "ev": round(expected_value(leg["p"], g["price"]), 4), "kelly_stake": round(stake, 4)}))
+        leg = {**closers[0], "why": explain(closers[0]) if explain else []}
+        out["tickets"].append(_ticket("closer", "Game-line closer", [leg], cfg, {"book": leg.get("book")}))
     elif closers:
         out.setdefault("notes", []).append("game-line closer withheld: starting goalie not confirmed")
     return out
