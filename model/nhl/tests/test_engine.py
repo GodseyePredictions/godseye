@@ -323,3 +323,30 @@ def test_calibration_counter():
     c.add(np.full(100, 0.9), np.zeros(100))
     assert c.report()["calibration_gap"] == pytest.approx(0.45)
     assert Calib().report() == {"n": 0}
+
+
+def test_saves_legs_need_the_higher_floor_and_totals_are_not_closers(world):
+    cfg = world["cfg"]
+    mk = lambda m, p: {"market": m, "player_id": 1, "rung": 20, "p": p}
+    assert tickets.floor_rungs([mk("saves", 0.80)], cfg) == []                   # 80% clears 70% but not the saves floor
+    assert len(tickets.floor_rungs([mk("saves", 0.86), mk("sog", 0.71)], cfg)) == 2
+    S, PS = world["S"], world["PS"]
+    line = {"book": "dk", "market": "total", "side": "under", "line": 6.5, "price": 102.0, "model_prob": 0.62, "implied_prob": 0.47,
+            "edge": 0.15, "tier": "strong"}
+    out = tickets.build(PS, S, open_gates(), {}, [], {**game_sim.summary(S, cfg), "blowout_flag": False}, [line], cfg)
+    assert not any(t["kind"] == "closer" for t in out["tickets"])
+
+
+def test_started_games_keep_their_locked_slips(tmp_path, monkeypatch, db, cfg):
+    from nhl import slate
+    monkeypatch.setattr(slate, "SLATE", tmp_path / "s.json"); monkeypatch.setattr(slate, "LEDGER", tmp_path / "l.json")
+    monkeypatch.setattr(slate, "SITE", tmp_path / "site.json"); monkeypatch.setattr(slate, "OUT", tmp_path)
+    g = db.execute("SELECT game_id, date_et FROM schedule ORDER BY start_utc DESC LIMIT 1").fetchone()
+    kept = {"game_id": g[0], "label": "kept", "home": "A", "away": "B", "start_utc": "x", "venue": None, "paper": True, "notes": [],
+            "gates": {"goalies": {}, "lines": {}}, "referees": {"referees": []}, "sim": {}, "expected": {}, "fair": {}, "game_lines": [],
+            "goalies": {}, "tickets": [], "removed_count": 0, "projections": []}
+    (tmp_path / "s.json").write_text(json.dumps({"date": g[1], "games": [kept]}))
+    cfg["sim"]["n_sims"] = 500
+    out = slate.run(db, cfg, g[1], as_of="2027-01-01T00:00:00+00:00")
+    assert [x["label"] for x in out["games"] if x["game_id"] == g[0]] == ["kept"]
+    assert json.loads((tmp_path / "site.json").read_text())["games"][0]["label"] == "kept"

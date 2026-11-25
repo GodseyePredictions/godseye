@@ -45,7 +45,7 @@ def team_lambdas(home: str, away: str, ctx: dict, cfg) -> dict:
         s = {k_: v * hs for k_, v in s.items()}
         steps = [{"what": "5v5 xG", "value": round(float(g["ev"]), 3)}, {"what": "power-play xG", "value": round(float(g["pp"]), 3)},
                  {"what": "shorthanded xG", "value": round(float(g["sh"]), 3)}]
-        mult = K.get("season_goal_factor", 1.0)
+        mult = K.get("season_goal_factor", 1.0) * c.get("goal_scale", 1.0)
         if abs(mult - 1) >= 0.005:
             steps.append({"what": "this season's goals per expected goal", "factor": round(mult, 4)})
         gs = (ctx.get("goalies") or {}).get(opp)

@@ -74,7 +74,7 @@ def floor_rungs(legs: list, cfg) -> list:
     c = cfg["tickets"]
     best = {}
     for l in legs:
-        if l["market"] == "goals" or l["p"] < c["floor_prob"]:
+        if l["market"] == "goals" or l["p"] < c.get("floor_prob_by_market", {}).get(l["market"], c["floor_prob"]):
             continue
         k = (l["market"], l["player_id"])
         if k not in best or l["rung"] > best[k]["rung"]:
@@ -150,7 +150,7 @@ def build(PS, S, gates: dict, flags: dict, odds_rows: list, summary: dict, game_
     if scorers:
         pick = [{**l, "label": f"{l['player']} anytime goal scorer"} for l in scorers[:c["atg_legs"]]]
         out["tickets"].append(_ticket("atg", "Anytime goal scorer", pick, cfg))
-    closers = [g for g in game_lines if g["edge"] >= c["closer_min_edge"] and g["market"] != "ml3"]
+    closers = [g for g in game_lines if g["edge"] >= c["closer_min_edge"] and g["market"] in c["closer_markets"]]
     if closers and gates["goalies_ok"]:
         g = closers[0]
         hits = game_sim.hits_for(S, g["market"], g["side"], g["line"])
