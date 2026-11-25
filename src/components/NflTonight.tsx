@@ -4,7 +4,7 @@ import raw from "../../model/output/nfl_today.json";
 import { Slip, american, pct } from "@/components/Slip";
 
 type Leg = { text: string; p: number; record?: string; listed?: string; why?: string[] };
-type S = { title: string; kind?: string; pick: boolean; p: number; fair: number; legs: Leg[]; note?: string };
+type S = { title: string; kind?: string; pick: boolean; p: number; fair: number; listedMultiplied?: number | null; legs: Leg[]; note?: string };
 type CrossLeg = { text: string; p: number; side: string; who: string; game: string };
 type Cross = { title: string; mix: string; pick: boolean; p: number; fair: number; legs: CrossLeg[]; note?: string };
 type Single = { name: string; team: string; pos: string; p: number; fair: number; flag: string; listed: string; why: string[] };
@@ -28,9 +28,10 @@ function Card({ s }: { s: S }) {
       stats={[
         { label: "Chance to hit", value: pct(s.p, 1), tone: "red" },
         { label: "Chance to miss", value: pct(1 - s.p, 1) },
-        { label: "Fair price", value: american(s.fair) },
+        { label: "Book legs multiplied", value: s.listedMultiplied == null ? "–" : american(s.listedMultiplied) },
+        { label: "Algorithm's fair price", value: american(s.fair) },
       ]}
-      note={s.note}
+      note={[s.note, "The book's same-game price will be shorter than its legs multiplied. Check the price in the app: the fair price is the algorithm's, not a market price."].filter(Boolean).join(" ")}
     />
   );
 }
