@@ -41,6 +41,7 @@ The published site is https://claude.ai/artifact/SZGmtu64mAZsvzS7y2Hbxw. Every p
 - **One home page.** The landing page (`src/app/(site)/page.tsx`) is always the home page, refreshed with the latest algorithm output.
 - **One look.** The Godseye branding, the dark ground, and white slips with red titles and black type (`src/styles/slip.css`, `src/components/Slip.tsx`). New screens reuse these; they do not bring their own styles.
 - **Tickets are set slips.** Every algorithm ticket is shown as a slip with its legs, its chance to hit and its chance to miss. A button that only loads the bet slip is not a ticket. In the NFL console use `geSlip` (added by `scripts/import-console.py`).
+- **Cashed slips look the same in every sport** (owner, 25 November): game and slip type as the title, the date and "n-leg cashed" tags, each leg with a green check mark (no numbers, no stat lines), the model's chance and the price, then "Example stake" and "Cashed" (never "would have returned"). Use `CashedSlip` in `src/components/Slip.tsx`; the NFL console's copy is drawn by `scripts/import-console.py`.
 - **Check before publishing.** Open the built file, confirm the landing page, both consoles and the slips render with no page errors, then publish. If the build or a check fails, do not publish.
 - A change to the design is made in the repository and merged to main first, so the next publish from any session carries it.
 

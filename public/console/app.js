@@ -101,7 +101,7 @@ function renderCashed(){
   const amS=a=>a==null?"–":(a>0?"+":"")+Math.round(a);
   const opt=(k,vals)=>vals.map(([v,l])=>`<button class="btn sm${f[k]===v?" on":""}" data-cashf="${k}|${v}">${l}</button>`).join(" ");
   const lgbar="";
-  const card=(title,pills,legs,meta,stake,ret)=>`<article class="gs-slip"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="cpills">${pills}</div><ul class="gs-slip-legs ge-cashed-legs">${legs}</ul><p class="gs-slip-note ge-cashed-meta">${meta}</p>${stake?`<dl class="gs-slip-foot"><div><dt>Example stake</dt><dd>${money(stake)}</dd></div><div><dt>Cashed</dt><dd class="good">${money(ret)}</dd></div></dl>`:""}</article>`;
+  const card=(title,pills,legs,meta,stake,ret)=>`<article class="gs-slip gs-cashed"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="gs-cashed-pills">${pills}</div><ul class="gs-slip-legs gs-checks">${legs}</ul><p class="gs-cashed-meta">${meta}</p><dl class="gs-slip-foot gs-cashed-foot">${stake?`<div><dt>Example stake</dt><dd>${money(stake)}</dd></div>`:""}<div><dt>Cashed</dt><dd class="red">${stake?money(ret):"✓"}</dd></div></dl></article>`;
   const grid=cards=>`<div class="gs-slips ge-set">${cards||`<section class="panel"><p class="sub">No slips match these filters.</p></section>`}</div>`;
   if(f.lg==="nba"){const N=D.cashed_nba;
     if(!N||!N.slips.length) return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2></div></div>${lgbar}<p class="sub">No NBA slips have been loaded yet.</p></section>`;
@@ -127,8 +127,8 @@ function renderCashed(){
   const tot=S.reduce((a,s)=>({st:a.st+(s.stake||0),rt:a.rt+(s.ret||0)}),{st:0,rt:0});
   const weeks=[...new Set(C.slips.map(s=>s.week))].sort((a,b)=>b-a);
   const cards=S.slice().sort((a,b)=>b.week-a.week||(b.fair||0)-(a.fair||0)).map(s=>card(s.title,
-     `<span class="cpill">Week ${s.week}</span><span class="cpill">${kindL[s.kind]||s.kind}</span><span class="cpill win">${s.n}-leg cashed</span>`,
-     s.legs.map(l=>`<li>${esc(l.t)} <span class="cact">(${esc(l.r)})</span></li>`).join(""),
+     `<span>Week ${s.week}</span><span>${kindL[s.kind]||s.kind}</span><span class="win">${s.n}-leg cashed</span>`,
+     s.legs.map(l=>`<li><span>${esc(l.t)}</span></li>`).join(""),
      `<span>Model ${s.p?pct(s.p):"–"}</span><span>Fair price <b>${amS(s.fair)}</b></span>`,s.stake,s.ret)).join("");
   const aw=[...new Set(C.atd_legs.map(a=>a.week))].sort((a,b)=>b-a).map(w=>`<tr><td>Week ${w}</td><td>${C.atd_legs.filter(a=>a.week===w).map(a=>`${esc(a.name)}${a.fair!=null?` <span class="sub">(${amS(a.fair)})</span>`:""}`).join(" · ")}</td></tr>`).join("");
   return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2>

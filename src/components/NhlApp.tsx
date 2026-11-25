@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
-import { Slip, american, pct } from "@/components/Slip";
+import { CashedSlip, Slip, american, pct } from "@/components/Slip";
 import raw from "../../model/nhl/output/nhl_site.json";
 
 /* The NHL side of the console. It mirrors the NBA console's layout and reads the latest slate written by
@@ -267,19 +267,18 @@ function CashedTab() {
         </div>
       </div>
       {slate.cashed.length ? (
-        <div className="nba-tickets">
+        <div className="gs-slips ge-set">
           {slate.cashed.map((c) => (
-            <Slip
+            <CashedSlip
               key={c.id}
-              title={c.title}
-              meta={`${c.game} · ${c.date}`}
-              legs={c.legs.map((l) => ({ text: l.label, sub: `model ${pct(l.prob)} · finished with ${l.actual}`, value: "Hit", state: "in" as const }))}
-              stats={[
-                { label: "Result", value: "Cashed", tone: "good" },
-                { label: "Model chance", value: pct(c.chance, 1) },
-                { label: "Fair price", value: american(c.fair_price), tone: "red" },
-              ]}
-              note={`Final: ${c.final}. Slip made ${builtAt(c.made_at)}, before puck drop.`}
+              title={`${c.game} · ${c.title}`}
+              pills={[new Date(`${c.date}T12:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" }), `Final ${c.final}`]}
+              legs={c.legs.map((l) => l.label)}
+              model={pct(c.chance, 1)}
+              price={american(c.fair_price)}
+              priceLabel="Fair price"
+              stake={null}
+              cashed={null}
             />
           ))}
         </div>

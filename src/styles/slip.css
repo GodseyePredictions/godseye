@@ -213,3 +213,64 @@
   color: #3a3237;
   overflow-wrap: anywhere;
 }
+
+/* ---------- cashed slips (every sport): green checks, example stake, cashed ---------- */
+.gs-cashed-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 4px;
+}
+.gs-cashed-pills span {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #f1eeef;
+  color: var(--slip-ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+.gs-cashed-pills span.win {
+  background: #e3f4ea;
+  color: var(--slip-good);
+}
+.gs-checks li {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.gs-checks li::before {
+  content: "";
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--slip-good)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")
+    center / 13px 13px no-repeat;
+}
+.gs-cashed-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--slip-sub);
+}
+.gs-cashed-meta b {
+  color: var(--slip-ink);
+}
+.gs-cashed-foot {
+  margin-top: 12px;
+}
+.gs-cashed-foot div:last-child {
+  align-items: flex-end;
+  text-align: right;
+}
+.gs-cashed-foot dt {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.gs-cashed-foot dd.red {
+  font-size: 32px;
+}

@@ -89,3 +89,62 @@ export function Slip({
 
 export const pct = (p: number | null | undefined, digits = 0) => (p == null || !Number.isFinite(p) ? "–" : `${(p * 100).toFixed(digits)}%`);
 export const american = (a: number | null | undefined) => (a == null || !Number.isFinite(a) ? "–" : a > 0 ? `+${a}` : `−${Math.abs(a)}`);
+
+/**
+ * A winning algorithm slip, as every Cashed slips tab shows it (NFL, NBA, NHL): the game and slip type, the date and
+ * "n-leg cashed", every leg with a green check, the model's chance and the price, then the example stake and what it cashed.
+ */
+export function CashedSlip({
+  title, pills, legs, model, price, priceLabel = "Price", stake, cashed,
+}: {
+  title: string;
+  /** Short tags, such as the date or week and the slip type. "n-leg cashed" is added after them. */
+  pills: string[];
+  legs: string[];
+  model: string | null;
+  price: string | null;
+  priceLabel?: string;
+  stake: string | null;
+  cashed: string | null;
+}) {
+  return (
+    <article className="gs-slip gs-cashed">
+      <header className="gs-slip-head">
+        <h3 className="gs-slip-title">{title}</h3>
+      </header>
+      <div className="gs-cashed-pills">
+        {pills.map((p) => (
+          <span key={p}>{p}</span>
+        ))}
+        <span className="win">{legs.length}-leg cashed</span>
+      </div>
+      <ul className="gs-slip-legs gs-checks">
+        {legs.map((l, i) => (
+          <li key={i}>
+            <span>{l}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="gs-cashed-meta">
+        {model && <span>Model {model}</span>}
+        {price && (
+          <span>
+            {priceLabel} <b>{price}</b>
+          </span>
+        )}
+      </p>
+      <dl className="gs-slip-foot gs-cashed-foot">
+        {stake && (
+          <div>
+            <dt>Example stake</dt>
+            <dd>{stake}</dd>
+          </div>
+        )}
+        <div>
+          <dt>Cashed</dt>
+          <dd className="red">{cashed ?? "✓"}</dd>
+        </div>
+      </dl>
+    </article>
+  );
+}
