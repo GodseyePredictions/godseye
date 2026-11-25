@@ -183,6 +183,10 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             <Icon d="M7 7h10v10H7zM3 12h4M17 12h4M12 3v4M12 17v4" />
             Hybrid SGPs
           </a>
+          <a href="#cashed" data-tab="cashed">
+            <Icon d="M5 12l4 4 10-10M4 20h16" />
+            Cashed slips
+          </a>
           <span className="navgrp">Build</span>
           <a href="#mysgp" data-tab="mysgp">
             <Icon d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5" />

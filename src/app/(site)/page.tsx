@@ -7,7 +7,7 @@ import nba from "../../../model/nba/output/nba_site.json";
 import nhl from "../../../model/nhl/output/nhl_site.json";
 import { Slip, american, pct as pc } from "@/components/Slip";
 import { nbaPicks } from "@/lib/advisor/picks";
-import { nbaWhy } from "@/lib/lock-intel";
+import { nbaWhy, nhlTopSlips } from "@/lib/lock-intel";
 import { picksOfTheDay } from "@/lib/picks-of-day";
 import { ADVISOR_LIMITS } from "@/lib/advisor/subscription";
 
@@ -273,6 +273,7 @@ export default function Home() {
   const day = picksOfTheDay(nbaPicks(nba));
   const dayLabel = day.date ? new Date(`${day.date}T12:00:00Z`).toLocaleDateString("en-CA", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" }) : null;
   const heroSlips = day.best.length ? day.best : [];
+  const nhlLocks = nhlTopSlips(nhl);
   const nbaReasons = (p: { game: string; legs: { leg: string }[] }) => {
     const w = nbaWhy(nba, p.game);
     return w ? { intel: w.intel, legs: p.legs.map((l) => ({ text: l.leg, why: w.legs[l.leg] ?? [] })) } : undefined;
@@ -319,6 +320,9 @@ export default function Home() {
                 </Link>
                 <Link href="/nba" className="lp-btn lp-btn-white">
                   Open NBA
+                </Link>
+                <Link href="/nhl" className="lp-btn lp-btn-white">
+                  Open NHL
                 </Link>
                 <a href="#picks" className="lp-btn lp-btn-line">
                   Algo Locks
@@ -515,6 +519,33 @@ export default function Home() {
                 )}
               </>
             )}
+            {nhlLocks.length > 0 && (
+              <>
+                <h3 className="lp-sub">
+                  NHL, {new Date(`${nhl.date}T12:00:00Z`).toLocaleDateString("en-CA", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" })}
+                </h3>
+                <div className="gs-slips lp-day">
+                  {nhlLocks.map((t) => (
+                    <Slip
+                      key={t.id}
+                      title={t.game}
+                      meta={t.title}
+                      legs={t.legs.map((l) => ({ text: l.text, value: pc(l.prob) }))}
+                      why={{ intel: t.notes, legs: t.legs.map((l) => ({ text: l.text, why: l.why })) }}
+                      stats={[
+                        { label: "Chance to hit", value: pc(t.chance, 1), tone: "red" },
+                        { label: "Chance to miss", value: pc(t.miss, 1) },
+                        ...(t.fairPrice != null ? [{ label: "Fair odds", value: american(t.fairPrice) }] : []),
+                      ]}
+                      warn={nhl.preview ? "Preview: goalies and lines are not all confirmed. This slip is re-run before puck drop." : undefined}
+                    />
+                  ))}
+                </div>
+                <p className="lp-fine">
+                  NHL slips are test slips: the NHL algorithm has not yet been checked against closing prices, so no stake is suggested on them.
+                </p>
+              </>
+            )}
             {locks.locks.length > 0 && (
               <>
                 <h3 className="lp-sub">NFL, week {locks.week}</h3>
@@ -545,6 +576,9 @@ export default function Home() {
               </Link>
               <Link href="/nfl" className="lp-btn lp-btn-line">
                 All NFL picks
+              </Link>
+              <Link href="/nhl" className="lp-btn lp-btn-line">
+                All NHL slips
               </Link>
             </div>
           </div>

@@ -858,3 +858,39 @@ nav.tabs a[aria-current="page"] svg {
 .gs-slip .ge-slip-add:hover {
   background: #b01222;
 }
+
+/* cashed slips drawn as set slips */
+.gs-slip .cpills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 2px;
+}
+.gs-slip .cpill {
+  background: #f1eeef;
+  color: #0b0b0c;
+  border: 0;
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.gs-slip .cpill.win {
+  background: #0a7d45;
+  color: #fff;
+}
+.ge-cashed-legs .cact {
+  color: #4d4a4c;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.ge-cashed-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+/* a multi-game slip stands alone and may be wide */
+.ge-wide {
+  grid-template-columns: minmax(0, 720px);
+}

@@ -96,17 +96,13 @@ function renderPersonnel(){
     </div></section>`;
 }
 function renderCashed(){
-  const f=state.cashF||(state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"}); if(!f.lg) f.lg="nfl";
+  const f=state.cashF||(state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"}); f.lg="nfl";
   const money=v=>"$"+Number(v).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
   const amS=a=>a==null?"–":(a>0?"+":"")+Math.round(a);
   const opt=(k,vals)=>vals.map(([v,l])=>`<button class="btn sm${f[k]===v?" on":""}" data-cashf="${k}|${v}">${l}</button>`).join(" ");
-  const lgbar=`<div class="lgbar">${[["nfl","NFL"],["nba","NBA"]].map(([v,l])=>`<button class="lgtab${f.lg===v?" on":""}" data-cashf="lg|${v}">${l}</button>`).join("")}</div>`;
-  const card=(title,pills,legs,meta,stake,ret)=>`<div class="cslip">
-     <div class="ctitle">${esc(title)}</div><div class="cpills">${pills}</div>
-     <ol>${legs}</ol>
-     <div class="cmeta">${meta}</div>
-     ${stake?`<div class="cmoney"><div><span class="clbl">Example stake</span><b class="cstake">${money(stake)}</b></div><div class="cret"><span class="clbl">Cashed</span><b class="cval">${money(ret)}</b></div></div>`:""}</div>`;
-  const grid=cards=>`<div class="cgrid">${cards||`<section class="panel"><p class="sub">No slips match these filters.</p></section>`}</div>`;
+  const lgbar="";
+  const card=(title,pills,legs,meta,stake,ret)=>`<article class="gs-slip"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="cpills">${pills}</div><ul class="gs-slip-legs ge-cashed-legs">${legs}</ul><p class="gs-slip-note ge-cashed-meta">${meta}</p>${stake?`<dl class="gs-slip-foot"><div><dt>Example stake</dt><dd>${money(stake)}</dd></div><div><dt>Cashed</dt><dd class="good">${money(ret)}</dd></div></dl>`:""}</article>`;
+  const grid=cards=>`<div class="gs-slips ge-set">${cards||`<section class="panel"><p class="sub">No slips match these filters.</p></section>`}</div>`;
   if(f.lg==="nba"){const N=D.cashed_nba;
     if(!N||!N.slips.length) return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2></div></div>${lgbar}<p class="sub">No NBA slips have been loaded yet.</p></section>`;
     const day=d=>new Date(d+"T12:00:00Z").toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:"UTC"});

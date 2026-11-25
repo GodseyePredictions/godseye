@@ -618,3 +618,26 @@ test("an NBA slip's reasoning is the algorithm's own game read and leg reasons",
   assert.equal(nbaWhy(data, "NOPE @ NONE"), null);
   assert.deepEqual(nbaWhy({ games: [{ home: "A", away: "B" }] }, "B @ A"), { intel: [], legs: {} });
 });
+
+test("the NHL slips on the home page are the algorithm's best per game, ranked by its own chance", async () => {
+  const { nhlTopSlips } = await import("./lock-intel.ts");
+  const leg = (label: string, prob: number) => ({ label, prob, why: ["a", "b", "c", "d", "e"] });
+  const data = { games: [
+    { label: "WPG @ BOS", notes: ["n1", "n2", "n3", "n4"], tickets: [
+      { id: "a4", title: "4-leg slip", chance: 0.52, miss: 0.48, fair_price: -109, legs: [leg("X 1+ hits", 0.89)] },
+      { id: "a6", title: "6-leg slip", chance: 0.31, legs: [leg("X 1+ hits", 0.89)] }] },
+    { label: "NYR @ BUF", tickets: [{ id: "b4", title: "4-leg slip", chance: 0.6, legs: [leg("Y 2+ shots on goal", 0.8)] }] },
+    { label: "LATE @ GAME", made_after_start: true, tickets: [{ id: "c4", title: "4-leg slip", chance: 0.99, legs: [leg("Z", 0.99)] }] },
+    { label: "NO @ SLIPS", tickets: [] },
+    { label: "BAD @ DATA", tickets: [{ id: "d", title: "x", legs: [leg("Q", 0.9)] }] },
+  ] };
+  const top = nhlTopSlips(data);
+  assert.deepEqual(top.map((t) => [t.id, t.game, t.chance]), [["b4", "NYR @ BUF", 0.6], ["a4", "WPG @ BOS", 0.52]]);
+  assert.equal(top[0].miss, 0.4, "a missing miss chance is the complement of the algorithm's chance");
+  assert.equal(top[1].miss, 0.48);
+  assert.equal(top[1].fairPrice, -109);
+  assert.equal(top[1].legs[0].why.length, 4);
+  assert.equal(top[1].notes.length, 3);
+  assert.equal(nhlTopSlips(data, 1).length, 1);
+  assert.deepEqual(nhlTopSlips({}), []);
+});
