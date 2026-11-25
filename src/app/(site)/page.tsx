@@ -4,8 +4,9 @@ import { SiteFooter } from "@/components/InfoPages";
 import { Logo } from "@/components/Logo";
 import locksJson from "../../../model/output/locks.json";
 import nba from "../../../model/nba/output/nba_site.json";
+import nbaCashedJson from "../../../model/nba/output/nba_cashed.json";
 import nhl from "../../../model/nhl/output/nhl_site.json";
-import { Slip, american, pct as pc } from "@/components/Slip";
+import { CashedSlip, Slip, american, pct as pc } from "@/components/Slip";
 import { nbaPicks } from "@/lib/advisor/picks";
 import { nbaWhy, nhlTopSlips } from "@/lib/lock-intel";
 import { picksOfTheDay } from "@/lib/picks-of-day";
@@ -29,6 +30,21 @@ type NflStar = {
 const locks = locksJson as unknown as { stars: NflStar[]; photos: string[]; season: number; week: number; built: string; locks: Lock[] };
 
 const pct = (p: number) => `${Math.round(p * 100)}%`;
+
+/* Every NBA slip the algorithm issued that cashed (model/nba/output/nba_cashed.json), newest night first. Winners only,
+   with an example stake; the page says losing slips are not shown (NBA amendments, 24 November). */
+type NbaCashed = {
+  from: string | null;
+  to: string | null;
+  stake_rule: { long_price: number; long: number; short: number };
+  slips: { id: string; date: string; game: string; type: string; price: number; chance: number; stake: number; returned: number; legs: { label: string }[] }[];
+};
+const nbaCashed = nbaCashedJson as unknown as NbaCashed;
+const usd = (v: number) => `$${v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const nightLabel = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" });
+const nbaCashedNights = [...new Set(nbaCashed.slips.map((x) => x.date))]
+  .sort((a, b) => (a < b ? 1 : -1))
+  .map((date) => ({ date, slips: nbaCashed.slips.filter((x) => x.date === date) }));
 
 /* Tonight's NBA board for the landing page, straight from the NBA algorithm's output: per game the Lock (its
    highest-chance 4-leg slip) and the price-band 6-leg slips, then the multi-game slips with the lotto ticket last. */
@@ -290,6 +306,7 @@ export default function Home() {
           <Logo />
           <nav aria-label="Main">
             <a href="#picks">Algo Locks</a>
+            <a href="#cashed">Cashed slips</a>
             <a href="#how">How it works</a>
             <a href="#tools">What you get</a>
             <a href="#mission">Mission</a>
@@ -585,6 +602,47 @@ export default function Home() {
         </section>
 
         {/* ---- how it works: a real sequence, so it is numbered ---- */}
+        {nbaCashedNights.length > 0 && (
+          <section className="lp-band" id="cashed">
+            <div className="lp-wrap">
+              <h2>Cashed slips</h2>
+              <p className="lp-intro">
+                Every NBA slip the algorithm issued that cashed
+                {nbaCashed.from && nbaCashed.to ? `, ${nightLabel(nbaCashed.from)} to ${nightLabel(nbaCashed.to)}` : ""}. Winners only: slips that
+                lost are not shown. Stakes are examples, not bets that were placed: ${nbaCashed.stake_rule.long} on a slip listed at{" "}
+                {american(nbaCashed.stake_rule.long_price)} or longer, ${nbaCashed.stake_rule.short} on a shorter one. Returns use the book&apos;s leg
+                prices multiplied together; a real same-game price pays less. Every slip was issued before tip-off and graded from the official
+                box score.
+              </p>
+              {nbaCashedNights.map((n, i) => (
+                <details className="lp-cashed-night" key={n.date} open={i === 0}>
+                  <summary className="lp-sub">
+                    NBA, {nightLabel(n.date)}: {n.slips.length} {n.slips.length === 1 ? "slip" : "slips"} cashed
+                  </summary>
+                  <div className="gs-slips">
+                    {n.slips.map((x) => (
+                      <CashedSlip
+                        key={x.id}
+                        title={x.game}
+                        pills={[x.type]}
+                        legs={x.legs.map((l) => l.label)}
+                        model={pc(x.chance, 1)}
+                        price={american(x.price)}
+                        stake={usd(x.stake)}
+                        cashed={usd(x.returned)}
+                      />
+                    ))}
+                  </div>
+                </details>
+              ))}
+              <div className="lp-cta">
+                <Link href="/nba#cashed" className="lp-btn lp-btn-line">
+                  NBA cashed slips
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
         <section className="lp-band" id="how">
           <div className="lp-wrap">
             <h2>How it works</h2>

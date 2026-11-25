@@ -2185,3 +2185,10 @@ a.lp-tool:hover {
 .lp .gs-slips {
   align-items: start;
 }
+
+/* Cashed slips on the home page: one folding block per night, newest open. */
+.lp-cashed-night { margin-top: 18px; }
+.lp-cashed-night > summary { cursor: pointer; list-style: none; }
+.lp-cashed-night > summary::-webkit-details-marker { display: none; }
+.lp-cashed-night > summary::before { content: "+ "; color: var(--flood); }
+.lp-cashed-night[open] > summary::before { content: "− "; }
