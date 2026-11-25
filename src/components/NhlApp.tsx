@@ -47,7 +47,7 @@ type Game = {
   projections: Projection[];
 };
 type Slate = {
-  date: string; made_at: string; status: string; preview: boolean; sims: number; floor: number; games: Game[]; multi: Multi[];
+  date: string; made_at: string; status: string; preview: boolean; early: boolean; sims: number; floor: number; games: Game[]; multi: Multi[];
   cashed: Cashed[]; skipped: string[];
 };
 
@@ -100,7 +100,9 @@ function TicketSlip({ t, g }: { t: Ticket; g: Game }) {
       ]}
       why={why}
       warn={
-        slate.preview
+        slate.early
+          ? "Early slip: issued before goalies and lines were confirmed. It is re-issued once they are. Rungs and prices are not checked at a book; no stake is suggested."
+          : slate.preview
           ? "Preview: goalies and lines are not all confirmed. This slip is re-run before puck drop and is not final."
           : !t.rungs_verified
             ? "Test slip: no book ladder is connected for NHL props, so these rungs and prices are not checked at the book. No stake is suggested."
@@ -195,7 +197,9 @@ function MultiSlip({ t }: { t: Multi }) {
         legs: t.legs.map((l) => ({ text: l.label, why: l.why ?? [] })),
       }}
       warn={
-        slate.preview
+        slate.early
+          ? "Early slip: issued before goalies and lines were confirmed. It is re-issued once they are. Rungs and prices are not checked at a book; no stake is suggested."
+          : slate.preview
           ? "Preview: goalies and lines are not all confirmed. This slip is re-run before puck drop and is not final."
           : t.kind === "lotto"
             ? "A longshot by design: it misses far more often than it hits. The price shown is the model's fair price, not a book's. No stake is suggested."
@@ -299,7 +303,9 @@ function HomeTab({ prefix }: { prefix: string }) {
         </div>
       </div>
       <p className="sub">
-        {slate.preview
+        {slate.early
+          ? "Early card. Issued before goalies and lines were confirmed; each game is re-issued once they are. Slips are logged and graded."
+          : slate.preview
           ? "Preview. Goalies and lines are not all confirmed yet, so these slips will be re-run before puck drop and are not final."
           : "Test slate. The NHL model is new and has not yet been checked against closing lines. Slips are for testing and grading, not staking."}
       </p>

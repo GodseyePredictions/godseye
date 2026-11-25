@@ -392,7 +392,7 @@ export default function Home() {
               <Link href="/nhl" className="lp-sport nba">
                 <span className="lp-sport-name">NHL</span>
                 <span className="lp-sport-line">
-                  {nhl.games.length} {nhl.games.length === 1 ? "game" : "games"} and {nhl.games.reduce((n, g) => n + g.tickets.length, 0) + nhl.multi.length} {nhl.preview ? "preview" : "test"} slips on the board
+                  {nhl.games.length} {nhl.games.length === 1 ? "game" : "games"} and {nhl.games.reduce((n, g) => n + g.tickets.length, 0) + nhl.multi.length} {nhl.preview ? "preview" : nhl.early ? "early" : "test"} slips on the board
                 </span>
                 <ul>
                   <li>Every game simulated 20,000 times before any prop</li>

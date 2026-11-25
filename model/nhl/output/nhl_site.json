@@ -1,8 +1,9 @@
 {
  "date": "2026-11-25",
- "made_at": "2026-11-25T04:27:34+00:00",
- "status": "preview: goalies and lines are not all confirmed yet, so these slips are not final and are not being graded",
- "preview": true,
+ "made_at": "2026-11-25T04:38:31+00:00",
+ "status": "early card: issued before goalies and lines were confirmed; each game is re-issued once they are",
+ "preview": false,
+ "early": true,
  "sims": 20000,
  "floor": 0.7,
  "games": [
@@ -16,10 +17,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "BOS starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "BOS lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "WPG starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "WPG lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "BOS starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "BOS lines are stale: legs that depend on it are re-run once it is confirmed",
+    "WPG starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "WPG lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "BOS": {
@@ -1151,10 +1152,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "BUF starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "BUF lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "NYR starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "NYR lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "BUF starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "BUF lines are stale: legs that depend on it are re-run once it is confirmed",
+    "NYR starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "NYR lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "BUF": {
@@ -1313,12 +1314,12 @@
     "BUF": {
      "name": "Ukko-Pekka Luukkonen",
      "expected": 23.54,
-     "pull_prob": 0.0565
+     "pull_prob": 0.0575
     },
     "NYR": {
      "name": "Joonas Korpisalo",
      "expected": 23.98,
-     "pull_prob": 0.0319
+     "pull_prob": 0.0316
     }
    },
    "tickets": [
@@ -1326,9 +1327,9 @@
      "id": "2026-11-25-NYR-BUF-sgp4",
      "kind": "sgp4",
      "title": "4-leg slip",
-     "chance": 0.5203,
-     "miss": 0.4797,
-     "fair_price": -108,
+     "chance": 0.5212,
+     "miss": 0.4788,
+     "fair_price": -109,
      "lift": 0.998,
      "priced": false,
      "rungs_verified": false,
@@ -1340,17 +1341,17 @@
        "label": "Braden Schneider 1+ hits",
        "market": "hits",
        "team": "NYR",
-       "prob": 0.8921,
+       "prob": 0.8942,
        "price": null,
-       "fair_price": -827,
+       "fair_price": -845,
        "rung_verified": false,
        "why": [
-        "Projected 2.67 hits in 19.6 minutes: 16.9 even strength, 0.0 power play, 2.7 penalty kill (pair 3)",
+        "Projected 2.66 hits in 19.6 minutes: 16.9 even strength, 0.0 power play, 2.7 penalty kill (pair 3)",
         "His rates per 60 minutes: 7.0 at even strength, 0.2 on the power play, 4.8 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by BUF index x1.21; BUF rink hits bias x1.01",
         "Reached 1+ in 9 of his last 10 games (most recent first: 3, 4, 6, 4, 0, 4, 2, 5, 1, 1)",
         "Script: when NYR lead after two periods the score moves its hits -5%, when it trails +4% (NYR lead after two in 46% of games)",
-        "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 89.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NYR @ BUF"
       },
@@ -1413,10 +1414,10 @@
      "id": "2026-11-25-NYR-BUF-sgp6",
      "kind": "sgp6",
      "title": "6-leg slip",
-     "chance": 0.3267,
-     "miss": 0.6733,
-     "fair_price": 206,
-     "lift": 1.02,
+     "chance": 0.3282,
+     "miss": 0.6718,
+     "fair_price": 205,
+     "lift": 1.022,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -1427,17 +1428,17 @@
        "label": "Braden Schneider 1+ hits",
        "market": "hits",
        "team": "NYR",
-       "prob": 0.8921,
+       "prob": 0.8942,
        "price": null,
-       "fair_price": -827,
+       "fair_price": -845,
        "rung_verified": false,
        "why": [
-        "Projected 2.67 hits in 19.6 minutes: 16.9 even strength, 0.0 power play, 2.7 penalty kill (pair 3)",
+        "Projected 2.66 hits in 19.6 minutes: 16.9 even strength, 0.0 power play, 2.7 penalty kill (pair 3)",
         "His rates per 60 minutes: 7.0 at even strength, 0.2 on the power play, 4.8 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by BUF index x1.21; BUF rink hits bias x1.01",
         "Reached 1+ in 9 of his last 10 games (most recent first: 3, 4, 6, 4, 0, 4, 2, 5, 1, 1)",
         "Script: when NYR lead after two periods the score moves its hits -5%, when it trails +4% (NYR lead after two in 46% of games)",
-        "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 89.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NYR @ BUF"
       },
@@ -1536,10 +1537,10 @@
      "id": "2026-11-25-NYR-BUF-sgp8",
      "kind": "sgp8",
      "title": "8-leg slip",
-     "chance": 0.212,
-     "miss": 0.788,
-     "fair_price": 372,
-     "lift": 1.014,
+     "chance": 0.2139,
+     "miss": 0.7861,
+     "fair_price": 368,
+     "lift": 1.052,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -1550,17 +1551,17 @@
        "label": "Braden Schneider 1+ hits",
        "market": "hits",
        "team": "NYR",
-       "prob": 0.8921,
+       "prob": 0.8942,
        "price": null,
-       "fair_price": -827,
+       "fair_price": -845,
        "rung_verified": false,
        "why": [
-        "Projected 2.67 hits in 19.6 minutes: 16.9 even strength, 0.0 power play, 2.7 penalty kill (pair 3)",
+        "Projected 2.66 hits in 19.6 minutes: 16.9 even strength, 0.0 power play, 2.7 penalty kill (pair 3)",
         "His rates per 60 minutes: 7.0 at even strength, 0.2 on the power play, 4.8 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by BUF index x1.21; BUF rink hits bias x1.01",
         "Reached 1+ in 9 of his last 10 games (most recent first: 3, 4, 6, 4, 0, 4, 2, 5, 1, 1)",
         "Script: when NYR lead after two periods the score moves its hits -5%, when it trails +4% (NYR lead after two in 46% of games)",
-        "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 89.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NYR @ BUF"
       },
@@ -1586,9 +1587,9 @@
        "label": "Eeli Tolvanen 1+ hits",
        "market": "hits",
        "team": "NYR",
-       "prob": 0.857,
+       "prob": 0.8552,
        "price": null,
-       "fair_price": -600,
+       "fair_price": -591,
        "rung_verified": false,
        "why": [
         "Projected 2.27 hits in 13.7 minutes: 10.7 even strength, 1.7 power play, PP2, 1.2 penalty kill (line 3)",
@@ -1597,7 +1598,7 @@
         "Tonight's deployment: f3 tonight, usually f4 minutes: +55s EV, pp2: 38% of 276s team PP",
         "Reached 1+ in 9 of his last 10 games (most recent first: 1, 2, 4, 4, 2, 1, 1, 1, 4, 0)",
         "Script: when NYR lead after two periods the score moves its hits -5%, when it trails +4% (NYR lead after two in 46% of games)",
-        "Hit in 85.7% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 85.5% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NYR @ BUF"
       },
@@ -1673,19 +1674,21 @@
        "game": "NYR @ BUF"
       },
       {
-       "label": "NYR +1.5 puck line",
-       "market": "spread",
+       "label": "Marcus Pettersson 1+ blocked shots",
+       "market": "blk",
        "team": "NYR",
-       "prob": 0.7612,
+       "prob": 0.7403,
        "price": null,
-       "fair_price": -319,
+       "fair_price": -285,
        "rung_verified": false,
        "why": [
-        "Simulated score: NYR 3.52, BUF 2.98 (total 6.49); BUF win 42%, overtime 22%",
-        "NYR: 2.31 expected goals at 5v5, 0.87 on 4.9 power-play minutes; this season's goals per expected goal x1.026; facing Ukko-Pekka Luukkonen (GSAx/60 +0.05) x0.984; road x0.967",
-        "BUF: 2.06 expected goals at 5v5, 0.58 on 4.9 power-play minutes; this season's goals per expected goal x1.026; facing Joonas Korpisalo (GSAx/60 +0.03) x0.990; home ice x1.034",
-        "NYR win by two or more in 38% of games, by exactly one in 20%, lose in 42%; empty-net goals (0.37 a game) are in the margin",
-        "Hit in 76.1% of 20,000 simulated games; the line is not checked at the book"
+        "Projected 1.64 blocked shots in 20.8 minutes: 18.2 even strength, 0.0 power play, 2.6 penalty kill (pair 2)",
+        "His rates per 60 minutes: 4.4 at even strength, 1.5 on the power play, 6.9 shorthanded (23 games this season, shrunk toward his position's rate)",
+        "Adjustments: BUF shot attempts index x0.95; BUF rink blocks bias x1.03",
+        "Tonight's deployment: d2 tonight, usually d1 minutes: -27s EV",
+        "Reached 1+ in 8 of his last 10 games (most recent first: 2, 1, 4, 0, 0, 5, 1, 4, 1, 2)",
+        "Script: when NYR lead after two periods the score moves its blocked shots +10%, when it trails -9% (NYR lead after two in 46% of games)",
+        "Hit in 74.0% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NYR @ BUF"
       }
@@ -1695,10 +1698,10 @@
      "id": "2026-11-25-NYR-BUF-atg",
      "kind": "atg",
      "title": "Anytime goal scorer",
-     "chance": 0.1085,
-     "miss": 0.8915,
-     "fair_price": 822,
-     "lift": 0.982,
+     "chance": 0.0993,
+     "miss": 0.9006,
+     "fair_price": 907,
+     "lift": 0.997,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -1706,40 +1709,39 @@
      "kelly_stake": null,
      "legs": [
       {
-       "label": "Will Cuylle anytime goal scorer",
+       "label": "Tage Thompson anytime goal scorer",
        "market": "goals",
-       "team": "NYR",
-       "prob": 0.3339,
+       "team": "BUF",
+       "prob": 0.3266,
        "price": null,
-       "fair_price": 199,
+       "fair_price": 206,
        "rung_verified": false,
        "why": [
-        "Projected 0.41 goals in 18.6 minutes: 14.6 even strength, 1.7 power play, PP2, 2.2 penalty kill (line 1)",
-        "NYR expected goals 3.28 before empty net and overtime (0.87 of it on the power play), against Ukko-Pekka Luukkonen (GSAx +0.05 per 60)",
-        "His share: 0.94 expected goals and 0.75 assists per 60 at even strength, 2.88 and 2.51 on the power play; on the ice for 2.9 team expected goals per 60",
-        "Finishing 0.95 goals per expected goal (shrunk hard toward 1.00)",
-        "Tonight's deployment: f1 tonight, usually f3 minutes: +82s EV, pp2: 38% of 276s team PP",
-        "Reached 1+ in 1 of his last 10 games (most recent first: 0, 2, 0, 0, 0, 0, 0, 0, 0, 0)",
-        "Hit in 33.4% of 20,000 simulated games; the rung is not checked at the book"
+        "Projected 0.40 goals in 20.1 minutes: 16.5 even strength, 3.6 power play, 0.0 penalty kill (lines not posted)",
+        "BUF expected goals 2.72 before empty net and overtime (0.58 of it on the power play), against Joonas Korpisalo (GSAx +0.03 per 60)",
+        "His share: 1.08 expected goals and 1.13 assists per 60 at even strength, 2.06 and 2.77 on the power play; on the ice for 3.3 team expected goals per 60",
+        "Finishing 1.10 goals per expected goal (shrunk hard toward 1.00)",
+        "Reached 1+ in 6 of his last 10 games (most recent first: 2, 1, 1, 1, 0, 1, 1, 0, 0, 0)",
+        "Hit in 32.7% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NYR @ BUF"
       },
       {
-       "label": "J.T. Miller anytime goal scorer",
+       "label": "Mika Zibanejad anytime goal scorer",
        "market": "goals",
        "team": "NYR",
-       "prob": 0.3308,
+       "prob": 0.305,
        "price": null,
-       "fair_price": 202,
+       "fair_price": 228,
        "rung_verified": false,
        "why": [
-        "Projected 0.40 goals in 19.4 minutes: 15.0 even strength, 2.8 power play, PP1, 1.6 penalty kill (line 2)",
+        "Projected 0.36 goals in 19.9 minutes: 15.8 even strength, 2.9 power play, PP1, 1.2 penalty kill (line 1)",
         "NYR expected goals 3.28 before empty net and overtime (0.87 of it on the power play), against Ukko-Pekka Luukkonen (GSAx +0.05 per 60)",
-        "His share: 0.91 expected goals and 1.50 assists per 60 at even strength, 1.99 and 3.32 on the power play; on the ice for 3.6 team expected goals per 60",
-        "Finishing 0.93 goals per expected goal (shrunk hard toward 1.00)",
-        "Tonight's deployment: f2 tonight, usually f1 minutes: -32s EV, pp1: 62% of 276s team PP",
-        "Reached 1+ in 2 of his last 10 games (most recent first: 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)",
-        "Hit in 33.1% of 20,000 simulated games; the rung is not checked at the book"
+        "His share: 0.66 expected goals and 1.34 assists per 60 at even strength, 2.35 and 3.16 on the power play; on the ice for 3.0 team expected goals per 60",
+        "Finishing 1.04 goals per expected goal (shrunk hard toward 1.00)",
+        "Tonight's deployment: pp1: 62% of 276s team PP, plus part of his surplus",
+        "Reached 1+ in 2 of his last 10 games (most recent first: 1, 0, 0, 2, 0, 0, 0, 0, 0, 0)",
+        "Hit in 30.5% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NYR @ BUF"
       }
@@ -1785,13 +1787,13 @@
      "toi_min": 23.6,
      "line": "d1",
      "pp": "pp1",
-     "sog": 1.88,
-     "pts": 1.0,
-     "goals": 0.18,
-     "ast": 0.81,
-     "hits": 0.55,
+     "sog": 1.82,
+     "pts": 0.92,
+     "goals": 0.16,
+     "ast": 0.76,
+     "hits": 0.56,
      "blk": 1.56,
-     "atg": 0.1666
+     "atg": 0.1513
     },
     {
      "player": "Mattias Samuelsson",
@@ -1815,13 +1817,13 @@
      "toi_min": 21.0,
      "line": "d1",
      "pp": null,
-     "sog": 1.39,
-     "pts": 0.3,
-     "goals": 0.08,
+     "sog": 1.34,
+     "pts": 0.29,
+     "goals": 0.07,
      "ast": 0.22,
-     "hits": 0.89,
-     "blk": 1.34,
-     "atg": 0.0748
+     "hits": 0.88,
+     "blk": 1.32,
+     "atg": 0.0663
     },
     {
      "player": "Marcus Pettersson",
@@ -1830,13 +1832,13 @@
      "toi_min": 20.8,
      "line": "d2",
      "pp": null,
-     "sog": 0.89,
-     "pts": 0.28,
+     "sog": 0.86,
+     "pts": 0.27,
      "goals": 0.06,
-     "ast": 0.22,
-     "hits": 1.28,
-     "blk": 1.67,
-     "atg": 0.0588
+     "ast": 0.21,
+     "hits": 1.27,
+     "blk": 1.64,
+     "atg": 0.0565
     },
     {
      "player": "Zach Benson",
@@ -1860,13 +1862,13 @@
      "toi_min": 20.3,
      "line": "d2",
      "pp": "pp2",
-     "sog": 1.47,
-     "pts": 0.47,
-     "goals": 0.1,
-     "ast": 0.37,
-     "hits": 0.84,
+     "sog": 1.41,
+     "pts": 0.41,
+     "goals": 0.09,
+     "ast": 0.33,
+     "hits": 0.83,
      "blk": 1.5,
-     "atg": 0.0907
+     "atg": 0.0827
     },
     {
      "player": "Tage Thompson",
@@ -1890,13 +1892,13 @@
      "toi_min": 19.9,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.59,
-     "pts": 1.07,
-     "goals": 0.39,
-     "ast": 0.68,
+     "sog": 2.49,
+     "pts": 0.98,
+     "goals": 0.36,
+     "ast": 0.61,
      "hits": 1.53,
      "blk": 0.7,
-     "atg": 0.3275
+     "atg": 0.305
     },
     {
      "player": "Braden Schneider",
@@ -1905,13 +1907,13 @@
      "toi_min": 19.6,
      "line": "d3",
      "pp": null,
-     "sog": 1.41,
-     "pts": 0.23,
+     "sog": 1.36,
+     "pts": 0.21,
      "goals": 0.06,
-     "ast": 0.16,
-     "hits": 2.67,
-     "blk": 1.67,
-     "atg": 0.06
+     "ast": 0.15,
+     "hits": 2.66,
+     "blk": 1.65,
+     "atg": 0.0596
     },
     {
      "player": "J.T. Miller",
@@ -1920,13 +1922,13 @@
      "toi_min": 19.4,
      "line": "f2",
      "pp": "pp1",
-     "sog": 2.38,
-     "pts": 1.03,
-     "goals": 0.4,
-     "ast": 0.62,
-     "hits": 1.67,
-     "blk": 0.53,
-     "atg": 0.3308
+     "sog": 2.3,
+     "pts": 1.0,
+     "goals": 0.36,
+     "ast": 0.64,
+     "hits": 1.68,
+     "blk": 0.54,
+     "atg": 0.3009
     },
     {
      "player": "Will Cuylle",
@@ -1935,13 +1937,13 @@
      "toi_min": 18.6,
      "line": "f1",
      "pp": "pp2",
-     "sog": 2.44,
-     "pts": 0.75,
-     "goals": 0.41,
-     "ast": 0.34,
+     "sog": 2.34,
+     "pts": 0.66,
+     "goals": 0.36,
+     "ast": 0.31,
      "hits": 4.53,
-     "blk": 0.72,
-     "atg": 0.3339
+     "blk": 0.74,
+     "atg": 0.3005
     },
     {
      "player": "Tye Kartye",
@@ -1950,13 +1952,13 @@
      "toi_min": 18.5,
      "line": "f2",
      "pp": "pp2",
-     "sog": 2.11,
-     "pts": 0.78,
-     "goals": 0.36,
-     "ast": 0.42,
-     "hits": 3.76,
-     "blk": 0.56,
-     "atg": 0.3065
+     "sog": 2.05,
+     "pts": 0.76,
+     "goals": 0.32,
+     "ast": 0.43,
+     "hits": 3.73,
+     "blk": 0.54,
+     "atg": 0.2722
     },
     {
      "player": "Jack Quinn",
@@ -1995,13 +1997,13 @@
      "toi_min": 18.0,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.4,
-     "pts": 0.99,
-     "goals": 0.39,
-     "ast": 0.6,
-     "hits": 1.33,
+     "sog": 2.28,
+     "pts": 0.9,
+     "goals": 0.36,
+     "ast": 0.54,
+     "hits": 1.34,
      "blk": 0.51,
-     "atg": 0.3248
+     "atg": 0.299
     },
     {
      "player": "Olen Zellweger",
@@ -2034,6 +2036,21 @@
      "atg": 0.168
     },
     {
+     "player": "Gabe Perreault",
+     "team": "NYR",
+     "pos": "F",
+     "toi_min": 17.1,
+     "line": "f2",
+     "pp": "pp1",
+     "sog": 2.06,
+     "pts": 0.72,
+     "goals": 0.34,
+     "ast": 0.38,
+     "hits": 0.79,
+     "blk": 0.49,
+     "atg": 0.2852
+    },
+    {
      "player": "Peyton Krebs",
      "team": "BUF",
      "pos": "F",
@@ -2055,13 +2072,13 @@
      "toi_min": 15.3,
      "line": "d3",
      "pp": "pp2",
-     "sog": 1.41,
-     "pts": 0.36,
-     "goals": 0.08,
-     "ast": 0.28,
-     "hits": 0.62,
-     "blk": 0.96,
-     "atg": 0.0735
+     "sog": 1.34,
+     "pts": 0.32,
+     "goals": 0.07,
+     "ast": 0.25,
+     "hits": 0.63,
+     "blk": 0.97,
+     "atg": 0.065
     },
     {
      "player": "Jiri Kulich",
@@ -2100,13 +2117,13 @@
      "toi_min": 14.4,
      "line": "f3",
      "pp": null,
-     "sog": 1.21,
-     "pts": 0.46,
-     "goals": 0.18,
-     "ast": 0.27,
-     "hits": 2.13,
-     "blk": 0.75,
-     "atg": 0.1673
+     "sog": 1.16,
+     "pts": 0.43,
+     "goals": 0.17,
+     "ast": 0.25,
+     "hits": 2.14,
+     "blk": 0.74,
+     "atg": 0.1594
     },
     {
      "player": "Ryan McLeod",
@@ -2130,13 +2147,13 @@
      "toi_min": 13.7,
      "line": "f3",
      "pp": "pp2",
-     "sog": 1.65,
-     "pts": 0.55,
-     "goals": 0.25,
-     "ast": 0.3,
+     "sog": 1.58,
+     "pts": 0.48,
+     "goals": 0.22,
+     "ast": 0.26,
      "hits": 2.27,
-     "blk": 0.81,
-     "atg": 0.2205
+     "blk": 0.82,
+     "atg": 0.1968
     },
     {
      "player": "Josh Norris",
@@ -2205,13 +2222,13 @@
      "toi_min": 11.4,
      "line": "f4",
      "pp": null,
-     "sog": 1.21,
-     "pts": 0.32,
-     "goals": 0.16,
-     "ast": 0.15,
+     "sog": 1.17,
+     "pts": 0.29,
+     "goals": 0.15,
+     "ast": 0.14,
      "hits": 0.7,
-     "blk": 0.61,
-     "atg": 0.15
+     "blk": 0.59,
+     "atg": 0.1414
     },
     {
      "player": "Tyson Kozak",
@@ -2250,13 +2267,13 @@
      "toi_min": 9.7,
      "line": "f3",
      "pp": null,
-     "sog": 1.0,
-     "pts": 0.32,
-     "goals": 0.15,
-     "ast": 0.17,
+     "sog": 0.95,
+     "pts": 0.28,
+     "goals": 0.13,
+     "ast": 0.15,
      "hits": 2.18,
-     "blk": 0.42,
-     "atg": 0.1356
+     "blk": 0.41,
+     "atg": 0.1227
     },
     {
      "player": "Sam Carrick",
@@ -2280,13 +2297,13 @@
      "toi_min": 7.8,
      "line": "f4",
      "pp": null,
-     "sog": 0.97,
-     "pts": 0.28,
-     "goals": 0.12,
-     "ast": 0.15,
-     "hits": 1.08,
+     "sog": 0.94,
+     "pts": 0.25,
+     "goals": 0.11,
+     "ast": 0.14,
+     "hits": 1.09,
      "blk": 0.33,
-     "atg": 0.113
+     "atg": 0.1071
     },
     {
      "player": "Matt Rempe",
@@ -2295,13 +2312,13 @@
      "toi_min": 7.2,
      "line": "f4",
      "pp": null,
-     "sog": 0.78,
-     "pts": 0.21,
-     "goals": 0.11,
+     "sog": 0.76,
+     "pts": 0.2,
+     "goals": 0.1,
      "ast": 0.1,
-     "hits": 2.85,
-     "blk": 0.21,
-     "atg": 0.1004
+     "hits": 2.87,
+     "blk": 0.22,
+     "atg": 0.0956
     }
    ]
   },
@@ -2315,10 +2332,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "TBL starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "TBL lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "CAR starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "CAR lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "TBL starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "TBL lines are stale: legs that depend on it are re-run once it is confirmed",
+    "CAR starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "CAR lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "TBL": {
@@ -3419,10 +3436,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "FLA starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "FLA lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "OTT starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "OTT lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "FLA starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "FLA lines are stale: legs that depend on it are re-run once it is confirmed",
+    "OTT starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "OTT lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "FLA": {
@@ -4558,10 +4575,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "NYI starting goalie is likely: legs that depend on it are shown as a preview and will be re-run",
-    "NYI lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "STL starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "STL lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "NYI starting goalie is likely: legs that depend on it are re-run once it is confirmed",
+    "NYI lines are stale: legs that depend on it are re-run once it is confirmed",
+    "STL starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "STL lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "NYI": {
@@ -5736,10 +5753,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "PIT starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "PIT lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "CGY starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "CGY lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "PIT starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "PIT lines are stale: legs that depend on it are re-run once it is confirmed",
+    "CGY starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "CGY lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "PIT": {
@@ -5910,12 +5927,12 @@
     "PIT": {
      "name": "Arturs Silovs",
      "expected": 25.16,
-     "pull_prob": 0.0329
+     "pull_prob": 0.0324
     },
     "CGY": {
      "name": "Devin Cooley",
      "expected": 26.01,
-     "pull_prob": 0.0495
+     "pull_prob": 0.0486
     }
    },
    "tickets": [
@@ -5923,10 +5940,10 @@
      "id": "2026-11-25-CGY-PIT-sgp4",
      "kind": "sgp4",
      "title": "4-leg slip",
-     "chance": 0.419,
-     "miss": 0.581,
-     "fair_price": 139,
-     "lift": 1.007,
+     "chance": 0.4141,
+     "miss": 0.5859,
+     "fair_price": 141,
+     "lift": 1.002,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -5937,17 +5954,17 @@
        "label": "Jonathan Castagna 1+ hits",
        "market": "hits",
        "team": "CGY",
-       "prob": 0.8216,
+       "prob": 0.8165,
        "price": null,
-       "fair_price": -461,
+       "fair_price": -445,
        "rung_verified": false,
        "why": [
-        "Projected 1.97 hits in 12.5 minutes: 11.3 even strength, 0.0 power play, 1.2 penalty kill (line 4)",
+        "Projected 1.96 hits in 12.5 minutes: 11.3 even strength, 0.0 power play, 1.2 penalty kill (line 4)",
         "His rates per 60 minutes: 9.6 at even strength, 0.6 on the power play, 2.1 shorthanded (22 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by PIT index x1.05; PIT rink hits bias x0.99",
         "Reached 1+ in 10 of his last 10 games (most recent first: 3, 4, 3, 1, 4, 1, 1, 1, 2, 3)",
         "Script: when CGY lead after two periods the score moves its hits -4%, when it trails +4% (CGY lead after two in 35% of games)",
-        "Hit in 82.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 81.7% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -5955,18 +5972,18 @@
        "label": "Zach Whitecloud 1+ blocked shots",
        "market": "blk",
        "team": "CGY",
-       "prob": 0.8083,
+       "prob": 0.805,
        "price": null,
-       "fair_price": -422,
+       "fair_price": -413,
        "rung_verified": false,
        "why": [
-        "Projected 2.10 blocked shots in 22.2 minutes: 19.3 even strength, 0.0 power play, 2.9 penalty kill (pair 1)",
+        "Projected 2.09 blocked shots in 22.2 minutes: 19.3 even strength, 0.0 power play, 2.9 penalty kill (pair 1)",
         "His rates per 60 minutes: 5.2 at even strength, 0.8 on the power play, 5.7 shorthanded (25 games this season, shrunk toward his position's rate)",
         "Adjustments: PIT shot attempts index x1.05; PIT rink blocks bias x1.03",
         "Tonight's deployment: d1 tonight, usually d2 minutes: +46s EV",
         "Reached 1+ in 9 of his last 10 games (most recent first: 4, 2, 1, 1, 1, 4, 0, 2, 4, 1)",
         "Script: when CGY lead after two periods the score moves its blocked shots +9%, when it trails -10% (CGY lead after two in 35% of games)",
-        "Hit in 80.8% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 80.5% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -5974,18 +5991,18 @@
        "label": "Maxim Tsyplakov 1+ hits",
        "market": "hits",
        "team": "CGY",
-       "prob": 0.7948,
+       "prob": 0.7978,
        "price": null,
-       "fair_price": -387,
+       "fair_price": -395,
        "rung_verified": false,
        "why": [
-        "Projected 1.80 hits in 10.3 minutes: 10.1 even strength, 0.1 power play, 0.1 penalty kill (line 4)",
+        "Projected 1.81 hits in 10.3 minutes: 10.1 even strength, 0.1 power play, 0.1 penalty kill (line 4)",
         "His rates per 60 minutes: 10.1 at even strength, 0.4 on the power play, 1.3 shorthanded (12 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by PIT index x1.05; PIT rink hits bias x0.99",
         "Tonight's deployment: on neither PP unit",
         "Reached 1+ in 8 of his last 10 games (most recent first: 1, 3, 0, 1, 0, 1, 1, 3, 4, 3)",
         "Script: when CGY lead after two periods the score moves its hits -4%, when it trails +4% (CGY lead after two in 35% of games)",
-        "Hit in 79.5% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 79.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -6012,10 +6029,10 @@
      "id": "2026-11-25-CGY-PIT-sgp6",
      "kind": "sgp6",
      "title": "6-leg slip",
-     "chance": 0.2459,
-     "miss": 0.7541,
-     "fair_price": 307,
-     "lift": 1.043,
+     "chance": 0.2433,
+     "miss": 0.7567,
+     "fair_price": 311,
+     "lift": 1.039,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -6026,17 +6043,17 @@
        "label": "Jonathan Castagna 1+ hits",
        "market": "hits",
        "team": "CGY",
-       "prob": 0.8216,
+       "prob": 0.8165,
        "price": null,
-       "fair_price": -461,
+       "fair_price": -445,
        "rung_verified": false,
        "why": [
-        "Projected 1.97 hits in 12.5 minutes: 11.3 even strength, 0.0 power play, 1.2 penalty kill (line 4)",
+        "Projected 1.96 hits in 12.5 minutes: 11.3 even strength, 0.0 power play, 1.2 penalty kill (line 4)",
         "His rates per 60 minutes: 9.6 at even strength, 0.6 on the power play, 2.1 shorthanded (22 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by PIT index x1.05; PIT rink hits bias x0.99",
         "Reached 1+ in 10 of his last 10 games (most recent first: 3, 4, 3, 1, 4, 1, 1, 1, 2, 3)",
         "Script: when CGY lead after two periods the score moves its hits -4%, when it trails +4% (CGY lead after two in 35% of games)",
-        "Hit in 82.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 81.7% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -6044,18 +6061,18 @@
        "label": "Zach Whitecloud 1+ blocked shots",
        "market": "blk",
        "team": "CGY",
-       "prob": 0.8083,
+       "prob": 0.805,
        "price": null,
-       "fair_price": -422,
+       "fair_price": -413,
        "rung_verified": false,
        "why": [
-        "Projected 2.10 blocked shots in 22.2 minutes: 19.3 even strength, 0.0 power play, 2.9 penalty kill (pair 1)",
+        "Projected 2.09 blocked shots in 22.2 minutes: 19.3 even strength, 0.0 power play, 2.9 penalty kill (pair 1)",
         "His rates per 60 minutes: 5.2 at even strength, 0.8 on the power play, 5.7 shorthanded (25 games this season, shrunk toward his position's rate)",
         "Adjustments: PIT shot attempts index x1.05; PIT rink blocks bias x1.03",
         "Tonight's deployment: d1 tonight, usually d2 minutes: +46s EV",
         "Reached 1+ in 9 of his last 10 games (most recent first: 4, 2, 1, 1, 1, 4, 0, 2, 4, 1)",
         "Script: when CGY lead after two periods the score moves its blocked shots +9%, when it trails -10% (CGY lead after two in 35% of games)",
-        "Hit in 80.8% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 80.5% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -6063,18 +6080,18 @@
        "label": "Maxim Tsyplakov 1+ hits",
        "market": "hits",
        "team": "CGY",
-       "prob": 0.7948,
+       "prob": 0.7978,
        "price": null,
-       "fair_price": -387,
+       "fair_price": -395,
        "rung_verified": false,
        "why": [
-        "Projected 1.80 hits in 10.3 minutes: 10.1 even strength, 0.1 power play, 0.1 penalty kill (line 4)",
+        "Projected 1.81 hits in 10.3 minutes: 10.1 even strength, 0.1 power play, 0.1 penalty kill (line 4)",
         "His rates per 60 minutes: 10.1 at even strength, 0.4 on the power play, 1.3 shorthanded (12 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by PIT index x1.05; PIT rink hits bias x0.99",
         "Tonight's deployment: on neither PP unit",
         "Reached 1+ in 8 of his last 10 games (most recent first: 1, 3, 0, 1, 0, 1, 1, 3, 4, 3)",
         "Script: when CGY lead after two periods the score moves its hits -4%, when it trails +4% (CGY lead after two in 35% of games)",
-        "Hit in 79.5% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 79.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -6136,10 +6153,10 @@
      "id": "2026-11-25-CGY-PIT-sgp8",
      "kind": "sgp8",
      "title": "8-leg slip",
-     "chance": 0.1381,
-     "miss": 0.8619,
-     "fair_price": 624,
-     "lift": 1.006,
+     "chance": 0.1416,
+     "miss": 0.8584,
+     "fair_price": 606,
+     "lift": 0.998,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -6150,17 +6167,17 @@
        "label": "Jonathan Castagna 1+ hits",
        "market": "hits",
        "team": "CGY",
-       "prob": 0.8216,
+       "prob": 0.8165,
        "price": null,
-       "fair_price": -461,
+       "fair_price": -445,
        "rung_verified": false,
        "why": [
-        "Projected 1.97 hits in 12.5 minutes: 11.3 even strength, 0.0 power play, 1.2 penalty kill (line 4)",
+        "Projected 1.96 hits in 12.5 minutes: 11.3 even strength, 0.0 power play, 1.2 penalty kill (line 4)",
         "His rates per 60 minutes: 9.6 at even strength, 0.6 on the power play, 2.1 shorthanded (22 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by PIT index x1.05; PIT rink hits bias x0.99",
         "Reached 1+ in 10 of his last 10 games (most recent first: 3, 4, 3, 1, 4, 1, 1, 1, 2, 3)",
         "Script: when CGY lead after two periods the score moves its hits -4%, when it trails +4% (CGY lead after two in 35% of games)",
-        "Hit in 82.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 81.7% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -6168,18 +6185,18 @@
        "label": "Zach Whitecloud 1+ blocked shots",
        "market": "blk",
        "team": "CGY",
-       "prob": 0.8083,
+       "prob": 0.805,
        "price": null,
-       "fair_price": -422,
+       "fair_price": -413,
        "rung_verified": false,
        "why": [
-        "Projected 2.10 blocked shots in 22.2 minutes: 19.3 even strength, 0.0 power play, 2.9 penalty kill (pair 1)",
+        "Projected 2.09 blocked shots in 22.2 minutes: 19.3 even strength, 0.0 power play, 2.9 penalty kill (pair 1)",
         "His rates per 60 minutes: 5.2 at even strength, 0.8 on the power play, 5.7 shorthanded (25 games this season, shrunk toward his position's rate)",
         "Adjustments: PIT shot attempts index x1.05; PIT rink blocks bias x1.03",
         "Tonight's deployment: d1 tonight, usually d2 minutes: +46s EV",
         "Reached 1+ in 9 of his last 10 games (most recent first: 4, 2, 1, 1, 1, 4, 0, 2, 4, 1)",
         "Script: when CGY lead after two periods the score moves its blocked shots +9%, when it trails -10% (CGY lead after two in 35% of games)",
-        "Hit in 80.8% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 80.5% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -6187,18 +6204,18 @@
        "label": "Maxim Tsyplakov 1+ hits",
        "market": "hits",
        "team": "CGY",
-       "prob": 0.7948,
+       "prob": 0.7978,
        "price": null,
-       "fair_price": -387,
+       "fair_price": -395,
        "rung_verified": false,
        "why": [
-        "Projected 1.80 hits in 10.3 minutes: 10.1 even strength, 0.1 power play, 0.1 penalty kill (line 4)",
+        "Projected 1.81 hits in 10.3 minutes: 10.1 even strength, 0.1 power play, 0.1 penalty kill (line 4)",
         "His rates per 60 minutes: 10.1 at even strength, 0.4 on the power play, 1.3 shorthanded (12 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by PIT index x1.05; PIT rink hits bias x0.99",
         "Tonight's deployment: on neither PP unit",
         "Reached 1+ in 8 of his last 10 games (most recent first: 1, 3, 0, 1, 0, 1, 1, 3, 4, 3)",
         "Script: when CGY lead after two periods the score moves its hits -4%, when it trails +4% (CGY lead after two in 35% of games)",
-        "Hit in 79.5% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 79.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       },
@@ -6255,6 +6272,25 @@
        "game": "CGY @ PIT"
       },
       {
+       "label": "Jake Middleton 1+ blocked shots",
+       "market": "blk",
+       "team": "CGY",
+       "prob": 0.7644,
+       "price": null,
+       "fair_price": -324,
+       "rung_verified": false,
+       "why": [
+        "Projected 1.81 blocked shots in 20.9 minutes: 18.1 even strength, 0.0 power play, 2.8 penalty kill (pair 1)",
+        "His rates per 60 minutes: 4.3 at even strength, 0.8 on the power play, 8.8 shorthanded (25 games this season, shrunk toward his position's rate)",
+        "Adjustments: PIT shot attempts index x1.05; PIT rink blocks bias x1.03",
+        "Tonight's deployment: d1 tonight, usually d3 minutes: +77s EV",
+        "Reached 1+ in 10 of his last 10 games (most recent first: 1, 2, 1, 2, 2, 1, 1, 3, 2, 1)",
+        "Script: when CGY lead after two periods the score moves its blocked shots +9%, when it trails -10% (CGY lead after two in 35% of games)",
+        "Hit in 76.4% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "CGY @ PIT"
+      },
+      {
        "label": "Connor Dewar 1+ hits",
        "market": "hits",
        "team": "PIT",
@@ -6269,25 +6305,6 @@
         "Reached 1+ in 9 of his last 10 games (most recent first: 1, 0, 2, 3, 1, 2, 2, 2, 2, 1)",
         "Script: when PIT lead after two periods the score moves its hits -5%, when it trails +4% (PIT lead after two in 43% of games)",
         "Hit in 75.4% of 20,000 simulated games; the rung is not checked at the book"
-       ],
-       "game": "CGY @ PIT"
-      },
-      {
-       "label": "Simon Nemec 1+ blocked shots",
-       "market": "blk",
-       "team": "CGY",
-       "prob": 0.734,
-       "price": null,
-       "fair_price": -276,
-       "rung_verified": false,
-       "why": [
-        "Projected 1.62 blocked shots in 20.4 minutes: 18.4 even strength, 1.4 power play, PP2, 0.5 penalty kill (pair 2)",
-        "His rates per 60 minutes: 4.7 at even strength, 0.8 on the power play, 6.2 shorthanded (25 games this season, shrunk toward his position's rate)",
-        "Adjustments: PIT shot attempts index x1.05; PIT rink blocks bias x1.03",
-        "Tonight's deployment: d2 tonight, usually d1 minutes: -46s EV, pp2: 38% of 226s team PP",
-        "Reached 1+ in 9 of his last 10 games (most recent first: 0, 1, 1, 4, 1, 4, 1, 2, 3, 3)",
-        "Script: when CGY lead after two periods the score moves its blocked shots +9%, when it trails -10% (CGY lead after two in 35% of games)",
-        "Hit in 73.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CGY @ PIT"
       }
@@ -6372,13 +6389,28 @@
      "toi_min": 22.2,
      "line": "d1",
      "pp": null,
-     "sog": 1.11,
-     "pts": 0.26,
-     "goals": 0.06,
-     "ast": 0.21,
+     "sog": 1.07,
+     "pts": 0.25,
+     "goals": 0.05,
+     "ast": 0.2,
      "hits": 1.81,
-     "blk": 2.1,
-     "atg": 0.0537
+     "blk": 2.09,
+     "atg": 0.0528
+    },
+    {
+     "player": "Jake Middleton",
+     "team": "CGY",
+     "pos": "D",
+     "toi_min": 20.9,
+     "line": "d1",
+     "pp": null,
+     "sog": 1.24,
+     "pts": 0.24,
+     "goals": 0.07,
+     "ast": 0.17,
+     "hits": 1.44,
+     "blk": 1.81,
+     "atg": 0.0634
     },
     {
      "player": "Simon Nemec",
@@ -6387,13 +6419,13 @@
      "toi_min": 20.4,
      "line": "d2",
      "pp": "pp2",
-     "sog": 1.75,
+     "sog": 1.71,
      "pts": 0.45,
      "goals": 0.12,
-     "ast": 0.33,
-     "hits": 0.44,
-     "blk": 1.62,
-     "atg": 0.117
+     "ast": 0.32,
+     "hits": 0.42,
+     "blk": 1.65,
+     "atg": 0.1168
     },
     {
      "player": "Rickard Rakell",
@@ -6417,13 +6449,13 @@
      "toi_min": 19.7,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.71,
-     "pts": 0.74,
+     "sog": 2.64,
+     "pts": 0.73,
      "goals": 0.35,
-     "ast": 0.39,
+     "ast": 0.38,
      "hits": 0.73,
-     "blk": 0.9,
-     "atg": 0.296
+     "blk": 0.91,
+     "atg": 0.2944
     },
     {
      "player": "Spencer Stastney",
@@ -6462,13 +6494,13 @@
      "toi_min": 19.5,
      "line": "d3",
      "pp": "pp1",
-     "sog": 1.89,
-     "pts": 0.46,
-     "goals": 0.15,
+     "sog": 1.84,
+     "pts": 0.45,
+     "goals": 0.14,
      "ast": 0.31,
-     "hits": 0.38,
-     "blk": 1.24,
-     "atg": 0.139
+     "hits": 0.37,
+     "blk": 1.26,
+     "atg": 0.1323
     },
     {
      "player": "Kris Letang",
@@ -6552,13 +6584,13 @@
      "toi_min": 17.5,
      "line": "f3",
      "pp": null,
-     "sog": 2.42,
-     "pts": 0.65,
+     "sog": 2.37,
+     "pts": 0.63,
      "goals": 0.25,
-     "ast": 0.41,
-     "hits": 0.44,
+     "ast": 0.38,
+     "hits": 0.43,
      "blk": 0.42,
-     "atg": 0.2195
+     "atg": 0.2206
     },
     {
      "player": "Yan Kuznetsov",
@@ -6567,13 +6599,13 @@
      "toi_min": 17.4,
      "line": "d3",
      "pp": null,
-     "sog": 1.13,
-     "pts": 0.3,
+     "sog": 1.11,
+     "pts": 0.29,
      "goals": 0.05,
-     "ast": 0.24,
-     "hits": 1.38,
+     "ast": 0.23,
+     "hits": 1.36,
      "blk": 1.42,
-     "atg": 0.0525
+     "atg": 0.0521
     },
     {
      "player": "Matt Coronato",
@@ -6582,13 +6614,13 @@
      "toi_min": 17.0,
      "line": "f3",
      "pp": "pp1",
-     "sog": 2.58,
-     "pts": 0.71,
+     "sog": 2.51,
+     "pts": 0.69,
      "goals": 0.28,
-     "ast": 0.43,
+     "ast": 0.41,
      "hits": 0.29,
-     "blk": 0.34,
-     "atg": 0.2439
+     "blk": 0.35,
+     "atg": 0.2414
     },
     {
      "player": "Matvei Gridin",
@@ -6597,13 +6629,13 @@
      "toi_min": 16.9,
      "line": "f2",
      "pp": "pp1",
-     "sog": 2.29,
-     "pts": 0.73,
+     "sog": 2.26,
+     "pts": 0.7,
      "goals": 0.25,
-     "ast": 0.48,
-     "hits": 0.44,
+     "ast": 0.45,
+     "hits": 0.45,
      "blk": 0.65,
-     "atg": 0.2232
+     "atg": 0.2203
     },
     {
      "player": "Joel Hanley",
@@ -6612,13 +6644,13 @@
      "toi_min": 16.8,
      "line": "d2",
      "pp": null,
-     "sog": 0.85,
-     "pts": 0.2,
-     "goals": 0.06,
-     "ast": 0.14,
+     "sog": 0.84,
+     "pts": 0.19,
+     "goals": 0.05,
+     "ast": 0.13,
      "hits": 0.89,
      "blk": 1.65,
-     "atg": 0.0535
+     "atg": 0.0504
     },
     {
      "player": "Yegor Sharangovich",
@@ -6627,13 +6659,13 @@
      "toi_min": 16.7,
      "line": "f3",
      "pp": "pp2",
-     "sog": 1.93,
-     "pts": 0.62,
+     "sog": 1.92,
+     "pts": 0.6,
      "goals": 0.26,
-     "ast": 0.35,
-     "hits": 0.4,
+     "ast": 0.34,
+     "hits": 0.41,
      "blk": 0.54,
-     "atg": 0.2322
+     "atg": 0.2309
     },
     {
      "player": "Tommy Novak",
@@ -6657,13 +6689,13 @@
      "toi_min": 14.8,
      "line": "f2",
      "pp": "pp2",
-     "sog": 1.85,
-     "pts": 0.63,
-     "goals": 0.22,
-     "ast": 0.41,
-     "hits": 0.45,
-     "blk": 0.36,
-     "atg": 0.1996
+     "sog": 1.81,
+     "pts": 0.61,
+     "goals": 0.21,
+     "ast": 0.39,
+     "hits": 0.44,
+     "blk": 0.37,
+     "atg": 0.1943
     },
     {
      "player": "Ville Koivunen",
@@ -6702,13 +6734,13 @@
      "toi_min": 13.9,
      "line": "f2",
      "pp": "pp2",
-     "sog": 1.77,
+     "sog": 1.73,
      "pts": 0.53,
      "goals": 0.21,
      "ast": 0.32,
-     "hits": 4.33,
+     "hits": 4.31,
      "blk": 0.6,
-     "atg": 0.1921
+     "atg": 0.1886
     },
     {
      "player": "Blake Lizotte",
@@ -6762,13 +6794,13 @@
      "toi_min": 12.5,
      "line": "f4",
      "pp": null,
-     "sog": 1.23,
-     "pts": 0.41,
-     "goals": 0.17,
-     "ast": 0.24,
-     "hits": 1.97,
+     "sog": 1.2,
+     "pts": 0.39,
+     "goals": 0.16,
+     "ast": 0.23,
+     "hits": 1.96,
      "blk": 0.7,
-     "atg": 0.1572
+     "atg": 0.1505
     },
     {
      "player": "Justin Brazeau",
@@ -6792,13 +6824,13 @@
      "toi_min": 12.2,
      "line": "f4",
      "pp": "pp2",
-     "sog": 1.71,
-     "pts": 0.49,
-     "goals": 0.22,
-     "ast": 0.27,
-     "hits": 0.94,
-     "blk": 0.75,
-     "atg": 0.1958
+     "sog": 1.67,
+     "pts": 0.47,
+     "goals": 0.21,
+     "ast": 0.26,
+     "hits": 0.93,
+     "blk": 0.74,
+     "atg": 0.1876
     },
     {
      "player": "Avery Hayes",
@@ -6822,13 +6854,13 @@
      "toi_min": 10.8,
      "line": "f1",
      "pp": null,
-     "sog": 1.27,
-     "pts": 0.41,
-     "goals": 0.17,
+     "sog": 1.25,
+     "pts": 0.4,
+     "goals": 0.16,
      "ast": 0.24,
-     "hits": 1.36,
+     "hits": 1.37,
      "blk": 0.42,
-     "atg": 0.1528
+     "atg": 0.151
     },
     {
      "player": "Maxim Tsyplakov",
@@ -6837,13 +6869,13 @@
      "toi_min": 10.3,
      "line": "f4",
      "pp": null,
-     "sog": 1.16,
-     "pts": 0.37,
-     "goals": 0.13,
-     "ast": 0.24,
-     "hits": 1.8,
+     "sog": 1.13,
+     "pts": 0.36,
+     "goals": 0.12,
+     "ast": 0.23,
+     "hits": 1.81,
      "blk": 0.31,
-     "atg": 0.1251
+     "atg": 0.1163
     }
    ]
   },
@@ -6857,10 +6889,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "WSH starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "WSH lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "PHI starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "PHI lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "WSH starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "WSH lines are stale: legs that depend on it are re-run once it is confirmed",
+    "PHI starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "PHI lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "WSH": {
@@ -7979,10 +8011,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "CBJ starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "CBJ lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "NJD starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "NJD lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "CBJ starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "CBJ lines are stale: legs that depend on it are re-run once it is confirmed",
+    "NJD starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "NJD lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "CBJ": {
@@ -9123,8 +9155,8 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "DET lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "VAN starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run"
+    "DET lines are stale: legs that depend on it are re-run once it is confirmed",
+    "VAN starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "DET": {
@@ -9146,18 +9178,18 @@
    "sim": {
     "home": "DET",
     "away": "VAN",
-    "home_goals": 3.919,
-    "away_goals": 2.472,
-    "total": 6.392,
-    "home_win": 0.7217,
-    "overtime": 0.1964,
-    "shootout": 0.0628,
-    "home_sog": 30.53,
-    "away_sog": 22.61,
-    "empty_net_goals": 0.347,
-    "blowout_prob": 0.2352,
+    "home_goals": 3.91,
+    "away_goals": 2.483,
+    "total": 6.393,
+    "home_win": 0.7151,
+    "overtime": 0.1946,
+    "shootout": 0.0624,
+    "home_sog": 30.55,
+    "away_sog": 22.58,
+    "empty_net_goals": 0.337,
+    "blowout_prob": 0.2415,
     "favourite": "DET",
-    "favourite_blowout_prob": 0.2022,
+    "favourite_blowout_prob": 0.2074,
     "blowout_flag": false
    },
    "expected": {
@@ -9197,7 +9229,7 @@
      ]
     },
     "VAN": {
-     "goals": 2.232,
+     "goals": 2.245,
      "sog": 21.8,
      "pp_min": 4.29,
      "steps": [
@@ -9234,8 +9266,8 @@
        "factor": 0.992
       },
       {
-       "what": "out: Elias Pettersson, Brendan Gallagher, Max Sasson, Elias Pettersson",
-       "factor": 0.9449
+       "what": "out: Elias Pettersson, Brendan Gallagher, Max Sasson",
+       "factor": 0.9504
       }
      ]
     }
@@ -9243,54 +9275,54 @@
    "fair": {
     "moneyline": {
      "DET": {
-      "prob": 0.7217,
-      "fair_price": -259
+      "prob": 0.7151,
+      "fair_price": -251
      },
      "VAN": {
-      "prob": 0.2783,
-      "fair_price": 259
+      "prob": 0.2848,
+      "fair_price": 251
      }
     },
     "puck_line": {
      "DET -1.5": {
-      "prob": 0.5218,
-      "fair_price": -109
+      "prob": 0.5192,
+      "fair_price": -108
      },
      "VAN +1.5": {
-      "prob": 0.4782,
-      "fair_price": 109
+      "prob": 0.4808,
+      "fair_price": 108
      },
      "VAN -1.5": {
-      "prob": 0.1404,
-      "fair_price": 612
+      "prob": 0.1446,
+      "fair_price": 592
      },
      "DET +1.5": {
-      "prob": 0.8596,
-      "fair_price": -612
+      "prob": 0.8555,
+      "fair_price": -592
      }
     },
     "totals": {
      "over 5.5": {
-      "prob": 0.5861,
-      "fair_price": -142
+      "prob": 0.5854,
+      "fair_price": -141
      },
      "over 6.5": {
-      "prob": 0.4817,
+      "prob": 0.481,
       "fair_price": 108
      }
     },
     "regulation": {
      "DET": {
-      "prob": 0.6157,
-      "fair_price": -160
+      "prob": 0.6112,
+      "fair_price": -157
      },
      "draw": {
-      "prob": 0.1964,
-      "fair_price": 409
+      "prob": 0.1946,
+      "fair_price": 414
      },
      "VAN": {
-      "prob": 0.1879,
-      "fair_price": 432
+      "prob": 0.1941,
+      "fair_price": 415
      }
     }
    },
@@ -9298,13 +9330,13 @@
    "saves": {
     "DET": {
      "name": "Daniil Tarasov",
-     "expected": 20.19,
-     "pull_prob": 0.0158
+     "expected": 20.16,
+     "pull_prob": 0.0135
     },
     "VAN": {
      "name": "Leevi Merilainen",
-     "expected": 26.13,
-     "pull_prob": 0.0886
+     "expected": 26.12,
+     "pull_prob": 0.0925
     }
    },
    "tickets": [
@@ -9312,10 +9344,10 @@
      "id": "2026-11-25-VAN-DET-sgp4",
      "kind": "sgp4",
      "title": "4-leg slip",
-     "chance": 0.5686,
-     "miss": 0.4314,
-     "fair_price": -132,
-     "lift": 0.997,
+     "chance": 0.5631,
+     "miss": 0.4369,
+     "fair_price": -129,
+     "lift": 0.995,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -9326,9 +9358,9 @@
        "label": "Andreas Englund 1+ hits",
        "market": "hits",
        "team": "DET",
-       "prob": 0.8881,
+       "prob": 0.8878,
        "price": null,
-       "fair_price": -794,
+       "fair_price": -791,
        "rung_verified": false,
        "why": [
         "Projected 2.62 hits in 14.4 minutes: 13.2 even strength, 0.0 power play, 1.2 penalty kill (pair 3)",
@@ -9344,17 +9376,17 @@
        "label": "Keegan Kolesar 1+ hits",
        "market": "hits",
        "team": "DET",
-       "prob": 0.8804,
+       "prob": 0.8821,
        "price": null,
-       "fair_price": -736,
+       "fair_price": -748,
        "rung_verified": false,
        "why": [
-        "Projected 2.51 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
+        "Projected 2.49 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
         "His rates per 60 minutes: 15.7 at even strength, 3.1 on the power play, 6.6 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
         "Reached 1+ in 8 of his last 10 games (most recent first: 6, 3, 3, 1, 2, 2, 0, 3, 0, 3)",
         "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
-        "Hit in 88.0% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 88.2% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9362,16 +9394,16 @@
        "label": "DET +1.5 puck line",
        "market": "spread",
        "team": "DET",
-       "prob": 0.8596,
+       "prob": 0.8555,
        "price": null,
-       "fair_price": -612,
+       "fair_price": -592,
        "rung_verified": false,
        "why": [
-        "Simulated score: VAN 2.47, DET 3.92 (total 6.39); DET win 72%, overtime 20%",
-        "VAN: 1.64 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson, Elias Pettersson x0.945",
+        "Simulated score: VAN 2.48, DET 3.91 (total 6.39); DET win 72%, overtime 19%",
+        "VAN: 1.65 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson x0.950",
         "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
-        "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.35 a game) are in the margin",
-        "Hit in 86.0% of 20,000 simulated games; the line is not checked at the book"
+        "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.34 a game) are in the margin",
+        "Hit in 85.5% of 20,000 simulated games; the line is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9379,18 +9411,18 @@
        "label": "Alex DeBrincat 2+ shots on goal",
        "market": "sog",
        "team": "DET",
-       "prob": 0.8489,
+       "prob": 0.845,
        "price": null,
-       "fair_price": -562,
+       "fair_price": -545,
        "rung_verified": false,
        "why": [
-        "Projected 3.79 shots on goal in 19.9 minutes: 16.9 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 1)",
+        "Projected 3.77 shots on goal in 19.9 minutes: 16.9 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 1)",
         "His rates per 60 minutes: 9.1 at even strength, 16.5 on the power play, 3.9 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: VAN shots allowed index x1.13; DET rink SOG bias x1.00; scaled toward the team's simulated shots x1.00",
         "Tonight's deployment: pp1: 62% of 288s team PP",
         "Reached 2+ in 9 of his last 10 games (most recent first: 6, 5, 3, 2, 1, 2, 5, 4, 4, 3)",
-        "Script: DET project for 30.5 shots on goal against VAN",
-        "Hit in 84.9% of 20,000 simulated games; the rung is not checked at the book"
+        "Script: DET project for 30.6 shots on goal against VAN",
+        "Hit in 84.5% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       }
@@ -9400,10 +9432,10 @@
      "id": "2026-11-25-VAN-DET-sgp6",
      "kind": "sgp6",
      "title": "6-leg slip",
-     "chance": 0.39,
-     "miss": 0.61,
-     "fair_price": 156,
-     "lift": 1.024,
+     "chance": 0.3854,
+     "miss": 0.6146,
+     "fair_price": 160,
+     "lift": 1.022,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -9414,9 +9446,9 @@
        "label": "Andreas Englund 1+ hits",
        "market": "hits",
        "team": "DET",
-       "prob": 0.8881,
+       "prob": 0.8878,
        "price": null,
-       "fair_price": -794,
+       "fair_price": -791,
        "rung_verified": false,
        "why": [
         "Projected 2.62 hits in 14.4 minutes: 13.2 even strength, 0.0 power play, 1.2 penalty kill (pair 3)",
@@ -9432,17 +9464,17 @@
        "label": "Keegan Kolesar 1+ hits",
        "market": "hits",
        "team": "DET",
-       "prob": 0.8804,
+       "prob": 0.8821,
        "price": null,
-       "fair_price": -736,
+       "fair_price": -748,
        "rung_verified": false,
        "why": [
-        "Projected 2.51 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
+        "Projected 2.49 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
         "His rates per 60 minutes: 15.7 at even strength, 3.1 on the power play, 6.6 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
         "Reached 1+ in 8 of his last 10 games (most recent first: 6, 3, 3, 1, 2, 2, 0, 3, 0, 3)",
         "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
-        "Hit in 88.0% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 88.2% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9450,16 +9482,16 @@
        "label": "DET +1.5 puck line",
        "market": "spread",
        "team": "DET",
-       "prob": 0.8596,
+       "prob": 0.8555,
        "price": null,
-       "fair_price": -612,
+       "fair_price": -592,
        "rung_verified": false,
        "why": [
-        "Simulated score: VAN 2.47, DET 3.92 (total 6.39); DET win 72%, overtime 20%",
-        "VAN: 1.64 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson, Elias Pettersson x0.945",
+        "Simulated score: VAN 2.48, DET 3.91 (total 6.39); DET win 72%, overtime 19%",
+        "VAN: 1.65 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson x0.950",
         "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
-        "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.35 a game) are in the margin",
-        "Hit in 86.0% of 20,000 simulated games; the line is not checked at the book"
+        "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.34 a game) are in the margin",
+        "Hit in 85.5% of 20,000 simulated games; the line is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9467,18 +9499,18 @@
        "label": "Alex DeBrincat 2+ shots on goal",
        "market": "sog",
        "team": "DET",
-       "prob": 0.8489,
+       "prob": 0.845,
        "price": null,
-       "fair_price": -562,
+       "fair_price": -545,
        "rung_verified": false,
        "why": [
-        "Projected 3.79 shots on goal in 19.9 minutes: 16.9 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 1)",
+        "Projected 3.77 shots on goal in 19.9 minutes: 16.9 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 1)",
         "His rates per 60 minutes: 9.1 at even strength, 16.5 on the power play, 3.9 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: VAN shots allowed index x1.13; DET rink SOG bias x1.00; scaled toward the team's simulated shots x1.00",
         "Tonight's deployment: pp1: 62% of 288s team PP",
         "Reached 2+ in 9 of his last 10 games (most recent first: 6, 5, 3, 2, 1, 2, 5, 4, 4, 3)",
-        "Script: DET project for 30.5 shots on goal against VAN",
-        "Hit in 84.9% of 20,000 simulated games; the rung is not checked at the book"
+        "Script: DET project for 30.6 shots on goal against VAN",
+        "Hit in 84.5% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9486,18 +9518,18 @@
        "label": "Moritz Seider 1+ blocked shots",
        "market": "blk",
        "team": "DET",
-       "prob": 0.8325,
+       "prob": 0.8338,
        "price": null,
-       "fair_price": -497,
+       "fair_price": -502,
        "rung_verified": false,
        "why": [
-        "Projected 2.35 blocked shots in 26.4 minutes: 21.2 even strength, 3.0 power play, PP1, 2.2 penalty kill (pair 1)",
+        "Projected 2.33 blocked shots in 26.4 minutes: 21.2 even strength, 3.0 power play, PP1, 2.2 penalty kill (pair 1)",
         "His rates per 60 minutes: 5.7 at even strength, 0.7 on the power play, 10.8 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: VAN shot attempts index x0.90; DET rink blocks bias x0.98",
         "Tonight's deployment: pp1: 62% of 288s team PP",
         "Reached 1+ in 9 of his last 10 games (most recent first: 4, 2, 2, 2, 0, 4, 2, 7, 1, 2)",
         "Script: when DET lead after two periods the score moves its blocked shots +10%, when it trails -8% (DET lead after two in 59% of games)",
-        "Hit in 83.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 83.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9505,16 +9537,16 @@
        "label": "Over 4.5 goals",
        "market": "total",
        "team": null,
-       "prob": 0.8021,
+       "prob": 0.7989,
        "price": null,
-       "fair_price": -405,
+       "fair_price": -397,
        "rung_verified": false,
        "why": [
-        "Simulated score: VAN 2.47, DET 3.92 (total 6.39); DET win 72%, overtime 20%",
-        "VAN: 1.64 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson, Elias Pettersson x0.945",
+        "Simulated score: VAN 2.48, DET 3.91 (total 6.39); DET win 72%, overtime 19%",
+        "VAN: 1.65 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson x0.950",
         "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
         "Total goals: 20% four or fewer, 32% five or six, 48% seven or more. In backtest the model's totals were no better than the base rate",
-        "Hit in 80.2% of 20,000 simulated games; the line is not checked at the book"
+        "Hit in 79.9% of 20,000 simulated games; the line is not checked at the book"
        ],
        "game": "VAN @ DET"
       }
@@ -9524,10 +9556,10 @@
      "id": "2026-11-25-VAN-DET-sgp8",
      "kind": "sgp8",
      "title": "8-leg slip",
-     "chance": 0.2689,
-     "miss": 0.7311,
-     "fair_price": 272,
-     "lift": 1.167,
+     "chance": 0.2681,
+     "miss": 0.7319,
+     "fair_price": 273,
+     "lift": 1.059,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -9538,9 +9570,9 @@
        "label": "Andreas Englund 1+ hits",
        "market": "hits",
        "team": "DET",
-       "prob": 0.8881,
+       "prob": 0.8878,
        "price": null,
-       "fair_price": -794,
+       "fair_price": -791,
        "rung_verified": false,
        "why": [
         "Projected 2.62 hits in 14.4 minutes: 13.2 even strength, 0.0 power play, 1.2 penalty kill (pair 3)",
@@ -9556,17 +9588,36 @@
        "label": "Keegan Kolesar 1+ hits",
        "market": "hits",
        "team": "DET",
-       "prob": 0.8804,
+       "prob": 0.8821,
        "price": null,
-       "fair_price": -736,
+       "fair_price": -748,
        "rung_verified": false,
        "why": [
-        "Projected 2.51 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
+        "Projected 2.49 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
         "His rates per 60 minutes: 15.7 at even strength, 3.1 on the power play, 6.6 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
         "Reached 1+ in 8 of his last 10 games (most recent first: 6, 3, 3, 1, 2, 2, 0, 3, 0, 3)",
         "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
-        "Hit in 88.0% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 88.2% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "VAN @ DET"
+      },
+      {
+       "label": "Elias Pettersson 1+ hits",
+       "market": "hits",
+       "team": "VAN",
+       "prob": 0.8599,
+       "price": null,
+       "fair_price": -614,
+       "rung_verified": false,
+       "why": [
+        "Projected 2.29 hits in 17.3 minutes: 14.8 even strength, 0.0 power play, 2.5 penalty kill (pair 3)",
+        "His rates per 60 minutes: 7.2 at even strength, 0.4 on the power play, 5.3 shorthanded (26 games this season, shrunk toward his position's rate)",
+        "Adjustments: hits taken by DET index x1.11; DET rink hits bias x1.00",
+        "Tonight's deployment: d3 tonight, usually d2 minutes: -82s EV",
+        "Reached 1+ in 8 of his last 10 games (most recent first: 4, 2, 1, 4, 1, 0, 1, 3, 0, 4)",
+        "Script: when VAN lead after two periods the score moves its hits -4%, when it trails +5% (VAN lead after two in 22% of games)",
+        "Hit in 86.0% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9574,34 +9625,16 @@
        "label": "DET +1.5 puck line",
        "market": "spread",
        "team": "DET",
-       "prob": 0.8596,
+       "prob": 0.8555,
        "price": null,
-       "fair_price": -612,
+       "fair_price": -592,
        "rung_verified": false,
        "why": [
-        "Simulated score: VAN 2.47, DET 3.92 (total 6.39); DET win 72%, overtime 20%",
-        "VAN: 1.64 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson, Elias Pettersson x0.945",
+        "Simulated score: VAN 2.48, DET 3.91 (total 6.39); DET win 72%, overtime 19%",
+        "VAN: 1.65 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson x0.950",
         "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
-        "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.35 a game) are in the margin",
-        "Hit in 86.0% of 20,000 simulated games; the line is not checked at the book"
-       ],
-       "game": "VAN @ DET"
-      },
-      {
-       "label": "Jacob Quillan 1+ hits",
-       "market": "hits",
-       "team": "VAN",
-       "prob": 0.854,
-       "price": null,
-       "fair_price": -585,
-       "rung_verified": false,
-       "why": [
-        "Projected 2.22 hits in 11.6 minutes: 11.1 even strength, 0.0 power play, 0.5 penalty kill (line 4)",
-        "His rates per 60 minutes: 10.4 at even strength, 0.6 on the power play, 2.3 shorthanded (5 games this season, shrunk toward his position's rate)",
-        "Adjustments: hits taken by DET index x1.11; DET rink hits bias x1.00",
-        "Reached 1+ in 10 of his last 10 games (most recent first: 4, 4, 1, 2, 1, 3, 6, 3, 1, 4)",
-        "Script: when VAN lead after two periods the score moves its hits -4%, when it trails +5% (VAN lead after two in 22% of games)",
-        "Hit in 85.4% of 20,000 simulated games; the rung is not checked at the book"
+        "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.34 a game) are in the margin",
+        "Hit in 85.5% of 20,000 simulated games; the line is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9609,18 +9642,18 @@
        "label": "Alex DeBrincat 2+ shots on goal",
        "market": "sog",
        "team": "DET",
-       "prob": 0.8489,
+       "prob": 0.845,
        "price": null,
-       "fair_price": -562,
+       "fair_price": -545,
        "rung_verified": false,
        "why": [
-        "Projected 3.79 shots on goal in 19.9 minutes: 16.9 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 1)",
+        "Projected 3.77 shots on goal in 19.9 minutes: 16.9 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 1)",
         "His rates per 60 minutes: 9.1 at even strength, 16.5 on the power play, 3.9 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: VAN shots allowed index x1.13; DET rink SOG bias x1.00; scaled toward the team's simulated shots x1.00",
         "Tonight's deployment: pp1: 62% of 288s team PP",
         "Reached 2+ in 9 of his last 10 games (most recent first: 6, 5, 3, 2, 1, 2, 5, 4, 4, 3)",
-        "Script: DET project for 30.5 shots on goal against VAN",
-        "Hit in 84.9% of 20,000 simulated games; the rung is not checked at the book"
+        "Script: DET project for 30.6 shots on goal against VAN",
+        "Hit in 84.5% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9628,18 +9661,18 @@
        "label": "Moritz Seider 1+ blocked shots",
        "market": "blk",
        "team": "DET",
-       "prob": 0.8325,
+       "prob": 0.8338,
        "price": null,
-       "fair_price": -497,
+       "fair_price": -502,
        "rung_verified": false,
        "why": [
-        "Projected 2.35 blocked shots in 26.4 minutes: 21.2 even strength, 3.0 power play, PP1, 2.2 penalty kill (pair 1)",
+        "Projected 2.33 blocked shots in 26.4 minutes: 21.2 even strength, 3.0 power play, PP1, 2.2 penalty kill (pair 1)",
         "His rates per 60 minutes: 5.7 at even strength, 0.7 on the power play, 10.8 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: VAN shot attempts index x0.90; DET rink blocks bias x0.98",
         "Tonight's deployment: pp1: 62% of 288s team PP",
         "Reached 1+ in 9 of his last 10 games (most recent first: 4, 2, 2, 2, 0, 4, 2, 7, 1, 2)",
         "Script: when DET lead after two periods the score moves its blocked shots +10%, when it trails -8% (DET lead after two in 59% of games)",
-        "Hit in 83.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 83.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
@@ -9647,34 +9680,35 @@
        "label": "Over 4.5 goals",
        "market": "total",
        "team": null,
-       "prob": 0.8021,
+       "prob": 0.7989,
        "price": null,
-       "fair_price": -405,
+       "fair_price": -397,
        "rung_verified": false,
        "why": [
-        "Simulated score: VAN 2.47, DET 3.92 (total 6.39); DET win 72%, overtime 20%",
-        "VAN: 1.64 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson, Elias Pettersson x0.945",
+        "Simulated score: VAN 2.48, DET 3.91 (total 6.39); DET win 72%, overtime 19%",
+        "VAN: 1.65 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson x0.950",
         "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
         "Total goals: 20% four or fewer, 32% five or six, 48% seven or more. In backtest the model's totals were no better than the base rate",
-        "Hit in 80.2% of 20,000 simulated games; the line is not checked at the book"
+        "Hit in 79.9% of 20,000 simulated games; the line is not checked at the book"
        ],
        "game": "VAN @ DET"
       },
       {
-       "label": "Lucas Raymond 1+ points",
-       "market": "pts",
+       "label": "Viktor Arvidsson 2+ shots on goal",
+       "market": "sog",
        "team": "DET",
-       "prob": 0.7079,
+       "prob": 0.7805,
        "price": null,
-       "fair_price": -242,
+       "fair_price": -356,
        "rung_verified": false,
        "why": [
-        "Projected 1.23 points in 19.6 minutes: 16.4 even strength, 3.0 power play, PP1, 0.2 penalty kill (line 1)",
-        "DET expected goals 3.69 before empty net and overtime (0.91 of it on the power play), against Leevi Merilainen (GSAx -0.19 per 60)",
-        "His share: 0.73 expected goals and 1.31 assists per 60 at even strength, 1.70 and 4.12 on the power play; on the ice for 2.9 team expected goals per 60",
+        "Projected 3.14 shots on goal in 18.5 minutes: 15.6 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 2)",
+        "His rates per 60 minutes: 8.4 at even strength, 12.8 on the power play, 3.5 shorthanded (23 games this season, shrunk toward his position's rate)",
+        "Adjustments: VAN shots allowed index x1.13; DET rink SOG bias x1.00; scaled toward the team's simulated shots x1.00",
         "Tonight's deployment: pp1: 62% of 288s team PP",
-        "Reached 1+ in 7 of his last 10 games (most recent first: 0, 1, 2, 1, 2, 0, 0, 1, 1, 2)",
-        "Hit in 70.8% of 20,000 simulated games; the rung is not checked at the book"
+        "Reached 2+ in 6 of his last 10 games (most recent first: 2, 5, 1, 1, 4, 3, 4, 1, 5, 1)",
+        "Script: DET project for 30.6 shots on goal against VAN",
+        "Hit in 78.1% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       }
@@ -9684,10 +9718,10 @@
      "id": "2026-11-25-VAN-DET-atg",
      "kind": "atg",
      "title": "Anytime goal scorer",
-     "chance": 0.159,
-     "miss": 0.8409,
-     "fair_price": 529,
-     "lift": 0.965,
+     "chance": 0.1619,
+     "miss": 0.8381,
+     "fair_price": 518,
+     "lift": 0.985,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -9698,9 +9732,9 @@
        "label": "Alex DeBrincat anytime goal scorer",
        "market": "goals",
        "team": "DET",
-       "prob": 0.4074,
+       "prob": 0.4071,
        "price": null,
-       "fair_price": 145,
+       "fair_price": 146,
        "rung_verified": false,
        "why": [
         "Projected 0.52 goals in 19.9 minutes: 16.9 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 1)",
@@ -9717,9 +9751,9 @@
        "label": "Viktor Arvidsson anytime goal scorer",
        "market": "goals",
        "team": "DET",
-       "prob": 0.4047,
+       "prob": 0.4036,
        "price": null,
-       "fair_price": 147,
+       "fair_price": 148,
        "rung_verified": false,
        "why": [
         "Projected 0.52 goals in 18.5 minutes: 15.6 even strength, 3.0 power play, PP1, 0.0 penalty kill (line 2)",
@@ -9728,7 +9762,7 @@
         "Finishing 0.99 goals per expected goal (shrunk hard toward 1.00)",
         "Tonight's deployment: pp1: 62% of 288s team PP",
         "Reached 1+ in 0 of his last 10 games (most recent first: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)",
-        "Hit in 40.5% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 40.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "VAN @ DET"
       }
@@ -9744,13 +9778,13 @@
      "toi_min": 27.7,
      "line": "d1",
      "pp": "pp1",
-     "sog": 1.67,
-     "pts": 0.54,
-     "goals": 0.08,
-     "ast": 0.45,
+     "sog": 1.63,
+     "pts": 0.53,
+     "goals": 0.09,
+     "ast": 0.44,
      "hits": 1.87,
-     "blk": 1.41,
-     "atg": 0.081
+     "blk": 1.43,
+     "atg": 0.0839
     },
     {
      "player": "Moritz Seider",
@@ -9759,13 +9793,13 @@
      "toi_min": 26.4,
      "line": "d1",
      "pp": "pp1",
-     "sog": 2.23,
-     "pts": 0.85,
+     "sog": 2.22,
+     "pts": 0.86,
      "goals": 0.12,
      "ast": 0.74,
      "hits": 1.5,
-     "blk": 2.35,
-     "atg": 0.1111
+     "blk": 2.33,
+     "atg": 0.1104
     },
     {
      "player": "Zeev Buium",
@@ -9774,13 +9808,13 @@
      "toi_min": 23.4,
      "line": "d1",
      "pp": "pp2",
-     "sog": 1.23,
-     "pts": 0.3,
-     "goals": 0.08,
+     "sog": 1.22,
+     "pts": 0.29,
+     "goals": 0.07,
      "ast": 0.22,
      "hits": 0.45,
-     "blk": 0.91,
-     "atg": 0.0732
+     "blk": 0.93,
+     "atg": 0.0687
     },
     {
      "player": "Justin Faulk",
@@ -9789,13 +9823,13 @@
      "toi_min": 22.2,
      "line": "d2",
      "pp": "pp2",
-     "sog": 1.82,
+     "sog": 1.84,
      "pts": 0.49,
      "goals": 0.13,
      "ast": 0.36,
-     "hits": 1.0,
-     "blk": 1.7,
-     "atg": 0.118
+     "hits": 0.99,
+     "blk": 1.69,
+     "atg": 0.1178
     },
     {
      "player": "Ben Chiarot",
@@ -9807,10 +9841,10 @@
      "sog": 1.43,
      "pts": 0.24,
      "goals": 0.07,
-     "ast": 0.18,
+     "ast": 0.17,
      "hits": 1.7,
-     "blk": 1.76,
-     "atg": 0.0649
+     "blk": 1.73,
+     "atg": 0.0652
     },
     {
      "player": "Brock Boeser",
@@ -9819,13 +9853,13 @@
      "toi_min": 20.7,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.15,
+     "sog": 2.12,
      "pts": 0.75,
      "goals": 0.26,
      "ast": 0.49,
      "hits": 1.11,
      "blk": 0.49,
-     "atg": 0.2293
+     "atg": 0.2288
     },
     {
      "player": "Emmitt Finnie",
@@ -9834,13 +9868,13 @@
      "toi_min": 20.1,
      "line": "f2",
      "pp": "pp1",
-     "sog": 2.42,
+     "sog": 2.44,
      "pts": 0.87,
      "goals": 0.42,
      "ast": 0.45,
      "hits": 1.52,
      "blk": 0.62,
-     "atg": 0.3408
+     "atg": 0.3438
     },
     {
      "player": "Alex DeBrincat",
@@ -9849,13 +9883,13 @@
      "toi_min": 19.9,
      "line": "f1",
      "pp": "pp1",
-     "sog": 3.79,
+     "sog": 3.77,
      "pts": 1.17,
      "goals": 0.52,
      "ast": 0.65,
      "hits": 0.83,
-     "blk": 0.56,
-     "atg": 0.4074
+     "blk": 0.58,
+     "atg": 0.4071
     },
     {
      "player": "Filip Chytil",
@@ -9864,13 +9898,13 @@
      "toi_min": 19.8,
      "line": "f1",
      "pp": "pp2",
-     "sog": 2.19,
-     "pts": 0.54,
+     "sog": 2.12,
+     "pts": 0.53,
      "goals": 0.25,
      "ast": 0.29,
-     "hits": 0.8,
+     "hits": 0.79,
      "blk": 0.67,
-     "atg": 0.2233
+     "atg": 0.2202
     },
     {
      "player": "Tom Willander",
@@ -9879,13 +9913,13 @@
      "toi_min": 19.8,
      "line": "d2",
      "pp": null,
-     "sog": 1.01,
+     "sog": 0.99,
      "pts": 0.23,
      "goals": 0.04,
      "ast": 0.18,
      "hits": 0.7,
-     "blk": 1.14,
-     "atg": 0.0413
+     "blk": 1.17,
+     "atg": 0.0437
     },
     {
      "player": "Lucas Raymond",
@@ -9894,13 +9928,13 @@
      "toi_min": 19.6,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.68,
-     "pts": 1.23,
+     "sog": 2.67,
+     "pts": 1.24,
      "goals": 0.39,
      "ast": 0.84,
      "hits": 0.64,
-     "blk": 0.36,
-     "atg": 0.3278
+     "blk": 0.35,
+     "atg": 0.3257
     },
     {
      "player": "Andrew Copp",
@@ -9909,13 +9943,13 @@
      "toi_min": 19.6,
      "line": "f1",
      "pp": "pp2",
-     "sog": 1.95,
-     "pts": 0.96,
+     "sog": 1.96,
+     "pts": 0.97,
      "goals": 0.3,
-     "ast": 0.66,
+     "ast": 0.67,
      "hits": 0.85,
-     "blk": 0.78,
-     "atg": 0.2616
+     "blk": 0.77,
+     "atg": 0.2626
     },
     {
      "player": "Viktor Arvidsson",
@@ -9925,12 +9959,12 @@
      "line": "f2",
      "pp": "pp1",
      "sog": 3.14,
-     "pts": 1.12,
+     "pts": 1.1,
      "goals": 0.52,
-     "ast": 0.6,
-     "hits": 0.45,
-     "blk": 0.51,
-     "atg": 0.4047
+     "ast": 0.59,
+     "hits": 0.46,
+     "blk": 0.5,
+     "atg": 0.4036
     },
     {
      "player": "Jake DeBrusk",
@@ -9939,13 +9973,13 @@
      "toi_min": 17.9,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.61,
-     "pts": 0.58,
-     "goals": 0.31,
+     "sog": 2.56,
+     "pts": 0.57,
+     "goals": 0.3,
      "ast": 0.27,
      "hits": 1.29,
      "blk": 0.45,
-     "atg": 0.2668
+     "atg": 0.2603
     },
     {
      "player": "Albert Johansson",
@@ -9955,12 +9989,12 @@
      "line": "d2",
      "pp": null,
      "sog": 1.15,
-     "pts": 0.25,
+     "pts": 0.24,
      "goals": 0.06,
-     "ast": 0.19,
-     "hits": 0.68,
-     "blk": 1.2,
-     "atg": 0.0592
+     "ast": 0.18,
+     "hits": 0.67,
+     "blk": 1.19,
+     "atg": 0.0585
     },
     {
      "player": "Jamie Oleksiak",
@@ -9973,9 +10007,24 @@
      "pts": 0.22,
      "goals": 0.04,
      "ast": 0.18,
-     "hits": 1.79,
-     "blk": 1.3,
-     "atg": 0.0418
+     "hits": 1.78,
+     "blk": 1.29,
+     "atg": 0.0407
+    },
+    {
+     "player": "Elias Pettersson",
+     "team": "VAN",
+     "pos": "D",
+     "toi_min": 17.3,
+     "line": "d3",
+     "pp": null,
+     "sog": 0.87,
+     "pts": 0.12,
+     "goals": 0.04,
+     "ast": 0.09,
+     "hits": 2.29,
+     "blk": 1.38,
+     "atg": 0.0389
     },
     {
      "player": "Jonathan Lekkerim\u00e4ki",
@@ -9984,13 +10033,13 @@
      "toi_min": 16.6,
      "line": "f2",
      "pp": "pp1",
-     "sog": 1.82,
+     "sog": 1.78,
      "pts": 0.54,
-     "goals": 0.2,
-     "ast": 0.34,
-     "hits": 1.15,
-     "blk": 0.26,
-     "atg": 0.1828
+     "goals": 0.21,
+     "ast": 0.33,
+     "hits": 1.14,
+     "blk": 0.27,
+     "atg": 0.1873
     },
     {
      "player": "Marco Kasper",
@@ -9999,13 +10048,13 @@
      "toi_min": 16.4,
      "line": "f2",
      "pp": "pp2",
-     "sog": 2.3,
-     "pts": 0.67,
+     "sog": 2.31,
+     "pts": 0.66,
      "goals": 0.31,
      "ast": 0.36,
-     "hits": 2.19,
+     "hits": 2.21,
      "blk": 0.63,
-     "atg": 0.2666
+     "atg": 0.2665
     },
     {
      "player": "J.T. Compher",
@@ -10014,13 +10063,13 @@
      "toi_min": 16.4,
      "line": "f3",
      "pp": "pp2",
-     "sog": 1.66,
+     "sog": 1.65,
      "pts": 0.59,
      "goals": 0.24,
      "ast": 0.35,
-     "hits": 0.41,
-     "blk": 0.55,
-     "atg": 0.2105
+     "hits": 0.42,
+     "blk": 0.56,
+     "atg": 0.2109
     },
     {
      "player": "Marco Rossi",
@@ -10029,13 +10078,13 @@
      "toi_min": 16.1,
      "line": "f2",
      "pp": "pp1",
-     "sog": 1.7,
-     "pts": 0.5,
+     "sog": 1.67,
+     "pts": 0.49,
      "goals": 0.18,
-     "ast": 0.32,
-     "hits": 1.22,
+     "ast": 0.31,
+     "hits": 1.23,
      "blk": 0.36,
-     "atg": 0.1647
+     "atg": 0.1644
     },
     {
      "player": "Liam Ohgren",
@@ -10044,13 +10093,13 @@
      "toi_min": 15.3,
      "line": "f2",
      "pp": "pp2",
-     "sog": 1.75,
-     "pts": 0.4,
-     "goals": 0.17,
-     "ast": 0.23,
-     "hits": 1.52,
+     "sog": 1.7,
+     "pts": 0.39,
+     "goals": 0.16,
+     "ast": 0.22,
+     "hits": 1.53,
      "blk": 0.47,
-     "atg": 0.1585
+     "atg": 0.1499
     },
     {
      "player": "Linus Karlsson",
@@ -10059,13 +10108,13 @@
      "toi_min": 14.9,
      "line": "f3",
      "pp": "pp2",
-     "sog": 1.79,
+     "sog": 1.75,
      "pts": 0.48,
-     "goals": 0.21,
-     "ast": 0.27,
+     "goals": 0.22,
+     "ast": 0.26,
      "hits": 1.47,
      "blk": 0.28,
-     "atg": 0.1907
+     "atg": 0.1944
     },
     {
      "player": "Paul Cotter",
@@ -10074,13 +10123,13 @@
      "toi_min": 14.5,
      "line": "f4",
      "pp": "pp2",
-     "sog": 1.24,
-     "pts": 0.35,
-     "goals": 0.17,
-     "ast": 0.19,
-     "hits": 3.39,
-     "blk": 0.25,
-     "atg": 0.1538
+     "sog": 1.23,
+     "pts": 0.34,
+     "goals": 0.16,
+     "ast": 0.18,
+     "hits": 3.37,
+     "blk": 0.24,
+     "atg": 0.1478
     },
     {
      "player": "Andreas Englund",
@@ -10089,13 +10138,13 @@
      "toi_min": 14.4,
      "line": "d3",
      "pp": null,
-     "sog": 0.76,
-     "pts": 0.15,
+     "sog": 0.74,
+     "pts": 0.14,
      "goals": 0.04,
-     "ast": 0.11,
+     "ast": 0.1,
      "hits": 2.62,
      "blk": 0.91,
-     "atg": 0.0401
+     "atg": 0.0402
     },
     {
      "player": "Michael Brandsegg-Nyg\u00e5rd",
@@ -10104,13 +10153,13 @@
      "toi_min": 14.3,
      "line": "f3",
      "pp": null,
-     "sog": 1.77,
+     "sog": 1.78,
      "pts": 0.56,
      "goals": 0.29,
      "ast": 0.27,
-     "hits": 4.1,
-     "blk": 0.3,
-     "atg": 0.253
+     "hits": 4.13,
+     "blk": 0.31,
+     "atg": 0.251
     },
     {
      "player": "Drew O'Connor",
@@ -10119,13 +10168,13 @@
      "toi_min": 13.9,
      "line": "f3",
      "pp": null,
-     "sog": 1.46,
+     "sog": 1.42,
      "pts": 0.34,
      "goals": 0.17,
      "ast": 0.17,
-     "hits": 1.33,
+     "hits": 1.35,
      "blk": 0.37,
-     "atg": 0.1557
+     "atg": 0.154
     },
     {
      "player": "Anton Johansson",
@@ -10134,13 +10183,13 @@
      "toi_min": 13.4,
      "line": "d3",
      "pp": null,
-     "sog": 1.09,
+     "sog": 1.11,
      "pts": 0.25,
      "goals": 0.06,
      "ast": 0.2,
-     "hits": 1.11,
-     "blk": 0.87,
-     "atg": 0.0562
+     "hits": 1.12,
+     "blk": 0.88,
+     "atg": 0.0556
     },
     {
      "player": "Luke Schenn",
@@ -10149,13 +10198,13 @@
      "toi_min": 11.9,
      "line": "d3",
      "pp": null,
-     "sog": 0.65,
+     "sog": 0.64,
      "pts": 0.13,
-     "goals": 0.02,
-     "ast": 0.11,
+     "goals": 0.03,
+     "ast": 0.1,
      "hits": 2.82,
-     "blk": 0.98,
-     "atg": 0.0237
+     "blk": 0.97,
+     "atg": 0.0255
     },
     {
      "player": "Ty Mueller",
@@ -10164,13 +10213,13 @@
      "toi_min": 11.8,
      "line": "f3",
      "pp": null,
-     "sog": 1.16,
-     "pts": 0.34,
+     "sog": 1.14,
+     "pts": 0.32,
      "goals": 0.13,
      "ast": 0.2,
      "hits": 1.19,
-     "blk": 0.5,
-     "atg": 0.127
+     "blk": 0.49,
+     "atg": 0.1199
     },
     {
      "player": "Michael Rasmussen",
@@ -10179,13 +10228,13 @@
      "toi_min": 11.6,
      "line": "f4",
      "pp": null,
-     "sog": 1.28,
+     "sog": 1.27,
      "pts": 0.37,
      "goals": 0.18,
      "ast": 0.18,
-     "hits": 1.2,
-     "blk": 0.75,
-     "atg": 0.1668
+     "hits": 1.19,
+     "blk": 0.76,
+     "atg": 0.1648
     },
     {
      "player": "Jacob Quillan",
@@ -10194,13 +10243,13 @@
      "toi_min": 11.6,
      "line": "f4",
      "pp": null,
-     "sog": 1.0,
+     "sog": 0.98,
      "pts": 0.31,
-     "goals": 0.11,
-     "ast": 0.2,
-     "hits": 2.22,
+     "goals": 0.1,
+     "ast": 0.21,
+     "hits": 2.19,
      "blk": 0.39,
-     "atg": 0.1021
+     "atg": 0.0998
     },
     {
      "player": "Carter Mazur",
@@ -10209,13 +10258,13 @@
      "toi_min": 9.9,
      "line": "f4",
      "pp": null,
-     "sog": 1.01,
+     "sog": 1.03,
      "pts": 0.42,
      "goals": 0.15,
-     "ast": 0.28,
-     "hits": 1.28,
-     "blk": 0.31,
-     "atg": 0.1371
+     "ast": 0.27,
+     "hits": 1.26,
+     "blk": 0.3,
+     "atg": 0.1365
     },
     {
      "player": "Keegan Kolesar",
@@ -10224,13 +10273,13 @@
      "toi_min": 9.8,
      "line": "f4",
      "pp": null,
-     "sog": 0.79,
+     "sog": 0.8,
      "pts": 0.27,
      "goals": 0.1,
      "ast": 0.17,
-     "hits": 2.51,
+     "hits": 2.49,
      "blk": 0.43,
-     "atg": 0.0957
+     "atg": 0.0955
     }
    ]
   },
@@ -10244,10 +10293,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "DAL starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "DAL lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "NSH starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "NSH lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "DAL starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "DAL lines are stale: legs that depend on it are re-run once it is confirmed",
+    "NSH starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "NSH lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "DAL": {
@@ -10414,12 +10463,12 @@
     "DAL": {
      "name": "Jake Oettinger",
      "expected": 21.24,
-     "pull_prob": 0.0285
+     "pull_prob": 0.0283
     },
     "NSH": {
      "name": "Juuse Saros",
-     "expected": 24.59,
-     "pull_prob": 0.051
+     "expected": 24.6,
+     "pull_prob": 0.0503
     }
    },
    "tickets": [
@@ -10427,10 +10476,10 @@
      "id": "2026-11-25-NSH-DAL-sgp4",
      "kind": "sgp4",
      "title": "4-leg slip",
-     "chance": 0.52,
-     "miss": 0.48,
-     "fair_price": -108,
-     "lift": 1.007,
+     "chance": 0.5171,
+     "miss": 0.4829,
+     "fair_price": -107,
+     "lift": 1.005,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -10441,9 +10490,9 @@
        "label": "Jayden Struble 1+ hits",
        "market": "hits",
        "team": "NSH",
-       "prob": 0.8683,
+       "prob": 0.868,
        "price": null,
-       "fair_price": -660,
+       "fair_price": -658,
        "rung_verified": false,
        "why": [
         "Projected 2.37 hits in 15.5 minutes: 15.2 even strength, 0.0 power play, 0.3 penalty kill (pair 3)",
@@ -10456,21 +10505,21 @@
        "game": "NSH @ DAL"
       },
       {
-       "label": "Reid Schaefer 1+ hits",
+       "label": "Ross Colton 1+ hits",
        "market": "hits",
        "team": "NSH",
-       "prob": 0.8612,
+       "prob": 0.8577,
        "price": null,
-       "fair_price": -621,
+       "fair_price": -603,
        "rung_verified": false,
        "why": [
-        "Projected 2.30 hits in 11.7 minutes: 11.0 even strength, 0.0 power play, 0.7 penalty kill (line 3)",
-        "His rates per 60 minutes: 11.6 at even strength, 0.6 on the power play, 0.8 shorthanded (16 games this season, shrunk toward his position's rate)",
+        "Projected 2.26 hits in 12.1 minutes: 12.1 even strength, 0.1 power play, 0.0 penalty kill (line 4)",
+        "His rates per 60 minutes: 10.5 at even strength, 1.8 on the power play, 1.2 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by DAL index x1.03; DAL rink hits bias x1.03",
-        "Tonight's deployment: f3 tonight, usually f4 minutes: +40s EV",
-        "Reached 1+ in 9 of his last 10 games (most recent first: 2, 0, 2, 1, 2, 1, 3, 5, 1, 4)",
+        "Tonight's deployment: f4 tonight, usually f3 minutes: -40s EV",
+        "Reached 1+ in 8 of his last 10 games (most recent first: 3, 3, 4, 5, 2, 0, 1, 0, 1, 1)",
         "Script: when NSH lead after two periods the score moves its hits -4%, when it trails +4% (NSH lead after two in 34% of games)",
-        "Hit in 86.1% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 85.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NSH @ DAL"
       },
@@ -10517,10 +10566,10 @@
      "id": "2026-11-25-NSH-DAL-sgp6",
      "kind": "sgp6",
      "title": "6-leg slip",
-     "chance": 0.3148,
-     "miss": 0.6852,
-     "fair_price": 218,
-     "lift": 1.038,
+     "chance": 0.3155,
+     "miss": 0.6845,
+     "fair_price": 217,
+     "lift": 1.045,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -10531,9 +10580,9 @@
        "label": "Jayden Struble 1+ hits",
        "market": "hits",
        "team": "NSH",
-       "prob": 0.8683,
+       "prob": 0.868,
        "price": null,
-       "fair_price": -660,
+       "fair_price": -658,
        "rung_verified": false,
        "why": [
         "Projected 2.37 hits in 15.5 minutes: 15.2 even strength, 0.0 power play, 0.3 penalty kill (pair 3)",
@@ -10546,21 +10595,21 @@
        "game": "NSH @ DAL"
       },
       {
-       "label": "Reid Schaefer 1+ hits",
+       "label": "Ross Colton 1+ hits",
        "market": "hits",
        "team": "NSH",
-       "prob": 0.8612,
+       "prob": 0.8577,
        "price": null,
-       "fair_price": -621,
+       "fair_price": -603,
        "rung_verified": false,
        "why": [
-        "Projected 2.30 hits in 11.7 minutes: 11.0 even strength, 0.0 power play, 0.7 penalty kill (line 3)",
-        "His rates per 60 minutes: 11.6 at even strength, 0.6 on the power play, 0.8 shorthanded (16 games this season, shrunk toward his position's rate)",
+        "Projected 2.26 hits in 12.1 minutes: 12.1 even strength, 0.1 power play, 0.0 penalty kill (line 4)",
+        "His rates per 60 minutes: 10.5 at even strength, 1.8 on the power play, 1.2 shorthanded (23 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by DAL index x1.03; DAL rink hits bias x1.03",
-        "Tonight's deployment: f3 tonight, usually f4 minutes: +40s EV",
-        "Reached 1+ in 9 of his last 10 games (most recent first: 2, 0, 2, 1, 2, 1, 3, 5, 1, 4)",
+        "Tonight's deployment: f4 tonight, usually f3 minutes: -40s EV",
+        "Reached 1+ in 8 of his last 10 games (most recent first: 3, 3, 4, 5, 2, 0, 1, 0, 1, 1)",
         "Script: when NSH lead after two periods the score moves its hits -4%, when it trails +4% (NSH lead after two in 34% of games)",
-        "Hit in 86.1% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 85.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NSH @ DAL"
       },
@@ -10641,10 +10690,10 @@
      "id": "2026-11-25-NSH-DAL-sgp8",
      "kind": "sgp8",
      "title": "8-leg slip",
-     "chance": 0.2094,
-     "miss": 0.7905,
-     "fair_price": 377,
-     "lift": 1.075,
+     "chance": 0.2081,
+     "miss": 0.7919,
+     "fair_price": 381,
+     "lift": 1.071,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -10655,9 +10704,9 @@
        "label": "Jayden Struble 1+ hits",
        "market": "hits",
        "team": "NSH",
-       "prob": 0.8683,
+       "prob": 0.868,
        "price": null,
-       "fair_price": -660,
+       "fair_price": -658,
        "rung_verified": false,
        "why": [
         "Projected 2.37 hits in 15.5 minutes: 15.2 even strength, 0.0 power play, 0.3 penalty kill (pair 3)",
@@ -10670,31 +10719,12 @@
        "game": "NSH @ DAL"
       },
       {
-       "label": "Reid Schaefer 1+ hits",
-       "market": "hits",
-       "team": "NSH",
-       "prob": 0.8612,
-       "price": null,
-       "fair_price": -621,
-       "rung_verified": false,
-       "why": [
-        "Projected 2.30 hits in 11.7 minutes: 11.0 even strength, 0.0 power play, 0.7 penalty kill (line 3)",
-        "His rates per 60 minutes: 11.6 at even strength, 0.6 on the power play, 0.8 shorthanded (16 games this season, shrunk toward his position's rate)",
-        "Adjustments: hits taken by DAL index x1.03; DAL rink hits bias x1.03",
-        "Tonight's deployment: f3 tonight, usually f4 minutes: +40s EV",
-        "Reached 1+ in 9 of his last 10 games (most recent first: 2, 0, 2, 1, 2, 1, 3, 5, 1, 4)",
-        "Script: when NSH lead after two periods the score moves its hits -4%, when it trails +4% (NSH lead after two in 34% of games)",
-        "Hit in 86.1% of 20,000 simulated games; the rung is not checked at the book"
-       ],
-       "game": "NSH @ DAL"
-      },
-      {
        "label": "Ross Colton 1+ hits",
        "market": "hits",
        "team": "NSH",
-       "prob": 0.8559,
+       "prob": 0.8577,
        "price": null,
-       "fair_price": -594,
+       "fair_price": -603,
        "rung_verified": false,
        "why": [
         "Projected 2.26 hits in 12.1 minutes: 12.1 even strength, 0.1 power play, 0.0 penalty kill (line 4)",
@@ -10703,7 +10733,26 @@
         "Tonight's deployment: f4 tonight, usually f3 minutes: -40s EV",
         "Reached 1+ in 8 of his last 10 games (most recent first: 3, 3, 4, 5, 2, 0, 1, 0, 1, 1)",
         "Script: when NSH lead after two periods the score moves its hits -4%, when it trails +4% (NSH lead after two in 34% of games)",
-        "Hit in 85.6% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 85.8% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "NSH @ DAL"
+      },
+      {
+       "label": "Reid Schaefer 1+ hits",
+       "market": "hits",
+       "team": "NSH",
+       "prob": 0.8573,
+       "price": null,
+       "fair_price": -601,
+       "rung_verified": false,
+       "why": [
+        "Projected 2.28 hits in 11.7 minutes: 11.0 even strength, 0.0 power play, 0.7 penalty kill (line 3)",
+        "His rates per 60 minutes: 11.6 at even strength, 0.6 on the power play, 0.8 shorthanded (16 games this season, shrunk toward his position's rate)",
+        "Adjustments: hits taken by DAL index x1.03; DAL rink hits bias x1.03",
+        "Tonight's deployment: f3 tonight, usually f4 minutes: +40s EV",
+        "Reached 1+ in 9 of his last 10 games (most recent first: 2, 0, 2, 1, 2, 1, 3, 5, 1, 4)",
+        "Script: when NSH lead after two periods the score moves its hits -4%, when it trails +4% (NSH lead after two in 34% of games)",
+        "Hit in 85.7% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "NSH @ DAL"
       },
@@ -10878,13 +10927,13 @@
      "toi_min": 25.6,
      "line": "d1",
      "pp": "pp1",
-     "sog": 2.34,
-     "pts": 0.63,
+     "sog": 2.28,
+     "pts": 0.6,
      "goals": 0.14,
-     "ast": 0.49,
+     "ast": 0.47,
      "hits": 0.54,
      "blk": 1.39,
-     "atg": 0.1346
+     "atg": 0.129
     },
     {
      "player": "Thomas Harley",
@@ -10923,13 +10972,13 @@
      "toi_min": 21.1,
      "line": "d2",
      "pp": "pp2",
-     "sog": 1.16,
-     "pts": 0.35,
+     "sog": 1.14,
+     "pts": 0.33,
      "goals": 0.06,
-     "ast": 0.29,
+     "ast": 0.27,
      "hits": 0.93,
      "blk": 1.06,
-     "atg": 0.0569
+     "atg": 0.0568
     },
     {
      "player": "Adam Wilsby",
@@ -10938,13 +10987,13 @@
      "toi_min": 21.0,
      "line": "d1",
      "pp": null,
-     "sog": 1.2,
-     "pts": 0.35,
+     "sog": 1.18,
+     "pts": 0.33,
      "goals": 0.07,
-     "ast": 0.28,
-     "hits": 0.67,
+     "ast": 0.27,
+     "hits": 0.68,
      "blk": 1.04,
-     "atg": 0.0668
+     "atg": 0.064
     },
     {
      "player": "Ryan O'Reilly",
@@ -10953,13 +11002,13 @@
      "toi_min": 19.9,
      "line": "f1",
      "pp": "pp1",
-     "sog": 1.76,
-     "pts": 0.74,
-     "goals": 0.24,
-     "ast": 0.5,
+     "sog": 1.73,
+     "pts": 0.69,
+     "goals": 0.23,
+     "ast": 0.46,
      "hits": 0.42,
      "blk": 0.73,
-     "atg": 0.2147
+     "atg": 0.2069
     },
     {
      "player": "Nils Lundkvist",
@@ -10998,13 +11047,13 @@
      "toi_min": 19.1,
      "line": "f2",
      "pp": "pp1",
-     "sog": 2.47,
-     "pts": 0.76,
-     "goals": 0.31,
-     "ast": 0.45,
-     "hits": 1.46,
+     "sog": 2.44,
+     "pts": 0.72,
+     "goals": 0.29,
+     "ast": 0.42,
+     "hits": 1.47,
      "blk": 0.41,
-     "atg": 0.2626
+     "atg": 0.2552
     },
     {
      "player": "Nick Perbix",
@@ -11013,13 +11062,13 @@
      "toi_min": 18.7,
      "line": "d2",
      "pp": null,
-     "sog": 0.92,
-     "pts": 0.21,
+     "sog": 0.91,
+     "pts": 0.2,
      "goals": 0.07,
-     "ast": 0.15,
-     "hits": 0.38,
-     "blk": 1.19,
-     "atg": 0.0655
+     "ast": 0.14,
+     "hits": 0.37,
+     "blk": 1.18,
+     "atg": 0.0637
     },
     {
      "player": "Steven Stamkos",
@@ -11028,13 +11077,13 @@
      "toi_min": 18.6,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.34,
-     "pts": 0.71,
-     "goals": 0.35,
-     "ast": 0.36,
-     "hits": 1.01,
-     "blk": 0.45,
-     "atg": 0.2963
+     "sog": 2.3,
+     "pts": 0.68,
+     "goals": 0.33,
+     "ast": 0.34,
+     "hits": 1.0,
+     "blk": 0.46,
+     "atg": 0.2828
     },
     {
      "player": "Jason Robertson",
@@ -11097,19 +11146,34 @@
      "atg": 0.2559
     },
     {
+     "player": "Alexander Kerfoot",
+     "team": "NSH",
+     "pos": "F",
+     "toi_min": 16.7,
+     "line": "f3",
+     "pp": "pp2",
+     "sog": 1.13,
+     "pts": 0.38,
+     "goals": 0.13,
+     "ast": 0.24,
+     "hits": 1.0,
+     "blk": 0.77,
+     "atg": 0.1228
+    },
+    {
      "player": "Mavrik Bourque",
      "team": "NSH",
      "pos": "F",
      "toi_min": 16.4,
      "line": "f1",
      "pp": "pp2",
-     "sog": 1.78,
-     "pts": 0.53,
+     "sog": 1.74,
+     "pts": 0.5,
      "goals": 0.2,
-     "ast": 0.32,
-     "hits": 1.1,
+     "ast": 0.31,
+     "hits": 1.09,
      "blk": 0.22,
-     "atg": 0.1842
+     "atg": 0.1792
     },
     {
      "player": "Justin Hryckowian",
@@ -11133,13 +11197,13 @@
      "toi_min": 16.1,
      "line": "f3",
      "pp": "pp1",
-     "sog": 2.0,
-     "pts": 0.46,
-     "goals": 0.2,
+     "sog": 1.95,
+     "pts": 0.45,
+     "goals": 0.19,
      "ast": 0.26,
-     "hits": 1.21,
+     "hits": 1.22,
      "blk": 0.15,
-     "atg": 0.1798
+     "atg": 0.17
     },
     {
      "player": "Nicolas Hague",
@@ -11148,13 +11212,13 @@
      "toi_min": 15.8,
      "line": "d3",
      "pp": null,
-     "sog": 0.79,
+     "sog": 0.77,
      "pts": 0.19,
      "goals": 0.04,
-     "ast": 0.16,
-     "hits": 1.17,
+     "ast": 0.15,
+     "hits": 1.16,
      "blk": 0.78,
-     "atg": 0.0383
+     "atg": 0.0352
     },
     {
      "player": "Jayden Struble",
@@ -11163,13 +11227,13 @@
      "toi_min": 15.5,
      "line": "d3",
      "pp": null,
-     "sog": 0.65,
-     "pts": 0.21,
+     "sog": 0.63,
+     "pts": 0.19,
      "goals": 0.05,
      "ast": 0.15,
      "hits": 2.37,
-     "blk": 0.87,
-     "atg": 0.0508
+     "blk": 0.88,
+     "atg": 0.0456
     },
     {
      "player": "Arttu Hyry",
@@ -11193,13 +11257,13 @@
      "toi_min": 15.1,
      "line": "f2",
      "pp": "pp2",
-     "sog": 1.46,
-     "pts": 0.44,
-     "goals": 0.19,
-     "ast": 0.25,
-     "hits": 0.82,
+     "sog": 1.43,
+     "pts": 0.42,
+     "goals": 0.18,
+     "ast": 0.23,
+     "hits": 0.83,
      "blk": 0.71,
-     "atg": 0.1724
+     "atg": 0.1671
     },
     {
      "player": "Jack Drury",
@@ -11208,13 +11272,13 @@
      "toi_min": 15.0,
      "line": "f4",
      "pp": null,
-     "sog": 1.07,
-     "pts": 0.36,
-     "goals": 0.13,
-     "ast": 0.23,
-     "hits": 0.55,
-     "blk": 0.73,
-     "atg": 0.1193
+     "sog": 1.04,
+     "pts": 0.33,
+     "goals": 0.11,
+     "ast": 0.22,
+     "hits": 0.56,
+     "blk": 0.74,
+     "atg": 0.1074
     },
     {
      "player": "Nils Hoglander",
@@ -11223,13 +11287,13 @@
      "toi_min": 14.5,
      "line": "f2",
      "pp": "pp2",
-     "sog": 1.61,
-     "pts": 0.47,
-     "goals": 0.19,
-     "ast": 0.28,
-     "hits": 1.27,
+     "sog": 1.56,
+     "pts": 0.45,
+     "goals": 0.18,
+     "ast": 0.27,
+     "hits": 1.28,
      "blk": 0.36,
-     "atg": 0.1764
+     "atg": 0.1688
     },
     {
      "player": "Tyler Seguin",
@@ -11268,13 +11332,13 @@
      "toi_min": 13.6,
      "line": "f4",
      "pp": null,
-     "sog": 1.26,
-     "pts": 0.31,
+     "sog": 1.23,
+     "pts": 0.29,
      "goals": 0.18,
-     "ast": 0.13,
-     "hits": 3.01,
+     "ast": 0.12,
+     "hits": 3.0,
      "blk": 0.7,
-     "atg": 0.1674
+     "atg": 0.1628
     },
     {
      "player": "Radek Faksa",
@@ -11298,13 +11362,13 @@
      "toi_min": 12.1,
      "line": "f4",
      "pp": null,
-     "sog": 1.62,
-     "pts": 0.4,
-     "goals": 0.2,
-     "ast": 0.2,
+     "sog": 1.57,
+     "pts": 0.38,
+     "goals": 0.18,
+     "ast": 0.19,
      "hits": 2.26,
-     "blk": 0.46,
-     "atg": 0.1795
+     "blk": 0.47,
+     "atg": 0.1683
     },
     {
      "player": "David Perron",
@@ -11360,11 +11424,11 @@
      "pp": null,
      "sog": 1.03,
      "pts": 0.26,
-     "goals": 0.12,
-     "ast": 0.14,
-     "hits": 2.3,
-     "blk": 0.58,
-     "atg": 0.1103
+     "goals": 0.11,
+     "ast": 0.15,
+     "hits": 2.28,
+     "blk": 0.57,
+     "atg": 0.1035
     },
     {
      "player": "Trey Taylor",
@@ -11393,10 +11457,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "MIN starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "MIN lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "UTA starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "UTA lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "MIN starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "MIN lines are stale: legs that depend on it are re-run once it is confirmed",
+    "UTA starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "UTA lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "MIN": {
@@ -12558,10 +12622,10 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "COL starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "COL lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "MTL starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "MTL lines are stale: legs that depend on it are shown as a preview and will be re-run"
+    "COL starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "COL lines are stale: legs that depend on it are re-run once it is confirmed",
+    "MTL starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "MTL lines are stale: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "COL": {
@@ -12731,13 +12795,13 @@
    "saves": {
     "COL": {
      "name": "Mackenzie Blackwood",
-     "expected": 23.89,
-     "pull_prob": 0.0282
+     "expected": 23.9,
+     "pull_prob": 0.0262
     },
     "MTL": {
      "name": "Jacob Fowler",
-     "expected": 25.7,
-     "pull_prob": 0.0566
+     "expected": 25.71,
+     "pull_prob": 0.0558
     }
    },
    "tickets": [
@@ -12745,10 +12809,10 @@
      "id": "2026-11-25-MTL-COL-sgp4",
      "kind": "sgp4",
      "title": "4-leg slip",
-     "chance": 0.5278,
-     "miss": 0.4722,
-     "fair_price": -112,
-     "lift": 1.009,
+     "chance": 0.5262,
+     "miss": 0.4738,
+     "fair_price": -111,
+     "lift": 1.005,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -12759,17 +12823,17 @@
        "label": "Arber Xhekaj 1+ hits",
        "market": "hits",
        "team": "MTL",
-       "prob": 0.8922,
+       "prob": 0.8928,
        "price": null,
-       "fair_price": -828,
+       "fair_price": -833,
        "rung_verified": false,
        "why": [
-        "Projected 2.68 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (pair 3)",
+        "Projected 2.67 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (pair 3)",
         "His rates per 60 minutes: 11.4 at even strength, 0.5 on the power play, 13.9 shorthanded (24 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
         "Reached 1+ in 9 of his last 10 games (most recent first: 2, 2, 6, 3, 4, 5, 4, 4, 1, 0)",
         "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 32% of games)",
-        "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 89.3% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       },
@@ -12777,9 +12841,9 @@
        "label": "Kaiden Guhle 1+ hits",
        "market": "hits",
        "team": "MTL",
-       "prob": 0.8776,
+       "prob": 0.878,
        "price": null,
-       "fair_price": -717,
+       "fair_price": -719,
        "rung_verified": false,
        "why": [
         "Projected 2.46 hits in 22.8 minutes: 19.8 even strength, 0.0 power play, 3.0 penalty kill (pair 1)",
@@ -12796,18 +12860,18 @@
        "label": "Alexandre Carrier 1+ blocked shots",
        "market": "blk",
        "team": "MTL",
-       "prob": 0.8389,
+       "prob": 0.8371,
        "price": null,
-       "fair_price": -521,
+       "fair_price": -514,
        "rung_verified": false,
        "why": [
-        "Projected 2.38 blocked shots in 22.3 minutes: 19.1 even strength, 0.0 power play, 3.2 penalty kill (pair 2)",
+        "Projected 2.37 blocked shots in 22.3 minutes: 19.1 even strength, 0.0 power play, 3.2 penalty kill (pair 2)",
         "His rates per 60 minutes: 5.4 at even strength, 0.8 on the power play, 8.9 shorthanded (25 games this season, shrunk toward his position's rate)",
         "Adjustments: COL shot attempts index x1.11; COL rink blocks bias x1.01",
         "Tonight's deployment: d2 tonight, usually d3 minutes: +112s EV",
         "Reached 1+ in 10 of his last 10 games (most recent first: 1, 1, 2, 5, 1, 1, 1, 3, 1, 2)",
         "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 32% of games)",
-        "Hit in 83.9% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 83.7% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       },
@@ -12815,9 +12879,9 @@
        "label": "Noah Dobson 1+ blocked shots",
        "market": "blk",
        "team": "MTL",
-       "prob": 0.7963,
+       "prob": 0.7983,
        "price": null,
-       "fair_price": -391,
+       "fair_price": -396,
        "rung_verified": false,
        "why": [
         "Projected 2.01 blocked shots in 22.8 minutes: 19.2 even strength, 1.9 power play, PP2, 1.7 penalty kill (pair 1)",
@@ -12826,7 +12890,7 @@
         "Tonight's deployment: d1 tonight, usually d2 minutes: +74s EV, pp2: 38% of 302s team PP",
         "Reached 1+ in 7 of his last 10 games (most recent first: 1, 0, 0, 2, 1, 1, 1, 1, 3, 0)",
         "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 32% of games)",
-        "Hit in 79.6% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 79.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       }
@@ -12836,10 +12900,10 @@
      "id": "2026-11-25-MTL-COL-sgp6",
      "kind": "sgp6",
      "title": "6-leg slip",
-     "chance": 0.3233,
-     "miss": 0.6767,
-     "fair_price": 209,
-     "lift": 1.025,
+     "chance": 0.321,
+     "miss": 0.679,
+     "fair_price": 212,
+     "lift": 1.022,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -12850,17 +12914,17 @@
        "label": "Arber Xhekaj 1+ hits",
        "market": "hits",
        "team": "MTL",
-       "prob": 0.8922,
+       "prob": 0.8928,
        "price": null,
-       "fair_price": -828,
+       "fair_price": -833,
        "rung_verified": false,
        "why": [
-        "Projected 2.68 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (pair 3)",
+        "Projected 2.67 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (pair 3)",
         "His rates per 60 minutes: 11.4 at even strength, 0.5 on the power play, 13.9 shorthanded (24 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
         "Reached 1+ in 9 of his last 10 games (most recent first: 2, 2, 6, 3, 4, 5, 4, 4, 1, 0)",
         "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 32% of games)",
-        "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 89.3% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       },
@@ -12868,9 +12932,9 @@
        "label": "Kaiden Guhle 1+ hits",
        "market": "hits",
        "team": "MTL",
-       "prob": 0.8776,
+       "prob": 0.878,
        "price": null,
-       "fair_price": -717,
+       "fair_price": -719,
        "rung_verified": false,
        "why": [
         "Projected 2.46 hits in 22.8 minutes: 19.8 even strength, 0.0 power play, 3.0 penalty kill (pair 1)",
@@ -12887,18 +12951,18 @@
        "label": "Alexandre Carrier 1+ blocked shots",
        "market": "blk",
        "team": "MTL",
-       "prob": 0.8389,
+       "prob": 0.8371,
        "price": null,
-       "fair_price": -521,
+       "fair_price": -514,
        "rung_verified": false,
        "why": [
-        "Projected 2.38 blocked shots in 22.3 minutes: 19.1 even strength, 0.0 power play, 3.2 penalty kill (pair 2)",
+        "Projected 2.37 blocked shots in 22.3 minutes: 19.1 even strength, 0.0 power play, 3.2 penalty kill (pair 2)",
         "His rates per 60 minutes: 5.4 at even strength, 0.8 on the power play, 8.9 shorthanded (25 games this season, shrunk toward his position's rate)",
         "Adjustments: COL shot attempts index x1.11; COL rink blocks bias x1.01",
         "Tonight's deployment: d2 tonight, usually d3 minutes: +112s EV",
         "Reached 1+ in 10 of his last 10 games (most recent first: 1, 1, 2, 5, 1, 1, 1, 3, 1, 2)",
         "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 32% of games)",
-        "Hit in 83.9% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 83.7% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       },
@@ -12906,9 +12970,9 @@
        "label": "Noah Dobson 1+ blocked shots",
        "market": "blk",
        "team": "MTL",
-       "prob": 0.7963,
+       "prob": 0.7983,
        "price": null,
-       "fair_price": -391,
+       "fair_price": -396,
        "rung_verified": false,
        "why": [
         "Projected 2.01 blocked shots in 22.8 minutes: 19.2 even strength, 1.9 power play, PP2, 1.7 penalty kill (pair 1)",
@@ -12917,26 +12981,7 @@
         "Tonight's deployment: d1 tonight, usually d2 minutes: +74s EV, pp2: 38% of 302s team PP",
         "Reached 1+ in 7 of his last 10 games (most recent first: 1, 0, 0, 2, 1, 1, 1, 1, 3, 0)",
         "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 32% of games)",
-        "Hit in 79.6% of 20,000 simulated games; the rung is not checked at the book"
-       ],
-       "game": "MTL @ COL"
-      },
-      {
-       "label": "Cole Caufield 2+ shots on goal",
-       "market": "sog",
-       "team": "MTL",
-       "prob": 0.7779,
-       "price": null,
-       "fair_price": -350,
-       "rung_verified": false,
-       "why": [
-        "Projected 3.22 shots on goal in 19.6 minutes: 16.4 even strength, 3.2 power play, PP1, 0.0 penalty kill (line 1)",
-        "His rates per 60 minutes: 8.8 at even strength, 13.9 on the power play, 3.5 shorthanded (25 games this season, shrunk toward his position's rate)",
-        "Adjustments: COL shots allowed index x0.99; COL rink SOG bias x1.00; scaled toward the team's simulated shots x0.98",
-        "Tonight's deployment: f1 tonight, usually f2 minutes: +69s EV, pp1: 62% of 302s team PP, plus part of his surplus",
-        "Reached 2+ in 8 of his last 10 games (most recent first: 1, 3, 6, 1, 2, 4, 4, 2, 3, 6)",
-        "Script: MTL project for 26.7 shots on goal against COL",
-        "Hit in 77.8% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 79.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       },
@@ -12956,6 +13001,25 @@
         "Hit in 77.5% of 20,000 simulated games; the line is not checked at the book"
        ],
        "game": "MTL @ COL"
+      },
+      {
+       "label": "Cole Caufield 2+ shots on goal",
+       "market": "sog",
+       "team": "MTL",
+       "prob": 0.7732,
+       "price": null,
+       "fair_price": -341,
+       "rung_verified": false,
+       "why": [
+        "Projected 3.14 shots on goal in 19.6 minutes: 16.4 even strength, 3.2 power play, PP1, 0.0 penalty kill (line 1)",
+        "His rates per 60 minutes: 8.8 at even strength, 13.9 on the power play, 3.5 shorthanded (25 games this season, shrunk toward his position's rate)",
+        "Adjustments: COL shots allowed index x0.99; COL rink SOG bias x1.00; scaled toward the team's simulated shots x0.96",
+        "Tonight's deployment: f1 tonight, usually f2 minutes: +69s EV, pp1: 62% of 302s team PP, plus part of his surplus",
+        "Reached 2+ in 8 of his last 10 games (most recent first: 1, 3, 6, 1, 2, 4, 4, 2, 3, 6)",
+        "Script: MTL project for 26.7 shots on goal against COL",
+        "Hit in 77.3% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "MTL @ COL"
       }
      ]
     },
@@ -12963,10 +13027,10 @@
      "id": "2026-11-25-MTL-COL-sgp8",
      "kind": "sgp8",
      "title": "8-leg slip",
-     "chance": 0.2121,
-     "miss": 0.7879,
-     "fair_price": 371,
-     "lift": 1.046,
+     "chance": 0.2145,
+     "miss": 0.7854,
+     "fair_price": 366,
+     "lift": 1.057,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -12977,17 +13041,35 @@
        "label": "Arber Xhekaj 1+ hits",
        "market": "hits",
        "team": "MTL",
-       "prob": 0.8922,
+       "prob": 0.8928,
        "price": null,
-       "fair_price": -828,
+       "fair_price": -833,
        "rung_verified": false,
        "why": [
-        "Projected 2.68 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (pair 3)",
+        "Projected 2.67 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (pair 3)",
         "His rates per 60 minutes: 11.4 at even strength, 0.5 on the power play, 13.9 shorthanded (24 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
         "Reached 1+ in 9 of his last 10 games (most recent first: 2, 2, 6, 3, 4, 5, 4, 4, 1, 0)",
         "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 32% of games)",
-        "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 89.3% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "MTL @ COL"
+      },
+      {
+       "label": "Florian Xhekaj 1+ hits",
+       "market": "hits",
+       "team": "MTL",
+       "prob": 0.8443,
+       "price": null,
+       "fair_price": -542,
+       "rung_verified": false,
+       "why": [
+        "Projected 2.14 hits in 7.8 minutes: 7.8 even strength, 0.0 power play, 0.0 penalty kill (line 4)",
+        "His rates per 60 minutes: 15.4 at even strength, 0.6 on the power play, 1.3 shorthanded (11 games this season, shrunk toward his position's rate)",
+        "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
+        "Reached 1+ in 9 of his last 10 games (most recent first: 5, 5, 5, 2, 3, 2, 4, 1, 6, 0)",
+        "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 32% of games)",
+        "Hit in 84.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       },
@@ -13013,35 +13095,17 @@
        "label": "Alexandre Carrier 1+ blocked shots",
        "market": "blk",
        "team": "MTL",
-       "prob": 0.8389,
+       "prob": 0.8371,
        "price": null,
-       "fair_price": -521,
+       "fair_price": -514,
        "rung_verified": false,
        "why": [
-        "Projected 2.38 blocked shots in 22.3 minutes: 19.1 even strength, 0.0 power play, 3.2 penalty kill (pair 2)",
+        "Projected 2.37 blocked shots in 22.3 minutes: 19.1 even strength, 0.0 power play, 3.2 penalty kill (pair 2)",
         "His rates per 60 minutes: 5.4 at even strength, 0.8 on the power play, 8.9 shorthanded (25 games this season, shrunk toward his position's rate)",
         "Adjustments: COL shot attempts index x1.11; COL rink blocks bias x1.01",
         "Tonight's deployment: d2 tonight, usually d3 minutes: +112s EV",
         "Reached 1+ in 10 of his last 10 games (most recent first: 1, 1, 2, 5, 1, 1, 1, 3, 1, 2)",
         "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 32% of games)",
-        "Hit in 83.9% of 20,000 simulated games; the rung is not checked at the book"
-       ],
-       "game": "MTL @ COL"
-      },
-      {
-       "label": "Florian Xhekaj 1+ hits",
-       "market": "hits",
-       "team": "MTL",
-       "prob": 0.837,
-       "price": null,
-       "fair_price": -513,
-       "rung_verified": false,
-       "why": [
-        "Projected 2.13 hits in 7.8 minutes: 7.8 even strength, 0.0 power play, 0.0 penalty kill (line 4)",
-        "His rates per 60 minutes: 15.4 at even strength, 0.6 on the power play, 1.3 shorthanded (11 games this season, shrunk toward his position's rate)",
-        "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
-        "Reached 1+ in 9 of his last 10 games (most recent first: 5, 5, 5, 2, 3, 2, 4, 1, 6, 0)",
-        "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 32% of games)",
         "Hit in 83.7% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
@@ -13050,18 +13114,18 @@
        "label": "Kaiden Guhle 1+ blocked shots",
        "market": "blk",
        "team": "MTL",
-       "prob": 0.8007,
+       "prob": 0.7988,
        "price": null,
-       "fair_price": -402,
+       "fair_price": -397,
        "rung_verified": false,
        "why": [
-        "Projected 2.07 blocked shots in 22.8 minutes: 19.8 even strength, 0.0 power play, 3.0 penalty kill (pair 1)",
+        "Projected 2.05 blocked shots in 22.8 minutes: 19.8 even strength, 0.0 power play, 3.0 penalty kill (pair 1)",
         "His rates per 60 minutes: 4.5 at even strength, 0.8 on the power play, 7.8 shorthanded (21 games this season, shrunk toward his position's rate)",
         "Adjustments: COL shot attempts index x1.11; COL rink blocks bias x1.01",
         "Tonight's deployment: d1 tonight, usually d2 minutes: +74s EV",
         "Reached 1+ in 8 of his last 10 games (most recent first: 0, 0, 4, 2, 1, 3, 5, 1, 1, 2)",
         "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 32% of games)",
-        "Hit in 80.1% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 79.9% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       },
@@ -13069,9 +13133,9 @@
        "label": "Noah Dobson 1+ blocked shots",
        "market": "blk",
        "team": "MTL",
-       "prob": 0.7963,
+       "prob": 0.7983,
        "price": null,
-       "fair_price": -391,
+       "fair_price": -396,
        "rung_verified": false,
        "why": [
         "Projected 2.01 blocked shots in 22.8 minutes: 19.2 even strength, 1.9 power play, PP2, 1.7 penalty kill (pair 1)",
@@ -13080,26 +13144,7 @@
         "Tonight's deployment: d1 tonight, usually d2 minutes: +74s EV, pp2: 38% of 302s team PP",
         "Reached 1+ in 7 of his last 10 games (most recent first: 1, 0, 0, 2, 1, 1, 1, 1, 3, 0)",
         "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 32% of games)",
-        "Hit in 79.6% of 20,000 simulated games; the rung is not checked at the book"
-       ],
-       "game": "MTL @ COL"
-      },
-      {
-       "label": "Cole Caufield 2+ shots on goal",
-       "market": "sog",
-       "team": "MTL",
-       "prob": 0.7779,
-       "price": null,
-       "fair_price": -350,
-       "rung_verified": false,
-       "why": [
-        "Projected 3.22 shots on goal in 19.6 minutes: 16.4 even strength, 3.2 power play, PP1, 0.0 penalty kill (line 1)",
-        "His rates per 60 minutes: 8.8 at even strength, 13.9 on the power play, 3.5 shorthanded (25 games this season, shrunk toward his position's rate)",
-        "Adjustments: COL shots allowed index x0.99; COL rink SOG bias x1.00; scaled toward the team's simulated shots x0.98",
-        "Tonight's deployment: f1 tonight, usually f2 minutes: +69s EV, pp1: 62% of 302s team PP, plus part of his surplus",
-        "Reached 2+ in 8 of his last 10 games (most recent first: 1, 3, 6, 1, 2, 4, 4, 2, 3, 6)",
-        "Script: MTL project for 26.7 shots on goal against COL",
-        "Hit in 77.8% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 79.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       },
@@ -13119,6 +13164,25 @@
         "Hit in 77.5% of 20,000 simulated games; the line is not checked at the book"
        ],
        "game": "MTL @ COL"
+      },
+      {
+       "label": "Cole Caufield 2+ shots on goal",
+       "market": "sog",
+       "team": "MTL",
+       "prob": 0.7732,
+       "price": null,
+       "fair_price": -341,
+       "rung_verified": false,
+       "why": [
+        "Projected 3.14 shots on goal in 19.6 minutes: 16.4 even strength, 3.2 power play, PP1, 0.0 penalty kill (line 1)",
+        "His rates per 60 minutes: 8.8 at even strength, 13.9 on the power play, 3.5 shorthanded (25 games this season, shrunk toward his position's rate)",
+        "Adjustments: COL shots allowed index x0.99; COL rink SOG bias x1.00; scaled toward the team's simulated shots x0.96",
+        "Tonight's deployment: f1 tonight, usually f2 minutes: +69s EV, pp1: 62% of 302s team PP, plus part of his surplus",
+        "Reached 2+ in 8 of his last 10 games (most recent first: 1, 3, 6, 1, 2, 4, 4, 2, 3, 6)",
+        "Script: MTL project for 26.7 shots on goal against COL",
+        "Hit in 77.3% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "MTL @ COL"
       }
      ]
     },
@@ -13126,10 +13190,10 @@
      "id": "2026-11-25-MTL-COL-atg",
      "kind": "atg",
      "title": "Anytime goal scorer",
-     "chance": 0.1149,
-     "miss": 0.8851,
-     "fair_price": 770,
-     "lift": 0.985,
+     "chance": 0.1116,
+     "miss": 0.8883,
+     "fair_price": 796,
+     "lift": 0.976,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -13159,18 +13223,18 @@
        "label": "Cole Caufield anytime goal scorer",
        "market": "goals",
        "team": "MTL",
-       "prob": 0.3154,
+       "prob": 0.3092,
        "price": null,
-       "fair_price": 217,
+       "fair_price": 223,
        "rung_verified": false,
        "why": [
-        "Projected 0.38 goals in 19.6 minutes: 16.4 even strength, 3.2 power play, PP1, 0.0 penalty kill (line 1)",
+        "Projected 0.37 goals in 19.6 minutes: 16.4 even strength, 3.2 power play, PP1, 0.0 penalty kill (line 1)",
         "MTL expected goals 2.52 before empty net and overtime (0.52 of it on the power play), against Mackenzie Blackwood (GSAx +0.10 per 60)",
         "His share: 1.05 expected goals and 0.99 assists per 60 at even strength, 2.11 and 2.85 on the power play; on the ice for 3.3 team expected goals per 60",
         "Finishing 1.13 goals per expected goal (shrunk hard toward 1.00)",
         "Tonight's deployment: f1 tonight, usually f2 minutes: +69s EV, pp1: 62% of 302s team PP, plus part of his surplus",
         "Reached 1+ in 2 of his last 10 games (most recent first: 0, 0, 0, 0, 0, 0, 1, 0, 0, 1)",
-        "Hit in 31.5% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 30.9% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "MTL @ COL"
       }
@@ -13186,13 +13250,13 @@
      "toi_min": 24.9,
      "line": "d2",
      "pp": "pp1",
-     "sog": 1.94,
-     "pts": 0.69,
-     "goals": 0.12,
-     "ast": 0.56,
+     "sog": 1.87,
+     "pts": 0.65,
+     "goals": 0.11,
+     "ast": 0.54,
      "hits": 0.47,
-     "blk": 1.8,
-     "atg": 0.1155
+     "blk": 1.79,
+     "atg": 0.1071
     },
     {
      "player": "Devon Toews",
@@ -13216,13 +13280,13 @@
      "toi_min": 22.8,
      "line": "d1",
      "pp": "pp2",
-     "sog": 1.95,
-     "pts": 0.43,
-     "goals": 0.1,
-     "ast": 0.33,
+     "sog": 1.9,
+     "pts": 0.41,
+     "goals": 0.09,
+     "ast": 0.31,
      "hits": 0.98,
      "blk": 2.01,
-     "atg": 0.095
+     "atg": 0.0889
     },
     {
      "player": "Kaiden Guhle",
@@ -13231,13 +13295,13 @@
      "toi_min": 22.8,
      "line": "d1",
      "pp": null,
-     "sog": 1.21,
-     "pts": 0.27,
-     "goals": 0.06,
+     "sog": 1.2,
+     "pts": 0.26,
+     "goals": 0.05,
      "ast": 0.21,
      "hits": 2.46,
-     "blk": 2.07,
-     "atg": 0.0553
+     "blk": 2.05,
+     "atg": 0.0527
     },
     {
      "player": "Alexandre Carrier",
@@ -13246,13 +13310,13 @@
      "toi_min": 22.3,
      "line": "d2",
      "pp": null,
-     "sog": 0.92,
-     "pts": 0.24,
-     "goals": 0.05,
+     "sog": 0.88,
+     "pts": 0.23,
+     "goals": 0.04,
      "ast": 0.19,
      "hits": 0.91,
-     "blk": 2.38,
-     "atg": 0.0462
+     "blk": 2.37,
+     "atg": 0.0431
     },
     {
      "player": "Sam Malinski",
@@ -13276,13 +13340,13 @@
      "toi_min": 20.1,
      "line": "f2",
      "pp": "pp1",
-     "sog": 2.88,
-     "pts": 0.69,
-     "goals": 0.31,
-     "ast": 0.38,
+     "sog": 2.78,
+     "pts": 0.64,
+     "goals": 0.28,
+     "ast": 0.36,
      "hits": 0.7,
-     "blk": 0.53,
-     "atg": 0.2652
+     "blk": 0.54,
+     "atg": 0.2462
     },
     {
      "player": "Nick Suzuki",
@@ -13291,13 +13355,13 @@
      "toi_min": 20.1,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.35,
-     "pts": 0.91,
-     "goals": 0.3,
-     "ast": 0.61,
-     "hits": 1.11,
-     "blk": 0.73,
-     "atg": 0.2604
+     "sog": 2.26,
+     "pts": 0.86,
+     "goals": 0.29,
+     "ast": 0.57,
+     "hits": 1.09,
+     "blk": 0.72,
+     "atg": 0.2501
     },
     {
      "player": "Artturi Lehkonen",
@@ -13321,13 +13385,13 @@
      "toi_min": 19.6,
      "line": "f1",
      "pp": "pp1",
-     "sog": 3.22,
-     "pts": 0.77,
-     "goals": 0.38,
-     "ast": 0.39,
+     "sog": 3.14,
+     "pts": 0.73,
+     "goals": 0.37,
+     "ast": 0.37,
      "hits": 0.94,
      "blk": 0.29,
-     "atg": 0.3154
+     "atg": 0.3092
     },
     {
      "player": "Martin Necas",
@@ -13366,13 +13430,13 @@
      "toi_min": 18.8,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.29,
-     "pts": 0.76,
-     "goals": 0.29,
-     "ast": 0.47,
+     "sog": 2.21,
+     "pts": 0.71,
+     "goals": 0.27,
+     "ast": 0.44,
      "hits": 1.31,
-     "blk": 1.11,
-     "atg": 0.2503
+     "blk": 1.12,
+     "atg": 0.2371
     },
     {
      "player": "Brock Nelson",
@@ -13426,13 +13490,13 @@
      "toi_min": 16.8,
      "line": "f2",
      "pp": "pp2",
-     "sog": 1.67,
-     "pts": 0.51,
-     "goals": 0.24,
-     "ast": 0.28,
-     "hits": 1.14,
+     "sog": 1.64,
+     "pts": 0.49,
+     "goals": 0.22,
+     "ast": 0.27,
+     "hits": 1.13,
      "blk": 0.73,
-     "atg": 0.2096
+     "atg": 0.1978
     },
     {
      "player": "Jake Evans",
@@ -13441,13 +13505,13 @@
      "toi_min": 16.5,
      "line": "f3",
      "pp": null,
-     "sog": 1.27,
-     "pts": 0.36,
-     "goals": 0.17,
-     "ast": 0.2,
+     "sog": 1.22,
+     "pts": 0.37,
+     "goals": 0.16,
+     "ast": 0.21,
      "hits": 1.11,
      "blk": 0.71,
-     "atg": 0.1522
+     "atg": 0.1469
     },
     {
      "player": "Phillip Danault",
@@ -13456,13 +13520,13 @@
      "toi_min": 16.3,
      "line": "f3",
      "pp": null,
-     "sog": 1.44,
-     "pts": 0.32,
+     "sog": 1.39,
+     "pts": 0.33,
      "goals": 0.14,
-     "ast": 0.18,
+     "ast": 0.19,
      "hits": 0.88,
-     "blk": 0.63,
-     "atg": 0.1333
+     "blk": 0.64,
+     "atg": 0.1275
     },
     {
      "player": "Gabriel Landeskog",
@@ -13478,6 +13542,21 @@
      "hits": 1.33,
      "blk": 0.6,
      "atg": 0.2614
+    },
+    {
+     "player": "Zachary Bolduc",
+     "team": "MTL",
+     "pos": "F",
+     "toi_min": 15.2,
+     "line": "f3",
+     "pp": "pp2",
+     "sog": 1.63,
+     "pts": 0.37,
+     "goals": 0.17,
+     "ast": 0.2,
+     "hits": 2.06,
+     "blk": 0.53,
+     "atg": 0.1582
     },
     {
      "player": "T.J. Hughes",
@@ -13501,13 +13580,13 @@
      "toi_min": 14.9,
      "line": "f2",
      "pp": "pp2",
-     "sog": 1.88,
-     "pts": 0.42,
-     "goals": 0.18,
-     "ast": 0.24,
-     "hits": 1.29,
+     "sog": 1.82,
+     "pts": 0.39,
+     "goals": 0.16,
+     "ast": 0.23,
+     "hits": 1.3,
      "blk": 0.44,
-     "atg": 0.1643
+     "atg": 0.1469
     },
     {
      "player": "Jaden Schwartz",
@@ -13591,13 +13670,13 @@
      "toi_min": 12.8,
      "line": "d3",
      "pp": null,
-     "sog": 0.81,
-     "pts": 0.16,
+     "sog": 0.78,
+     "pts": 0.15,
      "goals": 0.05,
-     "ast": 0.11,
-     "hits": 2.68,
-     "blk": 0.84,
-     "atg": 0.0488
+     "ast": 0.1,
+     "hits": 2.67,
+     "blk": 0.85,
+     "atg": 0.0459
     },
     {
      "player": "Adam Engstrom",
@@ -13611,8 +13690,8 @@
      "goals": 0.04,
      "ast": 0.08,
      "hits": 0.36,
-     "blk": 0.65,
-     "atg": 0.0404
+     "blk": 0.67,
+     "atg": 0.0407
     },
     {
      "player": "Fedor Svechkov",
@@ -13636,13 +13715,13 @@
      "toi_min": 10.7,
      "line": "f4",
      "pp": "pp2",
-     "sog": 1.3,
-     "pts": 0.31,
-     "goals": 0.15,
+     "sog": 1.26,
+     "pts": 0.29,
+     "goals": 0.14,
      "ast": 0.15,
      "hits": 0.34,
      "blk": 0.41,
-     "atg": 0.1431
+     "atg": 0.1331
     },
     {
      "player": "Owen Beck",
@@ -13651,13 +13730,13 @@
      "toi_min": 8.8,
      "line": "f4",
      "pp": null,
-     "sog": 0.92,
-     "pts": 0.23,
+     "sog": 0.89,
+     "pts": 0.21,
      "goals": 0.09,
-     "ast": 0.14,
+     "ast": 0.12,
      "hits": 1.69,
      "blk": 0.55,
-     "atg": 0.088
+     "atg": 0.0822
     },
     {
      "player": "Florian Xhekaj",
@@ -13666,13 +13745,13 @@
      "toi_min": 7.8,
      "line": "f4",
      "pp": null,
-     "sog": 0.95,
-     "pts": 0.23,
-     "goals": 0.09,
+     "sog": 0.91,
+     "pts": 0.22,
+     "goals": 0.08,
      "ast": 0.14,
-     "hits": 2.13,
-     "blk": 0.42,
-     "atg": 0.0883
+     "hits": 2.14,
+     "blk": 0.41,
+     "atg": 0.0795
     }
    ]
   },
@@ -13686,9 +13765,9 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "SEA starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "SEA lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "CHI starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run"
+    "SEA starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "SEA lines are stale: legs that depend on it are re-run once it is confirmed",
+    "CHI starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "SEA": {
@@ -13862,13 +13941,13 @@
    "saves": {
     "SEA": {
      "name": "Joey Daccord",
-     "expected": 22.38,
-     "pull_prob": 0.0341
+     "expected": 22.39,
+     "pull_prob": 0.0324
     },
     "CHI": {
      "name": "Spencer Knight",
-     "expected": 24.71,
-     "pull_prob": 0.0491
+     "expected": 24.73,
+     "pull_prob": 0.0457
     }
    },
    "tickets": [
@@ -13876,10 +13955,10 @@
      "id": "2026-11-25-CHI-SEA-sgp4",
      "kind": "sgp4",
      "title": "4-leg slip",
-     "chance": 0.4668,
-     "miss": 0.5332,
-     "fair_price": 114,
-     "lift": 1.02,
+     "chance": 0.4299,
+     "miss": 0.5701,
+     "fair_price": 133,
+     "lift": 1.034,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -13887,39 +13966,39 @@
      "kelly_stake": null,
      "legs": [
       {
-       "label": "Cole Smith 1+ hits",
-       "market": "hits",
-       "team": "CHI",
-       "prob": 0.899,
-       "price": null,
-       "fair_price": -890,
-       "rung_verified": false,
-       "why": [
-        "Projected 2.72 hits in 14.0 minutes: 11.4 even strength, 0.0 power play, 2.6 penalty kill (line 4)",
-        "His rates per 60 minutes: 11.7 at even strength, 0.6 on the power play, 3.8 shorthanded (24 games this season, shrunk toward his position's rate)",
-        "Adjustments: hits taken by SEA index x1.14; SEA rink hits bias x0.99",
-        "Reached 1+ in 9 of his last 10 games (most recent first: 0, 3, 2, 4, 1, 4, 2, 6, 1, 1)",
-        "Script: when CHI lead after two periods the score moves its hits -4%, when it trails +4% (CHI lead after two in 35% of games)",
-        "Hit in 89.9% of 20,000 simulated games; the rung is not checked at the book"
-       ],
-       "game": "CHI @ SEA"
-      },
-      {
        "label": "Bobby McMann 1+ hits",
        "market": "hits",
        "team": "SEA",
-       "prob": 0.8525,
+       "prob": 0.8502,
        "price": null,
-       "fair_price": -578,
+       "fair_price": -568,
        "rung_verified": false,
        "why": [
-        "Projected 2.21 hits in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
+        "Projected 2.23 hits in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
         "His rates per 60 minutes: 8.3 at even strength, 0.9 on the power play, 3.0 shorthanded (21 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
         "Tonight's deployment: pp1: 62% of 295s team PP",
         "Reached 1+ in 10 of his last 10 games (most recent first: 2, 4, 3, 3, 2, 3, 1, 1, 2, 2)",
         "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
-        "Hit in 85.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 85.0% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "CHI @ SEA"
+      },
+      {
+       "label": "Jacob Melanson 2+ hits",
+       "market": "hits",
+       "team": "SEA",
+       "prob": 0.819,
+       "price": null,
+       "fair_price": -452,
+       "rung_verified": false,
+       "why": [
+        "Projected 3.72 hits in 8.8 minutes: 8.6 even strength, 0.0 power play, 0.2 penalty kill (line 4)",
+        "His rates per 60 minutes: 24.7 at even strength, 2.2 on the power play, 1.2 shorthanded (4 games this season, shrunk toward his position's rate)",
+        "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
+        "Reached 2+ in 8 of his last 10 games (most recent first: 3, 4, 7, 3, 7, 6, 8, 0, 3, 0)",
+        "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
+        "Hit in 81.9% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       },
@@ -13963,10 +14042,10 @@
      "id": "2026-11-25-CHI-SEA-sgp6",
      "kind": "sgp6",
      "title": "6-leg slip",
-     "chance": 0.2533,
-     "miss": 0.7467,
-     "fair_price": 295,
-     "lift": 1.007,
+     "chance": 0.2346,
+     "miss": 0.7653,
+     "fair_price": 326,
+     "lift": 1.028,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -13974,39 +14053,39 @@
      "kelly_stake": null,
      "legs": [
       {
-       "label": "Cole Smith 1+ hits",
-       "market": "hits",
-       "team": "CHI",
-       "prob": 0.899,
-       "price": null,
-       "fair_price": -890,
-       "rung_verified": false,
-       "why": [
-        "Projected 2.72 hits in 14.0 minutes: 11.4 even strength, 0.0 power play, 2.6 penalty kill (line 4)",
-        "His rates per 60 minutes: 11.7 at even strength, 0.6 on the power play, 3.8 shorthanded (24 games this season, shrunk toward his position's rate)",
-        "Adjustments: hits taken by SEA index x1.14; SEA rink hits bias x0.99",
-        "Reached 1+ in 9 of his last 10 games (most recent first: 0, 3, 2, 4, 1, 4, 2, 6, 1, 1)",
-        "Script: when CHI lead after two periods the score moves its hits -4%, when it trails +4% (CHI lead after two in 35% of games)",
-        "Hit in 89.9% of 20,000 simulated games; the rung is not checked at the book"
-       ],
-       "game": "CHI @ SEA"
-      },
-      {
        "label": "Bobby McMann 1+ hits",
        "market": "hits",
        "team": "SEA",
-       "prob": 0.8525,
+       "prob": 0.8502,
        "price": null,
-       "fair_price": -578,
+       "fair_price": -568,
        "rung_verified": false,
        "why": [
-        "Projected 2.21 hits in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
+        "Projected 2.23 hits in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
         "His rates per 60 minutes: 8.3 at even strength, 0.9 on the power play, 3.0 shorthanded (21 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
         "Tonight's deployment: pp1: 62% of 295s team PP",
         "Reached 1+ in 10 of his last 10 games (most recent first: 2, 4, 3, 3, 2, 3, 1, 1, 2, 2)",
         "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
-        "Hit in 85.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 85.0% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "CHI @ SEA"
+      },
+      {
+       "label": "Jacob Melanson 2+ hits",
+       "market": "hits",
+       "team": "SEA",
+       "prob": 0.819,
+       "price": null,
+       "fair_price": -452,
+       "rung_verified": false,
+       "why": [
+        "Projected 3.72 hits in 8.8 minutes: 8.6 even strength, 0.0 power play, 0.2 penalty kill (line 4)",
+        "His rates per 60 minutes: 24.7 at even strength, 2.2 on the power play, 1.2 shorthanded (4 games this season, shrunk toward his position's rate)",
+        "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
+        "Reached 2+ in 8 of his last 10 games (most recent first: 3, 4, 7, 3, 7, 6, 8, 0, 3, 0)",
+        "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
+        "Hit in 81.9% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       },
@@ -14048,18 +14127,18 @@
        "label": "Ian Cole 1+ blocked shots",
        "market": "blk",
        "team": "CHI",
-       "prob": 0.7418,
+       "prob": 0.7443,
        "price": null,
-       "fair_price": -287,
+       "fair_price": -291,
        "rung_verified": false,
        "why": [
-        "Projected 1.67 blocked shots in 20.8 minutes: 17.4 even strength, 0.0 power play, 3.3 penalty kill (pair 2)",
+        "Projected 1.69 blocked shots in 20.8 minutes: 17.4 even strength, 0.0 power play, 3.3 penalty kill (pair 2)",
         "His rates per 60 minutes: 5.2 at even strength, 0.8 on the power play, 5.9 shorthanded (24 games this season, shrunk toward his position's rate)",
         "Adjustments: SEA shot attempts index x0.89; SEA rink blocks bias x1.02",
         "Tonight's deployment: d2 tonight, usually d3 minutes: +27s EV",
         "Reached 1+ in 8 of his last 10 games (most recent first: 2, 1, 0, 1, 3, 2, 1, 2, 4, 0)",
         "Script: when CHI lead after two periods the score moves its blocked shots +9%, when it trails -10% (CHI lead after two in 35% of games)",
-        "Hit in 74.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 74.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       },
@@ -14067,18 +14146,18 @@
        "label": "Adam Larsson 1+ blocked shots",
        "market": "blk",
        "team": "SEA",
-       "prob": 0.7409,
+       "prob": 0.7375,
        "price": null,
-       "fair_price": -286,
+       "fair_price": -281,
        "rung_verified": false,
        "why": [
-        "Projected 1.63 blocked shots in 21.6 minutes: 19.3 even strength, 0.0 power play, 2.2 penalty kill (pair 1)",
+        "Projected 1.64 blocked shots in 21.6 minutes: 19.3 even strength, 0.0 power play, 2.2 penalty kill (pair 1)",
         "His rates per 60 minutes: 4.8 at even strength, 0.8 on the power play, 7.9 shorthanded (21 games this season, shrunk toward his position's rate)",
         "Adjustments: CHI shot attempts index x0.85; SEA rink blocks bias x1.02",
         "Tonight's deployment: d1 tonight, usually d2 minutes: +80s EV",
         "Reached 1+ in 6 of his last 10 games (most recent first: 0, 0, 1, 6, 0, 1, 2, 0, 1, 2)",
         "Script: when SEA lead after two periods the score moves its blocked shots +9%, when it trails -9% (SEA lead after two in 42% of games)",
-        "Hit in 74.1% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 73.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       }
@@ -14088,10 +14167,10 @@
      "id": "2026-11-25-CHI-SEA-sgp8",
      "kind": "sgp8",
      "title": "8-leg slip",
-     "chance": 0.1528,
-     "miss": 0.8472,
-     "fair_price": 554,
-     "lift": 1.026,
+     "chance": 0.1338,
+     "miss": 0.8662,
+     "fair_price": 648,
+     "lift": 1.056,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -14099,39 +14178,21 @@
      "kelly_stake": null,
      "legs": [
       {
-       "label": "Cole Smith 1+ hits",
-       "market": "hits",
-       "team": "CHI",
-       "prob": 0.899,
-       "price": null,
-       "fair_price": -890,
-       "rung_verified": false,
-       "why": [
-        "Projected 2.72 hits in 14.0 minutes: 11.4 even strength, 0.0 power play, 2.6 penalty kill (line 4)",
-        "His rates per 60 minutes: 11.7 at even strength, 0.6 on the power play, 3.8 shorthanded (24 games this season, shrunk toward his position's rate)",
-        "Adjustments: hits taken by SEA index x1.14; SEA rink hits bias x0.99",
-        "Reached 1+ in 9 of his last 10 games (most recent first: 0, 3, 2, 4, 1, 4, 2, 6, 1, 1)",
-        "Script: when CHI lead after two periods the score moves its hits -4%, when it trails +4% (CHI lead after two in 35% of games)",
-        "Hit in 89.9% of 20,000 simulated games; the rung is not checked at the book"
-       ],
-       "game": "CHI @ SEA"
-      },
-      {
        "label": "Bobby McMann 1+ hits",
        "market": "hits",
        "team": "SEA",
-       "prob": 0.8525,
+       "prob": 0.8502,
        "price": null,
-       "fair_price": -578,
+       "fair_price": -568,
        "rung_verified": false,
        "why": [
-        "Projected 2.21 hits in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
+        "Projected 2.23 hits in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
         "His rates per 60 minutes: 8.3 at even strength, 0.9 on the power play, 3.0 shorthanded (21 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
         "Tonight's deployment: pp1: 62% of 295s team PP",
         "Reached 1+ in 10 of his last 10 games (most recent first: 2, 4, 3, 3, 2, 3, 1, 1, 2, 2)",
         "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
-        "Hit in 85.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 85.0% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       },
@@ -14139,17 +14200,36 @@
        "label": "Jacob Melanson 2+ hits",
        "market": "hits",
        "team": "SEA",
-       "prob": 0.8244,
+       "prob": 0.819,
        "price": null,
-       "fair_price": -469,
+       "fair_price": -452,
        "rung_verified": false,
        "why": [
-        "Projected 3.74 hits in 8.8 minutes: 8.6 even strength, 0.0 power play, 0.2 penalty kill (line 4)",
+        "Projected 3.72 hits in 8.8 minutes: 8.6 even strength, 0.0 power play, 0.2 penalty kill (line 4)",
         "His rates per 60 minutes: 24.7 at even strength, 2.2 on the power play, 1.2 shorthanded (4 games this season, shrunk toward his position's rate)",
         "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
         "Reached 2+ in 8 of his last 10 games (most recent first: 3, 4, 7, 3, 7, 6, 8, 0, 3, 0)",
         "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
-        "Hit in 82.4% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 81.9% of 20,000 simulated games; the rung is not checked at the book"
+       ],
+       "game": "CHI @ SEA"
+      },
+      {
+       "label": "Artyom Levshunov 1+ hits",
+       "market": "hits",
+       "team": "CHI",
+       "prob": 0.7794,
+       "price": null,
+       "fair_price": -353,
+       "rung_verified": false,
+       "why": [
+        "Projected 1.70 hits in 21.1 minutes: 17.9 even strength, 1.7 power play, PP2, 1.6 penalty kill (pair 2)",
+        "His rates per 60 minutes: 4.4 at even strength, 1.0 on the power play, 5.3 shorthanded (24 games this season, shrunk toward his position's rate)",
+        "Adjustments: hits taken by SEA index x1.14; SEA rink hits bias x0.99",
+        "Tonight's deployment: pp2: 38% of 265s team PP",
+        "Reached 1+ in 8 of his last 10 games (most recent first: 2, 0, 2, 2, 1, 1, 1, 1, 0, 1)",
+        "Script: when CHI lead after two periods the score moves its hits -4%, when it trails +4% (CHI lead after two in 35% of games)",
+        "Hit in 77.9% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       },
@@ -14191,18 +14271,18 @@
        "label": "Ian Cole 1+ blocked shots",
        "market": "blk",
        "team": "CHI",
-       "prob": 0.7418,
+       "prob": 0.7443,
        "price": null,
-       "fair_price": -287,
+       "fair_price": -291,
        "rung_verified": false,
        "why": [
-        "Projected 1.67 blocked shots in 20.8 minutes: 17.4 even strength, 0.0 power play, 3.3 penalty kill (pair 2)",
+        "Projected 1.69 blocked shots in 20.8 minutes: 17.4 even strength, 0.0 power play, 3.3 penalty kill (pair 2)",
         "His rates per 60 minutes: 5.2 at even strength, 0.8 on the power play, 5.9 shorthanded (24 games this season, shrunk toward his position's rate)",
         "Adjustments: SEA shot attempts index x0.89; SEA rink blocks bias x1.02",
         "Tonight's deployment: d2 tonight, usually d3 minutes: +27s EV",
         "Reached 1+ in 8 of his last 10 games (most recent first: 2, 1, 0, 1, 3, 2, 1, 2, 4, 0)",
         "Script: when CHI lead after two periods the score moves its blocked shots +9%, when it trails -10% (CHI lead after two in 35% of games)",
-        "Hit in 74.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 74.4% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       },
@@ -14210,18 +14290,18 @@
        "label": "Adam Larsson 1+ blocked shots",
        "market": "blk",
        "team": "SEA",
-       "prob": 0.7409,
+       "prob": 0.7375,
        "price": null,
-       "fair_price": -286,
+       "fair_price": -281,
        "rung_verified": false,
        "why": [
-        "Projected 1.63 blocked shots in 21.6 minutes: 19.3 even strength, 0.0 power play, 2.2 penalty kill (pair 1)",
+        "Projected 1.64 blocked shots in 21.6 minutes: 19.3 even strength, 0.0 power play, 2.2 penalty kill (pair 1)",
         "His rates per 60 minutes: 4.8 at even strength, 0.8 on the power play, 7.9 shorthanded (21 games this season, shrunk toward his position's rate)",
         "Adjustments: CHI shot attempts index x0.85; SEA rink blocks bias x1.02",
         "Tonight's deployment: d1 tonight, usually d2 minutes: +80s EV",
         "Reached 1+ in 6 of his last 10 games (most recent first: 0, 0, 1, 6, 0, 1, 2, 0, 1, 2)",
         "Script: when SEA lead after two periods the score moves its blocked shots +9%, when it trails -9% (SEA lead after two in 42% of games)",
-        "Hit in 74.1% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 73.8% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       },
@@ -14229,9 +14309,9 @@
        "label": "Alex Vlasic 1+ blocked shots",
        "market": "blk",
        "team": "CHI",
-       "prob": 0.7182,
+       "prob": 0.7121,
        "price": null,
-       "fair_price": -255,
+       "fair_price": -247,
        "rung_verified": false,
        "why": [
         "Projected 1.52 blocked shots in 22.8 minutes: 19.2 even strength, 0.0 power play, 3.6 penalty kill (pair 1)",
@@ -14239,7 +14319,7 @@
         "Adjustments: SEA shot attempts index x0.89; SEA rink blocks bias x1.02",
         "Reached 1+ in 8 of his last 10 games (most recent first: 1, 0, 1, 1, 3, 4, 2, 0, 1, 4)",
         "Script: when CHI lead after two periods the score moves its blocked shots +9%, when it trails -10% (CHI lead after two in 35% of games)",
-        "Hit in 71.8% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 71.2% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       }
@@ -14249,10 +14329,10 @@
      "id": "2026-11-25-CHI-SEA-atg",
      "kind": "atg",
      "title": "Anytime goal scorer",
-     "chance": 0.0773,
-     "miss": 0.9227,
-     "fair_price": 1194,
-     "lift": 1.005,
+     "chance": 0.0738,
+     "miss": 0.9262,
+     "fair_price": 1255,
+     "lift": 0.976,
      "priced": false,
      "rungs_verified": false,
      "edge": null,
@@ -14263,9 +14343,9 @@
        "label": "Jordan Eberle anytime goal scorer",
        "market": "goals",
        "team": "SEA",
-       "prob": 0.2823,
+       "prob": 0.2789,
        "price": null,
-       "fair_price": 254,
+       "fair_price": 259,
        "rung_verified": false,
        "why": [
         "Projected 0.33 goals in 17.4 minutes: 14.3 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
@@ -14274,26 +14354,26 @@
         "Finishing 0.99 goals per expected goal (shrunk hard toward 1.00)",
         "Tonight's deployment: f1 tonight, usually f2 minutes: +24s EV, pp1: 62% of 295s team PP",
         "Reached 1+ in 2 of his last 10 games (most recent first: 0, 0, 1, 0, 0, 1, 0, 0, 0, 0)",
-        "Hit in 28.2% of 20,000 simulated games; the rung is not checked at the book"
+        "Hit in 27.9% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       },
       {
-       "label": "Bobby McMann anytime goal scorer",
+       "label": "Roman Kantserov anytime goal scorer",
        "market": "goals",
-       "team": "SEA",
-       "prob": 0.2725,
+       "team": "CHI",
+       "prob": 0.2711,
        "price": null,
-       "fair_price": 267,
+       "fair_price": 269,
        "rung_verified": false,
        "why": [
-        "Projected 0.32 goals in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
-        "SEA expected goals 2.86 before empty net and overtime (0.64 of it on the power play), against Spencer Knight (GSAx +0.05 per 60)",
-        "His share: 0.81 expected goals and 0.84 assists per 60 at even strength, 1.70 and 1.45 on the power play; on the ice for 2.6 team expected goals per 60",
-        "Finishing 1.04 goals per expected goal (shrunk hard toward 1.00)",
-        "Tonight's deployment: pp1: 62% of 295s team PP",
-        "Reached 1+ in 0 of his last 10 games (most recent first: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)",
-        "Hit in 27.3% of 20,000 simulated games; the rung is not checked at the book"
+        "Projected 0.32 goals in 18.0 minutes: 14.8 even strength, 3.1 power play, PP1, 0.1 penalty kill (line 1)",
+        "CHI expected goals 2.60 before empty net and overtime (0.59 of it on the power play), against Joey Daccord (GSAx -0.12 per 60)",
+        "His share: 0.80 expected goals and 0.72 assists per 60 at even strength, 1.49 and 2.21 on the power play; on the ice for 2.8 team expected goals per 60",
+        "Finishing 1.10 goals per expected goal (shrunk hard toward 1.00)",
+        "Tonight's deployment: pp1: 62% of 265s team PP, plus part of his surplus",
+        "Reached 1+ in 6 of his last 10 games (most recent first: 3, 1, 0, 0, 0, 0, 1, 1, 1, 1)",
+        "Hit in 27.1% of 20,000 simulated games; the rung is not checked at the book"
        ],
        "game": "CHI @ SEA"
       }
@@ -14309,13 +14389,13 @@
      "toi_min": 23.8,
      "line": "d1",
      "pp": "pp1",
-     "sog": 2.53,
-     "pts": 0.52,
+     "sog": 2.49,
+     "pts": 0.51,
      "goals": 0.15,
-     "ast": 0.37,
+     "ast": 0.36,
      "hits": 0.38,
-     "blk": 1.23,
-     "atg": 0.1416
+     "blk": 1.21,
+     "atg": 0.1364
     },
     {
      "player": "Brandon Montour",
@@ -14324,13 +14404,13 @@
      "toi_min": 23.1,
      "line": "d2",
      "pp": "pp2",
-     "sog": 2.37,
-     "pts": 0.55,
+     "sog": 2.33,
+     "pts": 0.54,
      "goals": 0.14,
-     "ast": 0.42,
-     "hits": 1.3,
-     "blk": 1.26,
-     "atg": 0.128
+     "ast": 0.4,
+     "hits": 1.28,
+     "blk": 1.24,
+     "atg": 0.1267
     },
     {
      "player": "Alex Vlasic",
@@ -14339,13 +14419,13 @@
      "toi_min": 22.8,
      "line": "d1",
      "pp": null,
-     "sog": 1.23,
+     "sog": 1.24,
      "pts": 0.32,
      "goals": 0.06,
      "ast": 0.26,
-     "hits": 0.69,
+     "hits": 0.68,
      "blk": 1.52,
-     "atg": 0.0561
+     "atg": 0.0549
     },
     {
      "player": "Sam Rinzel",
@@ -14358,9 +14438,9 @@
      "pts": 0.65,
      "goals": 0.14,
      "ast": 0.51,
-     "hits": 1.19,
-     "blk": 1.07,
-     "atg": 0.1341
+     "hits": 1.2,
+     "blk": 1.08,
+     "atg": 0.1298
     },
     {
      "player": "Adam Larsson",
@@ -14369,13 +14449,13 @@
      "toi_min": 21.6,
      "line": "d1",
      "pp": null,
-     "sog": 1.36,
+     "sog": 1.33,
      "pts": 0.23,
-     "goals": 0.05,
-     "ast": 0.18,
+     "goals": 0.06,
+     "ast": 0.17,
      "hits": 1.6,
-     "blk": 1.63,
-     "atg": 0.0514
+     "blk": 1.64,
+     "atg": 0.0546
     },
     {
      "player": "Artyom Levshunov",
@@ -14385,12 +14465,12 @@
      "line": "d2",
      "pp": "pp2",
      "sog": 1.41,
-     "pts": 0.28,
-     "goals": 0.08,
-     "ast": 0.21,
-     "hits": 1.69,
+     "pts": 0.29,
+     "goals": 0.07,
+     "ast": 0.22,
+     "hits": 1.7,
      "blk": 1.0,
-     "atg": 0.0746
+     "atg": 0.0702
     },
     {
      "player": "Ryker Evans",
@@ -14403,9 +14483,9 @@
      "pts": 0.21,
      "goals": 0.06,
      "ast": 0.15,
-     "hits": 1.25,
+     "hits": 1.24,
      "blk": 1.32,
-     "atg": 0.0544
+     "atg": 0.0538
     },
     {
      "player": "Ian Cole",
@@ -14419,8 +14499,8 @@
      "goals": 0.05,
      "ast": 0.19,
      "hits": 1.04,
-     "blk": 1.67,
-     "atg": 0.051
+     "blk": 1.69,
+     "atg": 0.0491
     },
     {
      "player": "Frank Nazar",
@@ -14431,11 +14511,11 @@
      "pp": "pp1",
      "sog": 2.43,
      "pts": 0.65,
-     "goals": 0.32,
+     "goals": 0.31,
      "ast": 0.34,
      "hits": 0.96,
      "blk": 0.56,
-     "atg": 0.27
+     "atg": 0.2645
     },
     {
      "player": "Matty Beniers",
@@ -14444,13 +14524,13 @@
      "toi_min": 18.3,
      "line": "f2",
      "pp": "pp1",
-     "sog": 2.07,
-     "pts": 0.7,
-     "goals": 0.3,
-     "ast": 0.4,
+     "sog": 2.03,
+     "pts": 0.68,
+     "goals": 0.29,
+     "ast": 0.39,
      "hits": 0.57,
-     "blk": 0.6,
-     "atg": 0.2594
+     "blk": 0.61,
+     "atg": 0.2524
     },
     {
      "player": "Roman Kantserov",
@@ -14459,13 +14539,13 @@
      "toi_min": 18.0,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.11,
-     "pts": 0.63,
-     "goals": 0.31,
+     "sog": 2.12,
+     "pts": 0.64,
+     "goals": 0.32,
      "ast": 0.32,
-     "hits": 1.0,
-     "blk": 0.31,
-     "atg": 0.2682
+     "hits": 0.99,
+     "blk": 0.32,
+     "atg": 0.2711
     },
     {
      "player": "Bobby McMann",
@@ -14474,13 +14554,13 @@
      "toi_min": 17.9,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.8,
-     "pts": 0.65,
-     "goals": 0.32,
+     "sog": 2.77,
+     "pts": 0.63,
+     "goals": 0.31,
      "ast": 0.33,
-     "hits": 2.21,
+     "hits": 2.23,
      "blk": 0.32,
-     "atg": 0.2725
+     "atg": 0.2651
     },
     {
      "player": "Chandler Stephenson",
@@ -14489,13 +14569,13 @@
      "toi_min": 17.7,
      "line": "f3",
      "pp": "pp1",
-     "sog": 1.45,
-     "pts": 0.63,
+     "sog": 1.44,
+     "pts": 0.62,
      "goals": 0.17,
-     "ast": 0.46,
-     "hits": 0.42,
-     "blk": 0.48,
-     "atg": 0.1542
+     "ast": 0.45,
+     "hits": 0.4,
+     "blk": 0.47,
+     "atg": 0.1541
     },
     {
      "player": "Tyler Bertuzzi",
@@ -14504,13 +14584,13 @@
      "toi_min": 17.5,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.04,
-     "pts": 0.69,
-     "goals": 0.3,
-     "ast": 0.38,
+     "sog": 2.03,
+     "pts": 0.7,
+     "goals": 0.31,
+     "ast": 0.39,
      "hits": 0.74,
-     "blk": 0.27,
-     "atg": 0.2604
+     "blk": 0.26,
+     "atg": 0.264
     },
     {
      "player": "Jordan Eberle",
@@ -14519,13 +14599,13 @@
      "toi_min": 17.4,
      "line": "f1",
      "pp": "pp1",
-     "sog": 2.31,
+     "sog": 2.28,
      "pts": 0.73,
      "goals": 0.33,
      "ast": 0.4,
-     "hits": 0.69,
-     "blk": 0.55,
-     "atg": 0.2823
+     "hits": 0.71,
+     "blk": 0.56,
+     "atg": 0.2789
     },
     {
      "player": "Patrick Kane",
@@ -14534,13 +14614,13 @@
      "toi_min": 16.6,
      "line": "f2",
      "pp": "pp1",
-     "sog": 2.36,
-     "pts": 0.84,
+     "sog": 2.39,
+     "pts": 0.83,
      "goals": 0.25,
      "ast": 0.58,
      "hits": 0.51,
      "blk": 0.31,
-     "atg": 0.2235
+     "atg": 0.221
     },
     {
      "player": "Berkly Catton",
@@ -14549,13 +14629,13 @@
      "toi_min": 16.2,
      "line": "f1",
      "pp": "pp2",
-     "sog": 1.82,
-     "pts": 0.64,
-     "goals": 0.24,
-     "ast": 0.4,
-     "hits": 0.41,
+     "sog": 1.79,
+     "pts": 0.62,
+     "goals": 0.23,
+     "ast": 0.39,
+     "hits": 0.42,
      "blk": 0.48,
-     "atg": 0.2126
+     "atg": 0.2058
     },
     {
      "player": "Anton Frondell",
@@ -14567,10 +14647,10 @@
      "sog": 1.99,
      "pts": 0.55,
      "goals": 0.22,
-     "ast": 0.34,
+     "ast": 0.33,
      "hits": 0.97,
-     "blk": 0.63,
-     "atg": 0.1948
+     "blk": 0.64,
+     "atg": 0.197
     },
     {
      "player": "Teuvo Teravainen",
@@ -14580,12 +14660,12 @@
      "line": "f3",
      "pp": "pp2",
      "sog": 1.25,
-     "pts": 0.42,
-     "goals": 0.14,
+     "pts": 0.43,
+     "goals": 0.15,
      "ast": 0.28,
      "hits": 0.38,
-     "blk": 0.42,
-     "atg": 0.1305
+     "blk": 0.41,
+     "atg": 0.1397
     },
     {
      "player": "Mackie Samoskevich",
@@ -14594,13 +14674,13 @@
      "toi_min": 15.7,
      "line": "f2",
      "pp": "pp2",
-     "sog": 2.28,
-     "pts": 0.7,
+     "sog": 2.25,
+     "pts": 0.68,
      "goals": 0.26,
-     "ast": 0.43,
-     "hits": 1.53,
-     "blk": 0.45,
-     "atg": 0.2316
+     "ast": 0.42,
+     "hits": 1.54,
+     "blk": 0.44,
+     "atg": 0.2281
     },
     {
      "player": "Frederick Gaudreau",
@@ -14609,13 +14689,13 @@
      "toi_min": 15.4,
      "line": "f3",
      "pp": null,
-     "sog": 1.26,
+     "sog": 1.24,
      "pts": 0.43,
-     "goals": 0.18,
+     "goals": 0.17,
      "ast": 0.25,
      "hits": 0.71,
-     "blk": 0.69,
-     "atg": 0.164
+     "blk": 0.7,
+     "atg": 0.1589
     },
     {
      "player": "Ryan Donato",
@@ -14624,13 +14704,13 @@
      "toi_min": 15.2,
      "line": "f1",
      "pp": "pp2",
-     "sog": 1.75,
-     "pts": 0.54,
+     "sog": 1.76,
+     "pts": 0.55,
      "goals": 0.25,
-     "ast": 0.29,
-     "hits": 1.14,
-     "blk": 0.34,
-     "atg": 0.2202
+     "ast": 0.3,
+     "hits": 1.13,
+     "blk": 0.36,
+     "atg": 0.22
     },
     {
      "player": "Kaapo Kakko",
@@ -14639,12 +14719,12 @@
      "toi_min": 15.1,
      "line": "f2",
      "pp": "pp2",
-     "sog": 1.66,
-     "pts": 0.69,
+     "sog": 1.61,
+     "pts": 0.68,
      "goals": 0.21,
-     "ast": 0.48,
-     "hits": 0.75,
-     "blk": 0.25,
+     "ast": 0.47,
+     "hits": 0.73,
+     "blk": 0.26,
      "atg": 0.1885
     },
     {
@@ -14658,9 +14738,9 @@
      "pts": 0.52,
      "goals": 0.2,
      "ast": 0.32,
-     "hits": 0.91,
-     "blk": 0.35,
-     "atg": 0.1817
+     "hits": 0.9,
+     "blk": 0.34,
+     "atg": 0.1819
     },
     {
      "player": "Ryan Lindgren",
@@ -14670,12 +14750,12 @@
      "line": "d3",
      "pp": null,
      "sog": 0.73,
-     "pts": 0.11,
+     "pts": 0.12,
      "goals": 0.04,
      "ast": 0.08,
-     "hits": 0.51,
+     "hits": 0.52,
      "blk": 1.06,
-     "atg": 0.0363
+     "atg": 0.0367
     },
     {
      "player": "Ryan Winterton",
@@ -14684,13 +14764,13 @@
      "toi_min": 14.0,
      "line": "f3",
      "pp": null,
-     "sog": 1.72,
+     "sog": 1.73,
      "pts": 0.44,
      "goals": 0.2,
      "ast": 0.24,
      "hits": 1.22,
      "blk": 0.6,
-     "atg": 0.1804
+     "atg": 0.1806
     },
     {
      "player": "Ryan Greene",
@@ -14701,11 +14781,11 @@
      "pp": null,
      "sog": 1.22,
      "pts": 0.32,
-     "goals": 0.14,
+     "goals": 0.15,
      "ast": 0.18,
-     "hits": 0.81,
-     "blk": 0.36,
-     "atg": 0.1343
+     "hits": 0.8,
+     "blk": 0.35,
+     "atg": 0.1359
     },
     {
      "player": "Cole Smith",
@@ -14718,9 +14798,24 @@
      "pts": 0.32,
      "goals": 0.16,
      "ast": 0.16,
-     "hits": 2.72,
+     "hits": 2.75,
      "blk": 0.3,
-     "atg": 0.1456
+     "atg": 0.1447
+    },
+    {
+     "player": "Josh Mahura",
+     "team": "SEA",
+     "pos": "D",
+     "toi_min": 13.5,
+     "line": "d3",
+     "pp": null,
+     "sog": 0.84,
+     "pts": 0.16,
+     "goals": 0.05,
+     "ast": 0.11,
+     "hits": 1.27,
+     "blk": 0.88,
+     "atg": 0.0462
     },
     {
      "player": "Ethan Del Mastro",
@@ -14729,13 +14824,13 @@
      "toi_min": 13.2,
      "line": "d3",
      "pp": null,
-     "sog": 0.89,
-     "pts": 0.2,
-     "goals": 0.05,
-     "ast": 0.16,
-     "hits": 1.27,
+     "sog": 0.92,
+     "pts": 0.19,
+     "goals": 0.04,
+     "ast": 0.15,
+     "hits": 1.3,
      "blk": 0.8,
-     "atg": 0.044
+     "atg": 0.0432
     },
     {
      "player": "Matthew Wood",
@@ -14744,13 +14839,13 @@
      "toi_min": 13.1,
      "line": "f4",
      "pp": "pp2",
-     "sog": 1.72,
-     "pts": 0.47,
+     "sog": 1.69,
+     "pts": 0.46,
      "goals": 0.2,
-     "ast": 0.27,
-     "hits": 0.81,
+     "ast": 0.26,
+     "hits": 0.82,
      "blk": 0.46,
-     "atg": 0.1792
+     "atg": 0.1811
     },
     {
      "player": "Jordan Greenway",
@@ -14759,13 +14854,13 @@
      "toi_min": 12.7,
      "line": "f4",
      "pp": null,
-     "sog": 1.18,
-     "pts": 0.29,
+     "sog": 1.16,
+     "pts": 0.28,
      "goals": 0.14,
      "ast": 0.15,
-     "hits": 1.78,
+     "hits": 1.79,
      "blk": 0.44,
-     "atg": 0.1278
+     "atg": 0.1277
     },
     {
      "player": "Ben Meyers",
@@ -14775,12 +14870,12 @@
      "line": "f4",
      "pp": null,
      "sog": 1.24,
-     "pts": 0.36,
+     "pts": 0.35,
      "goals": 0.14,
-     "ast": 0.22,
-     "hits": 1.44,
+     "ast": 0.21,
+     "hits": 1.42,
      "blk": 0.43,
-     "atg": 0.1344
+     "atg": 0.1314
     },
     {
      "player": "Kevin Korchinski",
@@ -14789,13 +14884,13 @@
      "toi_min": 11.3,
      "line": "d3",
      "pp": null,
-     "sog": 0.77,
-     "pts": 0.17,
+     "sog": 0.78,
+     "pts": 0.18,
      "goals": 0.03,
      "ast": 0.14,
      "hits": 0.39,
-     "blk": 0.65,
-     "atg": 0.0318
+     "blk": 0.64,
+     "atg": 0.0335
     },
     {
      "player": "Jacob Melanson",
@@ -14804,13 +14899,13 @@
      "toi_min": 8.8,
      "line": "f4",
      "pp": null,
-     "sog": 1.01,
-     "pts": 0.3,
+     "sog": 0.99,
+     "pts": 0.29,
      "goals": 0.13,
-     "ast": 0.17,
-     "hits": 3.74,
-     "blk": 0.31,
-     "atg": 0.1223
+     "ast": 0.16,
+     "hits": 3.72,
+     "blk": 0.32,
+     "atg": 0.1177
     }
    ]
   },
@@ -14824,9 +14919,9 @@
    "paper": true,
    "made_after_start": false,
    "notes": [
-    "ANA starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run",
-    "ANA lines are stale: legs that depend on it are shown as a preview and will be re-run",
-    "SJS starting goalie is unconfirmed: legs that depend on it are shown as a preview and will be re-run"
+    "ANA starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "ANA lines are stale: legs that depend on it are re-run once it is confirmed",
+    "SJS starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed"
    ],
    "goalies": {
     "ANA": {
@@ -15982,71 +16077,18 @@
    "id": "2026-11-25-multi2",
    "kind": "multi2",
    "title": "2-game slip",
-   "chance": 0.44803,
-   "miss": 0.55197,
-   "fair_price": 123,
+   "chance": 0.44743,
+   "miss": 0.55257,
+   "fair_price": 124,
    "games": [
-    "VAN @ DET",
-    "UTA @ MIN"
+    "UTA @ MIN",
+    "VAN @ DET"
    ],
    "how_chosen": "the 2 games whose best 3-leg combination has the highest counted chance",
    "rungs_verified": false,
    "priced": false,
    "start_utc": "2026-11-26T00:30:00Z",
    "legs": [
-    {
-     "label": "Andreas Englund 1+ hits",
-     "market": "hits",
-     "team": "DET",
-     "prob": 0.8881,
-     "price": null,
-     "fair_price": -794,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.62 hits in 14.4 minutes: 13.2 even strength, 0.0 power play, 1.2 penalty kill (pair 3)",
-      "His rates per 60 minutes: 11.2 at even strength, 0.5 on the power play, 2.9 shorthanded (18 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 4, 1, 1, 0, 2, 3, 1, 8, 4, 5)",
-      "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
-      "Hit in 88.8% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "VAN @ DET"
-    },
-    {
-     "label": "Keegan Kolesar 1+ hits",
-     "market": "hits",
-     "team": "DET",
-     "prob": 0.8804,
-     "price": null,
-     "fair_price": -736,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.51 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
-      "His rates per 60 minutes: 15.7 at even strength, 3.1 on the power play, 6.6 shorthanded (23 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
-      "Reached 1+ in 8 of his last 10 games (most recent first: 6, 3, 3, 1, 2, 2, 0, 3, 0, 3)",
-      "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
-      "Hit in 88.0% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "VAN @ DET"
-    },
-    {
-     "label": "DET +1.5 puck line",
-     "market": "spread",
-     "team": "DET",
-     "prob": 0.8596,
-     "price": null,
-     "fair_price": -612,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: VAN 2.47, DET 3.92 (total 6.39); DET win 72%, overtime 20%",
-      "VAN: 1.64 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson, Elias Pettersson x0.945",
-      "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
-      "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.35 a game) are in the margin",
-      "Hit in 86.0% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "VAN @ DET"
-    },
     {
      "label": "Marcus Foligno 1+ hits",
      "market": "hits",
@@ -16102,6 +16144,59 @@
       "Hit in 85.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN"
+    },
+    {
+     "label": "Andreas Englund 1+ hits",
+     "market": "hits",
+     "team": "DET",
+     "prob": 0.8878,
+     "price": null,
+     "fair_price": -791,
+     "rung_verified": false,
+     "why": [
+      "Projected 2.62 hits in 14.4 minutes: 13.2 even strength, 0.0 power play, 1.2 penalty kill (pair 3)",
+      "His rates per 60 minutes: 11.2 at even strength, 0.5 on the power play, 2.9 shorthanded (18 games this season, shrunk toward his position's rate)",
+      "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
+      "Reached 1+ in 9 of his last 10 games (most recent first: 4, 1, 1, 0, 2, 3, 1, 8, 4, 5)",
+      "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
+      "Hit in 88.8% of 20,000 simulated games; the rung is not checked at the book"
+     ],
+     "game": "VAN @ DET"
+    },
+    {
+     "label": "Keegan Kolesar 1+ hits",
+     "market": "hits",
+     "team": "DET",
+     "prob": 0.8821,
+     "price": null,
+     "fair_price": -748,
+     "rung_verified": false,
+     "why": [
+      "Projected 2.49 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
+      "His rates per 60 minutes: 15.7 at even strength, 3.1 on the power play, 6.6 shorthanded (23 games this season, shrunk toward his position's rate)",
+      "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
+      "Reached 1+ in 8 of his last 10 games (most recent first: 6, 3, 3, 1, 2, 2, 0, 3, 0, 3)",
+      "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
+      "Hit in 88.2% of 20,000 simulated games; the rung is not checked at the book"
+     ],
+     "game": "VAN @ DET"
+    },
+    {
+     "label": "DET +1.5 puck line",
+     "market": "spread",
+     "team": "DET",
+     "prob": 0.8555,
+     "price": null,
+     "fair_price": -592,
+     "rung_verified": false,
+     "why": [
+      "Simulated score: VAN 2.48, DET 3.91 (total 6.39); DET win 72%, overtime 19%",
+      "VAN: 1.65 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson x0.950",
+      "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
+      "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.34 a game) are in the margin",
+      "Hit in 85.5% of 20,000 simulated games; the line is not checked at the book"
+     ],
+     "game": "VAN @ DET"
     }
    ]
   },
@@ -16109,12 +16204,12 @@
    "id": "2026-11-25-multi3",
    "kind": "multi3",
    "title": "3-game slip",
-   "chance": 0.29467,
-   "miss": 0.70533,
-   "fair_price": 239,
+   "chance": 0.2936,
+   "miss": 0.7064,
+   "fair_price": 241,
    "games": [
-    "VAN @ DET",
     "UTA @ MIN",
+    "VAN @ DET",
     "MTL @ COL"
    ],
    "how_chosen": "the 3 games whose best 3-leg combination has the highest counted chance",
@@ -16123,59 +16218,6 @@
    "start_utc": "2026-11-26T00:30:00Z",
    "legs": [
     {
-     "label": "Andreas Englund 1+ hits",
-     "market": "hits",
-     "team": "DET",
-     "prob": 0.8881,
-     "price": null,
-     "fair_price": -794,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.62 hits in 14.4 minutes: 13.2 even strength, 0.0 power play, 1.2 penalty kill (pair 3)",
-      "His rates per 60 minutes: 11.2 at even strength, 0.5 on the power play, 2.9 shorthanded (18 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 4, 1, 1, 0, 2, 3, 1, 8, 4, 5)",
-      "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
-      "Hit in 88.8% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "VAN @ DET"
-    },
-    {
-     "label": "Keegan Kolesar 1+ hits",
-     "market": "hits",
-     "team": "DET",
-     "prob": 0.8804,
-     "price": null,
-     "fair_price": -736,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.51 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
-      "His rates per 60 minutes: 15.7 at even strength, 3.1 on the power play, 6.6 shorthanded (23 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
-      "Reached 1+ in 8 of his last 10 games (most recent first: 6, 3, 3, 1, 2, 2, 0, 3, 0, 3)",
-      "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
-      "Hit in 88.0% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "VAN @ DET"
-    },
-    {
-     "label": "DET +1.5 puck line",
-     "market": "spread",
-     "team": "DET",
-     "prob": 0.8596,
-     "price": null,
-     "fair_price": -612,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: VAN 2.47, DET 3.92 (total 6.39); DET win 72%, overtime 20%",
-      "VAN: 1.64 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson, Elias Pettersson x0.945",
-      "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
-      "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.35 a game) are in the margin",
-      "Hit in 86.0% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "VAN @ DET"
-    },
-    {
      "label": "Marcus Foligno 1+ hits",
      "market": "hits",
      "team": "MIN",
@@ -16232,20 +16274,73 @@
      "game": "UTA @ MIN"
     },
     {
+     "label": "Andreas Englund 1+ hits",
+     "market": "hits",
+     "team": "DET",
+     "prob": 0.8878,
+     "price": null,
+     "fair_price": -791,
+     "rung_verified": false,
+     "why": [
+      "Projected 2.62 hits in 14.4 minutes: 13.2 even strength, 0.0 power play, 1.2 penalty kill (pair 3)",
+      "His rates per 60 minutes: 11.2 at even strength, 0.5 on the power play, 2.9 shorthanded (18 games this season, shrunk toward his position's rate)",
+      "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
+      "Reached 1+ in 9 of his last 10 games (most recent first: 4, 1, 1, 0, 2, 3, 1, 8, 4, 5)",
+      "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
+      "Hit in 88.8% of 20,000 simulated games; the rung is not checked at the book"
+     ],
+     "game": "VAN @ DET"
+    },
+    {
+     "label": "Keegan Kolesar 1+ hits",
+     "market": "hits",
+     "team": "DET",
+     "prob": 0.8821,
+     "price": null,
+     "fair_price": -748,
+     "rung_verified": false,
+     "why": [
+      "Projected 2.49 hits in 9.8 minutes: 8.8 even strength, 0.0 power play, 1.0 penalty kill (line 4)",
+      "His rates per 60 minutes: 15.7 at even strength, 3.1 on the power play, 6.6 shorthanded (23 games this season, shrunk toward his position's rate)",
+      "Adjustments: hits taken by VAN index x1.06; DET rink hits bias x1.00",
+      "Reached 1+ in 8 of his last 10 games (most recent first: 6, 3, 3, 1, 2, 2, 0, 3, 0, 3)",
+      "Script: when DET lead after two periods the score moves its hits -6%, when it trails +4% (DET lead after two in 59% of games)",
+      "Hit in 88.2% of 20,000 simulated games; the rung is not checked at the book"
+     ],
+     "game": "VAN @ DET"
+    },
+    {
+     "label": "DET +1.5 puck line",
+     "market": "spread",
+     "team": "DET",
+     "prob": 0.8555,
+     "price": null,
+     "fair_price": -592,
+     "rung_verified": false,
+     "why": [
+      "Simulated score: VAN 2.48, DET 3.91 (total 6.39); DET win 72%, overtime 19%",
+      "VAN: 1.65 expected goals at 5v5, 0.54 on 4.3 power-play minutes; this season's goals per expected goal x1.026; facing Daniil Tarasov (GSAx/60 +0.14) x0.956; road x0.967; rest differential -1 days x0.995; 2 time zones since last game x0.992; out: Elias Pettersson, Brendan Gallagher, Max Sasson x0.950",
+      "DET: 2.74 expected goals at 5v5, 0.91 on 3.9 power-play minutes; this season's goals per expected goal x1.026; facing Leevi Merilainen (GSAx/60 -0.19) x1.059; home ice x1.034; rest differential +1 days x1.005",
+      "DET win by two or more in 52% of games, by exactly one in 20%, lose in 28%; empty-net goals (0.34 a game) are in the margin",
+      "Hit in 85.5% of 20,000 simulated games; the line is not checked at the book"
+     ],
+     "game": "VAN @ DET"
+    },
+    {
      "label": "Arber Xhekaj 1+ hits",
      "market": "hits",
      "team": "MTL",
-     "prob": 0.8922,
+     "prob": 0.8928,
      "price": null,
-     "fair_price": -828,
+     "fair_price": -833,
      "rung_verified": false,
      "why": [
-      "Projected 2.68 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (pair 3)",
+      "Projected 2.67 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (pair 3)",
       "His rates per 60 minutes: 11.4 at even strength, 0.5 on the power play, 13.9 shorthanded (24 games this season, shrunk toward his position's rate)",
       "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
       "Reached 1+ in 9 of his last 10 games (most recent first: 2, 2, 6, 3, 4, 5, 4, 4, 1, 0)",
       "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 32% of games)",
-      "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
+      "Hit in 89.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "MTL @ COL"
     },
@@ -16253,9 +16348,9 @@
      "label": "Kaiden Guhle 1+ hits",
      "market": "hits",
      "team": "MTL",
-     "prob": 0.8776,
+     "prob": 0.878,
      "price": null,
-     "fair_price": -717,
+     "fair_price": -719,
      "rung_verified": false,
      "why": [
       "Projected 2.46 hits in 22.8 minutes: 19.8 even strength, 0.0 power play, 3.0 penalty kill (pair 1)",
@@ -16272,18 +16367,18 @@
      "label": "Alexandre Carrier 1+ blocked shots",
      "market": "blk",
      "team": "MTL",
-     "prob": 0.8389,
+     "prob": 0.8371,
      "price": null,
-     "fair_price": -521,
+     "fair_price": -514,
      "rung_verified": false,
      "why": [
-      "Projected 2.38 blocked shots in 22.3 minutes: 19.1 even strength, 0.0 power play, 3.2 penalty kill (pair 2)",
+      "Projected 2.37 blocked shots in 22.3 minutes: 19.1 even strength, 0.0 power play, 3.2 penalty kill (pair 2)",
       "His rates per 60 minutes: 5.4 at even strength, 0.8 on the power play, 8.9 shorthanded (25 games this season, shrunk toward his position's rate)",
       "Adjustments: COL shot attempts index x1.11; COL rink blocks bias x1.01",
       "Tonight's deployment: d2 tonight, usually d3 minutes: +112s EV",
       "Reached 1+ in 10 of his last 10 games (most recent first: 1, 1, 2, 5, 1, 1, 1, 3, 1, 2)",
       "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 32% of games)",
-      "Hit in 83.9% of 20,000 simulated games; the rung is not checked at the book"
+      "Hit in 83.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "MTL @ COL"
     }

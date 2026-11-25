@@ -6,6 +6,7 @@ Run from model/:
     python3 -m nhl.run_daily nightly            # schedule, finished games, MoneyPuck xG, rosters, then every derived table
     python3 -m nhl.run_daily gameday [DATE]     # goalies, lines and PP units, referees, odds and ladders; refreshes the TOI projection
     python3 -m nhl.run_daily watch [DATE]       # from 90 minutes before the first puck drop, re-run gameday every 30 minutes until goalies are confirmed
+    python3 -m nhl.run_daily slate [DATE] --early   # issue the card before goalies and lines confirm: logged, graded, labelled as early
     python3 -m nhl.run_daily slate [DATE]       # gates, game sim, props, correlation and tickets for every game not yet started
     python3 -m nhl.run_daily grade              # nightly ingest, then grade every finished ticket and rewrite the report card
     python3 -m nhl.run_daily derive [AS_OF]     # rebuild the derived tables as of a UTC time (default: now)
@@ -312,8 +313,9 @@ def main(argv):
         day = argv[1] if len(argv) > 1 and not argv[1].startswith("--") else today_et()
         if "--no-refresh" not in argv:
             gameday(con, CONFIG, day)
-        if "--preview" in argv:
+        if "--preview" in argv or "--early" in argv:
             CONFIG["gates"]["preview"] = True
+            CONFIG["gates"]["issue_early"] = "--early" in argv
         out = slate.run(con, CONFIG, day, include_started="--include-started" in argv)
         for t in out.get("multi", []):
             log(f"{t['title']}: {t['chance']:.2%} (fair {t['fair_price']:+d}) across {', '.join(t['games'])}")

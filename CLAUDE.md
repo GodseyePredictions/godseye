@@ -96,6 +96,7 @@ NHL engine spec lives in `model/nhl/SPEC.md` (the spec calls this `godseye/nhl/`
 - **Game lines come from FanDuel**, not DraftKings (the NHL's partner feed for Canada). No prop prices are connected yet.
 - **Cashed slips tab.** Winning NHL slips are shown on a "Cashed slips" tab, under the same terms as the NBA one: winning slips only, the page says losing slips are not shown, no count of slips issued or lost. A slip made after puck drop is never shown. The full record stays private.
 - **Preview runs.** Before goalies and lines are confirmed, `slate --preview` shows the board with the goalie and lines gates noted but not enforced. A preview is labelled as one and is never logged or graded.
+- **Early card (owner, 24 November).** `slate --early` issues the card before confirmations when the owner asks for picks ahead of time: gates noted, slips logged and graded, labelled "early". Each later gated run re-issues a game's slips once its gates pass; a game whose gates never pass keeps its early slips.
 - All thresholds live in `model/nhl/config.yaml`.
 - If a data source cannot supply something the spec asks for, say so. Do not substitute silently.
 

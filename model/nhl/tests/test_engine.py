@@ -430,3 +430,21 @@ def test_every_slip_leg_carries_its_reasons(world):
     assert any(w.startswith("Reached 1+ in") for w in why) and any("per 60" in w for w in why)
     side = ex({"kind": "game", "market": "spread", "side": S.home, "line": 1.5, "p": 0.8, "rung_verified": False})
     assert any("win by two or more" in w for w in side) and side[0].startswith("Simulated score")
+
+
+def test_early_card_is_logged_and_a_plain_preview_is_not(tmp_path, monkeypatch, db, cfg):
+    from nhl import slate
+    for name in ("SLATE", "LEDGER", "SITE", "CASHED"):
+        monkeypatch.setattr(slate, name, tmp_path / f"{name}.json")
+    monkeypatch.setattr(slate, "OUT", tmp_path)
+    g = db.execute("SELECT date_et, start_utc FROM schedule ORDER BY start_utc DESC LIMIT 1").fetchone()
+    cfg["sim"]["n_sims"] = 400
+    cfg["props"]["min_toi_sec"] = 60
+    cfg["gates"]["preview"] = True
+    out = slate.run(db, cfg, g[0], as_of="2026-10-23T12:00:00+00:00")
+    assert out["preview"] and not out["early"] and not (tmp_path / "LEDGER.json").exists()
+    cfg["gates"]["issue_early"] = True
+    out = slate.run(db, cfg, g[0], as_of="2026-10-23T12:00:00+00:00")
+    led = json.loads((tmp_path / "LEDGER.json").read_text())["tickets"]
+    assert out["early"] and not out["preview"] and led and all(t["early"] and not t["graded"] for t in led)
+    assert json.loads((tmp_path / "SITE.json").read_text())["early"] is True
