@@ -20,6 +20,7 @@ The "Platform rules" below apply to every sport.
 - **Algo picks only.** Every pick, leg, swap or add comes from the Godseye algorithm for that sport. No expert, media or consensus picks. Web lookups are for official injuries, inactives and rosters only.
 - **The LLM never does the math.** Claude reads screenshots, calls tools and explains results. Probabilities, edges, correlations and stakes come only from the Python algos and the staking engine. If a tool doesn't return a number, the agent doesn't state one.
 - **Unrated means unrated.** A leg the algo doesn't cover is labelled "unrated". Never guess.
+- **Odds never make a pick (owner, 25 November 2026).** Every probability and every pick comes from the sport's own algorithm and its own inputs: its metrics, game intel, personnel, offensive and defensive matchups, travel, indoor or outdoor, turf or grass, weather, and offensive and defensive play-calling tendencies. Sportsbook odds are never an input to a probability and never a reason to add, drop or change a leg. Odds are used for three things only: to confirm the book lists a rung, to keep a slip inside its price range (so legs are not added to chase a bigger payout), and to tell the user what a slip pays. An algorithm corrects itself from graded results, not from book prices.
 
 ### Staking
 
