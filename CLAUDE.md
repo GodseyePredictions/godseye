@@ -66,6 +66,11 @@ These rules apply to the NFL algorithm only.
 - Always factor defensive personnel availability, OC/DC scheme tendencies, and home/away, turf/grass, dome/open-air and weather splits.
 - Anytime-TD picks are driven by defensive matchups and red-zone usage, not recent scoring.
 
+### Cashed slips (owner, 24 and 25 November 2026)
+
+- Winning NFL slips are shown on a "Cashed slips" tab on the NFL side, under the same terms as the NBA one: winning slips only, the page says losing slips are not shown, stakes are examples and not bets placed, and no count of slips issued or lost is shown.
+- The showcase is `model/nfl/outputs/cashed_slips.json`; `scripts/import-console.py` adds it to the console data without the issued and lost counts. Only NFL slips appear on the NFL side.
+
 ### bet365 milestone format
 
 - Player props are one-sided milestone ladders (e.g. 150+/175+/200+ pass yds), not over/unders.

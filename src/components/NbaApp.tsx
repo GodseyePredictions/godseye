@@ -7,6 +7,7 @@ import { NO_BETS, readBets, subscribeBets, writeBets } from "./betsStore";
 import { BankrollStrategy, type Pick as StakePick } from "./BankrollStrategy";
 import { useState, useSyncExternalStore } from "react";
 import { Logo } from "@/components/Logo";
+import { Slip } from "@/components/Slip";
 import raw from "../../model/nba/output/nba_site.json";
 import rawTrack from "../../model/nba/output/nba_track.json";
 import rawStrategy from "../../model/nba/output/nba_strategy.json";
@@ -164,46 +165,31 @@ function StatusPill({ status }: { status: string }) {
   return <span className={`pill ${cls}`}>{status.replace("_", " ")}</span>;
 }
 
+const reasons = (r: string | null | undefined) => (r ?? "").split(";").map((x) => x.trim()).filter(Boolean);
+
+/** One algorithm ticket, drawn as the Godseye slip: the same slip as on the landing page, NFL and NHL. */
 function TicketCard({ t, game, lock }: { t: Ticket; game: Game; lock?: boolean }) {
   const kind = t.type.replace("preview_", "");
+  const notes: string[] = [`Multiplying the legs would say ${pct(t.naive, 1)}.`];
+  if (t.ev != null) notes.push(`Expected value at this price: ${signed(t.ev * 100)}%.`);
+  if (!game.preview && t.price_is_estimate) notes.push(`The price is ${BOOK}'s leg prices multiplied together. Its same-game price will be lower.`);
+  if (!game.preview && t.ev != null && t.ev < 0) notes.push(`The model rates this below ${BOOK}'s price. On the first graded slate the book's prices were the more accurate.`);
   return (
-    <div className="ticket">
-      <div className="top">
-        <span className="legsn" style={{ fontSize: 20 }}>
-          {lock && <span className="pill gold" style={{ marginRight: 8, verticalAlign: "middle" }}>Lock</span>}
-          {TICKET_NAMES[kind] ?? kind}
-        </span>
-        <span className="fair num">{t.book_price == null ? `fair ${american(t.fair_price)}` : american(t.book_price)}</span>
-      </div>
-      <div className="pct">
-        Model chance all legs hit: <b>{pct(t.joint, 1)}</b> · multiplying the legs would say {pct(t.naive, 1)}
-        {t.ev != null && <> · expected value {signed(t.ev * 100)}%</>}
-      </div>
-      <ol>
-        {t.legs.map((l) => (
-          <li key={l.label}>
-            {l.label} <Prob p={l.p} /> {l.price != null && <span className="num">{american(l.price)}</span>}
-            <small>{l.reason}</small>
-          </li>
-        ))}
-      </ol>
-      {game.preview ? (
-        <span className="pill warn">Model-only: rung and price not checked at bet365</span>
-      ) : (
-        <>
-          {t.price_is_estimate && (
-            <span className="pill neutral">
-              Price is {BOOK}&apos;s leg prices multiplied together. Its same-game price will be lower.
-            </span>
-          )}
-          {t.ev != null && t.ev < 0 && (
-            <span className="pill neutral">
-              The model rates this below {BOOK}&apos;s price. On the first graded slate the book&apos;s prices were the more accurate.
-            </span>
-          )}
-        </>
-      )}
-    </div>
+    <Slip
+      title={`${lock ? "Lock · " : ""}${TICKET_NAMES[kind] ?? kind}`}
+      meta={`${game.away} @ ${game.home}`}
+      legs={t.legs.map((l) => ({ text: l.label, sub: l.price != null ? `${BOOK} ${american(l.price)}` : undefined, value: pct(l.p) }))}
+      why={{ legs: t.legs.map((l) => ({ text: l.label, why: reasons(l.reason) })) }}
+      stats={[
+        { label: "Chance to hit", value: pct(t.joint, 1), tone: "red" },
+        { label: "Chance to miss", value: pct(1 - t.joint, 1) },
+        t.book_price == null
+          ? { label: "Fair odds", value: american(t.fair_price) }
+          : { label: t.price_is_estimate ? "Legs multiplied" : `${BOOK} odds`, value: american(t.book_price) },
+      ]}
+      note={notes.join(" ")}
+      warn={game.preview ? "Model-only: the rung and price have not been checked at bet365." : undefined}
+    />
   );
 }
 
@@ -339,7 +325,7 @@ function HomeTab({ prefix }: { prefix: string }) {
               <p className="sub">Ranked by the model&apos;s chance that every leg hits. All game tickets are under Game SGPs.</p>
             </div>
           </div>
-          <div className="nba-tickets">
+          <div className="gs-slips ge-set">
             {best.map(({ g, t }) => (
               <div key={t.id}>
                 <p className="sub" style={{ margin: "0 0 6px" }}>
@@ -465,7 +451,7 @@ function SgpTab() {
         <section className="panel" key={g.id}>
           <GameHeader g={g} />
           {g.tickets.length > 0 ? (
-            <div className="nba-tickets" style={{ marginTop: 12 }}>
+            <div className="gs-slips ge-set" style={{ marginTop: 12 }}>
               {orderedTickets(g).map(({ t, lock }) => (
                 <TicketCard t={t} game={g} lock={lock} key={t.id} />
               ))}
@@ -567,42 +553,27 @@ function LottoTab() {
   );
 }
 
+/** A slip that joins legs from several games, drawn as one Godseye slip. */
 function MultiSlip({ m }: { m: Multi }) {
+  const title = m.type === "lotto" ? "Lotto slip" : m.type === "value_locks" ? "Locks parlay" : `${m.n_legs}-leg multi-game`;
   return (
-        <section className="panel">
-          <div className="section-head">
-            <div>
-              <h2>
-                {m.type === "lotto" ? "Lotto slip: " : m.type === "value_locks" ? "Locks parlay: " : ""}
-                {m.n_legs} props across {m.parts.length} games
-              </h2>
-              <p className="sub">
-                Model chance every leg hits: <b>{pct(m.joint, 1)}</b> · fair {american(m.fair_price)} · leg prices multiplied{" "}
-                {american(m.book_price)}
-              </p>
-            </div>
-            {m.ev != null && <span className="pill neutral">Model vs price {signed(m.ev * 100)}%</span>}
-          </div>
-          <div className="nba-tickets">
-            {m.parts.map((p) => (
-              <div className="ticket" key={p.matchup}>
-                <div className="top">
-                  <span className="legsn" style={{ fontSize: 20 }}>
-                    {p.matchup}
-                  </span>
-                  <span className="fair num">{pct(p.joint)}</span>
-                </div>
-                <ol>
-                  {p.legs.map((l) => (
-                    <li key={l.label}>
-                      {l.label} <Prob p={l.p} /> <span className="num">{american(l.price)}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            ))}
-          </div>
-        </section>
+    <div className="gs-slips ge-set ge-wide">
+      <Slip
+        title={title}
+        meta={`${m.n_legs} props · ${m.parts.length} games`}
+        legs={m.parts.flatMap((p) => p.legs.map((l) => ({ text: l.label, sub: `${p.matchup} · ${BOOK} ${american(l.price)}`, value: pct(l.p) })))}
+        stats={[
+          { label: "Chance to hit", value: pct(m.joint, 1), tone: "red" },
+          { label: "Chance to miss", value: pct(1 - m.joint, 1) },
+          { label: "Fair odds", value: american(m.fair_price) },
+          { label: "Legs multiplied", value: american(m.book_price) },
+        ]}
+        note={
+          `Each game's part: ${m.parts.map((p) => `${p.matchup} ${pct(p.joint)}`).join(", ")}.` +
+          (m.ev != null ? ` Model against the price: ${signed(m.ev * 100)}%.` : "")
+        }
+      />
+    </div>
   );
 }
 
@@ -815,38 +786,22 @@ function CashedTab() {
         .map((n) => (
           <section className="panel" key={n.date}>
             <StrategyHead title={longDate(n.date)} sub={`${n.cashed} ${n.cashed === 1 ? "slip" : "slips"} cashed`} />
-            <div className="scroll">
-              <table className="tbl">
-                <thead>
-                  <tr>
-                    {["Slip", "Listed price", "Example stake", "Would have returned", "Profit"].map((h) => (
-                      <th key={h}>{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {cashed.slips
-                    .filter((s) => s.date === n.date)
-                    .map((s) => (
-                      <tr key={s.id}>
-                        <td>
-                          <b>
-                            {s.game} · {s.type}
-                          </b>
-                          <div className="sub" style={{ maxWidth: "70ch" }}>
-                            {s.legs.map((l) => `${l.label}${l.actual == null ? "" : ` (${l.actual})`}`).join(" · ")}
-                          </div>
-                        </td>
-                        <td className="num">{american(s.price)}</td>
-                        <td className="num">{money(s.stake)}</td>
-                        <td className="num">{money(s.returned)}</td>
-                        <td className="num">
-                          <span className="pill good">+{money(s.profit)}</span>
-                        </td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
+            <div className="gs-slips ge-set">
+              {cashed.slips
+                .filter((s) => s.date === n.date)
+                .map((s) => (
+                  <Slip
+                    key={s.id}
+                    title={s.game}
+                    meta={s.type}
+                    legs={s.legs.map((l) => ({ text: l.label, value: l.actual == null ? undefined : String(l.actual), state: "in" as const }))}
+                    stats={[
+                      { label: "Listed price", value: american(s.price) },
+                      { label: "Example stake", value: money(s.stake) },
+                      { label: "Would have returned", value: money(s.returned), tone: "good" },
+                    ]}
+                  />
+                ))}
             </div>
           </section>
         ))}

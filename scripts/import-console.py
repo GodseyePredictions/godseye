@@ -117,6 +117,16 @@ js = patch(
     """<div class="row">${combos.map(t=>`<button class="btn" data-load-prop="${esc(t.ticket)}">${t.legs.length}-leg · ${pct(t.p)} · fair ${am(t.p)}</button>`).join("")}</div></section>""",
     """<div class="gs-slips ge-set">${combos.map(t=>geSlip(`${t.legs.length}-leg cross-game`,"Floor legs",t.legs,t.p,`data-load-prop="${esc(t.ticket)}"`)).join("")}</div></section>""",
 )
+#     Cashed slips (owner, 24 November): the same white slip, NFL slips only (NBA and NHL have their own tabs)
+_a = js.index("const card=(title,pills,legs,meta,stake,ret)=>")
+_b = js.index("const grid=cards=>", _a)
+js = js[:_a] + """const card=(title,pills,legs,meta,stake,ret)=>`<article class="gs-slip"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="cpills">${pills}</div><ul class="gs-slip-legs ge-cashed-legs">${legs}</ul><p class="gs-slip-note ge-cashed-meta">${meta}</p>${stake?`<dl class="gs-slip-foot"><div><dt>Example stake</dt><dd>${money(stake)}</dd></div><div><dt>Cashed</dt><dd class="good">${money(ret)}</dd></div></dl>`:""}</article>`;
+  """ + js[_b:]
+js = patch(js, """const grid=cards=>`<div class="cgrid">${cards||""", """const grid=cards=>`<div class="gs-slips ge-set">${cards||""")
+_a = js.index("const lgbar=`<div class=\"lgbar\">")
+_b = js.index("\n", _a)
+js = js[:_a] + 'const lgbar="";' + js[_b:]
+js = patch(js, 'state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"}); if(!f.lg) f.lg="nfl";', 'state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"}); f.lg="nfl";')
 #     the home page's shortcuts open the Game SGPs tab, where the slips are
 js = patch(
     js,
@@ -193,6 +203,23 @@ out_public = ROOT / "public" / "console"
 out_public.mkdir(parents=True, exist_ok=True)
 if data_line is not None:
     (out_public / "data.js").write_text(data_line + "\n", encoding="utf8")
+
+# The Cashed slips showcase (owner, 24 November): winning NFL slips only, with example stakes. The counts of slips
+# issued and lost ("weeks", "excluded") are never put on the site. It is added to whatever data.js now holds, so
+# it is there whether or not this run rewrote the week's data.
+cashed_file = NFL / "outputs" / "cashed_slips.json"
+data_js = out_public / "data.js"
+if cashed_file.exists() and data_js.exists():
+    text = data_js.read_text(encoding="utf8")
+    cur = json.loads(text[text.index("{"):text.rindex("}") + 1])
+    showcase = {k: v for k, v in json.loads(cashed_file.read_text(encoding="utf8")).items() if k not in ("weeks", "excluded")}
+    for slip in showcase.get("slips", []):
+        if any(str(l.get("r", "")).upper() in ("MISS", "LOST", "NO") for l in slip.get("legs", [])):
+            raise SystemExit("import-console: the cashed showcase holds a slip with a losing leg")
+    cur["cashed"] = showcase
+    cur.pop("cashed_nba", None)
+    data_js.write_text("const D = " + json.dumps(cur, separators=(",", ":")) + ";\n", encoding="utf8")
+    print(f"cashed showcase: {len(showcase.get('slips', []))} winning slips")
 (out_public / "app.js").write_text(js + "\n", encoding="utf8")
 out_css = ROOT / "src" / "app" / "(console)"
 out_css.mkdir(parents=True, exist_ok=True)

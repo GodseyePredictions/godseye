@@ -47,3 +47,38 @@ export function nbaWhy(data: unknown, game: string): SlipWhy | null {
   }
   return { intel: intel.filter((x) => x.trim()), legs };
 }
+
+// ---------- NHL ----------
+type NhlLeg = { label?: string; prob?: number; why?: string[] };
+type NhlTicket = { id?: string; title?: string; chance?: number; miss?: number; fair_price?: number | null; legs?: NhlLeg[] };
+type NhlGame = { label?: string; start_utc?: string; made_after_start?: boolean; notes?: string[]; tickets?: NhlTicket[] };
+export type NhlLock = {
+  id: string; game: string; title: string; chance: number; miss: number; fairPrice: number | null;
+  legs: { text: string; prob: number; why: string[] }[]; notes: string[];
+};
+
+export const NHL_LOCKS = { best: 3, whyPerLeg: 4, notes: 3 };
+
+/**
+ * The NHL algorithm's highest-chance slip in each game, best first, for the home page.
+ * The chance is the algorithm's own; this only ranks by it. A slip made after puck drop is never shown.
+ */
+export function nhlTopSlips(data: unknown, limit = NHL_LOCKS.best): NhlLock[] {
+  const games = (data as { games?: NhlGame[] }).games ?? [];
+  const out: NhlLock[] = [];
+  for (const g of games) {
+    if (g.made_after_start || !g.label) continue;
+    let top: NhlTicket | null = null;
+    for (const t of g.tickets ?? [])
+      if (typeof t.chance === "number" && (t.legs?.length ?? 0) > 0 && (!top || t.chance > (top.chance as number))) top = t;
+    if (!top) continue;
+    out.push({
+      id: top.id ?? `${g.label}-${top.title}`, game: g.label, title: top.title ?? "Slip", chance: top.chance as number,
+      miss: typeof top.miss === "number" ? top.miss : 1 - (top.chance as number), fairPrice: top.fair_price ?? null,
+      legs: (top.legs ?? []).filter((l) => l.label && typeof l.prob === "number")
+        .map((l) => ({ text: l.label as string, prob: l.prob as number, why: (l.why ?? []).slice(0, NHL_LOCKS.whyPerLeg) })),
+      notes: (g.notes ?? []).slice(0, NHL_LOCKS.notes),
+    });
+  }
+  return out.sort((a, b) => b.chance - a.chance).slice(0, limit);
+}
