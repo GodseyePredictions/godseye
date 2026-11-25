@@ -12,5 +12,19 @@
   "team": "NE",
   "status": "OUT",
   "note": "ESPN Doubtful (WR, Hamstring), swept 2026-11-24"
+ },
+ {
+  "type": "override",
+  "name": "Roschon Johnson",
+  "team": "CHI",
+  "status": "OUT",
+  "note": "ESPN Out (RB, Ankle), swept 2026-11-25"
+ },
+ {
+  "type": "override",
+  "name": "J.K. Dobbins",
+  "team": "DEN",
+  "status": "OUT",
+  "note": "ESPN Out (RB, Personal), swept 2026-11-25"
  }
 ]

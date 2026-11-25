@@ -23,7 +23,7 @@ def good():
             "p1": {"rush_yds": {"k": [20, 30, 40, 50], "p": [0.95, 0.88, 0.78, 0.66]},
                    "carries": {"k": [10, 15], "p": [0.92, 0.74]}},
             "p2": {"rec_yds": {"k": [20, 30, 40], "p": [0.90, 0.80, 0.71]},
-                   "rec": {"k": [1, 2, 3], "p": [0.97, 0.90, 0.76]}},
+                   "rec": {"k": [2, 3], "p": [0.90, 0.76]}},
         },
         "corr": {"atd": {}, "legs": {}},
         "algo": {
@@ -158,3 +158,11 @@ def test_the_data_on_the_site_passes():
     data = json.loads(src[src.index("{"):src.rindex("}") + 1])
     errors, _ = check(data, data["meta"]["season"], data["meta"]["week"])
     assert errors == []
+
+
+def test_one_plus_receptions_is_refused():
+    # bet365's receptions milestones start at 2+, so a 1+ rung must never reach the site
+    def change(d):
+        d["props"]["p2"]["rec"] = {"k": [1, 2, 3], "p": [0.97, 0.90, 0.76]}
+    errs = errors_after(change)
+    assert any("ladder starts below 2+" in e for e in errs)

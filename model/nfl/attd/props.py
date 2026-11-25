@@ -24,7 +24,7 @@ MARKETS = {
                      label="carries"),
     "rush_yds": dict(pos=["RB", "QB"], grid=list(range(10, 201, 10)), ladder=list(range(20, 151, 10)),
                      label="rush yds"),
-    "rec":      dict(pos=["WR", "TE", "RB"], grid=list(range(1, 13)), ladder=list(range(1, 11)),
+    "rec":      dict(pos=["WR", "TE", "RB"], grid=list(range(1, 13)), ladder=list(range(2, 11)),   # bet365 receptions milestones start at 2+ (owner, 25 Nov 2026)
                      label="receptions"),
     "rec_yds":  dict(pos=["WR", "TE", "RB"], grid=list(range(10, 201, 10)), ladder=list(range(20, 151, 10)),
                      label="rec yds"),
