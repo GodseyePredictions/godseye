@@ -274,3 +274,26 @@
 .gs-cashed-foot dd.red {
   font-size: 32px;
 }
+
+/* the algorithm's pick in a tier */
+.gs-slip.pick {
+  outline: 4px solid var(--slip-red);
+  outline-offset: 3px;
+}
+.gs-badge {
+  align-self: flex-start;
+  margin-bottom: 8px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--slip-red);
+  color: #fff;
+  font-family: var(--font-display, var(--display)), Impact, sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.gs-badge.alt {
+  background: #efeaec;
+  color: var(--slip-sub);
+}
