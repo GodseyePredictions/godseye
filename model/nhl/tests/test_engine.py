@@ -246,19 +246,26 @@ def test_blowout_guard_and_gates_remove_legs_with_a_reason(world):
     assert {l["market"] for l in legs} <= {"sog", "hits", "blk"}                 # no sides, totals, saves or scoring props
 
 
-def test_book_rungs_replace_the_paper_ladder_and_a_closer_needs_an_edge(world):
+def test_book_rungs_replace_the_paper_ladder_and_the_closer_ignores_price(world):
     S, PS, cfg = world["S"], world["PS"], world["cfg"]
     pid = int(PS.players.player_id.iloc[0])
     rows = [{"market": "sog", "player_id": pid, "side": "over", "line": 0.5, "price": -400.0}]
     legs, _ = tickets.build_legs(PS, S, open_gates(), {}, rows, {**game_sim.summary(S, cfg), "blowout_flag": False}, cfg)
     mine = [l for l in legs if l["player_id"] == pid and l["market"] == "sog"]
     assert [(l["rung"], l["price"], l["rung_verified"]) for l in mine] == [(1, -400.0, True)]
-    line = {"book": "dk", "market": "ml", "side": S.home, "line": 0.0, "price": 150.0, "model_prob": 0.6, "implied_prob": 0.4, "edge": 0.2, "tier": "strong"}
-    out = tickets.build(PS, S, open_gates(), {}, [], {**game_sim.summary(S, cfg), "blowout_flag": False}, [line], cfg)
-    closer = next(t for t in out["tickets"] if t["kind"] == "closer")
-    assert closer["legs"][0]["label"] == f"{S.home} moneyline" and 0 < closer["kelly_stake"] <= cfg["tickets"]["kelly_cap"]
-    small = tickets.build(PS, S, open_gates(), {}, [], {**game_sim.summary(S, cfg), "blowout_flag": False}, [{**line, "edge": 0.01}], cfg)
-    assert not any(t["kind"] == "closer" for t in small["tickets"])
+    summ = {**game_sim.summary(S, cfg), "blowout_flag": False}
+    dog = S.away if summ["favourite"] == S.home else S.home
+    book = [{"market": "spread", "player_name": dog, "side": "team", "line": 1.5, "price": p, "book": "fd"} for p in (-250.0,)]
+    p_dog = float(game_sim.hits_for(S, "spread", dog, 1.5).mean())
+    for price in (-250.0, +300.0):                                                 # the price changes nothing about the pick
+        out = tickets.build(PS, S, open_gates(), {}, [{**book[0], "price": price}], summ, [], cfg)
+        closer = [t for t in out["tickets"] if t["kind"] == "closer"]
+        if p_dog >= cfg["tickets"]["closer_min_prob"]:
+            assert closer and closer[0]["legs"][0]["label"] == f"{dog} +1.5 puck line"
+        else:
+            assert not closer
+    out = tickets.build(PS, S, open_gates(), {}, [], summ, [], cfg)
+    assert not any(t["kind"] == "closer" for t in out["tickets"])                  # no listed line, no closer
 
 
 def test_same_line_points_rule(cfg):
@@ -336,10 +343,9 @@ def test_saves_legs_need_the_higher_floor_and_totals_are_not_closers(world):
     assert tickets.floor_rungs([mk("saves", 0.80)], cfg) == []                   # 80% clears 70% but not the saves floor
     assert len(tickets.floor_rungs([mk("saves", 0.86), mk("sog", 0.71)], cfg)) == 2
     S, PS = world["S"], world["PS"]
-    line = {"book": "dk", "market": "total", "side": "under", "line": 6.5, "price": 102.0, "model_prob": 0.62, "implied_prob": 0.47,
-            "edge": 0.15, "tier": "strong"}
-    out = tickets.build(PS, S, open_gates(), {}, [], {**game_sim.summary(S, cfg), "blowout_flag": False}, [line], cfg)
-    assert not any(t["kind"] == "closer" for t in out["tickets"])
+    rows = [{"market": "total", "player_name": "", "side": "under", "line": 9.5, "price": -900.0, "book": "fd"}]
+    out = tickets.build(PS, S, open_gates(), {}, rows, {**game_sim.summary(S, cfg), "blowout_flag": False}, [], cfg)
+    assert not any(t["kind"] == "closer" for t in out["tickets"])                  # totals are never closers
 
 
 def test_started_games_keep_their_locked_slips(tmp_path, monkeypatch, db, cfg):

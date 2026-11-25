@@ -124,8 +124,7 @@ class Explainer:
                        f"{100 * (tot >= 7).mean():.0f}% seven or more. In backtest the model's totals were no better than the base rate")
         g = self.priced.get((leg["market"], leg["side"], float(leg["line"])))
         if g:
-            out.append(f"{g['book']} price {g['price']:+.0f}: {100 * g['implied_prob']:.1f}% with the vig removed, against the model's "
-                       f"{100 * g['model_prob']:.1f}% (edge {100 * g['edge']:+.1f} points). The model has not been tested against closing lines")
+            out.append(f"Listed at {g['book']} at {g['price']:+.0f}: the price only confirms the line and says what it pays; it is not an input to the model")
         out.append(f"Hit in {100 * leg['p']:.1f}% of {self.n:,} simulated games" + ("" if leg.get("rung_verified") else "; the line is not checked at the book"))
         return out
 

@@ -166,7 +166,7 @@ tickets:
   single_min_prob: 0.0
   kelly_fraction: 0.25
   kelly_cap: 0.03
-  closer_min_edge: 0.04
+  closer_min_prob: 0.70          # the closer is the listed moneyline or puck line the model rates most likely, at 70%+ (odds never pick it)
   closer_markets: [ml, spread]    # totals are left out: in backtest the model's totals did not beat the base rate
   paper_ladders:                  # used only when no book ladder is in hand; legs are marked "rung not verified"
     sog: [2, 3, 4, 5]
