@@ -1596,7 +1596,7 @@ body {
 }
 @media (min-width: 760px) {
   .lp-switch {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 }
 .lp-sport {

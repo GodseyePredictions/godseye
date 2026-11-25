@@ -1,0 +1,154 @@
+"""One date's slate: gates, game sim, props, correlation, tickets, for every game that has not started.
+
+Output: nhl/output/nhl_slate.json (what the site shows) and nhl/output/nhl_ledger.json (every ticket with
+the time it was made, locked once its game starts, graded by grade.py). Picks come only from this engine.
+"""
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+import pandas as pd
+
+from nhl import context, gates as gates_mod, props, store, tickets
+from nhl.ingest import refs
+from nhl.sim import game_sim
+
+OUT = Path(__file__).parent / "output"
+SLATE, LEDGER, SITE = OUT / "nhl_slate.json", OUT / "nhl_ledger.json", OUT / "nhl_site.json"
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def latest(con, table: str, key: str, as_of: str, where: str = "1=1", params=()) -> pd.DataFrame:
+    return store.read(con, f"SELECT t.* FROM {table} t JOIN (SELECT {key} k, MAX(known_at) m FROM {table} WHERE known_at <= ? AND {where} "
+                           f"GROUP BY {key}) x ON t.{key} = x.k AND t.known_at = x.m WHERE {where}", [as_of, *params, *params])
+
+
+def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None = None) -> dict:
+    home, away = game["home"], game["away"]
+    goalie_rows = latest(con, "goalie_starts", "team", as_of, "date_et = ?", [game["date_et"]]).to_dict("records")
+    lines = ctx["lines"] if ctx.get("lines") is not None else pd.DataFrame()
+    line_rows = lines[lines.team.isin([home, away])].to_dict("records") if len(lines) else []
+    clean = lambda v: None if v is None or (isinstance(v, float) and pd.isna(v)) else v
+    line_rows = [{k: clean(v) for k, v in r.items()} for r in line_rows]
+    line_rows = [{**r, "player_id": None if r["player_id"] is None else int(r["player_id"])} for r in line_rows]
+    G = gates_mod.game_gates(game, goalie_rows, line_rows, cfg)
+    flags = gates_mod.lineup_flags(line_rows)
+    rosters, absent = {}, {}
+    for t in (home, away):
+        rosters[t] = context.roster(ctx, t, cfg)
+        absent[t] = context.absent_share(ctx, t, set(rosters[t].player_id), cfg) if G["lines"][t]["ok"] else {}
+    gk = {}
+    for t in (home, away):
+        g = G["goalies"][t]
+        pid = None if g["player_id"] is None or pd.isna(g["player_id"]) else int(g["player_id"])
+        gk[t] = context.goalie_input(ctx, pid, g["goalie"]) if g["goalie"] else None
+        if gk[t]:
+            gk[t]["player_id"] = pid
+    ra = store.read(con, "SELECT name FROM ref_assignments WHERE date_et=? AND home=? AND role='referee'", [game["date_et"], home])
+    crew = refs.crew_factor(list(ra.name), ctx["ref_rates"], cfg) if len(ra) else {"factor": 1.0, "referees": []}
+    gctx = {**ctx, "goalies": gk, "crew_factor": crew["factor"], "spots": context.spots_for(tables, game["game_id"]), "absent": absent}
+    lam = game_sim.team_lambdas(home, away, gctx, cfg)
+    S = game_sim.simulate(lam, home, away, ctx["K"], cfg, n=n, seed=cfg["sim"]["seed"] + int(game["game_id"]) % 100000)
+    summ = game_sim.summary(S, cfg)
+    odds_rows = latest(con, "odds", "game_id", as_of, "game_id = ?", [game["game_id"]]).to_dict("records")
+    lines_priced = game_sim.price_markets(S, odds_rows, cfg)
+    PS = props.simulate(S, rosters, gctx, cfg, game_id=game["game_id"], goalies={t: gk[t] or {} for t in (home, away)})
+    T = tickets.build(PS, S, G, flags, odds_rows, summ, lines_priced, cfg)
+    probs = game_sim.market_probs(S)
+    fair = lambda k: {"prob": round(probs[k], 4), "fair_price": tickets.fair_american(probs[k])}
+    proj = []
+    for j, r in enumerate(PS.players.itertuples()):
+        proj.append({"player_id": int(r.player_id), "player": r.name, "team": r.team, "pos": r.group, "toi_min": round(r.total / 60, 1),
+                     "line": r.ev_slot, "pp": r.pp_unit, "notes": r.notes,
+                     **{m: round(float(PS.data[m][:, j].mean()), 2) for m in ("sog", "pts", "goals", "ast", "hits", "blk")},
+                     "atg": round(float((PS.data["goals"][:, j] >= 1).mean()), 4)})
+    paper = not all(t["rungs_verified"] for t in T["tickets"]) if T["tickets"] else True
+    label = f"{away} @ {home}"
+    for t in T["tickets"]:
+        t["id"] = f"{game['date_et']}-{away}-{home}-{t['kind']}"
+        t["game"], t["game_id"], t["made_at"], t["start_utc"] = label, game["game_id"], as_of, game["start_utc"]
+    return {"game_id": game["game_id"], "label": label, "home": home, "away": away, "date_et": game["date_et"],
+            "start_utc": game["start_utc"], "venue": game.get("venue"), "gates": G, "referees": crew,
+            "expected": {t: {"goals": round(lam[t]["lam"], 3), "sog": round(lam[t]["sog_mean"], 1), "pp_min": round(lam[t]["pp_sec"] / 60, 2),
+                             "steps": lam[t]["steps"]} for t in (home, away)},
+            "sim": summ,
+            "fair": {"moneyline": {home: fair(("ml", home, 0.0)), away: fair(("ml", away, 0.0))},
+                     "puck_line": {f"{home} -1.5": fair(("spread", home, -1.5)), f"{away} +1.5": fair(("spread", away, 1.5)),
+                                   f"{away} -1.5": fair(("spread", away, -1.5)), f"{home} +1.5": fair(("spread", home, 1.5))},
+                     "totals": {f"over {l}": fair(("total", "over", l)) for l in (5.5, 6.5)},
+                     "regulation": {home: fair(("ml3", home, 0.0)), "draw": fair(("ml3", "draw", 0.0)), away: fair(("ml3", away, 0.0))}},
+            "game_lines": lines_priced,
+            "goalies": {t: {k: v for k, v in PS.goalies[t].items() if k not in ("saves", "pulled")} for t in (home, away)},
+            "tickets": T["tickets"], "pool": T["pool"], "removed": T["removed"][:60], "removed_count": len(T["removed"]),
+            "notes": G["notes"] + T.get("notes", []), "projections": sorted(proj, key=lambda x: -x["toi_min"]),
+            "paper": paper, "sims": S.n}
+
+
+def site_export(slate: dict, cfg) -> dict:
+    """What the website shows: tonight's games, their slips and projections. No results, no ledger."""
+    games = []
+    for g in slate["games"]:
+        games.append({
+            "id": str(g["game_id"]), "label": g["label"], "home": g["home"], "away": g["away"], "start_utc": g["start_utc"],
+            "venue": g["venue"], "paper": g["paper"], "made_after_start": g.get("made_after_start", False), "notes": g["notes"],
+            "goalies": {t: {"name": v["goalie"], "status": v["status"], "ok": v["ok"]} for t, v in g["gates"]["goalies"].items()},
+            "lines_ok": {t: v["ok"] for t, v in g["gates"]["lines"].items()},
+            "referees": [r["name"] for r in g["referees"]["referees"]],
+            "sim": g["sim"], "expected": g["expected"], "fair": g["fair"],
+            "game_lines": [{k: l[k] for k in ("book", "market", "side", "line", "price", "model_prob", "implied_prob", "edge", "tier")}
+                           for l in g["game_lines"]],
+            "saves": {t: {"name": v.get("name"), "expected": v.get("expected_saves"), "pull_prob": v.get("pull_prob")}
+                      for t, v in g["goalies"].items()},
+            "tickets": [{"id": t["id"], "kind": t["kind"], "title": t["title"], "chance": t["chance"], "miss": t["miss"],
+                         "fair_price": t["fair_price"], "lift": t["lift"], "priced": t["priced"], "rungs_verified": t["rungs_verified"],
+                         "edge": t.get("edge"), "book": t.get("book"), "kelly_stake": t.get("kelly_stake"),
+                         "legs": [{k: l[k] for k in ("label", "market", "team", "prob", "price", "fair_price", "rung_verified")} for l in t["legs"]]}
+                        for t in g["tickets"]],
+            "removed_count": g["removed_count"],
+            "projections": [{k: p[k] for k in ("player", "team", "pos", "toi_min", "line", "pp", "sog", "pts", "goals", "ast", "hits", "blk", "atg")}
+                            for p in g["projections"][:40]]})
+    return {"date": slate["date"], "made_at": slate["made_at"], "status": slate["status"], "sims": cfg["sim"]["n_sims"],
+            "floor": cfg["tickets"]["floor_prob"], "games": games, "skipped": slate["skipped"]}
+
+
+def run(con, cfg, date_et: str, as_of: str | None = None, include_started: bool = False) -> dict:
+    """Every game of the date that has not started (or all of them with include_started, for a late paper run)."""
+    as_of = as_of or now_iso()
+    tables = context.Tables.load(con, cfg)
+    sched = tables.schedule[tables.schedule.date_et == date_et].sort_values("start_utc").to_dict("records")
+    lines = store.read(con, "SELECT l.* FROM lines l JOIN (SELECT team, MAX(known_at) k FROM lines WHERE known_at <= ? GROUP BY team) m "
+                            "ON l.team = m.team AND l.known_at = m.k", [as_of])
+    season = int(sched[0]["season"]) if sched else cfg["seasons"]["current"]
+    ctx = context.build(tables, as_of, season, cfg, lines)
+    games, skipped = [], []
+    for g in sched:
+        started = g["start_utc"].replace("Z", "+00:00") <= as_of
+        if started and not include_started:
+            skipped.append(f"{g['away']} @ {g['home']}: already started")
+            continue
+        try:
+            out = run_game(g, ctx, tables, con, cfg, as_of)
+            out["made_after_start"] = bool(started)
+            games.append(out)
+        except Exception as e:                                    # one game's failure must not lose the slate
+            skipped.append(f"{g['away']} @ {g['home']}: not run ({type(e).__name__}: {e})")
+    slate = {"date": date_et, "made_at": as_of, "games": games, "skipped": skipped,
+             "status": "test slate: no NHL market has been validated against closing lines yet"}
+    OUT.mkdir(exist_ok=True)
+    SLATE.write_text(json.dumps(slate, indent=1, default=str))
+    SITE.write_text(json.dumps(site_export(slate, cfg), indent=1, default=str))
+    ledger = json.loads(LEDGER.read_text()) if LEDGER.exists() else {"tickets": []}
+    by_id = {t["id"]: t for t in ledger["tickets"]}
+    for g in games:
+        for t in g["tickets"]:
+            old = by_id.get(t["id"])
+            if old and (old.get("graded") or old["start_utc"].replace("Z", "+00:00") <= as_of):
+                continue                                          # locked at puck drop
+            by_id[t["id"]] = {**{k: v for k, v in t.items() if k != "pairs"}, "paper": g["paper"],
+                              "made_after_start": g["made_after_start"], "graded": False}
+    ledger["tickets"] = sorted(by_id.values(), key=lambda t: (t["start_utc"], t["id"]))
+    LEDGER.write_text(json.dumps(ledger, indent=1, default=str))
+    return slate

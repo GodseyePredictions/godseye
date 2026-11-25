@@ -137,6 +137,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
               NFL
             </a>
             <a href="/nba">NBA</a>
+            <a href="/nhl">NHL</a>
           </nav>
           <span className="livechip">
             <i></i> Model-only, no media picks

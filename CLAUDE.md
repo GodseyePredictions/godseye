@@ -83,7 +83,10 @@ Not built yet. It will be its own algorithm with its own rules. Until the owner 
 
 NHL engine spec lives in `model/nhl/SPEC.md` (the spec calls this `godseye/nhl/`). Always read and follow it for any NHL work. The NHL engine is standalone: never import from NFL or NBA model code (`model/*.py`, `model/nfl/`, `model/nba/`); reuse only `model/common/` (the spec's `godseye/shared/`).
 
-- It is built in the spec's five phases, one per session, each checked before the next. What is built so far is listed at the top of `model/nhl/README.md`.
+- All five phases are built as a test build (owner, 24 November 2026: build it out, publish, test and grade). What is built and how it runs is in `model/nhl/README.md`.
+- **Test slips until validated.** No NHL market has been tested against closing lines (no historical prices are held), so the site labels NHL slips as test slips and suggests no stake on props.
+- **Paper mode.** With no prop ladder connected, legs use the spec's standard milestone rungs and are marked "rung not verified". Never present such a rung as one the book offers.
+- **Results are not posted on the site.** Grading is logged in `model/nhl/output/` and reported to the owner in chat.
 - All thresholds live in `model/nhl/config.yaml`.
 - If a data source cannot supply something the spec asks for, say so. Do not substitute silently.
 

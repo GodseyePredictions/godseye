@@ -13,7 +13,7 @@ if (!out) throw new Error("Usage: node scripts/build-preview.mjs <output.html>")
 const tmp = mkdtempSync(path.join(tmpdir(), "ge-preview-"));
 // The NFL console's own script draws into the element with id "main". In this file every view shares one
 // document, so no other view may use that id, or the console is drawn over it.
-for (const f of ["src/app/(site)/page.tsx", "src/components/InfoPages.tsx", "src/components/NbaApp.tsx"]) {
+for (const f of ["src/app/(site)/page.tsx", "src/components/InfoPages.tsx", "src/components/NbaApp.tsx", "src/components/NhlApp.tsx"]) {
   if (/id="main"/.test(readFileSync(path.join(root, f), "utf8"))) throw new Error(`${f} uses id="main", which belongs to the NFL console`);
 }
 
@@ -29,15 +29,16 @@ writeFileSync(
 import ReactDOM from "react-dom";
 import ConsoleApp from "${path.join(root, "src/components/ConsoleApp.tsx")}";
 import NbaApp from "${path.join(root, "src/components/NbaApp.tsx")}";
+import NhlApp from "${path.join(root, "src/components/NhlApp.tsx")}";
 import Home from "${path.join(root, "src/app/(site)/page.tsx")}";
 import { ContactPage, PrivacyPage, ResponsibleGamblingPage, TermsPage } from "${path.join(root, "src/components/InfoPages.tsx")}";
 window.GE_INLINE = true;
 
-// One page, three views. The view is read from the address: nothing (or a landing section) is the landing
-// page, "nba-..." is the NBA side, anything else is an NFL console tab.
+// One page, four views. The view is read from the address: nothing (or a landing section) is the landing
+// page, "nba-..." is the NBA side, "nhl-..." the NHL side, anything else is an NFL console tab.
 const LANDING = ["", "how", "locks", "sports", "nfl", "nba"];
 const INFO = { "terms": TermsPage, "privacy": PrivacyPage, "responsible-gambling": ResponsibleGamblingPage, "contact": ContactPage };
-const viewOf = (h) => (h.startsWith("nba-") ? "nba" : INFO[h] ? "info" : LANDING.includes(h) ? "site" : "nfl");
+const viewOf = (h) => (h.startsWith("nba-") ? "nba" : h.startsWith("nhl-") ? "nhl" : INFO[h] ? "info" : LANDING.includes(h) ? "site" : "nfl");
 const siteCss = (view) => view === "site" || view === "info";
 const sub = (cb) => { window.addEventListener("hashchange", cb); return () => window.removeEventListener("hashchange", cb); };
 function applyStyles(view) {
@@ -58,7 +59,7 @@ document.addEventListener("click", (e) => {
   if (!href.startsWith("/")) return;
   e.preventDefault();
   const [path, tab] = href.split("#");
-  const next = path === "/nba" ? "nba-" + (tab || "home") : path === "/nfl" || path === "/app" ? tab || "home" : INFO[path.slice(1)] ? path.slice(1) : "";
+  const next = path === "/nba" ? "nba-" + (tab || "home") : path === "/nhl" ? "nhl-" + (tab || "home") : path === "/nfl" || path === "/app" ? tab || "home" : INFO[path.slice(1)] ? path.slice(1) : "";
   if (next) location.hash = next;
   else { history.replaceState(null, "", location.pathname + location.search); window.dispatchEvent(new HashChangeEvent("hashchange")); }
   window.scrollTo(0, 0);
@@ -73,6 +74,7 @@ function Shell() {
       {view === "info" ? React.createElement(INFO[hash]) : null}
       <div hidden={view !== "nfl"}><ConsoleApp eyeSrc={window.GE_EYE} homeHref="/" /></div>
       <div hidden={view !== "nba"}><NbaApp prefix="nba-" /></div>
+      <div hidden={view !== "nhl"}><NhlApp prefix="nhl-" /></div>
     </>
   );
 }

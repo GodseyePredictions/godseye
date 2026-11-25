@@ -1,0 +1,1707 @@
+{
+ "date": "2026-11-24",
+ "made_at": "2026-11-25T00:38:48+00:00",
+ "games": [
+  {
+   "game_id": 2026020385,
+   "label": "VGK @ EDM",
+   "home": "EDM",
+   "away": "VGK",
+   "date_et": "2026-11-24",
+   "start_utc": "2026-11-25T01:00:00Z",
+   "venue": "Rogers Place",
+   "gates": {
+    "goalies": {
+     "EDM": {
+      "ok": true,
+      "goalie": "Devon Levi",
+      "player_id": 8482221,
+      "status": "Confirmed"
+     },
+     "VGK": {
+      "ok": false,
+      "goalie": "Carter Hart",
+      "player_id": 8479394,
+      "status": "Likely"
+     }
+    },
+    "lines": {
+     "EDM": {
+      "ok": true,
+      "updated": "2026-11-24T17:06:42.333Z"
+     },
+     "VGK": {
+      "ok": false,
+      "updated": "2026-11-23T15:08:28.783Z"
+     }
+    },
+    "notes": [
+     "VGK starting goalie is likely: no totals, saves or scoring props",
+     "VGK lines are stale: no legs on its skaters"
+    ],
+    "goalies_ok": false
+   },
+   "referees": {
+    "factor": 0.9950840988972862,
+    "referees": [
+     {
+      "name": "Corey Syvret",
+      "games": 245,
+      "factor": 0.9458176826416859
+     },
+     {
+      "name": "Michael Markovic",
+      "games": 245,
+      "factor": 1.0443505151528865
+     }
+    ]
+   },
+   "expected": {
+    "EDM": {
+     "goals": 2.281,
+     "sog": 21.9,
+     "pp_min": 4.3,
+     "steps": [
+      {
+       "what": "5v5 xG",
+       "value": 1.512
+      },
+      {
+       "what": "power-play xG",
+       "value": 0.577
+      },
+      {
+       "what": "shorthanded xG",
+       "value": 0.159
+      },
+      {
+       "what": "facing Carter Hart (GSAx/60 -0.09)",
+       "factor": 1.027
+      },
+      {
+       "what": "home ice",
+       "factor": 1.0345
+      },
+      {
+       "what": "rest differential -1 days",
+       "factor": 0.995
+      },
+      {
+       "what": "out: Zach Hyman, Ty Emberson",
+       "factor": 0.9631
+      }
+     ]
+    },
+    "VGK": {
+     "goals": 2.864,
+     "sog": 27.5,
+     "pp_min": 5.21,
+     "steps": [
+      {
+       "what": "5v5 xG",
+       "value": 2.078
+      },
+      {
+       "what": "power-play xG",
+       "value": 0.826
+      },
+      {
+       "what": "shorthanded xG",
+       "value": 0.067
+      },
+      {
+       "what": "facing Devon Levi (GSAx/60 +0.00)",
+       "factor": 1.0
+      },
+      {
+       "what": "road",
+       "factor": 0.9666
+      },
+      {
+       "what": "rest differential +1 days",
+       "factor": 1.005
+      },
+      {
+       "what": "1 time zones since last game",
+       "factor": 0.996
+      }
+     ]
+    }
+   },
+   "sim": {
+    "home": "EDM",
+    "away": "VGK",
+    "home_goals": 2.568,
+    "away_goals": 3.137,
+    "total": 5.705,
+    "home_win": 0.4033,
+    "overtime": 0.2307,
+    "shootout": 0.0742,
+    "home_sog": 22.63,
+    "away_sog": 27.58,
+    "empty_net_goals": 0.385,
+    "blowout_prob": 0.1681,
+    "favourite": "VGK",
+    "favourite_blowout_prob": 0.115,
+    "blowout_flag": false
+   },
+   "fair": {
+    "moneyline": {
+     "EDM": {
+      "prob": 0.4033,
+      "fair_price": 148
+     },
+     "VGK": {
+      "prob": 0.5967,
+      "fair_price": -148
+     }
+    },
+    "puck_line": {
+     "EDM -1.5": {
+      "prob": 0.223,
+      "fair_price": 348
+     },
+     "VGK +1.5": {
+      "prob": 0.777,
+      "fair_price": -348
+     },
+     "VGK -1.5": {
+      "prob": 0.3807,
+      "fair_price": 163
+     },
+     "EDM +1.5": {
+      "prob": 0.6193,
+      "fair_price": -163
+     }
+    },
+    "totals": {
+     "over 5.5": {
+      "prob": 0.4702,
+      "fair_price": 113
+     },
+     "over 6.5": {
+      "prob": 0.3677,
+      "fair_price": 172
+     }
+    },
+    "regulation": {
+     "EDM": {
+      "prob": 0.2929,
+      "fair_price": 241
+     },
+     "draw": {
+      "prob": 0.2307,
+      "fair_price": 333
+     },
+     "VGK": {
+      "prob": 0.4763,
+      "fair_price": 110
+     }
+    }
+   },
+   "game_lines": [
+    {
+     "book": "draftkings",
+     "market": "total",
+     "side": "under",
+     "line": 6.5,
+     "price": 102.0,
+     "model_prob": 0.6323,
+     "implied_prob": 0.4739,
+     "edge": 0.1584,
+     "tier": "strong",
+     "fair_price": -172
+    },
+    {
+     "book": "draftkings",
+     "market": "ml3",
+     "side": "VGK",
+     "line": 0.0,
+     "price": 135.0,
+     "model_prob": 0.4763,
+     "implied_prob": 0.3927,
+     "edge": 0.0837,
+     "tier": "strong",
+     "fair_price": 110
+    },
+    {
+     "book": "draftkings",
+     "market": "ml",
+     "side": "VGK",
+     "line": 0.0,
+     "price": -120.0,
+     "model_prob": 0.5967,
+     "implied_prob": 0.5217,
+     "edge": 0.075,
+     "tier": "strong",
+     "fair_price": -148
+    },
+    {
+     "book": "draftkings",
+     "market": "spread",
+     "side": "VGK",
+     "line": -1.5,
+     "price": 210.0,
+     "model_prob": 0.3807,
+     "implied_prob": 0.3092,
+     "edge": 0.0715,
+     "tier": "strong",
+     "fair_price": 163
+    },
+    {
+     "book": "draftkings",
+     "market": "ml3",
+     "side": "draw",
+     "line": 0.0,
+     "price": 330.0,
+     "model_prob": 0.2307,
+     "implied_prob": 0.2146,
+     "edge": 0.0161,
+     "tier": null,
+     "fair_price": 333
+    },
+    {
+     "book": "draftkings",
+     "market": "spread",
+     "side": "EDM",
+     "line": 1.5,
+     "price": -258.0,
+     "model_prob": 0.6193,
+     "implied_prob": 0.6908,
+     "edge": -0.0715,
+     "tier": null,
+     "fair_price": -163
+    },
+    {
+     "book": "draftkings",
+     "market": "ml",
+     "side": "EDM",
+     "line": 0.0,
+     "price": 100.0,
+     "model_prob": 0.4033,
+     "implied_prob": 0.4783,
+     "edge": -0.075,
+     "tier": null,
+     "fair_price": 148
+    },
+    {
+     "book": "draftkings",
+     "market": "ml3",
+     "side": "EDM",
+     "line": 0.0,
+     "price": 135.0,
+     "model_prob": 0.2929,
+     "implied_prob": 0.3927,
+     "edge": -0.0997,
+     "tier": null,
+     "fair_price": 241
+    },
+    {
+     "book": "draftkings",
+     "market": "total",
+     "side": "over",
+     "line": 6.5,
+     "price": -122.0,
+     "model_prob": 0.3677,
+     "implied_prob": 0.5261,
+     "edge": -0.1584,
+     "tier": null,
+     "fair_price": 172
+    }
+   ],
+   "goalies": {
+    "EDM": {
+     "gsax60": 0.0,
+     "league_xga60": 3.1877113734697695,
+     "name": "Devon Levi",
+     "below_min_sample": 1,
+     "starts": 13,
+     "player_id": 8482221,
+     "pull_prob": 0.0519,
+     "expected_saves": 24.31
+    },
+    "VGK": {
+     "gsax60": -0.0861078601337854,
+     "league_xga60": 3.1877113734697695,
+     "name": "Carter Hart",
+     "below_min_sample": 0,
+     "starts": 31,
+     "player_id": 8479394,
+     "pull_prob": 0.0232,
+     "expected_saves": 20.12
+    }
+   },
+   "tickets": [
+    {
+     "kind": "sgp4",
+     "title": "4-leg props SGP",
+     "legs": [
+      {
+       "label": "Colton Dach 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Colton Dach",
+       "player_id": 8482703,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.8823,
+       "price": null,
+       "fair_price": -750,
+       "rung_verified": false
+      },
+      {
+       "label": "Vasily Podkolzin 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Vasily Podkolzin",
+       "player_id": 8481617,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.8318,
+       "price": null,
+       "fair_price": -495,
+       "rung_verified": false
+      },
+      {
+       "label": "Mathieu Joseph 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Mathieu Joseph",
+       "player_id": 8478472,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.8014,
+       "price": null,
+       "fair_price": -404,
+       "rung_verified": false
+      },
+      {
+       "label": "Trent Frederic 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Trent Frederic",
+       "player_id": 8479365,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.7913,
+       "price": null,
+       "fair_price": -379,
+       "rung_verified": false
+      }
+     ],
+     "chance": 0.4677,
+     "miss": 0.5323,
+     "fair_price": 114,
+     "lift": 1.005,
+     "pairs": [
+      {
+       "a": "Colton Dach 1+ hits",
+       "b": "Vasily Podkolzin 1+ hits",
+       "corr": -0.009
+      },
+      {
+       "a": "Colton Dach 1+ hits",
+       "b": "Mathieu Joseph 1+ hits",
+       "corr": -0.012
+      },
+      {
+       "a": "Colton Dach 1+ hits",
+       "b": "Trent Frederic 1+ hits",
+       "corr": 0.022
+      },
+      {
+       "a": "Vasily Podkolzin 1+ hits",
+       "b": "Mathieu Joseph 1+ hits",
+       "corr": -0.004
+      },
+      {
+       "a": "Vasily Podkolzin 1+ hits",
+       "b": "Trent Frederic 1+ hits",
+       "corr": 0.001
+      },
+      {
+       "a": "Mathieu Joseph 1+ hits",
+       "b": "Trent Frederic 1+ hits",
+       "corr": 0.01
+      }
+     ],
+     "priced": false,
+     "rungs_verified": false,
+     "id": "2026-11-24-VGK-EDM-sgp4",
+     "game": "VGK @ EDM",
+     "game_id": 2026020385,
+     "made_at": "2026-11-25T00:38:48+00:00",
+     "start_utc": "2026-11-25T01:00:00Z"
+    },
+    {
+     "kind": "sgp6",
+     "title": "6-leg props SGP",
+     "legs": [
+      {
+       "label": "Colton Dach 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Colton Dach",
+       "player_id": 8482703,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.8823,
+       "price": null,
+       "fair_price": -750,
+       "rung_verified": false
+      },
+      {
+       "label": "Vasily Podkolzin 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Vasily Podkolzin",
+       "player_id": 8481617,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.8318,
+       "price": null,
+       "fair_price": -495,
+       "rung_verified": false
+      },
+      {
+       "label": "Mathieu Joseph 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Mathieu Joseph",
+       "player_id": 8478472,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.8014,
+       "price": null,
+       "fair_price": -404,
+       "rung_verified": false
+      },
+      {
+       "label": "Trent Frederic 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Trent Frederic",
+       "player_id": 8479365,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.7913,
+       "price": null,
+       "fair_price": -379,
+       "rung_verified": false
+      },
+      {
+       "label": "Connor Murphy 1+ blocked shots",
+       "market": "blk",
+       "team": "EDM",
+       "player": "Connor Murphy",
+       "player_id": 8476473,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.7902,
+       "price": null,
+       "fair_price": -377,
+       "rung_verified": false
+      },
+      {
+       "label": "Kasperi Kapanen 1+ hits",
+       "market": "hits",
+       "team": "EDM",
+       "player": "Kasperi Kapanen",
+       "player_id": 8477953,
+       "rung": 1,
+       "side": null,
+       "line": null,
+       "prob": 0.7666,
+       "price": null,
+       "fair_price": -328,
+       "rung_verified": false
+      }
+     ],
+     "chance": 0.2852,
+     "miss": 0.7148,
+     "fair_price": 251,
+     "lift": 1.011,
+     "pairs": [
+      {
+       "a": "Colton Dach 1+ hits",
+       "b": "Vasily Podkolzin 1+ hits",
+       "corr": -0.009
+      },
+      {
+       "a": "Colton Dach 1+ hits",
+       "b": "Mathieu Joseph 1+ hits",
+       "corr": -0.012
+      },
+      {
+       "a": "Colton Dach 1+ hits",
+       "b": "Trent Frederic 1+ hits",
+       "corr": 0.022
+      },
+      {
+       "a": "Colton Dach 1+ hits",
+       "b": "Connor Murphy 1+ blocked shots",
+       "corr": -0.008
+      },
+      {
+       "a": "Colton Dach 1+ hits",
+       "b": "Kasperi Kapanen 1+ hits",
+       "corr": -0.003
+      },
+      {
+       "a": "Vasily Podkolzin 1+ hits",
+       "b": "Mathieu Joseph 1+ hits",
+       "corr": -0.004
+      },
+      {
+       "a": "Vasily Podkolzin 1+ hits",
+       "b": "Trent Frederic 1+ hits",
+       "corr": 0.001
+      },
+      {
+       "a": "Vasily Podkolzin 1+ hits",
+       "b": "Connor Murphy 1+ blocked shots",
+       "corr": -0.006
+      },
+      {
+       "a": "Vasily Podkolzin 1+ hits",
+       "b": "Kasperi Kapanen 1+ hits",
+       "corr": 0.006
+      },
+      {
+       "a": "Mathieu Joseph 1+ hits",
+       "b": "Trent Frederic 1+ hits",
+       "corr": 0.01
+      },
+      {
+       "a": "Mathieu Joseph 1+ hits",
+       "b": "Connor Murphy 1+ blocked shots",
+       "corr": 0.012
+      },
+      {
+       "a": "Mathieu Joseph 1+ hits",
+       "b": "Kasperi Kapanen 1+ hits",
+       "corr": 0.016
+      },
+      {
+       "a": "Trent Frederic 1+ hits",
+       "b": "Connor Murphy 1+ blocked shots",
+       "corr": -0.005
+      },
+      {
+       "a": "Trent Frederic 1+ hits",
+       "b": "Kasperi Kapanen 1+ hits",
+       "corr": -0.003
+      },
+      {
+       "a": "Connor Murphy 1+ blocked shots",
+       "b": "Kasperi Kapanen 1+ hits",
+       "corr": 0.006
+      }
+     ],
+     "priced": false,
+     "rungs_verified": false,
+     "id": "2026-11-24-VGK-EDM-sgp6",
+     "game": "VGK @ EDM",
+     "game_id": 2026020385,
+     "made_at": "2026-11-25T00:38:48+00:00",
+     "start_utc": "2026-11-25T01:00:00Z"
+    }
+   ],
+   "pool": [
+    {
+     "label": "Colton Dach 1+ hits",
+     "market": "hits",
+     "team": "EDM",
+     "player": "Colton Dach",
+     "player_id": 8482703,
+     "rung": 1,
+     "side": null,
+     "line": null,
+     "prob": 0.8823,
+     "price": null,
+     "fair_price": -750,
+     "rung_verified": false
+    },
+    {
+     "label": "Vasily Podkolzin 1+ hits",
+     "market": "hits",
+     "team": "EDM",
+     "player": "Vasily Podkolzin",
+     "player_id": 8481617,
+     "rung": 1,
+     "side": null,
+     "line": null,
+     "prob": 0.8318,
+     "price": null,
+     "fair_price": -495,
+     "rung_verified": false
+    },
+    {
+     "label": "Mathieu Joseph 1+ hits",
+     "market": "hits",
+     "team": "EDM",
+     "player": "Mathieu Joseph",
+     "player_id": 8478472,
+     "rung": 1,
+     "side": null,
+     "line": null,
+     "prob": 0.8014,
+     "price": null,
+     "fair_price": -404,
+     "rung_verified": false
+    },
+    {
+     "label": "Trent Frederic 1+ hits",
+     "market": "hits",
+     "team": "EDM",
+     "player": "Trent Frederic",
+     "player_id": 8479365,
+     "rung": 1,
+     "side": null,
+     "line": null,
+     "prob": 0.7913,
+     "price": null,
+     "fair_price": -379,
+     "rung_verified": false
+    },
+    {
+     "label": "Connor Murphy 1+ blocked shots",
+     "market": "blk",
+     "team": "EDM",
+     "player": "Connor Murphy",
+     "player_id": 8476473,
+     "rung": 1,
+     "side": null,
+     "line": null,
+     "prob": 0.7902,
+     "price": null,
+     "fair_price": -377,
+     "rung_verified": false
+    },
+    {
+     "label": "Kasperi Kapanen 1+ hits",
+     "market": "hits",
+     "team": "EDM",
+     "player": "Kasperi Kapanen",
+     "player_id": 8477953,
+     "rung": 1,
+     "side": null,
+     "line": null,
+     "prob": 0.7666,
+     "price": null,
+     "fair_price": -328,
+     "rung_verified": false
+    },
+    {
+     "label": "Alex Formenton 1+ hits",
+     "market": "hits",
+     "team": "EDM",
+     "player": "Alex Formenton",
+     "player_id": 8480029,
+     "rung": 1,
+     "side": null,
+     "line": null,
+     "prob": 0.7609,
+     "price": null,
+     "fair_price": -318,
+     "rung_verified": false
+    },
+    {
+     "label": "Connor McDavid 2+ shots on goal",
+     "market": "sog",
+     "team": "EDM",
+     "player": "Connor McDavid",
+     "player_id": 8478402,
+     "rung": 2,
+     "side": null,
+     "line": null,
+     "prob": 0.7202,
+     "price": null,
+     "fair_price": -257,
+     "rung_verified": false
+    },
+    {
+     "label": "Leon Draisaitl 2+ shots on goal",
+     "market": "sog",
+     "team": "EDM",
+     "player": "Leon Draisaitl",
+     "player_id": 8477934,
+     "rung": 2,
+     "side": null,
+     "line": null,
+     "prob": 0.7146,
+     "price": null,
+     "fair_price": -250,
+     "rung_verified": false
+    },
+    {
+     "label": "Ryan Shea 1+ blocked shots",
+     "market": "blk",
+     "team": "EDM",
+     "player": "Ryan Shea",
+     "player_id": 8478854,
+     "rung": 1,
+     "side": null,
+     "line": null,
+     "prob": 0.7104,
+     "price": null,
+     "fair_price": -245,
+     "rung_verified": false
+    }
+   ],
+   "removed": [
+    {
+     "label": "Ryan Nugent-Hopkins 1+ points",
+     "p": 0.4485,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Nugent-Hopkins 2+ points",
+     "p": 0.1182,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Nugent-Hopkins 1+ assists",
+     "p": 0.312,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Nugent-Hopkins 2+ assists",
+     "p": 0.0544,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Nugent-Hopkins 1+ goals",
+     "p": 0.1961,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor McDavid 1+ points",
+     "p": 0.6299,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor McDavid 2+ points",
+     "p": 0.2732,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor McDavid 1+ assists",
+     "p": 0.4774,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor McDavid 2+ assists",
+     "p": 0.1419,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor McDavid 1+ goals",
+     "p": 0.2991,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Mathieu Joseph 1+ points",
+     "p": 0.2687,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Mathieu Joseph 2+ points",
+     "p": 0.0423,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Mathieu Joseph 1+ assists",
+     "p": 0.1815,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Mathieu Joseph 2+ assists",
+     "p": 0.019,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Mathieu Joseph 1+ goals",
+     "p": 0.1083,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Vasily Podkolzin 1+ points",
+     "p": 0.3486,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Vasily Podkolzin 2+ points",
+     "p": 0.0702,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Vasily Podkolzin 1+ assists",
+     "p": 0.1906,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Vasily Podkolzin 2+ assists",
+     "p": 0.0186,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Vasily Podkolzin 1+ goals",
+     "p": 0.1945,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Shea 1+ points",
+     "p": 0.2425,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Shea 2+ points",
+     "p": 0.0326,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Shea 1+ assists",
+     "p": 0.2015,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Shea 2+ assists",
+     "p": 0.0215,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Ryan Shea 1+ goals",
+     "p": 0.0518,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Shakir Mukhamadullin 1+ points",
+     "p": 0.0994,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Shakir Mukhamadullin 2+ points",
+     "p": 0.005,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Shakir Mukhamadullin 1+ assists",
+     "p": 0.0763,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Shakir Mukhamadullin 2+ assists",
+     "p": 0.0034,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Shakir Mukhamadullin 1+ goals",
+     "p": 0.0247,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Kasperi Kapanen 1+ points",
+     "p": 0.4003,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Kasperi Kapanen 2+ points",
+     "p": 0.0968,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Kasperi Kapanen 1+ assists",
+     "p": 0.2641,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Kasperi Kapanen 2+ assists",
+     "p": 0.0395,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Kasperi Kapanen 1+ goals",
+     "p": 0.1872,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Jason Dickinson 1+ points",
+     "p": 0.241,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Jason Dickinson 2+ points",
+     "p": 0.0344,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Jason Dickinson 1+ assists",
+     "p": 0.157,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Jason Dickinson 2+ assists",
+     "p": 0.0129,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Jason Dickinson 1+ goals",
+     "p": 0.1008,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor Murphy 1+ points",
+     "p": 0.1285,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor Murphy 2+ points",
+     "p": 0.0103,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor Murphy 1+ assists",
+     "p": 0.1052,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor Murphy 2+ assists",
+     "p": 0.0061,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Connor Murphy 1+ goals",
+     "p": 0.0271,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Colton Dach 1+ points",
+     "p": 0.2672,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Colton Dach 2+ points",
+     "p": 0.0399,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Colton Dach 1+ assists",
+     "p": 0.1412,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Colton Dach 2+ assists",
+     "p": 0.0107,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Colton Dach 1+ goals",
+     "p": 0.1468,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Alex Formenton 1+ points",
+     "p": 0.1797,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Alex Formenton 2+ points",
+     "p": 0.0171,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Alex Formenton 1+ assists",
+     "p": 0.1013,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Alex Formenton 2+ assists",
+     "p": 0.0053,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Alex Formenton 1+ goals",
+     "p": 0.0871,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Trent Frederic 1+ points",
+     "p": 0.166,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Trent Frederic 2+ points",
+     "p": 0.0138,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Trent Frederic 1+ assists",
+     "p": 0.0709,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Trent Frederic 2+ assists",
+     "p": 0.003,
+     "reason": "starting goalie not confirmed"
+    },
+    {
+     "label": "Trent Frederic 1+ goals",
+     "p": 0.1014,
+     "reason": "starting goalie not confirmed"
+    }
+   ],
+   "removed_count": 440,
+   "notes": [
+    "VGK starting goalie is likely: no totals, saves or scoring props",
+    "VGK lines are stale: no legs on its skaters",
+    "game-line closer withheld: starting goalie not confirmed"
+   ],
+   "projections": [
+    {
+     "player_id": 8480803,
+     "player": "Evan Bouchard",
+     "team": "EDM",
+     "pos": "D",
+     "toi_min": 24.7,
+     "line": "d1",
+     "pp": "pp1",
+     "notes": "pp1: 62% of 300s team PP, plus part of his surplus",
+     "sog": 2.21,
+     "pts": 0.64,
+     "goals": 0.14,
+     "ast": 0.5,
+     "hits": 0.34,
+     "blk": 1.19,
+     "atg": 0.1315
+    },
+    {
+     "player_id": 8478402,
+     "player": "Connor McDavid",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 23.4,
+     "line": "f1",
+     "pp": "pp1",
+     "notes": "pp1: 62% of 300s team PP, plus part of his surplus",
+     "sog": 2.8,
+     "pts": 1.01,
+     "goals": 0.36,
+     "ast": 0.65,
+     "hits": 0.52,
+     "blk": 0.52,
+     "atg": 0.2991
+    },
+    {
+     "player_id": 8478854,
+     "player": "Ryan Shea",
+     "team": "EDM",
+     "pos": "D",
+     "toi_min": 23.4,
+     "line": "d2",
+     "pp": "pp2",
+     "notes": "pp2: 38% of 300s team PP",
+     "sog": 1.05,
+     "pts": 0.28,
+     "goals": 0.05,
+     "ast": 0.22,
+     "hits": 0.42,
+     "blk": 1.47,
+     "atg": 0.0518
+    },
+    {
+     "player_id": 8477447,
+     "player": "Shea Theodore",
+     "team": "VGK",
+     "pos": "D",
+     "toi_min": 22.7,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.6,
+     "pts": 0.4,
+     "goals": 0.1,
+     "ast": 0.3,
+     "hits": 0.16,
+     "blk": 1.31,
+     "atg": 0.0978
+    },
+    {
+     "player_id": 8475218,
+     "player": "Mattias Ekholm",
+     "team": "EDM",
+     "pos": "D",
+     "toi_min": 22.5,
+     "line": "d1",
+     "pp": "pp2",
+     "notes": "pp2: 38% of 300s team PP",
+     "sog": 1.42,
+     "pts": 0.38,
+     "goals": 0.08,
+     "ast": 0.31,
+     "hits": 0.66,
+     "blk": 1.43,
+     "atg": 0.0736
+    },
+    {
+     "player_id": 8478403,
+     "player": "Jack Eichel",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 21.6,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 2.97,
+     "pts": 0.94,
+     "goals": 0.29,
+     "ast": 0.65,
+     "hits": 0.58,
+     "blk": 0.49,
+     "atg": 0.2536
+    },
+    {
+     "player_id": 8478483,
+     "player": "Mitch Marner",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 21.4,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 2.29,
+     "pts": 0.89,
+     "goals": 0.24,
+     "ast": 0.66,
+     "hits": 0.43,
+     "blk": 0.54,
+     "atg": 0.2128
+    },
+    {
+     "player_id": 8475188,
+     "player": "Brayden McNabb",
+     "team": "VGK",
+     "pos": "D",
+     "toi_min": 21.0,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.15,
+     "pts": 0.26,
+     "goals": 0.05,
+     "ast": 0.21,
+     "hits": 1.93,
+     "blk": 1.89,
+     "atg": 0.051
+    },
+    {
+     "player_id": 8476473,
+     "player": "Connor Murphy",
+     "team": "EDM",
+     "pos": "D",
+     "toi_min": 20.7,
+     "line": "d2",
+     "pp": null,
+     "notes": "",
+     "sog": 0.91,
+     "pts": 0.14,
+     "goals": 0.03,
+     "ast": 0.11,
+     "hits": 0.92,
+     "blk": 1.96,
+     "atg": 0.0271
+    },
+    {
+     "player_id": 8477953,
+     "player": "Kasperi Kapanen",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 20.5,
+     "line": "f1",
+     "pp": "pp1",
+     "notes": "f1 tonight, usually f2 minutes: +96s EV, pp1: 62% of 300s team PP",
+     "sog": 1.74,
+     "pts": 0.51,
+     "goals": 0.21,
+     "ast": 0.31,
+     "hits": 1.62,
+     "blk": 0.46,
+     "atg": 0.1872
+    },
+    {
+     "player_id": 8477934,
+     "player": "Leon Draisaitl",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 20.4,
+     "line": "f2",
+     "pp": "pp1",
+     "notes": "f2 tonight, usually f1 minutes: -96s EV, pp1: 62% of 300s team PP, plus part of his surplus",
+     "sog": 2.75,
+     "pts": 0.87,
+     "goals": 0.38,
+     "ast": 0.49,
+     "hits": 0.45,
+     "blk": 0.35,
+     "atg": 0.317
+    },
+    {
+     "player_id": 8478397,
+     "player": "Rasmus Andersson",
+     "team": "VGK",
+     "pos": "D",
+     "toi_min": 20.1,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.73,
+     "pts": 0.35,
+     "goals": 0.1,
+     "ast": 0.25,
+     "hits": 0.4,
+     "blk": 1.46,
+     "atg": 0.0952
+    },
+    {
+     "player_id": 8475913,
+     "player": "Mark Stone",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 19.8,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 2.0,
+     "pts": 0.79,
+     "goals": 0.35,
+     "ast": 0.44,
+     "hits": 0.9,
+     "blk": 0.74,
+     "atg": 0.291
+    },
+    {
+     "player_id": 8476454,
+     "player": "Ryan Nugent-Hopkins",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 19.4,
+     "line": "f1",
+     "pp": "pp1",
+     "notes": "f1 tonight, usually f2 minutes: +96s EV, pp1: 62% of 300s team PP, plus part of his surplus",
+     "sog": 1.8,
+     "pts": 0.59,
+     "goals": 0.22,
+     "ast": 0.37,
+     "hits": 0.36,
+     "blk": 0.49,
+     "atg": 0.1961
+    },
+    {
+     "player_id": 8478450,
+     "player": "Parker Wotherspoon",
+     "team": "VGK",
+     "pos": "D",
+     "toi_min": 18.2,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 0.89,
+     "pts": 0.27,
+     "goals": 0.03,
+     "ast": 0.23,
+     "hits": 1.73,
+     "blk": 1.06,
+     "atg": 0.0317
+    },
+    {
+     "player_id": 8476448,
+     "player": "William Karlsson",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 18.1,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 2.01,
+     "pts": 0.46,
+     "goals": 0.23,
+     "ast": 0.23,
+     "hits": 0.47,
+     "blk": 0.71,
+     "atg": 0.2024
+    },
+    {
+     "player_id": 8478468,
+     "player": "Jeremy Lauzon",
+     "team": "VGK",
+     "pos": "D",
+     "toi_min": 17.4,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.04,
+     "pts": 0.2,
+     "goals": 0.04,
+     "ast": 0.16,
+     "hits": 3.98,
+     "blk": 1.28,
+     "atg": 0.0382
+    },
+    {
+     "player_id": 8476881,
+     "player": "Tomas Hertl",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 15.8,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 2.34,
+     "pts": 0.68,
+     "goals": 0.34,
+     "ast": 0.34,
+     "hits": 1.88,
+     "blk": 0.41,
+     "atg": 0.2862
+    },
+    {
+     "player_id": 8481617,
+     "player": "Vasily Podkolzin",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 15.6,
+     "line": "f2",
+     "pp": "pp2",
+     "notes": "f2 tonight, usually f1 minutes: -96s EV, pp2: 38% of 300s team PP, plus part of his surplus",
+     "sog": 1.69,
+     "pts": 0.43,
+     "goals": 0.22,
+     "ast": 0.21,
+     "hits": 2.05,
+     "blk": 0.44,
+     "atg": 0.1945
+    },
+    {
+     "player_id": 8478109,
+     "player": "Victor Olofsson",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 15.6,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 2.15,
+     "pts": 0.54,
+     "goals": 0.26,
+     "ast": 0.28,
+     "hits": 0.34,
+     "blk": 0.26,
+     "atg": 0.2306
+    },
+    {
+     "player_id": 8482166,
+     "player": "Shakir Mukhamadullin",
+     "team": "EDM",
+     "pos": "D",
+     "toi_min": 15.1,
+     "line": "d3",
+     "pp": null,
+     "notes": "",
+     "sog": 0.7,
+     "pts": 0.1,
+     "goals": 0.02,
+     "ast": 0.08,
+     "hits": 0.54,
+     "blk": 1.1,
+     "atg": 0.0247
+    },
+    {
+     "player_id": 8482703,
+     "player": "Colton Dach",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 15.1,
+     "line": "f3",
+     "pp": "pp2",
+     "notes": "pp2: 38% of 300s team PP",
+     "sog": 1.52,
+     "pts": 0.31,
+     "goals": 0.16,
+     "ast": 0.15,
+     "hits": 2.53,
+     "blk": 0.51,
+     "atg": 0.1468
+    },
+    {
+     "player_id": 8484803,
+     "player": "Trevor Connelly",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 15.0,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 2.02,
+     "pts": 0.53,
+     "goals": 0.22,
+     "ast": 0.31,
+     "hits": 0.77,
+     "blk": 0.46,
+     "atg": 0.2011
+    },
+    {
+     "player_id": 8479353,
+     "player": "Brett Howden",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 14.9,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.47,
+     "pts": 0.35,
+     "goals": 0.2,
+     "ast": 0.15,
+     "hits": 1.6,
+     "blk": 0.48,
+     "atg": 0.1792
+    },
+    {
+     "player_id": 8477964,
+     "player": "Ivan Barbashev",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 14.6,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.37,
+     "pts": 0.53,
+     "goals": 0.2,
+     "ast": 0.33,
+     "hits": 1.9,
+     "blk": 0.41,
+     "atg": 0.1785
+    },
+    {
+     "player_id": 8478013,
+     "player": "Jake Walman",
+     "team": "EDM",
+     "pos": "D",
+     "toi_min": 13.9,
+     "line": "d3",
+     "pp": null,
+     "notes": "on neither PP unit",
+     "sog": 1.01,
+     "pts": 0.14,
+     "goals": 0.04,
+     "ast": 0.1,
+     "hits": 0.18,
+     "blk": 1.33,
+     "atg": 0.0418
+    },
+    {
+     "player_id": 8477450,
+     "player": "Jason Dickinson",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 13.8,
+     "line": "f3",
+     "pp": null,
+     "notes": "f3 tonight, usually f4 minutes: +50s EV",
+     "sog": 1.04,
+     "pts": 0.28,
+     "goals": 0.11,
+     "ast": 0.17,
+     "hits": 1.1,
+     "blk": 0.79,
+     "atg": 0.1008
+    },
+    {
+     "player_id": 8479639,
+     "player": "Dylan Coghlan",
+     "team": "VGK",
+     "pos": "D",
+     "toi_min": 13.7,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.2,
+     "pts": 0.17,
+     "goals": 0.04,
+     "ast": 0.13,
+     "hits": 0.74,
+     "blk": 0.76,
+     "atg": 0.039
+    },
+    {
+     "player_id": 8478472,
+     "player": "Mathieu Joseph",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 13.6,
+     "line": "f2",
+     "pp": null,
+     "notes": "f2 tonight, usually f4 minutes: +98s EV",
+     "sog": 0.95,
+     "pts": 0.32,
+     "goals": 0.11,
+     "ast": 0.2,
+     "hits": 1.83,
+     "blk": 0.65,
+     "atg": 0.1083
+    },
+    {
+     "player_id": 8483890,
+     "player": "Braeden Bowman",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 11.7,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.16,
+     "pts": 0.36,
+     "goals": 0.16,
+     "ast": 0.2,
+     "hits": 0.39,
+     "blk": 0.33,
+     "atg": 0.1505
+    },
+    {
+     "player_id": 8480029,
+     "player": "Alex Formenton",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 11.6,
+     "line": "f4",
+     "pp": null,
+     "notes": "",
+     "sog": 0.87,
+     "pts": 0.2,
+     "goals": 0.09,
+     "ast": 0.11,
+     "hits": 1.59,
+     "blk": 0.41,
+     "atg": 0.0871
+    },
+    {
+     "player_id": 8480842,
+     "player": "Filip Hallander",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 11.1,
+     "line": "f3",
+     "pp": null,
+     "notes": "f3 tonight, usually f4 minutes: +50s EV, on neither PP unit",
+     "sog": 1.18,
+     "pts": 0.25,
+     "goals": 0.13,
+     "ast": 0.12,
+     "hits": 0.85,
+     "blk": 0.39,
+     "atg": 0.1217
+    },
+    {
+     "player_id": 8479365,
+     "player": "Trent Frederic",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 10.7,
+     "line": "f4",
+     "pp": "pp2",
+     "notes": "pp2: 38% of 300s team PP",
+     "sog": 1.1,
+     "pts": 0.18,
+     "goals": 0.11,
+     "ast": 0.07,
+     "hits": 1.76,
+     "blk": 0.29,
+     "atg": 0.1014
+    },
+    {
+     "player_id": 8475343,
+     "player": "Nic Dowd",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 10.5,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 0.67,
+     "pts": 0.21,
+     "goals": 0.07,
+     "ast": 0.14,
+     "hits": 2.08,
+     "blk": 0.45,
+     "atg": 0.0668
+    },
+    {
+     "player_id": 8481534,
+     "player": "Raphael Lavoie",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 10.3,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.02,
+     "pts": 0.26,
+     "goals": 0.11,
+     "ast": 0.15,
+     "hits": 1.93,
+     "blk": 0.16,
+     "atg": 0.1004
+    },
+    {
+     "player_id": 8486161,
+     "player": "Owen Michaels",
+     "team": "EDM",
+     "pos": "F",
+     "toi_min": 9.7,
+     "line": "f4",
+     "pp": null,
+     "notes": "",
+     "sog": 0.72,
+     "pts": 0.16,
+     "goals": 0.07,
+     "ast": 0.09,
+     "hits": 0.61,
+     "blk": 0.48,
+     "atg": 0.0679
+    },
+    {
+     "player_id": 8483553,
+     "player": "Marc Gatcomb",
+     "team": "VGK",
+     "pos": "F",
+     "toi_min": 9.6,
+     "line": null,
+     "pp": null,
+     "notes": "",
+     "sog": 1.03,
+     "pts": 0.17,
+     "goals": 0.08,
+     "ast": 0.09,
+     "hits": 3.55,
+     "blk": 0.3,
+     "atg": 0.0795
+    }
+   ],
+   "paper": true,
+   "sims": 20000,
+   "made_after_start": false
+  }
+ ],
+ "skipped": [],
+ "status": "test slate: no NHL market has been validated against closing lines yet"
+}

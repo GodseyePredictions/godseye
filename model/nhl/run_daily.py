@@ -6,6 +6,8 @@ Run from model/:
     python3 -m nhl.run_daily nightly            # schedule, finished games, MoneyPuck xG, rosters, then every derived table
     python3 -m nhl.run_daily gameday [DATE]     # goalies, lines and PP units, referees, odds and ladders; refreshes the TOI projection
     python3 -m nhl.run_daily watch [DATE]       # from 90 minutes before the first puck drop, re-run gameday every 30 minutes until goalies are confirmed
+    python3 -m nhl.run_daily slate [DATE]       # gates, game sim, props, correlation and tickets for every game not yet started
+    python3 -m nhl.run_daily grade              # nightly ingest, then grade every finished ticket and rewrite the report card
     python3 -m nhl.run_daily derive [AS_OF]     # rebuild the derived tables as of a UTC time (default: now)
     python3 -m nhl.run_daily status
 """
@@ -252,6 +254,13 @@ def gameday(con, cfg, date_et: str | None = None) -> dict:
         prices += good
         rejected += [f"{f.name}: {b}" for b in bad]
     good, bad = odds.resolve(prices, rows, index, None)
+    try:
+        partner = nhl_api.partner_odds(store.RAW, cfg)
+        wanted = {r["game_id"] for r in games}
+        good += [r for r in partner if r["game_id"] in wanted]
+        report["partner_game_lines"] = len({r["game_id"] for r in partner if r["game_id"] in wanted})
+    except (FetchError, ValueError, KeyError) as e:
+        report["notes"].append(f"NHL partner game lines not read: {e}")
     store.write(con, "odds", good)
     report["odds_rows"], report["odds_rejected"] = len(good), rejected + bad
     if index.unmatched:
@@ -298,6 +307,28 @@ def main(argv):
         gameday(con, CONFIG, argv[1] if len(argv) > 1 else None)
     elif cmd == "watch":
         watch(con, CONFIG, argv[1] if len(argv) > 1 else None)
+    elif cmd == "slate":
+        from nhl import slate
+        day = argv[1] if len(argv) > 1 and not argv[1].startswith("--") else today_et()
+        if "--no-refresh" not in argv:
+            gameday(con, CONFIG, day)
+        out = slate.run(con, CONFIG, day, include_started="--include-started" in argv)
+        for g in out["games"]:
+            log(f"{g['label']}: " + (", ".join(f"{t['kind']} {t['chance']:.0%}" for t in g["tickets"]) or "no ticket") +
+                ("  [paper]" if g["paper"] else ""))
+            for n in g["notes"]:
+                log(f"    {n}")
+        for sk in out["skipped"]:
+            log(f"skipped: {sk}")
+    elif cmd == "grade":
+        from nhl import grade
+        nightly(con, CONFIG)
+        res = grade.run(con)
+        for t in res["graded"]:
+            log(f"{t['id']}: {t['result'].upper()} ({t['legs_won']}/{t['legs_counted']} legs) - {t['final']}")
+            for l in t["legs"]:
+                log(f"    {l['result']:5s} {l['label']} (model {l['prob']:.0%}, actual {l['actual']})")
+        log(f"graded {len(res['graded'])}, waiting on {len(res['waiting'])}")
     elif cmd == "derive":
         derive(con, CONFIG, argv[1] if len(argv) > 1 else None)
     elif cmd == "status":

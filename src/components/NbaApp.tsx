@@ -1279,6 +1279,7 @@ export default function NbaApp({ prefix = "" }: { prefix?: string } = {}) {
             <a href="/nba" aria-current="page">
               NBA
             </a>
+            <a href="/nhl">NHL</a>
           </nav>
           <span className="livechip">
             <i></i> Model-only, no media picks

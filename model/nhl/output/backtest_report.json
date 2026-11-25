@@ -1,0 +1,2090 @@
+{
+ "made_at": "2026-11-25T00:33:51+00:00",
+ "sims_per_game": 1000,
+ "games": 363,
+ "skipped": 21,
+ "seasons": [
+  2026
+ ],
+ "assumed_known": "starting goalies and dressed skaters (live: Daily Faceoff); no game-day lines or PP units",
+ "game_lines": {
+  "moneyline_home": {
+   "n": 363,
+   "hit_rate": 0.5317,
+   "mean_predicted": 0.5269,
+   "brier": 0.23148,
+   "brier_base_rate": 0.249,
+   "calibration_gap": 0.0524,
+   "buckets": [
+    {
+     "bucket": "40-45%",
+     "n": 42,
+     "predicted": 0.4231,
+     "actual": 0.4524
+    },
+    {
+     "bucket": "45-50%",
+     "n": 56,
+     "predicted": 0.474,
+     "actual": 0.5179
+    },
+    {
+     "bucket": "50-55%",
+     "n": 65,
+     "predicted": 0.5225,
+     "actual": 0.4308
+    },
+    {
+     "bucket": "55-60%",
+     "n": 48,
+     "predicted": 0.5729,
+     "actual": 0.6042
+    },
+    {
+     "bucket": "60-65%",
+     "n": 37,
+     "predicted": 0.6256,
+     "actual": 0.6757
+    }
+   ]
+  },
+  "over_5.5": {
+   "n": 363,
+   "hit_rate": 0.595,
+   "mean_predicted": 0.5416,
+   "brier": 0.24303,
+   "brier_base_rate": 0.24097,
+   "calibration_gap": 0.0691,
+   "buckets": [
+    {
+     "bucket": "40-45%",
+     "n": 33,
+     "predicted": 0.4265,
+     "actual": 0.5152
+    },
+    {
+     "bucket": "45-50%",
+     "n": 67,
+     "predicted": 0.4749,
+     "actual": 0.5821
+    },
+    {
+     "bucket": "50-55%",
+     "n": 83,
+     "predicted": 0.5267,
+     "actual": 0.6024
+    },
+    {
+     "bucket": "55-60%",
+     "n": 104,
+     "predicted": 0.5742,
+     "actual": 0.6154
+    },
+    {
+     "bucket": "60-65%",
+     "n": 52,
+     "predicted": 0.6237,
+     "actual": 0.6538
+    }
+   ]
+  },
+  "over_6.5": {
+   "n": 363,
+   "hit_rate": 0.4904,
+   "mean_predicted": 0.439,
+   "brier": 0.25184,
+   "brier_base_rate": 0.24991,
+   "calibration_gap": 0.0592,
+   "buckets": [
+    {
+     "bucket": "30-35%",
+     "n": 36,
+     "predicted": 0.3276,
+     "actual": 0.3056
+    },
+    {
+     "bucket": "35-40%",
+     "n": 70,
+     "predicted": 0.3747,
+     "actual": 0.5429
+    },
+    {
+     "bucket": "40-45%",
+     "n": 86,
+     "predicted": 0.4269,
+     "actual": 0.5
+    },
+    {
+     "bucket": "45-50%",
+     "n": 103,
+     "predicted": 0.4724,
+     "actual": 0.4854
+    },
+    {
+     "bucket": "50-55%",
+     "n": 45,
+     "predicted": 0.5243,
+     "actual": 0.5333
+    }
+   ]
+  },
+  "favourite_-1.5": {
+   "n": 363,
+   "hit_rate": 0.3636,
+   "mean_predicted": 0.3984,
+   "brier": 0.22105,
+   "brier_base_rate": 0.2314,
+   "calibration_gap": 0.0629,
+   "buckets": [
+    {
+     "bucket": "30-35%",
+     "n": 110,
+     "predicted": 0.3253,
+     "actual": 0.2091
+    },
+    {
+     "bucket": "35-40%",
+     "n": 102,
+     "predicted": 0.3736,
+     "actual": 0.3922
+    },
+    {
+     "bucket": "40-45%",
+     "n": 56,
+     "predicted": 0.4276,
+     "actual": 0.4107
+    },
+    {
+     "bucket": "45-50%",
+     "n": 37,
+     "predicted": 0.4705,
+     "actual": 0.4054
+    }
+   ]
+  },
+  "regulation_draw": {
+   "n": 363,
+   "hit_rate": 0.2176,
+   "mean_predicted": 0.2212,
+   "brier": 0.16912,
+   "brier_base_rate": 0.17027,
+   "calibration_gap": 0.0036,
+   "buckets": [
+    {
+     "bucket": "15-20%",
+     "n": 51,
+     "predicted": 0.1834,
+     "actual": 0.1765
+    },
+    {
+     "bucket": "20-25%",
+     "n": 273,
+     "predicted": 0.2245,
+     "actual": 0.2234
+    },
+    {
+     "bucket": "25-30%",
+     "n": 36,
+     "predicted": 0.2562,
+     "actual": 0.25
+    }
+   ]
+  }
+ },
+ "props": {
+  "sog": {
+   "2+": {
+    "n": 12991,
+    "hit_rate": 0.4217,
+    "mean_predicted": 0.4337,
+    "brier": 0.21129,
+    "brier_base_rate": 0.24387,
+    "calibration_gap": 0.0203,
+    "buckets": [
+     {
+      "bucket": "10-15%",
+      "n": 235,
+      "predicted": 0.1298,
+      "actual": 0.1574
+     },
+     {
+      "bucket": "15-20%",
+      "n": 599,
+      "predicted": 0.1781,
+      "actual": 0.1436
+     },
+     {
+      "bucket": "20-25%",
+      "n": 1072,
+      "predicted": 0.2258,
+      "actual": 0.209
+     },
+     {
+      "bucket": "25-30%",
+      "n": 1372,
+      "predicted": 0.2757,
+      "actual": 0.2609
+     },
+     {
+      "bucket": "30-35%",
+      "n": 1448,
+      "predicted": 0.3243,
+      "actual": 0.2997
+     },
+     {
+      "bucket": "35-40%",
+      "n": 1399,
+      "predicted": 0.3739,
+      "actual": 0.371
+     },
+     {
+      "bucket": "40-45%",
+      "n": 1234,
+      "predicted": 0.4247,
+      "actual": 0.4019
+     },
+     {
+      "bucket": "45-50%",
+      "n": 1193,
+      "predicted": 0.4746,
+      "actual": 0.4526
+     },
+     {
+      "bucket": "50-55%",
+      "n": 1029,
+      "predicted": 0.5234,
+      "actual": 0.4849
+     },
+     {
+      "bucket": "55-60%",
+      "n": 867,
+      "predicted": 0.5737,
+      "actual": 0.5709
+     },
+     {
+      "bucket": "60-65%",
+      "n": 769,
+      "predicted": 0.6241,
+      "actual": 0.6112
+     },
+     {
+      "bucket": "65-70%",
+      "n": 670,
+      "predicted": 0.6731,
+      "actual": 0.697
+     },
+     {
+      "bucket": "70-75%",
+      "n": 481,
+      "predicted": 0.7226,
+      "actual": 0.7152
+     },
+     {
+      "bucket": "75-80%",
+      "n": 338,
+      "predicted": 0.7723,
+      "actual": 0.8402
+     },
+     {
+      "bucket": "80-85%",
+      "n": 198,
+      "predicted": 0.8198,
+      "actual": 0.8636
+     },
+     {
+      "bucket": "85-90%",
+      "n": 60,
+      "predicted": 0.8689,
+      "actual": 0.85
+     }
+    ]
+   },
+   "3+": {
+    "n": 12991,
+    "hit_rate": 0.2143,
+    "mean_predicted": 0.2227,
+    "brier": 0.1449,
+    "brier_base_rate": 0.16838,
+    "calibration_gap": 0.0138,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 578,
+      "predicted": 0.0358,
+      "actual": 0.0329
+     },
+     {
+      "bucket": "5-10%",
+      "n": 2205,
+      "predicted": 0.0761,
+      "actual": 0.0635
+     },
+     {
+      "bucket": "10-15%",
+      "n": 2352,
+      "predicted": 0.124,
+      "actual": 0.1063
+     },
+     {
+      "bucket": "15-20%",
+      "n": 1823,
+      "predicted": 0.173,
+      "actual": 0.1602
+     },
+     {
+      "bucket": "20-25%",
+      "n": 1464,
+      "predicted": 0.2244,
+      "actual": 0.2165
+     },
+     {
+      "bucket": "25-30%",
+      "n": 1160,
+      "predicted": 0.2724,
+      "actual": 0.256
+     },
+     {
+      "bucket": "30-35%",
+      "n": 903,
+      "predicted": 0.3233,
+      "actual": 0.3145
+     },
+     {
+      "bucket": "35-40%",
+      "n": 712,
+      "predicted": 0.3734,
+      "actual": 0.3792
+     },
+     {
+      "bucket": "40-45%",
+      "n": 632,
+      "predicted": 0.424,
+      "actual": 0.4225
+     },
+     {
+      "bucket": "45-50%",
+      "n": 403,
+      "predicted": 0.473,
+      "actual": 0.4516
+     },
+     {
+      "bucket": "50-55%",
+      "n": 310,
+      "predicted": 0.5236,
+      "actual": 0.5548
+     },
+     {
+      "bucket": "55-60%",
+      "n": 213,
+      "predicted": 0.5735,
+      "actual": 0.662
+     },
+     {
+      "bucket": "60-65%",
+      "n": 143,
+      "predicted": 0.6195,
+      "actual": 0.6224
+     },
+     {
+      "bucket": "65-70%",
+      "n": 64,
+      "predicted": 0.6716,
+      "actual": 0.7031
+     }
+    ]
+   },
+   "4+": {
+    "n": 12991,
+    "hit_rate": 0.0961,
+    "mean_predicted": 0.1074,
+    "brier": 0.07767,
+    "brier_base_rate": 0.0869,
+    "calibration_gap": 0.0133,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 4772,
+      "predicted": 0.0269,
+      "actual": 0.0187
+     },
+     {
+      "bucket": "5-10%",
+      "n": 3134,
+      "predicted": 0.0712,
+      "actual": 0.0645
+     },
+     {
+      "bucket": "10-15%",
+      "n": 1845,
+      "predicted": 0.1217,
+      "actual": 0.1089
+     },
+     {
+      "bucket": "15-20%",
+      "n": 1122,
+      "predicted": 0.173,
+      "actual": 0.1542
+     },
+     {
+      "bucket": "20-25%",
+      "n": 764,
+      "predicted": 0.2237,
+      "actual": 0.195
+     },
+     {
+      "bucket": "25-30%",
+      "n": 550,
+      "predicted": 0.2715,
+      "actual": 0.2327
+     },
+     {
+      "bucket": "30-35%",
+      "n": 323,
+      "predicted": 0.3234,
+      "actual": 0.3158
+     },
+     {
+      "bucket": "35-40%",
+      "n": 222,
+      "predicted": 0.3731,
+      "actual": 0.4234
+     },
+     {
+      "bucket": "40-45%",
+      "n": 145,
+      "predicted": 0.421,
+      "actual": 0.3724
+     },
+     {
+      "bucket": "45-50%",
+      "n": 73,
+      "predicted": 0.4726,
+      "actual": 0.5068
+     }
+    ]
+   },
+   "5+": {
+    "n": 12991,
+    "hit_rate": 0.0412,
+    "mean_predicted": 0.0506,
+    "brier": 0.03686,
+    "brier_base_rate": 0.03949,
+    "calibration_gap": 0.0094,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 8754,
+      "predicted": 0.0173,
+      "actual": 0.0139
+     },
+     {
+      "bucket": "5-10%",
+      "n": 2150,
+      "predicted": 0.0705,
+      "actual": 0.0553
+     },
+     {
+      "bucket": "10-15%",
+      "n": 1050,
+      "predicted": 0.1225,
+      "actual": 0.0952
+     },
+     {
+      "bucket": "15-20%",
+      "n": 491,
+      "predicted": 0.1709,
+      "actual": 0.1324
+     },
+     {
+      "bucket": "20-25%",
+      "n": 279,
+      "predicted": 0.2219,
+      "actual": 0.2151
+     },
+     {
+      "bucket": "25-30%",
+      "n": 166,
+      "predicted": 0.2703,
+      "actual": 0.247
+     },
+     {
+      "bucket": "30-35%",
+      "n": 65,
+      "predicted": 0.3198,
+      "actual": 0.2462
+     }
+    ]
+   }
+  },
+  "pts": {
+   "1+": {
+    "n": 12991,
+    "hit_rate": 0.3528,
+    "mean_predicted": 0.3519,
+    "brier": 0.20387,
+    "brier_base_rate": 0.22833,
+    "calibration_gap": 0.0251,
+    "buckets": [
+     {
+      "bucket": "10-15%",
+      "n": 326,
+      "predicted": 0.1314,
+      "actual": 0.0951
+     },
+     {
+      "bucket": "15-20%",
+      "n": 1077,
+      "predicted": 0.1773,
+      "actual": 0.1467
+     },
+     {
+      "bucket": "20-25%",
+      "n": 1718,
+      "predicted": 0.2259,
+      "actual": 0.2165
+     },
+     {
+      "bucket": "25-30%",
+      "n": 1927,
+      "predicted": 0.2743,
+      "actual": 0.2247
+     },
+     {
+      "bucket": "30-35%",
+      "n": 1977,
+      "predicted": 0.3247,
+      "actual": 0.3242
+     },
+     {
+      "bucket": "35-40%",
+      "n": 1686,
+      "predicted": 0.3737,
+      "actual": 0.3849
+     },
+     {
+      "bucket": "40-45%",
+      "n": 1309,
+      "predicted": 0.4232,
+      "actual": 0.4332
+     },
+     {
+      "bucket": "45-50%",
+      "n": 1032,
+      "predicted": 0.4731,
+      "actual": 0.4903
+     },
+     {
+      "bucket": "50-55%",
+      "n": 784,
+      "predicted": 0.5236,
+      "actual": 0.5676
+     },
+     {
+      "bucket": "55-60%",
+      "n": 577,
+      "predicted": 0.5721,
+      "actual": 0.6447
+     },
+     {
+      "bucket": "60-65%",
+      "n": 308,
+      "predicted": 0.6212,
+      "actual": 0.6916
+     },
+     {
+      "bucket": "65-70%",
+      "n": 167,
+      "predicted": 0.6706,
+      "actual": 0.7665
+     },
+     {
+      "bucket": "70-75%",
+      "n": 64,
+      "predicted": 0.718,
+      "actual": 0.7656
+     }
+    ]
+   },
+   "2+": {
+    "n": 12991,
+    "hit_rate": 0.0947,
+    "mean_predicted": 0.0847,
+    "brier": 0.07774,
+    "brier_base_rate": 0.08572,
+    "calibration_gap": 0.0147,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 4998,
+      "predicted": 0.029,
+      "actual": 0.0228
+     },
+     {
+      "bucket": "5-10%",
+      "n": 4074,
+      "predicted": 0.0716,
+      "actual": 0.0734
+     },
+     {
+      "bucket": "10-15%",
+      "n": 1872,
+      "predicted": 0.1214,
+      "actual": 0.1293
+     },
+     {
+      "bucket": "15-20%",
+      "n": 1048,
+      "predicted": 0.1727,
+      "actual": 0.2328
+     },
+     {
+      "bucket": "20-25%",
+      "n": 571,
+      "predicted": 0.2217,
+      "actual": 0.2907
+     },
+     {
+      "bucket": "25-30%",
+      "n": 252,
+      "predicted": 0.2697,
+      "actual": 0.3452
+     },
+     {
+      "bucket": "30-35%",
+      "n": 110,
+      "predicted": 0.3203,
+      "actual": 0.3909
+     },
+     {
+      "bucket": "35-40%",
+      "n": 45,
+      "predicted": 0.368,
+      "actual": 0.4889
+     }
+    ]
+   }
+  },
+  "ast": {
+   "1+": {
+    "n": 12991,
+    "hit_rate": 0.2462,
+    "mean_predicted": 0.2425,
+    "brier": 0.17119,
+    "brier_base_rate": 0.18561,
+    "calibration_gap": 0.0223,
+    "buckets": [
+     {
+      "bucket": "5-10%",
+      "n": 306,
+      "predicted": 0.0858,
+      "actual": 0.0621
+     },
+     {
+      "bucket": "10-15%",
+      "n": 1830,
+      "predicted": 0.1285,
+      "actual": 0.124
+     },
+     {
+      "bucket": "15-20%",
+      "n": 2833,
+      "predicted": 0.1751,
+      "actual": 0.1638
+     },
+     {
+      "bucket": "20-25%",
+      "n": 2851,
+      "predicted": 0.2239,
+      "actual": 0.2027
+     },
+     {
+      "bucket": "25-30%",
+      "n": 1997,
+      "predicted": 0.2722,
+      "actual": 0.2919
+     },
+     {
+      "bucket": "30-35%",
+      "n": 1326,
+      "predicted": 0.3225,
+      "actual": 0.313
+     },
+     {
+      "bucket": "35-40%",
+      "n": 810,
+      "predicted": 0.3724,
+      "actual": 0.421
+     },
+     {
+      "bucket": "40-45%",
+      "n": 501,
+      "predicted": 0.4216,
+      "actual": 0.513
+     },
+     {
+      "bucket": "45-50%",
+      "n": 319,
+      "predicted": 0.4713,
+      "actual": 0.5329
+     },
+     {
+      "bucket": "50-55%",
+      "n": 136,
+      "predicted": 0.5226,
+      "actual": 0.6029
+     },
+     {
+      "bucket": "55-60%",
+      "n": 54,
+      "predicted": 0.5729,
+      "actual": 0.7778
+     }
+    ]
+   },
+   "2+": {
+    "n": 12991,
+    "hit_rate": 0.044,
+    "mean_predicted": 0.0387,
+    "brier": 0.03985,
+    "brier_base_rate": 0.04209,
+    "calibration_gap": 0.0091,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 9754,
+      "predicted": 0.0224,
+      "actual": 0.0201
+     },
+     {
+      "bucket": "5-10%",
+      "n": 2328,
+      "predicted": 0.0684,
+      "actual": 0.0902
+     },
+     {
+      "bucket": "10-15%",
+      "n": 669,
+      "predicted": 0.1199,
+      "actual": 0.1689
+     },
+     {
+      "bucket": "15-20%",
+      "n": 173,
+      "predicted": 0.1691,
+      "actual": 0.2197
+     },
+     {
+      "bucket": "20-25%",
+      "n": 50,
+      "predicted": 0.2206,
+      "actual": 0.18
+     }
+    ]
+   }
+  },
+  "hits": {
+   "1+": {
+    "n": 12991,
+    "hit_rate": 0.596,
+    "mean_predicted": 0.5809,
+    "brier": 0.19685,
+    "brier_base_rate": 0.24078,
+    "calibration_gap": 0.0265,
+    "buckets": [
+     {
+      "bucket": "10-15%",
+      "n": 37,
+      "predicted": 0.1257,
+      "actual": 0.1622
+     },
+     {
+      "bucket": "15-20%",
+      "n": 86,
+      "predicted": 0.1778,
+      "actual": 0.1977
+     },
+     {
+      "bucket": "20-25%",
+      "n": 305,
+      "predicted": 0.2276,
+      "actual": 0.1836
+     },
+     {
+      "bucket": "25-30%",
+      "n": 526,
+      "predicted": 0.2749,
+      "actual": 0.2605
+     },
+     {
+      "bucket": "30-35%",
+      "n": 767,
+      "predicted": 0.326,
+      "actual": 0.3012
+     },
+     {
+      "bucket": "35-40%",
+      "n": 877,
+      "predicted": 0.3749,
+      "actual": 0.3615
+     },
+     {
+      "bucket": "40-45%",
+      "n": 923,
+      "predicted": 0.4244,
+      "actual": 0.403
+     },
+     {
+      "bucket": "45-50%",
+      "n": 1039,
+      "predicted": 0.4754,
+      "actual": 0.4726
+     },
+     {
+      "bucket": "50-55%",
+      "n": 1113,
+      "predicted": 0.5245,
+      "actual": 0.5391
+     },
+     {
+      "bucket": "55-60%",
+      "n": 1101,
+      "predicted": 0.5745,
+      "actual": 0.6031
+     },
+     {
+      "bucket": "60-65%",
+      "n": 1223,
+      "predicted": 0.6242,
+      "actual": 0.6476
+     },
+     {
+      "bucket": "65-70%",
+      "n": 1109,
+      "predicted": 0.6743,
+      "actual": 0.7024
+     },
+     {
+      "bucket": "70-75%",
+      "n": 1033,
+      "predicted": 0.7239,
+      "actual": 0.7686
+     },
+     {
+      "bucket": "75-80%",
+      "n": 951,
+      "predicted": 0.7738,
+      "actual": 0.8128
+     },
+     {
+      "bucket": "80-85%",
+      "n": 811,
+      "predicted": 0.8237,
+      "actual": 0.8656
+     },
+     {
+      "bucket": "85-90%",
+      "n": 625,
+      "predicted": 0.8728,
+      "actual": 0.9136
+     },
+     {
+      "bucket": "90-95%",
+      "n": 382,
+      "predicted": 0.9219,
+      "actual": 0.9555
+     },
+     {
+      "bucket": "95-100%",
+      "n": 74,
+      "predicted": 0.961,
+      "actual": 1.0
+     }
+    ]
+   },
+   "2+": {
+    "n": 12991,
+    "hit_rate": 0.3209,
+    "mean_predicted": 0.2853,
+    "brier": 0.17102,
+    "brier_base_rate": 0.21793,
+    "calibration_gap": 0.0357,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 734,
+      "predicted": 0.0341,
+      "actual": 0.0368
+     },
+     {
+      "bucket": "5-10%",
+      "n": 1694,
+      "predicted": 0.075,
+      "actual": 0.0785
+     },
+     {
+      "bucket": "10-15%",
+      "n": 1483,
+      "predicted": 0.1237,
+      "actual": 0.1328
+     },
+     {
+      "bucket": "15-20%",
+      "n": 1429,
+      "predicted": 0.1742,
+      "actual": 0.1903
+     },
+     {
+      "bucket": "20-25%",
+      "n": 1253,
+      "predicted": 0.2235,
+      "actual": 0.2482
+     },
+     {
+      "bucket": "25-30%",
+      "n": 1152,
+      "predicted": 0.274,
+      "actual": 0.3082
+     },
+     {
+      "bucket": "30-35%",
+      "n": 1006,
+      "predicted": 0.3233,
+      "actual": 0.3638
+     },
+     {
+      "bucket": "35-40%",
+      "n": 855,
+      "predicted": 0.3732,
+      "actual": 0.4421
+     },
+     {
+      "bucket": "40-45%",
+      "n": 741,
+      "predicted": 0.4243,
+      "actual": 0.4953
+     },
+     {
+      "bucket": "45-50%",
+      "n": 608,
+      "predicted": 0.4741,
+      "actual": 0.5263
+     },
+     {
+      "bucket": "50-55%",
+      "n": 518,
+      "predicted": 0.5235,
+      "actual": 0.5869
+     },
+     {
+      "bucket": "55-60%",
+      "n": 420,
+      "predicted": 0.5733,
+      "actual": 0.6595
+     },
+     {
+      "bucket": "60-65%",
+      "n": 357,
+      "predicted": 0.6227,
+      "actual": 0.7283
+     },
+     {
+      "bucket": "65-70%",
+      "n": 274,
+      "predicted": 0.6721,
+      "actual": 0.7409
+     },
+     {
+      "bucket": "70-75%",
+      "n": 203,
+      "predicted": 0.7247,
+      "actual": 0.7931
+     },
+     {
+      "bucket": "75-80%",
+      "n": 136,
+      "predicted": 0.7747,
+      "actual": 0.8456
+     },
+     {
+      "bucket": "80-85%",
+      "n": 86,
+      "predicted": 0.8251,
+      "actual": 0.9651
+     },
+     {
+      "bucket": "85-90%",
+      "n": 35,
+      "predicted": 0.8671,
+      "actual": 0.9429
+     }
+    ]
+   },
+   "3+": {
+    "n": 12991,
+    "hit_rate": 0.1617,
+    "mean_predicted": 0.1328,
+    "brier": 0.10927,
+    "brier_base_rate": 0.13557,
+    "calibration_gap": 0.029,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 4773,
+      "predicted": 0.0215,
+      "actual": 0.0298
+     },
+     {
+      "bucket": "5-10%",
+      "n": 2436,
+      "predicted": 0.0726,
+      "actual": 0.0899
+     },
+     {
+      "bucket": "10-15%",
+      "n": 1610,
+      "predicted": 0.1225,
+      "actual": 0.1422
+     },
+     {
+      "bucket": "15-20%",
+      "n": 1089,
+      "predicted": 0.172,
+      "actual": 0.2204
+     },
+     {
+      "bucket": "20-25%",
+      "n": 833,
+      "predicted": 0.2226,
+      "actual": 0.2713
+     },
+     {
+      "bucket": "25-30%",
+      "n": 605,
+      "predicted": 0.2733,
+      "actual": 0.3207
+     },
+     {
+      "bucket": "30-35%",
+      "n": 441,
+      "predicted": 0.3234,
+      "actual": 0.4014
+     },
+     {
+      "bucket": "35-40%",
+      "n": 345,
+      "predicted": 0.3729,
+      "actual": 0.4348
+     },
+     {
+      "bucket": "40-45%",
+      "n": 275,
+      "predicted": 0.4229,
+      "actual": 0.5309
+     },
+     {
+      "bucket": "45-50%",
+      "n": 184,
+      "predicted": 0.4716,
+      "actual": 0.5489
+     },
+     {
+      "bucket": "50-55%",
+      "n": 143,
+      "predicted": 0.5221,
+      "actual": 0.6084
+     },
+     {
+      "bucket": "55-60%",
+      "n": 102,
+      "predicted": 0.5735,
+      "actual": 0.6471
+     },
+     {
+      "bucket": "60-65%",
+      "n": 65,
+      "predicted": 0.6231,
+      "actual": 0.7846
+     },
+     {
+      "bucket": "65-70%",
+      "n": 51,
+      "predicted": 0.6739,
+      "actual": 0.7843
+     }
+    ]
+   },
+   "4+": {
+    "n": 12991,
+    "hit_rate": 0.0781,
+    "mean_predicted": 0.0617,
+    "brier": 0.06071,
+    "brier_base_rate": 0.07196,
+    "calibration_gap": 0.0166,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 8540,
+      "predicted": 0.0142,
+      "actual": 0.0201
+     },
+     {
+      "bucket": "5-10%",
+      "n": 1857,
+      "predicted": 0.0715,
+      "actual": 0.0926
+     },
+     {
+      "bucket": "10-15%",
+      "n": 957,
+      "predicted": 0.1224,
+      "actual": 0.1672
+     },
+     {
+      "bucket": "15-20%",
+      "n": 562,
+      "predicted": 0.1725,
+      "actual": 0.1993
+     },
+     {
+      "bucket": "20-25%",
+      "n": 370,
+      "predicted": 0.2228,
+      "actual": 0.2784
+     },
+     {
+      "bucket": "25-30%",
+      "n": 255,
+      "predicted": 0.2723,
+      "actual": 0.3176
+     },
+     {
+      "bucket": "30-35%",
+      "n": 155,
+      "predicted": 0.3254,
+      "actual": 0.3548
+     },
+     {
+      "bucket": "35-40%",
+      "n": 106,
+      "predicted": 0.3719,
+      "actual": 0.4245
+     },
+     {
+      "bucket": "40-45%",
+      "n": 72,
+      "predicted": 0.4217,
+      "actual": 0.4861
+     },
+     {
+      "bucket": "45-50%",
+      "n": 52,
+      "predicted": 0.4746,
+      "actual": 0.6923
+     },
+     {
+      "bucket": "50-55%",
+      "n": 38,
+      "predicted": 0.5273,
+      "actual": 0.6316
+     }
+    ]
+   },
+   "5+": {
+    "n": 12991,
+    "hit_rate": 0.0339,
+    "mean_predicted": 0.0288,
+    "brier": 0.02888,
+    "brier_base_rate": 0.03272,
+    "calibration_gap": 0.0056,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 10812,
+      "predicted": 0.0091,
+      "actual": 0.0125
+     },
+     {
+      "bucket": "5-10%",
+      "n": 1107,
+      "predicted": 0.0705,
+      "actual": 0.075
+     },
+     {
+      "bucket": "10-15%",
+      "n": 493,
+      "predicted": 0.1216,
+      "actual": 0.144
+     },
+     {
+      "bucket": "15-20%",
+      "n": 236,
+      "predicted": 0.1717,
+      "actual": 0.1992
+     },
+     {
+      "bucket": "20-25%",
+      "n": 140,
+      "predicted": 0.2201,
+      "actual": 0.2071
+     },
+     {
+      "bucket": "25-30%",
+      "n": 90,
+      "predicted": 0.2716,
+      "actual": 0.2667
+     },
+     {
+      "bucket": "30-35%",
+      "n": 48,
+      "predicted": 0.3253,
+      "actual": 0.3958
+     },
+     {
+      "bucket": "35-40%",
+      "n": 38,
+      "predicted": 0.3738,
+      "actual": 0.5263
+     }
+    ]
+   }
+  },
+  "blk": {
+   "1+": {
+    "n": 12991,
+    "hit_rate": 0.4846,
+    "mean_predicted": 0.4681,
+    "brier": 0.21895,
+    "brier_base_rate": 0.24976,
+    "calibration_gap": 0.0167,
+    "buckets": [
+     {
+      "bucket": "15-20%",
+      "n": 174,
+      "predicted": 0.1826,
+      "actual": 0.2241
+     },
+     {
+      "bucket": "20-25%",
+      "n": 725,
+      "predicted": 0.2267,
+      "actual": 0.2524
+     },
+     {
+      "bucket": "25-30%",
+      "n": 1291,
+      "predicted": 0.2763,
+      "actual": 0.2928
+     },
+     {
+      "bucket": "30-35%",
+      "n": 1728,
+      "predicted": 0.3247,
+      "actual": 0.3275
+     },
+     {
+      "bucket": "35-40%",
+      "n": 1688,
+      "predicted": 0.3741,
+      "actual": 0.3809
+     },
+     {
+      "bucket": "40-45%",
+      "n": 1414,
+      "predicted": 0.424,
+      "actual": 0.4279
+     },
+     {
+      "bucket": "45-50%",
+      "n": 1026,
+      "predicted": 0.4731,
+      "actual": 0.4854
+     },
+     {
+      "bucket": "50-55%",
+      "n": 742,
+      "predicted": 0.5246,
+      "actual": 0.5593
+     },
+     {
+      "bucket": "55-60%",
+      "n": 705,
+      "predicted": 0.5741,
+      "actual": 0.5957
+     },
+     {
+      "bucket": "60-65%",
+      "n": 901,
+      "predicted": 0.6253,
+      "actual": 0.6437
+     },
+     {
+      "bucket": "65-70%",
+      "n": 863,
+      "predicted": 0.6744,
+      "actual": 0.6964
+     },
+     {
+      "bucket": "70-75%",
+      "n": 822,
+      "predicted": 0.7235,
+      "actual": 0.7616
+     },
+     {
+      "bucket": "75-80%",
+      "n": 590,
+      "predicted": 0.7722,
+      "actual": 0.8034
+     },
+     {
+      "bucket": "80-85%",
+      "n": 268,
+      "predicted": 0.8201,
+      "actual": 0.8433
+     },
+     {
+      "bucket": "85-90%",
+      "n": 46,
+      "predicted": 0.8631,
+      "actual": 0.913
+     }
+    ]
+   },
+   "2+": {
+    "n": 12991,
+    "hit_rate": 0.1873,
+    "mean_predicted": 0.191,
+    "brier": 0.12986,
+    "brier_base_rate": 0.15221,
+    "calibration_gap": 0.008,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 1328,
+      "predicted": 0.0365,
+      "actual": 0.0392
+     },
+     {
+      "bucket": "5-10%",
+      "n": 3397,
+      "predicted": 0.074,
+      "actual": 0.0727
+     },
+     {
+      "bucket": "10-15%",
+      "n": 2360,
+      "predicted": 0.1218,
+      "actual": 0.1081
+     },
+     {
+      "bucket": "15-20%",
+      "n": 1240,
+      "predicted": 0.1713,
+      "actual": 0.1573
+     },
+     {
+      "bucket": "20-25%",
+      "n": 813,
+      "predicted": 0.2237,
+      "actual": 0.2226
+     },
+     {
+      "bucket": "25-30%",
+      "n": 741,
+      "predicted": 0.2753,
+      "actual": 0.2632
+     },
+     {
+      "bucket": "30-35%",
+      "n": 804,
+      "predicted": 0.3225,
+      "actual": 0.3259
+     },
+     {
+      "bucket": "35-40%",
+      "n": 694,
+      "predicted": 0.3744,
+      "actual": 0.3689
+     },
+     {
+      "bucket": "40-45%",
+      "n": 623,
+      "predicted": 0.4233,
+      "actual": 0.4286
+     },
+     {
+      "bucket": "45-50%",
+      "n": 455,
+      "predicted": 0.4728,
+      "actual": 0.4615
+     },
+     {
+      "bucket": "50-55%",
+      "n": 284,
+      "predicted": 0.5229,
+      "actual": 0.5458
+     },
+     {
+      "bucket": "55-60%",
+      "n": 168,
+      "predicted": 0.5722,
+      "actual": 0.631
+     },
+     {
+      "bucket": "60-65%",
+      "n": 66,
+      "predicted": 0.6197,
+      "actual": 0.6515
+     }
+    ]
+   },
+   "3+": {
+    "n": 12991,
+    "hit_rate": 0.0681,
+    "mean_predicted": 0.078,
+    "brier": 0.05649,
+    "brier_base_rate": 0.06348,
+    "calibration_gap": 0.0117,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 7596,
+      "predicted": 0.0198,
+      "actual": 0.015
+     },
+     {
+      "bucket": "5-10%",
+      "n": 1687,
+      "predicted": 0.0711,
+      "actual": 0.0557
+     },
+     {
+      "bucket": "10-15%",
+      "n": 1198,
+      "predicted": 0.1246,
+      "actual": 0.1269
+     },
+     {
+      "bucket": "15-20%",
+      "n": 920,
+      "predicted": 0.1737,
+      "actual": 0.1272
+     },
+     {
+      "bucket": "20-25%",
+      "n": 714,
+      "predicted": 0.2238,
+      "actual": 0.1975
+     },
+     {
+      "bucket": "25-30%",
+      "n": 443,
+      "predicted": 0.2721,
+      "actual": 0.2573
+     },
+     {
+      "bucket": "30-35%",
+      "n": 241,
+      "predicted": 0.3229,
+      "actual": 0.3195
+     },
+     {
+      "bucket": "35-40%",
+      "n": 130,
+      "predicted": 0.3702,
+      "actual": 0.4385
+     },
+     {
+      "bucket": "40-45%",
+      "n": 47,
+      "predicted": 0.4179,
+      "actual": 0.2766
+     }
+    ]
+   },
+   "4+": {
+    "n": 12991,
+    "hit_rate": 0.0251,
+    "mean_predicted": 0.0325,
+    "brier": 0.0229,
+    "brier_base_rate": 0.02446,
+    "calibration_gap": 0.0074,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 10000,
+      "predicted": 0.0099,
+      "actual": 0.0073
+     },
+     {
+      "bucket": "5-10%",
+      "n": 1596,
+      "predicted": 0.0716,
+      "actual": 0.0482
+     },
+     {
+      "bucket": "10-15%",
+      "n": 844,
+      "predicted": 0.1209,
+      "actual": 0.0936
+     },
+     {
+      "bucket": "15-20%",
+      "n": 352,
+      "predicted": 0.1707,
+      "actual": 0.1506
+     },
+     {
+      "bucket": "20-25%",
+      "n": 155,
+      "predicted": 0.2207,
+      "actual": 0.2129
+     },
+     {
+      "bucket": "25-30%",
+      "n": 34,
+      "predicted": 0.2691,
+      "actual": 0.2353
+     }
+    ]
+   }
+  },
+  "saves": {
+   "20+": {
+    "n": 720,
+    "hit_rate": 0.7486,
+    "mean_predicted": 0.7484,
+    "brier": 0.18234,
+    "brier_base_rate": 0.18819,
+    "calibration_gap": 0.0467,
+    "buckets": [
+     {
+      "bucket": "60-65%",
+      "n": 43,
+      "predicted": 0.627,
+      "actual": 0.7674
+     },
+     {
+      "bucket": "65-70%",
+      "n": 69,
+      "predicted": 0.6741,
+      "actual": 0.7101
+     },
+     {
+      "bucket": "70-75%",
+      "n": 116,
+      "predicted": 0.7247,
+      "actual": 0.7414
+     },
+     {
+      "bucket": "75-80%",
+      "n": 105,
+      "predicted": 0.7759,
+      "actual": 0.8
+     },
+     {
+      "bucket": "80-85%",
+      "n": 135,
+      "predicted": 0.8244,
+      "actual": 0.8074
+     },
+     {
+      "bucket": "85-90%",
+      "n": 93,
+      "predicted": 0.8731,
+      "actual": 0.7527
+     },
+     {
+      "bucket": "90-95%",
+      "n": 59,
+      "predicted": 0.9186,
+      "actual": 0.8983
+     }
+    ]
+   },
+   "25+": {
+    "n": 720,
+    "hit_rate": 0.4528,
+    "mean_predicted": 0.4559,
+    "brier": 0.24769,
+    "brier_base_rate": 0.24777,
+    "calibration_gap": 0.0802,
+    "buckets": [
+     {
+      "bucket": "20-25%",
+      "n": 37,
+      "predicted": 0.2255,
+      "actual": 0.2703
+     },
+     {
+      "bucket": "25-30%",
+      "n": 44,
+      "predicted": 0.2769,
+      "actual": 0.3864
+     },
+     {
+      "bucket": "30-35%",
+      "n": 49,
+      "predicted": 0.3243,
+      "actual": 0.4082
+     },
+     {
+      "bucket": "35-40%",
+      "n": 98,
+      "predicted": 0.3761,
+      "actual": 0.4388
+     },
+     {
+      "bucket": "40-45%",
+      "n": 75,
+      "predicted": 0.4248,
+      "actual": 0.4267
+     },
+     {
+      "bucket": "45-50%",
+      "n": 73,
+      "predicted": 0.4741,
+      "actual": 0.5616
+     },
+     {
+      "bucket": "50-55%",
+      "n": 77,
+      "predicted": 0.5243,
+      "actual": 0.4805
+     },
+     {
+      "bucket": "55-60%",
+      "n": 61,
+      "predicted": 0.5706,
+      "actual": 0.5738
+     },
+     {
+      "bucket": "60-65%",
+      "n": 46,
+      "predicted": 0.62,
+      "actual": 0.4783
+     },
+     {
+      "bucket": "65-70%",
+      "n": 36,
+      "predicted": 0.6725,
+      "actual": 0.5556
+     },
+     {
+      "bucket": "70-75%",
+      "n": 40,
+      "predicted": 0.7209,
+      "actual": 0.525
+     }
+    ]
+   },
+   "30+": {
+    "n": 720,
+    "hit_rate": 0.1917,
+    "mean_predicted": 0.2051,
+    "brier": 0.15898,
+    "brier_base_rate": 0.15493,
+    "calibration_gap": 0.072,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 63,
+      "predicted": 0.0303,
+      "actual": 0.0159
+     },
+     {
+      "bucket": "5-10%",
+      "n": 98,
+      "predicted": 0.075,
+      "actual": 0.1735
+     },
+     {
+      "bucket": "10-15%",
+      "n": 134,
+      "predicted": 0.1261,
+      "actual": 0.209
+     },
+     {
+      "bucket": "15-20%",
+      "n": 111,
+      "predicted": 0.1731,
+      "actual": 0.1532
+     },
+     {
+      "bucket": "20-25%",
+      "n": 100,
+      "predicted": 0.2244,
+      "actual": 0.21
+     },
+     {
+      "bucket": "25-30%",
+      "n": 58,
+      "predicted": 0.2714,
+      "actual": 0.2414
+     },
+     {
+      "bucket": "30-35%",
+      "n": 47,
+      "predicted": 0.3192,
+      "actual": 0.2128
+     },
+     {
+      "bucket": "35-40%",
+      "n": 34,
+      "predicted": 0.3746,
+      "actual": 0.2941
+     }
+    ]
+   },
+   "35+": {
+    "n": 720,
+    "hit_rate": 0.0486,
+    "mean_predicted": 0.0695,
+    "brier": 0.04882,
+    "brier_base_rate": 0.04625,
+    "calibration_gap": 0.0378,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 381,
+      "predicted": 0.0234,
+      "actual": 0.0394
+     },
+     {
+      "bucket": "5-10%",
+      "n": 182,
+      "predicted": 0.0704,
+      "actual": 0.033
+     },
+     {
+      "bucket": "10-15%",
+      "n": 63,
+      "predicted": 0.1209,
+      "actual": 0.0952
+     },
+     {
+      "bucket": "15-20%",
+      "n": 44,
+      "predicted": 0.1735,
+      "actual": 0.0909
+     }
+    ]
+   }
+  },
+  "goals": {
+   "1+": {
+    "n": 12991,
+    "hit_rate": 0.1542,
+    "mean_predicted": 0.1513,
+    "brier": 0.122,
+    "brier_base_rate": 0.13041,
+    "calibration_gap": 0.0077,
+    "buckets": [
+     {
+      "bucket": "0-5%",
+      "n": 1539,
+      "predicted": 0.0382,
+      "actual": 0.0455
+     },
+     {
+      "bucket": "5-10%",
+      "n": 2608,
+      "predicted": 0.0717,
+      "actual": 0.0675
+     },
+     {
+      "bucket": "10-15%",
+      "n": 2791,
+      "predicted": 0.1249,
+      "actual": 0.1225
+     },
+     {
+      "bucket": "15-20%",
+      "n": 2596,
+      "predicted": 0.1736,
+      "actual": 0.1753
+     },
+     {
+      "bucket": "20-25%",
+      "n": 1618,
+      "predicted": 0.2228,
+      "actual": 0.2176
+     },
+     {
+      "bucket": "25-30%",
+      "n": 995,
+      "predicted": 0.2724,
+      "actual": 0.3106
+     },
+     {
+      "bucket": "30-35%",
+      "n": 561,
+      "predicted": 0.3206,
+      "actual": 0.3351
+     },
+     {
+      "bucket": "35-40%",
+      "n": 204,
+      "predicted": 0.3707,
+      "actual": 0.348
+     },
+     {
+      "bucket": "40-45%",
+      "n": 61,
+      "predicted": 0.42,
+      "actual": 0.5082
+     }
+    ]
+   }
+  }
+ },
+ "floor_legs": {
+  "sog": {
+   "n": 1107,
+   "hit_rate": 0.7859,
+   "mean_predicted": 0.7633,
+   "brier": 0.16481,
+   "brier_base_rate": 0.16826,
+   "calibration_gap": 0.0329,
+   "buckets": [
+    {
+     "bucket": "70-75%",
+     "n": 506,
+     "predicted": 0.7225,
+     "actual": 0.7134
+    },
+    {
+     "bucket": "75-80%",
+     "n": 342,
+     "predicted": 0.7721,
+     "actual": 0.8363
+    },
+    {
+     "bucket": "80-85%",
+     "n": 198,
+     "predicted": 0.8198,
+     "actual": 0.8636
+    },
+    {
+     "bucket": "85-90%",
+     "n": 60,
+     "predicted": 0.8689,
+     "actual": 0.85
+    }
+   ]
+  },
+  "pts": {
+   "n": 83,
+   "hit_rate": 0.7952,
+   "mean_predicted": 0.734,
+   "brier": 0.16417,
+   "brier_base_rate": 0.16287,
+   "calibration_gap": 0.0612,
+   "buckets": [
+    {
+     "bucket": "70-75%",
+     "n": 64,
+     "predicted": 0.718,
+     "actual": 0.7656
+    }
+   ]
+  },
+  "ast": {
+   "n": 1,
+   "hit_rate": 1.0,
+   "mean_predicted": 0.7,
+   "brier": 0.09,
+   "brier_base_rate": 0.0,
+   "calibration_gap": 0.3,
+   "buckets": []
+  },
+  "hits": {
+   "n": 4382,
+   "hit_rate": 0.8469,
+   "mean_predicted": 0.8008,
+   "brier": 0.12745,
+   "brier_base_rate": 0.12968,
+   "calibration_gap": 0.046,
+   "buckets": [
+    {
+     "bucket": "70-75%",
+     "n": 1265,
+     "predicted": 0.7239,
+     "actual": 0.7739
+    },
+    {
+     "bucket": "75-80%",
+     "n": 1095,
+     "predicted": 0.7739,
+     "actual": 0.8183
+    },
+    {
+     "bucket": "80-85%",
+     "n": 899,
+     "predicted": 0.8238,
+     "actual": 0.8743
+    },
+    {
+     "bucket": "85-90%",
+     "n": 660,
+     "predicted": 0.8725,
+     "actual": 0.9152
+    },
+    {
+     "bucket": "90-95%",
+     "n": 389,
+     "predicted": 0.9216,
+     "actual": 0.9563
+    },
+    {
+     "bucket": "95-100%",
+     "n": 74,
+     "predicted": 0.961,
+     "actual": 1.0
+    }
+   ]
+  },
+  "blk": {
+   "n": 1728,
+   "hit_rate": 0.7922,
+   "mean_predicted": 0.7588,
+   "brier": 0.16454,
+   "brier_base_rate": 0.16459,
+   "calibration_gap": 0.0334,
+   "buckets": [
+    {
+     "bucket": "70-75%",
+     "n": 824,
+     "predicted": 0.7234,
+     "actual": 0.7609
+    },
+    {
+     "bucket": "75-80%",
+     "n": 590,
+     "predicted": 0.7722,
+     "actual": 0.8034
+    },
+    {
+     "bucket": "80-85%",
+     "n": 268,
+     "predicted": 0.8201,
+     "actual": 0.8433
+    },
+    {
+     "bucket": "85-90%",
+     "n": 46,
+     "predicted": 0.8631,
+     "actual": 0.913
+    }
+   ]
+  },
+  "saves": {
+   "n": 586,
+   "hit_rate": 0.7594,
+   "mean_predicted": 0.8067,
+   "brier": 0.1826,
+   "brier_base_rate": 0.18272,
+   "calibration_gap": 0.0473,
+   "buckets": [
+    {
+     "bucket": "70-75%",
+     "n": 156,
+     "predicted": 0.7237,
+     "actual": 0.6859
+    },
+    {
+     "bucket": "75-80%",
+     "n": 119,
+     "predicted": 0.7756,
+     "actual": 0.7563
+    },
+    {
+     "bucket": "80-85%",
+     "n": 151,
+     "predicted": 0.8243,
+     "actual": 0.7881
+    },
+    {
+     "bucket": "85-90%",
+     "n": 93,
+     "predicted": 0.8731,
+     "actual": 0.7527
+    },
+    {
+     "bucket": "90-95%",
+     "n": 59,
+     "predicted": 0.9186,
+     "actual": 0.8983
+    }
+   ]
+  },
+  "goals": {
+   "n": 0
+  }
+ },
+ "projection_vs_actual": {
+  "sog": {
+   "projected": 1.6154,
+   "actual": 1.5306,
+   "n": 12991
+  },
+  "pts": {
+   "projected": 0.4562,
+   "actual": 0.4752,
+   "n": 12991
+  },
+  "ast": {
+   "projected": 0.2868,
+   "actual": 0.2988,
+   "n": 12991
+  },
+  "goals": {
+   "projected": 0.1694,
+   "actual": 0.1764,
+   "n": 12991
+  },
+  "hits": {
+   "projected": 1.1156,
+   "actual": 1.2165,
+   "n": 12991
+  },
+  "blk": {
+   "projected": 0.7941,
+   "actual": 0.7755,
+   "n": 12991
+  },
+  "saves": {
+   "projected": 24.167,
+   "actual": 23.7667,
+   "n": 720
+  },
+  "home_goals": {
+   "projected": 3.1573,
+   "actual": 3.2562,
+   "n": 363
+  },
+  "away_goals": {
+   "projected": 2.9756,
+   "actual": 3.1515,
+   "n": 363
+  },
+  "total": {
+   "projected": 6.1329,
+   "actual": 6.4077,
+   "n": 363
+  },
+  "home_sog": {
+   "projected": 27.5299,
+   "actual": 28.2259,
+   "n": 363
+  },
+  "away_sog": {
+   "projected": 27.1598,
+   "actual": 26.708,
+   "n": 363
+  }
+ },
+ "roi": "not available: no historical NHL prices are held",
+ "closing_line_value": "not available: no historical NHL closing lines are held",
+ "markets_live": [],
+ "markets_live_rule": "a market goes live only after it beats the closing line in backtest; none can be shown to yet"
+}

@@ -59,6 +59,8 @@ function Frame({ title, lede, children }: { title: string; lede: string; childre
           <div className="lp-sports" role="group" aria-label="Choose a sport">
             <Link href="/nfl">NFL</Link>
             <Link href="/nba">NBA</Link>
+        <Link href="/nhl">NHL</Link>
+            <Link href="/nhl">NHL</Link>
           </div>
         </div>
       </header>
