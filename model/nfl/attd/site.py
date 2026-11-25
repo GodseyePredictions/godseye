@@ -387,7 +387,15 @@ def write_site(season: int, week: int) -> Path:
                             + (f"\n  ... and {len(errors) - 25} more" if len(errors) > 25 else ""))
     blob = json.dumps(data, separators=(",", ":"))
     tpl = (ROOT / "attd" / "site_template.html").read_text()
-    html = tpl.replace("/*__DATA__*/null", blob)
+    # Cashed slips showcase (owner rule, 24 Nov 2026): winners only, example stakes, no issued or lost counts.
+    # It goes into the exported page only; nfl_site.json, which feeds the web app, carries no graded results.
+    page = dict(data)
+    for key, name in (("cashed", "cashed_slips.json"), ("cashed_nba", "cashed_slips_nba.json")):
+        f = OUT / name
+        page[key] = json.loads(f.read_text()) if f.exists() else None
+    if page["cashed"]:
+        page["cashed"] = {k: v for k, v in page["cashed"].items() if k not in ("weeks", "excluded")}
+    html = tpl.replace("/*__DATA__*/null", json.dumps(page, separators=(",", ":")))
     out = OUT / "site" / "gods_eye.html"
     out.parent.mkdir(exist_ok=True)
     out.write_text(html)

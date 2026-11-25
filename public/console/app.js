@@ -95,6 +95,56 @@ function renderPersonnel(){
       <div><h3>Ruled Out / Doubtful (official report)</h3><p class="sub">${inj.length?inj.map(x=>`${esc(x.name)} (${esc(x.team)}${x.note?", "+esc(x.note):""})`).join(" · "):"None on this slate."}</p></div>
     </div></section>`;
 }
+function renderCashed(){
+  const f=state.cashF||(state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"}); if(!f.lg) f.lg="nfl";
+  const money=v=>"$"+Number(v).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+  const amS=a=>a==null?"–":(a>0?"+":"")+Math.round(a);
+  const opt=(k,vals)=>vals.map(([v,l])=>`<button class="btn sm${f[k]===v?" on":""}" data-cashf="${k}|${v}">${l}</button>`).join(" ");
+  const lgbar=`<div class="lgbar">${[["nfl","NFL"],["nba","NBA"]].map(([v,l])=>`<button class="lgtab${f.lg===v?" on":""}" data-cashf="lg|${v}">${l}</button>`).join("")}</div>`;
+  const card=(title,pills,legs,meta,stake,ret)=>`<div class="cslip">
+     <div class="ctitle">${esc(title)}</div><div class="cpills">${pills}</div>
+     <ol>${legs}</ol>
+     <div class="cmeta">${meta}</div>
+     ${stake?`<div class="cmoney"><div><span class="clbl">Example stake</span><b class="cstake">${money(stake)}</b></div><div class="cret"><span class="clbl">Cashed</span><b class="cval">${money(ret)}</b></div></div>`:""}</div>`;
+  const grid=cards=>`<div class="cgrid">${cards||`<section class="panel"><p class="sub">No slips match these filters.</p></section>`}</div>`;
+  if(f.lg==="nba"){const N=D.cashed_nba;
+    if(!N||!N.slips.length) return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2></div></div>${lgbar}<p class="sub">No NBA slips have been loaded yet.</p></section>`;
+    const day=d=>new Date(d+"T12:00:00Z").toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:"UTC"});
+    const dates=[...new Set(N.slips.map(s=>s.date))].sort().reverse();
+    const S=N.slips.filter(s=>(f.n==="all"||String(s.n_legs)===f.n)&&(f.week==="all"||s.date===f.week));
+    const tot=S.reduce((a,s)=>({st:a.st+s.stake,rt:a.rt+s.returned}),{st:0,rt:0});
+    const cards=S.slice().sort((a,b)=>b.date.localeCompare(a.date)||b.price-a.price).map(s=>card(`${s.game} · ${s.type}`,
+      `<span class="cpill">${day(s.date)}</span><span class="cpill win">${s.n_legs}-leg cashed</span>`,
+      s.legs.map(l=>`<li>${esc(l.label)} <span class="cact">(${esc(l.actual)})</span></li>`).join(""),
+      `<span>Model ${pct(s.chance)}</span><span>Price <b>${amS(s.price)}</b></span>`,s.stake,s.returned)).join("");
+    return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2>
+      <p class="sub">NBA slips the algorithm issued that won, ${day(N.from)} to ${day(N.to)}. This page lists winning slips only; losing slips are not shown. <b>Stakes and returns are examples. They are not bets that were placed.</b></p></div></div>
+      ${lgbar}
+      <div class="cfilt">${opt("n",[["all","Any legs"],["4","4-leg"],["6","6-leg"],["8","8-leg"]])}</div>
+      <div class="cfilt">${opt("week",[["all","All nights"],...dates.map(d=>[d,day(d)])])}</div>
+      <p class="sub" style="margin-top:10px">${S.length} slips shown · example stakes ${money(tot.st)} · cashed ${money(tot.rt)}</p></section>${grid(cards)}`;
+  }
+  const C=D.cashed;
+  if(!C) return `<section class="panel"><h2>Cashed slips</h2>${lgbar}<p class="sub">No graded record has been built yet.</p></section>`;
+  const kindL={SGP:"Props SGP","SGP+TD":"SGP with TD",ATD:"Anytime TD"};
+  const S=C.slips.filter(s=>(f.kind==="all"||s.kind===f.kind)&&(f.n==="all"||String(s.n)===f.n)&&(f.week==="all"||String(s.week)===f.week));
+  const tot=S.reduce((a,s)=>({st:a.st+(s.stake||0),rt:a.rt+(s.ret||0)}),{st:0,rt:0});
+  const weeks=[...new Set(C.slips.map(s=>s.week))].sort((a,b)=>b-a);
+  const cards=S.slice().sort((a,b)=>b.week-a.week||(b.fair||0)-(a.fair||0)).map(s=>card(s.title,
+     `<span class="cpill">Week ${s.week}</span><span class="cpill">${kindL[s.kind]||s.kind}</span><span class="cpill win">${s.n}-leg cashed</span>`,
+     s.legs.map(l=>`<li>${esc(l.t)} <span class="cact">(${esc(l.r)})</span></li>`).join(""),
+     `<span>Model ${s.p?pct(s.p):"–"}</span><span>Fair price <b>${amS(s.fair)}</b></span>`,s.stake,s.ret)).join("");
+  const aw=[...new Set(C.atd_legs.map(a=>a.week))].sort((a,b)=>b-a).map(w=>`<tr><td>Week ${w}</td><td>${C.atd_legs.filter(a=>a.week===w).map(a=>`${esc(a.name)}${a.fair!=null?` <span class="sub">(${amS(a.fair)})</span>`:""}`).join(" · ")}</td></tr>`).join("");
+  return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2>
+    <p class="sub">Slips the algorithm issued that won, graded exactly as shipped against final box scores. <b>Stakes and returns are examples at the model's fair price. They are not bets that were placed</b>, and a sportsbook's price for the same slip would differ. This page lists winning slips only; losing slips are not shown. Built ${esc(C.built)}.</p></div></div>
+    ${lgbar}
+    <div class="cfilt">${opt("kind",[["all","All types"],["SGP","Props SGP"],["SGP+TD","SGP with TD"],["ATD","Anytime TD"]])}</div>
+    <div class="cfilt">${opt("n",[["all","Any legs"],["2","2-leg"],["4","4-leg"],["6","6-leg"],["8","8-leg"]])}</div>
+    <div class="cfilt">${opt("week",[["all","All weeks"],...weeks.map(w=>[String(w),"Week "+w])])}</div>
+    <p class="sub" style="margin-top:10px">${S.length} slips shown · example stakes ${money(tot.st)} · cashed ${money(tot.rt)} at fair prices</p></section>
+  ${grid(cards)}
+  <section class="panel"><h3>Anytime TD picks that scored</h3><p class="sub">Every touchdown pick on an issued slip or pick list that scored, with the model's fair price where saved.</p><div class="tblwrap" style="overflow-x:auto"><table><tbody>${aw}</tbody></table></div></section>`;
+}
 function renderModel(){const R=D.rules||{};
   return `<section class="panel"><div class="section-head"><div><h2>Model &amp; rules</h2>
     <p class="sub">What every ATD and props number on this platform considers, the standing rules from your ledger, and how the model has tested. Data only: play-by-play, snap counts, rosters, injury reports, Vegas lines, NWS weather. No media or expert picks.</p></div></div></section>
@@ -477,11 +527,12 @@ let lastTab=null;
 function render(){
   const y=window.scrollY, sameTab=lastTab===state.tab; lastTab=state.tab;
   document.querySelectorAll("nav.tabs a").forEach(a=>a.setAttribute("aria-current",a.dataset.tab===state.tab?"page":"false"));
-  $("#main").innerHTML=state.tab==="build"?renderBuild():state.tab==="board"?renderBoard():state.tab==="sgp"?renderSGP():state.tab==="mysgp"?renderMySGP():state.tab==="audit"?renderAudit():state.tab==="model"?renderModel():state.tab==="home"?renderHome():renderPicks();
+  $("#main").innerHTML=state.tab==="build"?renderBuild():state.tab==="board"?renderBoard():state.tab==="sgp"?renderSGP():state.tab==="mysgp"?renderMySGP():state.tab==="audit"?renderAudit():state.tab==="cashed"?renderCashed():state.tab==="model"?renderModel():state.tab==="home"?renderHome():renderPicks();
   renderSlip(); heatify();
   if(sameTab) requestAnimationFrame(()=>window.scrollTo(0,y));   // never jump the page on an add/remove
 }
-function route(){const h=location.hash.slice(1);const extra=(window.GE_EXTRA_TABS||[]).includes(h);$("#main").hidden=extra;if(extra){state.tab=h;document.querySelectorAll("nav.tabs a").forEach(a=>a.setAttribute("aria-current",a.dataset.tab===h?"page":"false"));renderSlip();return}state.tab=["home","picks","sgp","mysgp","build","board","audit","model"].includes(h)?h:"home";render()}
+function cashedNav(){const a=document.querySelector('nav.tabs a[data-tab="cashed"]');if(a)a.hidden=!(D.cashed||D.cashed_nba)}
+function route(){const h=location.hash.slice(1);const extra=(window.GE_EXTRA_TABS||[]).includes(h);$("#main").hidden=extra;if(extra){state.tab=h;document.querySelectorAll("nav.tabs a").forEach(a=>a.setAttribute("aria-current",a.dataset.tab===h?"page":"false"));renderSlip();return}cashedNav();state.tab=["home","picks","sgp","mysgp","build","board","audit","cashed","model"].includes(h)?h:"home";render()}
 
 document.addEventListener("click",e=>{
   const t=e.target.closest("button");if(!t)return;const d=t.dataset;
@@ -743,6 +794,7 @@ document.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)r
 });
 
 document.addEventListener("click",e=>{ if(state.tab==="audit"&&e.target.closest("#slip button")) setTimeout(()=>{$("#main").innerHTML=renderAudit()},0) });
+document.addEventListener("click",e=>{const t=e.target.closest("[data-cashf]");if(!t)return;const [k,v]=t.dataset.cashf.split("|");const F=state.cashF||(state.cashF={lg:"nfl",kind:"all",n:"all",week:"all"});F[k]=v;if(k==="lg"){F.kind="all";F.n="all";F.week="all"}render()});
 document.addEventListener("click",e=>{ if(e.target.closest("#fab")) openSlip(true); else if(e.target.closest("[data-close-slip]")||e.target.id==="scrim") openSlip(false) });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") openSlip(false) });
 window.addEventListener("hashchange",route);

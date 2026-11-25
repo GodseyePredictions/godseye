@@ -5,5 +5,12 @@
   "team": "SEA",
   "status": "OUT",
   "note": "ESPN Injured Reserve (RB, Knee - MCL), swept 2026-11-24"
+ },
+ {
+  "type": "override",
+  "name": "A.J. Brown",
+  "team": "NE",
+  "status": "OUT",
+  "note": "ESPN Doubtful (WR, Hamstring), swept 2026-11-24"
  }
 ]

@@ -1,0 +1,6918 @@
+{
+ "built": "2026-11-24 05:33 UTC",
+ "weeks": [
+  {
+   "week": 1,
+   "issued": 34,
+   "cashed": 5
+  },
+  {
+   "week": 3,
+   "issued": 54,
+   "cashed": 8
+  },
+  {
+   "week": 4,
+   "issued": 102,
+   "cashed": 13
+  },
+  {
+   "week": 5,
+   "issued": 118,
+   "cashed": 16
+  },
+  {
+   "week": 6,
+   "issued": 120,
+   "cashed": 18
+  },
+  {
+   "week": 8,
+   "issued": 80,
+   "cashed": 9
+  },
+  {
+   "week": 9,
+   "issued": 78,
+   "cashed": 28
+  },
+  {
+   "week": 10,
+   "issued": 63,
+   "cashed": 10
+  },
+  {
+   "week": 11,
+   "issued": 241,
+   "cashed": 60
+  }
+ ],
+ "slips": [
+  {
+   "week": 1,
+   "kind": "ATD",
+   "title": "ARI@LAC \u00b7 TD double",
+   "n": 2,
+   "p": 0.192,
+   "fair": 419,
+   "legs": [
+    {
+     "t": "Omarion Hampton anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Ladd McConkey anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 259.5,
+   "profit": 209.5
+  },
+  {
+   "week": 1,
+   "kind": "SGP",
+   "title": "BAL@IND \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.252,
+   "fair": 297,
+   "legs": [
+    {
+     "t": "Derrick Henry 80+ rush yds",
+     "r": "144"
+    },
+    {
+     "t": "Jonathan Taylor 18+ carries",
+     "r": "19"
+    },
+    {
+     "t": "Jonathan Taylor 60+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Derrick Henry 18+ carries",
+     "r": "24"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 198.5,
+   "profit": 148.5
+  },
+  {
+   "week": 1,
+   "kind": "ATD",
+   "title": "BAL@IND \u00b7 TD double",
+   "n": 2,
+   "p": 0.36700000000000005,
+   "fair": 172,
+   "legs": [
+    {
+     "t": "Derrick Henry anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Jonathan Taylor anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 217.6,
+   "profit": 137.6
+  },
+  {
+   "week": 1,
+   "kind": "ATD",
+   "title": "CHI@CAR \u00b7 TD double",
+   "n": 2,
+   "p": 0.20199999999999999,
+   "fair": 396,
+   "legs": [
+    {
+     "t": "D'Andre Swift anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 248.0,
+   "profit": 198.0
+  },
+  {
+   "week": 1,
+   "kind": "ATD",
+   "title": "NO@DET \u00b7 TD double",
+   "n": 2,
+   "p": 0.307,
+   "fair": 226,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Amon-Ra St. Brown anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 277.1,
+   "profit": 192.1
+  },
+  {
+   "week": 3,
+   "kind": "SGP",
+   "title": "CAR@CLE \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.385,
+   "fair": 160,
+   "legs": [
+    {
+     "t": "Darren Waller 2+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Chuba Hubbard 20+ rush yds",
+     "r": "82"
+    },
+    {
+     "t": "Denzel Boston 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Bryce Young 175+ pass yds",
+     "r": "291"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 234.0,
+   "profit": 144.0
+  },
+  {
+   "week": 3,
+   "kind": "SGP",
+   "title": "NYJ@DET \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.44,
+   "fair": 128,
+   "legs": [
+    {
+     "t": "Sam LaPorta 30+ rec yds",
+     "r": "44"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Geno Smith 20+ pass att",
+     "r": "37"
+    },
+    {
+     "t": "Garrett Wilson 40+ rec yds",
+     "r": "107"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 182.4,
+   "profit": 102.4
+  },
+  {
+   "week": 3,
+   "kind": "ATD",
+   "title": "NYJ@DET \u00b7 TD double",
+   "n": 2,
+   "p": 0.331,
+   "fair": 202,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Amon-Ra St. Brown anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 256.7,
+   "profit": 171.7
+  },
+  {
+   "week": 3,
+   "kind": "ATD",
+   "title": "ARI@SF \u00b7 TD double",
+   "n": 2,
+   "p": 0.292,
+   "fair": 242,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "George Kittle anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 307.8,
+   "profit": 217.8
+  },
+  {
+   "week": 3,
+   "kind": "SGP",
+   "title": "MIN@TB \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.40399999999999997,
+   "fair": 147,
+   "legs": [
+    {
+     "t": "Bucky Irving 40+ rush yds",
+     "r": "46"
+    },
+    {
+     "t": "Chris Godwin Jr. 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Emeka Egbuka 2+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Aaron Jones 15+ carries",
+     "r": "17"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 197.6,
+   "profit": 117.6
+  },
+  {
+   "week": 3,
+   "kind": "ATD",
+   "title": "BAL@DAL \u00b7 TD double",
+   "n": 2,
+   "p": 0.3,
+   "fair": 233,
+   "legs": [
+    {
+     "t": "Derrick Henry anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 283.05,
+   "profit": 198.05
+  },
+  {
+   "week": 3,
+   "kind": "SGP",
+   "title": "LV@NO \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.467,
+   "fair": 114,
+   "legs": [
+    {
+     "t": "Juwan Johnson 3+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Tre Tucker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Devaughn Vele 30+ rec yds",
+     "r": "39"
+    },
+    {
+     "t": "Tyler Shough 40+ pass att",
+     "r": "42"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 192.6,
+   "profit": 102.6
+  },
+  {
+   "week": 3,
+   "kind": "SGP",
+   "title": "LV@NO \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.301,
+   "fair": 232,
+   "legs": [
+    {
+     "t": "Juwan Johnson 3+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Tre Tucker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Devaughn Vele 30+ rec yds",
+     "r": "39"
+    },
+    {
+     "t": "Tyler Shough 40+ pass att",
+     "r": "42"
+    },
+    {
+     "t": "Travis Etienne 20+ rush yds",
+     "r": "57"
+    },
+    {
+     "t": "Kirk Cousins 20+ pass att",
+     "r": "33"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 265.6,
+   "profit": 185.6
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "GB@TB \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.391,
+   "fair": 156,
+   "legs": [
+    {
+     "t": "Cade Otton 20+ rec yds",
+     "r": "37"
+    },
+    {
+     "t": "Bucky Irving 10+ carries",
+     "r": "16"
+    },
+    {
+     "t": "Tucker Kraft 20+ rec yds",
+     "r": "42"
+    },
+    {
+     "t": "Emeka Egbuka 2+ receptions",
+     "r": "2"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 217.6,
+   "profit": 132.6
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "GB@TB \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.287,
+   "fair": 249,
+   "legs": [
+    {
+     "t": "Cade Otton 20+ rec yds",
+     "r": "37"
+    },
+    {
+     "t": "Bucky Irving 10+ carries",
+     "r": "16"
+    },
+    {
+     "t": "Tucker Kraft 20+ rec yds",
+     "r": "42"
+    },
+    {
+     "t": "Emeka Egbuka 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Ted Hurst III 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Jordan Love 25+ pass att",
+     "r": "30"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 314.1,
+   "profit": 224.1
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "LA@PHI \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.385,
+   "fair": 160,
+   "legs": [
+    {
+     "t": "Kyren Williams 40+ rush yds",
+     "r": "80"
+    },
+    {
+     "t": "Matthew Stafford 25+ pass att",
+     "r": "51"
+    },
+    {
+     "t": "Davante Adams 4+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Tyler Higbee 2+ receptions",
+     "r": "5"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 208.0,
+   "profit": 128.0
+  },
+  {
+   "week": 4,
+   "kind": "ATD",
+   "title": "NE@BUF \u00b7 TD double",
+   "n": 2,
+   "p": 0.195,
+   "fair": 412,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Rhamondre Stevenson anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 256.0,
+   "profit": 206.0
+  },
+  {
+   "week": 4,
+   "kind": "ATD",
+   "title": "TEN@BAL \u00b7 TD double",
+   "n": 2,
+   "p": 0.23199999999999998,
+   "fair": 331,
+   "legs": [
+    {
+     "t": "Derrick Henry anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Mark Andrews anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 215.5,
+   "profit": 165.5
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "DET@CAR \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.40700000000000003,
+   "fair": 146,
+   "legs": [
+    {
+     "t": "Chuba Hubbard 40+ rush yds",
+     "r": "122"
+    },
+    {
+     "t": "Jared Goff 200+ pass yds",
+     "r": "412"
+    },
+    {
+     "t": "Tetairoa McMillan 3+ receptions",
+     "r": "14"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "6"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 209.1,
+   "profit": 124.1
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "DET@CAR \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.26,
+   "fair": 284,
+   "legs": [
+    {
+     "t": "Chuba Hubbard 40+ rush yds",
+     "r": "122"
+    },
+    {
+     "t": "Jared Goff 200+ pass yds",
+     "r": "412"
+    },
+    {
+     "t": "Tetairoa McMillan 3+ receptions",
+     "r": "14"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Bryce Young 150+ pass yds",
+     "r": "329"
+    },
+    {
+     "t": "Jahmyr Gibbs 15+ carries",
+     "r": "15"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 192.0,
+   "profit": 142.0
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "DET@CAR \u00b7 Props SGP 8-leg",
+   "n": 8,
+   "p": 0.184,
+   "fair": 443,
+   "legs": [
+    {
+     "t": "Chuba Hubbard 40+ rush yds",
+     "r": "122"
+    },
+    {
+     "t": "Jared Goff 200+ pass yds",
+     "r": "412"
+    },
+    {
+     "t": "Tetairoa McMillan 3+ receptions",
+     "r": "14"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Bryce Young 150+ pass yds",
+     "r": "329"
+    },
+    {
+     "t": "Jahmyr Gibbs 15+ carries",
+     "r": "15"
+    },
+    {
+     "t": "Sam LaPorta 40+ rec yds",
+     "r": "84"
+    },
+    {
+     "t": "Amon-Ra St. Brown 40+ rec yds",
+     "r": "75"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 271.5,
+   "profit": 221.5
+  },
+  {
+   "week": 4,
+   "kind": "ATD",
+   "title": "DET@CAR \u00b7 TD double",
+   "n": 2,
+   "p": 0.23399999999999999,
+   "fair": 327,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 213.5,
+   "profit": 163.5
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "ARI@NYG \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.188,
+   "fair": 432,
+   "legs": [
+    {
+     "t": "Jacoby Brissett 150+ pass yds",
+     "r": "166"
+    },
+    {
+     "t": "Malachi Fields 30+ rec yds",
+     "r": "52"
+    },
+    {
+     "t": "Isaiah Likely 3+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Jeremiyah Love 50+ rush yds",
+     "r": "63"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 266.0,
+   "profit": 216.0
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "DAL@HOU \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.185,
+   "fair": 441,
+   "legs": [
+    {
+     "t": "George Pickens 50+ rec yds",
+     "r": "75"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "17"
+    },
+    {
+     "t": "David Montgomery 10+ carries",
+     "r": "10"
+    },
+    {
+     "t": "Xavier Hutchinson 30+ rec yds",
+     "r": "46"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 270.5,
+   "profit": 220.5
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "DAL@HOU \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.08900000000000001,
+   "fair": 1027,
+   "legs": [
+    {
+     "t": "George Pickens 50+ rec yds",
+     "r": "75"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "17"
+    },
+    {
+     "t": "David Montgomery 10+ carries",
+     "r": "10"
+    },
+    {
+     "t": "Xavier Hutchinson 30+ rec yds",
+     "r": "46"
+    },
+    {
+     "t": "Javonte Williams 50+ rush yds",
+     "r": "62"
+    },
+    {
+     "t": "Dak Prescott 200+ pass yds",
+     "r": "335"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 563.5,
+   "profit": 513.5
+  },
+  {
+   "week": 4,
+   "kind": "SGP",
+   "title": "MIA@MIN \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.16699999999999998,
+   "fair": 498,
+   "legs": [
+    {
+     "t": "T.J. Hockenson 3+ receptions",
+     "r": "13"
+    },
+    {
+     "t": "Malik Washington 20+ rec yds",
+     "r": "67"
+    },
+    {
+     "t": "Aaron Jones 50+ rush yds",
+     "r": "94"
+    },
+    {
+     "t": "Jordan Addison 30+ rec yds",
+     "r": "52"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 299.0,
+   "profit": 249.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "CHI@GB \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.447,
+   "fair": 124,
+   "legs": [
+    {
+     "t": "Rome Odunze 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Luther Burden III 3+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Jordan Love 175+ pass yds",
+     "r": "367"
+    },
+    {
+     "t": "Tucker Kraft 20+ rec yds",
+     "r": "64"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 201.6,
+   "profit": 111.6
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "CHI@GB \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.259,
+   "fair": 286,
+   "legs": [
+    {
+     "t": "Rome Odunze 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Luther Burden III 3+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Jordan Love 175+ pass yds",
+     "r": "367"
+    },
+    {
+     "t": "Tucker Kraft 20+ rec yds",
+     "r": "64"
+    },
+    {
+     "t": "Christian Watson 30+ rec yds",
+     "r": "143"
+    },
+    {
+     "t": "MarShawn Lloyd 20+ rush yds",
+     "r": "31"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 193.0,
+   "profit": 143.0
+  },
+  {
+   "week": 5,
+   "kind": "ATD",
+   "title": "CHI@GB \u00b7 TD double",
+   "n": 2,
+   "p": 0.155,
+   "fair": 546,
+   "legs": [
+    {
+     "t": "D'Andre Swift anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Christian Watson anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 323.0,
+   "profit": 273.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "HOU@TEN \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.45399999999999996,
+   "fair": 120,
+   "legs": [
+    {
+     "t": "Dalton Schultz 20+ rec yds",
+     "r": "30"
+    },
+    {
+     "t": "Nico Collins 5+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Wan'Dale Robinson 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "36"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 176.0,
+   "profit": 96.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "HOU@TEN \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.28600000000000003,
+   "fair": 250,
+   "legs": [
+    {
+     "t": "Dalton Schultz 20+ rec yds",
+     "r": "30"
+    },
+    {
+     "t": "Nico Collins 5+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Wan'Dale Robinson 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "36"
+    },
+    {
+     "t": "Tony Pollard 30+ rush yds",
+     "r": "52"
+    },
+    {
+     "t": "C.J. Stroud 150+ pass yds",
+     "r": "261"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 175.0,
+   "profit": 125.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "NYG@WAS \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.41,
+   "fair": 144,
+   "legs": [
+    {
+     "t": "Cam Skattebo 30+ rush yds",
+     "r": "59"
+    },
+    {
+     "t": "Jacory Croskey-Merritt 20+ rush yds",
+     "r": "82"
+    },
+    {
+     "t": "Malik Nabers 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "Isaiah Likely 2+ receptions",
+     "r": "11"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 207.4,
+   "profit": 122.4
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "NYG@WAS \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.242,
+   "fair": 314,
+   "legs": [
+    {
+     "t": "Cam Skattebo 30+ rush yds",
+     "r": "59"
+    },
+    {
+     "t": "Jacory Croskey-Merritt 20+ rush yds",
+     "r": "82"
+    },
+    {
+     "t": "Malik Nabers 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "Isaiah Likely 2+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "Jayden Daniels 20+ pass att",
+     "r": "25"
+    },
+    {
+     "t": "Antonio Williams 20+ rec yds",
+     "r": "31"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 207.0,
+   "profit": 157.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "DET@ARI \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.45,
+   "fair": 122,
+   "legs": [
+    {
+     "t": "Trey McBride 6+ receptions",
+     "r": "9"
+    },
+    {
+     "t": "Sam LaPorta 4+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Jacoby Brissett 200+ pass yds",
+     "r": "292"
+    },
+    {
+     "t": "Michael Wilson 30+ rec yds",
+     "r": "30"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 199.8,
+   "profit": 109.8
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "DET@ARI \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.281,
+   "fair": 256,
+   "legs": [
+    {
+     "t": "Trey McBride 6+ receptions",
+     "r": "9"
+    },
+    {
+     "t": "Sam LaPorta 4+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Jacoby Brissett 200+ pass yds",
+     "r": "292"
+    },
+    {
+     "t": "Michael Wilson 30+ rec yds",
+     "r": "30"
+    },
+    {
+     "t": "Jared Goff 30+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "Jeremiyah Love 10+ carries",
+     "r": "12"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 178.0,
+   "profit": 128.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "DET@ARI \u00b7 Props SGP 8-leg",
+   "n": 8,
+   "p": 0.185,
+   "fair": 441,
+   "legs": [
+    {
+     "t": "Trey McBride 6+ receptions",
+     "r": "9"
+    },
+    {
+     "t": "Sam LaPorta 4+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Jacoby Brissett 200+ pass yds",
+     "r": "292"
+    },
+    {
+     "t": "Michael Wilson 30+ rec yds",
+     "r": "30"
+    },
+    {
+     "t": "Jared Goff 30+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "Jeremiyah Love 10+ carries",
+     "r": "12"
+    },
+    {
+     "t": "Amon-Ra St. Brown 40+ rec yds",
+     "r": "69"
+    },
+    {
+     "t": "Jahmyr Gibbs 30+ rush yds",
+     "r": "151"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 270.5,
+   "profit": 220.5
+  },
+  {
+   "week": 5,
+   "kind": "ATD",
+   "title": "SF@SEA \u00b7 TD double",
+   "n": 2,
+   "p": 0.155,
+   "fair": 546,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Jaxon Smith-Njigba anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 323.0,
+   "profit": 273.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "PHI@JAX \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.20600000000000002,
+   "fair": 386,
+   "legs": [
+    {
+     "t": "Makai Lemon 20+ rec yds",
+     "r": "43"
+    },
+    {
+     "t": "Jalen Hurts 20+ pass att",
+     "r": "40"
+    },
+    {
+     "t": "Bhayshul Tuten 30+ rush yds",
+     "r": "72"
+    },
+    {
+     "t": "Parker Washington 30+ rec yds",
+     "r": "124"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 243.0,
+   "profit": 193.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "NYG@WAS \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.188,
+   "fair": 432,
+   "legs": [
+    {
+     "t": "Antonio Williams 3+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jayden Daniels 40+ rush yds",
+     "r": "103"
+    },
+    {
+     "t": "Malik Nabers 60+ rec yds",
+     "r": "121"
+    },
+    {
+     "t": "Isaiah Likely 30+ rec yds",
+     "r": "94"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 266.0,
+   "profit": 216.0
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "DET@ARI \u00b7 Floor 4-leg",
+   "n": 4,
+   "p": 0.449,
+   "fair": 123,
+   "legs": [
+    {
+     "t": "leg 1 (detail in the ledger)",
+     "r": "hit"
+    },
+    {
+     "t": "leg 2 (detail in the ledger)",
+     "r": "hit"
+    },
+    {
+     "t": "leg 3 (detail in the ledger)",
+     "r": "hit"
+    },
+    {
+     "t": "leg 4 (detail in the ledger)",
+     "r": "hit"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 178.4,
+   "profit": 98.4
+  },
+  {
+   "week": 5,
+   "kind": "SGP",
+   "title": "DET@ARI \u00b7 Floor 6-leg",
+   "n": 6,
+   "p": 0.295,
+   "fair": 239,
+   "legs": [
+    {
+     "t": "leg 1 (detail in the ledger)",
+     "r": "hit"
+    },
+    {
+     "t": "leg 2 (detail in the ledger)",
+     "r": "hit"
+    },
+    {
+     "t": "leg 3 (detail in the ledger)",
+     "r": "hit"
+    },
+    {
+     "t": "leg 4 (detail in the ledger)",
+     "r": "hit"
+    },
+    {
+     "t": "leg 5 (detail in the ledger)",
+     "r": "hit"
+    },
+    {
+     "t": "leg 6 (detail in the ledger)",
+     "r": "hit"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 288.15,
+   "profit": 203.15
+  },
+  {
+   "week": 5,
+   "kind": "SGP+TD",
+   "title": "Week 5 afternoon \u00b7 props with a TD",
+   "n": 5,
+   "p": 0.366,
+   "fair": 173,
+   "legs": [
+    {
+     "t": "Jared Goff 250+ pass yds",
+     "r": "271"
+    },
+    {
+     "t": "Jahmyr Gibbs 2+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Amon-Ra St. Brown 5+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Sam LaPorta 40+ rec yds",
+     "r": "88"
+    },
+    {
+     "t": "Jahmyr Gibbs ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 245.7,
+   "profit": 155.7
+  },
+  {
+   "week": 6,
+   "kind": "SGP+TD",
+   "title": "TEN@IND \u00b7 props with a TD",
+   "n": 4,
+   "p": 0.35100000000000003,
+   "fair": 185,
+   "legs": [
+    {
+     "t": "Daniel Jones 175+ pass yds",
+     "r": "269"
+    },
+    {
+     "t": "Tony Pollard 40+ rush yds",
+     "r": "76"
+    },
+    {
+     "t": "Josh Downs 3+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Jonathan Taylor ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 228.0,
+   "profit": 148.0
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "BUF@LV \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.39899999999999997,
+   "fair": 151,
+   "legs": [
+    {
+     "t": "Tre Tucker 30+ rec yds",
+     "r": "97"
+    },
+    {
+     "t": "Brock Bowers 40+ rec yds",
+     "r": "70"
+    },
+    {
+     "t": "Josh Allen 20+ pass att",
+     "r": "33"
+    },
+    {
+     "t": "James Cook 15+ carries",
+     "r": "22"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 213.35,
+   "profit": 128.35
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "BUF@LV \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.332,
+   "fair": 201,
+   "legs": [
+    {
+     "t": "Tre Tucker 30+ rec yds",
+     "r": "97"
+    },
+    {
+     "t": "Brock Bowers 40+ rec yds",
+     "r": "70"
+    },
+    {
+     "t": "Josh Allen 20+ pass att",
+     "r": "33"
+    },
+    {
+     "t": "James Cook 15+ carries",
+     "r": "22"
+    },
+    {
+     "t": "Kirk Cousins 25+ pass att",
+     "r": "41"
+    },
+    {
+     "t": "Ashton Jeanty 3+ receptions",
+     "r": "4"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 270.9,
+   "profit": 180.9
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "BUF@LV \u00b7 Props SGP 8-leg",
+   "n": 8,
+   "p": 0.237,
+   "fair": 323,
+   "legs": [
+    {
+     "t": "Tre Tucker 30+ rec yds",
+     "r": "97"
+    },
+    {
+     "t": "Brock Bowers 40+ rec yds",
+     "r": "70"
+    },
+    {
+     "t": "Josh Allen 20+ pass att",
+     "r": "33"
+    },
+    {
+     "t": "James Cook 15+ carries",
+     "r": "22"
+    },
+    {
+     "t": "Kirk Cousins 25+ pass att",
+     "r": "41"
+    },
+    {
+     "t": "Ashton Jeanty 3+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Khalil Shakir 3+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Josh Allen 150+ pass yds",
+     "r": "255"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 211.5,
+   "profit": 161.5
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "DAL@GB \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.451,
+   "fair": 122,
+   "legs": [
+    {
+     "t": "Jordan Love 225+ pass yds",
+     "r": "276"
+    },
+    {
+     "t": "Javonte Williams 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "George Pickens 30+ rec yds",
+     "r": "73"
+    },
+    {
+     "t": "Matthew Golden 30+ rec yds",
+     "r": "104"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 177.6,
+   "profit": 97.6
+  },
+  {
+   "week": 6,
+   "kind": "SGP+TD",
+   "title": "DAL@GB \u00b7 props with a TD",
+   "n": 5,
+   "p": 0.28800000000000003,
+   "fair": 248,
+   "legs": [
+    {
+     "t": "Jordan Love 225+ pass yds",
+     "r": "276"
+    },
+    {
+     "t": "Javonte Williams 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "George Pickens 30+ rec yds",
+     "r": "73"
+    },
+    {
+     "t": "Tucker Kraft 3+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Javonte Williams ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 295.8,
+   "profit": 210.8
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "PIT@TB \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.16899999999999998,
+   "fair": 493,
+   "legs": [
+    {
+     "t": "Jaylen Warren 50+ rush yds",
+     "r": "50"
+    },
+    {
+     "t": "Emeka Egbuka 3+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Aaron Rodgers 35+ pass att",
+     "r": "49"
+    },
+    {
+     "t": "DK Metcalf 40+ rec yds",
+     "r": "93"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 296.5,
+   "profit": 246.5
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "PIT@TB \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.102,
+   "fair": 882,
+   "legs": [
+    {
+     "t": "Jaylen Warren 50+ rush yds",
+     "r": "50"
+    },
+    {
+     "t": "Emeka Egbuka 3+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Aaron Rodgers 35+ pass att",
+     "r": "49"
+    },
+    {
+     "t": "DK Metcalf 40+ rec yds",
+     "r": "93"
+    },
+    {
+     "t": "Germie Bernard 30+ rec yds",
+     "r": "87"
+    },
+    {
+     "t": "Jalon Daniels 20+ pass att",
+     "r": "43"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 491.0,
+   "profit": 441.0
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "TEN@IND \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.166,
+   "fair": 504,
+   "legs": [
+    {
+     "t": "Jonathan Taylor 70+ rush yds",
+     "r": "94"
+    },
+    {
+     "t": "Daniel Jones 200+ pass yds",
+     "r": "269"
+    },
+    {
+     "t": "Keenan Allen 40+ rec yds",
+     "r": "82"
+    },
+    {
+     "t": "Tony Pollard 60+ rush yds",
+     "r": "76"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 302.0,
+   "profit": 252.0
+  },
+  {
+   "week": 6,
+   "kind": "SGP+TD",
+   "title": "TEN@IND \u00b7 props with a TD",
+   "n": 4,
+   "p": 0.19,
+   "fair": 426,
+   "legs": [
+    {
+     "t": "Daniel Jones 200+ pass yds",
+     "r": "269"
+    },
+    {
+     "t": "Jonathan Taylor 70+ rush yds",
+     "r": "94"
+    },
+    {
+     "t": "Keenan Allen 40+ rec yds",
+     "r": "82"
+    },
+    {
+     "t": "Jonathan Taylor ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 263.0,
+   "profit": 213.0
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "LAC@KC \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.213,
+   "fair": 370,
+   "legs": [
+    {
+     "t": "Quentin Johnston 40+ rec yds",
+     "r": "57"
+    },
+    {
+     "t": "Justin Herbert o0.5 INT o0.5",
+     "r": "1 INT"
+    },
+    {
+     "t": "Patrick Mahomes o0.5 INT o0.5",
+     "r": "1 INT"
+    },
+    {
+     "t": "Travis Kelce 50+ rec yds",
+     "r": "53"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 235.0,
+   "profit": 185.0
+  },
+  {
+   "week": 6,
+   "kind": "SGP+TD",
+   "title": "LAC@KC \u00b7 props with a TD",
+   "n": 5,
+   "p": 0.122,
+   "fair": 717,
+   "legs": [
+    {
+     "t": "Patrick Mahomes 30+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "Kenneth Walker III 15+ carries",
+     "r": "19"
+    },
+    {
+     "t": "Quentin Johnston 40+ rec yds",
+     "r": "57"
+    },
+    {
+     "t": "Travis Kelce 50+ rec yds",
+     "r": "53"
+    },
+    {
+     "t": "Kenneth Walker III ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 408.5,
+   "profit": 358.5
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "Week 6 TNF \u2014 SEA @ DEN \u00b7 Floor Sgp 4-leg",
+   "n": 4,
+   "p": 0.441,
+   "fair": 127,
+   "legs": [
+    {
+     "t": "RJ Harvey 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Courtland Sutton 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Bo Nix 25+ pass att",
+     "r": "27"
+    },
+    {
+     "t": "J.K. Dobbins 40+ rush yds",
+     "r": "41"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 204.3,
+   "profit": 114.3
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "Week 6 TNF \u2014 SEA @ DEN \u00b7 Floor Sgp 6-leg",
+   "n": 6,
+   "p": 0.3,
+   "fair": 233,
+   "legs": [
+    {
+     "t": "RJ Harvey 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Courtland Sutton 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Bo Nix 25+ pass att",
+     "r": "27"
+    },
+    {
+     "t": "J.K. Dobbins 40+ rush yds",
+     "r": "41"
+    },
+    {
+     "t": "Emanuel Wilson 20+ rush yds",
+     "r": "52"
+    },
+    {
+     "t": "Jaylen Waddle 20+ rec yds",
+     "r": "24"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 266.4,
+   "profit": 186.4
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "Week 6 SNF \u2014 DAL @ GB \u00b7 Floor Sgp 4-leg",
+   "n": 4,
+   "p": 0.462,
+   "fair": 116,
+   "legs": [
+    {
+     "t": "Matthew Golden 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Tucker Kraft 3+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Jordan Love 30+ pass att",
+     "r": "41"
+    },
+    {
+     "t": "Javonte Williams 20+ rush yds",
+     "r": "41"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 183.6,
+   "profit": 98.6
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "Week 6 SNF \u2014 DAL @ GB \u00b7 Floor Sgp 6-leg",
+   "n": 6,
+   "p": 0.276,
+   "fair": 262,
+   "legs": [
+    {
+     "t": "Matthew Golden 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Tucker Kraft 3+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Jordan Love 30+ pass att",
+     "r": "41"
+    },
+    {
+     "t": "Javonte Williams 20+ rush yds",
+     "r": "41"
+    },
+    {
+     "t": "George Pickens 20+ rec yds",
+     "r": "73"
+    },
+    {
+     "t": "CeeDee Lamb 40+ rec yds",
+     "r": "70"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 181.0,
+   "profit": 131.0
+  },
+  {
+   "week": 6,
+   "kind": "SGP",
+   "title": "Week 6 SNF \u2014 DAL @ GB \u00b7 Floor Sgp 8-leg",
+   "n": 8,
+   "p": 0.20600000000000002,
+   "fair": 386,
+   "legs": [
+    {
+     "t": "Matthew Golden 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Tucker Kraft 3+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Jordan Love 30+ pass att",
+     "r": "41"
+    },
+    {
+     "t": "Javonte Williams 20+ rush yds",
+     "r": "41"
+    },
+    {
+     "t": "George Pickens 20+ rec yds",
+     "r": "73"
+    },
+    {
+     "t": "CeeDee Lamb 40+ rec yds",
+     "r": "70"
+    },
+    {
+     "t": "Dak Prescott 175+ pass yds",
+     "r": "258"
+    },
+    {
+     "t": "Jordan Love 225+ pass yds",
+     "r": "276"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 243.0,
+   "profit": 193.0
+  },
+  {
+   "week": 6,
+   "kind": "SGP+TD",
+   "title": "Week 6 SNF \u2014 DAL @ GB \u00b7 props with a TD",
+   "n": 5,
+   "p": 0.281,
+   "fair": 256,
+   "legs": [
+    {
+     "t": "Jordan Love 30+ pass att",
+     "r": "41"
+    },
+    {
+     "t": "Javonte Williams 20+ rush yds",
+     "r": "41"
+    },
+    {
+     "t": "Matthew Golden 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Tucker Kraft 3+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Javonte Williams ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 178.0,
+   "profit": 128.0
+  },
+  {
+   "week": 8,
+   "kind": "ATD",
+   "title": "BAL@BUF \u00b7 TD double",
+   "n": 2,
+   "p": 0.35100000000000003,
+   "fair": 185,
+   "legs": [
+    {
+     "t": "Derrick Henry anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "James Cook anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 256.5,
+   "profit": 166.5
+  },
+  {
+   "week": 8,
+   "kind": "ATD",
+   "title": "MIN@DET \u00b7 TD double",
+   "n": 2,
+   "p": 0.198,
+   "fair": 405,
+   "legs": [
+    {
+     "t": "Justin Jefferson anytime TD",
+     "r": "TD"
+    },
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 252.5,
+   "profit": 202.5
+  },
+  {
+   "week": 8,
+   "kind": "SGP+TD",
+   "title": "MIN@DET \u00b7 props with a TD",
+   "n": 5,
+   "p": 0.231,
+   "fair": 332,
+   "legs": [
+    {
+     "t": "Kyler Murray 175+ pass yds",
+     "r": "210"
+    },
+    {
+     "t": "Jahmyr Gibbs 30+ rush yds",
+     "r": "153"
+    },
+    {
+     "t": "Jordan Addison 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "T.J. Hockenson 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Justin Jefferson ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 216.0,
+   "profit": 166.0
+  },
+  {
+   "week": 8,
+   "kind": "SGP",
+   "title": "TEN@CIN \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.395,
+   "fair": 153,
+   "legs": [
+    {
+     "t": "Joe Burrow 200+ pass yds",
+     "r": "462"
+    },
+    {
+     "t": "Ja'Marr Chase 4+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "Chase Brown 20+ rush yds",
+     "r": "55"
+    },
+    {
+     "t": "Wan'Dale Robinson 3+ receptions",
+     "r": "6"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 202.4,
+   "profit": 122.4
+  },
+  {
+   "week": 8,
+   "kind": "SGP",
+   "title": "TEN@CIN \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.278,
+   "fair": 260,
+   "legs": [
+    {
+     "t": "Joe Burrow 200+ pass yds",
+     "r": "462"
+    },
+    {
+     "t": "Ja'Marr Chase 4+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "Chase Brown 20+ rush yds",
+     "r": "55"
+    },
+    {
+     "t": "Wan'Dale Robinson 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Tee Higgins 50+ rec yds",
+     "r": "155"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "40"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 180.0,
+   "profit": 130.0
+  },
+  {
+   "week": 8,
+   "kind": "SGP",
+   "title": "TEN@CIN \u00b7 Props SGP 8-leg",
+   "n": 8,
+   "p": 0.184,
+   "fair": 444,
+   "legs": [
+    {
+     "t": "Joe Burrow 200+ pass yds",
+     "r": "462"
+    },
+    {
+     "t": "Ja'Marr Chase 4+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "Chase Brown 20+ rush yds",
+     "r": "55"
+    },
+    {
+     "t": "Wan'Dale Robinson 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Tee Higgins 50+ rec yds",
+     "r": "155"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "40"
+    },
+    {
+     "t": "Tony Pollard 40+ rush yds",
+     "r": "117"
+    },
+    {
+     "t": "Joe Burrow 30+ pass att",
+     "r": "48"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 272.0,
+   "profit": 222.0
+  },
+  {
+   "week": 8,
+   "kind": "SGP",
+   "title": "TEN@CIN \u00b7 Props SGP 4-leg",
+   "n": 4,
+   "p": 0.235,
+   "fair": 325,
+   "legs": [
+    {
+     "t": "Chase Brown 2+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Wan'Dale Robinson 30+ rec yds",
+     "r": "57"
+    },
+    {
+     "t": "Ja'Marr Chase 60+ rec yds",
+     "r": "141"
+    },
+    {
+     "t": "Joe Burrow 250+ pass yds",
+     "r": "462"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 212.5,
+   "profit": 162.5
+  },
+  {
+   "week": 8,
+   "kind": "SGP",
+   "title": "TEN@CIN \u00b7 Props SGP 6-leg",
+   "n": 6,
+   "p": 0.12300000000000001,
+   "fair": 711,
+   "legs": [
+    {
+     "t": "Chase Brown 2+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Wan'Dale Robinson 30+ rec yds",
+     "r": "57"
+    },
+    {
+     "t": "Ja'Marr Chase 60+ rec yds",
+     "r": "141"
+    },
+    {
+     "t": "Joe Burrow 250+ pass yds",
+     "r": "462"
+    },
+    {
+     "t": "Tony Pollard 50+ rush yds",
+     "r": "117"
+    },
+    {
+     "t": "Cam Ward 150+ pass yds",
+     "r": "304"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 405.5,
+   "profit": 355.5
+  },
+  {
+   "week": 8,
+   "kind": "SGP",
+   "title": "TEN@CIN \u00b7 Props SGP 8-leg",
+   "n": 8,
+   "p": 0.053,
+   "fair": 1792,
+   "legs": [
+    {
+     "t": "Chase Brown 2+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Wan'Dale Robinson 30+ rec yds",
+     "r": "57"
+    },
+    {
+     "t": "Ja'Marr Chase 60+ rec yds",
+     "r": "141"
+    },
+    {
+     "t": "Joe Burrow 250+ pass yds",
+     "r": "462"
+    },
+    {
+     "t": "Tony Pollard 50+ rush yds",
+     "r": "117"
+    },
+    {
+     "t": "Cam Ward 150+ pass yds",
+     "r": "304"
+    },
+    {
+     "t": "Chase Brown 40+ rush yds",
+     "r": "55"
+    },
+    {
+     "t": "Joe Burrow 35+ pass att",
+     "r": "48"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 946.0,
+   "profit": 896.0
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Week 9 TNF \u2014 JAX @ BAL \u00b7 Floor Sgp 4-leg",
+   "n": 4,
+   "p": 0.43799999999999994,
+   "fair": 129,
+   "legs": [
+    {
+     "t": "Jakobi Meyers 20+ rec yds",
+     "r": "65"
+    },
+    {
+     "t": "Brenton Strange 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Zay Flowers 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Trevor Lawrence 25+ pass att",
+     "r": "26"
+    }
+   ],
+   "src": "ledger",
+   "stake": 85,
+   "ret": 194.65,
+   "profit": 109.65
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Week 9 TNF \u2014 JAX @ BAL \u00b7 Floor Sgp 6-leg",
+   "n": 6,
+   "p": 0.32899999999999996,
+   "fair": 204,
+   "legs": [
+    {
+     "t": "Jakobi Meyers 20+ rec yds",
+     "r": "65"
+    },
+    {
+     "t": "Brenton Strange 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Zay Flowers 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Trevor Lawrence 25+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Parker Washington 20+ rec yds",
+     "r": "61"
+    },
+    {
+     "t": "Trevor Lawrence 200+ pass yds",
+     "r": "242"
+    }
+   ],
+   "src": "ledger",
+   "stake": 90,
+   "ret": 273.6,
+   "profit": 183.6
+  },
+  {
+   "week": 9,
+   "kind": "SGP+TD",
+   "title": "Week 9 TNF \u2014 JAX @ BAL \u00b7 props with a TD",
+   "n": 4,
+   "p": 0.221,
+   "fair": 352,
+   "legs": [
+    {
+     "t": "Trevor Lawrence 25+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Jakobi Meyers 20+ rec yds",
+     "r": "65"
+    },
+    {
+     "t": "Brenton Strange 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Bhayshul Tuten ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 226.0,
+   "profit": 176.0
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Week 9 TNF \u2014 JAX @ BAL \u00b7 Floor 4",
+   "n": 4,
+   "p": null,
+   "fair": 215,
+   "legs": [
+    {
+     "t": "Brenton Strange 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Zay Flowers 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Trevor Lawrence 175+ pass yds",
+     "r": "242"
+    },
+    {
+     "t": "Derrick Henry 10+ carries",
+     "r": "17"
+    }
+   ],
+   "src": "ledger",
+   "stake": 80,
+   "ret": 252.0,
+   "profit": 172.0
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Week 9 TNF \u2014 JAX @ BAL \u00b7 Floor 6",
+   "n": 6,
+   "p": null,
+   "fair": 310,
+   "legs": [
+    {
+     "t": "Brenton Strange 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Zay Flowers 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Trevor Lawrence 175+ pass yds",
+     "r": "242"
+    },
+    {
+     "t": "Derrick Henry 10+ carries",
+     "r": "17"
+    },
+    {
+     "t": "Parker Washington 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Trevor Lawrence 25+ pass att",
+     "r": "26"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 205.0,
+   "profit": 155.0
+  },
+  {
+   "week": 9,
+   "kind": "SGP+TD",
+   "title": "Week 9 TNF \u2014 JAX @ BAL \u00b7 ATD 4",
+   "n": 4,
+   "p": null,
+   "fair": 332,
+   "legs": [
+    {
+     "t": "Brenton Strange 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Trevor Lawrence 175+ pass yds",
+     "r": "242"
+    },
+    {
+     "t": "Derrick Henry 10+ carries",
+     "r": "17"
+    },
+    {
+     "t": "Chris Rodriguez Jr. ANYTIME TD",
+     "r": "TD"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 216.0,
+   "profit": 166.0
+  },
+  {
+   "week": 9,
+   "kind": "SGP+TD",
+   "title": "Week 9 TNF \u2014 JAX @ BAL \u00b7 ATD 6",
+   "n": 6,
+   "p": null,
+   "fair": 534,
+   "legs": [
+    {
+     "t": "Brenton Strange 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Trevor Lawrence 175+ pass yds",
+     "r": "242"
+    },
+    {
+     "t": "Derrick Henry 10+ carries",
+     "r": "17"
+    },
+    {
+     "t": "Chris Rodriguez Jr. ANYTIME TD",
+     "r": "TD"
+    },
+    {
+     "t": "Zay Flowers 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Parker Washington 2+ receptions",
+     "r": "2"
+    }
+   ],
+   "src": "ledger",
+   "stake": 50,
+   "ret": 317.0,
+   "profit": 267.0
+  },
+  {
+   "week": 9,
+   "kind": "ATD",
+   "title": "Morning ATD picks (11:54am) \u00b7 Chalk \u00b7 4-Leg Atd Parlay",
+   "n": 4,
+   "p": 0.203,
+   "fair": 393,
+   "legs": [
+    {
+     "t": "Kenneth Walker III anytime TD",
+     "r": "3"
+    },
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "2"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 246.5,
+   "profit": 196.5
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Late-window props picks \u00b7 4-Leg Props Parlay",
+   "n": 4,
+   "p": 0.563,
+   "fair": -129,
+   "legs": [
+    {
+     "t": "Bucky Irving 10+ carries",
+     "r": "20"
+    },
+    {
+     "t": "Xavier Hutchinson 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "D'Andre Swift 10+ carries",
+     "r": "12"
+    },
+    {
+     "t": "Brock Purdy 1+ pass TDs",
+     "r": "2"
+    }
+   ],
+   "src": "graded",
+   "stake": 85,
+   "ret": 150.89,
+   "profit": 65.89
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Late-window props picks \u00b7 6-Leg Props Parlay",
+   "n": 6,
+   "p": 0.41,
+   "fair": 144,
+   "legs": [
+    {
+     "t": "Bucky Irving 10+ carries",
+     "r": "20"
+    },
+    {
+     "t": "Xavier Hutchinson 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "D'Andre Swift 10+ carries",
+     "r": "12"
+    },
+    {
+     "t": "Brock Purdy 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Justin Herbert 20+ pass att",
+     "r": "23"
+    },
+    {
+     "t": "Tre Tucker 2+ receptions",
+     "r": "4"
+    }
+   ],
+   "src": "graded",
+   "stake": 90,
+   "ret": 219.6,
+   "profit": 129.6
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Late-window props picks \u00b7 8-Leg Props Parlay",
+   "n": 8,
+   "p": 0.278,
+   "fair": 260,
+   "legs": [
+    {
+     "t": "Bucky Irving 10+ carries",
+     "r": "20"
+    },
+    {
+     "t": "Xavier Hutchinson 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "D'Andre Swift 10+ carries",
+     "r": "12"
+    },
+    {
+     "t": "Brock Purdy 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Justin Herbert 20+ pass att",
+     "r": "23"
+    },
+    {
+     "t": "Tre Tucker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Trey McBride 30+ rec yds",
+     "r": "54"
+    },
+    {
+     "t": "Drake Maye 25+ pass att",
+     "r": "38"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 180.0,
+   "profit": 130.0
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Late-window props picks \u00b7 10-Leg Props Parlay",
+   "n": 10,
+   "p": 0.16699999999999998,
+   "fair": 499,
+   "legs": [
+    {
+     "t": "Bucky Irving 10+ carries",
+     "r": "20"
+    },
+    {
+     "t": "Xavier Hutchinson 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "D'Andre Swift 10+ carries",
+     "r": "12"
+    },
+    {
+     "t": "Brock Purdy 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Justin Herbert 20+ pass att",
+     "r": "23"
+    },
+    {
+     "t": "Tre Tucker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Trey McBride 30+ rec yds",
+     "r": "54"
+    },
+    {
+     "t": "Drake Maye 25+ pass att",
+     "r": "38"
+    },
+    {
+     "t": "Jaxon Smith-Njigba 40+ rec yds",
+     "r": "51"
+    },
+    {
+     "t": "Jordan Love 200+ pass yds",
+     "r": "372"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 299.5,
+   "profit": 249.5
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Late-window per-game SGPs \u00b7 Tb @ Chi \u00b7 8:20 Pm Et \u00b7 5-Leg Sgp",
+   "n": 5,
+   "p": 0.361,
+   "fair": 177,
+   "legs": [
+    {
+     "t": "Caleb Williams 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving 40+ rush yds",
+     "r": "97"
+    },
+    {
+     "t": "Rome Odunze 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Colston Loveland 3+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Luther Burden III 30+ rec yds",
+     "r": "97"
+    }
+   ],
+   "src": "graded",
+   "stake": 80,
+   "ret": 221.6,
+   "profit": 141.6
+  },
+  {
+   "week": 9,
+   "kind": "ATD",
+   "title": "Early-morning ATD slip (12:14am) \u00b7 4-Leg Atd",
+   "n": 4,
+   "p": 0.213,
+   "fair": 369,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Kenneth Walker III anytime TD",
+     "r": "3"
+    },
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 234.5,
+   "profit": 184.5
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Morning cross-game ladder \u00b7 Props 4-Leg",
+   "n": 4,
+   "p": 0.567,
+   "fair": -131,
+   "legs": [
+    {
+     "t": "Matthew Stafford 1+ pass TDs",
+     "r": "1"
+    },
+    {
+     "t": "Chig Okonkwo 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Bryce Young 20+ pass att",
+     "r": "39"
+    },
+    {
+     "t": "Jalen Coker 2+ receptions",
+     "r": "4"
+    }
+   ],
+   "src": "graded",
+   "stake": 85,
+   "ret": 149.89,
+   "profit": 64.89
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Morning cross-game ladder \u00b7 Props 6-Leg",
+   "n": 6,
+   "p": 0.421,
+   "fair": 138,
+   "legs": [
+    {
+     "t": "Matthew Stafford 1+ pass TDs",
+     "r": "1"
+    },
+    {
+     "t": "Chig Okonkwo 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Bryce Young 20+ pass att",
+     "r": "39"
+    },
+    {
+     "t": "Jalen Coker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Harold Fannin Jr. 20+ rec yds",
+     "r": "42"
+    },
+    {
+     "t": "Quinshon Judkins 1+ receptions",
+     "r": "1"
+    }
+   ],
+   "src": "graded",
+   "stake": 90,
+   "ret": 214.2,
+   "profit": 124.2
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Morning cross-game ladder \u00b7 Props 8-Leg",
+   "n": 8,
+   "p": 0.313,
+   "fair": 219,
+   "legs": [
+    {
+     "t": "Matthew Stafford 1+ pass TDs",
+     "r": "1"
+    },
+    {
+     "t": "Chig Okonkwo 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Bryce Young 20+ pass att",
+     "r": "39"
+    },
+    {
+     "t": "Jalen Coker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Harold Fannin Jr. 20+ rec yds",
+     "r": "42"
+    },
+    {
+     "t": "Quinshon Judkins 1+ receptions",
+     "r": "1"
+    },
+    {
+     "t": "Braelon Allen 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Geno Smith 25+ pass att",
+     "r": "32"
+    }
+   ],
+   "src": "graded",
+   "stake": 80,
+   "ret": 255.2,
+   "profit": 175.2
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Morning cross-game ladder \u00b7 Props 10-Leg",
+   "n": 10,
+   "p": 0.231,
+   "fair": 333,
+   "legs": [
+    {
+     "t": "Matthew Stafford 1+ pass TDs",
+     "r": "1"
+    },
+    {
+     "t": "Chig Okonkwo 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Bryce Young 20+ pass att",
+     "r": "39"
+    },
+    {
+     "t": "Jalen Coker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Harold Fannin Jr. 20+ rec yds",
+     "r": "42"
+    },
+    {
+     "t": "Quinshon Judkins 1+ receptions",
+     "r": "1"
+    },
+    {
+     "t": "Braelon Allen 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Geno Smith 25+ pass att",
+     "r": "32"
+    },
+    {
+     "t": "Malik Willis 20+ pass att",
+     "r": "25"
+    },
+    {
+     "t": "Greg Dulcich 2+ receptions",
+     "r": "2"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 216.5,
+   "profit": 166.5
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Morning cross-game ladder \u00b7 Props 12-Leg",
+   "n": 12,
+   "p": 0.171,
+   "fair": 485,
+   "legs": [
+    {
+     "t": "Matthew Stafford 1+ pass TDs",
+     "r": "1"
+    },
+    {
+     "t": "Chig Okonkwo 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Bryce Young 20+ pass att",
+     "r": "39"
+    },
+    {
+     "t": "Jalen Coker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Harold Fannin Jr. 20+ rec yds",
+     "r": "42"
+    },
+    {
+     "t": "Quinshon Judkins 1+ receptions",
+     "r": "1"
+    },
+    {
+     "t": "Braelon Allen 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Geno Smith 25+ pass att",
+     "r": "32"
+    },
+    {
+     "t": "Malik Willis 20+ pass att",
+     "r": "25"
+    },
+    {
+     "t": "Greg Dulcich 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Xavier Hutchinson 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "C.J. Stroud 1+ pass TDs",
+     "r": "5"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 292.5,
+   "profit": 242.5
+  },
+  {
+   "week": 9,
+   "kind": "SGP+TD",
+   "title": "Morning cross-game ladder \u00b7 All-Position 3-Leg",
+   "n": 3,
+   "p": 0.527,
+   "fair": -111,
+   "legs": [
+    {
+     "t": "Braelon Allen 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Geno Smith 25+ pass att",
+     "r": "32"
+    },
+    {
+     "t": "Kenneth Walker III anytime TD",
+     "r": "3"
+    }
+   ],
+   "src": "graded",
+   "stake": 85,
+   "ret": 161.58,
+   "profit": 76.58
+  },
+  {
+   "week": 9,
+   "kind": "SGP+TD",
+   "title": "Morning cross-game ladder \u00b7 All-Position 6-Leg",
+   "n": 6,
+   "p": 0.268,
+   "fair": 273,
+   "legs": [
+    {
+     "t": "Braelon Allen 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Geno Smith 25+ pass att",
+     "r": "32"
+    },
+    {
+     "t": "Kenneth Walker III anytime TD",
+     "r": "3"
+    },
+    {
+     "t": "Malik Willis 20+ pass att",
+     "r": "25"
+    },
+    {
+     "t": "Greg Dulcich 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 186.5,
+   "profit": 136.5
+  },
+  {
+   "week": 9,
+   "kind": "SGP+TD",
+   "title": "Morning cross-game ladder \u00b7 All-Position 9-Leg",
+   "n": 9,
+   "p": 0.13,
+   "fair": 669,
+   "legs": [
+    {
+     "t": "Braelon Allen 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Geno Smith 25+ pass att",
+     "r": "32"
+    },
+    {
+     "t": "Kenneth Walker III anytime TD",
+     "r": "3"
+    },
+    {
+     "t": "Malik Willis 20+ pass att",
+     "r": "25"
+    },
+    {
+     "t": "Greg Dulcich 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Javonte Williams 1+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Ryan Flournoy 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 384.5,
+   "profit": 334.5
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Late cross-game ladder \u00b7 Props 4-Leg",
+   "n": 4,
+   "p": 0.539,
+   "fair": -117,
+   "legs": [
+    {
+     "t": "Xavier Hutchinson 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "C.J. Stroud 1+ pass TDs",
+     "r": "5"
+    },
+    {
+     "t": "Brock Purdy 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Tre Tucker 2+ receptions",
+     "r": "4"
+    }
+   ],
+   "src": "graded",
+   "stake": 90,
+   "ret": 166.92,
+   "profit": 76.92
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Late cross-game ladder \u00b7 Props 6-Leg",
+   "n": 6,
+   "p": 0.385,
+   "fair": 160,
+   "legs": [
+    {
+     "t": "Xavier Hutchinson 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "C.J. Stroud 1+ pass TDs",
+     "r": "5"
+    },
+    {
+     "t": "Brock Purdy 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Tre Tucker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Rome Odunze 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Colston Loveland 3+ receptions",
+     "r": "4"
+    }
+   ],
+   "src": "graded",
+   "stake": 80,
+   "ret": 208.0,
+   "profit": 128.0
+  },
+  {
+   "week": 9,
+   "kind": "SGP+TD",
+   "title": "Late cross-game ladder \u00b7 All-Position 3-Leg",
+   "n": 3,
+   "p": 0.464,
+   "fair": 116,
+   "legs": [
+    {
+     "t": "Brock Purdy 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Tre Tucker 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "2"
+    }
+   ],
+   "src": "graded",
+   "stake": 85,
+   "ret": 183.6,
+   "profit": 98.6
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Monday night \u00b7 BUF @ MIN \u00b7 floor4",
+   "n": 4,
+   "p": 0.48824,
+   "fair": 105,
+   "legs": [
+    {
+     "t": "Khalil Shakir 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Josh Allen 20+ pass att",
+     "r": "31"
+    },
+    {
+     "t": "Justin Jefferson 30+ rec yds",
+     "r": "58"
+    },
+    {
+     "t": "Jordan Addison 2+ receptions",
+     "r": "2"
+    }
+   ],
+   "src": "graded",
+   "stake": 90,
+   "ret": 184.5,
+   "profit": 94.5
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Monday night \u00b7 BUF @ MIN \u00b7 floor6",
+   "n": 6,
+   "p": 0.27943,
+   "fair": 258,
+   "legs": [
+    {
+     "t": "Khalil Shakir 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Josh Allen 20+ pass att",
+     "r": "31"
+    },
+    {
+     "t": "Justin Jefferson 30+ rec yds",
+     "r": "58"
+    },
+    {
+     "t": "Jordan Addison 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "James Cook 50+ rush yds",
+     "r": "107"
+    },
+    {
+     "t": "T.J. Hockenson 20+ rec yds",
+     "r": "33"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 179.0,
+   "profit": 129.0
+  },
+  {
+   "week": 9,
+   "kind": "SGP",
+   "title": "Monday night \u00b7 BUF @ MIN \u00b7 slip5",
+   "n": 5,
+   "p": 0.23357,
+   "fair": 328,
+   "legs": [
+    {
+     "t": "Josh Allen 20+ pass att",
+     "r": "31"
+    },
+    {
+     "t": "Aaron Jones 1+ receptions",
+     "r": "1"
+    },
+    {
+     "t": "Khalil Shakir 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "T.J. Hockenson 20+ rec yds",
+     "r": "33"
+    },
+    {
+     "t": "James Cook anytime TD",
+     "r": "TD"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 214.0,
+   "profit": 164.0
+  },
+  {
+   "week": 10,
+   "kind": "ATD",
+   "title": "4-leg ATD",
+   "n": 4,
+   "p": 0.0932,
+   "fair": 973,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Bijan Robinson anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Tony Pollard anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "2"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 536.5,
+   "profit": 486.5
+  },
+  {
+   "week": 10,
+   "kind": "SGP",
+   "title": "KC @ ATL \u00b7 4-leg props",
+   "n": 4,
+   "p": 0.518,
+   "fair": -107,
+   "legs": [
+    {
+     "t": "Bijan Robinson 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Michael Penix Jr. 150+ pass yds",
+     "r": "286"
+    },
+    {
+     "t": "Michael Penix Jr. 25+ pass att",
+     "r": "43"
+    },
+    {
+     "t": "Patrick Mahomes 1+ pass TDs",
+     "r": "5"
+    }
+   ],
+   "src": "graded",
+   "stake": 80,
+   "ret": 154.77,
+   "profit": 74.77
+  },
+  {
+   "week": 10,
+   "kind": "SGP",
+   "title": "JAX @ TEN \u00b7 4-leg props",
+   "n": 4,
+   "p": 0.528,
+   "fair": -112,
+   "legs": [
+    {
+     "t": "Tony Pollard 1+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Bhayshul Tuten 20+ rush yds",
+     "r": "88"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "39"
+    },
+    {
+     "t": "Cam Ward 150+ pass yds",
+     "r": "231"
+    }
+   ],
+   "src": "graded",
+   "stake": 85,
+   "ret": 160.89,
+   "profit": 75.89
+  },
+  {
+   "week": 10,
+   "kind": "SGP",
+   "title": "KC @ ATL \u00b7 6-leg props",
+   "n": 6,
+   "p": 0.371,
+   "fair": 170,
+   "legs": [
+    {
+     "t": "Bijan Robinson 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Michael Penix Jr. 150+ pass yds",
+     "r": "286"
+    },
+    {
+     "t": "Michael Penix Jr. 25+ pass att",
+     "r": "43"
+    },
+    {
+     "t": "Patrick Mahomes 1+ pass TDs",
+     "r": "5"
+    },
+    {
+     "t": "Drake London 30+ rec yds",
+     "r": "109"
+    },
+    {
+     "t": "Drake London 4+ receptions",
+     "r": "6"
+    }
+   ],
+   "src": "graded",
+   "stake": 90,
+   "ret": 243.0,
+   "profit": 153.0
+  },
+  {
+   "week": 10,
+   "kind": "SGP",
+   "title": "KC @ ATL \u00b7 8-leg props",
+   "n": 8,
+   "p": 0.256,
+   "fair": 291,
+   "legs": [
+    {
+     "t": "Bijan Robinson 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Michael Penix Jr. 150+ pass yds",
+     "r": "286"
+    },
+    {
+     "t": "Michael Penix Jr. 25+ pass att",
+     "r": "43"
+    },
+    {
+     "t": "Patrick Mahomes 1+ pass TDs",
+     "r": "5"
+    },
+    {
+     "t": "Drake London 30+ rec yds",
+     "r": "109"
+    },
+    {
+     "t": "Drake London 4+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Rashee Rice 30+ rec yds",
+     "r": "82"
+    },
+    {
+     "t": "Rashee Rice 4+ receptions",
+     "r": "5"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 195.5,
+   "profit": 145.5
+  },
+  {
+   "week": 10,
+   "kind": "SGP+TD",
+   "title": "KC @ ATL \u00b7 1 ATD + 7 props",
+   "n": 8,
+   "p": 0.182,
+   "fair": 449,
+   "legs": [
+    {
+     "t": "Bijan Robinson anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Bijan Robinson 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Michael Penix Jr. 150+ pass yds",
+     "r": "286"
+    },
+    {
+     "t": "Michael Penix Jr. 25+ pass att",
+     "r": "43"
+    },
+    {
+     "t": "Patrick Mahomes 1+ pass TDs",
+     "r": "5"
+    },
+    {
+     "t": "Rashee Rice 30+ rec yds",
+     "r": "82"
+    },
+    {
+     "t": "Rashee Rice 4+ receptions",
+     "r": "5"
+    },
+    {
+     "t": "Patrick Mahomes 150+ pass yds",
+     "r": "348"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 274.5,
+   "profit": 224.5
+  },
+  {
+   "week": 10,
+   "kind": "SGP",
+   "title": "SF @ DAL \u00b7 4-leg props",
+   "n": 4,
+   "p": 0.491,
+   "fair": 104,
+   "legs": [
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "62"
+    },
+    {
+     "t": "George Kittle 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "George Kittle 30+ rec yds",
+     "r": "74"
+    },
+    {
+     "t": "Dak Prescott 200+ pass yds",
+     "r": "343"
+    }
+   ],
+   "src": "graded",
+   "stake": 80,
+   "ret": 163.2,
+   "profit": 83.2
+  },
+  {
+   "week": 10,
+   "kind": "SGP",
+   "title": "SF @ DAL \u00b7 6-leg props",
+   "n": 6,
+   "p": 0.353,
+   "fair": 183,
+   "legs": [
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "62"
+    },
+    {
+     "t": "George Kittle 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "George Kittle 30+ rec yds",
+     "r": "74"
+    },
+    {
+     "t": "Dak Prescott 200+ pass yds",
+     "r": "343"
+    },
+    {
+     "t": "Dak Prescott 30+ pass att",
+     "r": "51"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "7"
+    }
+   ],
+   "src": "graded",
+   "stake": 85,
+   "ret": 240.55,
+   "profit": 155.55
+  },
+  {
+   "week": 10,
+   "kind": "SGP",
+   "title": "SF @ DAL \u00b7 8-leg props",
+   "n": 8,
+   "p": 0.26,
+   "fair": 285,
+   "legs": [
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "62"
+    },
+    {
+     "t": "George Kittle 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "George Kittle 30+ rec yds",
+     "r": "74"
+    },
+    {
+     "t": "Dak Prescott 200+ pass yds",
+     "r": "343"
+    },
+    {
+     "t": "Dak Prescott 30+ pass att",
+     "r": "51"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "CeeDee Lamb 60+ rec yds",
+     "r": "72"
+    },
+    {
+     "t": "Brock Purdy 200+ pass yds",
+     "r": "389"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 192.5,
+   "profit": 142.5
+  },
+  {
+   "week": 10,
+   "kind": "SGP+TD",
+   "title": "SF @ DAL \u00b7 1 ATD + 7 props",
+   "n": 8,
+   "p": 0.23800000000000002,
+   "fair": 320,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "3"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "62"
+    },
+    {
+     "t": "Dak Prescott 200+ pass yds",
+     "r": "343"
+    },
+    {
+     "t": "Dak Prescott 30+ pass att",
+     "r": "51"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "CeeDee Lamb 60+ rec yds",
+     "r": "72"
+    },
+    {
+     "t": "George Kittle 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "George Kittle 30+ rec yds",
+     "r": "74"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 210.0,
+   "profit": 160.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIA @ BUF \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.49357,
+   "fair": 103,
+   "legs": [
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "James Cook 70+ rush yds",
+     "r": "89"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    },
+    {
+     "t": "DJ Moore 2+ receptions",
+     "r": "8"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 182.7,
+   "profit": 92.7
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIA @ BUF \u00b7 props 6-leg",
+   "n": 6,
+   "p": 0.28615,
+   "fair": 249,
+   "legs": [
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "James Cook 70+ rush yds",
+     "r": "89"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    },
+    {
+     "t": "DJ Moore 2+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "James Cook 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Khalil Shakir 20+ rec yds",
+     "r": "101"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 80,
+   "ret": 279.2,
+   "profit": 199.2
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIA @ BUF \u00b7 props 8-leg",
+   "n": 8,
+   "p": 0.23405,
+   "fair": 327,
+   "legs": [
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "James Cook 70+ rush yds",
+     "r": "89"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    },
+    {
+     "t": "DJ Moore 2+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Josh Allen 25+ pass att",
+     "r": "45"
+    },
+    {
+     "t": "Josh Allen 200+ pass yds",
+     "r": "304"
+    },
+    {
+     "t": "James Cook 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Khalil Shakir 20+ rec yds",
+     "r": "101"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 213.5,
+   "profit": 163.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "MIA @ BUF \u00b7 1 TD + props",
+   "n": 5,
+   "p": 0.3809,
+   "fair": 163,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "James Cook 70+ rush yds",
+     "r": "89"
+    },
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    },
+    {
+     "t": "DJ Moore 2+ receptions",
+     "r": "8"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 85,
+   "ret": 223.55,
+   "profit": 138.55
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "MIA @ BUF \u00b7 6-leg with 1 TD",
+   "n": 6,
+   "p": 0.2776,
+   "fair": 260,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "James Cook 70+ rush yds",
+     "r": "89"
+    },
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    },
+    {
+     "t": "DJ Moore 2+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Khalil Shakir 20+ rec yds",
+     "r": "101"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 180.0,
+   "profit": 130.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIA @ BUF \u00b7 lotto",
+   "n": 9,
+   "p": 0.31577,
+   "fair": 217,
+   "legs": [
+    {
+     "t": "James Cook 10+ carries",
+     "r": "22"
+    },
+    {
+     "t": "DJ Moore 1+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    },
+    {
+     "t": "James Cook 60+ rush yds",
+     "r": "89"
+    },
+    {
+     "t": "Josh Allen 1+ pass TDs",
+     "r": "1"
+    },
+    {
+     "t": "Ollie Gordon II 20+ rush yds",
+     "r": "69"
+    },
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Josh Allen 175+ pass yds",
+     "r": "304"
+    },
+    {
+     "t": "Khalil Shakir 2+ receptions",
+     "r": "5"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 285.3,
+   "profit": 195.3
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "BAL @ CAR \u00b7 lotto",
+   "n": 10,
+   "p": 0.3593,
+   "fair": 178,
+   "legs": [
+    {
+     "t": "Mark Andrews 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Jalen Coker 1+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Zay Flowers 2+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Tetairoa McMillan 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Zay Flowers 20+ rec yds",
+     "r": "97"
+    },
+    {
+     "t": "Tetairoa McMillan 20+ rec yds",
+     "r": "71"
+    },
+    {
+     "t": "Derrick Henry 20+ rush yds",
+     "r": "94"
+    },
+    {
+     "t": "Derrick Henry 10+ carries",
+     "r": "13"
+    },
+    {
+     "t": "Bryce Young 25+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "Bryce Young 150+ pass yds",
+     "r": "254"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 80,
+   "ret": 222.4,
+   "profit": 142.4
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "NO @ CHI \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.50313,
+   "fair": -101,
+   "legs": [
+    {
+     "t": "D'Andre Swift 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Chris Olave 20+ rec yds",
+     "r": "102"
+    },
+    {
+     "t": "Tyler Shough 25+ pass att",
+     "r": "42"
+    },
+    {
+     "t": "D'Andre Swift 40+ rush yds",
+     "r": "51"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 85,
+   "ret": 169.16,
+   "profit": 84.16
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "NO @ CHI \u00b7 1 TD + props",
+   "n": 5,
+   "p": 0.34113,
+   "fair": 193,
+   "legs": [
+    {
+     "t": "D'Andre Swift anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "D'Andre Swift 40+ rush yds",
+     "r": "51"
+    },
+    {
+     "t": "Chris Olave 20+ rec yds",
+     "r": "102"
+    },
+    {
+     "t": "Tyler Shough 25+ pass att",
+     "r": "42"
+    },
+    {
+     "t": "Tyler Shough 150+ pass yds",
+     "r": "222"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 263.7,
+   "profit": 173.7
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TEN @ DAL \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.5505,
+   "fair": -122,
+   "legs": [
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "Javonte Williams 15+ carries",
+     "r": "18"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "CeeDee Lamb 50+ rec yds",
+     "r": "132"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 80,
+   "ret": 145.57,
+   "profit": 65.57
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TEN @ DAL \u00b7 props 6-leg",
+   "n": 6,
+   "p": 0.36795,
+   "fair": 172,
+   "legs": [
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "Javonte Williams 15+ carries",
+     "r": "18"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "CeeDee Lamb 50+ rec yds",
+     "r": "132"
+    },
+    {
+     "t": "Cam Ward 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "30"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 85,
+   "ret": 231.2,
+   "profit": 146.2
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TEN @ DAL \u00b7 props 8-leg",
+   "n": 8,
+   "p": 0.24605,
+   "fair": 306,
+   "legs": [
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "Javonte Williams 15+ carries",
+     "r": "18"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "CeeDee Lamb 50+ rec yds",
+     "r": "132"
+    },
+    {
+     "t": "Cam Ward 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "Elic Ayomanor 20+ rec yds",
+     "r": "27"
+    },
+    {
+     "t": "Dak Prescott 30+ pass att",
+     "r": "33"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 203.0,
+   "profit": 153.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TEN @ DAL \u00b7 props 10-leg",
+   "n": 10,
+   "p": 0.17075,
+   "fair": 486,
+   "legs": [
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "Javonte Williams 15+ carries",
+     "r": "18"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "CeeDee Lamb 50+ rec yds",
+     "r": "132"
+    },
+    {
+     "t": "Cam Ward 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "Elic Ayomanor 20+ rec yds",
+     "r": "27"
+    },
+    {
+     "t": "Dak Prescott 30+ pass att",
+     "r": "33"
+    },
+    {
+     "t": "Tony Pollard 10+ carries",
+     "r": "21"
+    },
+    {
+     "t": "Dak Prescott 225+ pass yds",
+     "r": "325"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 293.0,
+   "profit": 243.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TEN @ DAL \u00b7 1 TD + props",
+   "n": 5,
+   "p": 0.32903,
+   "fair": 204,
+   "legs": [
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "Cam Ward 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 273.6,
+   "profit": 183.6
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TEN @ DAL \u00b7 2 TDs + props",
+   "n": 6,
+   "p": 0.1979,
+   "fair": 405,
+   "legs": [
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "CeeDee Lamb anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "Cam Ward 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "30"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 252.5,
+   "profit": 202.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TEN @ DAL \u00b7 6-leg with 1 TD",
+   "n": 6,
+   "p": 0.29652,
+   "fair": 237,
+   "legs": [
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "Cam Ward 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "CeeDee Lamb 50+ rec yds",
+     "r": "132"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 80,
+   "ret": 269.6,
+   "profit": 189.6
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TEN @ DAL \u00b7 8-leg with 1 TD",
+   "n": 8,
+   "p": 0.19712,
+   "fair": 407,
+   "legs": [
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "Cam Ward 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "CeeDee Lamb 50+ rec yds",
+     "r": "132"
+    },
+    {
+     "t": "Elic Ayomanor 20+ rec yds",
+     "r": "27"
+    },
+    {
+     "t": "Dak Prescott 30+ pass att",
+     "r": "33"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 253.5,
+   "profit": 203.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TEN @ DAL \u00b7 8-leg with 2 TDs",
+   "n": 8,
+   "p": 0.13278,
+   "fair": 653,
+   "legs": [
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "CeeDee Lamb anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    },
+    {
+     "t": "Cam Ward 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Cam Ward 25+ pass att",
+     "r": "30"
+    },
+    {
+     "t": "Elic Ayomanor 20+ rec yds",
+     "r": "27"
+    },
+    {
+     "t": "Dak Prescott 30+ pass att",
+     "r": "33"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 376.5,
+   "profit": 326.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TB @ DET \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.54585,
+   "fair": -120,
+   "legs": [
+    {
+     "t": "Jared Goff 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jahmyr Gibbs 40+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Chris Godwin Jr. 2+ receptions",
+     "r": "3"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 85,
+   "ret": 155.83,
+   "profit": 70.83
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TB @ DET \u00b7 props 6-leg",
+   "n": 6,
+   "p": 0.42657,
+   "fair": 134,
+   "legs": [
+    {
+     "t": "Jared Goff 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jahmyr Gibbs 40+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Chris Godwin Jr. 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Jameson Williams 20+ rec yds",
+     "r": "93"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 210.6,
+   "profit": 120.6
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TB @ DET \u00b7 1 TD + props",
+   "n": 5,
+   "p": 0.38095,
+   "fair": 163,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Jahmyr Gibbs 40+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Jared Goff 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Chris Godwin Jr. 2+ receptions",
+     "r": "3"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 80,
+   "ret": 210.4,
+   "profit": 130.4
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TB @ DET \u00b7 2 TDs + props",
+   "n": 6,
+   "p": 0.2042,
+   "fair": 390,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Bucky Irving 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jahmyr Gibbs 40+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Jared Goff 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Chris Godwin Jr. 2+ receptions",
+     "r": "3"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 245.0,
+   "profit": 195.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TB @ DET \u00b7 6-leg with 1 TD",
+   "n": 6,
+   "p": 0.32358,
+   "fair": 209,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Jahmyr Gibbs 40+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Jared Goff 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Chris Godwin Jr. 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "4"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 85,
+   "ret": 262.65,
+   "profit": 177.65
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "TB @ DET \u00b7 8-leg with 2 TDs",
+   "n": 8,
+   "p": 0.15927,
+   "fair": 528,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Bucky Irving 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jahmyr Gibbs 40+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Jared Goff 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Chris Godwin Jr. 2+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Jameson Williams 20+ rec yds",
+     "r": "93"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 314.0,
+   "profit": 264.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TB @ DET \u00b7 lotto",
+   "n": 10,
+   "p": 0.32332,
+   "fair": 209,
+   "legs": [
+    {
+     "t": "Jared Goff 20+ pass att",
+     "r": "28"
+    },
+    {
+     "t": "Jahmyr Gibbs 10+ carries",
+     "r": "23"
+    },
+    {
+     "t": "Jahmyr Gibbs 40+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Cade Otton 1+ receptions",
+     "r": "1"
+    },
+    {
+     "t": "Jared Goff 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Jameson Williams 20+ rec yds",
+     "r": "93"
+    },
+    {
+     "t": "Bucky Irving 10+ carries",
+     "r": "18"
+    },
+    {
+     "t": "Bucky Irving 30+ rush yds",
+     "r": "68"
+    },
+    {
+     "t": "Sam LaPorta 2+ receptions",
+     "r": "3"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 278.1,
+   "profit": 188.1
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "ARI @ KC \u00b7 lotto",
+   "n": 7,
+   "p": 0.41063,
+   "fair": 144,
+   "legs": [
+    {
+     "t": "Patrick Mahomes 1+ pass TDs",
+     "r": "3"
+    },
+    {
+     "t": "Xavier Worthy 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Patrick Mahomes 25+ pass att",
+     "r": "39"
+    },
+    {
+     "t": "Rashee Rice 20+ rec yds",
+     "r": "53"
+    },
+    {
+     "t": "Rashee Rice 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Travis Kelce 2+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Travis Kelce 20+ rec yds",
+     "r": "74"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 80,
+   "ret": 195.2,
+   "profit": 115.2
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIA @ BUF \u00b7 5-leg SGP",
+   "n": 5,
+   "p": 0.39698,
+   "fair": 152,
+   "legs": [
+    {
+     "t": "Josh Allen 200+ pass yds",
+     "r": "304"
+    },
+    {
+     "t": "James Cook 70+ rush yds",
+     "r": "89"
+    },
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Caleb Douglas 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 85,
+   "ret": 214.2,
+   "profit": 129.2
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "BAL @ CAR \u00b7 ATD 2-leg",
+   "n": 2,
+   "p": 0.38895,
+   "fair": 157,
+   "legs": [
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Derrick Henry anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 231.3,
+   "profit": 141.3
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "TEN @ DAL \u00b7 ATD 2-leg",
+   "n": 2,
+   "p": 0.36141,
+   "fair": 177,
+   "legs": [
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "CeeDee Lamb anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 80,
+   "ret": 221.6,
+   "profit": 141.6
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "TB @ DET \u00b7 ATD 3-leg",
+   "n": 3,
+   "p": 0.16782,
+   "fair": 496,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Amon-Ra St. Brown anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 298.0,
+   "profit": 248.0
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "TB @ DET \u00b7 ATD 4-leg",
+   "n": 4,
+   "p": 0.06161,
+   "fair": 1523,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Bucky Irving anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Amon-Ra St. Brown anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Jameson Williams anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 811.5,
+   "profit": 761.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "ARI @ KC \u00b7 aggressive4",
+   "n": 4,
+   "p": 0.1949,
+   "fair": 413,
+   "legs": [
+    {
+     "t": "Trey McBride 40+ rec yds",
+     "r": "54"
+    },
+    {
+     "t": "Travis Kelce 3+ receptions",
+     "r": "6"
+    },
+    {
+     "t": "Patrick Mahomes 2+ pass TDs",
+     "r": "3"
+    },
+    {
+     "t": "Rashee Rice 40+ rec yds",
+     "r": "53"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 256.5,
+   "profit": 206.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIA @ BUF \u00b7 floor4",
+   "n": 4,
+   "p": 0.5317,
+   "fair": -114,
+   "legs": [
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Caleb Douglas 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    },
+    {
+     "t": "Josh Allen 25+ pass att",
+     "r": "45"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 85,
+   "ret": 159.56,
+   "profit": 74.56
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIA @ BUF \u00b7 floor6",
+   "n": 6,
+   "p": 0.3025,
+   "fair": 231,
+   "legs": [
+    {
+     "t": "Keon Coleman 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Caleb Douglas 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "DJ Moore 20+ rec yds",
+     "r": "91"
+    },
+    {
+     "t": "Josh Allen 25+ pass att",
+     "r": "45"
+    },
+    {
+     "t": "James Cook 70+ rush yds",
+     "r": "89"
+    },
+    {
+     "t": "Khalil Shakir 20+ rec yds",
+     "r": "101"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 297.9,
+   "profit": 207.9
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "NO @ CHI \u00b7 floor4",
+   "n": 4,
+   "p": 0.549,
+   "fair": -122,
+   "legs": [
+    {
+     "t": "D'Andre Swift 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Alvin Kamara 1+ receptions",
+     "r": "1"
+    },
+    {
+     "t": "Chris Olave 20+ rec yds",
+     "r": "102"
+    },
+    {
+     "t": "Tyler Shough 25+ pass att",
+     "r": "42"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 80,
+   "ret": 145.57,
+   "profit": 65.57
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TB @ DET \u00b7 floor4",
+   "n": 4,
+   "p": 0.5621,
+   "fair": -128,
+   "legs": [
+    {
+     "t": "Jared Goff 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Jahmyr Gibbs 40+ rush yds",
+     "r": "98"
+    },
+    {
+     "t": "Bucky Irving 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Jameson Williams 2+ receptions",
+     "r": "4"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 85,
+   "ret": 151.41,
+   "profit": 66.41
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "TEN @ DAL \u00b7 floor4",
+   "n": 4,
+   "p": 0.4952,
+   "fair": 102,
+   "legs": [
+    {
+     "t": "Dak Prescott 30+ pass att",
+     "r": "33"
+    },
+    {
+     "t": "Javonte Williams 40+ rush yds",
+     "r": "67"
+    },
+    {
+     "t": "Tony Pollard 10+ carries",
+     "r": "21"
+    },
+    {
+     "t": "CeeDee Lamb 5+ receptions",
+     "r": "11"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 90,
+   "ret": 181.8,
+   "profit": 91.8
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "11am games \u00b7 ATD 4-leg",
+   "n": 4,
+   "p": 0.20861,
+   "fair": 379,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "D'Andre Swift anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 239.5,
+   "profit": 189.5
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "11am games \u00b7 ATD 6-leg",
+   "n": 6,
+   "p": 0.08258,
+   "fair": 1111,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "D'Andre Swift anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Emmett Johnson anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "2"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 605.5,
+   "profit": 555.5
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "11am games \u00b7 ATD 4-leg (3 ground + 1 air)",
+   "n": 4,
+   "p": 0.18124,
+   "fair": 452,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "CeeDee Lamb anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 276.0,
+   "profit": 226.0
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "11am games \u00b7 ATD 6-leg (4 ground + 2 air)",
+   "n": 6,
+   "p": 0.04977,
+   "fair": 1909,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "D'Andre Swift anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Emmett Johnson anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "CeeDee Lamb anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Amon-Ra St. Brown anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 1004.5,
+   "profit": 954.5
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "11am games \u00b7 Ground 4-leg hedge",
+   "n": 4,
+   "p": 0.1221,
+   "fair": 719,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Colston Loveland anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "CeeDee Lamb anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 409.5,
+   "profit": 359.5
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "11am games \u00b7 Combo 4-leg (3 ground + 1 air) hedge",
+   "n": 4,
+   "p": 0.1553,
+   "fair": 544,
+   "legs": [
+    {
+     "t": "James Cook anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Chuba Hubbard anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "2"
+    },
+    {
+     "t": "Amon-Ra St. Brown anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_1737.j",
+   "stake": 50,
+   "ret": 322.0,
+   "profit": 272.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "NYJ @ LAC \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.47187,
+   "fair": 112,
+   "legs": [
+    {
+     "t": "Adonai Mitchell 20+ rec yds",
+     "r": "30"
+    },
+    {
+     "t": "Tre Harris 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Adonai Mitchell 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Tre Harris 20+ rec yds",
+     "r": "28"
+    }
+   ],
+   "src": "shipped 261122_2023.j",
+   "stake": 80,
+   "ret": 169.6,
+   "profit": 89.6
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "JAX @ NYG \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.55917,
+   "fair": -127,
+   "legs": [
+    {
+     "t": "Trevor Lawrence 1+ pass TDs",
+     "r": "1"
+    },
+    {
+     "t": "Malik Nabers 40+ rec yds",
+     "r": "55"
+    },
+    {
+     "t": "Malik Nabers 4+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Trevor Lawrence 25+ pass att",
+     "r": "47"
+    }
+   ],
+   "src": "shipped 261122_2023.j",
+   "stake": 85,
+   "ret": 151.93,
+   "profit": 66.93
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "JAX @ NYG \u00b7 lotto",
+   "n": 10,
+   "p": 0.3947,
+   "fair": 153,
+   "legs": [
+    {
+     "t": "Trevor Lawrence 20+ pass att",
+     "r": "47"
+    },
+    {
+     "t": "Malik Nabers 3+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Brenton Strange 1+ receptions",
+     "r": "3"
+    },
+    {
+     "t": "Malachi Fields 1+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Parker Washington 2+ receptions",
+     "r": "8"
+    },
+    {
+     "t": "Bhayshul Tuten 10+ carries",
+     "r": "10"
+    },
+    {
+     "t": "Bhayshul Tuten 30+ rush yds",
+     "r": "33"
+    },
+    {
+     "t": "Parker Washington 20+ rec yds",
+     "r": "103"
+    },
+    {
+     "t": "Malik Nabers 40+ rec yds",
+     "r": "55"
+    },
+    {
+     "t": "Trevor Lawrence 1+ pass TDs",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261122_2023.j",
+   "stake": 90,
+   "ret": 227.7,
+   "profit": 137.7
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "JAX @ NYG \u00b7 aggressive4",
+   "n": 4,
+   "p": 0.1993,
+   "fair": 402,
+   "legs": [
+    {
+     "t": "Jakobi Meyers 3+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Malachi Fields 20+ rec yds",
+     "r": "25"
+    },
+    {
+     "t": "Isaiah Likely 30+ rec yds",
+     "r": "35"
+    },
+    {
+     "t": "Trevor Lawrence 225+ pass yds",
+     "r": "301"
+    }
+   ],
+   "src": "shipped 261122_2023.j",
+   "stake": 50,
+   "ret": 251.0,
+   "profit": 201.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "MIN @ SF \u00b7 1 TD + props",
+   "n": 4,
+   "p": 0.2987,
+   "fair": 235,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "49"
+    },
+    {
+     "t": "Brock Purdy 20+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Aaron Jones 20+ rush yds",
+     "r": "30"
+    }
+   ],
+   "src": "shipped 261123_0055.j",
+   "stake": 80,
+   "ret": 268.0,
+   "profit": 188.0
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIN @ SF \u00b7 5-leg SGP",
+   "n": 5,
+   "p": 0.30425,
+   "fair": 229,
+   "legs": [
+    {
+     "t": "Brock Purdy 150+ pass yds",
+     "r": "255"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "49"
+    },
+    {
+     "t": "Justin Jefferson 3+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "George Kittle 20+ rec yds",
+     "r": "34"
+    },
+    {
+     "t": "Aaron Jones 1+ receptions",
+     "r": "1"
+    }
+   ],
+   "src": "shipped 261123_0055.j",
+   "stake": 85,
+   "ret": 279.65,
+   "profit": 194.65
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIN @ SF \u00b7 floor4",
+   "n": 4,
+   "p": 0.4582,
+   "fair": 118,
+   "legs": [
+    {
+     "t": "Brock Purdy 20+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Justin Jefferson 3+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Christian McCaffrey 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "George Kittle 20+ rec yds",
+     "r": "34"
+    }
+   ],
+   "src": "shipped 261123_0055.j",
+   "stake": 90,
+   "ret": 196.2,
+   "profit": 106.2
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "CIN @ WAS \u00b7 Safer 6-leg",
+   "n": 6,
+   "p": 0.534875,
+   "fair": -115,
+   "legs": [
+    {
+     "t": "Jayden Daniels 20+ pass att",
+     "r": "35"
+    },
+    {
+     "t": "Joe Burrow 1+ pass TDs",
+     "r": "2"
+    },
+    {
+     "t": "Antonio Williams 1+ receptions",
+     "r": "9"
+    },
+    {
+     "t": "Joe Burrow 225+ pass yds",
+     "r": "300"
+    },
+    {
+     "t": "Stefon Diggs 2+ receptions",
+     "r": "4"
+    },
+    {
+     "t": "Ja'Marr Chase 5+ receptions",
+     "r": "5"
+    }
+   ],
+   "src": "PDF",
+   "stake": 80,
+   "ret": 149.57,
+   "profit": 69.57
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIN @ SF \u00b7 props 4-leg (owner's Cousins read)",
+   "n": 4,
+   "p": 0.433,
+   "fair": 131,
+   "legs": [
+    {
+     "t": "Brock Purdy 20+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "49"
+    },
+    {
+     "t": "Justin Jefferson 4+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Kirk Cousins 25+ pass att",
+     "r": "38"
+    }
+   ],
+   "src": "chat",
+   "stake": 85,
+   "ret": 196.35,
+   "profit": 111.35
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIN @ SF \u00b7 props 6-leg (owner's Cousins read)",
+   "n": 6,
+   "p": 0.339,
+   "fair": 195,
+   "legs": [
+    {
+     "t": "Brock Purdy 20+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "49"
+    },
+    {
+     "t": "Justin Jefferson 4+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Kirk Cousins 25+ pass att",
+     "r": "38"
+    },
+    {
+     "t": "Christian McCaffrey 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Justin Jefferson 40+ rec yds",
+     "r": "86"
+    }
+   ],
+   "src": "chat",
+   "stake": 90,
+   "ret": 265.5,
+   "profit": 175.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP",
+   "title": "MIN @ SF \u00b7 props 8-leg (owner's Cousins read)",
+   "n": 8,
+   "p": 0.217,
+   "fair": 361,
+   "legs": [
+    {
+     "t": "Brock Purdy 20+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "49"
+    },
+    {
+     "t": "Justin Jefferson 4+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Kirk Cousins 25+ pass att",
+     "r": "38"
+    },
+    {
+     "t": "Christian McCaffrey 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Justin Jefferson 40+ rec yds",
+     "r": "86"
+    },
+    {
+     "t": "Brock Purdy 150+ pass yds",
+     "r": "255"
+    },
+    {
+     "t": "George Kittle 20+ rec yds",
+     "r": "34"
+    }
+   ],
+   "src": "chat",
+   "stake": 50,
+   "ret": 230.5,
+   "profit": 180.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "MIN @ SF \u00b7 4-leg with 1 TD (owner's Cousins read)",
+   "n": 4,
+   "p": 0.306,
+   "fair": 227,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "49"
+    },
+    {
+     "t": "Brock Purdy 20+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Justin Jefferson 4+ receptions",
+     "r": "7"
+    }
+   ],
+   "src": "chat",
+   "stake": 80,
+   "ret": 261.6,
+   "profit": 181.6
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "MIN @ SF \u00b7 6-leg with 1 TD (owner's Cousins read)",
+   "n": 6,
+   "p": 0.26,
+   "fair": 285,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "49"
+    },
+    {
+     "t": "Brock Purdy 20+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Justin Jefferson 4+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Kirk Cousins 25+ pass att",
+     "r": "38"
+    },
+    {
+     "t": "Justin Jefferson 40+ rec yds",
+     "r": "86"
+    }
+   ],
+   "src": "chat",
+   "stake": 50,
+   "ret": 192.5,
+   "profit": 142.5
+  },
+  {
+   "week": 11,
+   "kind": "SGP+TD",
+   "title": "MIN @ SF \u00b7 8-leg with 1 TD (owner's Cousins read)",
+   "n": 8,
+   "p": 0.188,
+   "fair": 432,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Christian McCaffrey 30+ rush yds",
+     "r": "49"
+    },
+    {
+     "t": "Brock Purdy 20+ pass att",
+     "r": "26"
+    },
+    {
+     "t": "Justin Jefferson 4+ receptions",
+     "r": "7"
+    },
+    {
+     "t": "Kirk Cousins 25+ pass att",
+     "r": "38"
+    },
+    {
+     "t": "Justin Jefferson 40+ rec yds",
+     "r": "86"
+    },
+    {
+     "t": "Christian McCaffrey 2+ receptions",
+     "r": "2"
+    },
+    {
+     "t": "Brock Purdy 150+ pass yds",
+     "r": "255"
+    }
+   ],
+   "src": "chat",
+   "stake": 50,
+   "ret": 266.0,
+   "profit": 216.0
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "MIN @ SF \u00b7 ATD 2-leg",
+   "n": 2,
+   "p": 0.201,
+   "fair": 398,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Aaron Jones anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "chat",
+   "stake": 50,
+   "ret": 249.0,
+   "profit": 199.0
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "MIN @ SF \u00b7 ATD 2-leg",
+   "n": 2,
+   "p": 0.157,
+   "fair": 537,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "George Kittle anytime TD",
+     "r": "2"
+    }
+   ],
+   "src": "chat",
+   "stake": 50,
+   "ret": 318.5,
+   "profit": 268.5
+  },
+  {
+   "week": 11,
+   "kind": "ATD",
+   "title": "MIN @ SF \u00b7 ATD 2-leg",
+   "n": 2,
+   "p": 0.155,
+   "fair": 545,
+   "legs": [
+    {
+     "t": "Christian McCaffrey anytime TD",
+     "r": "1"
+    },
+    {
+     "t": "Mike Evans anytime TD",
+     "r": "1"
+    }
+   ],
+   "src": "chat",
+   "stake": 50,
+   "ret": 322.5,
+   "profit": 272.5
+  }
+ ],
+ "atd_legs": [
+  {
+   "week": 1,
+   "name": "Derrick Henry",
+   "team": "BAL",
+   "pos": "RB",
+   "p": 0.7,
+   "fair": -233
+  },
+  {
+   "week": 1,
+   "name": "Jahmyr Gibbs",
+   "team": "DET",
+   "pos": "RB",
+   "p": 0.64,
+   "fair": -178
+  },
+  {
+   "week": 1,
+   "name": "Chase Brown",
+   "team": "CIN",
+   "pos": "RB",
+   "p": 0.64,
+   "fair": -178
+  },
+  {
+   "week": 1,
+   "name": "D'Andre Swift",
+   "team": "CHI",
+   "pos": "RB",
+   "p": 0.56,
+   "fair": -127
+  },
+  {
+   "week": 1,
+   "name": "Bijan Robinson",
+   "team": "ATL",
+   "pos": "RB",
+   "p": 0.51,
+   "fair": -104
+  },
+  {
+   "week": 1,
+   "name": "Jonathan Taylor",
+   "team": "IND",
+   "pos": "RB",
+   "p": 0.5,
+   "fair": -100
+  },
+  {
+   "week": 1,
+   "name": "Javonte Williams",
+   "team": "DAL",
+   "pos": "RB",
+   "p": 0.46,
+   "fair": 117
+  },
+  {
+   "week": 1,
+   "name": "Omarion Hampton",
+   "team": "LAC",
+   "pos": "RB",
+   "p": 0.44,
+   "fair": 127
+  },
+  {
+   "week": 1,
+   "name": "David Montgomery",
+   "team": "HOU",
+   "pos": "RB",
+   "p": 0.44,
+   "fair": 127
+  },
+  {
+   "week": 1,
+   "name": "Amon-Ra St. Brown",
+   "team": "DET",
+   "pos": "WR",
+   "p": 0.41,
+   "fair": 144
+  },
+  {
+   "week": 1,
+   "name": "Ashton Jeanty",
+   "team": "LV",
+   "pos": "RB",
+   "p": 0.38,
+   "fair": 163
+  },
+  {
+   "week": 1,
+   "name": "Dallas Goedert",
+   "team": "PHI",
+   "pos": "TE",
+   "p": 0.38,
+   "fair": 163
+  },
+  {
+   "week": 1,
+   "name": "Ladd McConkey",
+   "team": "LAC",
+   "pos": "WR",
+   "p": 0.34,
+   "fair": 194
+  },
+  {
+   "week": 1,
+   "name": "Chuba Hubbard",
+   "team": "CAR",
+   "pos": "RB",
+   "p": 0.33,
+   "fair": 203
+  },
+  {
+   "week": 1,
+   "name": "Breece Hall",
+   "team": "NYJ",
+   "pos": "RB",
+   "p": 0.26,
+   "fair": 285
+  },
+  {
+   "week": 1,
+   "name": "Justin Jefferson",
+   "team": "MIN",
+   "pos": "WR",
+   "p": 0.15,
+   "fair": 567
+  },
+  {
+   "week": 3,
+   "name": "Derrick Henry",
+   "team": "BAL",
+   "pos": "RB",
+   "p": 0.66,
+   "fair": -194
+  },
+  {
+   "week": 3,
+   "name": "Christian McCaffrey",
+   "team": "SF",
+   "pos": "RB",
+   "p": 0.64,
+   "fair": -178
+  },
+  {
+   "week": 3,
+   "name": "Jahmyr Gibbs",
+   "team": "DET",
+   "pos": "RB",
+   "p": 0.63,
+   "fair": -170
+  },
+  {
+   "week": 3,
+   "name": "Kenneth Walker III",
+   "team": "KC",
+   "pos": "RB",
+   "p": 0.47,
+   "fair": 113
+  },
+  {
+   "week": 3,
+   "name": "Amon-Ra St. Brown",
+   "team": "DET",
+   "pos": "WR",
+   "p": 0.45,
+   "fair": 122
+  },
+  {
+   "week": 3,
+   "name": "Javonte Williams",
+   "team": "DAL",
+   "pos": "RB",
+   "p": 0.42,
+   "fair": 138
+  },
+  {
+   "week": 3,
+   "name": "Josh Allen",
+   "team": "BUF",
+   "pos": "QB",
+   "p": 0.4,
+   "fair": 150
+  },
+  {
+   "week": 3,
+   "name": "James Cook",
+   "team": "BUF",
+   "pos": "RB",
+   "p": 0.4,
+   "fair": 150
+  },
+  {
+   "week": 3,
+   "name": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "pos": "WR",
+   "p": 0.39,
+   "fair": 156
+  },
+  {
+   "week": 3,
+   "name": "George Kittle",
+   "team": "SF",
+   "pos": "TE",
+   "p": 0.39,
+   "fair": 156
+  },
+  {
+   "week": 3,
+   "name": "Ja'Marr Chase",
+   "team": "CIN",
+   "pos": "WR",
+   "p": 0.31,
+   "fair": 223
+  },
+  {
+   "week": 3,
+   "name": "Chris Rodriguez Jr.",
+   "team": "JAX",
+   "pos": "RB",
+   "p": 0.3,
+   "fair": 233
+  },
+  {
+   "week": 3,
+   "name": "Woody Marks",
+   "team": "HOU",
+   "pos": "RB",
+   "p": 0.29,
+   "fair": 245
+  },
+  {
+   "week": 3,
+   "name": "Jordan Addison",
+   "team": "MIN",
+   "pos": "WR",
+   "p": 0.24,
+   "fair": 317
+  },
+  {
+   "week": 4,
+   "name": "Derrick Henry",
+   "team": "BAL",
+   "pos": "RB",
+   "p": 0.65,
+   "fair": -186
+  },
+  {
+   "week": 4,
+   "name": "Jonathan Taylor",
+   "team": "IND",
+   "pos": "RB",
+   "p": 0.61,
+   "fair": -156
+  },
+  {
+   "week": 4,
+   "name": "Jahmyr Gibbs",
+   "team": "DET",
+   "pos": "RB",
+   "p": 0.56,
+   "fair": -127
+  },
+  {
+   "week": 4,
+   "name": "Christian McCaffrey",
+   "team": "SF",
+   "pos": "RB",
+   "p": 0.49,
+   "fair": 104
+  },
+  {
+   "week": 4,
+   "name": "Kyren Williams",
+   "team": "LA",
+   "pos": "RB",
+   "p": 0.45,
+   "fair": 122
+  },
+  {
+   "week": 4,
+   "name": "Kenneth Walker III",
+   "team": "KC",
+   "pos": "RB",
+   "p": 0.45,
+   "fair": 122
+  },
+  {
+   "week": 4,
+   "name": "James Cook",
+   "team": "BUF",
+   "pos": "RB",
+   "p": 0.43,
+   "fair": 133
+  },
+  {
+   "week": 4,
+   "name": "Woody Marks",
+   "team": "HOU",
+   "pos": "RB",
+   "p": 0.42,
+   "fair": 138
+  },
+  {
+   "week": 4,
+   "name": "Rhamondre Stevenson",
+   "team": "NE",
+   "pos": "RB",
+   "p": 0.4,
+   "fair": 150
+  },
+  {
+   "week": 4,
+   "name": "Kyle Monangai",
+   "team": "CHI",
+   "pos": "RB",
+   "p": 0.39,
+   "fair": 156
+  },
+  {
+   "week": 4,
+   "name": "Chuba Hubbard",
+   "team": "CAR",
+   "pos": "RB",
+   "p": 0.38,
+   "fair": 163
+  },
+  {
+   "week": 4,
+   "name": "Javonte Williams",
+   "team": "DAL",
+   "pos": "RB",
+   "p": 0.37,
+   "fair": 170
+  },
+  {
+   "week": 4,
+   "name": "Tyler Allgeier",
+   "team": "ARI",
+   "pos": "RB",
+   "p": 0.35,
+   "fair": 186
+  },
+  {
+   "week": 4,
+   "name": "Mark Andrews",
+   "team": "BAL",
+   "pos": "TE",
+   "p": 0.3,
+   "fair": 233
+  },
+  {
+   "week": 4,
+   "name": "Tony Pollard",
+   "team": "TEN",
+   "pos": "RB",
+   "p": 0.24,
+   "fair": 317
+  },
+  {
+   "week": 4,
+   "name": "Omarion Hampton",
+   "team": "LAC",
+   "pos": "RB",
+   "p": 0.23,
+   "fair": 335
+  },
+  {
+   "week": 5,
+   "name": "Jahmyr Gibbs",
+   "team": "DET",
+   "pos": "RB",
+   "p": 0.61,
+   "fair": -156
+  },
+  {
+   "week": 5,
+   "name": "Trey McBride",
+   "team": "ARI",
+   "pos": "TE",
+   "p": 0.47,
+   "fair": 113
+  },
+  {
+   "week": 5,
+   "name": "Derrick Henry",
+   "team": "BAL",
+   "pos": "RB",
+   "p": 0.46,
+   "fair": 117
+  },
+  {
+   "week": 5,
+   "name": "D'Andre Swift",
+   "team": "CHI",
+   "pos": "RB",
+   "p": 0.43,
+   "fair": 133
+  },
+  {
+   "week": 5,
+   "name": "Christian McCaffrey",
+   "team": "SF",
+   "pos": "RB",
+   "p": 0.39,
+   "fair": 156
+  },
+  {
+   "week": 5,
+   "name": "Brock Bowers",
+   "team": "LV",
+   "pos": "TE",
+   "p": 0.35,
+   "fair": 186
+  },
+  {
+   "week": 5,
+   "name": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "pos": "WR",
+   "p": 0.35,
+   "fair": 186
+  },
+  {
+   "week": 5,
+   "name": "Aaron Jones",
+   "team": "MIN",
+   "pos": "RB",
+   "p": 0.34,
+   "fair": 194
+  },
+  {
+   "week": 5,
+   "name": "Jacory Croskey-Merritt",
+   "team": "WAS",
+   "pos": "RB",
+   "p": 0.34,
+   "fair": 194
+  },
+  {
+   "week": 5,
+   "name": "Christian Watson",
+   "team": "GB",
+   "pos": "WR",
+   "p": 0.31,
+   "fair": 223
+  },
+  {
+   "week": 5,
+   "name": "Jaylen Warren",
+   "team": "PIT",
+   "pos": "RB",
+   "p": 0.3,
+   "fair": 233
+  },
+  {
+   "week": 5,
+   "name": "J.K. Dobbins",
+   "team": "DEN",
+   "pos": "RB",
+   "p": 0.28,
+   "fair": 257
+  },
+  {
+   "week": 5,
+   "name": "Garrett Wilson",
+   "team": "NYJ",
+   "pos": "WR",
+   "p": 0.27,
+   "fair": 270
+  },
+  {
+   "week": 5,
+   "name": "Tyler Warren",
+   "team": "IND",
+   "pos": "TE",
+   "p": 0.27,
+   "fair": 270
+  },
+  {
+   "week": 5,
+   "name": "Ollie Gordon II",
+   "team": "MIA",
+   "pos": "RB",
+   "p": 0.26,
+   "fair": 285
+  },
+  {
+   "week": 5,
+   "name": "Mike Gesicki",
+   "team": "CIN",
+   "pos": "TE",
+   "p": 0.26,
+   "fair": 285
+  },
+  {
+   "week": 5,
+   "name": "Mike Evans",
+   "team": "SF",
+   "pos": "WR",
+   "p": 0.25,
+   "fair": 300
+  },
+  {
+   "week": 6,
+   "name": "Jonathan Taylor",
+   "team": "IND",
+   "pos": "RB",
+   "p": 0.59,
+   "fair": -144
+  },
+  {
+   "week": 6,
+   "name": "Ashton Jeanty",
+   "team": "LV",
+   "pos": "RB",
+   "p": 0.56,
+   "fair": -127
+  },
+  {
+   "week": 6,
+   "name": "James Cook",
+   "team": "BUF",
+   "pos": "RB",
+   "p": 0.53,
+   "fair": -113
+  },
+  {
+   "week": 6,
+   "name": "Javonte Williams",
+   "team": "DAL",
+   "pos": "RB",
+   "p": 0.51,
+   "fair": -104
+  },
+  {
+   "week": 6,
+   "name": "D'Andre Swift",
+   "team": "CHI",
+   "pos": "RB",
+   "p": 0.48,
+   "fair": 108
+  },
+  {
+   "week": 6,
+   "name": "Kenneth Walker III",
+   "team": "KC",
+   "pos": "RB",
+   "p": 0.42,
+   "fair": 138
+  },
+  {
+   "week": 6,
+   "name": "Chuba Hubbard",
+   "team": "CAR",
+   "pos": "RB",
+   "p": 0.38,
+   "fair": 163
+  },
+  {
+   "week": 6,
+   "name": "Romeo Doubs",
+   "team": "NE",
+   "pos": "WR",
+   "p": 0.37,
+   "fair": 170
+  },
+  {
+   "week": 6,
+   "name": "Tyler Shough",
+   "team": "NO",
+   "pos": "QB",
+   "p": 0.3,
+   "fair": 233
+  },
+  {
+   "week": 6,
+   "name": "DeVonta Smith",
+   "team": "PHI",
+   "pos": "WR",
+   "p": 0.25,
+   "fair": 300
+  },
+  {
+   "week": 6,
+   "name": "Emeka Egbuka",
+   "team": "TB",
+   "pos": "WR",
+   "p": 0.25,
+   "fair": 300
+  },
+  {
+   "week": 8,
+   "name": "Derrick Henry",
+   "team": "BAL",
+   "pos": "RB",
+   "p": 0.64,
+   "fair": -178
+  },
+  {
+   "week": 8,
+   "name": "James Cook",
+   "team": "BUF",
+   "pos": "RB",
+   "p": 0.51,
+   "fair": -104
+  },
+  {
+   "week": 8,
+   "name": "Josh Allen",
+   "team": "BUF",
+   "pos": "QB",
+   "p": 0.48,
+   "fair": 108
+  },
+  {
+   "week": 8,
+   "name": "Ja'Marr Chase",
+   "team": "CIN",
+   "pos": "WR",
+   "p": 0.48,
+   "fair": 108
+  },
+  {
+   "week": 8,
+   "name": "Bucky Irving",
+   "team": "TB",
+   "pos": "RB",
+   "p": 0.47,
+   "fair": 113
+  },
+  {
+   "week": 8,
+   "name": "Justin Jefferson",
+   "team": "MIN",
+   "pos": "WR",
+   "p": 0.44,
+   "fair": 127
+  },
+  {
+   "week": 8,
+   "name": "Tony Pollard",
+   "team": "TEN",
+   "pos": "RB",
+   "p": 0.44,
+   "fair": 127
+  },
+  {
+   "week": 8,
+   "name": "Brock Bowers",
+   "team": "LV",
+   "pos": "TE",
+   "p": 0.43,
+   "fair": 133
+  },
+  {
+   "week": 8,
+   "name": "Michael Wilson",
+   "team": "ARI",
+   "pos": "WR",
+   "p": 0.4,
+   "fair": 150
+  },
+  {
+   "week": 8,
+   "name": "Jahmyr Gibbs",
+   "team": "DET",
+   "pos": "RB",
+   "p": 0.4,
+   "fair": 150
+  },
+  {
+   "week": 8,
+   "name": "Tee Higgins",
+   "team": "CIN",
+   "pos": "WR",
+   "p": 0.39,
+   "fair": 156
+  },
+  {
+   "week": 8,
+   "name": "Trey McBride",
+   "team": "ARI",
+   "pos": "TE",
+   "p": 0.38,
+   "fair": 163
+  },
+  {
+   "week": 8,
+   "name": "Bhayshul Tuten",
+   "team": "JAX",
+   "pos": "RB",
+   "p": 0.32,
+   "fair": 212
+  },
+  {
+   "week": 8,
+   "name": "Braelon Allen",
+   "team": "NYJ",
+   "pos": "RB",
+   "p": 0.32,
+   "fair": 212
+  },
+  {
+   "week": 8,
+   "name": "Rico Dowdle",
+   "team": "PIT",
+   "pos": "RB",
+   "p": 0.3,
+   "fair": 233
+  },
+  {
+   "week": 9,
+   "name": "Kenneth Walker III",
+   "team": "KC",
+   "pos": "",
+   "p": 0.7,
+   "fair": -233
+  },
+  {
+   "week": 9,
+   "name": "Jahmyr Gibbs",
+   "team": "DET",
+   "pos": "",
+   "p": 0.7,
+   "fair": -233
+  },
+  {
+   "week": 9,
+   "name": "Javonte Williams",
+   "team": "DAL",
+   "pos": "",
+   "p": 0.67,
+   "fair": -203
+  },
+  {
+   "week": 9,
+   "name": "Christian McCaffrey",
+   "team": "SF",
+   "pos": "",
+   "p": 0.67,
+   "fair": -203
+  },
+  {
+   "week": 9,
+   "name": "Bijan Robinson",
+   "team": "ATL",
+   "pos": "",
+   "p": 0.6,
+   "fair": -150
+  },
+  {
+   "week": 9,
+   "name": "Ja'Marr Chase",
+   "team": "CIN",
+   "pos": "",
+   "p": 0.51,
+   "fair": -104
+  },
+  {
+   "week": 9,
+   "name": "Rhamondre Stevenson",
+   "team": "NE",
+   "pos": "",
+   "p": 0.51,
+   "fair": -104
+  },
+  {
+   "week": 9,
+   "name": "CeeDee Lamb",
+   "team": "DAL",
+   "pos": "",
+   "p": 0.42,
+   "fair": 138
+  },
+  {
+   "week": 9,
+   "name": "Bucky Irving",
+   "team": "TB",
+   "pos": "",
+   "p": 0.41,
+   "fair": 144
+  },
+  {
+   "week": 9,
+   "name": "Matthew Golden",
+   "team": "GB",
+   "pos": "",
+   "p": 0.37,
+   "fair": 170
+  },
+  {
+   "week": 9,
+   "name": "Rome Odunze",
+   "team": "CHI",
+   "pos": "",
+   "p": 0.36,
+   "fair": 178
+  },
+  {
+   "week": 9,
+   "name": "Brock Bowers",
+   "team": "LV",
+   "pos": "",
+   "p": 0.34,
+   "fair": 194
+  },
+  {
+   "week": 9,
+   "name": "Bhayshul Tuten",
+   "team": "JAX",
+   "pos": "RB",
+   "p": 0.31,
+   "fair": 223
+  },
+  {
+   "week": 9,
+   "name": "Parker Washington",
+   "team": "JAX",
+   "pos": "WR",
+   "p": 0.23,
+   "fair": 335
+  },
+  {
+   "week": 10,
+   "name": "Christian McCaffrey",
+   "team": "",
+   "pos": "",
+   "p": 0.71,
+   "fair": -245
+  },
+  {
+   "week": 10,
+   "name": "James Cook",
+   "team": "",
+   "pos": "",
+   "p": 0.66,
+   "fair": -194
+  },
+  {
+   "week": 10,
+   "name": "Bijan Robinson",
+   "team": "",
+   "pos": "",
+   "p": 0.58,
+   "fair": -138
+  },
+  {
+   "week": 10,
+   "name": "Josh Allen",
+   "team": "",
+   "pos": "",
+   "p": 0.51,
+   "fair": -104
+  },
+  {
+   "week": 10,
+   "name": "Tony Pollard",
+   "team": "",
+   "pos": "",
+   "p": 0.5,
+   "fair": -100
+  },
+  {
+   "week": 10,
+   "name": "Chuba Hubbard",
+   "team": "",
+   "pos": "",
+   "p": 0.49,
+   "fair": 104
+  },
+  {
+   "week": 10,
+   "name": "CeeDee Lamb",
+   "team": "",
+   "pos": "",
+   "p": 0.49,
+   "fair": 104
+  },
+  {
+   "week": 10,
+   "name": "Bhayshul Tuten",
+   "team": "",
+   "pos": "",
+   "p": 0.47,
+   "fair": 113
+  },
+  {
+   "week": 10,
+   "name": "Derrick Henry",
+   "team": "",
+   "pos": "",
+   "p": 0.43,
+   "fair": 133
+  },
+  {
+   "week": 10,
+   "name": "Ryan Flournoy",
+   "team": "",
+   "pos": "",
+   "p": 0.41,
+   "fair": 144
+  },
+  {
+   "week": 10,
+   "name": "Parker Washington",
+   "team": "",
+   "pos": "",
+   "p": 0.4,
+   "fair": 150
+  },
+  {
+   "week": 10,
+   "name": "Emmett Johnson",
+   "team": "",
+   "pos": "",
+   "p": 0.38,
+   "fair": 163
+  },
+  {
+   "week": 10,
+   "name": "Blake Corum",
+   "team": "",
+   "pos": "",
+   "p": 0.38,
+   "fair": 163
+  },
+  {
+   "week": 10,
+   "name": "DK Metcalf",
+   "team": "",
+   "pos": "",
+   "p": 0.37,
+   "fair": 170
+  },
+  {
+   "week": 10,
+   "name": "Nico Collins",
+   "team": "",
+   "pos": "",
+   "p": 0.34,
+   "fair": 194
+  },
+  {
+   "week": 10,
+   "name": "Chase Brown",
+   "team": "",
+   "pos": "",
+   "p": 0.33,
+   "fair": 203
+  },
+  {
+   "week": 10,
+   "name": "Omarion Hampton",
+   "team": "",
+   "pos": "",
+   "p": 0.32,
+   "fair": 212
+  },
+  {
+   "week": 11,
+   "name": "James Cook",
+   "team": "BUF",
+   "pos": "RB",
+   "p": 0.7208406317210501,
+   "fair": -258
+  },
+  {
+   "week": 11,
+   "name": "Chuba Hubbard",
+   "team": "CAR",
+   "pos": "RB",
+   "p": 0.6844342990960453,
+   "fair": -217
+  },
+  {
+   "week": 11,
+   "name": "Javonte Williams",
+   "team": "DAL",
+   "pos": "RB",
+   "p": 0.6631556748881925,
+   "fair": -197
+  },
+  {
+   "week": 11,
+   "name": "Jahmyr Gibbs",
+   "team": "DET",
+   "pos": "RB",
+   "p": 0.6611474080108342,
+   "fair": -195
+  },
+  {
+   "week": 11,
+   "name": "D'Andre Swift",
+   "team": "CHI",
+   "pos": "RB",
+   "p": 0.6463281542983974,
+   "fair": -183
+  },
+  {
+   "week": 11,
+   "name": "Christian McCaffrey",
+   "team": "SF",
+   "pos": "RB",
+   "p": 0.6055090766030803,
+   "fair": -153
+  },
+  {
+   "week": 11,
+   "name": "Emmett Johnson",
+   "team": "KC",
+   "pos": "RB",
+   "p": 0.5987634464471453,
+   "fair": -149
+  },
+  {
+   "week": 11,
+   "name": "Derrick Henry",
+   "team": "BAL",
+   "pos": "RB",
+   "p": 0.5621275158896805,
+   "fair": -128
+  },
+  {
+   "week": 11,
+   "name": "CeeDee Lamb",
+   "team": "DAL",
+   "pos": "WR",
+   "p": 0.5555446604800013,
+   "fair": -125
+  },
+  {
+   "week": 11,
+   "name": "Bucky Irving",
+   "team": "TB",
+   "pos": "RB",
+   "p": 0.5284989847872232,
+   "fair": -112
+  },
+  {
+   "week": 11,
+   "name": "Amon-Ra St. Brown",
+   "team": "DET",
+   "pos": "WR",
+   "p": 0.4756155888382956,
+   "fair": 110
+  },
+  {
+   "week": 11,
+   "name": "Tee Higgins",
+   "team": "CIN",
+   "pos": "WR",
+   "p": 0.47171236727477656,
+   "fair": 112
+  },
+  {
+   "week": 11,
+   "name": "Jonah Coleman",
+   "team": "DEN",
+   "pos": "RB",
+   "p": 0.45535954081577795,
+   "fair": 120
+  },
+  {
+   "week": 11,
+   "name": "Colston Loveland",
+   "team": "CHI",
+   "pos": "TE",
+   "p": 0.4429812343127121,
+   "fair": 126
+  },
+  {
+   "week": 11,
+   "name": "DJ Moore",
+   "team": "BUF",
+   "pos": "WR",
+   "p": 0.4255630589378472,
+   "fair": 135
+  },
+  {
+   "week": 11,
+   "name": "Jameson Williams",
+   "team": "DET",
+   "pos": "WR",
+   "p": 0.387374811535124,
+   "fair": 158
+  },
+  {
+   "week": 11,
+   "name": "Breece Hall",
+   "team": "NYJ",
+   "pos": "RB",
+   "p": 0.3709112991269241,
+   "fair": 170
+  },
+  {
+   "week": 11,
+   "name": "Malik Nabers",
+   "team": "NYG",
+   "pos": "WR",
+   "p": 0.32501193042114584,
+   "fair": 208
+  },
+  {
+   "week": 11,
+   "name": "Ashton Jeanty",
+   "team": "LV",
+   "pos": "RB",
+   "p": 0.30914284587792296,
+   "fair": 223
+  },
+  {
+   "week": 11,
+   "name": "Nico Collins",
+   "team": "",
+   "pos": "",
+   "p": null,
+   "fair": null
+  }
+ ],
+ "excluded": {},
+ "note": "Algorithm slips graded as shipped against final box scores. Stakes and returns are examples at the model's fair price, not bets that were placed. A sportsbook's price for the same slip would differ."
+}
