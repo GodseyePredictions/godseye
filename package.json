@@ -14,7 +14,8 @@
     "usage:report": "node scripts/usage-report.ts",
     "db:migrate": "node scripts/db-migrate.ts",
     "pretest": "node scripts/ensure-deps.mjs",
-    "prebuild": "node scripts/ensure-deps.mjs"
+    "prebuild": "node scripts/ensure-deps.mjs",
+    "nfl:listings": "NODE_USE_ENV_PROXY=1 node scripts/nfl-listings.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.13.0",
