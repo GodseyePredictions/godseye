@@ -5,8 +5,8 @@ import { Slip, american, pct } from "@/components/Slip";
 
 type Leg = { text: string; p: number; record?: string; listed?: string; why?: string[] };
 type S = { title: string; kind?: string; pick: boolean; p: number; fair: number; listedMultiplied?: number | null; legs: Leg[]; note?: string };
-type CrossLeg = { text: string; p: number; side: string; who: string; game: string };
-type Cross = { title: string; mix: string; pick: boolean; p: number; fair: number; legs: CrossLeg[]; note?: string };
+type CrossLeg = { text: string; p: number; side: string; who: string; game: string; listed?: string };
+type Cross = { title: string; mix: string; pick: boolean; p: number; fair: number; listedMultiplied?: number | null; legs: CrossLeg[]; note?: string };
 type Single = { name: string; team: string; pos: string; p: number; fair: number; flag: string; listed: string; why: string[] };
 type Today = {
   game: string; kickoff: string; venue: string; built_from: string; made_at: string; listings: { source: string; pulled_at: string };
@@ -135,10 +135,11 @@ export function NflTonight() {
               pick
               title={s.title}
               meta={s.mix}
-              legs={s.legs.map((l) => ({ text: l.text, sub: `${l.side} · ${l.who} · ${l.game}`, value: pct(l.p) }))}
+              legs={s.legs.map((l) => ({ text: l.text, sub: [l.side, l.who, l.game, l.listed ? `listed ${l.listed}` : ""].filter(Boolean).join(" · "), value: pct(l.p) }))}
               stats={[
                 { label: "Chance to hit", value: pct(s.p, 1), tone: "red" },
                 { label: "Chance to miss", value: pct(1 - s.p, 1) },
+                { label: "Books' leg prices combined", value: s.listedMultiplied == null ? "–" : american(s.listedMultiplied) },
               ]}
               note={s.note}
             />
@@ -152,7 +153,7 @@ export function NflTonight() {
           ))}
         </ul>
       </section>
-      {T.lotto && <Tier title="Lotto" sub="A longshot: the algorithm makes it 1 in 15 or less likely." slips={[T.lotto]} />}
+      {T.lotto && <Tier title="Lotto" sub="A longshot: the algorithm makes it 1 in 16 or less likely, and the books' leg prices combine to +1500 or longer." slips={[T.lotto]} />}
     </>
   );
 }
