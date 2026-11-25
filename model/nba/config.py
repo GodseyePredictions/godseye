@@ -161,7 +161,8 @@ CONFIG = {
     "value_lock_price_range": (-300, 100),   # "value locks": slip-eligible legs priced inside this range
     "value_parlay_legs": 6,              # the value-locks parlay takes this many of them across the slate ...
     "value_parlay_min_legs": 4,          # ... and is not issued with fewer than this
-    "lotto_slip": True,                  # every game's longest band slip joined into one (shown on the site, owner 24 November)
+    "lotto_games": 3,                    # the lotto slip draws from this many games: those whose longest band slip rates highest
+    "lotto_slip": True,                  # the longest band slips of the best-rated games joined into one (shown on the site, owner 24 November)
     "max_legs_per_player": 2,
     "max_legs_per_player_by_size": {4: 1},   # a 4-leg slip rides on four different players
     "sgp_leg_floor_by_market": {"reb": 0.75},   # rebounds missed most often on graded slates, so they need a higher floor
