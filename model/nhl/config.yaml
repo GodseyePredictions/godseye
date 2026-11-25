@@ -89,6 +89,7 @@ gates:
   lines_max_age_hours: 30         # line combinations and PP units older than this are not "game-day"
   key_linemates: 2                # a player's line-mates this deep must also pass the injury check
   preview: false                  # true (or `slate --preview`): goalie and lines gates are noted, not enforced, and nothing is written to the ledger
+  issue_early: false              # with preview (or `slate --early`): the early card is logged and graded, and re-issued game by game as gates pass
   require_book_rung: false        # true: a leg with no listed rung is removed (the spec's gate 4). false: paper mode, see tickets.paper_ladders
 
 sim:
