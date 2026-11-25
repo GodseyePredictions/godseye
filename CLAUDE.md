@@ -6,7 +6,7 @@ Godseye is a paid sports betting prediction platform. Subscribers log in, see al
 
 Each sport has its own algorithm. NFL has its own, NBA has its own, CFB will have its own. They are separate from one another.
 
-- **Code:** NFL lives in `model/*.py` (plus the imported console in `public/console`). NBA lives in `model/nba/`. Neither imports the other. Only sport-neutral helpers (HTTP, odds maths, odds feed, ticket search) go in `model/common/`.
+- **Code:** NFL lives in `model/*.py` (plus the imported console in `public/console`). NBA lives in `model/nba/`. NHL lives in `model/nhl/`. None imports another. Only sport-neutral helpers (HTTP, odds maths, odds feed, ticket search) go in `model/common/`.
 - **Rules:** ticket rules, probability floors and book formats are per sport. A rule in one sport's section does not apply to another sport unless that sport's section says so. When the two disagree, the section for the sport being worked on wins.
 - **Output:** each algorithm writes its own output. A pick shown under a sport comes only from that sport's algorithm.
 - **Changes:** work on one sport must not change or break another sport's code, config or output.
@@ -78,6 +78,14 @@ Not built yet. It will be its own algorithm with its own rules. Until the owner 
 
 - CFB ladders have no receptions markets and no low rushing rungs.
 - Only suggest rungs the book actually offers.
+
+## NHL engine: standing rules
+
+NHL engine spec lives in `model/nhl/SPEC.md` (the spec calls this `godseye/nhl/`). Always read and follow it for any NHL work. The NHL engine is standalone: never import from NFL or NBA model code (`model/*.py`, `model/nfl/`, `model/nba/`); reuse only `model/common/` (the spec's `godseye/shared/`).
+
+- It is built in the spec's five phases, one per session, each checked before the next. What is built so far is listed at the top of `model/nhl/README.md`.
+- All thresholds live in `model/nhl/config.yaml`.
+- If a data source cannot supply something the spec asks for, say so. Do not substitute silently.
 
 ## NBA module: standing rules
 

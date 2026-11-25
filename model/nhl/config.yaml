@@ -1,0 +1,81 @@
+# Every threshold, weight and cap for the NHL engine. Nothing else in nhl/ hard-codes one.
+# Phase 1 (ingest and derived tables) settings only; later phases add their own blocks.
+
+seasons:
+  history: [2023, 2024, 2025]     # three full seasons of play-by-play (season = the year it starts)
+  current: 2026
+  game_types: [2]                 # 2 = regular season
+result_known_after_hours: 4       # a game's stats count as known this long after puck drop
+
+sources:
+  min_interval:                   # seconds between requests, per host
+    api-web.nhle.com: 0.15
+    api.nhle.com: 0.2
+    moneypuck.com: 1.0
+    peter-tanner.com: 1.0
+    www.naturalstattrick.com: 3.0
+    www.dailyfaceoff.com: 1.0
+    scoutingtherefs.com: 2.0
+    api.the-odds-api.com: 1.0
+  retries: 4
+  schedule_max_age_sec: 21600     # current-season schedule is re-read after 6 hours
+  recent_game_max_age_sec: 3600   # games from the last two days may still be corrected by the league
+  empty_shifts_retry_sec: 86400   # a game whose shift chart came back empty is asked for again after a day
+  moneypuck_max_age_sec: 43200    # current-season shot file is rebuilt nightly
+  gameday_max_age_sec: 1500       # Daily Faceoff and referee pages: re-read every 30 minutes until confirmed
+  refresh_lead_min: 90            # the game-day refresh runs this long before puck drop
+  odds_api_key_env: ODDS_API_KEY
+  odds_regions: us,uk,eu,au
+  odds_books: [bet365]
+  goalie_confirmed_labels: [Confirmed]
+
+strength:
+  min_state_run_sec: 4            # a power-play or penalty-kill stretch shorter than this is line-change noise
+  shift_quality_min: 0.95         # share of seconds with 3 to 6 skaters a side for a shift chart to be trusted
+  high_danger_xg: 0.20            # MoneyPuck's cut for a high-danger shot
+
+rates:
+  team_weight_season: 0.60        # spec: season 60% / last 10 games 40%
+  team_weight_recent: 0.40
+  recent_games: 10
+  season_carry_games: 20          # early in a season, last season stands in for this many games of sample
+  prior_season_weight: 0.5        # last season's games count this much in a player's or goalie's season sample
+  player_prior_toi_min:           # shrink a player's per-60 rate toward his position's league rate; strength in minutes
+    ev: 300
+    pp: 60
+    pk: 60
+  player_weight_recent: 0.30      # recent form (last 10) is shrunk toward the season rate
+  finishing_prior_xg: 60          # goals above expected are shrunk hard: this many expected goals of league-average finishing
+  goalie_min_starts: 15           # GSAx is shrunk toward league average; below this many starts it is all prior
+  goalie_prior_shots: 1200        # unblocked shots of league-average goaltending mixed into every goalie
+
+toi:
+  recent_games: 10
+  weight_recent: 0.65             # last 10 games, shrunk toward the season
+  prior_games: 6                  # with fewer recent games than this the season carries more
+  pp1_share: 0.62                 # PP1 gets about 60 to 65% of the team's power-play time
+  pp2_share: 0.38
+  line_slot_weight: 0.5           # share of the gap between tonight's slot's usual minutes and his usual slot's that is applied
+  pp_surplus_kept: 0.5            # a unit member already above the unit's share keeps this much of the surplus
+  pp_off_unit_factor: 0.2         # share of his usual power-play time kept by a player on neither unit tonight
+  lines_max_age_hours: 30         # Daily Faceoff lines older than this are not used
+
+schedule:
+  b2b_days: 1
+  three_in_four_days: 4
+  earth_radius_km: 6371.0
+
+arena_bias:
+  seasons: 3
+  stats: [hits, blocks, sog]
+  prior_games: 60                 # shrink toward 1.00: this many games of "no bias"
+  cap: 0.25                       # factor is held within 1 +/- cap
+
+refs:
+  prior_games: 40                 # a referee's penalty rate is shrunk toward the league with this many games
+  factor_cap: 0.15
+
+spotcheck:
+  team_xg_tolerance: 0.03         # our team xG vs MoneyPuck's season file, relative
+  player_toi_tolerance: 0.03      # our TOI by strength vs the league's own, relative
+  player_toi_abs_min: 1.0         # ... or within this many minutes over the season, whichever is looser

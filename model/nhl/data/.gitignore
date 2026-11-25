@@ -1,0 +1,5 @@
+raw/
+nhl.sqlite
+nhl.sqlite-*
+manual/*
+!manual/README.md
