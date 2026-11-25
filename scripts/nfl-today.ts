@@ -40,6 +40,10 @@ const cat = nflCatalog(parseConsoleData(src));
 const listed = read("model/output/nfl_listed_rungs.json") as { game: string; game_id: string; pulled_at: string; source: string; rungs: { player: string; market: string; k: number | null; prices: Record<string, number> }[] };
 const atd = read("model/output/nfl_atd_versions.json") as { games: string[]; held: string[][]; versions: Record<string, { name: string; note: string; tickets: { n: number; p: number; mix: string; legs: { name: string; team: string; pos: string; game: string; p: number; id: string }[] }[] }>; board: { name: string; team: string; pos: string; game: string; p: number; singles: boolean; id?: string }[] };
 const GAME = listed.game, GID = listed.game_id;
+// touchdown prices for every game on the tonight + Thanksgiving slips (scripts/nfl-listings.ts writes one file per game)
+const tdPrices = new Map<string, Record<string, number>>();
+for (const f of [listed, ...["2026_12_CHI_DET", "2026_12_PHI_DAL", "2026_12_KC_BUF"].map((g) => { try { return read(`model/output/nfl_listed_rungs_${g}.json`); } catch { return null; } })])
+  if (f) for (const r of f.rungs as { player: string; market: string; prices: Record<string, number> }[]) if (r.market === "atd") tdPrices.set(r.player.toLowerCase(), r.prices);
 // ---- matchups (scripts/nfl-matchups.py): strong, neutral or weak for each player, from the algorithm's matchup index.
 // A defence that is stingy against a player's position caps him at neutral; a soft one lifts a weak tag to neutral.
 const MATCH = read("model/output/nfl_matchups.json") as { players: Record<string, { team: string; pos: string; index: number; tag: string; defence: string }> };
@@ -53,7 +57,7 @@ const tagOf = (player: string): "strong" | "neutral" | "weak" => {
   return order[i];
 };
 // the rung each matchup earns: a strong mismatch may step up, a neutral one takes a floor rung, a weak one stays safe
-export const RUNG_BY_MATCHUP = { strong: 0.66, neutral: 0.75, weak: 0.85 };
+export const RUNG_BY_MATCHUP = { strong: 0.66, neutral: 0.75, weak: 0.8 };
 const UNDER = 0.65; // NFL rule: at most one leg under 65% on a ticket
 const game = D.games.find((g: { id: string }) => g.id === GID);
 
@@ -92,7 +96,7 @@ const allowed = (legs: RatedLeg[], c: RatedLeg) =>
 
 /** The `count` highest-chance slips of `n` legs from `pool` (plus `fixed` legs), each differing from the ones before it by at least two legs. */
 const strongLeg = (l: RatedLeg) => l.market !== "atd" && tagOf(l.player) === "strong";
-function topSlips(pool: RatedLeg[], n: number, fixed: RatedLeg[] = [], count = 2, accept: (p: number) => boolean = () => true, lead = true): Built[] {
+function topSlips(pool: RatedLeg[], n: number, fixed: RatedLeg[] = [], count = 2, accept: (p: number) => boolean = () => true, lead = true, naiveMax = 1): Built[] {
   const need = n - fixed.length;
   const minStrong = lead ? Math.min(Math.ceil(n / 2), pool.filter(strongLeg).length) : 0;
   const sorted = [...pool].sort((a, b) => b.prob - a.prob);
@@ -108,7 +112,7 @@ function topSlips(pool: RatedLeg[], n: number, fixed: RatedLeg[] = [], count = 2
     }
   };
   walk(0, [], base);
-  const rated = cands.sort((a, b) => b.naive - a.naive).slice(0, NFL_TODAY.searchKeep)
+  const rated = cands.filter((c) => c.naive <= naiveMax).sort((a, b) => b.naive - a.naive).slice(0, NFL_TODAY.searchKeep)
     .map((c) => ({ legs: c.legs, p: jointProbability(c.legs, cat.corr, NFL_TODAY.searchSims) as number }))
     .filter((c) => accept(c.p)).sort((a, b) => b.p - a.p);
   const out: Built[] = [];
@@ -145,8 +149,10 @@ for (const n of NFL_TODAY.sizes) {
   options.forEach((b, i) => hybrids.push(toSlip(`${n}-leg SGP + anytime TD`, "sgp_atd", b, i === 0)));
 }
 // ---- 3. lotto: the highest-chance slip of aggressive legs whose fair price is +1500 or longer
-const lottoCands = [6, 7, 8].flatMap((n) => topSlips(aggressivePool, n, [], 4, (p) => (fairAmerican(p) as number) >= NFL_TODAY.lottoFairFrom, false)).filter((b) => (fairAmerican(b.p) as number) >= NFL_TODAY.lottoFairFrom).sort((a, b) => b.p - a.p);
-const lotto = lottoCands[0] ? toSlip(`Lotto · ${lottoCands[0].legs.length}-leg`, "lotto", lottoCands[0], true, `Aggressive legs the algorithm rates ${Math.round(NFL_TODAY.aggressive[0] * 100)}% to ${Math.round(NFL_TODAY.aggressive[1] * 100)}%. A lotto pays +${NFL_TODAY.lottoFairFrom} or longer.`) : null;
+// lotto pool: listed props legs from 55% up (still at most one under 65%) plus the touchdown scorers cleared for parlays
+const lottoPool = [...cat.legs.filter((l) => propsOk(l, NFL_TODAY.aggressive[0], 1)), ...tdEligible];
+const lottoCands = [6, 7, 8].flatMap((n) => topSlips(lottoPool, n, [], 10, (p) => (fairAmerican(p) as number) >= NFL_TODAY.lottoFairFrom, false, 1 / 22)).filter((b) => (fairAmerican(b.p) as number) >= NFL_TODAY.lottoFairFrom && (toSlip("", "", b, false).listedMultiplied ?? 0) >= NFL_TODAY.lottoFairFrom).sort((a, b) => b.p - a.p);
+const lotto = lottoCands[0] ? toSlip(`Lotto · ${lottoCands[0].legs.length}-leg`, "lotto", lottoCands[0], true, `Higher rungs and touchdown scorers the algorithm rates ${Math.round(NFL_TODAY.aggressive[0] * 100)}% or better, at most one props leg under 65%. A lotto is 1 in 16 or longer.`) : null;
 
 // ---- 4. anytime TD, tonight: singles, and the double the one-player-per-team rule allows
 const board = atd.board.filter((b) => b.game === GID).slice(0, 6).map((b) => { const l = tdLeg(b.name); const bp = l ? best(priceOf(l)) : null; return { name: b.name, team: b.team, pos: b.pos, p: b.p, fair: fairAmerican(b.p) as number, flag: b.singles ? "single only this week" : held.has(b.name) ? `held out of parlays: ${held.get(b.name)}` : "", listed: bp ? `${bp[0] === "draftkings" ? "DraftKings" : "FanDuel"} ${bp[1] > 0 ? "+" : ""}${bp[1]}` : "", price: bp ? bp[1] : null, why: l ? whyOf(l) : [] }; });
@@ -161,14 +167,19 @@ const leg = (x: { name: string }) => tdLeg(x.name) as RatedLeg;
 const G = Object.fromEntries(D.games.map((g: { id: string }) => [g.id, g]));
 const when = (gid: string) => `${G[gid].away} @ ${G[gid].home} · ${String(G[gid].weekday).slice(0, 3)} ${G[gid].kick}`;
 const ground = (pos: string) => pos === "RB" || pos === "QB";
-type CrossLeg = { text: string; p: number; side: string; who: string; game: string };
-type Cross = { title: string; mix: string; pick: boolean; p: number; fair: number; legs: CrossLeg[]; note?: string };
-const crossLeg = (b: { name: string; team: string; pos: string; game: string; p: number }): CrossLeg => ({ text: `${b.name} anytime TD`, p: b.p, side: ground(b.pos) ? "Ground" : "Air", who: `${b.team} ${b.pos}`, game: when(b.game) });
-const cross: Cross[] = atd.versions.combo.tickets.map((t) => ({ title: `${t.n}-leg ground + air`, mix: t.mix, pick: true, p: t.p, fair: fairAmerican(t.p) as number, legs: t.legs.map(crossLeg) }));
+type CrossLeg = { text: string; p: number; side: string; who: string; game: string; listed: string; price: number | null };
+type Cross = { title: string; mix: string; pick: boolean; p: number; fair: number; listedMultiplied: number | null; legs: CrossLeg[]; note?: string };
+const bookName = (b: string) => (b === "draftkings" ? "DraftKings" : "FanDuel");
+const crossLeg = (b: { name: string; team: string; pos: string; game: string; p: number }): CrossLeg => {
+  const bp = best(tdPrices.get(b.name.toLowerCase()));
+  return { text: `${b.name} anytime TD`, p: b.p, side: ground(b.pos) ? "Ground" : "Air", who: `${b.team} ${b.pos}`, game: when(b.game), listed: bp ? `${bookName(bp[0])} ${bp[1] > 0 ? "+" : ""}${bp[1]}` : "", price: bp ? bp[1] : null };
+};
+const multiplied = (ps: (number | null)[]) => { if (ps.some((x) => x == null)) return null; const d = ps.reduce((a: number, x) => a * toDecimal(x as number), 1); return d >= 2 ? Math.round((d - 1) * 100) : Math.round(-100 / (d - 1)); };
+const cross: Cross[] = atd.versions.combo.tickets.map((t) => { const legs = t.legs.map(crossLeg); return { title: `${t.n}-leg ground + air`, mix: t.mix, pick: true, p: t.p, fair: fairAmerican(t.p) as number, listedMultiplied: multiplied(legs.map((l) => l.price)), legs }; });
 // eligible scorers in the four games: each team's top back and top two pass-catchers
 const elig = atd.board.filter((b) => atd.games.includes(b.game) && !b.singles && !held.has(b.name) && b.p >= 0.2 && tdLeg(b.name) && !["PHI"].includes(held.has(b.name) ? b.team : ""));
 const heldTeams = new Set(atd.held.filter((h) => /backup-QB/.test(h[2])).map((h) => h[1]));
-const crossPool = elig.filter((b) => !heldTeams.has(b.team));
+const crossPool = elig.filter((b) => !heldTeams.has(b.team) && tdPrices.has(b.name.toLowerCase()));
 const perTeam = [...new Set(crossPool.map((b) => b.team))].map((t) => ({ g: crossPool.filter((b) => b.team === t && ground(b.pos))[0], a: crossPool.filter((b) => b.team === t && !ground(b.pos)).slice(0, 2) }));
 function extended(n: number, nAir: number): Cross | null {
   // one back at most and one pass-catcher at most per team; `nAir` pass-catchers in all
@@ -187,7 +198,8 @@ function extended(n: number, nAir: number): Cross | null {
   const top = cands.sort((a, b) => b.naive - a.naive).slice(0, 60).map((c) => ({ ...c, p: jointProbability(c.ids.map(leg), cat.corr, 40_000) as number })).sort((a, b) => b.p - a.p)[0];
   const p = jointProbability(top.ids.map(leg), cat.corr, 400_000) as number;
   const order = [...top.ids].sort((a, b) => atd.games.indexOf(a.game) - atd.games.indexOf(b.game) || b.p - a.p);
-  return { title: `${n}-leg ground + air`, mix: `${n - nAir} ground + ${nAir} air`, pick: true, p, fair: fairAmerican(p) as number, legs: order.map(crossLeg),
+  const legs = order.map(crossLeg);
+  return { title: `${n}-leg ground + air`, mix: `${n - nAir} ground + ${nAir} air`, pick: true, p, fair: fairAmerican(p) as number, listedMultiplied: multiplied(legs.map((l) => l.price)), legs,
     note: "Longer than the algorithm's one-scorer-per-team rule allows across these games, so some teams carry a back and a pass-catcher. Teammates share touchdowns, and the chance shown accounts for that." };
 }
 for (const [n, nAir] of [[8, 3], [10, 4]] as [number, number][]) { const x = extended(n, nAir); if (x) cross.push(x); }
@@ -196,7 +208,7 @@ const out = {
   game: GAME, game_id: GID, kickoff: `${game.weekday} ${game.kick}`, day: game.day, venue: game.venue,
   built_from: D.meta.built, made_at: new Date().toISOString(), listings: { source: listed.source, pulled_at: listed.pulled_at },
   script: (D.script_sgp.find((x: { game: string }) => x.game === GID)?.notes ?? []) as string[],
-  rules: ["Slips are built around the mismatches: at least half the legs come from strong matchups where the game has them.", "Each leg is set by its matchup: a strong mismatch steps up a rung (66%+), a neutral matchup takes a floor rung (75%+), a weak one stays safe (85%+).", `Every props leg is a rung a sportsbook lists, at its listed price; receptions start at ${NFL_TODAY.receptionsFrom}+.`, `At most one leg under 65% and at most ${NFL_TODAY.maxLegsPerPlayer} legs per player.`, "Props slips carry no touchdown leg; SGP + anytime TD slips carry exactly one, from a scorer the algorithm clears for parlays.", ...[...displaced].map((n) => `${n} carries no rushing leg: the algorithm flags him as displaced (${atd.held.find((h) => h[0] === n)?.[2].replace(/^displaced: /, "")}).`)],
+  rules: ["Slips are built around the mismatches: at least half the legs come from strong matchups where the game has them.", "Each leg is set by its matchup: a strong mismatch steps up a rung (66%+), a neutral matchup takes a floor rung (75%+), a weak one stays conservative (80%+).", `Every props leg is a rung a sportsbook lists, at its listed price; receptions start at ${NFL_TODAY.receptionsFrom}+.`, `At most one leg under 65% and at most ${NFL_TODAY.maxLegsPerPlayer} legs per player.`, "Props slips carry no touchdown leg; SGP + anytime TD slips carry exactly one, from a scorer the algorithm clears for parlays.", ...[...displaced].map((n) => `${n} carries no rushing leg: the algorithm flags him as displaced (${atd.held.find((h) => h[0] === n)?.[2].replace(/^displaced: /, "")}).`)],
   sgps, hybrids, lotto,
   atd: { singles: board, double: dbl ? toSlip("Anytime TD double", "atd", dbl, true, "One scorer from each team: teammates share the same touchdowns.") : null, held: atd.held.filter((h) => atd.board.some((b) => b.name === h[0] && b.game === GID)).map((h) => ({ name: h[0], why: h[2] })) },
   cross: { games: atd.games.map(when), slips: cross, held: atd.held.map((h) => ({ name: h[0], team: h[1], why: h[2] })) },

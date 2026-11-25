@@ -1,7 +1,7 @@
 /**
  * Pull the player-prop rungs the sportsbooks list for one NFL game, with their prices, from The Odds API.
  *
- *   npm run nfl:listings -- 2026_12_GB_LA
+ *   npm run nfl:listings -- 2026_12_GB_LA [output.json]
  *
  * The key travels in the x-api-key header. In the cloud environment the network proxy adds it from the saved
  * credential; elsewhere set ODDS_API_KEY. Node only goes through that proxy with NODE_USE_ENV_PROXY=1, which the
@@ -69,5 +69,5 @@ const out = {
   note: "Rungs these books list, and their prices. Used only to confirm a rung is listed and to show what a play pays. Never an input to a probability.",
   rungs: [...rows.values()].sort((a, b) => a.player.localeCompare(b.player) || a.market.localeCompare(b.market) || (a.k ?? 0) - (b.k ?? 0)),
 };
-writeFileSync(root + "model/output/nfl_listed_rungs.json", JSON.stringify(out));
+writeFileSync(root + (process.argv[3] ?? "model/output/nfl_listed_rungs.json"), JSON.stringify(out));
 console.log(`${out.game}: ${out.rungs.length} listed rungs from ${out.source}; feed requests left ${left}`);
