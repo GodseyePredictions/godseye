@@ -1,30 +1,44 @@
 [
  {
   "type": "override",
-  "name": "George Holani",
-  "team": "SEA",
-  "status": "OUT",
-  "note": "ESPN Injured Reserve (RB, Knee - MCL), swept 2026-11-24"
- },
- {
-  "type": "override",
   "name": "A.J. Brown",
   "team": "NE",
   "status": "OUT",
   "note": "ESPN Doubtful (WR, Hamstring), swept 2026-11-24"
  },
  {
-  "type": "override",
+  "type": "injury",
   "name": "Roschon Johnson",
   "team": "CHI",
-  "status": "OUT",
-  "note": "ESPN Out (RB, Ankle), swept 2026-11-25"
+  "status": "Out",
+  "note": "Ankle"
  },
  {
-  "type": "override",
-  "name": "J.K. Dobbins",
-  "team": "DEN",
-  "status": "OUT",
-  "note": "ESPN Out (RB, Personal), swept 2026-11-25"
+  "type": "injury",
+  "name": "Jake Ferguson",
+  "team": "DAL",
+  "status": "Out",
+  "note": "Knee"
+ },
+ {
+  "type": "injury",
+  "name": "Jonathan Mingo",
+  "team": "DAL",
+  "status": "Out",
+  "note": "Ankle"
+ },
+ {
+  "type": "injury",
+  "name": "Kenneth Walker III",
+  "team": "KC",
+  "status": "Out",
+  "note": "Groin"
+ },
+ {
+  "type": "injury",
+  "name": "Terrance Ferguson",
+  "team": "LA",
+  "status": "Out",
+  "note": "Ankle"
  }
 ]
