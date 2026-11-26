@@ -5,8 +5,6 @@ import { Slip, american, pct } from "@/components/Slip";
 
 type Leg = { text: string; p: number; record?: string; listed?: string; why?: string[] };
 type S = { title: string; kind?: string; pick: boolean; p: number; fair: number; listedMultiplied?: number | null; legs: Leg[]; note?: string };
-type CrossLeg = { text: string; p: number; side: string; who: string; game: string; listed?: string };
-type Cross = { title: string; mix: string; pick: boolean; p: number; fair: number; listedMultiplied?: number | null; legs: CrossLeg[]; note?: string };
 type Single = { name: string; team: string; pos: string; p: number; fair: number; flag: string; listed: string; why: string[] };
 type Game = {
   game: string; game_id: string; kickoff: string; venue: string; listings: { source: string; pulled_at: string };
@@ -15,7 +13,6 @@ type Game = {
 };
 type Today = {
   made_at: string; built_from: string; rules: string[]; listings: { source: string; pulled_at: string }; games: Game[];
-  cross: { games: string[]; slips: Cross[]; short?: Cross[]; held: { name: string; team: string; why: string }[] };
 };
 const T = raw as unknown as Today;
 const et = (iso: string) => new Date(iso).toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" });
@@ -60,24 +57,6 @@ function Tier({ title, sub, slips, game }: { title: string; sub?: string; slips:
 
 const bySize = (list: S[]) => [...new Set(list.map((s) => s.title))].map((t) => list.filter((s) => s.title === t));
 
-function CrossCard({ s }: { s: Cross }) {
-  return (
-    <Slip
-      badge={s.pick ? "Algo pick" : "Godseye slip"}
-      pick={s.pick}
-      title={s.title}
-      meta={s.mix}
-      legs={s.legs.map((l) => ({ text: l.text, sub: [l.side, l.who, l.game, l.listed ? `listed ${l.listed}` : ""].filter(Boolean).join(" · "), value: pct(l.p) }))}
-      stats={[
-        { label: "Chance to hit", value: pct(s.p, 1), tone: "red" },
-        { label: "Chance to miss", value: pct(1 - s.p, 1) },
-        { label: "Books' leg prices combined", value: s.listedMultiplied == null ? "–" : american(s.listedMultiplied) },
-      ]}
-      note={s.note}
-    />
-  );
-}
-
 function GamePack({ g }: { g: Game }) {
   return (
     <>
@@ -97,43 +76,6 @@ function GamePack({ g }: { g: Game }) {
       {bySize(g.hybrids).map((x) => (
         <Tier key={x[0].title} game={g.game} title={`${g.game}: ${x[0].title}`} sub="Props legs plus one anytime touchdown." slips={x} />
       ))}
-      <section className="panel">
-        <div className="section-head">
-          <div>
-            <h2>{g.game}: anytime TD</h2>
-            <p className="sub">The algorithm&apos;s touchdown board for this game.</p>
-          </div>
-        </div>
-        <div className="scroll">
-          <table className="tbl">
-            <thead>
-              <tr>
-                <th>Player</th>
-                <th>Chance</th>
-                <th>Listed</th>
-                <th>Note</th>
-              </tr>
-            </thead>
-            <tbody>
-              {g.atd.singles.map((p) => (
-                <tr key={p.name}>
-                  <td>
-                    <b>{p.name}</b> <small>{p.team} {p.pos}</small>
-                  </td>
-                  <td className="num">{pct(p.p, 1)}</td>
-                  <td className="num">{p.listed || "–"}</td>
-                  <td>{p.flag}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {g.atd.double && (
-          <div className="gs-slips ge-set">
-            <Card s={g.atd.double} game={g.game} />
-          </div>
-        )}
-      </section>
       {g.lotto && <Tier game={g.game} title={`${g.game}: lotto`} sub="A longshot: the algorithm makes it 1 in 16 or less likely, and the books' leg prices combine to +1500 or longer." slips={[g.lotto]} />}
     </>
   );
@@ -157,49 +99,13 @@ export function NflTonight() {
           {T.rules.map((r) => (
             <li key={r}>{r}</li>
           ))}
+          <li>Touchdown-only slips (singles, doubles, triples and longer) are on the Anytime TD tab.</li>
           <li>Prices from {T.listings.source}. &ldquo;Books&apos; leg prices combined&rdquo; multiplies each leg&apos;s listed price; a book prices the same legs as a same-game parlay shorter than that.</li>
         </ul>
       </section>
       {T.games.map((g) => (
         <GamePack g={g} key={g.game_id} />
       ))}
-      {!!T.cross.short?.length && (
-        <section className="panel">
-          <div className="section-head">
-            <div>
-              <h2>Anytime TD doubles and triples</h2>
-              <p className="sub">
-                Across {T.cross.games.join(" · ")}. One scorer per team. The algorithm&apos;s pick is the highest chance; the second option is its best mix of ground and air.
-              </p>
-            </div>
-          </div>
-          <div className="gs-slips ge-set">
-            {T.cross.short.map((s, i) => (
-              <CrossCard s={s} key={i} />
-            ))}
-          </div>
-        </section>
-      )}
-      <section className="panel">
-        <div className="section-head">
-          <div>
-            <h2>Anytime TD across today&apos;s games</h2>
-            <p className="sub">{T.cross.games.join(" · ")}. Ground and air together: the algorithm&apos;s most likely mix at each size.</p>
-          </div>
-        </div>
-        <div className="gs-slips ge-set">
-          {T.cross.slips.map((s) => (
-            <CrossCard s={s} key={s.title} />
-          ))}
-        </div>
-        <ul className="why">
-          {T.cross.held.map((h) => (
-            <li key={h.name}>
-              {h.name} ({h.team}) is held out of touchdown parlays: {h.why}.
-            </li>
-          ))}
-        </ul>
-      </section>
     </>
   );
 }
