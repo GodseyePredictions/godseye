@@ -8,18 +8,18 @@
    "pos": "QB",
    "game": "KC @ BUF",
    "when": "Thursday 8:20 pm ET",
-   "atd": 0.046,
+   "atd": 0.045,
    "singles_only": false,
    "lines": [
     {
      "text": "1+ pass TD",
-     "p": 0.828,
+     "p": 0.827,
      "record": "8 of 10 games"
     },
     {
-     "text": "175+ pass yds",
-     "p": 0.746,
-     "record": "9 of 10 games"
+     "text": "150+ pass yds",
+     "p": 0.76,
+     "record": "10 of 10 games"
     }
    ]
   },
@@ -31,17 +31,17 @@
    "pos": "QB",
    "game": "KC @ BUF",
    "when": "Thursday 8:20 pm ET",
-   "atd": 0.405,
+   "atd": 0.414,
    "singles_only": false,
    "lines": [
     {
      "text": "1+ pass TD",
-     "p": 0.746,
+     "p": 0.757,
      "record": "9 of 10 games"
     },
     {
      "text": "150+ pass yds",
-     "p": 0.713,
+     "p": 0.727,
      "record": "10 of 10 games"
     }
    ]
@@ -54,17 +54,17 @@
    "pos": "WR",
    "game": "NO @ CIN",
    "when": "Sunday 1:00 pm ET",
-   "atd": 0.495,
+   "atd": 0.493,
    "singles_only": false,
    "lines": [
     {
      "text": "6+ receptions",
-     "p": 0.79,
+     "p": 0.748,
      "record": "6 of 10 games"
     },
     {
-     "text": "50+ rec yds",
-     "p": 0.747,
+     "text": "60+ rec yds",
+     "p": 0.741,
      "record": "7 of 10 games"
     }
    ]
@@ -78,7 +78,7 @@
  "photos": [],
  "season": 2026,
  "week": 12,
- "built": "Thu Nov 26, 14:36 UTC",
+ "built": "Thu Nov 26, 18:32 UTC",
  "record": {
   "tickets": 64,
   "cashed": 18,
@@ -90,49 +90,49 @@
    "kind": "Same-game parlay",
    "matchup": "DEN @ PIT",
    "when": "Friday 3:00 pm ET",
-   "p": 0.49,
+   "p": 0.431,
    "tab": "sgp",
    "intel": [
     "Setting: Acrisure Stadium, outdoors, grass, rain.",
     "Market: total 36.5; implied points DEN 20.5, PIT 16.0.",
     "Total 36.5 (low) \u00b7 wind \u00b7 rain/snow.",
-    "Pittsburgh are 4-point underdogs, balanced offence (-0.0% PROE), implied 16.0; throw 70% when down 10+, soft run lane (O-line vs front).",
-    "Denver are favoured by 4, balanced offence (+0.9% PROE), implied 20.5; red zone trending run (47% last 3 vs 57% season), tough run lane, soft vs TEs, drives die on 3rd down (82% of failed 3rd downs end in a punt or FG; 41% of drives punt, 14% settle for FGs)."
+    "Pittsburgh are 4-point underdogs, balanced offence (-0.2% PROE), implied 16.0; throw 70% when down 10+, soft run lane (O-line vs front).",
+    "Denver are favoured by 4, balanced offence (+0.6% PROE), implied 20.5; red zone trending run (47% last 3 vs 57% season), tough run lane, soft vs TEs, drives die on 3rd down (82% of failed 3rd downs end in a punt or FG; 41% of drives punt, 14% settle for FGs)."
    ],
    "legs": [
     {
      "text": "Jaylen Warren 30+ rush yds",
      "team": "PIT",
-     "p": 0.815,
+     "p": 0.736,
      "record": "cleared in 8 of 10 games",
      "why": [
       "Team outlook: Pittsburgh implied for 16.0 pts (30th of 30 teams), an underdog by 4.5; model expects 1.5 offensive TDs (0.5 rush / 1.1 pass).",
       "Volume: 66 rush yds/g recently on 12.6 carries; 62% of snaps.",
-      "This line: 30+ rush yds: cleared in 8 of 10 games this season; model 82%.",
+      "This line: 30+ rush yds: cleared in 8 of 10 games this season; model 74%.",
       "PIT O-line vs DEN front: Pittsburgh's RBs average 4.7 yds/carry and get stuffed 20% of the time; Denver allows 4.4 (8th most of 30) and stuffs 17%. Front: Zach Allen (71% snaps; 0.42 sacks, 0.3 TFL/g), Malcolm Roach (55% snaps; 0.53 sacks, 0.6 TFL/g), D.J. Jones (40% snaps; 0.16 sacks, 0.3 TFL/g), Alex Singleton (99% snaps; 0.28 sacks, 0.5 TFL/g), Justin Strnad (72% snaps; 0.09 sacks, 0.3 TFL/g). In the passing game\u2026"
      ]
     },
     {
      "text": "Germie Bernard 2+ receptions",
      "team": "PIT",
-     "p": 0.805,
+     "p": 0.759,
      "record": "cleared in 7 of 10 games",
      "why": [
       "Team outlook: Pittsburgh implied for 16.0 pts (30th of 30 teams), an underdog by 4.5; model expects 1.5 offensive TDs (0.5 rush / 1.1 pass).",
       "Volume: 4.2 catches on 6.3 targets/g (18% target share); 83% of snaps.",
-      "This line: 2+ receptions: cleared in 7 of 10 games this season; model 81%.",
+      "This line: 2+ receptions: cleared in 7 of 10 games this season; model 76%.",
       "vs DEN secondary: Patrick Surtain II (93% snaps; 0.0 PBU, 0.00 INT/g), Riley Moss (83% snaps; 0.8 PBU, 0.07 INT/g), Ja'Quan McMillian (66% snaps; 0.7 PBU, 0.25 INT/g), JL Skinner (17% snaps; 0.0 PBU, 0.00 INT/g). Denver allows 6.6 yds/target to WRs (27th most of 30), 57% catch rate, 7% of passes going 20+. DEN has 1 defensive starter(s) ruled Out/Doubtful."
      ]
     },
     {
      "text": "Jonah Coleman 2+ receptions",
      "team": "DEN",
-     "p": 0.748,
+     "p": 0.775,
      "record": "cleared in 5 of 6 games",
      "why": [
-      "Team outlook: Denver implied for 20.5 pts (17th of 30 teams), favoured by 4.5; model expects 2.1 offensive TDs (0.8 rush / 1.3 pass).",
+      "Team outlook: Denver implied for 20.5 pts (16th of 30 teams), favoured by 4.5; model expects 2.1 offensive TDs (0.8 rush / 1.3 pass).",
       "Volume: 3.3 catches on 3.7 targets/g (12% target share); 63% of snaps.",
-      "This line: 2+ receptions: cleared in 5 of 6 games this season; model 75%.",
+      "This line: 2+ receptions: cleared in 5 of 6 games this season; model 78%.",
       "DEN O-line vs PIT front: Denver's RBs average 3.8 yds/carry and get stuffed 14% of the time; Pittsburgh allows 3.6 (29th most of 30) and stuffs 21%. Front: Cameron Heyward (66% snaps; 0.26 sacks, 0.4 TFL/g), Keeanu Benton (62% snaps; 0.15 sacks, 0.5 TFL/g), Derrick Harmon (45% snaps; 0.28 sacks, 0.1 TFL/g), Patrick Queen (99% snaps; 0.32 sacks, 0.5 TFL/g), Payton Wilson (76% snaps; 0.08 sacks, 0.5 TFL/g). In the\u2026"
      ]
     }
@@ -140,178 +140,190 @@
   },
   {
    "kind": "Same-game parlay",
-   "matchup": "CHI @ DET",
-   "when": "Thursday 1:00 pm ET",
-   "p": 0.469,
+   "matchup": "TEN @ JAX",
+   "when": "Sunday 1:00 pm ET",
+   "p": 0.41,
    "tab": "sgp",
    "intel": [
-    "Setting: Ford Field, dome, turf.",
-    "Market: total 56.5; implied points CHI 29.0, DET 27.5.",
-    "Total 56.5 (shootout).",
-    "Detroit in a pick'em, balanced offence (-0.3% PROE), implied 27.5; red zone trending run (39% last 3 vs 51% season), soft run lane (O-line vs front), soft secondary vs WRs.",
-    "Chicago in a pick'em, balanced offence (-0.5% PROE), implied 29.0; tough run lane."
+    "Setting: EverBank Stadium, outdoors, grass, cloudy.",
+    "Market: total 49.5; implied points JAX 32.0, TEN 17.5.",
+    "Total 49.5 (shootout).",
+    "Jacksonville are 14-point favourites, balanced offence (-0.1% PROE), implied 32.0; run 57% when up 10+, soft secondary vs WRs.",
+    "Tennessee are 14-point underdogs, run-leaning offence (-4.8% PROE), implied 17.5; throw 70% when down 10+."
    ],
    "legs": [
     {
-     "text": "Jared Goff 1+ pass TDs",
-     "team": "DET",
-     "p": 0.868,
+     "text": "Trevor Lawrence 1+ pass TDs",
+     "team": "JAX",
+     "p": 0.86,
      "record": "cleared in 9 of 10 games",
      "why": [
-      "Team outlook: Detroit implied for 27.5 pts (5th of 30 teams), an underdog by 1.5; model expects 3.2 offensive TDs (1.1 rush / 2.1 pass).",
-      "Volume: 1.9 TD passes/g recently (season 2.0); team red-zone pass rate 51%; 97% of snaps.",
-      "This line: 1+ pass TDs: cleared in 9 of 10 games this season; model 87%.",
-      "Pass rush: Jeffery Simmons (86% snaps; 0.96 sacks, 1.3 TFL/g), Montez Sweat (72% snaps; 0.53 sacks, 0.7 TFL/g), Grady Jarrett (71% snaps; 0.09 sacks, 0.2 TFL/g). Chicago sacks on 8.7% of dropbacks; Detroit allows sacks on 6.6%. CHI has 1 defensive starter(s) ruled Out/Doubtful."
+      "Team outlook: Jacksonville implied for 32.0 pts (1st of 30 teams), favoured by 14.5; model expects 4.0 offensive TDs (1.3 rush / 2.7 pass).",
+      "Volume: 2.1 TD passes/g recently (season 2.2); team red-zone pass rate 55%; 97% of snaps.",
+      "This line: 1+ pass TDs: cleared in 9 of 10 games this season; model 86%.",
+      "Pass rush: Jeffery Simmons (86% snaps; 0.96 sacks, 1.3 TFL/g), Jermaine Johnson II (65% snaps; 0.25 sacks, 0.5 TFL/g), Jacob Martin (60% snaps; 0.65 sacks, 0.7 TFL/g). Tennessee sacks on 5.4% of dropbacks; Jacksonville allows sacks on 5.3%."
      ]
     },
     {
-     "text": "Jameson Williams 2+ receptions",
-     "team": "DET",
-     "p": 0.858,
+     "text": "Bhayshul Tuten 20+ rush yds",
+     "team": "JAX",
+     "p": 0.846,
+     "record": "cleared in 10 of 10 games",
+     "why": [
+      "Team outlook: Jacksonville implied for 32.0 pts (1st of 30 teams), favoured by 14.5; model expects 4.0 offensive TDs (1.3 rush / 2.7 pass).",
+      "Volume: 57 rush yds/g recently on 14.7 carries; 50% of snaps.",
+      "This line: 20+ rush yds: cleared in 10 of 10 games this season; model 85%.",
+      "JAX O-line vs TEN front: Jacksonville's RBs average 4.1 yds/carry and get stuffed 17% of the time; Tennessee allows 4.1 (16th most of 30) and stuffs 18%. Front: Jeffery Simmons (86% snaps; 0.96 sacks, 1.3 TFL/g), Jermaine Johnson II (65% snaps; 0.25 sacks, 0.5 TFL/g), Jacob Martin (60% snaps; 0.65 sacks, 0.7 TFL/g), Dorian Mausi (88% snaps; 0.00 sacks, 0.0 TFL/g), Cedric Gray (71% snaps; 0.05 sacks, 0.3 TFL/g). In\u2026"
+     ]
+    },
+    {
+     "text": "Jakobi Meyers 2+ receptions",
+     "team": "JAX",
+     "p": 0.862,
      "record": "cleared in 9 of 10 games",
      "why": [
-      "Team outlook: Detroit implied for 27.5 pts (5th of 30 teams), an underdog by 1.5; model expects 3.2 offensive TDs (1.1 rush / 2.1 pass).",
-      "Volume: 3.7 catches on 5.5 targets/g (18% target share); 84% of snaps.",
+      "Team outlook: Jacksonville implied for 32.0 pts (1st of 30 teams), favoured by 14.5; model expects 4.0 offensive TDs (1.3 rush / 2.7 pass).",
+      "Volume: 3.5 catches on 6.4 targets/g (19% target share); 77% of snaps.",
       "This line: 2+ receptions: cleared in 9 of 10 games this season; model 86%.",
-      "vs CHI secondary: Dillon Thieneman (98% snaps; 0.5 PBU, 0.23 INT/g), Jaylon Johnson (92% snaps; 0.4 PBU, 0.12 INT/g), Cameron Lewis (89% snaps; 0.0 PBU, 0.00 INT/g). Chicago allows 8.9 yds/target to WRs (8th most of 30), 59% catch rate, 9% of passes going 20+. CHI has 1 defensive starter(s) ruled Out/Doubtful."
+      "vs TEN secondary: Alontae Taylor (91% snaps; 0.3 PBU, 0.05 INT/g), Cordale Flott (86% snaps; 0.6 PBU, 0.17 INT/g), Joshua Williams (64% snaps; 0.4 PBU, 0.00 INT/g), Amani Hooker (96% snaps; 0.8 PBU, 0.40 INT/g), Kevin Winston (88% snaps; 0.1 PBU, 0.00 INT/g). Tennessee allows 9.9 yds/target to WRs (2nd most of 30), 73% catch rate, 13% of passes going 20+."
      ]
     },
     {
-     "text": "Sam LaPorta 2+ receptions",
-     "team": "DET",
-     "p": 0.853,
+     "text": "Brenton Strange 2+ receptions",
+     "team": "JAX",
+     "p": 0.801,
+     "record": "cleared in 10 of 10 games",
+     "why": [
+      "Team outlook: Jacksonville implied for 32.0 pts (1st of 30 teams), favoured by 14.5; model expects 4.0 offensive TDs (1.3 rush / 2.7 pass).",
+      "Volume: 3.2 catches on 3.9 targets/g (13% target share); 76% of snaps.",
+      "This line: 2+ receptions: cleared in 10 of 10 games this season; model 80%.",
+      "vs TEN linebackers & safeties: Dorian Mausi (88% snaps; 0.00 sacks, 0.0 TFL/g), Cedric Gray (71% snaps; 0.05 sacks, 0.3 TFL/g), Amani Hooker (96% snaps; 0.8 PBU, 0.40 INT/g), Kevin Winston (88% snaps; 0.1 PBU, 0.00 INT/g). Tennessee allows 7.3 yds/target to TEs (14th most of 30) at a 73% catch rate."
+     ]
+    },
+    {
+     "text": "Parker Washington 40+ rec yds",
+     "team": "JAX",
+     "p": 0.797,
      "record": "cleared in 8 of 10 games",
      "why": [
-      "Team outlook: Detroit implied for 27.5 pts (5th of 30 teams), an underdog by 1.5; model expects 3.2 offensive TDs (1.1 rush / 2.1 pass).",
-      "Volume: 3.3 catches on 5.4 targets/g (18% target share); 89% of snaps.",
-      "This line: 2+ receptions: cleared in 8 of 10 games this season; model 85%.",
-      "vs CHI linebackers & safeties: Devin Bush Jr. (91% snaps; 0.17 sacks, 0.6 TFL/g), T.J. Edwards (89% snaps; 0.05 sacks, 0.3 TFL/g). Chicago allows 6.4 yds/target to TEs (26th most of 30) at a 62% catch rate. CHI has 1 defensive starter(s) ruled Out/Doubtful."
-     ]
-    },
-    {
-     "text": "Colston Loveland 20+ rec yds",
-     "team": "CHI",
-     "p": 0.845,
-     "record": "cleared in 7 of 10 games",
-     "why": [
-      "Team outlook: Chicago implied for 29.0 pts (3rd of 30 teams), favoured by 1.5; model expects 3.6 offensive TDs (1.4 rush / 2.2 pass).",
-      "Volume: 48 rec yds/g on 6.6 targets (17% of team air yards); 87% of snaps.",
-      "This line: 20+ rec yds: cleared in 7 of 10 games this season; model 85%.",
-      "vs DET linebackers & safeties: Derrick Barnes (84% snaps; 0.18 sacks, 0.5 TFL/g), Malcolm Rodriguez (46% snaps; 0.11 sacks, 0.1 TFL/g), Chuck Clark (83% snaps; 0.4 PBU, 0.13 INT/g), Andre Cisco (51% snaps; 0.1 PBU, 0.01 INT/g). Detroit allows 6.7 yds/target to TEs (18th most of 30) at a 64% catch rate."
-     ]
-    },
-    {
-     "text": "Caleb Williams 225+ pass yds",
-     "team": "CHI",
-     "p": 0.835,
-     "record": "cleared in 5 of 7 games",
-     "why": [
-      "Team outlook: Chicago implied for 29.0 pts (3rd of 30 teams), favoured by 1.5; model expects 3.6 offensive TDs (1.4 rush / 2.2 pass).",
-      "Volume: 247 pass yds/g recently (season 247); 99% of snaps.",
-      "This line: 225+ pass yds: cleared in 5 of 7 games this season; model 83%.",
-      "Pass rush: Alim McNeill (76% snaps; 0.48 sacks, 0.6 TFL/g), D.J. Wonnum (63% snaps; 0.62 sacks, 0.6 TFL/g), Derrick Moore (44% snaps; 0.62 sacks, 0.5 TFL/g). Detroit sacks on 8.8% of dropbacks; Chicago allows sacks on 5.0%."
+      "Team outlook: Jacksonville implied for 32.0 pts (1st of 30 teams), favoured by 14.5; model expects 4.0 offensive TDs (1.3 rush / 2.7 pass).",
+      "Volume: 85 rec yds/g on 9.3 targets (35% of team air yards); 75% of snaps.",
+      "This line: 40+ rec yds: cleared in 8 of 10 games this season; model 80%.",
+      "vs TEN secondary: Alontae Taylor (91% snaps; 0.3 PBU, 0.05 INT/g), Cordale Flott (86% snaps; 0.6 PBU, 0.17 INT/g), Joshua Williams (64% snaps; 0.4 PBU, 0.00 INT/g), Amani Hooker (96% snaps; 0.8 PBU, 0.40 INT/g), Kevin Winston (88% snaps; 0.1 PBU, 0.00 INT/g). Tennessee allows 9.9 yds/target to WRs (2nd most of 30), 73% catch rate, 13% of passes going 20+."
      ]
     }
    ]
   },
   {
    "kind": "Same-game parlay",
-   "matchup": "NE @ LAC",
-   "when": "Sunday 4:05 pm ET",
-   "p": 0.405,
+   "matchup": "ATL @ MIN",
+   "when": "Sunday 1:00 pm ET",
+   "p": 0.383,
    "tab": "sgp",
    "intel": [
-    "Setting: SoFi Stadium, dome, turf.",
-    "Market: total 35.5; implied points LAC 17.0, NE 18.5.",
-    "Total 35.5 (low).",
-    "New England in a pick'em, balanced offence (-0.0% PROE), implied 18.5; tough run lane, soft vs TEs.",
-    "the Chargers in a pick'em, run-leaning offence (-7.5% PROE), implied 17.0; soft secondary vs WRs."
+    "Setting: U.S. Bank Stadium, dome, turf.",
+    "Market: total 41.5; implied points ATL 17.2, MIN 24.2.",
+    "Total 41.5 (mid).",
+    "Minnesota are 7-point favourites, balanced offence (+0.2% PROE), implied 24.2; run 55% when up 10+, red zone trending pass (79% last 3 vs 71% season).",
+    "Atlanta are 7-point underdogs, run-leaning offence (-6.0% PROE), implied 17.2; red zone trending pass (72% last 3 vs 61% season)."
    ],
    "legs": [
     {
-     "text": "Omarion Hampton 30+ rush yds",
-     "team": "LAC",
-     "p": 0.825,
+     "text": "Aaron Jones 20+ rush yds",
+     "team": "MIN",
+     "p": 0.852,
+     "record": "cleared in 9 of 10 games",
+     "why": [
+      "Team outlook: Minnesota implied for 24.2 pts (7th of 30 teams), favoured by 7.0; model expects 2.4 offensive TDs (0.9 rush / 1.6 pass).",
+      "Volume: 45 rush yds/g recently on 11.1 carries; 48% of snaps.",
+      "This line: 20+ rush yds: cleared in 9 of 10 games this season; model 85%.",
+      "MIN O-line vs ATL front: Minnesota's RBs average 4.0 yds/carry and get stuffed 14% of the time; Atlanta allows 4.5 (6th most of 30) and stuffs 17%. Front: Gervon Dexter (61% snaps; 0.23 sacks, 0.3 TFL/g), Cameron Thomas (54% snaps; 0.14 sacks, 0.1 TFL/g), Brandon Dorlus (53% snaps; 0.31 sacks, 0.5 TFL/g), Kendal Daniels (78% snaps; 0.09 sacks, 0.5 TFL/g), Harold Perkins (59% snaps; 0.17 sacks, 0.5 TFL/g). In the\u2026"
+     ]
+    },
+    {
+     "text": "Drake London 20+ rec yds",
+     "team": "ATL",
+     "p": 0.836,
+     "record": "cleared in 9 of 10 games",
+     "why": [
+      "Team outlook: Atlanta implied for 17.2 pts (28th of 30 teams), an underdog by 7.0; model expects 1.7 offensive TDs (0.6 rush / 1.1 pass).",
+      "Volume: 76 rec yds/g on 8.4 targets (35% of team air yards); 90% of snaps.",
+      "This line: 20+ rec yds: cleared in 9 of 10 games this season; model 84%.",
+      "vs MIN secondary: Byron Murphy (90% snaps; 0.7 PBU, 0.32 INT/g), James Pierre (51% snaps; 0.5 PBU, 0.15 INT/g), Zemaiah Vaughn (8% snaps; 0.0 PBU, 0.00 INT/g), Josh Metellus (96% snaps; 0.3 PBU, 0.03 INT/g), Harrison Smith (67% snaps; 0.6 PBU, 0.23 INT/g). Minnesota allows 7.8 yds/target to WRs (20th most of 30), 65% catch rate, 6% of passes going 20+. Corner room is thin: 49% of normal CB snaps available."
+     ]
+    },
+    {
+     "text": "Kyle Pitts 2+ receptions",
+     "team": "ATL",
+     "p": 0.827,
+     "record": "cleared in 7 of 10 games",
+     "why": [
+      "Team outlook: Atlanta implied for 17.2 pts (28th of 30 teams), an underdog by 7.0; model expects 1.7 offensive TDs (0.6 rush / 1.1 pass).",
+      "Volume: 3.6 catches on 5.1 targets/g (17% target share); 67% of snaps.",
+      "This line: 2+ receptions: cleared in 7 of 10 games this season; model 83%.",
+      "vs MIN linebackers & safeties: Eric Wilson (90% snaps; 0.50 sacks, 1.0 TFL/g), Andrew Van Ginkel (78% snaps; 0.75 sacks, 0.9 TFL/g), Josh Metellus (96% snaps; 0.3 PBU, 0.03 INT/g), Harrison Smith (67% snaps; 0.6 PBU, 0.23 INT/g). Minnesota allows 6.4 yds/target to TEs (25th most of 30) at a 61% catch rate."
+     ]
+    },
+    {
+     "text": "Bijan Robinson 2+ receptions",
+     "team": "ATL",
+     "p": 0.802,
      "record": "cleared in 8 of 10 games",
      "why": [
-      "Team outlook: the Chargers implied for 17.0 pts (29th of 30 teams), an underdog by 1.5; model expects 1.6 offensive TDs (0.6 rush / 1.0 pass).",
-      "Volume: 62 rush yds/g recently on 13.9 carries; 48% of snaps.",
-      "This line: 30+ rush yds: cleared in 8 of 10 games this season; model 83%.",
-      "LAC O-line vs NE front: the Chargers's RBs average 4.0 yds/carry and get stuffed 19% of the time; New England allows 4.2 (15th most of 30) and stuffs 18%. Front: Milton Williams (65% snaps; 0.31 sacks, 0.7 TFL/g), Christian Barmore (52% snaps; 0.42 sacks, 0.4 TFL/g), Cory Durden (47% snaps; 0.13 sacks, 0.3 TFL/g), Robert Spillane (91% snaps; 0.07 sacks, 0.1 TFL/g), Christian Elliss (83% snaps; 0.12 sacks, 0.5\u2026"
+      "Team outlook: Atlanta implied for 17.2 pts (28th of 30 teams), an underdog by 7.0; model expects 1.7 offensive TDs (0.6 rush / 1.1 pass).",
+      "Volume: 3.6 catches on 4.6 targets/g (16% target share); 76% of snaps.",
+      "This line: 2+ receptions: cleared in 8 of 10 games this season; model 80%.",
+      "ATL O-line vs MIN front: Atlanta's RBs average 4.7 yds/carry and get stuffed 16% of the time; Minnesota allows 4.0 (17th most of 30) and stuffs 18%. Front: Jalen Redmond (77% snaps; 0.26 sacks, 0.6 TFL/g), Levi Drake Rodriguez (55% snaps; 0.29 sacks, 0.4 TFL/g), Domonique Orange (27% snaps; 0.00 sacks, 0.1 TFL/g), Eric Wilson (90% snaps; 0.50 sacks, 1.0 TFL/g), Andrew Van Ginkel (78% snaps; 0.75 sacks, 0.9 TFL/g).\u2026"
      ]
     },
     {
-     "text": "Mack Hollins 2+ receptions",
-     "team": "NE",
-     "p": 0.834,
-     "record": "cleared in 6 of 6 games",
+     "text": "Justin Jefferson 40+ rec yds",
+     "team": "MIN",
+     "p": 0.805,
+     "record": "cleared in 7 of 9 games",
      "why": [
-      "Team outlook: New England implied for 18.5 pts (22nd of 30 teams), favoured by 1.5; model expects 1.8 offensive TDs (0.6 rush / 1.2 pass).",
-      "Volume: 3.9 catches on 5.6 targets/g (18% target share); 71% of snaps.",
-      "This line: 2+ receptions: cleared in 6 of 6 games this season; model 83%.",
-      "vs LAC secondary: Cam Hart (82% snaps; 0.7 PBU, 0.13 INT/g), Elijah Molden (79% snaps; 0.2 PBU, 0.05 INT/g), Donte Jackson (55% snaps; 0.6 PBU, 0.09 INT/g), Tony Jefferson (64% snaps; 0.2 PBU, 0.06 INT/g), R.J. Mickens (43% snaps; 0.1 PBU, 0.04 INT/g). the Chargers allows 8.5 yds/target to WRs (10th most of 30), 65% catch rate, 9% of passes going 20+. Corner room is thin: 82% of normal CB snaps available."
-     ]
-    },
-    {
-     "text": "Hunter Henry 2+ receptions",
-     "team": "NE",
-     "p": 0.755,
-     "record": "cleared in 9 of 10 games",
-     "why": [
-      "Team outlook: New England implied for 18.5 pts (22nd of 30 teams), favoured by 1.5; model expects 1.8 offensive TDs (0.6 rush / 1.2 pass).",
-      "Volume: 3.3 catches on 3.9 targets/g (14% target share); 58% of snaps.",
-      "This line: 2+ receptions: cleared in 9 of 10 games this season; model 75%.",
-      "vs LAC linebackers & safeties: Tuli Tuipulotu (82% snaps; 0.43 sacks, 0.5 TFL/g), Khalil Mack (69% snaps; 0.27 sacks, 0.5 TFL/g), Tony Jefferson (64% snaps; 0.2 PBU, 0.06 INT/g), R.J. Mickens (43% snaps; 0.1 PBU, 0.04 INT/g). the Chargers allows 9.2 yds/target to TEs (2nd most of 30) at a 77% catch rate."
-     ]
-    },
-    {
-     "text": "Rhamondre Stevenson 20+ rush yds",
-     "team": "NE",
-     "p": 0.787,
-     "record": "cleared in 9 of 10 games",
-     "why": [
-      "Team outlook: New England implied for 18.5 pts (22nd of 30 teams), favoured by 1.5; model expects 1.8 offensive TDs (0.6 rush / 1.2 pass).",
-      "Volume: 38 rush yds/g recently on 10.1 carries; 61% of snaps.",
-      "This line: 20+ rush yds: cleared in 9 of 10 games this season; model 79%.",
-      "NE O-line vs LAC front: New England's RBs average 4.1 yds/carry and get stuffed 18% of the time; the Chargers allows 3.9 (19th most of 30) and stuffs 18%. Front: Teair Tart (52% snaps; 0.04 sacks, 0.4 TFL/g), Dalvin Tomlinson (51% snaps; 0.27 sacks, 0.4 TFL/g), Jamaree Caldwell (51% snaps; 0.01 sacks, 0.2 TFL/g), Tuli Tuipulotu (82% snaps; 0.43 sacks, 0.5 TFL/g), Khalil Mack (69% snaps; 0.27 sacks, 0.5 TFL/g). In\u2026"
+      "Team outlook: Minnesota implied for 24.2 pts (7th of 30 teams), favoured by 7.0; model expects 2.4 offensive TDs (0.9 rush / 1.6 pass).",
+      "Volume: 63 rec yds/g on 9.0 targets (35% of team air yards); 87% of snaps.",
+      "This line: 40+ rec yds: cleared in 7 of 9 games this season; model 80%.",
+      "vs ATL secondary: AJ Terrell (92% snaps; 0.7 PBU, 0.01 INT/g), C.J. Henderson (77% snaps; 0.7 PBU, 0.04 INT/g), Mike Hughes (61% snaps; 0.5 PBU, 0.03 INT/g), Xavier Watts (99% snaps; 0.3 PBU, 0.15 INT/g), DeMarcco Hellams (32% snaps; 0.1 PBU, 0.00 INT/g). Atlanta allows 8.1 yds/target to WRs (14th most of 30), 60% catch rate, 10% of passes going 20+."
      ]
     }
    ]
   },
   {
    "kind": "Anytime TD double",
-   "matchup": "CHI @ DET",
-   "when": "Thursday 1:00 pm ET",
-   "p": 0.43,
+   "matchup": "PHI @ DAL",
+   "when": "Thursday 4:30 pm ET",
+   "p": 0.37,
    "tab": "picks",
    "intel": [
-    "Setting: Ford Field, dome, turf.",
-    "Market: total 56.5; implied points CHI 29.0, DET 27.5.",
-    "Total 56.5 (shootout).",
-    "Detroit in a pick'em, balanced offence (-0.3% PROE), implied 27.5; red zone trending run (39% last 3 vs 51% season), soft run lane (O-line vs front), soft secondary vs WRs.",
-    "Chicago in a pick'em, balanced offence (-0.5% PROE), implied 29.0; tough run lane."
+    "Setting: AT&T Stadium, closed, turf.",
+    "Market: total 49.5; implied points DAL 29.0, PHI 20.5.",
+    "Total 49.5 (shootout).",
+    "Philadelphia are 8-point underdogs, run-leaning offence (-3.4% PROE), implied 20.5; throw 82% when down 10+, soft secondary vs WRs, faces a flag-happy defence (6.7% of plays), free first downs.",
+    "Dallas are 8-point favourites, balanced offence (+0.8% PROE), implied 29.0; tough run lane, disciplined offence (4.8% flagged), extends drives (only 62% of failed 3rd downs end the drive; 3rd-down 46%)."
    ],
    "legs": [
     {
-     "text": "Jahmyr Gibbs Anytime TD",
-     "team": "DET",
-     "p": 0.719,
+     "text": "Javonte Williams Anytime TD",
+     "team": "DAL",
+     "p": 0.678,
      "why": [
-      "Team outlook: Detroit implied for 27.5 pts (5th of 30 teams), an underdog by 1.5; model expects 3.2 offensive TDs (1.1 rush / 2.1 pass).",
-      "Goal-line role: 90% of Detroit's inside-10 carries, 88% of red-zone carries, 12% of red-zone targets (21.6 carries, 5.5 targets/g). Share of team rushing TDs: 84%.",
-      "Form: 15 TDs this season, scoring in 9 of 10 games; expected TDs 1.05/g vs actual 1.46/g: running hot, so the model prices the opportunity, not the streak.",
-      "DET O-line vs CHI front: Detroit's RBs average 4.7 yds/carry and get stuffed 19% of the time; Chicago allows 4.4 (10th most of 30) and stuffs 19%. Front: Jeffery Simmons (86% snaps; 0.96 sacks, 1.3 TFL/g), Montez Sweat (72% snaps; 0.53 sacks, 0.7 TFL/g), Grady Jarrett (71% snaps; 0.09 sacks, 0.2 TFL/g), Devin Bush Jr. (91% snaps; 0.17 sacks, 0.6 TFL/g), T.J. Edwards (89% snaps; 0.05 sacks, 0.3 TFL/g). In the passing\u2026"
+      "Team outlook: Dallas implied for 29.0 pts (3rd of 30 teams), favoured by 8.5; model expects 3.6 offensive TDs (1.1 rush / 2.5 pass).",
+      "Goal-line role: 94% of Dallas's inside-10 carries, 73% of red-zone carries, 8% of red-zone targets (17.9 carries, 2.6 targets/g). Share of team rushing TDs: 82%.",
+      "Form: 12 TDs this season, scoring in 8 of 11 games; expected TDs 1.11/g vs actual 0.99/g: in line with usage.",
+      "DAL O-line vs PHI front: Dallas's RBs average 4.1 yds/carry and get stuffed 13% of the time; Philadelphia allows 3.8 (22nd most of 30) and stuffs 20%. Front: Jalen Carter (85% snaps; 0.48 sacks, 0.7 TFL/g), Moro Ojomo (62% snaps; 0.09 sacks, 0.4 TFL/g), Byron Young (30% snaps; 0.28 sacks, 0.3 TFL/g), Nolan Smith (61% snaps; 0.58 sacks, 0.6 TFL/g), Jalyx Hunt (55% snaps; 0.15 sacks, 0.3 TFL/g). In the passing game\u2026"
      ]
     },
     {
-     "text": "D'Andre Swift Anytime TD",
-     "team": "CHI",
-     "p": 0.594,
+     "text": "CeeDee Lamb Anytime TD",
+     "team": "DAL",
+     "p": 0.556,
      "why": [
-      "Team outlook: Chicago implied for 29.0 pts (3rd of 30 teams), favoured by 1.5; model expects 3.6 offensive TDs (1.4 rush / 2.2 pass).",
-      "Goal-line role: 58% of Chicago's inside-10 carries, 55% of red-zone carries, 7% of red-zone targets (16.3 carries, 2.7 targets/g). Share of team rushing TDs: 52%.",
-      "Form: 11 TDs this season, scoring in 6 of 10 games; expected TDs 0.87/g vs actual 1.06/g: in line with usage.",
-      "CHI O-line vs DET front: Chicago's RBs average 3.9 yds/carry and get stuffed 16% of the time; Detroit allows 3.6 (28th most of 30) and stuffs 19%. Front: Alim McNeill (76% snaps; 0.48 sacks, 0.6 TFL/g), D.J. Wonnum (63% snaps; 0.62 sacks, 0.6 TFL/g), Derrick Moore (44% snaps; 0.62 sacks, 0.5 TFL/g), Derrick Barnes (84% snaps; 0.18 sacks, 0.5 TFL/g), Malcolm Rodriguez (46% snaps; 0.11 sacks, 0.1 TFL/g). In the\u2026"
+      "Team outlook: Dallas implied for 29.0 pts (3rd of 30 teams), favoured by 8.5; model expects 3.6 offensive TDs (1.1 rush / 2.5 pass).",
+      "Red-zone role: 34% of Dallas's red-zone targets, 41% of end-zone targets (12.3 targets/g, 83% snaps). Share of team receiving TDs: 37%.",
+      "Form: 9 TDs this season, scoring in 7 of 11 games; expected TDs 0.78/g vs actual 0.79/g: in line with usage.",
+      "vs PHI secondary: Cooper DeJean (98% snaps; 0.7 PBU, 0.10 INT/g), Quinyon Mitchell (92% snaps; 1.2 PBU, 0.14 INT/g), Riq Woolen (86% snaps; 0.9 PBU, 0.02 INT/g), Andrew Mukuba (98% snaps; 0.3 PBU, 0.10 INT/g), Marcus Epps (69% snaps; 0.1 PBU, 0.00 INT/g). Philadelphia allows 8.0 yds/target to WRs (15th most of 30), 59% catch rate, 10% of passes going 20+."
      ]
     }
    ]
@@ -320,24 +332,13 @@
    "kind": "Anytime TD 4-leg",
    "matchup": "Across the slate",
    "when": "Week 12",
-   "p": 0.194,
+   "p": 0.172,
    "tab": "picks",
    "legs": [
     {
-     "text": "Jahmyr Gibbs Anytime TD",
-     "team": "DET",
-     "p": 0.719,
-     "why": [
-      "Team outlook: Detroit implied for 27.5 pts (5th of 30 teams), an underdog by 1.5; model expects 3.2 offensive TDs (1.1 rush / 2.1 pass).",
-      "Goal-line role: 90% of Detroit's inside-10 carries, 88% of red-zone carries, 12% of red-zone targets (21.6 carries, 5.5 targets/g). Share of team rushing TDs: 84%.",
-      "Form: 15 TDs this season, scoring in 9 of 10 games; expected TDs 1.05/g vs actual 1.46/g: running hot, so the model prices the opportunity, not the streak.",
-      "DET O-line vs CHI front: Detroit's RBs average 4.7 yds/carry and get stuffed 19% of the time; Chicago allows 4.4 (10th most of 30) and stuffs 19%. Front: Jeffery Simmons (86% snaps; 0.96 sacks, 1.3 TFL/g), Montez Sweat (72% snaps; 0.53 sacks, 0.7 TFL/g), Grady Jarrett (71% snaps; 0.09 sacks, 0.2 TFL/g), Devin Bush Jr. (91% snaps; 0.17 sacks, 0.6 TFL/g), T.J. Edwards (89% snaps; 0.05 sacks, 0.3 TFL/g). In the passing\u2026"
-     ]
-    },
-    {
      "text": "Javonte Williams Anytime TD",
      "team": "DAL",
-     "p": 0.67,
+     "p": 0.678,
      "why": [
       "Team outlook: Dallas implied for 29.0 pts (3rd of 30 teams), favoured by 8.5; model expects 3.6 offensive TDs (1.1 rush / 2.5 pass).",
       "Goal-line role: 94% of Dallas's inside-10 carries, 73% of red-zone carries, 8% of red-zone targets (17.9 carries, 2.6 targets/g). Share of team rushing TDs: 82%.",
@@ -348,22 +349,33 @@
     {
      "text": "Bucky Irving Anytime TD",
      "team": "TB",
-     "p": 0.648,
+     "p": 0.653,
      "why": [
-      "Team outlook: Tampa Bay implied for 23.2 pts (12th of 30 teams), favoured by 3.0; model expects 2.5 offensive TDs (1.0 rush / 1.5 pass).",
+      "Team outlook: Tampa Bay implied for 23.2 pts (11th of 30 teams), favoured by 3.0; model expects 2.5 offensive TDs (1.0 rush / 1.5 pass).",
       "Goal-line role: 72% of Tampa Bay's inside-10 carries, 76% of red-zone carries, 16% of red-zone targets (19.8 carries, 3.1 targets/g). Share of team rushing TDs: 75%.",
-      "Form: 9 TDs this season, scoring in 6 of 10 games; expected TDs 0.81/g vs actual 1.05/g: in line with usage.",
+      "Form: 9 TDs this season, scoring in 6 of 10 games; expected TDs 0.81/g vs actual 1.05/g: running hot, so the model prices the opportunity, not the streak.",
       "TB O-line vs CAR front: Tampa Bay's RBs average 4.4 yds/carry and get stuffed 17% of the time; Carolina allows 4.4 (11th most of 30) and stuffs 15%. Front: Derrick Brown (74% snaps; 0.17 sacks, 0.3 TFL/g), Tershawn Wharton (64% snaps; 0.13 sacks, 0.2 TFL/g), Lee Hunter (33% snaps; 0.00 sacks, 0.3 TFL/g), Devin Lloyd (88% snaps; 0.20 sacks, 0.3 TFL/g), Tyrel Dodson (83% snaps; 0.14 sacks, 0.3 TFL/g). In the passing\u2026"
+     ]
+    },
+    {
+     "text": "James Cook Anytime TD",
+     "team": "BUF",
+     "p": 0.623,
+     "why": [
+      "Team outlook: Buffalo implied for 24.2 pts (7th of 30 teams), favoured by 3.0; model expects 2.8 offensive TDs (1.2 rush / 1.6 pass).",
+      "Goal-line role: 55% of Buffalo's inside-10 carries, 61% of red-zone carries, 7% of red-zone targets (21.5 carries, 1.9 targets/g). Share of team rushing TDs: 50%.",
+      "Form: 10 TDs this season, scoring in 9 of 10 games; expected TDs 0.74/g vs actual 0.99/g: running hot, so the model prices the opportunity, not the streak.",
+      "BUF O-line vs KC front: Buffalo's RBs average 4.9 yds/carry and get stuffed 11% of the time; Kansas City allows 3.7 (24th most of 30) and stuffs 19%. Front: George Karlaftis III (78% snaps; 0.84 sacks, 1.1 TFL/g), Chris Jones (70% snaps; 0.47 sacks, 0.5 TFL/g), Ashton Gillotte (59% snaps; 0.29 sacks, 0.7 TFL/g), Nick Bolton (94% snaps; 0.03 sacks, 0.5 TFL/g), Drue Tranquill (83% snaps; 0.02 sacks, 0.4 TFL/g). In the\u2026"
      ]
     },
     {
      "text": "Christian McCaffrey Anytime TD",
      "team": "SF",
-     "p": 0.62,
+     "p": 0.623,
      "why": [
-      "Team outlook: San Francisco implied for 23.5 pts (11th of 30 teams), favoured by 2.5; model expects 2.6 offensive TDs (1.0 rush / 1.6 pass).",
+      "Team outlook: San Francisco implied for 23.2 pts (11th of 30 teams), favoured by 3.0; model expects 2.6 offensive TDs (1.0 rush / 1.6 pass).",
       "Goal-line role: 81% of San Francisco's inside-10 carries, 80% of red-zone carries, 20% of red-zone targets (13.2 carries, 4.8 targets/g). Share of team rushing TDs: 72%.",
-      "Form: 14 TDs this season, scoring in 9 of 10 games; expected TDs 0.90/g vs actual 1.54/g: running hot, so the model prices the opportunity, not the streak.",
+      "Form: 14 TDs this season, scoring in 9 of 10 games; expected TDs 0.89/g vs actual 1.54/g: running hot, so the model prices the opportunity, not the streak.",
       "SF O-line vs SEA front: San Francisco's RBs average 4.2 yds/carry and get stuffed 15% of the time; Seattle allows 3.2 (30th most of 30) and stuffs 20%. Front: Byron Murphy (70% snaps; 0.51 sacks, 0.7 TFL/g), Jarran Reed (48% snaps; 0.10 sacks, 0.3 TFL/g), Rylie Mills (26% snaps; 0.04 sacks, 0.1 TFL/g), Ernest Jones (98% snaps; 0.19 sacks, 0.3 TFL/g), Drake Thomas (74% snaps; 0.08 sacks, 0.4 TFL/g). In the passing\u2026"
      ]
     }
