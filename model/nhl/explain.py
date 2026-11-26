@@ -28,10 +28,20 @@ class Explainer:
 
     def __call__(self, leg: dict) -> list[str]:
         if leg.get("kind") == "game":
-            return self.game_line(leg)
-        if leg["market"] == "saves":
-            return self.saves(leg)
-        return self.skater(leg)
+            out = self.game_line(leg)
+        elif leg["market"] == "saves":
+            out = self.saves(leg)
+        else:
+            out = self.skater(leg)
+        if leg.get("kind") != "game" and leg.get("matchup"):
+            f = leg.get("matchup_factor", 1.0)
+            what = {"strong": "strong", "neutral": "neutral", "weak": "weak"}[leg["matchup"]]
+            rung = leg.get("rung_reason") or ("floor rung" if what == "neutral" else "")
+            out.insert(1, f"Matchup: {what} (tonight's opponent, rink and script move his projection x{f:.2f} from his own baseline)"
+                          + (f"; {rung}" if rung else ""))
+        if leg.get("price") is not None:
+            out.append(f"Listed at {leg.get('book') or 'the book'} at {leg['price']:+.0f} for this rung; the price is not an input to the pick")
+        return out
 
     def skater(self, leg: dict) -> list[str]:
         r, m, S = self.rows[leg["player_id"]], leg["market"], self.S
@@ -122,9 +132,6 @@ class Explainer:
             tot = S.total()
             out.append(f"Total goals: {100 * (tot <= 4).mean():.0f}% four or fewer, {100 * ((tot == 5) | (tot == 6)).mean():.0f}% five or six, "
                        f"{100 * (tot >= 7).mean():.0f}% seven or more. In backtest the model's totals were no better than the base rate")
-        g = self.priced.get((leg["market"], leg["side"], float(leg["line"])))
-        if g:
-            out.append(f"Listed at {g['book']} at {g['price']:+.0f}: the price only confirms the line and says what it pays; it is not an input to the model")
         out.append(f"Hit in {100 * leg['p']:.1f}% of {self.n:,} simulated games" + ("" if leg.get("rung_verified") else "; the line is not checked at the book"))
         return out
 
