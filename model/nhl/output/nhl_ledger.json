@@ -237,7 +237,9 @@
       "Hit in 31.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.3121,
@@ -256,8 +258,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "CAR 3, TBL 1 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -286,7 +293,9 @@
       "Hit in 88.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": null,
+     "result": "void"
     },
     {
      "label": "Jansen Harkins 1+ hits",
@@ -311,7 +320,9 @@
       "Hit in 87.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": null,
+     "result": "void"
     },
     {
      "label": "Over 4.5 goals",
@@ -335,7 +346,9 @@
       "Hit in 80.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 4,
+     "result": "lost"
     },
     {
      "label": "Jaccob Slavin 1+ blocked shots",
@@ -360,7 +373,9 @@
       "Hit in 77.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.4858,
@@ -381,8 +396,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 1,
+   "legs_counted": 2,
+   "final": "CAR 3, TBL 1 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -411,7 +431,9 @@
       "Hit in 89.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": null,
+     "result": "void"
     },
     {
      "label": "Sam O'Reilly 1+ hits",
@@ -437,7 +459,9 @@
       "Hit in 83.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -461,7 +485,9 @@
       "Hit in 79.5% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 4,
+     "result": "lost"
     },
     {
      "label": "Jaccob Slavin 1+ blocked shots",
@@ -486,7 +512,9 @@
       "Hit in 78.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Sean Walker 1+ blocked shots",
@@ -512,7 +540,9 @@
       "Hit in 76.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "CAR +1.5 puck line",
@@ -536,7 +566,9 @@
       "Hit in 74.9% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": "margin -2 for TBL",
+     "result": "won"
     }
    ],
    "chance": 0.2802,
@@ -558,8 +590,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 4,
+   "legs_counted": 5,
+   "final": "CAR 3, TBL 1 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -588,7 +625,9 @@
       "Hit in 89.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": null,
+     "result": "void"
     },
     {
      "label": "Jordan Staal 1+ hits",
@@ -614,7 +653,9 @@
       "Hit in 84.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Sam O'Reilly 1+ hits",
@@ -640,7 +681,9 @@
       "Hit in 83.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -664,7 +707,9 @@
       "Hit in 79.5% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 4,
+     "result": "lost"
     },
     {
      "label": "Jaccob Slavin 1+ blocked shots",
@@ -689,7 +734,9 @@
       "Hit in 78.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Erik Cernak 1+ blocked shots",
@@ -714,7 +761,9 @@
       "Hit in 77.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": null,
+     "result": "void"
     },
     {
      "label": "Sean Walker 1+ blocked shots",
@@ -740,7 +789,9 @@
       "Hit in 76.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "CAR +1.5 puck line",
@@ -764,7 +815,9 @@
       "Hit in 74.9% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CAR @ TBL",
-     "game_id": 2026020388
+     "game_id": 2026020388,
+     "actual": "margin -2 for TBL",
+     "result": "won"
     }
    ],
    "chance": 0.1822,
@@ -786,8 +839,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 4,
+   "legs_counted": 6,
+   "final": "CAR 3, TBL 1 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -817,7 +875,9 @@
       "Hit in 26.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Tommy Novak anytime goal scorer",
@@ -842,7 +902,9 @@
       "Hit in 23.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.0614,
@@ -861,8 +923,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 2,
+   "legs_counted": 2,
+   "final": "CGY 6, PIT 3 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -892,7 +959,9 @@
       "Hit in 84.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Ben Jones 1+ hits",
@@ -917,7 +986,9 @@
       "Hit in 81.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -941,7 +1012,9 @@
       "Hit in 80.7% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 9,
+     "result": "won"
     },
     {
      "label": "Zach Whitecloud 1+ blocked shots",
@@ -967,7 +1040,9 @@
       "Hit in 80.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.4476,
@@ -988,8 +1063,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "CGY 6, PIT 3 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -1019,7 +1099,9 @@
       "Hit in 84.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Ben Jones 1+ hits",
@@ -1044,7 +1126,9 @@
       "Hit in 81.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -1068,7 +1152,9 @@
       "Hit in 80.7% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 9,
+     "result": "won"
     },
     {
      "label": "Zach Whitecloud 1+ blocked shots",
@@ -1094,7 +1180,9 @@
       "Hit in 80.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "PIT +1.5 puck line",
@@ -1118,7 +1206,9 @@
       "Hit in 79.4% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": "margin -3 for PIT",
+     "result": "lost"
     },
     {
      "label": "Trevor van Riemsdyk 1+ blocked shots",
@@ -1143,7 +1233,9 @@
       "Hit in 77.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.2836,
@@ -1165,8 +1257,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 5,
+   "legs_counted": 6,
+   "final": "CGY 6, PIT 3 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -1196,7 +1293,9 @@
       "Hit in 84.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Brennan Othmann 1+ hits",
@@ -1221,7 +1320,9 @@
       "Hit in 81.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Ben Jones 1+ hits",
@@ -1246,7 +1347,9 @@
       "Hit in 81.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -1270,7 +1373,9 @@
       "Hit in 80.7% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 9,
+     "result": "won"
     },
     {
      "label": "Zach Whitecloud 1+ blocked shots",
@@ -1296,7 +1401,9 @@
       "Hit in 80.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "PIT +1.5 puck line",
@@ -1320,7 +1427,9 @@
       "Hit in 79.4% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": "margin -3 for PIT",
+     "result": "lost"
     },
     {
      "label": "Trevor van Riemsdyk 1+ blocked shots",
@@ -1345,7 +1454,9 @@
       "Hit in 77.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Jake Middleton 1+ blocked shots",
@@ -1371,7 +1482,9 @@
       "Hit in 76.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.1782,
@@ -1393,8 +1506,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 7,
+   "legs_counted": 8,
+   "final": "CGY 6, PIT 3 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -1424,7 +1542,9 @@
       "Hit in 36.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Timo Meier anytime goal scorer",
@@ -1450,7 +1570,9 @@
       "Hit in 32.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.1123,
@@ -1469,8 +1591,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 2,
+   "final": "NJD 3, CBJ 2 (SO)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -1499,7 +1626,9 @@
       "Hit in 88.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 24,
+     "result": "won"
     },
     {
      "label": "Jack Hughes 2+ shots on goal",
@@ -1525,7 +1654,9 @@
       "Hit in 82.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -1549,7 +1680,9 @@
       "Hit in 80.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Timo Meier 2+ shots on goal",
@@ -1575,7 +1708,9 @@
       "Hit in 80.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.5001,
@@ -1596,8 +1731,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "NJD 3, CBJ 2 (SO)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -1626,7 +1766,9 @@
       "Hit in 88.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 24,
+     "result": "won"
     },
     {
      "label": "Jack Hughes 2+ shots on goal",
@@ -1652,7 +1794,9 @@
       "Hit in 82.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "NJD +1.5 puck line",
@@ -1676,7 +1820,9 @@
       "Hit in 81.1% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": "margin -1 for CBJ",
+     "result": "won"
     },
     {
      "label": "Matthew Knies 1+ hits",
@@ -1702,7 +1848,9 @@
       "Hit in 81.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -1726,7 +1874,9 @@
       "Hit in 80.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Timo Meier 2+ shots on goal",
@@ -1752,7 +1902,9 @@
       "Hit in 80.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.3273,
@@ -1775,8 +1927,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 6,
+   "legs_counted": 6,
+   "final": "NJD 3, CBJ 2 (SO)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -1805,7 +1962,9 @@
       "Hit in 88.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 24,
+     "result": "won"
     },
     {
      "label": "Jack Hughes 2+ shots on goal",
@@ -1831,7 +1990,9 @@
       "Hit in 82.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "NJD +1.5 puck line",
@@ -1855,7 +2016,9 @@
       "Hit in 81.1% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": "margin -1 for CBJ",
+     "result": "won"
     },
     {
      "label": "Matthew Knies 1+ hits",
@@ -1881,7 +2044,9 @@
       "Hit in 81.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Adam Fantilli 1+ hits",
@@ -1907,7 +2072,9 @@
       "Hit in 80.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -1931,7 +2098,9 @@
       "Hit in 80.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Timo Meier 2+ shots on goal",
@@ -1957,7 +2126,9 @@
       "Hit in 80.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Brett Pesce 1+ blocked shots",
@@ -1982,7 +2153,9 @@
       "Hit in 79.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.2129,
@@ -2006,8 +2179,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 8,
+   "legs_counted": 8,
+   "final": "NJD 3, CBJ 2 (SO)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -2037,7 +2215,9 @@
       "Hit in 33.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.3321,
@@ -2056,8 +2236,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "NYR 1, BUF 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "closer",
@@ -2086,7 +2271,9 @@
       "Hit in 76.7% of 20,000 simulated games"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": "margin +4 for BUF",
+     "result": "lost"
     }
    ],
    "chance": 0.7673,
@@ -2106,8 +2293,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "NYR 1, BUF 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -2136,7 +2328,9 @@
       "Hit in 89.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Peyton Krebs 1+ hits",
@@ -2162,7 +2356,9 @@
       "Hit in 86.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Conor Timmins 1+ blocked shots",
@@ -2188,7 +2384,9 @@
       "Hit in 82.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -2212,7 +2410,9 @@
       "Hit in 80.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 6,
+     "result": "won"
     }
    ],
    "chance": 0.5221,
@@ -2233,8 +2433,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "NYR 1, BUF 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -2263,7 +2468,9 @@
       "Hit in 89.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Peyton Krebs 1+ hits",
@@ -2289,7 +2496,9 @@
       "Hit in 86.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Conor Timmins 1+ blocked shots",
@@ -2315,7 +2524,9 @@
       "Hit in 82.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -2339,7 +2550,9 @@
       "Hit in 80.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "Tage Thompson 2+ shots on goal",
@@ -2365,7 +2578,9 @@
       "Hit in 80.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "NYR +1.5 puck line",
@@ -2390,7 +2605,9 @@
       "Hit in 76.7% of 20,000 simulated games"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": "margin +4 for BUF",
+     "result": "lost"
     }
    ],
    "chance": 0.3246,
@@ -2413,8 +2630,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 5,
+   "legs_counted": 6,
+   "final": "NYR 1, BUF 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -2443,7 +2665,9 @@
       "Hit in 89.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Peyton Krebs 1+ hits",
@@ -2469,7 +2693,9 @@
       "Hit in 86.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Noah Laba 1+ hits",
@@ -2494,7 +2720,9 @@
       "Hit in 84.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Conor Timmins 1+ blocked shots",
@@ -2520,7 +2748,9 @@
       "Hit in 82.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -2544,7 +2774,9 @@
       "Hit in 80.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "Tage Thompson 2+ shots on goal",
@@ -2570,7 +2802,9 @@
       "Hit in 80.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "NYR +1.5 puck line",
@@ -2595,7 +2829,9 @@
       "Hit in 76.7% of 20,000 simulated games"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": "margin +4 for BUF",
+     "result": "lost"
     },
     {
      "label": "Marcus Pettersson 1+ blocked shots",
@@ -2620,7 +2856,9 @@
       "Hit in 74.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.2087,
@@ -2643,8 +2881,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 7,
+   "legs_counted": 8,
+   "final": "NYR 1, BUF 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -2674,7 +2917,9 @@
       "Hit in 32.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Shane Pinto anytime goal scorer",
@@ -2700,7 +2945,9 @@
       "Hit in 30.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.0989,
@@ -2719,8 +2966,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 2,
+   "final": "OTT 3, FLA 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "closer",
@@ -2749,7 +3001,9 @@
       "Hit in 72.0% of 20,000 simulated games"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": "margin +2 for FLA",
+     "result": "lost"
     }
    ],
    "chance": 0.7202,
@@ -2769,8 +3023,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "OTT 3, FLA 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -2799,7 +3058,9 @@
       "Hit in 87.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Garnet Hathaway 2+ hits",
@@ -2824,7 +3085,9 @@
       "Hit in 84.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Jake Sanderson 1+ blocked shots",
@@ -2850,7 +3113,9 @@
       "Hit in 80.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Thomas Chabot 1+ blocked shots",
@@ -2876,7 +3141,9 @@
       "Hit in 79.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.4782,
@@ -2896,8 +3163,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "OTT 3, FLA 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -2926,7 +3198,9 @@
       "Hit in 87.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Garnet Hathaway 2+ hits",
@@ -2951,7 +3225,9 @@
       "Hit in 84.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Jake Sanderson 1+ blocked shots",
@@ -2977,7 +3253,9 @@
       "Hit in 80.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Thomas Chabot 1+ blocked shots",
@@ -3003,7 +3281,9 @@
       "Hit in 79.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -3027,7 +3307,9 @@
       "Hit in 77.8% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 8,
+     "result": "won"
     },
     {
      "label": "Brady Tkachuk 2+ shots on goal",
@@ -3053,7 +3335,9 @@
       "Hit in 77.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.3011,
@@ -3075,8 +3359,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 4,
+   "legs_counted": 6,
+   "final": "OTT 3, FLA 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -3105,7 +3394,9 @@
       "Hit in 87.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Garnet Hathaway 2+ hits",
@@ -3130,7 +3421,9 @@
       "Hit in 84.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Dylan Cozens 1+ hits",
@@ -3156,7 +3449,9 @@
       "Hit in 83.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Jake Sanderson 1+ blocked shots",
@@ -3182,7 +3477,9 @@
       "Hit in 80.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Thomas Chabot 1+ blocked shots",
@@ -3208,7 +3505,9 @@
       "Hit in 79.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -3232,7 +3531,9 @@
       "Hit in 77.8% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 8,
+     "result": "won"
     },
     {
      "label": "Brady Tkachuk 2+ shots on goal",
@@ -3258,7 +3559,9 @@
       "Hit in 77.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Tyler Kleven 1+ blocked shots",
@@ -3283,7 +3586,9 @@
       "Hit in 74.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.196,
@@ -3305,8 +3610,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 6,
+   "legs_counted": 8,
+   "final": "OTT 3, FLA 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -3336,7 +3646,9 @@
       "Hit in 31.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.3108,
@@ -3355,8 +3667,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 1,
+   "legs_counted": 1,
+   "final": "PHI 3, WSH 7 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -3386,7 +3703,9 @@
       "Hit in 84.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Martin Feh\u00e9rv\u00e1ry 1+ blocked shots",
@@ -3412,7 +3731,9 @@
       "Hit in 82.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Travis Konecny 1+ hits",
@@ -3437,7 +3758,9 @@
       "Hit in 81.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -3461,7 +3784,9 @@
       "Hit in 81.3% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 10,
+     "result": "won"
     }
    ],
    "chance": 0.4627,
@@ -3482,8 +3807,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "PHI 3, WSH 7 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -3513,7 +3843,9 @@
       "Hit in 84.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Martin Feh\u00e9rv\u00e1ry 1+ blocked shots",
@@ -3539,7 +3871,9 @@
       "Hit in 82.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Travis Konecny 1+ hits",
@@ -3564,7 +3898,9 @@
       "Hit in 81.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -3588,7 +3924,9 @@
       "Hit in 81.3% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 10,
+     "result": "won"
     },
     {
      "label": "Nick Seeler 1+ blocked shots",
@@ -3613,7 +3951,9 @@
       "Hit in 79.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "WSH +1.5 puck line",
@@ -3637,7 +3977,9 @@
       "Hit in 77.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": "margin +4 for WSH",
+     "result": "won"
     }
    ],
    "chance": 0.2902,
@@ -3659,8 +4001,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 6,
+   "legs_counted": 6,
+   "final": "PHI 3, WSH 7 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -3690,7 +4037,9 @@
       "Hit in 84.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Martin Feh\u00e9rv\u00e1ry 1+ blocked shots",
@@ -3716,7 +4065,9 @@
       "Hit in 82.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Travis Konecny 1+ hits",
@@ -3741,7 +4092,9 @@
       "Hit in 81.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -3765,7 +4118,9 @@
       "Hit in 81.3% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 10,
+     "result": "won"
     },
     {
      "label": "Travis Sanheim 1+ blocked shots",
@@ -3790,7 +4145,9 @@
       "Hit in 79.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Nick Seeler 1+ blocked shots",
@@ -3815,7 +4172,9 @@
       "Hit in 79.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Owen Tippett 1+ hits",
@@ -3840,7 +4199,9 @@
       "Hit in 79.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "WSH +1.5 puck line",
@@ -3864,7 +4225,9 @@
       "Hit in 77.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "PHI @ WSH",
-     "game_id": 2026020392
+     "game_id": 2026020392,
+     "actual": "margin +4 for WSH",
+     "result": "won"
     }
    ],
    "chance": 0.1857,
@@ -3886,8 +4249,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 8,
+   "legs_counted": 8,
+   "final": "PHI 3, WSH 7 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -3916,7 +4284,9 @@
       "Hit in 31.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.3166,
@@ -3935,8 +4305,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "STL 2, NYI 3 (SO)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -3965,7 +4340,9 @@
       "Hit in 89.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Dylan Holloway 1+ hits",
@@ -3991,7 +4368,9 @@
       "Hit in 87.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -4015,7 +4394,9 @@
       "Hit in 78.1% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Colton Parayko 1+ blocked shots",
@@ -4040,7 +4421,9 @@
       "Hit in 77.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.4765,
@@ -4061,8 +4444,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "STL 2, NYI 3 (SO)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -4091,7 +4479,9 @@
       "Hit in 89.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Dylan Holloway 1+ hits",
@@ -4117,7 +4507,9 @@
       "Hit in 87.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -4141,7 +4533,9 @@
       "Hit in 78.1% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Colton Parayko 1+ blocked shots",
@@ -4166,7 +4560,9 @@
       "Hit in 77.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Matthew Schaefer 2+ shots on goal",
@@ -4191,7 +4587,9 @@
       "Hit in 76.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Bo Horvat 2+ shots on goal",
@@ -4216,7 +4614,9 @@
       "Hit in 76.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.3004,
@@ -4238,8 +4638,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 6,
+   "legs_counted": 6,
+   "final": "STL 2, NYI 3 (SO)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -4268,7 +4673,9 @@
       "Hit in 89.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Dylan Holloway 1+ hits",
@@ -4294,7 +4701,9 @@
       "Hit in 87.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Alexey Toropchenko 1+ hits",
@@ -4319,7 +4728,9 @@
       "Hit in 86.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -4343,7 +4754,9 @@
       "Hit in 78.1% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Colton Parayko 1+ blocked shots",
@@ -4368,7 +4781,9 @@
       "Hit in 77.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "NYI +1.5 puck line",
@@ -4392,7 +4807,9 @@
       "Hit in 76.9% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": "margin +1 for NYI",
+     "result": "won"
     },
     {
      "label": "Matthew Schaefer 2+ shots on goal",
@@ -4417,7 +4834,9 @@
       "Hit in 76.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Bo Horvat 2+ shots on goal",
@@ -4442,7 +4861,9 @@
       "Hit in 76.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "STL @ NYI",
-     "game_id": 2026020390
+     "game_id": 2026020390,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.1988,
@@ -4465,8 +4886,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 8,
+   "legs_counted": 8,
+   "final": "STL 2, NYI 3 (SO)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -4496,7 +4922,9 @@
       "Hit in 34.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Kyle Connor anytime goal scorer",
@@ -4522,7 +4950,9 @@
       "Hit in 34.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.1168,
@@ -4541,8 +4971,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 1,
+   "legs_counted": 2,
+   "final": "WPG 4, BOS 2 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -4571,7 +5006,9 @@
       "Hit in 88.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Neal Pionk 1+ hits",
@@ -4597,7 +5034,9 @@
       "Hit in 85.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Kyle Connor 2+ shots on goal",
@@ -4623,7 +5062,9 @@
       "Hit in 82.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "David Pastrnak 2+ shots on goal",
@@ -4649,7 +5090,9 @@
       "Hit in 80.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 1,
+     "result": "lost"
     }
    ],
    "chance": 0.5061,
@@ -4669,8 +5112,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "WPG 4, BOS 2 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -4699,7 +5147,9 @@
       "Hit in 88.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Cole Koepke 1+ hits",
@@ -4724,7 +5174,9 @@
       "Hit in 85.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Kyle Connor 2+ shots on goal",
@@ -4750,7 +5202,9 @@
       "Hit in 82.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "David Pastrnak 2+ shots on goal",
@@ -4776,7 +5230,9 @@
       "Hit in 80.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 1,
+     "result": "lost"
     },
     {
      "label": "Over 4.5 goals",
@@ -4800,7 +5256,9 @@
       "Hit in 80.1% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "BOS +1.5 puck line",
@@ -4824,7 +5282,9 @@
       "Hit in 77.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": "margin -2 for BOS",
+     "result": "lost"
     }
    ],
    "chance": 0.3211,
@@ -4846,8 +5306,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 4,
+   "legs_counted": 6,
+   "final": "WPG 4, BOS 2 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -4876,7 +5341,9 @@
       "Hit in 88.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Neal Pionk 1+ hits",
@@ -4902,7 +5369,9 @@
       "Hit in 85.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Cole Koepke 1+ hits",
@@ -4927,7 +5396,9 @@
       "Hit in 85.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Kyle Connor 2+ shots on goal",
@@ -4953,7 +5424,9 @@
       "Hit in 82.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "David Pastrnak 2+ shots on goal",
@@ -4979,7 +5452,9 @@
       "Hit in 80.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 1,
+     "result": "lost"
     },
     {
      "label": "Over 4.5 goals",
@@ -5003,7 +5478,9 @@
       "Hit in 80.1% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "BOS +1.5 puck line",
@@ -5027,7 +5504,9 @@
       "Hit in 77.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": "margin -2 for BOS",
+     "result": "lost"
     },
     {
      "label": "Will Borgen 1+ blocked shots",
@@ -5052,7 +5531,9 @@
       "Hit in 71.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.2041,
@@ -5075,8 +5556,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 6,
+   "legs_counted": 8,
+   "final": "WPG 4, BOS 2 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "lotto",
@@ -5106,7 +5592,9 @@
       "Hit in 60.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NJD @ CBJ",
-     "game_id": 2026020393
+     "game_id": 2026020393,
+     "actual": 2,
+     "result": "lost"
     },
     {
      "label": "Macklin Celebrini 3+ shots on goal",
@@ -5132,7 +5620,9 @@
       "Hit in 60.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 2,
+     "result": "lost"
     },
     {
      "label": "Matvei Gridin 2+ shots on goal",
@@ -5158,7 +5648,9 @@
       "Hit in 59.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "CGY @ PIT",
-     "game_id": 2026020391
+     "game_id": 2026020391,
+     "actual": 1,
+     "result": "lost"
     },
     {
      "label": "Zach Benson 1+ points",
@@ -5183,7 +5675,9 @@
       "Hit in 59.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "J.T. Miller 2+ shots on goal",
@@ -5208,7 +5702,9 @@
       "Hit in 59.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NYR @ BUF",
-     "game_id": 2026020387
+     "game_id": 2026020387,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Steven Stamkos 2+ shots on goal",
@@ -5233,7 +5729,9 @@
       "Hit in 59.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 1,
+     "result": "lost"
     },
     {
      "label": "Matt Boldy 1+ points",
@@ -5257,7 +5755,9 @@
       "Hit in 59.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "BOS moneyline",
@@ -5281,7 +5781,9 @@
       "Hit in 59.8% of 20,000 simulated games"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": "WPG 4, BOS 2",
+     "result": "lost"
     }
    ],
    "chance": 0.01673,
@@ -5326,8 +5828,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 2,
+   "legs_counted": 8,
+   "final": "NJD 3, CBJ 2 (SO); SJS 0, ANA 7 (REG); CGY 6, PIT 3 (REG); NYR 1, BUF 5 (REG); NSH 3, DAL 1 (REG); UTA 4, MIN 3 (REG); WPG 4, BOS 2 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "multi2",
@@ -5356,7 +5863,9 @@
       "Hit in 88.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Neal Pionk 1+ hits",
@@ -5382,7 +5891,9 @@
       "Hit in 85.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Kyle Connor 2+ shots on goal",
@@ -5408,7 +5919,9 @@
       "Hit in 82.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Tim Washe 1+ hits",
@@ -5434,7 +5947,9 @@
       "Hit in 87.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 7,
+     "result": "won"
     },
     {
      "label": "Ty Dellandrea 1+ hits",
@@ -5460,7 +5975,9 @@
       "Hit in 85.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -5484,7 +6001,9 @@
       "Hit in 82.7% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 7,
+     "result": "won"
     }
    ],
    "chance": 0.38542,
@@ -5512,8 +6031,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "won",
+   "legs_won": 6,
+   "legs_counted": 6,
+   "final": "WPG 4, BOS 2 (REG); SJS 0, ANA 7 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "multi3",
@@ -5542,7 +6066,9 @@
       "Hit in 88.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Neal Pionk 1+ hits",
@@ -5568,7 +6094,9 @@
       "Hit in 85.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Kyle Connor 2+ shots on goal",
@@ -5594,7 +6122,9 @@
       "Hit in 82.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "WPG @ BOS",
-     "game_id": 2026020386
+     "game_id": 2026020386,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Tim Washe 1+ hits",
@@ -5620,7 +6150,9 @@
       "Hit in 87.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 7,
+     "result": "won"
     },
     {
      "label": "Ty Dellandrea 1+ hits",
@@ -5646,7 +6178,9 @@
       "Hit in 85.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -5670,7 +6204,9 @@
       "Hit in 82.7% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 7,
+     "result": "won"
     },
     {
      "label": "Radko Gudas 1+ hits",
@@ -5695,7 +6231,9 @@
       "Hit in 87.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Garnet Hathaway 2+ hits",
@@ -5720,7 +6258,9 @@
       "Hit in 84.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Jake Sanderson 1+ blocked shots",
@@ -5746,7 +6286,9 @@
       "Hit in 80.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "OTT @ FLA",
-     "game_id": 2026020389
+     "game_id": 2026020389,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.22792,
@@ -5777,8 +6319,13 @@
    "start_utc": "2026-11-26T00:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 8,
+   "legs_counted": 9,
+   "final": "WPG 4, BOS 2 (REG); SJS 0, ANA 7 (REG); OTT 3, FLA 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -5808,7 +6355,9 @@
       "Hit in 40.8% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Viktor Arvidsson anytime goal scorer",
@@ -5834,7 +6383,9 @@
       "Hit in 39.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.1582,
@@ -5853,8 +6404,13 @@
    "start_utc": "2026-11-26T00:30:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 1,
+   "legs_counted": 2,
+   "final": "VAN 1, DET 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -5883,7 +6439,9 @@
       "Hit in 88.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Keegan Kolesar 1+ hits",
@@ -5908,7 +6466,9 @@
       "Hit in 88.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "DET +1.5 puck line",
@@ -5932,7 +6492,9 @@
       "Hit in 85.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": "margin +4 for DET",
+     "result": "won"
     },
     {
      "label": "Alex DeBrincat 2+ shots on goal",
@@ -5958,7 +6520,9 @@
       "Hit in 84.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.5629,
@@ -5979,8 +6543,13 @@
    "start_utc": "2026-11-26T00:30:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "VAN 1, DET 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -6009,7 +6578,9 @@
       "Hit in 88.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Keegan Kolesar 1+ hits",
@@ -6034,7 +6605,9 @@
       "Hit in 88.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "DET +1.5 puck line",
@@ -6058,7 +6631,9 @@
       "Hit in 85.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": "margin +4 for DET",
+     "result": "won"
     },
     {
      "label": "Alex DeBrincat 2+ shots on goal",
@@ -6084,7 +6659,9 @@
       "Hit in 84.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Moritz Seider 1+ blocked shots",
@@ -6110,7 +6687,9 @@
       "Hit in 83.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -6134,7 +6713,9 @@
       "Hit in 79.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 6,
+     "result": "won"
     }
    ],
    "chance": 0.3795,
@@ -6157,8 +6738,13 @@
    "start_utc": "2026-11-26T00:30:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 5,
+   "legs_counted": 6,
+   "final": "VAN 1, DET 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -6187,7 +6773,9 @@
       "Hit in 88.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Keegan Kolesar 1+ hits",
@@ -6212,7 +6800,9 @@
       "Hit in 88.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Elias Pettersson 1+ hits",
@@ -6238,7 +6828,9 @@
       "Hit in 85.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "DET +1.5 puck line",
@@ -6262,7 +6854,9 @@
       "Hit in 85.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": "margin +4 for DET",
+     "result": "won"
     },
     {
      "label": "Alex DeBrincat 2+ shots on goal",
@@ -6288,7 +6882,9 @@
       "Hit in 84.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Moritz Seider 1+ blocked shots",
@@ -6314,7 +6910,9 @@
       "Hit in 83.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -6338,7 +6936,9 @@
       "Hit in 79.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "Lucas Raymond 1+ points",
@@ -6363,7 +6963,9 @@
       "Hit in 71.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "VAN @ DET",
-     "game_id": 2026020394
+     "game_id": 2026020394,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.261,
@@ -6387,8 +6989,13 @@
    "start_utc": "2026-11-26T00:30:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 7,
+   "legs_counted": 8,
+   "final": "VAN 1, DET 5 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -6418,7 +7025,9 @@
       "Hit in 30.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.3085,
@@ -6437,8 +7046,13 @@
    "start_utc": "2026-11-26T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 1,
+   "legs_counted": 1,
+   "final": "NSH 3, DAL 1 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -6467,7 +7081,9 @@
       "Hit in 87.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Jayden Struble 1+ hits",
@@ -6492,7 +7108,9 @@
       "Hit in 86.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Esa Lindell 1+ blocked shots",
@@ -6517,7 +7135,9 @@
       "Hit in 83.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Thomas Harley 1+ blocked shots",
@@ -6543,7 +7163,9 @@
       "Hit in 82.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.5227,
@@ -6563,8 +7185,13 @@
    "start_utc": "2026-11-26T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "NSH 3, DAL 1 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -6593,7 +7220,9 @@
       "Hit in 87.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Jayden Struble 1+ hits",
@@ -6618,7 +7247,9 @@
       "Hit in 86.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Esa Lindell 1+ blocked shots",
@@ -6643,7 +7274,9 @@
       "Hit in 83.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Thomas Harley 1+ blocked shots",
@@ -6669,7 +7302,9 @@
       "Hit in 82.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -6693,7 +7328,9 @@
       "Hit in 78.4% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "DAL +1.5 puck line",
@@ -6717,7 +7354,9 @@
       "Hit in 75.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": "margin -2 for DAL",
+     "result": "lost"
     }
    ],
    "chance": 0.3189,
@@ -6739,8 +7378,13 @@
    "start_utc": "2026-11-26T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 4,
+   "legs_counted": 6,
+   "final": "NSH 3, DAL 1 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -6769,7 +7413,9 @@
       "Hit in 87.0% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Jayden Struble 1+ hits",
@@ -6794,7 +7440,9 @@
       "Hit in 86.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Reid Schaefer 1+ hits",
@@ -6819,7 +7467,9 @@
       "Hit in 84.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Esa Lindell 1+ blocked shots",
@@ -6844,7 +7494,9 @@
       "Hit in 83.7% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Thomas Harley 1+ blocked shots",
@@ -6870,7 +7522,9 @@
       "Hit in 82.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -6894,7 +7548,9 @@
       "Hit in 78.4% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "DAL +1.5 puck line",
@@ -6918,7 +7574,9 @@
       "Hit in 75.2% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": "margin -2 for DAL",
+     "result": "lost"
     },
     {
      "label": "Miro Heiskanen 1+ blocked shots",
@@ -6944,7 +7602,9 @@
       "Hit in 75.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "NSH @ DAL",
-     "game_id": 2026020395
+     "game_id": 2026020395,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.2079,
@@ -6966,8 +7626,13 @@
    "start_utc": "2026-11-26T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 5,
+   "legs_counted": 8,
+   "final": "NSH 3, DAL 1 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -6996,7 +7661,9 @@
       "Hit in 38.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Matt Boldy anytime goal scorer",
@@ -7021,7 +7688,9 @@
       "Hit in 33.5% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.128,
@@ -7040,8 +7709,13 @@
    "start_utc": "2026-11-26T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 2,
+   "final": "UTA 4, MIN 3 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp4",
@@ -7070,7 +7744,9 @@
       "Hit in 89.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Marcus Foligno 1+ hits",
@@ -7095,7 +7771,9 @@
       "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Jonas Brodin 1+ blocked shots",
@@ -7120,7 +7798,9 @@
       "Hit in 83.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "MacKenzie Weegar 1+ blocked shots",
@@ -7145,7 +7825,9 @@
       "Hit in 82.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.5559,
@@ -7165,8 +7847,13 @@
    "start_utc": "2026-11-26T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "UTA 4, MIN 3 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp6",
@@ -7195,7 +7882,9 @@
       "Hit in 89.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Marcus Foligno 1+ hits",
@@ -7220,7 +7909,9 @@
       "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Jonas Brodin 1+ blocked shots",
@@ -7245,7 +7936,9 @@
       "Hit in 83.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "MacKenzie Weegar 1+ blocked shots",
@@ -7270,7 +7963,9 @@
       "Hit in 82.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -7294,7 +7989,9 @@
       "Hit in 77.8% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 7,
+     "result": "won"
     },
     {
      "label": "UTA +2.5 puck line",
@@ -7318,7 +8015,9 @@
       "Hit in 76.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": "margin -1 for MIN",
+     "result": "won"
     }
    ],
    "chance": 0.3353,
@@ -7340,8 +8039,13 @@
    "start_utc": "2026-11-26T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 5,
+   "legs_counted": 6,
+   "final": "UTA 4, MIN 3 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "sgp8",
@@ -7370,7 +8074,9 @@
       "Hit in 89.6% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Marcus Foligno 1+ hits",
@@ -7395,7 +8101,9 @@
       "Hit in 89.2% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Vincent Trocheck 1+ hits",
@@ -7420,7 +8128,9 @@
       "Hit in 88.3% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Jonas Brodin 1+ blocked shots",
@@ -7445,7 +8155,9 @@
       "Hit in 83.9% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "MacKenzie Weegar 1+ blocked shots",
@@ -7470,7 +8182,9 @@
       "Hit in 82.4% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Jared Spurgeon 1+ blocked shots",
@@ -7495,7 +8209,9 @@
       "Hit in 79.1% of 20,000 simulated games; the rung is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -7519,7 +8235,9 @@
       "Hit in 77.8% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": 7,
+     "result": "won"
     },
     {
      "label": "UTA +2.5 puck line",
@@ -7543,7 +8261,9 @@
       "Hit in 76.6% of 20,000 simulated games; the line is not checked at the book"
      ],
      "game": "UTA @ MIN",
-     "game_id": 2026020396
+     "game_id": 2026020396,
+     "actual": "margin -1 for MIN",
+     "result": "won"
     }
    ],
    "chance": 0.2315,
@@ -7565,8 +8285,13 @@
    "start_utc": "2026-11-26T01:00:00Z",
    "paper": true,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 7,
+   "legs_counted": 8,
+   "final": "UTA 4, MIN 3 (REG)",
+   "graded_at": "2026-11-26T08:32:08+00:00"
   },
   {
    "kind": "atg",
@@ -7601,7 +8326,9 @@
       "Listed at fanduel at +200 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Martin Necas anytime goal scorer",
@@ -7632,7 +8359,9 @@
       "Listed at fanduel at +180 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.0776,
@@ -7652,8 +8381,13 @@
    "start_utc": "2026-11-26T02:30:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 2,
+   "legs_counted": 2,
+   "final": "MTL 0, COL 6 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   },
   {
    "kind": "closer",
@@ -7685,7 +8419,9 @@
       "Listed at fanduel at -330 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": "margin +6 for COL",
+     "result": "won"
     }
    ],
    "chance": 0.7622,
@@ -7706,8 +8442,13 @@
    "start_utc": "2026-11-26T02:30:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 1,
+   "legs_counted": 1,
+   "final": "MTL 0, COL 6 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   },
   {
    "kind": "sgp4",
@@ -7742,7 +8483,9 @@
       "Listed at betmgm at -375 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "T.J. Hughes 1+ shots on goal",
@@ -7773,7 +8516,9 @@
       "Listed at betmgm at -525 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -7801,7 +8546,9 @@
       "Listed at fanduel at -320 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "COL +1.5 puck line",
@@ -7829,7 +8576,9 @@
       "Listed at fanduel at -330 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": "margin +6 for COL",
+     "result": "won"
     }
    ],
    "chance": 0.4116,
@@ -7851,8 +8600,13 @@
    "start_utc": "2026-11-26T02:30:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "MTL 0, COL 6 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   },
   {
    "kind": "sgp6",
@@ -7887,7 +8641,9 @@
       "Listed at betmgm at -375 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "T.J. Hughes 1+ shots on goal",
@@ -7918,7 +8674,9 @@
       "Listed at betmgm at -525 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -7946,7 +8704,9 @@
       "Listed at fanduel at -320 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 6,
+     "result": "won"
     },
     {
      "label": "Mackenzie Blackwood 17+ saves",
@@ -7976,7 +8736,9 @@
       "Listed at fanduel at -800 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 28,
+     "result": "won"
     },
     {
      "label": "Nazem Kadri 1+ shots on goal",
@@ -8007,7 +8769,9 @@
       "Listed at betmgm at -1400 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "MTL +2.5 puck line",
@@ -8035,7 +8799,9 @@
       "Listed at fanduel at -550 for this rung; the price is not an input to the pick"
      ],
      "game": "MTL @ COL",
-     "game_id": 2026020397
+     "game_id": 2026020397,
+     "actual": "margin +6 for COL",
+     "result": "lost"
     }
    ],
    "chance": 0.3079,
@@ -8058,233 +8824,13 @@
    "start_utc": "2026-11-26T02:30:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
-  },
-  {
-   "kind": "sgp8",
-   "title": "8-leg slip",
-   "legs": [
-    {
-     "label": "Arber Xhekaj 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "MTL",
-     "player": "Arber Xhekaj",
-     "player_id": 8482964,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8952,
-     "price": null,
-     "fair_price": -855,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.67 hits in 12.8 minutes: 11.3 even strength, 0.0 power play, 1.5 penalty kill (lines not posted)",
-      "His rates per 60 minutes: 11.4 at even strength, 0.5 on the power play, 13.9 shorthanded (24 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 2, 2, 6, 3, 4, 5, 4, 4, 1, 0)",
-      "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 33% of games)",
-      "Hit in 89.5% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "MTL @ COL",
-     "game_id": 2026020397
-    },
-    {
-     "label": "Kaiden Guhle 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "MTL",
-     "player": "Kaiden Guhle",
-     "player_id": 8482087,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8613,
-     "price": null,
-     "fair_price": -621,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.31 hits in 21.7 minutes: 18.6 even strength, 0.2 power play, 3.0 penalty kill (lines not posted)",
-      "His rates per 60 minutes: 5.9 at even strength, 0.4 on the power play, 6.4 shorthanded (21 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 2, 0, 2, 1, 2, 3, 2, 2, 3, 1)",
-      "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 33% of games)",
-      "Hit in 86.1% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "MTL @ COL",
-     "game_id": 2026020397
-    },
-    {
-     "label": "Florian Xhekaj 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "MTL",
-     "player": "Florian Xhekaj",
-     "player_id": 8484403,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8414,
-     "price": null,
-     "fair_price": -531,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.13 hits in 7.8 minutes: 7.8 even strength, 0.0 power play, 0.0 penalty kill (lines not posted)",
-      "His rates per 60 minutes: 15.4 at even strength, 0.6 on the power play, 1.3 shorthanded (11 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by COL index x1.04; COL rink hits bias x1.01",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 5, 5, 5, 2, 3, 2, 4, 1, 6, 0)",
-      "Script: when MTL lead after two periods the score moves its hits -4%, when it trails +5% (MTL lead after two in 33% of games)",
-      "Hit in 84.1% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "MTL @ COL",
-     "game_id": 2026020397
-    },
-    {
-     "label": "Alexandre Carrier 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "MTL",
-     "player": "Alexandre Carrier",
-     "player_id": 8478851,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8246,
-     "price": null,
-     "fair_price": -470,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.23 blocked shots in 20.5 minutes: 17.2 even strength, 0.1 power play, 3.2 penalty kill (lines not posted)",
-      "His rates per 60 minutes: 5.4 at even strength, 0.8 on the power play, 8.9 shorthanded (25 games this season, shrunk toward his position's rate)",
-      "Adjustments: COL shot attempts index x1.11; COL rink blocks bias x1.01",
-      "Reached 1+ in 10 of his last 10 games (most recent first: 1, 1, 2, 5, 1, 1, 1, 3, 1, 2)",
-      "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 33% of games)",
-      "Hit in 82.5% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "MTL @ COL",
-     "game_id": 2026020397
-    },
-    {
-     "label": "Noah Dobson 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "MTL",
-     "player": "Noah Dobson",
-     "player_id": 8480865,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7823,
-     "price": null,
-     "fair_price": -359,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.91 blocked shots in 21.2 minutes: 17.9 even strength, 1.5 power play, 1.7 penalty kill (lines not posted)",
-      "His rates per 60 minutes: 4.8 at even strength, 2.2 on the power play, 8.0 shorthanded (25 games this season, shrunk toward his position's rate)",
-      "Adjustments: COL shot attempts index x1.11; COL rink blocks bias x1.01",
-      "Reached 1+ in 7 of his last 10 games (most recent first: 1, 0, 0, 2, 1, 1, 1, 1, 3, 0)",
-      "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 33% of games)",
-      "Hit in 78.2% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "MTL @ COL",
-     "game_id": 2026020397
-    },
-    {
-     "label": "Lane Hutson 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "MTL",
-     "player": "Lane Hutson",
-     "player_id": 8483457,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7794,
-     "price": null,
-     "fair_price": -353,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.92 blocked shots in 26.4 minutes: 22.7 even strength, 3.6 power play, 0.0 penalty kill (lines not posted)",
-      "His rates per 60 minutes: 4.4 at even strength, 0.9 on the power play, 5.9 shorthanded (25 games this season, shrunk toward his position's rate)",
-      "Adjustments: COL shot attempts index x1.11; COL rink blocks bias x1.01",
-      "Reached 1+ in 8 of his last 10 games (most recent first: 4, 1, 1, 3, 4, 1, 1, 0, 1, 0)",
-      "Script: when MTL lead after two periods the score moves its blocked shots +9%, when it trails -10% (MTL lead after two in 33% of games)",
-      "Hit in 77.9% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "MTL @ COL",
-     "game_id": 2026020397
-    },
-    {
-     "label": "Over 4.5 goals",
-     "kind": "game",
-     "market": "total",
-     "team": null,
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "over",
-     "line": 4.5,
-     "prob": 0.7722,
-     "price": null,
-     "fair_price": -339,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: MTL 2.79, COL 3.27 (total 6.07); COL win 58%, overtime 24%",
-      "MTL: 1.89 expected goals at 5v5, 0.54 on 4.9 power-play minutes; this season's goals per expected goal x1.027; facing Mackenzie Blackwood (GSAx/60 +0.10) x0.969; road x0.967; rest differential -4 days x0.990; 2 time zones since last game x0.992",
-      "COL: 2.06 expected goals at 5v5, 0.88 on 6.1 power-play minutes; this season's goals per expected goal x1.027; facing Jacob Fowler (GSAx/60 +0.34) x0.893; home ice x1.034; rest differential +4 days x1.010; out: Nathan MacKinnon, Noah Juulsen x0.968",
-      "Total goals: 23% four or fewer, 34% five or six, 43% seven or more. In backtest the model's totals were no better than the base rate",
-      "Hit in 77.2% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "MTL @ COL",
-     "game_id": 2026020397
-    },
-    {
-     "label": "COL +1.5 puck line",
-     "kind": "game",
-     "market": "spread",
-     "team": "COL",
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "COL",
-     "line": 1.5,
-     "prob": 0.7622,
-     "price": null,
-     "fair_price": -321,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: MTL 2.79, COL 3.27 (total 6.07); COL win 58%, overtime 24%",
-      "MTL: 1.89 expected goals at 5v5, 0.54 on 4.9 power-play minutes; this season's goals per expected goal x1.027; facing Mackenzie Blackwood (GSAx/60 +0.10) x0.969; road x0.967; rest differential -4 days x0.990; 2 time zones since last game x0.992",
-      "COL: 2.06 expected goals at 5v5, 0.88 on 6.1 power-play minutes; this season's goals per expected goal x1.027; facing Jacob Fowler (GSAx/60 +0.34) x0.893; home ice x1.034; rest differential +4 days x1.010; out: Nathan MacKinnon, Noah Juulsen x0.968",
-      "COL win by two or more in 37% of games, by exactly one in 21%, lose in 42%; empty-net goals (0.36 a game) are in the margin",
-      "Hit in 76.2% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "MTL @ COL",
-     "game_id": 2026020397
-    }
-   ],
-   "chance": 0.2004,
-   "miss": 0.7995,
-   "fair_price": 399,
-   "lift": 1.044,
-   "markets": [
-    "blk",
-    "hits",
-    "spread",
-    "total"
-   ],
-   "priced": false,
-   "rungs_verified": false,
-   "id": "2026-11-25-MTL-COL-sgp8",
-   "game": "MTL @ COL",
-   "game_id": 2026020397,
-   "made_at": "2026-11-25T23:42:55+00:00",
-   "start_utc": "2026-11-26T02:30:00Z",
-   "paper": true,
-   "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 4,
+   "legs_counted": 6,
+   "final": "MTL 0, COL 6 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   },
   {
    "kind": "atg",
@@ -8319,7 +8865,9 @@
       "Listed at fanduel at +195 for this rung; the price is not an input to the pick"
      ],
      "game": "CHI @ SEA",
-     "game_id": 2026020399
+     "game_id": 2026020399,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Frank Nazar anytime goal scorer",
@@ -8350,7 +8898,9 @@
       "Listed at fanduel at +190 for this rung; the price is not an input to the pick"
      ],
      "game": "CHI @ SEA",
-     "game_id": 2026020399
+     "game_id": 2026020399,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.0756,
@@ -8370,8 +8920,13 @@
    "start_utc": "2026-11-26T02:40:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 1,
+   "legs_counted": 2,
+   "final": "CHI 3, SEA 1 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   },
   {
    "kind": "sgp4",
@@ -8405,7 +8960,9 @@
       "Listed at betmgm at -350 for this rung; the price is not an input to the pick"
      ],
      "game": "CHI @ SEA",
-     "game_id": 2026020399
+     "game_id": 2026020399,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Tyler Bertuzzi 1+ shots on goal",
@@ -8436,7 +8993,9 @@
       "Listed at betmgm at -625 for this rung; the price is not an input to the pick"
      ],
      "game": "CHI @ SEA",
-     "game_id": 2026020399
+     "game_id": 2026020399,
+     "actual": null,
+     "result": "void"
     },
     {
      "label": "Under 7.5 goals",
@@ -8464,7 +9023,9 @@
       "Listed at fanduel at -330 for this rung; the price is not an input to the pick"
      ],
      "game": "CHI @ SEA",
-     "game_id": 2026020399
+     "game_id": 2026020399,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "CHI +2.5 puck line",
@@ -8492,7 +9053,9 @@
       "Listed at fanduel at -400 for this rung; the price is not an input to the pick"
      ],
      "game": "CHI @ SEA",
-     "game_id": 2026020399
+     "game_id": 2026020399,
+     "actual": "margin -2 for SEA",
+     "result": "won"
     }
    ],
    "chance": 0.4132,
@@ -8514,414 +9077,13 @@
    "start_utc": "2026-11-26T02:40:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
-  },
-  {
-   "kind": "sgp6",
-   "title": "6-leg slip",
-   "legs": [
-    {
-     "label": "Cole Smith 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "CHI",
-     "player": "Cole Smith",
-     "player_id": 8482062,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8981,
-     "price": null,
-     "fair_price": -881,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.73 hits in 14.0 minutes: 11.4 even strength, 0.0 power play, 2.6 penalty kill (line 4)",
-      "His rates per 60 minutes: 11.7 at even strength, 0.6 on the power play, 3.8 shorthanded (24 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by SEA index x1.14; SEA rink hits bias x0.99",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 0, 3, 2, 4, 1, 4, 2, 6, 1, 1)",
-      "Script: when CHI lead after two periods the score moves its hits -4%, when it trails +5% (CHI lead after two in 36% of games)",
-      "Hit in 89.8% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Bobby McMann 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "SEA",
-     "player": "Bobby McMann",
-     "player_id": 8482259,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8485,
-     "price": null,
-     "fair_price": -560,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.21 hits in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
-      "His rates per 60 minutes: 8.3 at even strength, 0.9 on the power play, 3.0 shorthanded (21 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
-      "Tonight's deployment: pp1: 62% of 295s team PP",
-      "Reached 1+ in 10 of his last 10 games (most recent first: 2, 4, 3, 3, 2, 3, 1, 1, 2, 2)",
-      "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
-      "Hit in 84.8% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "CHI +2.5 puck line",
-     "kind": "game",
-     "market": "spread",
-     "team": "CHI",
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "CHI",
-     "line": 2.5,
-     "prob": 0.7739,
-     "price": null,
-     "fair_price": -342,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: CHI 2.90, SEA 3.15 (total 6.05); SEA win 54%, overtime 23%",
-      "CHI: 1.95 expected goals at 5v5, 0.60 on 4.1 power-play minutes; this season's goals per expected goal x1.027; facing Joey Daccord (GSAx/60 -0.12) x1.039; road x0.967; rest differential +1 days x1.005; 1 time zones since last game x0.996; out: Connor Bedard, Andrew Mangiapane, Dillon Boucher, Wyatt Kaiser x0.944",
-      "SEA: 2.21 expected goals at 5v5, 0.66 on 4.8 power-play minutes; this season's goals per expected goal x1.027; facing Spencer Knight (GSAx/60 +0.05) x0.986; home ice x1.034; rest differential -1 days x0.995",
-      "CHI win by two or more in 27% of games, by exactly one in 19%, lose in 54%; empty-net goals (0.38 a game) are in the margin",
-      "Hit in 77.4% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Under 7.5 goals",
-     "kind": "game",
-     "market": "total",
-     "team": null,
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "under",
-     "line": 7.5,
-     "prob": 0.7677,
-     "price": null,
-     "fair_price": -330,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: CHI 2.90, SEA 3.15 (total 6.05); SEA win 54%, overtime 23%",
-      "CHI: 1.95 expected goals at 5v5, 0.60 on 4.1 power-play minutes; this season's goals per expected goal x1.027; facing Joey Daccord (GSAx/60 -0.12) x1.039; road x0.967; rest differential +1 days x1.005; 1 time zones since last game x0.996; out: Connor Bedard, Andrew Mangiapane, Dillon Boucher, Wyatt Kaiser x0.944",
-      "SEA: 2.21 expected goals at 5v5, 0.66 on 4.8 power-play minutes; this season's goals per expected goal x1.027; facing Spencer Knight (GSAx/60 +0.05) x0.986; home ice x1.034; rest differential -1 days x0.995",
-      "Total goals: 24% four or fewer, 34% five or six, 43% seven or more. In backtest the model's totals were no better than the base rate",
-      "Hit in 76.8% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Ian Cole 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "CHI",
-     "player": "Ian Cole",
-     "player_id": 8474013,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7471,
-     "price": null,
-     "fair_price": -295,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.66 blocked shots in 20.8 minutes: 17.4 even strength, 0.0 power play, 3.3 penalty kill (pair 2)",
-      "His rates per 60 minutes: 5.2 at even strength, 0.8 on the power play, 5.9 shorthanded (24 games this season, shrunk toward his position's rate)",
-      "Adjustments: SEA shot attempts index x0.89; SEA rink blocks bias x1.02",
-      "Tonight's deployment: d2 tonight, usually d3 minutes: +27s EV",
-      "Reached 1+ in 8 of his last 10 games (most recent first: 2, 1, 0, 1, 3, 2, 1, 2, 4, 0)",
-      "Script: when CHI lead after two periods the score moves its blocked shots +9%, when it trails -10% (CHI lead after two in 36% of games)",
-      "Hit in 74.7% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Adam Larsson 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "SEA",
-     "player": "Adam Larsson",
-     "player_id": 8476457,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7386,
-     "price": null,
-     "fair_price": -282,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.64 blocked shots in 21.6 minutes: 19.3 even strength, 0.0 power play, 2.2 penalty kill (pair 1)",
-      "His rates per 60 minutes: 4.8 at even strength, 0.8 on the power play, 7.9 shorthanded (21 games this season, shrunk toward his position's rate)",
-      "Adjustments: CHI shot attempts index x0.85; SEA rink blocks bias x1.02",
-      "Tonight's deployment: d1 tonight, usually d2 minutes: +80s EV",
-      "Reached 1+ in 6 of his last 10 games (most recent first: 0, 0, 1, 6, 0, 1, 2, 0, 1, 2)",
-      "Script: when SEA lead after two periods the score moves its blocked shots +9%, when it trails -9% (SEA lead after two in 42% of games)",
-      "Hit in 73.9% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    }
-   ],
-   "chance": 0.255,
-   "miss": 0.745,
-   "fair_price": 292,
-   "lift": 1.021,
-   "markets": [
-    "blk",
-    "hits",
-    "spread",
-    "total"
-   ],
-   "priced": false,
-   "rungs_verified": false,
-   "id": "2026-11-25-CHI-SEA-sgp6",
-   "game": "CHI @ SEA",
-   "game_id": 2026020399,
-   "made_at": "2026-11-25T23:42:55+00:00",
-   "start_utc": "2026-11-26T02:40:00Z",
-   "paper": true,
-   "made_after_start": false,
-   "graded": false,
-   "early": true
-  },
-  {
-   "kind": "sgp8",
-   "title": "8-leg slip",
-   "legs": [
-    {
-     "label": "Cole Smith 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "CHI",
-     "player": "Cole Smith",
-     "player_id": 8482062,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8981,
-     "price": null,
-     "fair_price": -881,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.73 hits in 14.0 minutes: 11.4 even strength, 0.0 power play, 2.6 penalty kill (line 4)",
-      "His rates per 60 minutes: 11.7 at even strength, 0.6 on the power play, 3.8 shorthanded (24 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by SEA index x1.14; SEA rink hits bias x0.99",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 0, 3, 2, 4, 1, 4, 2, 6, 1, 1)",
-      "Script: when CHI lead after two periods the score moves its hits -4%, when it trails +5% (CHI lead after two in 36% of games)",
-      "Hit in 89.8% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Bobby McMann 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "SEA",
-     "player": "Bobby McMann",
-     "player_id": 8482259,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8485,
-     "price": null,
-     "fair_price": -560,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.21 hits in 17.9 minutes: 14.8 even strength, 3.0 power play, PP1, 0.1 penalty kill (line 1)",
-      "His rates per 60 minutes: 8.3 at even strength, 0.9 on the power play, 3.0 shorthanded (21 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
-      "Tonight's deployment: pp1: 62% of 295s team PP",
-      "Reached 1+ in 10 of his last 10 games (most recent first: 2, 4, 3, 3, 2, 3, 1, 1, 2, 2)",
-      "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
-      "Hit in 84.8% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Jacob Melanson 2+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "SEA",
-     "player": "Jacob Melanson",
-     "player_id": 8482874,
-     "rung": 2,
-     "side": null,
-     "line": null,
-     "prob": 0.8207,
-     "price": null,
-     "fair_price": -458,
-     "rung_verified": false,
-     "why": [
-      "Projected 3.71 hits in 8.8 minutes: 8.6 even strength, 0.0 power play, 0.2 penalty kill (line 4)",
-      "His rates per 60 minutes: 24.7 at even strength, 2.2 on the power play, 1.2 shorthanded (4 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by CHI index x1.06; SEA rink hits bias x0.99",
-      "Reached 2+ in 8 of his last 10 games (most recent first: 3, 4, 7, 3, 7, 6, 8, 0, 3, 0)",
-      "Script: when SEA lead after two periods the score moves its hits -5%, when it trails +4% (SEA lead after two in 42% of games)",
-      "Hit in 82.1% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "CHI +2.5 puck line",
-     "kind": "game",
-     "market": "spread",
-     "team": "CHI",
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "CHI",
-     "line": 2.5,
-     "prob": 0.7739,
-     "price": null,
-     "fair_price": -342,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: CHI 2.90, SEA 3.15 (total 6.05); SEA win 54%, overtime 23%",
-      "CHI: 1.95 expected goals at 5v5, 0.60 on 4.1 power-play minutes; this season's goals per expected goal x1.027; facing Joey Daccord (GSAx/60 -0.12) x1.039; road x0.967; rest differential +1 days x1.005; 1 time zones since last game x0.996; out: Connor Bedard, Andrew Mangiapane, Dillon Boucher, Wyatt Kaiser x0.944",
-      "SEA: 2.21 expected goals at 5v5, 0.66 on 4.8 power-play minutes; this season's goals per expected goal x1.027; facing Spencer Knight (GSAx/60 +0.05) x0.986; home ice x1.034; rest differential -1 days x0.995",
-      "CHI win by two or more in 27% of games, by exactly one in 19%, lose in 54%; empty-net goals (0.38 a game) are in the margin",
-      "Hit in 77.4% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Under 7.5 goals",
-     "kind": "game",
-     "market": "total",
-     "team": null,
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "under",
-     "line": 7.5,
-     "prob": 0.7677,
-     "price": null,
-     "fair_price": -330,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: CHI 2.90, SEA 3.15 (total 6.05); SEA win 54%, overtime 23%",
-      "CHI: 1.95 expected goals at 5v5, 0.60 on 4.1 power-play minutes; this season's goals per expected goal x1.027; facing Joey Daccord (GSAx/60 -0.12) x1.039; road x0.967; rest differential +1 days x1.005; 1 time zones since last game x0.996; out: Connor Bedard, Andrew Mangiapane, Dillon Boucher, Wyatt Kaiser x0.944",
-      "SEA: 2.21 expected goals at 5v5, 0.66 on 4.8 power-play minutes; this season's goals per expected goal x1.027; facing Spencer Knight (GSAx/60 +0.05) x0.986; home ice x1.034; rest differential -1 days x0.995",
-      "Total goals: 24% four or fewer, 34% five or six, 43% seven or more. In backtest the model's totals were no better than the base rate",
-      "Hit in 76.8% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Ian Cole 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "CHI",
-     "player": "Ian Cole",
-     "player_id": 8474013,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7471,
-     "price": null,
-     "fair_price": -295,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.66 blocked shots in 20.8 minutes: 17.4 even strength, 0.0 power play, 3.3 penalty kill (pair 2)",
-      "His rates per 60 minutes: 5.2 at even strength, 0.8 on the power play, 5.9 shorthanded (24 games this season, shrunk toward his position's rate)",
-      "Adjustments: SEA shot attempts index x0.89; SEA rink blocks bias x1.02",
-      "Tonight's deployment: d2 tonight, usually d3 minutes: +27s EV",
-      "Reached 1+ in 8 of his last 10 games (most recent first: 2, 1, 0, 1, 3, 2, 1, 2, 4, 0)",
-      "Script: when CHI lead after two periods the score moves its blocked shots +9%, when it trails -10% (CHI lead after two in 36% of games)",
-      "Hit in 74.7% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Adam Larsson 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "SEA",
-     "player": "Adam Larsson",
-     "player_id": 8476457,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7386,
-     "price": null,
-     "fair_price": -282,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.64 blocked shots in 21.6 minutes: 19.3 even strength, 0.0 power play, 2.2 penalty kill (pair 1)",
-      "His rates per 60 minutes: 4.8 at even strength, 0.8 on the power play, 7.9 shorthanded (21 games this season, shrunk toward his position's rate)",
-      "Adjustments: CHI shot attempts index x0.85; SEA rink blocks bias x1.02",
-      "Tonight's deployment: d1 tonight, usually d2 minutes: +80s EV",
-      "Reached 1+ in 6 of his last 10 games (most recent first: 0, 0, 1, 6, 0, 1, 2, 0, 1, 2)",
-      "Script: when SEA lead after two periods the score moves its blocked shots +9%, when it trails -9% (SEA lead after two in 42% of games)",
-      "Hit in 73.9% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    },
-    {
-     "label": "Alex Vlasic 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "CHI",
-     "player": "Alex Vlasic",
-     "player_id": 8481568,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7166,
-     "price": null,
-     "fair_price": -253,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.51 blocked shots in 22.8 minutes: 19.2 even strength, 0.0 power play, 3.6 penalty kill (pair 1)",
-      "His rates per 60 minutes: 4.1 at even strength, 0.7 on the power play, 5.8 shorthanded (24 games this season, shrunk toward his position's rate)",
-      "Adjustments: SEA shot attempts index x0.89; SEA rink blocks bias x1.02",
-      "Reached 1+ in 8 of his last 10 games (most recent first: 1, 0, 1, 1, 3, 4, 2, 0, 1, 4)",
-      "Script: when CHI lead after two periods the score moves its blocked shots +9%, when it trails -10% (CHI lead after two in 36% of games)",
-      "Hit in 71.7% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "CHI @ SEA",
-     "game_id": 2026020399
-    }
-   ],
-   "chance": 0.1521,
-   "miss": 0.8479,
-   "fair_price": 557,
-   "lift": 1.035,
-   "markets": [
-    "blk",
-    "hits",
-    "spread",
-    "total"
-   ],
-   "priced": false,
-   "rungs_verified": false,
-   "id": "2026-11-25-CHI-SEA-sgp8",
-   "game": "CHI @ SEA",
-   "game_id": 2026020399,
-   "made_at": "2026-11-25T23:42:55+00:00",
-   "start_utc": "2026-11-26T02:40:00Z",
-   "paper": true,
-   "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 3,
+   "legs_counted": 3,
+   "final": "CHI 3, SEA 1 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   },
   {
    "kind": "atg",
@@ -8956,7 +9118,9 @@
       "Listed at fanduel at -105 for this rung; the price is not an input to the pick"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Mikael Granlund anytime goal scorer",
@@ -8987,7 +9151,9 @@
       "Listed at fanduel at +210 for this rung; the price is not an input to the pick"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.1384,
@@ -9007,8 +9173,13 @@
    "start_utc": "2026-11-26T03:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 1,
+   "legs_counted": 2,
+   "final": "SJS 0, ANA 7 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   },
   {
    "kind": "closer",
@@ -9040,7 +9211,9 @@
       "Listed at fanduel at -350 for this rung; the price is not an input to the pick"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": "margin +7 for ANA",
+     "result": "won"
     }
    ],
    "chance": 0.7765,
@@ -9061,8 +9234,13 @@
    "start_utc": "2026-11-26T03:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "won",
+   "legs_won": 1,
+   "legs_counted": 1,
+   "final": "SJS 0, ANA 7 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   },
   {
    "kind": "sgp4",
@@ -9097,7 +9275,9 @@
       "Listed at betmgm at -550 for this rung; the price is not an input to the pick"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "ANA +1.5 puck line",
@@ -9125,7 +9305,9 @@
       "Listed at fanduel at -350 for this rung; the price is not an input to the pick"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": "margin +7 for ANA",
+     "result": "won"
     },
     {
      "label": "Alex Nedeljkovic 19+ saves",
@@ -9155,7 +9337,9 @@
       "Listed at fanduel at -850 for this rung; the price is not an input to the pick"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 23,
+     "result": "won"
     },
     {
      "label": "Jackson LaCombe 1+ shots on goal",
@@ -9186,7 +9370,9 @@
       "Listed at fanduel at -590 for this rung; the price is not an input to the pick"
      ],
      "game": "SJS @ ANA",
-     "game_id": 2026020398
+     "game_id": 2026020398,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.4906,
@@ -9208,446 +9394,13 @@
    "start_utc": "2026-11-26T03:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
-  },
-  {
-   "kind": "sgp6",
-   "title": "6-leg slip",
-   "legs": [
-    {
-     "label": "Alex Killorn 1+ shots on goal",
-     "kind": "prop",
-     "market": "sog",
-     "team": "ANA",
-     "player": "Alex Killorn",
-     "player_id": 8473986,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8746,
-     "price": -550.0,
-     "book": "betmgm",
-     "matchup": "strong",
-     "rung_reason": null,
-     "fair_price": -697,
-     "rung_verified": true,
-     "why": [
-      "Projected 2.11 shots on goal in 18.7 minutes: 14.6 even strength, 1.9 power play, PP2, 2.2 penalty kill (line 1)",
-      "Matchup: strong (tonight's opponent, rink and script move his projection x1.09 from his own baseline)",
-      "His rates per 60 minutes: 6.2 at even strength, 6.8 on the power play, 4.6 shorthanded (25 games this season, shrunk toward his position's rate)",
-      "Adjustments: SJS shots allowed index x1.11; ANA rink SOG bias x1.00; scaled toward the team's simulated shots x0.99",
-      "Tonight's deployment: f1 tonight, usually f3 minutes: +84s EV, pp2: 38% of 294s team PP",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 1, 1, 1, 1, 3, 1, 2, 2, 1, 0)",
-      "Script: ANA project for 30.7 shots on goal against SJS",
-      "Hit in 87.5% of 20,000 simulated games",
-      "Listed at betmgm at -550 for this rung; the price is not an input to the pick"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Mikael Granlund 1+ points",
-     "kind": "prop",
-     "market": "pts",
-     "team": "ANA",
-     "player": "Mikael Granlund",
-     "player_id": 8475798,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.6535,
-     "price": -186.0,
-     "book": "fanduel",
-     "matchup": "strong",
-     "rung_reason": "strong matchup: one rung above the floor",
-     "fair_price": -189,
-     "rung_verified": true,
-     "why": [
-      "Projected 1.06 points in 20.5 minutes: 14.9 even strength, 3.6 power play, PP1, 2.0 penalty kill (line 1)",
-      "Matchup: strong (tonight's opponent, rink and script move his projection x1.12 from his own baseline); strong matchup: one rung above the floor",
-      "ANA expected goals 3.42 before empty net and overtime (1.09 of it on the power play), against Alex Nedeljkovic (GSAx +0.11 per 60)",
-      "His share: 0.71 expected goals and 1.51 assists per 60 at even strength, 2.20 and 2.88 on the power play; on the ice for 3.3 team expected goals per 60",
-      "Tonight's deployment: pp1: 62% of 294s team PP, plus part of his surplus",
-      "Reached 1+ in 6 of his last 10 games (most recent first: 0, 0, 0, 2, 2, 0, 2, 4, 2, 1)",
-      "Hit in 65.3% of 20,000 simulated games",
-      "Listed at fanduel at -186 for this rung; the price is not an input to the pick"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "ANA +1.5 puck line",
-     "kind": "game",
-     "market": "spread",
-     "team": "ANA",
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "ANA",
-     "line": 1.5,
-     "prob": 0.7765,
-     "price": -350.0,
-     "book": "fanduel",
-     "matchup": null,
-     "rung_reason": null,
-     "fair_price": -347,
-     "rung_verified": true,
-     "why": [
-      "Simulated score: SJS 2.94, ANA 3.65 (total 6.59); ANA win 61%, overtime 21%",
-      "SJS: 2.05 expected goals at 5v5, 0.61 on 6.7 power-play minutes; this season's goals per expected goal x1.027; road x0.967; out: Kiefer Sherwood, Jacob Trouba x0.974",
-      "ANA: 2.18 expected goals at 5v5, 1.09 on 5.8 power-play minutes; this season's goals per expected goal x1.027; facing Alex Nedeljkovic (GSAx/60 +0.11) x0.965; home ice x1.034; out: Beckett Sennecke, Leo Carlsson, Noah Warren x0.939",
-      "ANA win by two or more in 41% of games, by exactly one in 21%, lose in 39%; empty-net goals (0.36 a game) are in the margin",
-      "Hit in 77.6% of 20,000 simulated games",
-      "Listed at fanduel at -350 for this rung; the price is not an input to the pick"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Over 4.5 goals",
-     "kind": "game",
-     "market": "total",
-     "team": null,
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "over",
-     "line": 4.5,
-     "prob": 0.8272,
-     "price": -650.0,
-     "book": "fanduel",
-     "matchup": null,
-     "rung_reason": null,
-     "fair_price": -479,
-     "rung_verified": true,
-     "why": [
-      "Simulated score: SJS 2.94, ANA 3.65 (total 6.59); ANA win 61%, overtime 21%",
-      "SJS: 2.05 expected goals at 5v5, 0.61 on 6.7 power-play minutes; this season's goals per expected goal x1.027; road x0.967; out: Kiefer Sherwood, Jacob Trouba x0.974",
-      "ANA: 2.18 expected goals at 5v5, 1.09 on 5.8 power-play minutes; this season's goals per expected goal x1.027; facing Alex Nedeljkovic (GSAx/60 +0.11) x0.965; home ice x1.034; out: Beckett Sennecke, Leo Carlsson, Noah Warren x0.939",
-      "Total goals: 17% four or fewer, 31% five or six, 51% seven or more. In backtest the model's totals were no better than the base rate",
-      "Hit in 82.7% of 20,000 simulated games",
-      "Listed at fanduel at -650 for this rung; the price is not an input to the pick"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Jackson LaCombe 1+ shots on goal",
-     "kind": "prop",
-     "market": "sog",
-     "team": "ANA",
-     "player": "Jackson LaCombe",
-     "player_id": 8481605,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8146,
-     "price": -590.0,
-     "book": "fanduel",
-     "matchup": "strong",
-     "rung_reason": null,
-     "fair_price": -439,
-     "rung_verified": true,
-     "why": [
-      "Projected 1.73 shots on goal in 26.0 minutes: 19.8 even strength, 3.6 power play, PP1, 2.7 penalty kill (pair 1)",
-      "Matchup: strong (tonight's opponent, rink and script move his projection x1.09 from his own baseline)",
-      "His rates per 60 minutes: 3.3 at even strength, 6.7 on the power play, 1.4 shorthanded (25 games this season, shrunk toward his position's rate)",
-      "Adjustments: SJS shots allowed index x1.11; ANA rink SOG bias x1.00; scaled toward the team's simulated shots x0.99",
-      "Tonight's deployment: pp1: 62% of 294s team PP, plus part of his surplus",
-      "Reached 1+ in 7 of his last 10 games (most recent first: 1, 1, 3, 2, 0, 0, 2, 1, 2, 0)",
-      "Script: ANA project for 30.7 shots on goal against SJS",
-      "Hit in 81.5% of 20,000 simulated games",
-      "Listed at fanduel at -590 for this rung; the price is not an input to the pick"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Cutter Gauthier 1+ points",
-     "kind": "prop",
-     "market": "pts",
-     "team": "ANA",
-     "player": "Cutter Gauthier",
-     "player_id": 8483445,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.626,
-     "price": -310.0,
-     "book": "fanduel",
-     "matchup": "strong",
-     "rung_reason": "strong matchup: one rung above the floor",
-     "fair_price": -167,
-     "rung_verified": true,
-     "why": [
-      "Projected 0.99 points in 18.2 minutes: 14.6 even strength, 3.6 power play, PP1, 0.0 penalty kill (line 2)",
-      "Matchup: strong (tonight's opponent, rink and script move his projection x1.12 from his own baseline); strong matchup: one rung above the floor",
-      "ANA expected goals 3.42 before empty net and overtime (1.09 of it on the power play), against Alex Nedeljkovic (GSAx +0.11 per 60)",
-      "His share: 1.08 expected goals and 0.91 assists per 60 at even strength, 2.55 and 2.90 on the power play; on the ice for 3.4 team expected goals per 60",
-      "Tonight's deployment: f2 tonight, usually f1 minutes: -42s EV, pp1: 62% of 294s team PP, plus part of his surplus",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 1, 1, 0, 4, 1, 1, 1, 4, 1, 2)",
-      "Hit in 62.6% of 20,000 simulated games",
-      "Listed at fanduel at -310 for this rung; the price is not an input to the pick"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    }
-   ],
-   "chance": 0.2671,
-   "miss": 0.7329,
-   "fair_price": 274,
-   "lift": 1.427,
-   "markets": [
-    "pts",
-    "sog",
-    "spread",
-    "total"
-   ],
-   "book_price": 317,
-   "priced": true,
-   "rungs_verified": true,
-   "id": "2026-11-25-SJS-ANA-sgp6",
-   "game": "SJS @ ANA",
-   "game_id": 2026020398,
-   "made_at": "2026-11-26T02:06:35+00:00",
-   "start_utc": "2026-11-26T03:00:00Z",
-   "paper": false,
-   "made_after_start": false,
-   "graded": false,
-   "early": false
-  },
-  {
-   "kind": "sgp8",
-   "title": "8-leg slip",
-   "legs": [
-    {
-     "label": "Tim Washe 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "ANA",
-     "player": "Tim Washe",
-     "player_id": 8485512,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8738,
-     "price": null,
-     "fair_price": -692,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.44 hits in 14.8 minutes: 12.1 even strength, 0.0 power play, 2.7 penalty kill (line 3)",
-      "His rates per 60 minutes: 11.2 at even strength, 0.5 on the power play, 5.8 shorthanded (25 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by SJS index x1.01; ANA rink hits bias x0.96",
-      "Tonight's deployment: f3 tonight, usually f4 minutes: +27s EV",
-      "Reached 1+ in 8 of his last 10 games (most recent first: 3, 4, 3, 1, 0, 3, 0, 4, 3, 1)",
-      "Script: when ANA lead after two periods the score moves its hits -5%, when it trails +4% (ANA lead after two in 49% of games)",
-      "Hit in 87.4% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Ty Dellandrea 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "SJS",
-     "player": "Ty Dellandrea",
-     "player_id": 8480848,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8525,
-     "price": null,
-     "fair_price": -578,
-     "rung_verified": false,
-     "why": [
-      "Projected 2.22 hits in 13.0 minutes: 11.3 even strength, 0.0 power play, 1.7 penalty kill (line 3)",
-      "His rates per 60 minutes: 13.2 at even strength, 0.5 on the power play, 2.8 shorthanded (18 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by ANA index x0.90; ANA rink hits bias x0.96",
-      "Tonight's deployment: f3 tonight, usually f4 minutes: +32s EV",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 1, 4, 4, 4, 2, 0, 2, 3, 1, 3)",
-      "Script: when SJS lead after two periods the score moves its hits -4%, when it trails +5% (SJS lead after two in 30% of games)",
-      "Hit in 85.2% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Over 4.5 goals",
-     "kind": "game",
-     "market": "total",
-     "team": null,
-     "player": null,
-     "player_id": null,
-     "rung": null,
-     "side": "over",
-     "line": 4.5,
-     "prob": 0.8272,
-     "price": null,
-     "fair_price": -479,
-     "rung_verified": false,
-     "why": [
-      "Simulated score: SJS 2.94, ANA 3.65 (total 6.59); ANA win 61%, overtime 21%",
-      "SJS: 2.05 expected goals at 5v5, 0.61 on 6.7 power-play minutes; this season's goals per expected goal x1.027; road x0.967; out: Kiefer Sherwood, Jacob Trouba x0.974",
-      "ANA: 2.18 expected goals at 5v5, 1.09 on 5.8 power-play minutes; this season's goals per expected goal x1.027; facing Alex Nedeljkovic (GSAx/60 +0.11) x0.965; home ice x1.034; out: Beckett Sennecke, Leo Carlsson, Noah Warren x0.939",
-      "Total goals: 17% four or fewer, 31% five or six, 51% seven or more. In backtest the model's totals were no better than the base rate",
-      "Hit in 82.7% of 20,000 simulated games; the line is not checked at the book"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Nikita Nesterenko 1+ hits",
-     "kind": "prop",
-     "market": "hits",
-     "team": "ANA",
-     "player": "Nikita Nesterenko",
-     "player_id": 8481754,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.8147,
-     "price": null,
-     "fair_price": -440,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.90 hits in 10.4 minutes: 10.0 even strength, 0.1 power play, 0.2 penalty kill (line 4)",
-      "His rates per 60 minutes: 11.8 at even strength, 0.4 on the power play, 0.6 shorthanded (23 games this season, shrunk toward his position's rate)",
-      "Adjustments: hits taken by SJS index x1.01; ANA rink hits bias x0.96",
-      "Tonight's deployment: on neither PP unit",
-      "Reached 1+ in 8 of his last 10 games (most recent first: 5, 3, 0, 0, 3, 4, 2, 1, 5, 2)",
-      "Script: when ANA lead after two periods the score moves its hits -5%, when it trails +4% (ANA lead after two in 49% of games)",
-      "Hit in 81.5% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Macklin Celebrini 2+ shots on goal",
-     "kind": "prop",
-     "market": "sog",
-     "team": "SJS",
-     "player": "Macklin Celebrini",
-     "player_id": 8484801,
-     "rung": 2,
-     "side": null,
-     "line": null,
-     "prob": 0.8062,
-     "price": null,
-     "fair_price": -416,
-     "rung_verified": false,
-     "why": [
-      "Projected 3.40 shots on goal in 22.5 minutes: 17.6 even strength, 4.5 power play, PP1, 0.4 penalty kill (line 1)",
-      "His rates per 60 minutes: 8.4 at even strength, 15.7 on the power play, 4.1 shorthanded (24 games this season, shrunk toward his position's rate)",
-      "Adjustments: ANA shots allowed index x0.92; ANA rink SOG bias x1.00; scaled toward the team's simulated shots x0.97",
-      "Tonight's deployment: pp1: 62% of 374s team PP, plus part of his surplus",
-      "Reached 2+ in 9 of his last 10 games (most recent first: 1, 3, 5, 5, 4, 2, 6, 6, 6, 5)",
-      "Script: SJS project for 24.5 shots on goal against ANA",
-      "Hit in 80.6% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Darnell Nurse 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "SJS",
-     "player": "Darnell Nurse",
-     "player_id": 8477498,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7876,
-     "price": null,
-     "fair_price": -371,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.96 blocked shots in 21.5 minutes: 18.2 even strength, 0.0 power play, 3.4 penalty kill (pair 1)",
-      "His rates per 60 minutes: 4.2 at even strength, 1.4 on the power play, 11.3 shorthanded (25 games this season, shrunk toward his position's rate)",
-      "Adjustments: ANA shot attempts index x1.04; ANA rink blocks bias x1.00",
-      "Reached 1+ in 7 of his last 10 games (most recent first: 1, 1, 0, 2, 2, 0, 1, 2, 5, 0)",
-      "Script: when SJS lead after two periods the score moves its blocked shots +9%, when it trails -10% (SJS lead after two in 30% of games)",
-      "Hit in 78.8% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Jackson LaCombe 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "ANA",
-     "player": "Jackson LaCombe",
-     "player_id": 8481605,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7756,
-     "price": null,
-     "fair_price": -346,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.86 blocked shots in 26.0 minutes: 19.8 even strength, 3.6 power play, PP1, 2.7 penalty kill (pair 1)",
-      "His rates per 60 minutes: 4.5 at even strength, 0.6 on the power play, 6.9 shorthanded (25 games this season, shrunk toward his position's rate)",
-      "Adjustments: SJS shot attempts index x0.98; ANA rink blocks bias x1.00",
-      "Tonight's deployment: pp1: 62% of 294s team PP, plus part of his surplus",
-      "Reached 1+ in 9 of his last 10 games (most recent first: 1, 3, 1, 2, 2, 0, 2, 5, 3, 2)",
-      "Script: when ANA lead after two periods the score moves its blocked shots +10%, when it trails -9% (ANA lead after two in 49% of games)",
-      "Hit in 77.6% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    },
-    {
-     "label": "Drew Helleson 1+ blocked shots",
-     "kind": "prop",
-     "market": "blk",
-     "team": "ANA",
-     "player": "Drew Helleson",
-     "player_id": 8481563,
-     "rung": 1,
-     "side": null,
-     "line": null,
-     "prob": 0.7579,
-     "price": null,
-     "fair_price": -313,
-     "rung_verified": false,
-     "why": [
-      "Projected 1.74 blocked shots in 20.0 minutes: 17.8 even strength, 0.0 power play, 2.3 penalty kill (pair 1)",
-      "His rates per 60 minutes: 5.1 at even strength, 0.8 on the power play, 5.1 shorthanded (17 games this season, shrunk toward his position's rate)",
-      "Adjustments: SJS shot attempts index x0.98; ANA rink blocks bias x1.00",
-      "Tonight's deployment: d1 tonight, usually d3 minutes: +99s EV",
-      "Reached 1+ in 7 of his last 10 games (most recent first: 0, 0, 2, 2, 3, 1, 5, 0, 1, 3)",
-      "Script: when ANA lead after two periods the score moves its blocked shots +10%, when it trails -9% (ANA lead after two in 49% of games)",
-      "Hit in 75.8% of 20,000 simulated games; the rung is not checked at the book"
-     ],
-     "game": "SJS @ ANA",
-     "game_id": 2026020398
-    }
-   ],
-   "chance": 0.1986,
-   "miss": 0.8014,
-   "fair_price": 403,
-   "lift": 1.06,
-   "markets": [
-    "blk",
-    "hits",
-    "sog",
-    "total"
-   ],
-   "priced": false,
-   "rungs_verified": false,
-   "id": "2026-11-25-SJS-ANA-sgp8",
-   "game": "SJS @ ANA",
-   "game_id": 2026020398,
-   "made_at": "2026-11-25T23:42:55+00:00",
-   "start_utc": "2026-11-26T03:00:00Z",
-   "paper": true,
-   "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "SJS 0, ANA 7 (REG)",
+   "graded_at": "2026-11-26T08:32:09+00:00"
   }
  ]
 }

@@ -212,6 +212,10 @@ def run(con, cfg, date_et: str, as_of: str | None = None, include_started: bool 
     by_id = {t["id"]: t for t in ledger["tickets"]}
     entries = [({k: v for k, v in t.items() if k != "pairs"}, g["paper"], g["made_after_start"], bool(g.get("early"))) for g in games for t in g["tickets"]]
     entries += [(t, not t["rungs_verified"], False, early) for t in multis]
+    reissued = {g["game_id"] for g in games if g["start_utc"].replace("Z", "+00:00") > as_of}
+    fresh = {t["id"] for t, *_ in entries}
+    for tid in [i for i, t in by_id.items() if t.get("game_id") in reissued and i not in fresh and not t.get("graded")]:
+        del by_id[tid]                                            # a slip this run no longer issues for an open game is withdrawn
     for t, paper, late, is_early in entries:
         old = by_id.get(t["id"])
         if old and (old.get("graded") or old["start_utc"].replace("Z", "+00:00") <= as_of):
