@@ -7,6 +7,7 @@
 # 2. touchdowns: the algorithm's TD versions across the day's games (scripts/nfl-atd-versions.py)
 # 3. matchups: strong / neutral / weak for every player (scripts/nfl-matchups.py)
 # 4. slips: each game's tiers (scripts/nfl-today.ts), joined into model/output/nfl_today.json for the site
+# 5. anytime-TD-only slips across the day's games (scripts/nfl-atd-slips.ts): model/output/nfl_atd_slips.json
 set -euo pipefail
 cd "$(dirname "$0")/.."
 [ "${SKIP_LISTINGS:-}" = 1 ] || for g in "$@"; do npm run -s nfl:listings -- "$g" "model/output/nfl_listed_rungs_$g.json"; done
@@ -15,11 +16,12 @@ for g in "$@"; do
   python3 scripts/nfl-matchups.py "$g" > /dev/null
   node scripts/nfl-today.ts "$g"
 done
+node scripts/nfl-atd-slips.ts
 python3 - "$@" <<'PY'
 import json, sys
 games = [json.load(open(f"model/output/nfl_today_{g}.json")) for g in sys.argv[1:]]
 out = {"made_at": max(g["made_at"] for g in games), "built_from": games[0]["built_from"], "rules": games[0]["rules"],
-       "listings": games[0]["listings"], "games": [{k: v for k, v in g.items() if k not in ("cross", "rules")} for g in games], "cross": games[0]["cross"]}
+       "listings": games[0]["listings"], "games": [{k: v for k, v in g.items() if k != "rules"} for g in games]}
 json.dump(out, open("model/output/nfl_today.json", "w"))
 print(f"model/output/nfl_today.json: {len(games)} games")
 PY

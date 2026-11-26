@@ -19,6 +19,7 @@ import {
 import { ScriptsTab } from "./ScriptsTab";
 import { HybridsTab, MarketsTab } from "./MarketsTab";
 import { NflTonight } from "./NflTonight";
+import { NflAtd } from "./NflAtd";
 import { AdvisorChat } from "./AdvisorChat";
 import { PasteTab } from "./PasteSlip";
 import { ScreenshotAudit } from "./ScreenshotAudit";
@@ -32,7 +33,7 @@ import backtest from "../../model/output/backtest.json";
 
 /* The eight console tabs are drawn by /console/app.js into #main.
    The four tracker tabs below are drawn by React into #extra. */
-const EXTRA_TABS = ["tonight", "markets", "hybrids", "advisor", "shot", "paste", "bets", "report", "bankroll", "scripts", "games"] as const;
+const EXTRA_TABS = ["tonight", "atd", "markets", "hybrids", "advisor", "shot", "paste", "bets", "report", "bankroll", "scripts", "games"] as const;
 type ExtraTab = (typeof EXTRA_TABS)[number];
 
 declare global {
@@ -168,6 +169,10 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
             <Icon d="M12 3v3M12 18v3M3 12h3M18 12h3" circle={5} />
             Today&apos;s slips
           </a>
+          <a href="#atd" data-tab="atd">
+            <Icon d="M5 12h14M12 5v14" circle={9} />
+            Anytime TD
+          </a>
           <a href="#picks" data-tab="picks">
             <Icon d="M4 19h16M6 15l4-6 4 3 4-7" />
             Algorithm picks
@@ -260,6 +265,7 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
           <main id="main"></main>
           <div id="extra" hidden={!extra}>
             {extra === "tonight" && <NflTonight />}
+            {extra === "atd" && <NflAtd />}
             {extra === "markets" && (
               <MarketsTab
                 onTrack={(legs) => {
