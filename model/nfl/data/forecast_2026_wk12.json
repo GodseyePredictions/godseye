@@ -4,83 +4,83 @@
   "temp": 52.0,
   "wind": 10.0,
   "pop": 0,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_KC_BUF": {
   "short": "Rain",
   "temp": 37.0,
   "wind": 13.0,
   "pop": 100,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_DEN_PIT": {
   "short": "Light Rain Likely",
   "temp": 43.0,
   "wind": 18.0,
   "pop": 65,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_NO_CIN": {
   "short": "Light Rain",
   "temp": 52.0,
   "wind": 10.0,
   "pop": 93,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_LV_CLE": {
   "short": "Light Rain",
   "temp": 46.0,
   "wind": 13.0,
   "pop": 93,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_BAL_HOU": {
   "short": "Mostly Sunny",
   "temp": 67.0,
   "wind": 15.0,
   "pop": 0,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_NYG_IND": {
   "short": "Light Rain",
   "temp": 47.0,
   "wind": 9.0,
   "pop": 92,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_NYJ_MIA": {
   "short": "Slight Chance Rain Showers",
   "temp": 77.0,
   "wind": 6.0,
   "pop": 21,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_TEN_JAX": {
   "short": "Mostly Cloudy",
   "temp": 65.0,
   "wind": 7.0,
   "pop": 5,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_WAS_ARI": {
   "short": "Sunny",
   "temp": 77.0,
   "wind": 5.0,
   "pop": 0,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_SEA_SF": {
   "short": "Light Rain Likely",
   "temp": 64.0,
   "wind": 14.0,
   "pop": 74,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  },
  "2026_12_CAR_TB": {
   "short": "Scattered Rain Showers",
   "temp": 67.0,
   "wind": 3.0,
   "pop": 28,
-  "fetched": "2026-11-26T09:18-05:00"
+  "fetched": "2026-11-26T11:10-05:00"
  }
 }
