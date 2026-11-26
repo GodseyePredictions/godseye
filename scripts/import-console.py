@@ -131,6 +131,9 @@ js = patch(js, '''`<span class="cpill">Week ${s.week}</span><span class="cpill">
                '''`<span>Week ${s.week}</span><span>${kindL[s.kind]||s.kind}</span><span class="win">${s.n}-leg cashed</span>`,''')
 js = patch(js, '''s.legs.map(l=>`<li>${esc(l.t)} <span class="cact">(${esc(l.r)})</span></li>`).join(""),''',
                '''s.legs.map(l=>`<li><span>${esc(l.t)}</span></li>`).join(""),''')
+#     no tally of tickets cashed or issued anywhere on the site (owner, 26 November): the record chip is not drawn
+js = patch(js, '''rec.tickets?["Last graded week",`${rec.cashed}<small>/ ${rec.tickets} cashed</small>`,`${rec.legs_hit}% of legs hit vs ${rec.legs_exp}% expected`]:["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];''', '''["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];''')
+js = patch(js, """$("#recchip").textContent=D.meta.record&&D.meta.record.tickets?`Last week: ${D.meta.record.cashed}/${D.meta.record.tickets} tickets cashed`:`Graded as shipped, every week`;""", "")
 #     the home page's shortcuts open the Game SGPs tab, where the slips are
 js = patch(
     js,

@@ -144,7 +144,6 @@ export default function ConsoleApp({ eyeSrc, homeHref }: { eyeSrc?: string; home
           <span className="livechip">
             <i></i> Model-only, no media picks
           </span>
-          <span className="livechip" id="recchip"></span>
         </div>
       </header>
 

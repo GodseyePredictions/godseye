@@ -45,7 +45,7 @@ const atd = read("model/output/nfl_atd_versions.json") as { games: string[]; hel
 const GAME = listed.game, GID = listed.game_id;
 // ---- matchups (scripts/nfl-matchups.py): strong, neutral or weak for each player, from the algorithm's matchup index.
 // A defence that is stingy against a player's position caps him at neutral; a soft one lifts a weak tag to neutral.
-const MATCH = read(`model/output/nfl_matchups_${GID}.json`) as { players: Record<string, { team: string; pos: string; index: number; tag: string; defence: string }> };
+const MATCH = read(`model/output/nfl_matchups_${GID}.json`) as { players: Record<string, { team: string; opp: string; pos: string; index: number; tag: string; defence: string }>; defences: Record<string, { run: string }> };
 const tagOf = (player: string): "strong" | "neutral" | "weak" => {
   const m = MATCH.players[player]; if (!m) return "neutral";
   // the index, moved one step toward how this defence plays the position: stingy pulls it down, soft lifts it
@@ -86,8 +86,11 @@ const aggressivePool = cat.legs.filter((l) => propsOk(l, NFL_TODAY.aggressive[0]
 // ---- touchdown scorers the algorithm clears for parlays, this game
 const held = new Map(atd.held.map((h) => [h[0], h[2]]));
 const tdLeg = (name: string) => cat.legs.find((l) => l.player === name && l.market === "atd" && l.game !== undefined) as RatedLeg | undefined;
-// air (receivers, tight ends) only when the matchup clears: strong once the defence is checked
-const tdEligible = atd.board.filter((b) => b.game === GID && !b.singles && !held.has(b.name) && b.p >= 0.2 && (b.pos === "RB" || b.pos === "QB" || tagOf(b.name) === "strong")).map((b) => tdLeg(b.name)).filter((l): l is RatedLeg => !!l);
+// a touchdown leg goes on only when its matchup clears (scripts/nfl-atd-slips.ts): air needs a strong matchup once the
+// defence is checked, a back one that is not weak, a quarterback a run defence that is not stingy
+const tdClears = (name: string, pos: string) =>
+  pos === "QB" ? !(MATCH.defences[MATCH.players[name]?.opp]?.run ?? "").startsWith("stingy") : pos === "RB" ? tagOf(name) !== "weak" : tagOf(name) === "strong";
+const tdEligible = atd.board.filter((b) => b.game === GID && !b.singles && !held.has(b.name) && b.p >= 0.2 && tdClears(b.name, b.pos)).map((b) => tdLeg(b.name)).filter((l): l is RatedLeg => !!l);
 
 type Built = { legs: RatedLeg[]; p: number };
 const allowed = (legs: RatedLeg[], c: RatedLeg) =>
@@ -166,7 +169,7 @@ const lottoCands = [6, 7, 8].flatMap((n) => topSlips(lottoPool, n, [], 10, (p) =
 const lotto = lottoCands[0] ? toSlip(`Lotto · ${lottoCands[0].legs.length}-leg`, "lotto", lottoCands[0], true, `Higher rungs and touchdown scorers the algorithm rates ${Math.round(NFL_TODAY.aggressive[0] * 100)}% or better, at most one props leg under 65%. A lotto is 1 in 16 or longer.`) : null;
 
 // ---- 4. anytime TD, tonight: singles, and the double the one-player-per-team rule allows
-const board = atd.board.filter((b) => b.game === GID).slice(0, 6).map((b) => { const l = tdLeg(b.name); const bp = l ? best(priceOf(l)) : null; return { name: b.name, team: b.team, pos: b.pos, p: b.p, fair: fairAmerican(b.p) as number, flag: b.singles ? "single only this week" : held.has(b.name) ? `held out of parlays: ${held.get(b.name)}` : "", listed: bp ? `${bp[0] === "draftkings" ? "DraftKings" : "FanDuel"} ${bp[1] > 0 ? "+" : ""}${bp[1]}` : "", price: bp ? bp[1] : null, why: l ? whyOf(l) : [] }; });
+const board = atd.board.filter((b) => b.game === GID).slice(0, 6).map((b) => { const l = tdLeg(b.name); const bp = l ? best(priceOf(l)) : null; return { name: b.name, team: b.team, pos: b.pos, p: b.p, fair: fairAmerican(b.p) as number, flag: b.singles ? "single only this week" : held.has(b.name) ? `held out of parlays: ${held.get(b.name)}` : !tdClears(b.name, b.pos) ? "matchup does not clear: single only" : "", listed: bp ? `${bp[0] === "draftkings" ? "DraftKings" : "FanDuel"} ${bp[1] > 0 ? "+" : ""}${bp[1]}` : "", price: bp ? bp[1] : null, why: l ? whyOf(l) : [] }; });
 const byTeam = new Map<string, RatedLeg[]>();
 for (const l of tdEligible) byTeam.set(l.team as string, [...(byTeam.get(l.team as string) ?? []), l]);
 const teams = [...byTeam.values()];
