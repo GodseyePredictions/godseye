@@ -14,8 +14,8 @@ from nhl.sim import game_sim
 @pytest.fixture(scope="module")
 def world(league):
     from nhl import store
-    from nhl.config import copy_config
-    cfg = copy_config()
+    from nhl.tests.conftest import paper_config
+    cfg = paper_config()
     cfg["sim"]["n_sims"] = 6000
     cfg["props"]["min_toi_sec"] = 60
     con = store.connect(":memory:")
@@ -477,3 +477,58 @@ def test_gated_run_reissues_unconfirmed_games_as_early(tmp_path, monkeypatch, db
     site = json.loads((tmp_path / "SITE.json").read_text())
     assert site["mixed"] and all(x["early"] for x in site["games"])
     assert not any(t["kind"].startswith("multi") for t in out["multi"])               # 2- and 3-game slips use confirmed games only
+
+
+# ------------------------------------------------------------------ the four steps (owner, 25 November 2026)
+def test_only_listed_rungs_with_their_book_price(world):
+    S, PS = world["S"], world["PS"]
+    cfg = {**world["cfg"], "gates": {**world["cfg"]["gates"], "require_book_rung": True}}
+    pid = int(PS.players.player_id.iloc[0])
+    rows = [{"market": "sog", "player_id": pid, "side": "over", "line": 1.5, "price": -150.0, "book": "betmgm"},
+            {"market": "sog", "player_id": pid, "side": "over", "line": 1.5, "price": -140.0, "book": "fanduel"},
+            {"market": "sog", "player_id": pid, "side": "over", "line": 2.5, "price": 120.0, "book": "betmgm"}]
+    legs, removed = tickets.build_legs(PS, S, open_gates(), {}, rows, {**game_sim.summary(S, cfg), "blowout_flag": False}, cfg)
+    props = [l for l in legs if l.get("kind") == "prop"]
+    assert {(l["rung"], l["price"], l["book"]) for l in props} == {(2, -140.0, "fanduel"), (3, 120.0, "betmgm")}   # FanDuel first
+    assert all(l["price"] is not None for l in legs)                                   # nothing without a listed price
+    assert any(r["reason"] == "rung not on the book's ladder" for r in removed)
+
+
+def test_matchup_marks_and_rungs(world):
+    cfg = world["cfg"]
+    m = cfg["tickets"]["matchup"]
+    assert tickets.matchup_grade(m["strong"], cfg) == "strong" and tickets.matchup_grade(1.0, cfg) == "neutral"
+    assert tickets.matchup_grade(m["weak"], cfg) == "weak"
+    leg = lambda rung, p, grade, pid=1: {"market": "sog", "player_id": pid, "rung": rung, "p": p, "matchup": grade}
+    pool = tickets.floor_rungs([leg(2, 0.85, "neutral"), leg(3, 0.66, "neutral")], cfg)
+    assert [l["rung"] for l in pool] == [2]                                          # neutral: the floor rung
+    pool = tickets.floor_rungs([leg(2, 0.85, "strong"), leg(3, 0.66, "strong")], cfg)
+    assert [l["rung"] for l in pool] == [3] and pool[0]["rung_reason"].startswith("strong")   # strong: one rung up
+    assert tickets.floor_rungs([leg(1, 0.66, "strong")], cfg) == []                  # but never in place of a floor rung
+    assert tickets.floor_rungs([leg(2, 0.95, "weak")], cfg) == []                    # weak: off the slip
+    f = tickets.matchup_factors(world["PS"], world["S"], cfg)
+    assert {k[0] for k in f} >= {"sog", "hits", "blk", "pts", "ast", "goals", "saves"} and all(v > 0 for v in f.values())
+
+
+def test_slip_price_is_the_book_legs_multiplied():
+    assert tickets.legs_price([-110, -110]) == 264
+    assert tickets.legs_price([+100]) == 100 and tickets.legs_price([-200]) == -200
+    assert tickets.legs_price([-110, None]) is None and tickets.legs_price([]) is None
+
+
+def test_lotto_is_ranged_by_book_prices_not_chosen_by_them(world):
+    S, PS = world["S"], world["PS"]
+    cfg = {**world["cfg"], "gates": {**world["cfg"]["gates"], "require_book_rung": True}}
+    games = []
+    for i in range(4):
+        out = tickets.build(PS, S, open_gates(), {}, [], {**game_sim.summary(S, cfg), "blowout_flag": False}, [], world["cfg"])
+        legs = [{**l, "price": 150.0, "book": "fanduel"} for l in out["legs"]]
+        games.append({"game_id": i, "label": f"G{i}", "legs": legs, "multi_part": out["multi_part"], "gates_ok": True})
+    lot = tickets.lotto(games, cfg)
+    if lot:
+        d = 1.0
+        for l in lot["legs"]:
+            d *= 2.5
+        assert d >= cfg["tickets"]["multi"]["lotto_min_decimal"] and lot["book_price"] >= 5000
+    unpriced = [{**g, "legs": [{**l, "price": None} for l in g["legs"]]} for g in games]
+    assert tickets.lotto(unpriced, cfg) is None                                        # no listed price, no lotto leg

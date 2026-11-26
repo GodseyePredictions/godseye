@@ -48,16 +48,23 @@ def all_api_markets() -> list[str]:
     return list(GAME_MARKETS.values()) + props + [m + "_alternate" for m in props if m not in NO_ALTERNATE]
 
 
-def api_events(key: str, root, cfg, max_age=300) -> list[dict]:
-    body, _ = get(f"{API}/events?apiKey={key}", root, max_age=max_age, redact=key,
+def _key(key: str | None) -> tuple[str, str | None]:
+    """With a key in the environment it goes in the URL; without one the session's proxy adds the saved credential."""
+    return (f"apiKey={key}&", key) if key else ("", None)
+
+
+def api_events(key: str | None, root, cfg, max_age=300) -> list[dict]:
+    q, redact = _key(key)
+    body, _ = get(f"{API}/events?{q}".rstrip("?&"), root, max_age=max_age, redact=redact,
                   min_interval=cfg["sources"]["min_interval"]["api.the-odds-api.com"])
     return json.loads(body)
 
 
-def api_event_odds(key: str, event_id: str, root, cfg, snapshot_tag: str) -> tuple[dict, str]:
-    url = (f"{API}/events/{event_id}/odds?apiKey={key}&regions={cfg['sources']['odds_regions']}"
+def api_event_odds(key: str | None, event_id: str, root, cfg, snapshot_tag: str) -> tuple[dict, str]:
+    q, redact = _key(key)
+    url = (f"{API}/events/{event_id}/odds?{q}regions={cfg['sources']['odds_regions']}"
            f"&markets={','.join(all_api_markets())}&oddsFormat=american&bookmakers={','.join(cfg['sources']['odds_books'])}")
-    body, at = get(url, root, tag=snapshot_tag, redact=key, min_interval=cfg["sources"]["min_interval"]["api.the-odds-api.com"])
+    body, at = get(url, root, tag=snapshot_tag, redact=redact, min_interval=cfg["sources"]["min_interval"]["api.the-odds-api.com"])
     return json.loads(body), at
 
 

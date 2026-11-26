@@ -104,7 +104,7 @@ def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None 
 
 
 def _site_leg(l: dict) -> dict:
-    return {k: l.get(k) for k in ("label", "market", "team", "prob", "price", "fair_price", "rung_verified", "why", "game")}
+    return {k: l.get(k) for k in ("label", "market", "team", "prob", "price", "book", "matchup", "rung_verified", "why", "game")}
 
 
 def site_export(slate: dict, cfg) -> dict:
@@ -123,14 +123,14 @@ def site_export(slate: dict, cfg) -> dict:
             "saves": {t: {"name": v.get("name"), "expected": v.get("expected_saves"), "pull_prob": v.get("pull_prob")}
                       for t, v in g["goalies"].items()},
             "tickets": [{"id": t["id"], "kind": t["kind"], "title": t["title"], "chance": t["chance"], "miss": t["miss"],
-                         "fair_price": t["fair_price"], "lift": t["lift"], "priced": t["priced"], "rungs_verified": t["rungs_verified"],
+                         "book_price": t.get("book_price"), "lift": t["lift"], "priced": t["priced"], "rungs_verified": t["rungs_verified"],
                          "edge": t.get("edge"), "book": t.get("book"), "kelly_stake": t.get("kelly_stake"),
                          "legs": [_site_leg(l) for l in t["legs"]]}
                         for t in g["tickets"]],
             "removed_count": g["removed_count"],
             "projections": [{k: p[k] for k in ("player", "team", "pos", "toi_min", "line", "pp", "sog", "pts", "goals", "ast", "hits", "blk", "atg")}
                             for p in g["projections"][:40]]})
-    multi = [{"id": t["id"], "kind": t["kind"], "title": t["title"], "chance": t["chance"], "miss": t["miss"], "fair_price": t["fair_price"],
+    multi = [{"id": t["id"], "kind": t["kind"], "title": t["title"], "chance": t["chance"], "miss": t["miss"], "book_price": t.get("book_price"),
               "games": t["games"], "how_chosen": t.get("how_chosen"), "rungs_verified": t["rungs_verified"], "priced": t["priced"],
               "start_utc": t["start_utc"], "includes_early": t.get("includes_early", []),
               "legs": [_site_leg(l) for l in t["legs"]]} for t in slate.get("multi", [])]

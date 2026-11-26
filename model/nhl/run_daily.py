@@ -239,12 +239,16 @@ def gameday(con, cfg, date_et: str | None = None) -> dict:
         report["notes"].append(f"referee assignments not read: {e}")
     prices, rejected = [], []
     key = os.environ.get(cfg["sources"]["odds_api_key_env"])
-    if key:
+    if key or cfg["sources"].get("odds_via_proxy"):
         try:
             tag = now_utc().strftime("%Y%m%dT%H%M")
+            wanted = {(r["away"], r["home"]) for r in games}
             for ev in odds.api_events(key, store.RAW, cfg):
+                if (ids.team(ev.get("away_team", "")), ids.team(ev.get("home_team", ""))) not in wanted:
+                    continue
                 doc, at = odds.api_event_odds(key, ev["id"], store.RAW, cfg, tag)
                 prices += odds.rows_from_api(doc, at)
+            report["odds_api_books"] = sorted({r["book"] for r in prices})
         except FetchError as e:
             report["notes"].append(f"The Odds API not read: {e}")
     else:

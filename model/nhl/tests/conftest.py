@@ -26,9 +26,16 @@ def fixture_text(name):
     return (FIX / name).read_text()
 
 
+def paper_config():
+    """The engine with paper ladders: most tests check the maths, not the book."""
+    c = copy_config()
+    c["gates"]["require_book_rung"] = False
+    return c
+
+
 @pytest.fixture
 def cfg():
-    return copy_config()
+    return paper_config()
 
 
 def roster_for(team, k):

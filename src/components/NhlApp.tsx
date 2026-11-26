@@ -10,11 +10,12 @@ import raw from "../../model/nhl/output/nhl_site.json";
    `python3 -m nhl.run_daily slate` (model/nhl/output/nhl_site.json). Every ticket is shown as a set slip. */
 
 type Leg = {
-  label: string; market: string; team: string | null; prob: number; price: number | null; fair_price: number; rung_verified: boolean;
+  label: string; market: string; team: string | null; prob: number; price: number | null; book?: string | null; matchup?: string | null;
+  rung_verified: boolean;
   why?: string[]; game?: string | null;
 };
 type Multi = {
-  id: string; kind: string; title: string; chance: number; miss: number; fair_price: number; games: string[]; how_chosen: string | null;
+  id: string; kind: string; title: string; chance: number; miss: number; book_price: number | null; games: string[]; how_chosen: string | null;
   rungs_verified: boolean; priced: boolean; start_utc: string; includes_early?: string[]; legs: Leg[];
 };
 type Cashed = {
@@ -22,7 +23,7 @@ type Cashed = {
   rungs_verified: boolean; legs: { label: string; prob: number; actual: number | string | null; price: number | null }[];
 };
 type Ticket = {
-  id: string; kind: string; title: string; chance: number; miss: number; fair_price: number; lift: number; priced: boolean;
+  id: string; kind: string; title: string; chance: number; miss: number; book_price: number | null; lift: number; priced: boolean;
   rungs_verified: boolean; edge: number | null; book: string | null; kelly_stake: number | null; legs: Leg[];
 };
 type Step = { what: string; value?: number; factor?: number };
@@ -74,6 +75,11 @@ function Icon({ d }: { d: string }) {
   );
 }
 
+function legSub(l: Leg) {
+  const m = l.matchup ? ` · ${l.matchup} matchup` : "";
+  return l.price == null ? `model ${pct(l.prob)}${m} · no listed price` : `model ${pct(l.prob)}${m} · ${l.book ?? "book"} ${american(l.price)}`;
+}
+
 function TicketSlip({ t, g }: { t: Ticket; g: Game }) {
   const why = {
     intel: [
@@ -91,13 +97,13 @@ function TicketSlip({ t, g }: { t: Ticket; g: Game }) {
       meta={`${g.label} · ${dropTime(g.start_utc)}`}
       legs={t.legs.map((l) => ({
         text: l.label,
-        sub: l.price == null ? `model ${pct(l.prob)} · fair ${american(l.fair_price)}${l.rung_verified ? "" : " · rung not verified"}` : `model ${pct(l.prob)} · fair ${american(l.fair_price)}`,
+        sub: legSub(l),
         value: l.price == null ? pct(l.prob) : american(l.price),
       }))}
       stats={[
         { label: "Chance to hit", value: pct(t.chance, 1), tone: "good" },
         { label: "Chance to miss", value: pct(t.miss, 1), tone: "bad" },
-        { label: "Fair price", value: american(t.fair_price), tone: "red" },
+        { label: "Price", value: t.book_price == null ? "not listed" : american(t.book_price), tone: "red" },
       ]}
       why={why}
       warn={
@@ -183,13 +189,13 @@ function MultiSlip({ t }: { t: Multi }) {
       meta={`${t.games.length} games · first puck drop ${dropTime(t.start_utc)}`}
       legs={t.legs.map((l) => ({
         text: l.label,
-        sub: `${l.game ?? ""} · model ${pct(l.prob)} · fair ${american(l.fair_price)}${l.rung_verified ? "" : " · rung not verified"}`,
+        sub: `${l.game ?? ""} · ${legSub(l)}`,
         value: l.price == null ? pct(l.prob) : american(l.price),
       }))}
       stats={[
         { label: "Chance to hit", value: pct(t.chance, t.chance < 0.1 ? 2 : 1), tone: "good" },
         { label: "Chance to miss", value: pct(t.miss, t.chance < 0.1 ? 2 : 1), tone: "bad" },
-        { label: "Fair price", value: american(t.fair_price), tone: "red" },
+        { label: "Price", value: t.book_price == null ? "not listed" : american(t.book_price), tone: "red" },
       ]}
       why={{
         intel: [
@@ -207,7 +213,7 @@ function MultiSlip({ t }: { t: Multi }) {
           : t.kind === "lotto" && (t.includes_early ?? []).length
             ? `A longshot by design, and it uses games whose goalies or lines were not all confirmed (${(t.includes_early ?? []).join(", ")}). It misses far more often than it hits. Fair price, not a book's. No stake is suggested.`
           : t.kind === "lotto"
-            ? "A longshot by design: it misses far more often than it hits. The price shown is the model's fair price, not a book's. No stake is suggested."
+            ? "A longshot by design: it misses far more often than it hits. Price: the book's leg prices multiplied; its same-game price will differ. No stake is suggested."
             : !t.rungs_verified
               ? "Test slip: rungs and prices are not checked at the book. No stake is suggested."
               : undefined
@@ -242,7 +248,7 @@ function MultiTab() {
         <div className="section-head">
           <div>
             <h2>Lotto ticket</h2>
-            <p className="sub">One longshot at +5000 or longer on the model&apos;s fair price, built from each player&apos;s most likely longshot rung.</p>
+            <p className="sub">One longshot at +5000 or longer on the book&apos;s leg prices multiplied, built from each player&apos;s most likely listed longshot rung.</p>
           </div>
         </div>
         {lotto.length ? (
@@ -400,8 +406,8 @@ function ModelTab() {
             </div>
           ))}
           <p className="sub" style={{ marginTop: 12 }}>
-            Fair prices: {Object.entries(g.fair.moneyline).map(([k, v]) => `${k} ${american(v.fair_price)}`).join(" · ")} ·{" "}
-            {Object.entries(g.fair.totals).map(([k, v]) => `${k} ${american(v.fair_price)}`).join(" · ")}
+            Model chances: {Object.entries(g.fair.moneyline).map(([k, v]) => `${k} wins ${pct(v.prob)}`).join(" · ")} ·{" "}
+            {Object.entries(g.fair.totals).map(([k, v]) => `${k} ${pct(v.prob)}`).join(" · ")}
           </p>
         </section>
       ))}
@@ -415,7 +421,9 @@ function ModelTab() {
           <li>Every game is simulated {slate.sims.toLocaleString()} times before any prop is set. Props are drawn inside those same games.</li>
           <li>A slip&apos;s chance is the share of simulated games in which every leg hits, never the legs multiplied.</li>
           <li>Slip legs are floor rungs at {pct(slate.floor)} or better (saves 85%), from shots, points, assists, goals, hits, blocks, saves, moneyline, puck line and total.</li>
-          <li>The lotto ticket is the exception: longshot rungs on purpose, at +5000 or longer on the model&apos;s fair price.</li>
+          <li>Matchups first: each leg is marked strong, neutral or weak from tonight&apos;s opponent, rink and game script. Weak matchups stay off; a strong one may take a higher listed rung.</li>
+          <li>Every leg carries the price a book lists for that exact rung (FanDuel, then BetMGM). A rung no book lists is not used. Odds never choose a leg.</li>
+          <li>The lotto ticket is the exception to the floor: listed longshot rungs on purpose, at +5000 or longer on the book&apos;s leg prices.</li>
           <li>No confirmed starting goalie, no leg on that game&apos;s total, saves or scoring props. No game-day lines, no legs on that team&apos;s skaters.</li>
           <li>Picks come only from the Godseye NHL algorithm. No expert, media or consensus picks.</li>
         </ul>

@@ -27,8 +27,9 @@ sources:
   gameday_max_age_sec: 1500       # Daily Faceoff and referee pages: re-read every 30 minutes until confirmed
   refresh_lead_min: 90            # the game-day refresh runs this long before puck drop
   odds_api_key_env: ODDS_API_KEY
-  odds_regions: us,uk,eu,au
-  odds_books: [bet365]
+  odds_regions: us,us2,uk,eu,au
+  odds_books: [fanduel, betmgm]   # in order of preference (owner, 24 November: not DraftKings). bet365 is not in The Odds API's NHL feed
+  odds_via_proxy: true            # the session's proxy adds the saved Odds API credential, so no key is needed in the environment
   goalie_confirmed_labels: [Confirmed]
 
 strength:
@@ -91,7 +92,7 @@ gates:
   preview: false                  # true (or `slate --preview`): goalie and lines gates are noted, not enforced, and nothing is written to the ledger
   issue_early: false              # with preview (or `slate --early`): the early card is logged and graded, and re-issued game by game as gates pass
   early_fallback: true            # a gated run re-issues a game that has not passed its goalie and lines gates as an early slip on the latest personnel
-  require_book_rung: false        # true: a leg with no listed rung is removed (the spec's gate 4). false: paper mode, see tickets.paper_ladders
+  require_book_rung: true         # owner, 25 November: every leg carries a price a book lists for that exact rung; no listed rung, no leg
 
 sim:
   n_sims: 20000
@@ -166,7 +167,12 @@ tickets:
   single_min_prob: 0.0
   kelly_fraction: 0.25
   kelly_cap: 0.03
+  matchup:                        # owner, 25 November: matchups first, mark each mismatch, set the rung by it
+    strong: 1.08                  # the opponent, rink and game script move his projection up at least this much: strong
+    weak: 0.93                    # ... down at least this much: weak (kept off the slip)
+    strong_rung_prob: 0.62        # a strong mismatch may take a higher listed rung if the model still gives it this much
   closer_min_prob: 0.70          # the closer is the listed moneyline or puck line the model rates most likely, at 70%+ (odds never pick it)
+  closer_spreads: [1.5]           # the closer is a moneyline or the standard puck line, never an alternate
   closer_markets: [ml, spread]    # totals are left out: in backtest the model's totals did not beat the base rate
   paper_ladders:                  # used only when no book ladder is in hand; legs are marked "rung not verified"
     sog: [2, 3, 4, 5]
@@ -181,7 +187,7 @@ tickets:
   multi:                          # owner, 24 November 2026: one 2-game slip, one 3-game slip, one lotto ticket
     games: [2, 3]
     legs_per_game: 3
-    lotto_min_decimal: 51.0       # +5000 or longer, at the model's fair price
+    lotto_min_decimal: 51.0       # +5000 or longer, on the book's leg prices multiplied (odds keep a slip in its range; they never pick a leg)
     lotto_max_decimal: 151.0      # ... and not so long it is a throwaway
     lotto_leg_prob: [0.33, 0.60]  # each lotto leg's own chance: real longshot rungs, not floor rungs
     lotto_markets: [goals, pts, ast, sog, ml]
