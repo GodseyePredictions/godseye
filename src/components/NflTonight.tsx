@@ -15,7 +15,7 @@ type Game = {
 };
 type Today = {
   made_at: string; built_from: string; rules: string[]; listings: { source: string; pulled_at: string }; games: Game[];
-  cross: { games: string[]; slips: Cross[]; held: { name: string; team: string; why: string }[] };
+  cross: { games: string[]; slips: Cross[]; short?: Cross[]; held: { name: string; team: string; why: string }[] };
 };
 const T = raw as unknown as Today;
 const et = (iso: string) => new Date(iso).toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" });
@@ -59,6 +59,24 @@ function Tier({ title, sub, slips, game }: { title: string; sub?: string; slips:
 }
 
 const bySize = (list: S[]) => [...new Set(list.map((s) => s.title))].map((t) => list.filter((s) => s.title === t));
+
+function CrossCard({ s }: { s: Cross }) {
+  return (
+    <Slip
+      badge={s.pick ? "Algo pick" : "Godseye slip"}
+      pick={s.pick}
+      title={s.title}
+      meta={s.mix}
+      legs={s.legs.map((l) => ({ text: l.text, sub: [l.side, l.who, l.game, l.listed ? `listed ${l.listed}` : ""].filter(Boolean).join(" · "), value: pct(l.p) }))}
+      stats={[
+        { label: "Chance to hit", value: pct(s.p, 1), tone: "red" },
+        { label: "Chance to miss", value: pct(1 - s.p, 1) },
+        { label: "Books' leg prices combined", value: s.listedMultiplied == null ? "–" : american(s.listedMultiplied) },
+      ]}
+      note={s.note}
+    />
+  );
+}
 
 function GamePack({ g }: { g: Game }) {
   return (
@@ -145,6 +163,23 @@ export function NflTonight() {
       {T.games.map((g) => (
         <GamePack g={g} key={g.game_id} />
       ))}
+      {!!T.cross.short?.length && (
+        <section className="panel">
+          <div className="section-head">
+            <div>
+              <h2>Anytime TD doubles and triples</h2>
+              <p className="sub">
+                Across {T.cross.games.join(" · ")}. One scorer per team. The algorithm&apos;s pick is the highest chance; the second option is its best mix of ground and air.
+              </p>
+            </div>
+          </div>
+          <div className="gs-slips ge-set">
+            {T.cross.short.map((s, i) => (
+              <CrossCard s={s} key={i} />
+            ))}
+          </div>
+        </section>
+      )}
       <section className="panel">
         <div className="section-head">
           <div>
@@ -154,20 +189,7 @@ export function NflTonight() {
         </div>
         <div className="gs-slips ge-set">
           {T.cross.slips.map((s) => (
-            <Slip
-              key={s.title}
-              badge="Algo pick"
-              pick
-              title={s.title}
-              meta={s.mix}
-              legs={s.legs.map((l) => ({ text: l.text, sub: [l.side, l.who, l.game, l.listed ? `listed ${l.listed}` : ""].filter(Boolean).join(" · "), value: pct(l.p) }))}
-              stats={[
-                { label: "Chance to hit", value: pct(s.p, 1), tone: "red" },
-                { label: "Chance to miss", value: pct(1 - s.p, 1) },
-                { label: "Books' leg prices combined", value: s.listedMultiplied == null ? "–" : american(s.listedMultiplied) },
-              ]}
-              note={s.note}
-            />
+            <CrossCard s={s} key={s.title} />
           ))}
         </div>
         <ul className="why">
