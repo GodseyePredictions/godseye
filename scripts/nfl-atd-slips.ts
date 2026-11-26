@@ -9,7 +9,8 @@
  * chances come from its correlation engine (src/lib/advisor/joint.ts).
  *
  * Who may go on a slip:
- *   - ground (backs and quarterbacks): any scorer the algorithm clears for touchdown parlays;
+ *   - ground (owner, 26 November): a back's matchup must clear, i.e. not weak once the run defence is checked; a quarterback
+ *     goes on only when the defence he faces is not stingy against the run;
  *   - air (receivers and tight ends): only when the matchup clears, i.e. the player's matchup index is strong once the
  *     defence is checked (a defence stingy against his position pulls the tag down a step, a soft one lifts it);
  *   - a book must list the player's anytime TD, at 20% or better by the algorithm, and not held or singles-only.
@@ -35,13 +36,16 @@ const when = (gid: string) => `${G[gid].away} @ ${G[gid].home} · ${String(G[gid
 
 // ---- prices and matchups for every game of the day
 const prices = new Map<string, Record<string, number>>();
-const match = new Map<string, { tag: string; defence: string; index: number }>();
+const match = new Map<string, { tag: string; defence: string; index: number; opp?: string }>();
+const runD = new Map<string, string>();
 let pulled = "", source = "";
 for (const g of atd.games) {
   const L = read(`model/output/nfl_listed_rungs_${g}.json`);
   pulled = pulled && pulled < L.pulled_at ? pulled : L.pulled_at; source = L.source;
   for (const r of L.rungs) if (r.market === "atd") prices.set(r.player.toLowerCase(), r.prices);
-  for (const [name, m] of Object.entries(read(`model/output/nfl_matchups_${g}.json`).players as Record<string, { tag: string; defence: string; index: number }>)) match.set(name, m);
+  const M = read(`model/output/nfl_matchups_${g}.json`);
+  for (const [name, m] of Object.entries(M.players as Record<string, { tag: string; defence: string; index: number; opp: string }>)) match.set(name, m);
+  for (const [t, d] of Object.entries(M.defences as Record<string, { run: string }>)) runD.set(t, d.run);
 }
 const order = ["weak", "neutral", "strong"] as const;
 const tagOf = (name: string) => {
@@ -56,6 +60,13 @@ const book = (b: string) => (b === "draftkings" ? "DraftKings" : "FanDuel");
 
 // ---- the pool
 const ground = (pos: string) => pos === "RB" || pos === "QB";
+/** Why a scorer's matchup does not clear, or "" when it does. Air needs a strong matchup, a back one that is not weak, a quarterback a run defence that is not stingy. */
+const blocked = (name: string, pos: string) => {
+  const m = match.get(name), tag = tagOf(name);
+  if (pos === "QB") { const d = m?.opp ? runD.get(m.opp) ?? "" : ""; return d.startsWith("stingy") ? `ground matchup does not clear: ${d}` : ""; }
+  if (pos === "RB") return tag === "weak" ? `ground matchup does not clear: weak, ${m?.defence ?? ""}` : "";
+  return tag !== "strong" ? `air matchup does not clear: ${tag}${m ? `, ${m.defence}` : ""}` : "";
+};
 const held = new Map(atd.held.map((h) => [h[0], h[2]]));
 const heldTeams = new Set(atd.held.filter((h) => /backup-QB/.test(h[2])).map((h) => h[1]));
 type P = { name: string; team: string; pos: string; game: string; p: number; leg: RatedLeg; tag: string };
@@ -67,7 +78,7 @@ for (const x of considered) {
   const leg = tdLeg(x.name), tag = tagOf(x.name), m = match.get(x.name);
   const why = x.singles ? "singles only this week" : held.has(x.name) ? `held out of parlays: ${held.get(x.name)}` : heldTeams.has(x.team) ? "team held out of touchdown parlays (backup-QB offence)"
     : !prices.has(x.name.toLowerCase()) ? "no book lists his anytime TD" : !leg ? "not in the algorithm's catalogue"
-    : !ground(x.pos) && tag !== "strong" ? `air matchup does not clear: ${tag}${m ? `, ${m.defence}` : ""}` : "";
+    : blocked(x.name, x.pos);
   if (why) { left.push({ name: x.name, team: x.team, why }); continue; }
   pool.push({ name: x.name, team: x.team, pos: x.pos, game: x.game, p: x.p, leg: leg as RatedLeg, tag });
 }
@@ -86,7 +97,8 @@ function options(team: string, oneEach: boolean, n: number): P[][] {
 }
 type C = { legs: P[]; naive: number };
 function search(n: number): C[] {
-  const oneEach = n <= NFL_ATD.oneTeamUpTo;
+  // one scorer per team, unless there are fewer eligible teams than legs
+  const oneEach = n <= Math.min(NFL_ATD.oneTeamUpTo, teams.length);
   let states: C[] = [{ legs: [], naive: 1 }];
   for (const t of teams) {
     const next: C[] = [];
@@ -112,7 +124,7 @@ const slips = NFL_ATD.sizes.flatMap((n) => {
     const legs = [...c.legs].sort((a, b) => atd.games.indexOf(a.game) - atd.games.indexOf(b.game) || b.p - a.p).map((x) => {
       const bp = best(prices.get(x.name.toLowerCase()));
       return { text: `${x.name} anytime TD`, p: x.p, side: ground(x.pos) ? "Ground" : "Air", who: `${x.team} ${x.pos}`, game: when(x.game), listed: bp ? `${book(bp[0])} ${bp[1] > 0 ? "+" : ""}${bp[1]}` : "", price: bp ? bp[1] : null,
-        matchup: ground(x.pos) ? "" : `strong air matchup: ${match.get(x.name)?.defence ?? ""}` };
+        matchup: x.pos === "QB" ? `ground matchup clears: ${runD.get(match.get(x.name)?.opp ?? "") ?? ""}` : `${tagOf(x.name)} ${ground(x.pos) ? "ground" : "air"} matchup: ${match.get(x.name)?.defence ?? ""}` };
     });
     const nAir = c.legs.filter((x) => !ground(x.pos)).length;
     const shared = new Set(c.legs.map((x) => x.team)).size < c.legs.length;
@@ -123,7 +135,7 @@ const slips = NFL_ATD.sizes.flatMap((n) => {
 });
 
 const out = { made_at: new Date().toISOString(), games: atd.games.map(when), listings: { source, pulled_at: pulled },
-  rules: ["Ground (backs and quarterbacks): any scorer the algorithm clears for touchdown parlays.",
+  rules: ["Ground: a back goes on only when his matchup clears (not weak once the run defence is checked); a quarterback only when the defence he faces is not stingy against the run.",
     "Air (receivers and tight ends): only when the matchup clears, i.e. a strong matchup once the defence is checked. A defence stingy against his position pulls a player down a step; a soft one lifts him.",
     `Up to ${NFL_ATD.oneTeamUpTo} legs: one scorer per team. Longer slips may add teammates.`, "Every leg is an anytime TD a book lists, at its listed price."],
   pool: pool.map((x) => ({ name: x.name, team: x.team, pos: x.pos, p: x.p, side: ground(x.pos) ? "Ground" : "Air" })), left, slips };

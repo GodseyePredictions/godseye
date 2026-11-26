@@ -164,7 +164,7 @@ function renderKPIs(){const rec=D.meta.record||{};
     ["Game SGPs",`${(D.algo.sgp||[]).length}`,"best leg per slot, every game"],
     ["Singles only",`${(D.singles||[]).length}`,"Questionable / returning / backup QBs"],
     ["Model holdout",`0.387<small>log loss</small>`,"ATD, 2025–26 · AUC 0.76 · position baseline 0.444"],
-    rec.tickets?["Last graded week",`${rec.cashed}<small>/ ${rec.tickets} cashed</small>`,`${rec.legs_hit}% of legs hit vs ${rec.legs_exp}% expected`]:["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];
+    ["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];
   return `<section class="kpis">${tiles.map(t=>`<div class="kpi"><div class="k">${t[0]}</div><div class="v">${t[1]}</div><div class="d">${esc(t[2])}</div></div>`).join("")}</section>`}
 function heatify(root){(root||document).querySelectorAll(".prob").forEach(el=>{const m=el.textContent.match(/(\d+(?:\.\d+)?)%/);if(!m)return;const p=parseFloat(m[1]);el.dataset.heat=p>=80?5:p>=65?4:p>=50?3:p>=35?2:1})}
 
@@ -795,7 +795,7 @@ document.addEventListener("click",e=>{ if(e.target.closest("#fab")) openSlip(tru
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") openSlip(false) });
 window.addEventListener("hashchange",route);
 $("#meta").textContent=`${D.meta.season} Week ${D.meta.week} · ${D.meta.n_games} games · built ${D.meta.built} · injuries as of ${D.meta.data_asof||"—"} · ${D.meta.overrides} override${D.meta.overrides===1?"":"s"}`;
-$("#recchip").textContent=D.meta.record&&D.meta.record.tickets?`Last week: ${D.meta.record.cashed}/${D.meta.record.tickets} tickets cashed`:`Graded as shipped, every week`;
+
 route();
 
 /* ---------- godseye site: send the slip to "My bets" ---------- */
