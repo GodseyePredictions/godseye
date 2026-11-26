@@ -1,7 +1,8 @@
 /**
  * Tonight's NFL slips for one game, built so every one can actually be placed.
  *
- *   node scripts/nfl-today.ts            writes model/output/nfl_today.json
+ *   node scripts/nfl-today.ts <game_id>      writes model/output/nfl_today_<game_id>.json
+ *   (scripts/nfl-slate.sh runs it for a day's games and joins them into model/output/nfl_today.json)
  *
  * Every probability is the NFL algorithm's (public/console/data.js) and every combined chance comes from its
  * correlation engine (src/lib/advisor/joint.ts). This script only chooses among the algorithm's legs:
@@ -37,16 +38,18 @@ const read = (f: string) => JSON.parse(readFileSync(root + f, "utf8"));
 const src = readFileSync(root + "public/console/data.js", "utf8");
 const D = JSON.parse(src.slice(src.indexOf("{"), src.lastIndexOf("}") + 1));
 const cat = nflCatalog(parseConsoleData(src));
-const listed = read("model/output/nfl_listed_rungs.json") as { game: string; game_id: string; pulled_at: string; source: string; rungs: { player: string; market: string; k: number | null; prices: Record<string, number> }[] };
+const GID_ARG = process.argv[2];
+if (!GID_ARG) throw new Error("Usage: node scripts/nfl-today.ts <game_id>");
+const listed = read(`model/output/nfl_listed_rungs_${GID_ARG}.json`) as { game: string; game_id: string; pulled_at: string; source: string; rungs: { player: string; market: string; k: number | null; prices: Record<string, number> }[] };
 const atd = read("model/output/nfl_atd_versions.json") as { games: string[]; held: string[][]; versions: Record<string, { name: string; note: string; tickets: { n: number; p: number; mix: string; legs: { name: string; team: string; pos: string; game: string; p: number; id: string }[] }[] }>; board: { name: string; team: string; pos: string; game: string; p: number; singles: boolean; id?: string }[] };
 const GAME = listed.game, GID = listed.game_id;
 // touchdown prices for every game on the tonight + Thanksgiving slips (scripts/nfl-listings.ts writes one file per game)
 const tdPrices = new Map<string, Record<string, number>>();
-for (const f of [listed, ...["2026_12_CHI_DET", "2026_12_PHI_DAL", "2026_12_KC_BUF"].map((g) => { try { return read(`model/output/nfl_listed_rungs_${g}.json`); } catch { return null; } })])
+for (const f of atd.games.map((g) => { try { return read(`model/output/nfl_listed_rungs_${g}.json`); } catch { return null; } }))
   if (f) for (const r of f.rungs as { player: string; market: string; prices: Record<string, number> }[]) if (r.market === "atd") tdPrices.set(r.player.toLowerCase(), r.prices);
 // ---- matchups (scripts/nfl-matchups.py): strong, neutral or weak for each player, from the algorithm's matchup index.
 // A defence that is stingy against a player's position caps him at neutral; a soft one lifts a weak tag to neutral.
-const MATCH = read("model/output/nfl_matchups.json") as { players: Record<string, { team: string; pos: string; index: number; tag: string; defence: string }> };
+const MATCH = read(`model/output/nfl_matchups_${GID}.json`) as { players: Record<string, { team: string; pos: string; index: number; tag: string; defence: string }> };
 const tagOf = (player: string): "strong" | "neutral" | "weak" => {
   const m = MATCH.players[player]; if (!m) return "neutral";
   // the index, moved one step toward how this defence plays the position: stingy pulls it down, soft lifts it
@@ -103,7 +106,12 @@ function topSlips(pool: RatedLeg[], n: number, fixed: RatedLeg[] = [], count = 2
   const cands: { legs: RatedLeg[]; naive: number }[] = [];
   const base = fixed.reduce((a, l) => a * l.prob, 1);
   const walk = (start: number, legs: RatedLeg[], naive: number) => {
-    if (legs.length === need) { if ([...fixed, ...legs].filter(strongLeg).length >= minStrong) cands.push({ legs: [...fixed, ...legs], naive }); return; }
+    if (legs.length === need) {
+      if (naive <= naiveMax && [...fixed, ...legs].filter(strongLeg).length >= minStrong) cands.push({ legs: [...fixed, ...legs], naive });
+      // keep only the best candidates as the search goes, so a big pool cannot run out of memory
+      if (cands.length > 50_000) { cands.sort((a, b) => b.naive - a.naive); cands.length = NFL_TODAY.searchKeep; }
+      return;
+    }
     for (let i = start; i < sorted.length; i++) {
       if (sorted.length - i < need - legs.length) break;
       const c = sorted[i];
@@ -112,7 +120,7 @@ function topSlips(pool: RatedLeg[], n: number, fixed: RatedLeg[] = [], count = 2
     }
   };
   walk(0, [], base);
-  const rated = cands.filter((c) => c.naive <= naiveMax).sort((a, b) => b.naive - a.naive).slice(0, NFL_TODAY.searchKeep)
+  const rated = cands.sort((a, b) => b.naive - a.naive).slice(0, NFL_TODAY.searchKeep)
     .map((c) => ({ legs: c.legs, p: jointProbability(c.legs, cat.corr, NFL_TODAY.searchSims) as number }))
     .filter((c) => accept(c.p)).sort((a, b) => b.p - a.p);
   const out: Built[] = [];
@@ -150,7 +158,13 @@ for (const n of NFL_TODAY.sizes) {
 }
 // ---- 3. lotto: the highest-chance slip of aggressive legs whose fair price is +1500 or longer
 // lotto pool: listed props legs from 55% up (still at most one under 65%) plus the touchdown scorers cleared for parlays
-const lottoPool = [...cat.legs.filter((l) => propsOk(l, NFL_TODAY.aggressive[0], 1)), ...tdEligible];
+const lottoProps = new Map<string, RatedLeg>();
+// per player and market: the highest listed rung at 65%+ and the highest at 55%+ (a slip may carry one of the latter)
+for (const l of cat.legs.filter((x) => propsOk(x, NFL_TODAY.aggressive[0], 1))) for (const tier of [UNDER, NFL_TODAY.aggressive[0]]) {
+  if (l.prob < tier) continue;
+  const k = `${l.player}|${l.market}|${tier}`; const o = lottoProps.get(k); if (!o || (l.threshold as number) > (o.threshold as number)) lottoProps.set(k, l);
+}
+const lottoPool = [...new Set([...lottoProps.values()].sort((a, b) => b.prob - a.prob))].slice(0, 22).concat(tdEligible.slice(0, 4));
 const lottoCands = [6, 7, 8].flatMap((n) => topSlips(lottoPool, n, [], 10, (p) => (fairAmerican(p) as number) >= NFL_TODAY.lottoFairFrom, false, 1 / 22)).filter((b) => (fairAmerican(b.p) as number) >= NFL_TODAY.lottoFairFrom && (toSlip("", "", b, false).listedMultiplied ?? 0) >= NFL_TODAY.lottoFairFrom).sort((a, b) => b.p - a.p);
 const lotto = lottoCands[0] ? toSlip(`Lotto · ${lottoCands[0].legs.length}-leg`, "lotto", lottoCands[0], true, `Higher rungs and touchdown scorers the algorithm rates ${Math.round(NFL_TODAY.aggressive[0] * 100)}% or better, at most one props leg under 65%. A lotto is 1 in 16 or longer.`) : null;
 
@@ -182,7 +196,7 @@ const heldTeams = new Set(atd.held.filter((h) => /backup-QB/.test(h[2])).map((h)
 const crossPool = elig.filter((b) => !heldTeams.has(b.team) && tdPrices.has(b.name.toLowerCase()));
 const perTeam = [...new Set(crossPool.map((b) => b.team))].map((t) => ({ g: crossPool.filter((b) => b.team === t && ground(b.pos))[0], a: crossPool.filter((b) => b.team === t && !ground(b.pos)).slice(0, 2) }));
 function extended(n: number, nAir: number): Cross | null {
-  // one back at most and one pass-catcher at most per team; `nAir` pass-catchers in all
+  // one back at most and one pass-catcher at most per team (two at ten legs); `nAir` pass-catchers in all
   const cands: { ids: typeof crossPool; naive: number }[] = [];
   const walk = (ti: number, picked: typeof crossPool) => {
     if (picked.length === n) { if (picked.filter((b) => !ground(b.pos)).length === nAir) cands.push({ ids: [...picked], naive: picked.reduce((a, b) => a * b.p, 1) }); return; }
@@ -191,6 +205,8 @@ function extended(n: number, nAir: number): Cross | null {
     const opts: (typeof crossPool)[] = [[]];
     if (t.g) opts.push([t.g]);
     for (const a of t.a) { opts.push([a]); if (t.g) opts.push([t.g, a]); }
+    // ten legs across few teams: a team may also carry its two main pass-catchers
+    if (n >= 10 && t.a.length === 2) { opts.push([...t.a]); if (t.g) opts.push([t.g, ...t.a]); }
     for (const o of opts) if (picked.length + o.length <= n) walk(ti + 1, [...picked, ...o]);
   };
   walk(0, []);
@@ -202,7 +218,11 @@ function extended(n: number, nAir: number): Cross | null {
   return { title: `${n}-leg ground + air`, mix: `${n - nAir} ground + ${nAir} air`, pick: true, p, fair: fairAmerican(p) as number, listedMultiplied: multiplied(legs.map((l) => l.price)), legs,
     note: "Longer than the algorithm's one-scorer-per-team rule allows across these games, so some teams carry a back and a pass-catcher. Teammates share touchdowns, and the chance shown accounts for that." };
 }
-for (const [n, nAir] of [[8, 3], [10, 4]] as [number, number][]) { const x = extended(n, nAir); if (x) cross.push(x); }
+// each size takes the ground/air split the algorithm rates most likely among those the games allow
+for (const n of [6, 8, 10]) if (!cross.some((c) => c.legs.length === n)) {
+  const x = [Math.floor(n / 3), Math.floor(n / 3) + 1, Math.ceil(n / 2)].map((nAir) => extended(n, nAir)).filter((c): c is Cross => !!c).sort((a, b) => b.p - a.p)[0];
+  if (x) cross.push(x);
+}
 
 const out = {
   game: GAME, game_id: GID, kickoff: `${game.weekday} ${game.kick}`, day: game.day, venue: game.venue,
@@ -213,7 +233,7 @@ const out = {
   atd: { singles: board, double: dbl ? toSlip("Anytime TD double", "atd", dbl, true, "One scorer from each team: teammates share the same touchdowns.") : null, held: atd.held.filter((h) => atd.board.some((b) => b.name === h[0] && b.game === GID)).map((h) => ({ name: h[0], why: h[2] })) },
   cross: { games: atd.games.map(when), slips: cross, held: atd.held.map((h) => ({ name: h[0], team: h[1], why: h[2] })) },
 };
-writeFileSync(root + "model/output/nfl_today.json", JSON.stringify(out));
+writeFileSync(root + `model/output/nfl_today_${GID}.json`, JSON.stringify(out));
 const line = (s: { title: string; pick: boolean; p: number; fair: number; legs: { text: string }[] }) => `  ${s.pick ? "*" : " "} ${s.title.padEnd(26)} ${(s.p * 100).toFixed(1).padStart(5)}%  fair ${String(s.fair).padStart(6)}  ${s.legs.map((l) => l.text).join("; ")}`;
 console.log(`${GAME}: floor pool ${floorPool.length}, aggressive pool ${aggressivePool.length}, TD-eligible ${tdEligible.map((l) => l.player).join(", ")}`);
 for (const s of [...sgps, ...hybrids, ...(lotto ? [lotto] : []), ...(out.atd.double ? [out.atd.double] : [])]) console.log(line(s));
