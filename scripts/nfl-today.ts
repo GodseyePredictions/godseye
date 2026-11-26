@@ -86,10 +86,10 @@ const aggressivePool = cat.legs.filter((l) => propsOk(l, NFL_TODAY.aggressive[0]
 // ---- touchdown scorers the algorithm clears for parlays, this game
 const held = new Map(atd.held.map((h) => [h[0], h[2]]));
 const tdLeg = (name: string) => cat.legs.find((l) => l.player === name && l.market === "atd" && l.game !== undefined) as RatedLeg | undefined;
-// a touchdown leg goes on only when its matchup clears (scripts/nfl-atd-slips.ts): air needs a strong matchup once the
-// defence is checked, a back one that is not weak, a quarterback a run defence that is not stingy
+// a touchdown leg goes on only when its matchup clears (scripts/nfl-atd-slips.ts) once the
+// defence is checked: a back or pass-catcher whose matchup is not weak, a quarterback facing a run defence that is not stingy
 const tdClears = (name: string, pos: string) =>
-  pos === "QB" ? !(MATCH.defences[MATCH.players[name]?.opp]?.run ?? "").startsWith("stingy") : pos === "RB" ? tagOf(name) !== "weak" : tagOf(name) === "strong";
+  pos === "QB" ? !(MATCH.defences[MATCH.players[name]?.opp]?.run ?? "").startsWith("stingy") : tagOf(name) !== "weak";
 const tdEligible = atd.board.filter((b) => b.game === GID && !b.singles && !held.has(b.name) && b.p >= 0.2 && tdClears(b.name, b.pos)).map((b) => tdLeg(b.name)).filter((l): l is RatedLeg => !!l);
 
 type Built = { legs: RatedLeg[]; p: number };
