@@ -532,3 +532,18 @@ def test_lotto_is_ranged_by_book_prices_not_chosen_by_them(world):
         assert d >= cfg["tickets"]["multi"]["lotto_min_decimal"] and lot["book_price"] >= 5000
     unpriced = [{**g, "legs": [{**l, "price": None} for l in g["legs"]]} for g in games]
     assert tickets.lotto(unpriced, cfg) is None                                        # no listed price, no lotto leg
+
+
+def test_a_reissued_game_withdraws_slips_it_no_longer_issues(tmp_path, monkeypatch, db, cfg):
+    from nhl import slate
+    for name in ("SLATE", "LEDGER", "SITE", "CASHED"):
+        monkeypatch.setattr(slate, name, tmp_path / f"{name}.json")
+    monkeypatch.setattr(slate, "OUT", tmp_path)
+    g = db.execute("SELECT game_id, date_et, start_utc, away, home FROM schedule ORDER BY start_utc DESC LIMIT 1").fetchone()
+    stale = {"id": f"{g[1]}-{g[3]}-{g[4]}-sgp99", "kind": "sgp99", "game_id": g[0], "start_utc": g[2], "made_at": "x", "graded": False, "legs": []}
+    (tmp_path / "LEDGER.json").write_text(json.dumps({"tickets": [stale]}))
+    cfg["sim"]["n_sims"] = 400
+    cfg["props"]["min_toi_sec"] = 60
+    slate.run(db, cfg, g[1], as_of="2026-10-23T12:00:00+00:00")
+    ids = {t["id"] for t in json.loads((tmp_path / "LEDGER.json").read_text())["tickets"]}
+    assert stale["id"] not in ids

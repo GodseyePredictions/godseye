@@ -1,6 +1,822 @@
 {
  "slips": [
   {
+   "id": "2026-11-25-multi2",
+   "date": "2026-11-25",
+   "title": "2-game slip",
+   "game": "WPG @ BOS + SJS @ ANA",
+   "final": "WPG 4, BOS 2 (REG); SJS 0, ANA 7 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.38542,
+   "fair_price": 159,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Connor Clifton 1+ hits",
+     "prob": 0.8853,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Neal Pionk 1+ hits",
+     "prob": 0.8584,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Kyle Connor 2+ shots on goal",
+     "prob": 0.8262,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Tim Washe 1+ hits",
+     "prob": 0.8738,
+     "actual": 7,
+     "price": null
+    },
+    {
+     "label": "Ty Dellandrea 1+ hits",
+     "prob": 0.8525,
+     "actual": 6,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8272,
+     "actual": 7,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-STL-NYI-sgp8",
+   "date": "2026-11-25",
+   "title": "8-leg slip",
+   "game": "STL @ NYI",
+   "final": "STL 2, NYI 3 (SO)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.1988,
+   "fair_price": 403,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Emil Heineman 1+ hits",
+     "prob": 0.8951,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Dylan Holloway 1+ hits",
+     "prob": 0.875,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Alexey Toropchenko 1+ hits",
+     "prob": 0.8624,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.7806,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Colton Parayko 1+ blocked shots",
+     "prob": 0.7745,
+     "actual": 1,
+     "price": null
+    },
+    {
+     "label": "NYI +1.5 puck line",
+     "prob": 0.7686,
+     "actual": "margin +1 for NYI",
+     "price": null
+    },
+    {
+     "label": "Matthew Schaefer 2+ shots on goal",
+     "prob": 0.7661,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Bo Horvat 2+ shots on goal",
+     "prob": 0.7652,
+     "actual": 2,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-STL-NYI-sgp6",
+   "date": "2026-11-25",
+   "title": "6-leg slip",
+   "game": "STL @ NYI",
+   "final": "STL 2, NYI 3 (SO)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.3004,
+   "fair_price": 233,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Emil Heineman 1+ hits",
+     "prob": 0.8951,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Dylan Holloway 1+ hits",
+     "prob": 0.875,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.7806,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Colton Parayko 1+ blocked shots",
+     "prob": 0.7745,
+     "actual": 1,
+     "price": null
+    },
+    {
+     "label": "Matthew Schaefer 2+ shots on goal",
+     "prob": 0.7661,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Bo Horvat 2+ shots on goal",
+     "prob": 0.7652,
+     "actual": 2,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-STL-NYI-sgp4",
+   "date": "2026-11-25",
+   "title": "4-leg slip",
+   "game": "STL @ NYI",
+   "final": "STL 2, NYI 3 (SO)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.4765,
+   "fair_price": 110,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Emil Heineman 1+ hits",
+     "prob": 0.8951,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Dylan Holloway 1+ hits",
+     "prob": 0.875,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.7806,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Colton Parayko 1+ blocked shots",
+     "prob": 0.7745,
+     "actual": 1,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-SJS-ANA-sgp4",
+   "date": "2026-11-25",
+   "title": "4-leg slip",
+   "game": "SJS @ ANA",
+   "final": "SJS 0, ANA 7 (REG)",
+   "made_at": "2026-11-26T02:07:15+00:00",
+   "chance": 0.4906,
+   "fair_price": 104,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Alex Killorn 1+ shots on goal",
+     "prob": 0.8746,
+     "actual": 3,
+     "price": -550.0
+    },
+    {
+     "label": "ANA +1.5 puck line",
+     "prob": 0.7765,
+     "actual": "margin +7 for ANA",
+     "price": -350.0
+    },
+    {
+     "label": "Alex Nedeljkovic 19+ saves",
+     "prob": 0.8689,
+     "actual": 23,
+     "price": -850.0
+    },
+    {
+     "label": "Jackson LaCombe 1+ shots on goal",
+     "prob": 0.8146,
+     "actual": 1,
+     "price": -590.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-SJS-ANA-closer",
+   "date": "2026-11-25",
+   "title": "Game-line closer",
+   "game": "SJS @ ANA",
+   "final": "SJS 0, ANA 7 (REG)",
+   "made_at": "2026-11-26T02:07:15+00:00",
+   "chance": 0.7765,
+   "fair_price": -347,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "ANA +1.5 puck line",
+     "prob": 0.7765,
+     "actual": "margin +7 for ANA",
+     "price": -350.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-PHI-WSH-sgp8",
+   "date": "2026-11-25",
+   "title": "8-leg slip",
+   "game": "PHI @ WSH",
+   "final": "PHI 3, WSH 7 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.1857,
+   "fair_price": 439,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Tom Wilson 1+ hits",
+     "prob": 0.8438,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Martin Feh\u00e9rv\u00e1ry 1+ blocked shots",
+     "prob": 0.8278,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Travis Konecny 1+ hits",
+     "prob": 0.819,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8128,
+     "actual": 10,
+     "price": null
+    },
+    {
+     "label": "Travis Sanheim 1+ blocked shots",
+     "prob": 0.7992,
+     "actual": 1,
+     "price": null
+    },
+    {
+     "label": "Nick Seeler 1+ blocked shots",
+     "prob": 0.7973,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Owen Tippett 1+ hits",
+     "prob": 0.7919,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "WSH +1.5 puck line",
+     "prob": 0.772,
+     "actual": "margin +4 for WSH",
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-PHI-WSH-sgp6",
+   "date": "2026-11-25",
+   "title": "6-leg slip",
+   "game": "PHI @ WSH",
+   "final": "PHI 3, WSH 7 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.2902,
+   "fair_price": 245,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Tom Wilson 1+ hits",
+     "prob": 0.8438,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Martin Feh\u00e9rv\u00e1ry 1+ blocked shots",
+     "prob": 0.8278,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Travis Konecny 1+ hits",
+     "prob": 0.819,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8128,
+     "actual": 10,
+     "price": null
+    },
+    {
+     "label": "Nick Seeler 1+ blocked shots",
+     "prob": 0.7973,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "WSH +1.5 puck line",
+     "prob": 0.772,
+     "actual": "margin +4 for WSH",
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-PHI-WSH-sgp4",
+   "date": "2026-11-25",
+   "title": "4-leg slip",
+   "game": "PHI @ WSH",
+   "final": "PHI 3, WSH 7 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.4627,
+   "fair_price": 116,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Tom Wilson 1+ hits",
+     "prob": 0.8438,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Martin Feh\u00e9rv\u00e1ry 1+ blocked shots",
+     "prob": 0.8278,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Travis Konecny 1+ hits",
+     "prob": 0.819,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8128,
+     "actual": 10,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-PHI-WSH-atg",
+   "date": "2026-11-25",
+   "title": "Anytime goal scorer",
+   "game": "PHI @ WSH",
+   "final": "PHI 3, WSH 7 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.3108,
+   "fair_price": 222,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Alex Tuch anytime goal scorer",
+     "prob": 0.3108,
+     "actual": 1,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-NYR-BUF-sgp4",
+   "date": "2026-11-25",
+   "title": "4-leg slip",
+   "game": "NYR @ BUF",
+   "final": "NYR 1, BUF 5 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.5221,
+   "fair_price": -109,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Braden Schneider 1+ hits",
+     "prob": 0.8992,
+     "actual": 1,
+     "price": null
+    },
+    {
+     "label": "Peyton Krebs 1+ hits",
+     "prob": 0.8654,
+     "actual": 4,
+     "price": null
+    },
+    {
+     "label": "Conor Timmins 1+ blocked shots",
+     "prob": 0.8248,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8064,
+     "actual": 6,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-NSH-DAL-atg",
+   "date": "2026-11-25",
+   "title": "Anytime goal scorer",
+   "game": "NSH @ DAL",
+   "final": "NSH 3, DAL 1 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.3085,
+   "fair_price": 224,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Wyatt Johnston anytime goal scorer",
+     "prob": 0.3085,
+     "actual": 1,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-NJD-CBJ-sgp8",
+   "date": "2026-11-25",
+   "title": "8-leg slip",
+   "game": "NJD @ CBJ",
+   "final": "NJD 3, CBJ 2 (SO)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.2129,
+   "fair_price": 370,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Cam Talbot 20+ saves",
+     "prob": 0.8836,
+     "actual": 24,
+     "price": null
+    },
+    {
+     "label": "Jack Hughes 2+ shots on goal",
+     "prob": 0.8204,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "NJD +1.5 puck line",
+     "prob": 0.8115,
+     "actual": "margin -1 for CBJ",
+     "price": null
+    },
+    {
+     "label": "Matthew Knies 1+ hits",
+     "prob": 0.8114,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Adam Fantilli 1+ hits",
+     "prob": 0.8082,
+     "actual": 4,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8055,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Timo Meier 2+ shots on goal",
+     "prob": 0.8031,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Brett Pesce 1+ blocked shots",
+     "prob": 0.7966,
+     "actual": 2,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-NJD-CBJ-sgp6",
+   "date": "2026-11-25",
+   "title": "6-leg slip",
+   "game": "NJD @ CBJ",
+   "final": "NJD 3, CBJ 2 (SO)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.3273,
+   "fair_price": 206,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Cam Talbot 20+ saves",
+     "prob": 0.8836,
+     "actual": 24,
+     "price": null
+    },
+    {
+     "label": "Jack Hughes 2+ shots on goal",
+     "prob": 0.8204,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "NJD +1.5 puck line",
+     "prob": 0.8115,
+     "actual": "margin -1 for CBJ",
+     "price": null
+    },
+    {
+     "label": "Matthew Knies 1+ hits",
+     "prob": 0.8114,
+     "actual": 3,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8055,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Timo Meier 2+ shots on goal",
+     "prob": 0.8031,
+     "actual": 2,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-NJD-CBJ-sgp4",
+   "date": "2026-11-25",
+   "title": "4-leg slip",
+   "game": "NJD @ CBJ",
+   "final": "NJD 3, CBJ 2 (SO)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.5001,
+   "fair_price": -100,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Cam Talbot 20+ saves",
+     "prob": 0.8836,
+     "actual": 24,
+     "price": null
+    },
+    {
+     "label": "Jack Hughes 2+ shots on goal",
+     "prob": 0.8204,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8055,
+     "actual": 5,
+     "price": null
+    },
+    {
+     "label": "Timo Meier 2+ shots on goal",
+     "prob": 0.8031,
+     "actual": 2,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-MTL-COL-sgp4",
+   "date": "2026-11-25",
+   "title": "4-leg slip",
+   "game": "MTL @ COL",
+   "final": "MTL 0, COL 6 (REG)",
+   "made_at": "2026-11-26T02:07:15+00:00",
+   "chance": 0.4116,
+   "fair_price": 143,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Jaden Schwartz 1+ shots on goal",
+     "prob": 0.8065,
+     "actual": 1,
+     "price": -375.0
+    },
+    {
+     "label": "T.J. Hughes 1+ shots on goal",
+     "prob": 0.8506,
+     "actual": 3,
+     "price": -525.0
+    },
+    {
+     "label": "Under 7.5 goals",
+     "prob": 0.7689,
+     "actual": 6,
+     "price": -320.0
+    },
+    {
+     "label": "COL +1.5 puck line",
+     "prob": 0.7622,
+     "actual": "margin +6 for COL",
+     "price": -330.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-MTL-COL-closer",
+   "date": "2026-11-25",
+   "title": "Game-line closer",
+   "game": "MTL @ COL",
+   "final": "MTL 0, COL 6 (REG)",
+   "made_at": "2026-11-26T02:07:15+00:00",
+   "chance": 0.7622,
+   "fair_price": -321,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "COL +1.5 puck line",
+     "prob": 0.7622,
+     "actual": "margin +6 for COL",
+     "price": -330.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-MTL-COL-atg",
+   "date": "2026-11-25",
+   "title": "Anytime goal scorer",
+   "game": "MTL @ COL",
+   "final": "MTL 0, COL 6 (REG)",
+   "made_at": "2026-11-26T02:07:15+00:00",
+   "chance": 0.0776,
+   "fair_price": 1188,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Artturi Lehkonen anytime goal scorer",
+     "prob": 0.29,
+     "actual": 1,
+     "price": 200.0
+    },
+    {
+     "label": "Martin Necas anytime goal scorer",
+     "prob": 0.2745,
+     "actual": 1,
+     "price": 180.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-CHI-SEA-sgp4",
+   "date": "2026-11-25",
+   "title": "4-leg slip",
+   "game": "CHI @ SEA",
+   "final": "CHI 3, SEA 1 (REG)",
+   "made_at": "2026-11-26T02:07:15+00:00",
+   "chance": 0.4132,
+   "fair_price": 142,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Kaapo Kakko 1+ shots on goal",
+     "prob": 0.8061,
+     "actual": 1,
+     "price": -350.0
+    },
+    {
+     "label": "Under 7.5 goals",
+     "prob": 0.7677,
+     "actual": 4,
+     "price": -330.0
+    },
+    {
+     "label": "CHI +2.5 puck line",
+     "prob": 0.7739,
+     "actual": "margin -2 for SEA",
+     "price": -400.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-CGY-PIT-sgp4",
+   "date": "2026-11-25",
+   "title": "4-leg slip",
+   "game": "CGY @ PIT",
+   "final": "CGY 6, PIT 3 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.4476,
+   "fair_price": 123,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Jonathan Castagna 1+ hits",
+     "prob": 0.8425,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Ben Jones 1+ hits",
+     "prob": 0.8144,
+     "actual": 2,
+     "price": null
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8067,
+     "actual": 9,
+     "price": null
+    },
+    {
+     "label": "Zach Whitecloud 1+ blocked shots",
+     "prob": 0.8021,
+     "actual": 1,
+     "price": null
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-CGY-PIT-atg",
+   "date": "2026-11-25",
+   "title": "Anytime goal scorer",
+   "game": "CGY @ PIT",
+   "final": "CGY 6, PIT 3 (REG)",
+   "made_at": "2026-11-25T23:42:55+00:00",
+   "chance": 0.0614,
+   "fair_price": 1529,
+   "rungs_verified": false,
+   "priced": false,
+   "legs": [
+    {
+     "label": "Joel Farabee anytime goal scorer",
+     "prob": 0.2627,
+     "actual": 1,
+     "price": null
+    },
+    {
+     "label": "Tommy Novak anytime goal scorer",
+     "prob": 0.2387,
+     "actual": 1,
+     "price": null
+    }
+   ]
+  },
+  {
    "id": "2026-11-24-VGK-EDM-sgp6",
    "date": "2026-11-24",
    "title": "6-leg props SGP",
