@@ -1,5 +1,5 @@
-/* Tonight's NFL slips (model/output/nfl_today.json, written by scripts/nfl-today.ts): every leg is a rung a
-   sportsbook lists, and every chance is the NFL algorithm's. The algorithm's pick in each tier is outlined. */
+/* Today's NFL slips (model/output/nfl_today.json, written by scripts/nfl-slate.sh): one pack per game, every leg a
+   rung a sportsbook lists, every chance the NFL algorithm's. The algorithm's pick in each tier is outlined. */
 import raw from "../../model/output/nfl_today.json";
 import { Slip, american, pct } from "@/components/Slip";
 
@@ -8,21 +8,25 @@ type S = { title: string; kind?: string; pick: boolean; p: number; fair: number;
 type CrossLeg = { text: string; p: number; side: string; who: string; game: string; listed?: string };
 type Cross = { title: string; mix: string; pick: boolean; p: number; fair: number; listedMultiplied?: number | null; legs: CrossLeg[]; note?: string };
 type Single = { name: string; team: string; pos: string; p: number; fair: number; flag: string; listed: string; why: string[] };
-type Today = {
-  game: string; kickoff: string; venue: string; built_from: string; made_at: string; listings: { source: string; pulled_at: string };
-  script: string[]; rules: string[]; sgps: S[]; hybrids: S[]; lotto: S | null;
+type Game = {
+  game: string; game_id: string; kickoff: string; venue: string; listings: { source: string; pulled_at: string };
+  sgps: S[]; hybrids: S[]; lotto: S | null;
   atd: { singles: Single[]; double: S | null; held: { name: string; why: string }[] };
+};
+type Today = {
+  made_at: string; built_from: string; rules: string[]; listings: { source: string; pulled_at: string }; games: Game[];
   cross: { games: string[]; slips: Cross[]; held: { name: string; team: string; why: string }[] };
 };
 const T = raw as unknown as Today;
+const et = (iso: string) => new Date(iso).toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" });
 
-function Card({ s }: { s: S }) {
+function Card({ s, game }: { s: S; game: string }) {
   return (
     <Slip
       badge={s.pick ? "Algo pick" : "Godseye slip"}
       pick={s.pick}
       title={s.title}
-      meta={T.game}
+      meta={game}
       legs={s.legs.map((l) => ({ text: l.text, sub: [l.record, l.listed ? `listed ${l.listed}` : ""].filter(Boolean).join(" · ") || undefined, value: pct(l.p) }))}
       why={{ legs: s.legs.map((l) => ({ text: l.text, why: l.why ?? [] })) }}
       stats={[
@@ -35,7 +39,7 @@ function Card({ s }: { s: S }) {
   );
 }
 
-function Tier({ title, sub, slips }: { title: string; sub?: string; slips: S[] }) {
+function Tier({ title, sub, slips, game }: { title: string; sub?: string; slips: S[]; game: string }) {
   if (!slips.length) return null;
   return (
     <section className="panel">
@@ -47,7 +51,7 @@ function Tier({ title, sub, slips }: { title: string; sub?: string; slips: S[] }
       </div>
       <div className="gs-slips ge-set">
         {slips.map((s, i) => (
-          <Card s={s} key={i} />
+          <Card s={s} game={game} key={i} />
         ))}
       </div>
     </section>
@@ -56,37 +60,29 @@ function Tier({ title, sub, slips }: { title: string; sub?: string; slips: S[] }
 
 const bySize = (list: S[]) => [...new Set(list.map((s) => s.title))].map((t) => list.filter((s) => s.title === t));
 
-export function NflTonight() {
-  const made = new Date(T.made_at).toLocaleString("en-CA", { weekday: "short", hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" });
+function GamePack({ g }: { g: Game }) {
   return (
     <>
       <section className="panel">
         <div className="section-head">
           <div>
-            <h2>Tonight: {T.game}</h2>
+            <h2>{g.game}</h2>
             <p className="sub">
-              {T.kickoff} · {T.venue}. Made {made} ET from the algorithm&apos;s build of {T.built_from}. Each leg is set by its matchup and carries the price a
-              sportsbook lists for that rung. The slip outlined in red in each tier is the algorithm&apos;s pick.
+              {g.kickoff} · {g.venue}. Prices pulled {et(g.listings.pulled_at)} ET.
             </p>
           </div>
         </div>
-        <ul className="why">
-          {T.rules.map((r) => (
-            <li key={r}>{r}</li>
-          ))}
-          <li>Prices from {T.listings.source}, pulled {new Date(T.listings.pulled_at).toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" })} ET.</li>
-        </ul>
       </section>
-      {bySize(T.sgps).map((g) => (
-        <Tier key={g[0].title} title={g[0].title} sub="Props only, no touchdown legs." slips={g} />
+      {bySize(g.sgps).map((x) => (
+        <Tier key={x[0].title} game={g.game} title={`${g.game}: ${x[0].title}`} sub="Props only, no touchdown legs." slips={x} />
       ))}
-      {bySize(T.hybrids).map((g) => (
-        <Tier key={g[0].title} title={g[0].title} sub="Props legs plus one anytime touchdown." slips={g} />
+      {bySize(g.hybrids).map((x) => (
+        <Tier key={x[0].title} game={g.game} title={`${g.game}: ${x[0].title}`} sub="Props legs plus one anytime touchdown." slips={x} />
       ))}
       <section className="panel">
         <div className="section-head">
           <div>
-            <h2>Anytime TD tonight</h2>
+            <h2>{g.game}: anytime TD</h2>
             <p className="sub">The algorithm&apos;s touchdown board for this game.</p>
           </div>
         </div>
@@ -101,7 +97,7 @@ export function NflTonight() {
               </tr>
             </thead>
             <tbody>
-              {T.atd.singles.map((p) => (
+              {g.atd.singles.map((p) => (
                 <tr key={p.name}>
                   <td>
                     <b>{p.name}</b> <small>{p.team} {p.pos}</small>
@@ -114,16 +110,45 @@ export function NflTonight() {
             </tbody>
           </table>
         </div>
-        {T.atd.double && (
+        {g.atd.double && (
           <div className="gs-slips ge-set">
-            <Card s={T.atd.double} />
+            <Card s={g.atd.double} game={g.game} />
           </div>
         )}
       </section>
+      {g.lotto && <Tier game={g.game} title={`${g.game}: lotto`} sub="A longshot: the algorithm makes it 1 in 16 or less likely, and the books' leg prices combine to +1500 or longer." slips={[g.lotto]} />}
+    </>
+  );
+}
+
+export function NflTonight() {
+  const made = new Date(T.made_at).toLocaleString("en-CA", { weekday: "short", hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" });
+  return (
+    <>
       <section className="panel">
         <div className="section-head">
           <div>
-            <h2>Anytime TD: tonight + Thanksgiving</h2>
+            <h2>Today: {T.games.map((g) => g.game).join(" · ")}</h2>
+            <p className="sub">
+              Made {made} ET from the algorithm&apos;s build of {T.built_from}. One pack per game. Each leg is set by its matchup and carries the price a sportsbook
+              lists for that rung. The slip outlined in red in each tier is the algorithm&apos;s pick.
+            </p>
+          </div>
+        </div>
+        <ul className="why">
+          {T.rules.map((r) => (
+            <li key={r}>{r}</li>
+          ))}
+          <li>Prices from {T.listings.source}. &ldquo;Books&apos; leg prices combined&rdquo; multiplies each leg&apos;s listed price; a book prices the same legs as a same-game parlay shorter than that.</li>
+        </ul>
+      </section>
+      {T.games.map((g) => (
+        <GamePack g={g} key={g.game_id} />
+      ))}
+      <section className="panel">
+        <div className="section-head">
+          <div>
+            <h2>Anytime TD across today&apos;s games</h2>
             <p className="sub">{T.cross.games.join(" · ")}. Ground and air together: the algorithm&apos;s most likely mix at each size.</p>
           </div>
         </div>
@@ -153,7 +178,6 @@ export function NflTonight() {
           ))}
         </ul>
       </section>
-      {T.lotto && <Tier title="Lotto" sub="A longshot: the algorithm makes it 1 in 16 or less likely, and the books' leg prices combine to +1500 or longer." slips={[T.lotto]} />}
     </>
   );
 }

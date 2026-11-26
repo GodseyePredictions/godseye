@@ -1,6 +1,6 @@
 """Each player's matchup for one NFL game, from the NFL algorithm's own matchup index (attd/atd_versions.py).
 
-    python3 scripts/nfl-matchups.py 2026_12_GB_LA        writes model/output/nfl_matchups.json
+    python3 scripts/nfl-matchups.py 2026_12_GB_LA        writes model/output/nfl_matchups_2026_12_GB_LA.json
 
 Backs: own line against the opposing front, the opponent's run defence, goal-line share, stuffs forced.
 Receivers and tight ends: expected dropbacks, yards per target the defence allows to that position, end-zone share,
@@ -43,6 +43,6 @@ for _, r in W.iterrows():
     out["players"][r["name"]] = {"team": r.team, "opp": r.opp, "pos": r.pos_group, "index": round(mx, 3),
                                  "tag": "strong" if mx >= STRONG else "weak" if mx <= WEAK else "neutral",
                                  "defence": out["defences"][r.opp][side]}
-(ROOT / "model" / "output" / "nfl_matchups.json").write_text(json.dumps(out))
+(ROOT / "model" / "output" / f"nfl_matchups_{gid}.json").write_text(json.dumps(out))
 for k, v in sorted(out["players"].items(), key=lambda x: -x[1]["index"])[:14]:
     print(f"{k:22s} {v['team']} {v['pos']} {v['index']:+.2f} {v['tag']:7s} {v['defence']}")
