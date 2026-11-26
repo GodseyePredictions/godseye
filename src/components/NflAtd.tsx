@@ -6,8 +6,8 @@ import raw from "../../model/output/nfl_atd_slips.json";
 import { Slip, american, pct } from "@/components/Slip";
 
 type Leg = { text: string; p: number; side: string; who: string; game: string; listed: string; matchup?: string };
-type X = { title: string; size: number; mix: string; pick: boolean; p: number; listedMultiplied: number | null; legs: Leg[]; note?: string };
-type Atd = { made_at: string; games: string[]; listings: { source: string; pulled_at: string }; rules: string[]; left: { name: string; team: string; why: string }[]; slips: X[] };
+type X = { title: string; size: number; game_id?: string; mix: string; pick: boolean; p: number; listedMultiplied: number | null; legs: Leg[]; note?: string };
+type Atd = { made_at: string; games: string[]; listings: { source: string; pulled_at: string }; rules: string[]; left: { name: string; team: string; why: string }[]; slips: X[]; perGame?: X[] };
 type GLeg = { text: string; p: number; listed?: string };
 type GSlip = { title: string; pick: boolean; p: number; listedMultiplied?: number | null; legs: GLeg[]; note?: string };
 type Single = { name: string; team: string; pos: string; p: number; flag: string; listed: string };
@@ -23,7 +23,7 @@ function CrossCard({ s }: { s: X }) {
     <Slip
       badge={s.pick ? "Algo pick" : "Godseye slip"}
       pick={s.pick}
-      title={s.pick ? s.title : `${s.title} · ground + air`}
+      title={s.title}
       meta={s.mix}
       legs={s.legs.map((l) => ({ text: l.text, sub: [l.side, l.who, l.game, l.listed ? `listed ${l.listed}` : ""].filter(Boolean).join(" · "), value: pct(l.p) }))}
       why={{ legs: s.legs.map((l) => ({ text: l.text, why: l.matchup ? [l.matchup[0].toUpperCase() + l.matchup.slice(1) + "."] : [] })) }}
@@ -75,6 +75,24 @@ export function NflAtd() {
             </div>
           </section>
         );
+      })}
+      {T.games.map((g) => {
+        const xs = (A.perGame ?? []).filter((s) => s.game_id === g.game_id);
+        return xs.length ? (
+          <section className="panel" key={`pg-${g.game_id}`}>
+            <div className="section-head">
+              <div>
+                <h2>{g.game}: touchdown slips</h2>
+                <p className="sub">Several scorers from this game. The algorithm&apos;s pick at each size, and its next best.</p>
+              </div>
+            </div>
+            <div className="gs-slips ge-set">
+              {xs.map((s, i) => (
+                <CrossCard s={s} key={i} />
+              ))}
+            </div>
+          </section>
+        ) : null;
       })}
       {T.games.map((g) => (
         <section className="panel" key={g.game_id}>
