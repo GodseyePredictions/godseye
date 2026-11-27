@@ -225,7 +225,7 @@ def run(con, only: str | None = None, do_refresh: bool = True, cfg=CONFIG, n_sim
                 built["notes"].append(calibrate.describe(cal))
         if not preview and not offers.empty:
             from common import tickets as tk
-            pool = sgp.floor_rungs([l for l in legs if sgp.sgp_eligible(l, cfg, True)[0]])
+            pool = sgp.floor_rungs([l for l in legs if sgp.sgp_eligible(l, cfg, True)[0]], cfg)
             per_game[g.game_id] = {"matchup": card["matchup"],
                                    **{n: tk.best_ticket(pool, n, cfg, True) if len(pool) >= n else None for n in cfg["multi_legs_per_game"]}}
             book_used = offers.book.iloc[0]

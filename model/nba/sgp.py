@@ -63,6 +63,28 @@ def reason_for(row, market: str) -> str:
     return lead or "at baseline: no adjustment above 1%"
 
 
+def matchup_mark(row, market: str, cfg=CONFIG) -> tuple[str, float, str]:
+    """Steps 1 and 2: how far tonight's opponent moves this player's projection for the stat behind the leg.
+    Points has three channels (two-point, three-point, free throws); the factor is the average of their moves.
+    Returns (strong | neutral | weak, factor, the reason in words)."""
+    groups = set(cfg["matchup_groups"])
+    items = [i for i in (row["items"] if "items" in row else []) if i[1] in groups]
+    chans = {"pts": [{"fg2a", "fg2m"}, {"fg3a", "fg3m"}, {"fta"}], "fg3m": [{"fg3a", "fg3m"}], "reb": [{"reb"}], "ast": [{"ast"}],
+             "stl": [{"stl"}], "blk": [{"blk"}]}
+    parts = []
+    for m in (ps.COMBOS.get(market) or (market,)):
+        for ch in chans.get(m, [{m}]):
+            parts.append(sum(v for s, g, v in items if s in ch))
+    factor = float(np.exp(np.mean(parts))) if parts else 1.0
+    mark = "strong" if factor >= cfg["matchup_strong"] else ("weak" if factor <= cfg["matchup_weak"] else "neutral")
+    top = sorted((i for i in items if any(i[0] in ch for m in (ps.COMBOS.get(market) or (market,)) for ch in chans.get(m, [{m}]))),
+                 key=lambda x: -abs(x[2]))
+    why = f"matchup {mark}: opponent moves this stat {factor - 1:+.0%}"
+    if top:
+        why += f" (largest: {props.LABEL[top[0][1]]} {np.expm1(top[0][2]):+.0%})"
+    return mark, factor, why
+
+
 def leg_floor(market: str, cfg=CONFIG) -> float:
     return cfg.get("sgp_leg_floor_by_market", {}).get(market, cfg["sgp_leg_floor"])
 
@@ -105,6 +127,8 @@ def build_legs(offers: pd.DataFrame, sims, players, gate: pd.DataFrame | None, t
                    "starter": r.role == "starter", "gate_ok": g_ok, "eligible_player": ok_ids is None or o.player_id in ok_ids,
                    "rung_rank": rank.get((o.market, o.player_id, o.line), 1), "reason": reason_for(r, o.market),
                    "name": r["name"]}
+            mark, factor, why = matchup_mark(r, o.market, cfg)
+            leg.update({"matchup": mark, "matchup_factor": factor, "reason": f"{why}; {leg['reason']}"})
         sp = ps.split_prob(players, hits, act) if players is not None else {"all": float(hits.mean()), "blowout": None, "close": None}
         gap = cfg["script_dependence_gap"]
         script = None
@@ -135,7 +159,11 @@ def sgp_eligible(leg: dict, cfg=CONFIG, require_price=True) -> tuple[bool, str]:
         return False, "no book price"
     if not leg["eligible_player"]:
         return False, "player not confirmed in"
+    if leg.get("matchup") == "weak":
+        return False, "weak matchup: kept off the slip"
     floor = leg_floor(leg["market"], cfg)
+    if leg.get("matchup") == "strong" and leg["side"] == "over":
+        floor = min(floor, cfg.get("strong_rung_prob", floor))     # a strong mismatch may step one rung up (floor_rungs keeps it to one)
     if leg["p"] < floor:
         return False, f"model probability {leg['p']:.0%} against a {floor:.0%} minimum is under the floor"
     if not leg["gate_ok"]:
@@ -153,15 +181,26 @@ def sgp_eligible(leg: dict, cfg=CONFIG, require_price=True) -> tuple[bool, str]:
     return True, ""
 
 
-def floor_rungs(legs: list) -> list:
-    """For each player and market keep the highest rung that still qualifies (the floor rung)."""
-    best = {}
+def floor_rungs(legs: list, cfg=CONFIG) -> list:
+    """Step 3: for each player and market, the floor rung is the highest rung at the leg floor. A strong mismatch may take
+    the next listed rung above it, if the model still gives that rung strong_rung_prob; a neutral one keeps the floor rung."""
+    best, above = {}, {}
     for l in legs:
         k = (l["player_id"], l["market"], l["side"])
-        cur = best.get(k)
-        if cur is None or (l["line"] > cur["line"] if l["side"] == "over" else l["line"] < cur["line"]):
-            best[k] = l
-    return list(best.values())
+        if l["p"] >= leg_floor(l["market"], cfg):
+            cur = best.get(k)
+            if cur is None or (l["line"] > cur["line"] if l["side"] == "over" else l["line"] < cur["line"]):
+                best[k] = l
+        else:
+            above.setdefault(k, []).append(l)
+    out = []
+    for k, l in best.items():
+        up = sorted((x for x in above.get(k, []) if x["side"] == "over" and x["line"] > l["line"]), key=lambda x: x["line"])
+        if l.get("matchup") == "strong" and up and up[0]["p"] >= cfg.get("strong_rung_prob", 1.0):
+            out.append({**up[0], "reason": up[0]["reason"] + "; strong matchup: one rung above the floor"})
+        else:
+            out.append(l)
+    return out
 
 
 def script_card(card: dict, sims, players, cfg=CONFIG) -> dict:
@@ -216,7 +255,7 @@ def script_card(card: dict, sims, players, cfg=CONFIG) -> dict:
 def build_tickets(legs: list, sims, card: dict, cfg=CONFIG, require_price=True, sgp_prices: dict | None = None) -> dict:
     """All tickets for one game. `sgp_prices` may hold the book's real same-game price per ticket type."""
     sgp_prices = sgp_prices or {}
-    pool = floor_rungs([l for l in legs if sgp_eligible(l, cfg, require_price)[0]])
+    pool = floor_rungs([l for l in legs if sgp_eligible(l, cfg, require_price)[0]], cfg)
     out = {"tickets": [], "notes": []}
     gl = [l for l in legs if l["kind"] == "game" and l.get("price") is not None]
     if gl:                                           # every main game line with the model's chance next to the book's price
@@ -247,7 +286,7 @@ def build_tickets(legs: list, sims, card: dict, cfg=CONFIG, require_price=True, 
                 rest = [l for l in pool if l["player_id"] not in used]
                 finish("props_4b", tk.best_ticket(rest, 4, cfg, require_price) if len(rest) >= 4 else None)
     # game-script variant: the 4-leg ticket plus one game leg that fits the likely scripts and adds value
-    if four is not None:
+    if four is not None and cfg.get("game_script_ticket", True):
         top = card["scripts"][0]["script"] if card.get("scripts") else ""
         best = None
         for gl in [l for l in legs if l["kind"] == "game" and l["p"] >= cfg["sgp_leg_floor"] and (l["price"] is not None or not require_price)]:
@@ -274,7 +313,8 @@ def build_tickets(legs: list, sims, card: dict, cfg=CONFIG, require_price=True, 
         finish("double_double", {"legs": dd, **s})
     else:
         out["notes"].append("double_double: no bet (no published double-double or triple-double leg clears 70%)")
-    out["singles"] = tk.singles([l for l in legs if l["eligible_player"] and l["p"] < cfg["sgp_leg_floor"]], cfg) if require_price else []
+    out["singles"] = (tk.singles([l for l in legs if l["eligible_player"] and l["p"] < cfg["sgp_leg_floor"]], cfg)
+                      if require_price and cfg.get("singles_enabled", True) else [])
     return out
 
 

@@ -69,7 +69,9 @@ CONFIG = {
     "rating_half_life_games": 25,
     "rating_ridge": 6.0,
     "season_carry": 0.6,
-    "market_weight_early": 0.85, "market_weight_late": 0.65, "market_weight_switch_games": 20,
+    # Odds never make a pick (owner, 25 November 2026): the book's spread and total are not blended into the game script.
+    # Before that rule the weights were 0.85 early in the season and 0.65 later.
+    "market_weight_early": 0.0, "market_weight_late": 0.0, "market_weight_switch_games": 20,
     "n_sims": 10000, "n_sims_backtest": 2000,
     "blowout_q4_lead": 15, "blowout_2h_lead": 20,
     "blowout_flag_prob": 0.55,           # warning threshold. 47% of real games meet the blowout definition, so 0.30 flagged every game;
@@ -132,7 +134,7 @@ CONFIG = {
     # Rebound legs hit 71% on slips against 80 to 86% for the other markets: one per slip at most, none on a 4-leg.
     # A leg the model rates far above the book's own price is far more likely a model error (a role change the
     # model has not seen) than an edge: of 6 graded legs with a gap over 15 points, 1 hit. Such legs stay off slips.
-    "max_model_edge_vs_book": 0.15,
+    "max_model_edge_vs_book": None,      # off (owner, 25 November): a leg is never dropped because of its price
     "max_legs_per_market": {"reb": 1},
     "max_legs_per_market_by_size": {4: {"reb": 0}},
     "sgp_markets": ["pts", "reb", "ast", "fg3m"],      # markets allowed on props tickets
@@ -177,6 +179,16 @@ CONFIG = {
     "max_legs_same_script": 4,
     "upper_rung_rank": 2,                # in blowout-flagged games starters may use only their lowest rungs
     "single_min_ev": 0.02,
+    "singles_enabled": False,            # edge singles are picked by price against the book, so they are off (odds never make a pick)
+    "game_script_ticket": False,         # it added a game leg only when the price made it worth it: off for the same reason
+    "ticket_rank": "joint",              # slips are chosen by the model's chance that every leg hits, never by value against a price
+    # The four steps (owner, 25 November): each leg's matchup is marked from how far tonight's opponent moves the player's
+    # own projection for that stat (the opponent-vs-position, opponent shot profile and rim-protection adjustments).
+    "matchup_groups": ["opp_position", "opp_shot_profile", "rim_protection"],
+    "matchup_strong": 1.05,              # the opponent moves his projection up at least 5%: strong
+    "matchup_weak": 0.95,                # ... down at least 5%: weak, kept off every slip
+    "strong_rung_prob": 0.75,            # a strong mismatch may take the next listed rung above his floor rung if the model gives it this
+                                         # much; kept at the 75% leg floor (owner, 20 November) until the owner sets a lower bar for strong legs
     "single_min_prob": 0.30,             # no long-shot singles: the model's far tails are its least reliable part
     "kelly_fraction": 0.25, "kelly_cap": 0.03,
     "sgp_candidate_pool": 14,
