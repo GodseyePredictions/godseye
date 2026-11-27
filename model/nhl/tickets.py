@@ -124,6 +124,8 @@ def build_legs(PS, S, gates: dict, flags: dict, odds_rows: list, summary: dict, 
                    "book": bk, "p": float(hits.mean()), "hits": hits, "active": None, "rung_verified": verified, "mean": float(counts.mean()),
                    "label": f"{name} {rung}+ {LABEL[market]}", "matchup": grade, **extra}
             ok, why = gates_mod.leg_passes(leg, gates, flags, cfg)
+            if ok and price is not None and price < c["leg_price_floor"]:
+                ok, why = False, f"priced shorter than {c['leg_price_floor']}: adds nothing to a slip's price"
             if ok and summary["blowout_flag"]:
                 if market == "saves" and team == dog and c["saves_cap_blowout"]:
                     ok, why = False, "blowout guard: saves on the goalie facing the favourite"

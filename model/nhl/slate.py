@@ -59,6 +59,8 @@ def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None 
     summ = game_sim.summary(S, cfg)
     odds_rows = latest(con, "odds", "game_id", as_of, "game_id = ?", [game["game_id"]]).to_dict("records")
     lines_priced = game_sim.price_markets(S, odds_rows, cfg)
+    if cfg["gates"].get("require_book_rung") and not odds_rows:
+        G["notes"].insert(0, "no listed prices for this game: the odds feed did not return it, so no slip is issued")
     PS = props.simulate(S, rosters, gctx, cfg, game_id=game["game_id"], goalies={t: gk[t] or {} for t in (home, away)})
     ex = explain.Explainer(PS, S, lam, gctx, recent or {}, lines_priced, summ, S.n)
     T = tickets.build(PS, S, G, flags, odds_rows, summ, lines_priced, cfg, explain=ex)

@@ -62,8 +62,9 @@ def api_events(key: str | None, root, cfg, max_age=300) -> list[dict]:
 
 def api_event_odds(key: str | None, event_id: str, root, cfg, snapshot_tag: str) -> tuple[dict, str]:
     q, redact = _key(key)
-    url = (f"{API}/events/{event_id}/odds?{q}regions={cfg['sources']['odds_regions']}"
-           f"&markets={','.join(all_api_markets())}&oddsFormat=american&bookmakers={','.join(cfg['sources']['odds_books'])}")
+    # naming the books (and no regions) costs one region's credits instead of five
+    url = (f"{API}/events/{event_id}/odds?{q}bookmakers={','.join(cfg['sources']['odds_books'])}"
+           f"&markets={','.join(all_api_markets())}&oddsFormat=american")
     body, at = get(url, root, tag=snapshot_tag, redact=redact, min_interval=cfg["sources"]["min_interval"]["api.the-odds-api.com"])
     return json.loads(body), at
 
