@@ -126,10 +126,10 @@ function renderCashed(){
   const S=C.slips.filter(s=>(f.kind==="all"||s.kind===f.kind)&&(f.n==="all"||String(s.n)===f.n)&&(f.week==="all"||String(s.week)===f.week));
   const tot=S.reduce((a,s)=>({st:a.st+(s.stake||0),rt:a.rt+(s.ret||0)}),{st:0,rt:0});
   const weeks=[...new Set(C.slips.map(s=>s.week))].sort((a,b)=>b-a);
-  const cards=S.slice().sort((a,b)=>b.week-a.week||(b.fair||0)-(a.fair||0)).map(s=>card(s.title,
+  const cards=S.slice().sort((a,b)=>b.week-a.week||((b.price??b.fair)||0)-((a.price??a.fair)||0)).map(s=>card(s.title,
      `<span>Week ${s.week}</span><span>${kindL[s.kind]||s.kind}</span><span class="win">${s.n}-leg cashed</span>`,
      s.legs.map(l=>`<li><span>${esc(l.t)}</span></li>`).join(""),
-     `<span>Model ${s.p?pct(s.p):"–"}</span><span>Fair price <b>${amS(s.fair)}</b></span>`,s.stake,s.ret)).join("");
+     `<span>Model ${s.p?pct(s.p):"–"}</span>${s.price!=null?`<span>Price <b>${amS(s.price)}</b></span>`:`<span>Fair price <b>${amS(s.fair)}</b></span>`}`,s.stake,s.ret)).join("");
   const aw=[...new Set(C.atd_legs.map(a=>a.week))].sort((a,b)=>b-a).map(w=>`<tr><td>Week ${w}</td><td>${C.atd_legs.filter(a=>a.week===w).map(a=>`${esc(a.name)}${a.fair!=null?` <span class="sub">(${amS(a.fair)})</span>`:""}`).join(" · ")}</td></tr>`).join("");
   return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2>
     <p class="sub">Slips the algorithm issued that won, graded exactly as shipped against final box scores. <b>Stakes and returns are examples at the model's fair price. They are not bets that were placed</b>, and a sportsbook's price for the same slip would differ. This page lists winning slips only; losing slips are not shown. Built ${esc(C.built)}.</p></div></div>
