@@ -19,6 +19,9 @@ from attd import atd_versions as av  # noqa: E402
 from attd.defense_report import team_defense  # noqa: E402
 
 STRONG, WEAK = 0.6, -0.6
+# Weather changes the tactics (owner, 27 November): outdoors in rain or snow, or in wind of WIND_FROM mph or more, teams run
+# more and throw short, so a back's matchup moves up a step and a pass-catcher's or quarterback's moves down a step.
+WIND_FROM = 15
 gid = sys.argv[1]
 season, week = int(gid[:4]), int(gid[5:7])
 R = av.build(season, week, [gid])
@@ -27,7 +30,14 @@ D = team_defense(season, week)
 n = len(D)
 tag = lambda r: "stingy" if r <= 8 else "soft" if r >= n - 7 else "average"  # noqa: E731
 
-out = {"game_id": gid, "made_by": "scripts/nfl-matchups.py from attd/atd_versions.py", "strong": STRONG, "weak": WEAK, "players": {}, "defences": {}}
+g0 = W.iloc[0]
+outdoor = str(g0.get("roof_type", "")) in ("outdoors", "open")
+bad = outdoor and (str(g0.get("wx_cat", "")) in ("rain", "snow") or float(g0.get("wind", 0) or 0) >= WIND_FROM)
+weather = {"roof": str(g0.get("roof_type", "")), "surface": "turf" if int(g0.get("is_turf", 0) or 0) else "grass", "sky": str(g0.get("wx_cat", "")),
+           "temp": float(g0.get("temp", 0) or 0), "wind": float(g0.get("wind", 0) or 0), "bad": bool(bad)}
+weather["note"] = (f"{weather['sky']}, {weather['temp']:.0f}°F, wind {weather['wind']:.0f} mph: backs up a step, passing game down a step" if bad
+                   else f"{weather['sky']}, {weather['temp']:.0f}°F, wind {weather['wind']:.0f} mph: no weather step")
+out = {"game_id": gid, "weather": weather, "made_by": "scripts/nfl-matchups.py from attd/atd_versions.py", "strong": STRONG, "weak": WEAK, "players": {}, "defences": {}}
 for t in W.opp.unique():
     r = D.loc[t]
     out["defences"][t] = {"run": f"{tag(r.r_rb_rush)} against the run ({int(r.r_rb_rush)}th fewest rush yds to backs of {n})",
@@ -42,7 +52,9 @@ for _, r in W.iterrows():
     side = {"RB": "run", "WR": "wr", "TE": "te", "QB": "wr"}.get(r.pos_group, "wr")
     out["players"][r["name"]] = {"team": r.team, "opp": r.opp, "pos": r.pos_group, "index": round(mx, 3),
                                  "tag": "strong" if mx >= STRONG else "weak" if mx <= WEAK else "neutral",
-                                 "defence": out["defences"][r.opp][side]}
+                                 "defence": out["defences"][r.opp][side],
+                                 "weather_step": (1 if r.pos_group == "RB" else -1) if bad else 0}
 (ROOT / "model" / "output" / f"nfl_matchups_{gid}.json").write_text(json.dumps(out))
+print(weather["note"])
 for k, v in sorted(out["players"].items(), key=lambda x: -x[1]["index"])[:14]:
     print(f"{k:22s} {v['team']} {v['pos']} {v['index']:+.2f} {v['tag']:7s} {v['defence']}")

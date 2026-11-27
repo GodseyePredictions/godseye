@@ -14,73 +14,73 @@
   "fetched": "2026-11-26T13:17-05:00"
  },
  "2026_12_DEN_PIT": {
-  "short": "Chance Light Rain",
-  "temp": 42.0,
+  "short": "Rain Showers",
+  "temp": 38.0,
   "wind": 17.0,
-  "pop": 65,
-  "fetched": "2026-11-26T13:17-05:00"
+  "pop": 81,
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_NO_CIN": {
   "short": "Light Rain",
-  "temp": 51.0,
+  "temp": 50.0,
   "wind": 13.0,
-  "pop": 97,
-  "fetched": "2026-11-26T13:17-05:00"
+  "pop": 100,
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_LV_CLE": {
   "short": "Light Rain",
   "temp": 47.0,
-  "wind": 13.0,
-  "pop": 97,
-  "fetched": "2026-11-26T13:18-05:00"
+  "wind": 10.0,
+  "pop": 100,
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_BAL_HOU": {
-  "short": "Mostly Sunny",
-  "temp": 68.0,
+  "short": "Sunny",
+  "temp": 66.0,
   "wind": 15.0,
   "pop": 0,
-  "fetched": "2026-11-26T13:17-05:00"
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_NYG_IND": {
   "short": "Light Rain",
-  "temp": 47.0,
+  "temp": 46.0,
   "wind": 9.0,
-  "pop": 92,
-  "fetched": "2026-11-26T13:17-05:00"
+  "pop": 94,
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_NYJ_MIA": {
-  "short": "Slight Chance Rain Showers",
+  "short": "Cloudy",
   "temp": 77.0,
-  "wind": 6.0,
-  "pop": 21,
-  "fetched": "2026-11-26T13:17-05:00"
+  "wind": 3.0,
+  "pop": 10,
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_TEN_JAX": {
-  "short": "Mostly Cloudy",
+  "short": "Cloudy",
   "temp": 65.0,
-  "wind": 7.0,
+  "wind": 9.0,
   "pop": 0,
-  "fetched": "2026-11-26T13:17-05:00"
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_WAS_ARI": {
-  "short": "Sunny",
-  "temp": 77.0,
+  "short": "Mostly Sunny",
+  "temp": 78.0,
   "wind": 5.0,
   "pop": 0,
-  "fetched": "2026-11-26T13:17-05:00"
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_SEA_SF": {
-  "short": "Light Rain Likely",
+  "short": "Light Rain",
   "temp": 64.0,
-  "wind": 14.0,
-  "pop": 74,
-  "fetched": "2026-11-26T13:17-05:00"
+  "wind": 15.0,
+  "pop": 83,
+  "fetched": "2026-11-27T12:51-05:00"
  },
  "2026_12_CAR_TB": {
   "short": "Scattered Rain Showers",
   "temp": 67.0,
   "wind": 3.0,
-  "pop": 28,
-  "fetched": "2026-11-26T13:18-05:00"
+  "pop": 37,
+  "fetched": "2026-11-27T12:51-05:00"
  }
 }
