@@ -44,7 +44,7 @@ export function NflAtd() {
       <section className="panel">
         <div className="section-head">
           <div>
-            <h2>Anytime TD: today&apos;s games</h2>
+            <h2>Anytime TD: {A.games.length > 3 ? "the full slate" : "today's games"}</h2>
             <p className="sub">
               {A.games.join(" · ")}. Touchdown-only slips, ground and air. Prices from {A.listings.source}, pulled {et(A.listings.pulled_at)} ET. The slip outlined in red at each size is the
               algorithm&apos;s pick.
@@ -76,10 +76,11 @@ export function NflAtd() {
           </section>
         );
       })}
-      {T.games.map((g) => {
-        const xs = (A.perGame ?? []).filter((s) => s.game_id === g.game_id);
+      {[...new Set((A.perGame ?? []).map((s) => s.game_id as string))].map((gid) => {
+        const xs = (A.perGame ?? []).filter((s) => s.game_id === gid);
+        const g = { game: xs[0].title.split(":")[0], game_id: gid };
         return xs.length ? (
-          <section className="panel" key={`pg-${g.game_id}`}>
+          <section className="panel" key={`pg-${gid}`}>
             <div className="section-head">
               <div>
                 <h2>{g.game}: touchdown slips</h2>

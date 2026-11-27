@@ -14,10 +14,12 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const API = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl";
 const BOOKS = ["draftkings", "fanduel"];
-const MARKETS: Record<string, string> = {
+const ALL_MARKETS: Record<string, string> = {
   player_pass_yds_alternate: "pass_yds", player_receptions_alternate: "rec", player_reception_yds_alternate: "rec_yds",
   player_rush_yds_alternate: "rush_yds", player_pass_attempts_alternate: "pass_att", player_anytime_td: "atd",
 };
+// NFL_MARKETS=atd pulls only the anytime-TD market (one feed request per game instead of six)
+const MARKETS = Object.fromEntries(Object.entries(ALL_MARKETS).filter(([, v]) => !process.env.NFL_MARKETS || process.env.NFL_MARKETS.split(",").includes(v)));
 const NAMES: Record<string, string> = { draftkings: "DraftKings", fanduel: "FanDuel" };
 
 const key = process.env.ODDS_API_KEY ?? "proxy-injected";
@@ -45,7 +47,11 @@ const ev = (events as { id: string; home_team: string; away_team: string; commen
   return Math.abs(t - day) < 2 * 86_400_000 && [e.home_team, e.away_team].some((n) => n.toLowerCase().includes(String(team(game.home)).toLowerCase()) || n.toLowerCase().endsWith(teamWord(game.home)));
 });
 function teamWord(abbr: string) {
-  const w: Record<string, string> = { LA: "rams", LAC: "chargers", GB: "packers", DET: "lions", CHI: "bears", DAL: "cowboys", PHI: "eagles", BUF: "bills", KC: "chiefs", PIT: "steelers", DEN: "broncos" };
+  const w: Record<string, string> = {
+    ARI: "cardinals", ATL: "falcons", BAL: "ravens", BUF: "bills", CAR: "panthers", CHI: "bears", CIN: "bengals", CLE: "browns", DAL: "cowboys", DEN: "broncos",
+    DET: "lions", GB: "packers", HOU: "texans", IND: "colts", JAX: "jaguars", KC: "chiefs", LA: "rams", LAC: "chargers", LV: "raiders", MIA: "dolphins",
+    MIN: "vikings", NE: "patriots", NO: "saints", NYG: "giants", NYJ: "jets", PHI: "eagles", PIT: "steelers", SEA: "seahawks", SF: "49ers", TB: "buccaneers", TEN: "titans", WAS: "commanders",
+  };
   return w[abbr] ?? abbr.toLowerCase();
 }
 if (!ev) throw new Error(`The odds feed has no event for ${game.away} @ ${game.home}`);
