@@ -8,7 +8,7 @@ type S = { title: string; kind?: string; pick: boolean; p: number; fair: number;
 type Single = { name: string; team: string; pos: string; p: number; fair: number; flag: string; listed: string; why: string[] };
 type Game = {
   game: string; game_id: string; kickoff: string; venue: string; listings: { source: string; pulled_at: string };
-  sgps: S[]; hybrids: S[]; lotto: S | null;
+  sgps: S[]; hybrids: S[]; lotto: S | null; rush?: S[];
   atd: { singles: Single[]; double: S | null; held: { name: string; why: string }[] };
 };
 type Today = {
@@ -70,6 +70,9 @@ function GamePack({ g }: { g: Game }) {
           </div>
         </div>
       </section>
+      {bySize(g.rush ?? []).map((x) => (
+        <Tier key={x[0].title} game={g.game} title={`${g.game}: ${x[0].title}`} sub="Rushing legs only: the backs in the weather." slips={x} />
+      ))}
       {bySize(g.sgps).map((x) => (
         <Tier key={x[0].title} game={g.game} title={`${g.game}: ${x[0].title}`} sub="Props only, no touchdown legs." slips={x} />
       ))}
