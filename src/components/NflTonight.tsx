@@ -71,7 +71,7 @@ function GamePack({ g }: { g: Game }) {
         </div>
       </section>
       {bySize(g.rush ?? []).map((x) => (
-        <Tier key={x[0].title} game={g.game} title={`${g.game}: ${x[0].title}`} sub="Rushing legs only: the backs in the weather." slips={x} />
+        <Tier key={x[0].title} game={g.game} title={`${g.game}: ${x[0].title}`} sub={x[0].kind === "rush_td" ? "Rushing legs plus one anytime TD from a scorer whose matchup clears." : "Rushing legs only: the backs in the weather."} slips={x} />
       ))}
       {bySize(g.sgps).map((x) => (
         <Tier key={x[0].title} game={g.game} title={`${g.game}: ${x[0].title}`} sub="Props only, no touchdown legs." slips={x} />
