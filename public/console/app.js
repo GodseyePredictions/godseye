@@ -118,13 +118,13 @@ function renderCashed(){
       ${lgbar}
       <div class="cfilt">${opt("n",[["all","Any legs"],["4","4-leg"],["6","6-leg"],["8","8-leg"]])}</div>
       <div class="cfilt">${opt("week",[["all","All nights"],...dates.map(d=>[d,day(d)])])}</div>
-      <p class="sub" style="margin-top:10px">${S.length} slips shown · example stakes ${money(tot.st)} · cashed ${money(tot.rt)}</p></section>${grid(cards)}`;
+      <p class="sub" style="margin-top:10px">Wagered ${money(tot.st)} · Total cashed ${money(tot.rt)}</p></section>${grid(cards)}`;
   }
   const C=D.cashed;
   if(!C) return `<section class="panel"><h2>Cashed slips</h2>${lgbar}<p class="sub">No graded record has been built yet.</p></section>`;
   const kindL={SGP:"Props SGP","SGP+TD":"SGP with TD",ATD:"Anytime TD"};
   const S=C.slips.filter(s=>(f.kind==="all"||s.kind===f.kind)&&(f.n==="all"||String(s.n)===f.n)&&(f.week==="all"||String(s.week)===f.week));
-  const tot=S.reduce((a,s)=>({st:a.st+(s.stake||0),rt:a.rt+(s.ret||0)}),{st:0,rt:0});
+  const tot=S.reduce((a,s)=>({st:a.st+(s.wager||s.stake||0),rt:a.rt+(s.ret||0)}),{st:0,rt:0});
   const weeks=[...new Set(C.slips.map(s=>s.week))].sort((a,b)=>b-a);
   const cards=S.slice().sort((a,b)=>b.week-a.week||((b.price??b.fair)||0)-((a.price??a.fair)||0)).map(s=>card(s.title,
      `<span>Week ${s.week}</span><span>${kindL[s.kind]||s.kind}</span><span class="win">${s.n}-leg cashed</span>`,
@@ -137,7 +137,7 @@ function renderCashed(){
     <div class="cfilt">${opt("kind",[["all","All types"],["SGP","Props SGP"],["SGP+TD","SGP with TD"],["ATD","Anytime TD"]])}</div>
     <div class="cfilt">${opt("n",[["all","Any legs"],["2","2-leg"],["4","4-leg"],["6","6-leg"],["8","8-leg"]])}</div>
     <div class="cfilt">${opt("week",[["all","All weeks"],...weeks.map(w=>[String(w),"Week "+w])])}</div>
-    <p class="sub" style="margin-top:10px">${S.length} slips shown · example stakes ${money(tot.st)} · cashed ${money(tot.rt)} at fair prices</p></section>
+    <p class="sub" style="margin-top:10px">Wagered ${money(tot.st)} · Total cashed ${money(tot.rt)}</p></section>
   ${grid(cards)}
   <section class="panel"><h3>Anytime TD picks that scored</h3><p class="sub">Every touchdown pick on an issued slip or pick list that scored, with the model's fair price where saved.</p><div class="tblwrap" style="overflow-x:auto"><table><tbody>${aw}</tbody></table></div></section>`;
 }

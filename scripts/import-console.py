@@ -137,6 +137,10 @@ js = patch(js, """`<span>Model ${s.p?pct(s.p):"–"}</span><span>Fair price <b>$
 js = patch(js, "sort((a,b)=>b.week-a.week||(b.fair||0)-(a.fair||0))", "sort((a,b)=>b.week-a.week||((b.price??b.fair)||0)-((a.price??a.fair)||0))")
 #     Week 12 NFL cashed slips show a "Wager" (owner, 27 November) instead of "Example stake"
 js = patch(js, "s.stake,s.ret)).join(\"\");\n  const aw=", "s.wager||s.stake,s.ret,s.wager?\"Wager\":\"Example stake\")).join(\"\");\n  const aw=")
+#     cashed tabs show only the total wagered and the total cashed (owner, 27 November): no slip count, no "example stakes", no "fair prices"
+js = patch(js, '<p class="sub" style="margin-top:10px">${S.length} slips shown · example stakes ${money(tot.st)} · cashed ${money(tot.rt)}</p></section>${grid(cards)}`;', '<p class="sub" style="margin-top:10px">Wagered ${money(tot.st)} · Total cashed ${money(tot.rt)}</p></section>${grid(cards)}`;')
+js = patch(js, '<p class="sub" style="margin-top:10px">${S.length} slips shown · example stakes ${money(tot.st)} · cashed ${money(tot.rt)} at fair prices</p></section>', '<p class="sub" style="margin-top:10px">Wagered ${money(tot.st)} · Total cashed ${money(tot.rt)}</p></section>')
+js = patch(js, 'const tot=S.reduce((a,s)=>({st:a.st+(s.stake||0),rt:a.rt+(s.ret||0)}),{st:0,rt:0});', 'const tot=S.reduce((a,s)=>({st:a.st+(s.wager||s.stake||0),rt:a.rt+(s.ret||0)}),{st:0,rt:0});')
 #     no tally of tickets cashed or issued anywhere on the site (owner, 26 November): the record chip is not drawn
 js = patch(js, '''rec.tickets?["Last graded week",`${rec.cashed}<small>/ ${rec.tickets} cashed</small>`,`${rec.legs_hit}% of legs hit vs ${rec.legs_exp}% expected`]:["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];''', '''["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];''')
 js = patch(js, """$("#recchip").textContent=D.meta.record&&D.meta.record.tickets?`Last week: ${D.meta.record.cashed}/${D.meta.record.tickets} tickets cashed`:`Graded as shipped, every week`;""", "")

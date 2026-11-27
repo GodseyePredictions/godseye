@@ -279,7 +279,12 @@ function CashedTab() {
         </div>
       </div>
       {slate.cashed.length ? (
-        <div className="gs-slips ge-set">
+        <>
+          <p className="sub" style={{ marginTop: 10 }}>
+            Wagered {dollars(NHL_CASHED_WAGER * slate.cashed.length)} · Total cashed{" "}
+            {dollars(slate.cashed.reduce((a, c) => a + (cashedReturn(NHL_CASHED_WAGER, c.fair_price) ?? 0), 0))}
+          </p>
+          <div className="gs-slips ge-set">
           {slate.cashed.map((c) => (
             <CashedSlip
               key={c.id}
@@ -297,7 +302,8 @@ function CashedTab() {
               })()}
             />
           ))}
-        </div>
+          </div>
+        </>
       ) : (
         <p className="sub">No cashed slips yet.</p>
       )}

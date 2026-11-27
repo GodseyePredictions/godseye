@@ -765,9 +765,8 @@ function CashedTab() {
         />
         <div className="kpis" style={{ marginBottom: 12 }}>
           {[
-            ["Slips cashed", String(cashed.cashed)],
-            ["Example stakes on these slips", money(staked)],
-            ["Cashed", money(returned)],
+            ["Wagered", money(staked)],
+            ["Total cashed", money(returned)],
           ].map(([k, v]) => (
             <div className="kpi" key={k}>
               <div className="k">{k}</div>
@@ -787,7 +786,7 @@ function CashedTab() {
         .sort((a, b) => (a.date < b.date ? 1 : -1))
         .map((n) => (
           <section className="panel" key={n.date}>
-            <StrategyHead title={longDate(n.date)} sub={`${n.cashed} ${n.cashed === 1 ? "slip" : "slips"} cashed`} />
+            <StrategyHead title={longDate(n.date)} />
             <div className="gs-slips ge-set">
               {cashed.slips
                 .filter((s) => s.date === n.date)
