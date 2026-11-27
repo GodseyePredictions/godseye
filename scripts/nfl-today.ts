@@ -159,6 +159,14 @@ for (const n of NFL_TODAY.sizes) {
   const options = tdEligible.flatMap((td) => topSlips(floorPool, n, [td], 1)).sort((a, b) => b.p - a.p).slice(0, 2);
   options.forEach((b, i) => hybrids.push(toSlip(`${n}-leg SGP + anytime TD`, "sgp_atd", b, i === 0)));
 }
+// ---- rushing-only SGPs (on request, e.g. a rain game; NFL_RUSH_SGP=1): backs' listed rush-yards rungs the algorithm rates
+// 55% or better, one rung per player, at most one leg under 65%; the highest-chance slip at each size and the next best
+const rush: Slip[] = [];
+if (process.env.NFL_RUSH_SGP) {
+  const rushPool = cat.legs.filter((l) => propsOk(l, NFL_TODAY.aggressive[0], 1) && l.market === "rush_yds");
+  for (const n of [2, 3]) topSlips(rushPool, n, [], 2, () => true, false).forEach((b, i) =>
+    rush.push(toSlip(`${n}-leg rushing SGP`, "rush", b, i === 0, "Rushing legs only, made on request for the weather. A leg may sit below its matchup rung; at most one is under 65%.")));
+}
 // ---- 3. lotto: the highest-chance slip of aggressive legs whose fair price is +1500 or longer
 // lotto pool: listed props legs from 55% up (still at most one under 65%) plus the touchdown scorers cleared for parlays
 const lottoProps = new Map<string, RatedLeg>();
@@ -184,10 +192,10 @@ const out = {
   built_from: D.meta.built, made_at: new Date().toISOString(), listings: { source: listed.source, pulled_at: listed.pulled_at },
   script: (D.script_sgp.find((x: { game: string }) => x.game === GID)?.notes ?? []) as string[],
   rules: ["Slips are built around the mismatches: at least half the legs come from strong matchups where the game has them.", ...(MATCH.weather?.bad ? [`Weather: ${MATCH.weather.note}.`] : []), "Each leg is set by its matchup: a strong mismatch steps up a rung (66%+), a neutral matchup takes a floor rung (75%+), a weak one stays conservative (80%+).", `Every props leg is a rung a sportsbook lists, at its listed price; receptions start at ${NFL_TODAY.receptionsFrom}+.`, `At most one leg under 65% and at most ${NFL_TODAY.maxLegsPerPlayer} legs per player.`, "Props slips carry no touchdown leg; SGP + anytime TD slips carry exactly one, from a scorer the algorithm clears for parlays.", ...[...displaced].map((n) => `${n} carries no rushing leg: the algorithm flags him as displaced (${atd.held.find((h) => h[0] === n)?.[2].replace(/^displaced: /, "")}).`)],
-  sgps, hybrids, lotto,
+  sgps, hybrids, lotto, rush,
   atd: { singles: board, double: dbl ? toSlip("Anytime TD double", "atd", dbl, true, "One scorer from each team: teammates share the same touchdowns.") : null, held: atd.held.filter((h) => atd.board.some((b) => b.name === h[0] && b.game === GID)).map((h) => ({ name: h[0], why: h[2] })) },
 };
 writeFileSync(root + `model/output/nfl_today_${GID}.json`, JSON.stringify(out));
 const line = (s: { title: string; pick: boolean; p: number; fair: number; legs: { text: string }[] }) => `  ${s.pick ? "*" : " "} ${s.title.padEnd(26)} ${(s.p * 100).toFixed(1).padStart(5)}%  fair ${String(s.fair).padStart(6)}  ${s.legs.map((l) => l.text).join("; ")}`;
 console.log(`${GAME}: floor pool ${floorPool.length}, aggressive pool ${aggressivePool.length}, TD-eligible ${tdEligible.map((l) => l.player).join(", ")}`);
-for (const s of [...sgps, ...hybrids, ...(lotto ? [lotto] : []), ...(out.atd.double ? [out.atd.double] : [])]) console.log(line(s));
+for (const s of [...rush, ...sgps, ...hybrids, ...(lotto ? [lotto] : []), ...(out.atd.double ? [out.atd.double] : [])]) console.log(line(s));
