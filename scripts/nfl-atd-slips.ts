@@ -23,7 +23,7 @@ import { nflCatalog, parseConsoleData, type RatedLeg } from "../src/lib/advisor/
 import { fairAmerican, jointProbability } from "../src/lib/advisor/joint.ts";
 import { toDecimal } from "../src/lib/odds.ts";
 
-export const NFL_ATD = { minChance: 0.2, sizes: [2, 3, 4, 5, 6, 8, 10, 12], keep: 400, rate: 60, searchSims: 40_000, finalSims: 400_000 };
+export const NFL_ATD = { minChance: 0.2, sizes: [2, 3, 4, 5, 6, 8, 10, 12], lotto: [12, 16, 18, 20], lottoKeep: 1500, keep: 400, rate: 60, searchSims: 40_000, finalSims: 400_000 };
 
 const root = new URL("..", import.meta.url).pathname;
 const read = (f: string) => JSON.parse(readFileSync(root + f, "utf8"));
@@ -97,7 +97,7 @@ function options(team: string, oneEach: boolean, n: number, from: P[] = pool): P
   return out;
 }
 type C = { legs: P[]; naive: number };
-function search(n: number, from: P[] = pool): C[] {
+function search(n: number, from: P[] = pool, keep = NFL_ATD.keep): C[] {
   // several scorers from one game or team may share a slip (owner, 26 November); the correlation engine prices that in
   const oneEach = false;
   let states: C[] = [{ legs: [], naive: 1 }];
@@ -107,19 +107,19 @@ function search(n: number, from: P[] = pool): C[] {
     // keep the best states at each size
     const bySize = new Map<number, C[]>();
     for (const c of next) bySize.set(c.legs.length, [...(bySize.get(c.legs.length) ?? []), c]);
-    states = [...bySize.values()].flatMap((cs) => cs.sort((a, b) => b.naive - a.naive).slice(0, NFL_ATD.keep));
+    states = [...bySize.values()].flatMap((cs) => cs.sort((a, b) => b.naive - a.naive).slice(0, keep));
   }
   return states.filter((c) => c.legs.length === n).sort((a, b) => b.naive - a.naive).slice(0, NFL_ATD.rate);
 }
 const mixed = (c: C) => c.legs.some((x) => ground(x.pos)) && c.legs.some((x) => !ground(x.pos));
 const multiplied = (ps: (number | null)[]) => { if (ps.some((x) => x == null)) return null; const d = ps.reduce((a: number, x) => a * toDecimal(x as number), 1); return d >= 2 ? Math.round((d - 1) * 100) : Math.round(-100 / (d - 1)); };
 const NAME: Record<number, string> = { 2: "double", 3: "triple" };
-function build(n: number, from: P[], label: (n: number) => string, extra: Record<string, unknown> = {}) {
-  const rated = search(n, from).map((c) => ({ ...c, p: jointProbability(c.legs.map((x) => x.leg), cat.corr, NFL_ATD.searchSims) as number })).sort((a, b) => b.p - a.p);
+function build(n: number, from: P[], label: (n: number) => string, extra: Record<string, unknown> = {}, minStrong = 0) {
+  const rated = search(n, from, minStrong ? NFL_ATD.lottoKeep : NFL_ATD.keep).filter((c) => c.legs.filter((x) => x.tag === "strong").length >= minStrong).slice(0, NFL_ATD.rate).map((c) => ({ ...c, p: jointProbability(c.legs.map((x) => x.leg), cat.corr, NFL_ATD.searchSims) as number })).sort((a, b) => b.p - a.p);
   if (!rated.length) return [];
   // the pick is the highest chance; up to five legs, a second option carries the best ground + air mix
   const chosen = [rated[0]];
-  if (n <= 5) { const s = rated.slice(1).find((c) => mixed(rated[0]) || mixed(c)); if (s) chosen.push(s); }
+  if (n <= 5 && !minStrong) { const s = rated.slice(1).find((c) => mixed(rated[0]) || mixed(c)); if (s) chosen.push(s); }
   return chosen.map((c, i) => {
     const p = jointProbability(c.legs.map((x) => x.leg), cat.corr, NFL_ATD.finalSims) as number;
     const legs = [...c.legs].sort((a, b) => atd.games.indexOf(a.game) - atd.games.indexOf(b.game) || b.p - a.p).map((x) => {
@@ -135,6 +135,8 @@ function build(n: number, from: P[], label: (n: number) => string, extra: Record
   });
 }
 const slips = NFL_ATD.sizes.flatMap((n) => build(n, pool, (k) => (NAME[k] ? `Anytime TD ${NAME[k]}` : `${k}-leg anytime TD`)));
+// ---- lotto touchdown slips across the slate: built around the mismatches, at least half the legs strong matchups
+const lotto = NFL_ATD.lotto.flatMap((n) => build(n, pool, (k) => `Lotto · ${k}-leg anytime TD`, { lotto: true }, Math.ceil(n / 2)));
 // ---- each game's own touchdown slips: several scorers from one game
 const perGame = atd.games.flatMap((g) => { const from = pool.filter((x) => x.game === g); const label = `${G[g].away} @ ${G[g].home}`;
   return from.length >= 3 ? [3, 4].filter((n) => n <= from.length).flatMap((n) => build(n, from, (k) => `${label}: ${k}-leg TD`, { game_id: g })) : []; });
@@ -143,7 +145,7 @@ const out = { made_at: new Date().toISOString(), games: atd.games.map(when), lis
   rules: ["Ground: a back goes on only when his matchup clears (not weak once the run defence is checked); a quarterback only when the defence he faces is not stingy against the run.",
     "Air (receivers and tight ends): only when the matchup clears, i.e. not weak once the defence is checked. A defence stingy against his position pulls a player down a step; a soft one lifts him.",
     "Several scorers from one game or one team may share a slip; the chance shown accounts for teammates sharing touchdowns.", "Every leg is an anytime TD a book lists, at its listed price."],
-  perGame, pool: pool.map((x) => ({ name: x.name, team: x.team, pos: x.pos, p: x.p, side: ground(x.pos) ? "Ground" : "Air" })), left, slips };
+  perGame, lotto, pool: pool.map((x) => ({ name: x.name, team: x.team, pos: x.pos, p: x.p, side: ground(x.pos) ? "Ground" : "Air" })), left, slips };
 writeFileSync(root + "model/output/nfl_atd_slips.json", JSON.stringify(out));
 console.log(`pool ${pool.length}: ${pool.map((x) => `${x.name} (${ground(x.pos) ? "G" : "A"} ${Math.round(x.p * 100)})`).join(", ")}`);
-for (const s of [...slips, ...perGame]) console.log(`  ${s.pick ? "*" : " "} ${s.title.padEnd(22)} ${(s.p * 100).toFixed(2).padStart(6)}%  books ${s.listedMultiplied}  ${s.mix}  ${s.legs.map((l) => l.text.replace(" anytime TD", "")).join(", ")}`);
+for (const s of [...slips, ...lotto, ...perGame]) console.log(`  ${s.pick ? "*" : " "} ${s.title.padEnd(22)} ${(s.p * 100).toFixed(2).padStart(6)}%  books ${s.listedMultiplied}  ${s.mix}  ${s.legs.map((l) => l.text.replace(" anytime TD", "")).join(", ")}`);

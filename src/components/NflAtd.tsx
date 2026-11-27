@@ -7,7 +7,7 @@ import { Slip, american, pct } from "@/components/Slip";
 
 type Leg = { text: string; p: number; side: string; who: string; game: string; listed: string; matchup?: string };
 type X = { title: string; size: number; game_id?: string; mix: string; pick: boolean; p: number; listedMultiplied: number | null; legs: Leg[]; note?: string };
-type Atd = { made_at: string; games: string[]; listings: { source: string; pulled_at: string }; rules: string[]; left: { name: string; team: string; why: string }[]; slips: X[]; perGame?: X[] };
+type Atd = { made_at: string; games: string[]; listings: { source: string; pulled_at: string }; rules: string[]; left: { name: string; team: string; why: string }[]; slips: X[]; perGame?: X[]; lotto?: X[] };
 type GLeg = { text: string; p: number; listed?: string };
 type GSlip = { title: string; pick: boolean; p: number; listedMultiplied?: number | null; legs: GLeg[]; note?: string };
 type Single = { name: string; team: string; pos: string; p: number; flag: string; listed: string };
@@ -15,7 +15,7 @@ type Game = { game: string; game_id: string; kickoff: string; atd: { singles: Si
 
 const A = raw as unknown as Atd;
 const T = today as unknown as { games: Game[] };
-const chance = (p: number) => pct(p, p < 0.01 ? 2 : 1);
+const chance = (p: number) => (p > 0 && p < 0.001 ? `1 in ${Math.round(1 / p).toLocaleString("en-US")}` : pct(p, p < 0.01 ? 2 : 1));
 const et = (iso: string) => new Date(iso).toLocaleTimeString("en-CA", { hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" });
 
 function CrossCard({ s }: { s: X }) {
@@ -76,6 +76,21 @@ export function NflAtd() {
           </section>
         );
       })}
+      {!!A.lotto?.length && (
+        <section className="panel">
+          <div className="section-head">
+            <div>
+              <h2>Lotto TDs</h2>
+              <p className="sub">Longshots across the slate, built around the mismatches: at least half the legs are strong matchups. The algorithm&apos;s most likely slip at each size.</p>
+            </div>
+          </div>
+          <div className="gs-slips ge-set">
+            {A.lotto.map((s, i) => (
+              <CrossCard s={s} key={i} />
+            ))}
+          </div>
+        </section>
+      )}
       {[...new Set((A.perGame ?? []).map((s) => s.game_id as string))].map((gid) => {
         const xs = (A.perGame ?? []).filter((s) => s.game_id === gid);
         const g = { game: xs[0].title.split(":")[0], game_id: gid };
