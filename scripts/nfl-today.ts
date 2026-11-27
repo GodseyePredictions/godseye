@@ -166,6 +166,9 @@ if (process.env.NFL_RUSH_SGP) {
   const rushPool = cat.legs.filter((l) => propsOk(l, NFL_TODAY.aggressive[0], 1) && l.market === "rush_yds");
   for (const n of [2, 3]) topSlips(rushPool, n, [], 2, () => true, false).forEach((b, i) =>
     rush.push(toSlip(`${n}-leg rushing SGP`, "rush", b, i === 0, "Rushing legs only, made on request for the weather. A leg may sit below its matchup rung; at most one is under 65%.")));
+  // and with one anytime TD from a scorer whose matchup clears (the TD legs of the SGP + TD tiers)
+  for (const n of [3, 4]) tdEligible.flatMap((td) => topSlips(rushPool, n, [td], 1, () => true, false)).sort((a, b) => b.p - a.p).slice(0, 2).forEach((b, i) =>
+    rush.push(toSlip(`${n}-leg rushing SGP + anytime TD`, "rush_td", b, i === 0, "Rushing legs plus one anytime TD from a scorer whose matchup clears. A leg may sit below its matchup rung; at most one props leg is under 65%.")));
 }
 // ---- 3. lotto: the highest-chance slip of aggressive legs whose fair price is +1500 or longer
 // lotto pool: listed props legs from 55% up (still at most one under 65%) plus the touchdown scorers cleared for parlays
