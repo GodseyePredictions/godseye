@@ -45,7 +45,7 @@ const atd = read("model/output/nfl_atd_versions.json") as { games: string[]; hel
 const GAME = listed.game, GID = listed.game_id;
 // ---- matchups (scripts/nfl-matchups.py): strong, neutral or weak for each player, from the algorithm's matchup index.
 // A defence that is stingy against a player's position caps him at neutral; a soft one lifts a weak tag to neutral.
-const MATCH = read(`model/output/nfl_matchups_${GID}.json`) as { players: Record<string, { team: string; opp: string; pos: string; index: number; tag: string; defence: string }>; defences: Record<string, { run: string }> };
+const MATCH = read(`model/output/nfl_matchups_${GID}.json`) as { players: Record<string, { team: string; opp: string; pos: string; index: number; tag: string; defence: string; weather_step?: number }>; weather?: { bad: boolean; note: string }; defences: Record<string, { run: string }> };
 const tagOf = (player: string): "strong" | "neutral" | "weak" => {
   const m = MATCH.players[player]; if (!m) return "neutral";
   // the index, moved one step toward how this defence plays the position: stingy pulls it down, soft lifts it
@@ -53,6 +53,8 @@ const tagOf = (player: string): "strong" | "neutral" | "weak" => {
   let i = order.indexOf(m.tag as "weak" | "neutral" | "strong");
   if (m.defence.startsWith("stingy")) i = Math.max(0, i - 1);
   if (m.defence.startsWith("soft")) i = Math.min(2, i + 1);
+  // weather (scripts/nfl-matchups.py): rain, snow or strong wind outdoors lifts backs a step and drops the passing game a step
+  i = Math.max(0, Math.min(2, i + (m.weather_step ?? 0)));
   return order[i];
 };
 // the rung each matchup earns: a strong mismatch may step up, a neutral one takes a floor rung, a weak one stays safe
@@ -139,7 +141,8 @@ const whyOf = (l: RatedLeg) => {
   const role = w.find((x) => /^(Volume|Red-zone role|Goal-line role)/.test(x)), matchup = w.find((x) => /^(vs |[A-Z]{2,3} O-line)/.test(x));
   const m = MATCH.players[l.player];
   const head = m ? `${tagOf(l.player)[0].toUpperCase()}${tagOf(l.player).slice(1)} matchup: ${m.defence}; ${l.prob >= RUNG_BY_MATCHUP.neutral ? (tagOf(l.player) === "strong" ? "the algorithm still rates this rung high" : "floor rung") : "stepped up a rung on the mismatch"}.` : "";
-  return [head, role, matchup, l.risk ? `Risk: ${l.risk}` : ""].filter((x): x is string => !!x).map((x) => (x.length > 220 ? x.slice(0, 220).replace(/\s+\S*$/, "") + "…" : x));
+  const wx = MATCH.weather?.bad && m?.weather_step ? `Weather: ${MATCH.weather.note}.` : "";
+  return [head, wx, role, matchup, l.risk ? `Risk: ${l.risk}` : ""].filter((x): x is string => !!x).map((x) => (x.length > 220 ? x.slice(0, 220).replace(/\s+\S*$/, "") + "…" : x));
 };
 const toSlip = (title: string, kind: string, b: Built, pick: boolean, note?: string): Slip => ({
   title, kind, pick, p: b.p, fair: fairAmerican(b.p) as number, note,
@@ -180,7 +183,7 @@ const out = {
   game: GAME, game_id: GID, kickoff: `${game.weekday} ${game.kick}`, day: game.day, venue: game.venue,
   built_from: D.meta.built, made_at: new Date().toISOString(), listings: { source: listed.source, pulled_at: listed.pulled_at },
   script: (D.script_sgp.find((x: { game: string }) => x.game === GID)?.notes ?? []) as string[],
-  rules: ["Slips are built around the mismatches: at least half the legs come from strong matchups where the game has them.", "Each leg is set by its matchup: a strong mismatch steps up a rung (66%+), a neutral matchup takes a floor rung (75%+), a weak one stays conservative (80%+).", `Every props leg is a rung a sportsbook lists, at its listed price; receptions start at ${NFL_TODAY.receptionsFrom}+.`, `At most one leg under 65% and at most ${NFL_TODAY.maxLegsPerPlayer} legs per player.`, "Props slips carry no touchdown leg; SGP + anytime TD slips carry exactly one, from a scorer the algorithm clears for parlays.", ...[...displaced].map((n) => `${n} carries no rushing leg: the algorithm flags him as displaced (${atd.held.find((h) => h[0] === n)?.[2].replace(/^displaced: /, "")}).`)],
+  rules: ["Slips are built around the mismatches: at least half the legs come from strong matchups where the game has them.", ...(MATCH.weather?.bad ? [`Weather: ${MATCH.weather.note}.`] : []), "Each leg is set by its matchup: a strong mismatch steps up a rung (66%+), a neutral matchup takes a floor rung (75%+), a weak one stays conservative (80%+).", `Every props leg is a rung a sportsbook lists, at its listed price; receptions start at ${NFL_TODAY.receptionsFrom}+.`, `At most one leg under 65% and at most ${NFL_TODAY.maxLegsPerPlayer} legs per player.`, "Props slips carry no touchdown leg; SGP + anytime TD slips carry exactly one, from a scorer the algorithm clears for parlays.", ...[...displaced].map((n) => `${n} carries no rushing leg: the algorithm flags him as displaced (${atd.held.find((h) => h[0] === n)?.[2].replace(/^displaced: /, "")}).`)],
   sgps, hybrids, lotto,
   atd: { singles: board, double: dbl ? toSlip("Anytime TD double", "atd", dbl, true, "One scorer from each team: teammates share the same touchdowns.") : null, held: atd.held.filter((h) => atd.board.some((b) => b.name === h[0] && b.game === GID)).map((h) => ({ name: h[0], why: h[2] })) },
 };

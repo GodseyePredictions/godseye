@@ -36,7 +36,7 @@ const when = (gid: string) => `${G[gid].away} @ ${G[gid].home} · ${String(G[gid
 
 // ---- prices and matchups for every game of the day
 const prices = new Map<string, Record<string, number>>();
-const match = new Map<string, { tag: string; defence: string; index: number; opp?: string }>();
+const match = new Map<string, { tag: string; defence: string; index: number; opp?: string; weather_step?: number }>();
 const runD = new Map<string, string>();
 let pulled = "", source = "";
 for (const g of atd.games) {
@@ -53,6 +53,7 @@ const tagOf = (name: string) => {
   let i = order.indexOf(m.tag as (typeof order)[number]);
   if (m.defence.startsWith("stingy")) i = Math.max(0, i - 1);
   if (m.defence.startsWith("soft")) i = Math.min(2, i + 1);
+  i = Math.max(0, Math.min(2, i + (m.weather_step ?? 0))); // weather step (scripts/nfl-matchups.py)
   return order[i];
 };
 const best = (p: Record<string, number> | undefined) => (p ? Object.entries(p).sort((a, b) => toDecimal(b[1]) - toDecimal(a[1]))[0] : null);
@@ -144,7 +145,8 @@ const perGame = atd.games.flatMap((g) => { const from = pool.filter((x) => x.gam
 const out = { made_at: new Date().toISOString(), games: atd.games.map(when), listings: { source, pulled_at: pulled },
   rules: ["Ground: a back goes on only when his matchup clears (not weak once the run defence is checked); a quarterback only when the defence he faces is not stingy against the run.",
     "Air (receivers and tight ends): only when the matchup clears, i.e. not weak once the defence is checked. A defence stingy against his position pulls a player down a step; a soft one lifts him.",
-    "Several scorers from one game or one team may share a slip; the chance shown accounts for teammates sharing touchdowns.", "Every leg is an anytime TD a book lists, at its listed price."],
+    "Several scorers from one game or one team may share a slip; the chance shown accounts for teammates sharing touchdowns.",
+    "Weather: outdoors in rain, snow or wind of 15 mph or more, backs move up a step and the passing game down a step.", "Every leg is an anytime TD a book lists, at its listed price."],
   perGame, lotto, pool: pool.map((x) => ({ name: x.name, team: x.team, pos: x.pos, p: x.p, side: ground(x.pos) ? "Ground" : "Air" })), left, slips };
 writeFileSync(root + "model/output/nfl_atd_slips.json", JSON.stringify(out));
 console.log(`pool ${pool.length}: ${pool.map((x) => `${x.name} (${ground(x.pos) ? "G" : "A"} ${Math.round(x.p * 100)})`).join(", ")}`);

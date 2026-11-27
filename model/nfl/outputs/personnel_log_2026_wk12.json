@@ -29,6 +29,13 @@
  },
  {
   "type": "injury",
+  "name": "Caleb Lohner",
+  "team": "DEN",
+  "status": "Out",
+  "note": "Foot"
+ },
+ {
+  "type": "injury",
   "name": "Kenneth Walker III",
   "team": "KC",
   "status": "Out",
@@ -40,5 +47,12 @@
   "team": "LA",
   "status": "Out",
   "note": "Ankle"
+ },
+ {
+  "type": "injury",
+  "name": "Ben Skowronek",
+  "team": "PIT",
+  "status": "Out",
+  "note": "Calf"
  }
 ]
