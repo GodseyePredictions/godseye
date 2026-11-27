@@ -147,6 +147,7 @@ props:
 tickets:
   floor_prob: 0.70                # slip legs are floor rungs at 70%+
   floor_prob_by_market: {saves: 0.85}   # backtest: saves legs the model called 85-90% hit about 82%; skater markets hit at or above their call
+  leg_price_floor: -1000          # a listed leg priced shorter than this is left off (keeps a slip in a sensible price range; odds never pick a leg)
   sub65_prob: 0.65
   max_sub65_legs: 1
   sizes: [4, 6, 8]                # owner, 24 November 2026: 4-, 6- and 8-leg slips, props and game lines on one slip
