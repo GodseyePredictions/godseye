@@ -547,3 +547,15 @@ def test_a_reissued_game_withdraws_slips_it_no_longer_issues(tmp_path, monkeypat
     slate.run(db, cfg, g[1], as_of="2026-10-23T12:00:00+00:00")
     ids = {t["id"] for t in json.loads((tmp_path / "LEDGER.json").read_text())["tickets"]}
     assert stale["id"] not in ids
+
+
+def test_latest_prices_keep_each_line_across_pulls(db):
+    from nhl import slate, store
+    row = lambda k, src, m, name, price: {"known_at": k, "source": src, "book": "fanduel", "game_id": 7, "market": m, "player_id": 1,
+                                          "player_name": name, "side": "over", "line": 1.5, "price": price, "is_close": 0}
+    store.write(db, "odds", [row("2026-11-27T16:00:00", "the-odds-api", "sog", "A", -150.0),
+                             row("2026-11-27T17:00:00", "nhl-partner", "total", "", -110.0),
+                             row("2026-11-27T17:30:00", "the-odds-api", "sog", "A", -170.0)])
+    got = {(r["market"], r["price"]) for r in slate.latest_prices(db, 7, "2026-11-27T18:00:00")}
+    assert got == {("sog", -170.0), ("total", -110.0)}                      # the props survive a later game-line pull
+    assert {(r["market"], r["price"]) for r in slate.latest_prices(db, 7, "2026-11-27T16:30:00")} == {("sog", -150.0)}

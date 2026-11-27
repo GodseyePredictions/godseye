@@ -28,6 +28,15 @@ def latest(con, table: str, key: str, as_of: str, where: str = "1=1", params=())
                            f"GROUP BY {key}) x ON t.{key} = x.k AND t.known_at = x.m WHERE {where}", [as_of, *params, *params])
 
 
+def latest_prices(con, game_id: int, as_of: str) -> list[dict]:
+    """The most recent price of every listed line for a game, whichever pull it came from: a later pull of one source
+    (the NHL partner feed) must not hide the props an earlier pull of another (The Odds API) found."""
+    keys = "source, book, market, player_name, side, line"
+    return store.read(con, f"""SELECT o.* FROM odds o JOIN (SELECT {keys}, MAX(known_at) k FROM odds WHERE game_id = ? AND known_at <= ?
+                                GROUP BY {keys}) m USING ({keys}) WHERE o.game_id = ? AND o.known_at = m.k""",
+                      [game_id, as_of, game_id]).to_dict("records")
+
+
 def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None = None, recent: dict | None = None) -> dict:
     home, away = game["home"], game["away"]
     goalie_rows = latest(con, "goalie_starts", "team", as_of, "date_et = ?", [game["date_et"]]).to_dict("records")
@@ -57,7 +66,7 @@ def run_game(game: dict, ctx: dict, tables, con, cfg, as_of: str, n: int | None 
     lam = game_sim.team_lambdas(home, away, gctx, cfg)
     S = game_sim.simulate(lam, home, away, ctx["K"], cfg, n=n, seed=cfg["sim"]["seed"] + int(game["game_id"]) % 100000)
     summ = game_sim.summary(S, cfg)
-    odds_rows = latest(con, "odds", "game_id", as_of, "game_id = ?", [game["game_id"]]).to_dict("records")
+    odds_rows = latest_prices(con, game["game_id"], as_of)
     lines_priced = game_sim.price_markets(S, odds_rows, cfg)
     if cfg["gates"].get("require_book_rung") and not odds_rows:
         G["notes"].insert(0, "no listed prices for this game: the odds feed did not return it, so no slip is issued")
