@@ -91,7 +91,7 @@ def best_ticket(pool: list, size: int, cfg: dict, require_price: bool = True, ex
             s = score(legs)
             if s["joint"] < floor or (require_price and s["ev"] is None):
                 continue
-            key = s["ev"] if s["ev"] is not None else s["joint"]
+            key = s["joint"] if cfg.get("ticket_rank") == "joint" or s["ev"] is None else s["ev"]
             bar = best_key if not allow or best_key is None else best_key + cfg["combo_component_ev_gain"]
             if best_key is None or key > bar:
                 best, best_key = {"legs": legs, **s}, key

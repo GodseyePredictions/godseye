@@ -67,7 +67,7 @@ def test_no_bet_is_a_valid_result():
 def test_double_double_ticket_is_separate_and_singles_are_edges_only():
     legs = [leg(x, "pts", 0.8, seed=i) for i, x in enumerate("abcd")] + [leg("a", "dd", 0.82, kind="dd", price=-300, seed=9),
                                                                          leg("b", "pts", 0.45, price=150, seed=10, line=29.5)]
-    built = sgp.build_tickets(legs, None, {"scripts": [], "matchup": "A @ B"}, dict(CONFIG, sgp_sizes=[4]))
+    built = sgp.build_tickets(legs, None, {"scripts": [], "matchup": "A @ B"}, dict(CONFIG, sgp_sizes=[4], singles_enabled=True))
     types = {t["type"]: t for t in built["tickets"]}
     assert set(types) == {"props_4", "double_double"}
     assert all(l["kind"] == "prop" for l in types["props_4"]["legs"]) and [l["market"] for l in types["double_double"]["legs"]] == ["dd"]
@@ -202,11 +202,29 @@ def test_results_are_kept_off_the_site_file(tmp_path, monkeypatch):
     assert (tmp_path / "data" / "nba_track_private.json").exists()
 
 
-def test_leg_far_above_the_book_price_is_kept_off_slips():
-    ok, why = sgp.sgp_eligible(leg("a", "ast", 0.76, price=117))            # book implies 46%
+def test_book_gap_guard_is_off_by_default_and_still_works_when_set():
+    # odds never make a pick (owner, 25 November): by default a leg is never dropped because of its price
+    assert sgp.sgp_eligible(leg("a", "ast", 0.76, price=117))[0]
+    old = dict(CONFIG, max_model_edge_vs_book=0.15)
+    ok, why = sgp.sgp_eligible(leg("a", "ast", 0.76, price=117), old)       # book implies 46%
     assert not ok and "above the book" in why
-    assert sgp.sgp_eligible(leg("a", "ast", 0.80, price=-250))[0]            # book implies 71%: a normal gap
-    assert sgp.sgp_eligible(leg("a", "ast", 0.76, price=117), dict(CONFIG, max_model_edge_vs_book=None))[0]
+    assert sgp.sgp_eligible(leg("a", "ast", 0.80, price=-250), old)[0]      # book implies 71%: a normal gap
+
+
+def test_matchup_mark_weak_off_neutral_floor_strong_one_rung_up():
+    import numpy as np
+    row = {"items": [("ast", "opp_position", np.log(1.08)), ("reb", "opp_position", np.log(0.90)), ("ast", "form", np.log(1.5))]}
+    assert sgp.matchup_mark(row, "ast")[0] == "strong"                       # last-5 form is not a matchup item
+    assert sgp.matchup_mark(row, "reb")[0] == "weak"
+    assert sgp.matchup_mark(row, "fg3m")[0] == "neutral"
+    weak = dict(leg("a", "reb", 0.90), matchup="weak")
+    assert not sgp.sgp_eligible(weak)[0] and "weak matchup" in sgp.sgp_eligible(weak)[1]
+    cfg = dict(CONFIG, strong_rung_prob=0.70)
+    lo, hi = dict(leg("b", "ast", 0.85), line=3.5, matchup="strong"), dict(leg("b", "ast", 0.72), line=5.5, matchup="strong")
+    assert sgp.sgp_eligible(hi, cfg)[0] and not sgp.sgp_eligible(hi)[0]    # 72% clears a 70% strong bar, not the default 75%
+    assert [l["line"] for l in sgp.floor_rungs([lo, hi], cfg)] == [5.5]     # strong: one rung above the floor rung
+    n_lo, n_hi = dict(lo, matchup="neutral"), dict(hi, matchup="neutral")
+    assert [l["line"] for l in sgp.floor_rungs([n_lo, n_hi], cfg)] == [3.5] # neutral: the floor rung
 
 
 def test_cashed_showcase_lists_winners_with_example_stakes_and_the_full_count():

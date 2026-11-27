@@ -28,7 +28,7 @@ def band_tickets(legs: list, cfg=CONFIG) -> tuple[list, list]:
     if not bands:
         return [], []
     elig = [l for l in legs if sgp.sgp_eligible(l, cfg, True)[0]]
-    pool = sorted(sgp.floor_rungs(elig), key=lambda l: -l["p"])[:cfg["price_band_pool"]]
+    pool = sorted(sgp.floor_rungs(elig, cfg), key=lambda l: -l["p"])[:cfg["price_band_pool"]]
     dec = np.array([to_decimal(l["price"]) for l in pool])
     lo = [to_decimal(b["min_price"]) for b in bands]
     hi = [to_decimal(b["max_price"]) for b in bands]
