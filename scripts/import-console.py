@@ -120,7 +120,7 @@ js = patch(
 #     Cashed slips (owner, 24 November): the same white slip, NFL slips only (NBA and NHL have their own tabs)
 _a = js.index("const card=(title,pills,legs,meta,stake,ret)=>")
 _b = js.index("const grid=cards=>", _a)
-js = js[:_a] + """const card=(title,pills,legs,meta,stake,ret)=>`<article class="gs-slip gs-cashed"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="gs-cashed-pills">${pills}</div><ul class="gs-slip-legs gs-checks">${legs}</ul><p class="gs-cashed-meta">${meta}</p><dl class="gs-slip-foot gs-cashed-foot">${stake?`<div><dt>Example stake</dt><dd>${money(stake)}</dd></div>`:""}<div><dt>Cashed</dt><dd class="red">${stake?money(ret):"✓"}</dd></div></dl></article>`;
+js = js[:_a] + """const card=(title,pills,legs,meta,stake,ret,stakeLabel="Example stake")=>`<article class="gs-slip gs-cashed"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="gs-cashed-pills">${pills}</div><ul class="gs-slip-legs gs-checks">${legs}</ul><p class="gs-cashed-meta">${meta}</p><dl class="gs-slip-foot gs-cashed-foot">${stake?`<div><dt>${stakeLabel}</dt><dd>${money(stake)}</dd></div>`:""}<div><dt>Cashed</dt><dd class="red">${stake?money(ret):"✓"}</dd></div></dl></article>`;
   """ + js[_b:]
 js = patch(js, """const grid=cards=>`<div class="cgrid">${cards||""", """const grid=cards=>`<div class="gs-slips ge-set">${cards||""")
 _a = js.index("const lgbar=`<div class=\"lgbar\">")
@@ -135,6 +135,8 @@ js = patch(js, '''s.legs.map(l=>`<li>${esc(l.t)} <span class="cact">(${esc(l.r)}
 js = patch(js, """`<span>Model ${s.p?pct(s.p):"–"}</span><span>Fair price <b>${amS(s.fair)}</b></span>`""",
                """`<span>Model ${s.p?pct(s.p):"–"}</span>${s.price!=null?`<span>Price <b>${amS(s.price)}</b></span>`:`<span>Fair price <b>${amS(s.fair)}</b></span>`}`""")
 js = patch(js, "sort((a,b)=>b.week-a.week||(b.fair||0)-(a.fair||0))", "sort((a,b)=>b.week-a.week||((b.price??b.fair)||0)-((a.price??a.fair)||0))")
+#     Week 12 NFL cashed slips show a "Wager" (owner, 27 November) instead of "Example stake"
+js = patch(js, "s.stake,s.ret)).join(\"\");\n  const aw=", "s.wager||s.stake,s.ret,s.wager?\"Wager\":\"Example stake\")).join(\"\");\n  const aw=")
 #     no tally of tickets cashed or issued anywhere on the site (owner, 26 November): the record chip is not drawn
 js = patch(js, '''rec.tickets?["Last graded week",`${rec.cashed}<small>/ ${rec.tickets} cashed</small>`,`${rec.legs_hit}% of legs hit vs ${rec.legs_exp}% expected`]:["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];''', '''["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];''')
 js = patch(js, """$("#recchip").textContent=D.meta.record&&D.meta.record.tickets?`Last week: ${D.meta.record.cashed}/${D.meta.record.tickets} tickets cashed`:`Graded as shipped, every week`;""", "")

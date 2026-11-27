@@ -101,7 +101,7 @@ function renderCashed(){
   const amS=a=>a==null?"–":(a>0?"+":"")+Math.round(a);
   const opt=(k,vals)=>vals.map(([v,l])=>`<button class="btn sm${f[k]===v?" on":""}" data-cashf="${k}|${v}">${l}</button>`).join(" ");
   const lgbar="";
-  const card=(title,pills,legs,meta,stake,ret)=>`<article class="gs-slip gs-cashed"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="gs-cashed-pills">${pills}</div><ul class="gs-slip-legs gs-checks">${legs}</ul><p class="gs-cashed-meta">${meta}</p><dl class="gs-slip-foot gs-cashed-foot">${stake?`<div><dt>Example stake</dt><dd>${money(stake)}</dd></div>`:""}<div><dt>Cashed</dt><dd class="red">${stake?money(ret):"✓"}</dd></div></dl></article>`;
+  const card=(title,pills,legs,meta,stake,ret,stakeLabel="Example stake")=>`<article class="gs-slip gs-cashed"><header class="gs-slip-head"><h3 class="gs-slip-title">${esc(title)}</h3></header><div class="gs-cashed-pills">${pills}</div><ul class="gs-slip-legs gs-checks">${legs}</ul><p class="gs-cashed-meta">${meta}</p><dl class="gs-slip-foot gs-cashed-foot">${stake?`<div><dt>${stakeLabel}</dt><dd>${money(stake)}</dd></div>`:""}<div><dt>Cashed</dt><dd class="red">${stake?money(ret):"✓"}</dd></div></dl></article>`;
   const grid=cards=>`<div class="gs-slips ge-set">${cards||`<section class="panel"><p class="sub">No slips match these filters.</p></section>`}</div>`;
   if(f.lg==="nba"){const N=D.cashed_nba;
     if(!N||!N.slips.length) return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2></div></div>${lgbar}<p class="sub">No NBA slips have been loaded yet.</p></section>`;
@@ -129,7 +129,7 @@ function renderCashed(){
   const cards=S.slice().sort((a,b)=>b.week-a.week||((b.price??b.fair)||0)-((a.price??a.fair)||0)).map(s=>card(s.title,
      `<span>Week ${s.week}</span><span>${kindL[s.kind]||s.kind}</span><span class="win">${s.n}-leg cashed</span>`,
      s.legs.map(l=>`<li><span>${esc(l.t)}</span></li>`).join(""),
-     `<span>Model ${s.p?pct(s.p):"–"}</span>${s.price!=null?`<span>Price <b>${amS(s.price)}</b></span>`:`<span>Fair price <b>${amS(s.fair)}</b></span>`}`,s.stake,s.ret)).join("");
+     `<span>Model ${s.p?pct(s.p):"–"}</span>${s.price!=null?`<span>Price <b>${amS(s.price)}</b></span>`:`<span>Fair price <b>${amS(s.fair)}</b></span>`}`,s.wager||s.stake,s.ret,s.wager?"Wager":"Example stake")).join("");
   const aw=[...new Set(C.atd_legs.map(a=>a.week))].sort((a,b)=>b-a).map(w=>`<tr><td>Week ${w}</td><td>${C.atd_legs.filter(a=>a.week===w).map(a=>`${esc(a.name)}${a.fair!=null?` <span class="sub">(${amS(a.fair)})</span>`:""}`).join(" · ")}</td></tr>`).join("");
   return `<section class="panel"><div class="section-head"><div><h2>Cashed slips</h2>
     <p class="sub">Slips the algorithm issued that won, graded exactly as shipped against final box scores. <b>Stakes and returns are examples at the model's fair price. They are not bets that were placed</b>, and a sportsbook's price for the same slip would differ. This page lists winning slips only; losing slips are not shown. Built ${esc(C.built)}.</p></div></div>

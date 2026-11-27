@@ -5822,9 +5822,9 @@
     }
    ],
    "src": "graded",
-   "stake": 50,
-   "ret": 72.83,
-   "profit": 22.83
+   "ret": 107.79,
+   "profit": 33.79,
+   "wager": 74
   },
   {
    "week": 12,
@@ -5860,9 +5860,9 @@
     }
    ],
    "src": "graded",
-   "stake": 50,
-   "ret": 114.0,
-   "profit": 64.0
+   "ret": 243.96,
+   "profit": 136.96,
+   "wager": 107
   },
   {
    "week": 12,
@@ -5890,9 +5890,9 @@
     }
    ],
    "src": "graded",
-   "stake": 50,
-   "ret": 168.0,
-   "profit": 118.0
+   "ret": 248.64,
+   "profit": 174.64,
+   "wager": 74
   },
   {
    "week": 12,
@@ -5920,9 +5920,9 @@
     }
    ],
    "src": "graded",
-   "stake": 50,
-   "ret": 196.5,
-   "profit": 146.5
+   "ret": 436.23,
+   "profit": 325.23,
+   "wager": 111
   },
   {
    "week": 12,
@@ -5950,9 +5950,9 @@
     }
    ],
    "src": "graded",
-   "stake": 50,
-   "ret": 88.76,
-   "profit": 38.76
+   "ret": 173.97,
+   "profit": 75.97,
+   "wager": 98
   },
   {
    "week": 12,
@@ -5980,9 +5980,9 @@
     }
    ],
    "src": "graded",
-   "stake": 50,
-   "ret": 101.0,
-   "profit": 51.0
+   "ret": 226.24,
+   "profit": 114.24,
+   "wager": 112
   },
   {
    "week": 12,
@@ -6010,9 +6010,9 @@
     }
    ],
    "src": "graded",
-   "stake": 50,
-   "ret": 110.0,
-   "profit": 60.0
+   "ret": 242.0,
+   "profit": 132.0,
+   "wager": 110
   },
   {
    "week": 12,
@@ -6032,9 +6032,9 @@
     }
    ],
    "src": "graded",
-   "stake": 50,
-   "ret": 106.0,
-   "profit": 56.0
+   "ret": 224.72,
+   "profit": 118.72,
+   "wager": 106
   }
  ],
  "atd_legs": [
