@@ -50,7 +50,8 @@
    "week": 12,
    "issued": 86,
    "cashed": 8,
-   "games": "GB @ LA, CHI @ DET, PHI @ DAL, KC @ BUF"
+   "games": "GB @ LA, CHI @ DET, PHI @ DAL, KC @ BUF",
+   "note": "GB @ LA re-checked across every version published before kickoff, plus the TD board singles"
   }
  ],
  "slips": [
@@ -6035,6 +6036,188 @@
    "ret": 224.72,
    "profit": 118.72,
    "wager": 106
+  },
+  {
+   "week": 12,
+   "kind": "SGP",
+   "title": "GB @ LA \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.40952,
+   "price": -135,
+   "legs": [
+    {
+     "t": "Christian Watson 20+ rec yds",
+     "r": "65 rec yds"
+    },
+    {
+     "t": "Matthew Golden 20+ rec yds",
+     "r": "39 rec yds"
+    },
+    {
+     "t": "Blake Corum 30+ rush yds",
+     "r": "184 rush yds"
+    },
+    {
+     "t": "Kyren Williams 40+ rush yds",
+     "r": "46 rush yds"
+    }
+   ],
+   "src": "graded",
+   "wager": 92,
+   "ret": 160.15,
+   "profit": 68.15
+  },
+  {
+   "week": 12,
+   "kind": "SGP+TD",
+   "title": "GB @ LA \u00b7 4-leg SGP + TD",
+   "n": 4,
+   "p": 0.24455,
+   "price": 236,
+   "legs": [
+    {
+     "t": "Kyren Williams anytime TD",
+     "r": "1 TD"
+    },
+    {
+     "t": "Christian Watson 20+ rec yds",
+     "r": "65 rec yds"
+    },
+    {
+     "t": "Blake Corum 30+ rush yds",
+     "r": "184 rush yds"
+    },
+    {
+     "t": "Kyren Williams 40+ rush yds",
+     "r": "46 rush yds"
+    }
+   ],
+   "src": "graded",
+   "wager": 84,
+   "ret": 282.24,
+   "profit": 198.24
+  },
+  {
+   "week": 12,
+   "kind": "SGP+TD",
+   "title": "GB @ LA \u00b7 4-leg SGP + TD",
+   "n": 4,
+   "p": 0.24057,
+   "price": 285,
+   "legs": [
+    {
+     "t": "Blake Corum anytime TD",
+     "r": "1 TD"
+    },
+    {
+     "t": "Christian Watson 20+ rec yds",
+     "r": "65 rec yds"
+    },
+    {
+     "t": "Blake Corum 30+ rush yds",
+     "r": "184 rush yds"
+    },
+    {
+     "t": "Kyren Williams 40+ rush yds",
+     "r": "46 rush yds"
+    }
+   ],
+   "src": "graded",
+   "wager": 65,
+   "ret": 250.25,
+   "profit": 185.25
+  },
+  {
+   "week": 12,
+   "kind": "SGP+TD",
+   "title": "GB @ LA \u00b7 6-leg SGP + TD",
+   "n": 6,
+   "p": 0.14941,
+   "price": 367,
+   "legs": [
+    {
+     "t": "Blake Corum anytime TD",
+     "r": "1 TD"
+    },
+    {
+     "t": "Christian Watson 20+ rec yds",
+     "r": "65 rec yds"
+    },
+    {
+     "t": "Matthew Golden 20+ rec yds",
+     "r": "39 rec yds"
+    },
+    {
+     "t": "Blake Corum 30+ rush yds",
+     "r": "184 rush yds"
+    },
+    {
+     "t": "Kyren Williams 40+ rush yds",
+     "r": "46 rush yds"
+    },
+    {
+     "t": "Kyren Williams 2+ receptions",
+     "r": "4 receptions"
+    }
+   ],
+   "src": "graded",
+   "wager": 112,
+   "ret": 523.04,
+   "profit": 411.04
+  },
+  {
+   "week": 12,
+   "kind": "ATD",
+   "title": "GB @ LA \u00b7 TD single",
+   "n": 1,
+   "p": 0.46568,
+   "price": 105,
+   "legs": [
+    {
+     "t": "Kyren Williams anytime TD",
+     "r": "1 TD"
+    }
+   ],
+   "src": "graded",
+   "wager": 54,
+   "ret": 110.7,
+   "profit": 56.7
+  },
+  {
+   "week": 12,
+   "kind": "ATD",
+   "title": "GB @ LA \u00b7 TD single",
+   "n": 1,
+   "p": 0.46234,
+   "price": 140,
+   "legs": [
+    {
+     "t": "Blake Corum anytime TD",
+     "r": "1 TD"
+    }
+   ],
+   "src": "graded",
+   "wager": 62,
+   "ret": 148.8,
+   "profit": 86.8
+  },
+  {
+   "week": 12,
+   "kind": "ATD",
+   "title": "GB @ LA \u00b7 TD single",
+   "n": 1,
+   "p": 0.33127,
+   "price": 170,
+   "legs": [
+    {
+     "t": "Christian Watson anytime TD",
+     "r": "1 TD"
+    }
+   ],
+   "src": "graded",
+   "wager": 56,
+   "ret": 151.2,
+   "profit": 95.2
   }
  ],
  "atd_legs": [
