@@ -45,6 +45,12 @@
    "week": 11,
    "issued": 241,
    "cashed": 60
+  },
+  {
+   "week": 12,
+   "issued": 86,
+   "cashed": 8,
+   "games": "GB @ LA, CHI @ DET, PHI @ DAL, KC @ BUF"
   }
  ],
  "slips": [
@@ -5789,6 +5795,246 @@
    "stake": 50,
    "ret": 322.5,
    "profit": 272.5
+  },
+  {
+   "week": 12,
+   "kind": "SGP",
+   "title": "GB @ LA \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.38766,
+   "price": -219,
+   "legs": [
+    {
+     "t": "Matthew Golden 20+ rec yds",
+     "r": "39 rec yds"
+    },
+    {
+     "t": "Tucker Kraft 2+ receptions",
+     "r": "3 receptions"
+    },
+    {
+     "t": "Blake Corum 30+ rush yds",
+     "r": "184 rush yds"
+    },
+    {
+     "t": "Kyren Williams 2+ receptions",
+     "r": "4 receptions"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 72.83,
+   "profit": 22.83
+  },
+  {
+   "week": 12,
+   "kind": "SGP",
+   "title": "GB @ LA \u00b7 props 6-leg",
+   "n": 6,
+   "p": 0.22524,
+   "price": 128,
+   "legs": [
+    {
+     "t": "Matthew Golden 20+ rec yds",
+     "r": "39 rec yds"
+    },
+    {
+     "t": "Jordan Love 175+ pass yds",
+     "r": "198 pass yds"
+    },
+    {
+     "t": "Christian Watson 30+ rec yds",
+     "r": "65 rec yds"
+    },
+    {
+     "t": "Blake Corum 30+ rush yds",
+     "r": "184 rush yds"
+    },
+    {
+     "t": "Kyren Williams 40+ rush yds",
+     "r": "46 rush yds"
+    },
+    {
+     "t": "Kyren Williams 2+ receptions",
+     "r": "4 receptions"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 114.0,
+   "profit": 64.0
+  },
+  {
+   "week": 12,
+   "kind": "SGP+TD",
+   "title": "GB @ LA \u00b7 4-leg SGP + TD",
+   "n": 4,
+   "p": 0.24143,
+   "price": 236,
+   "legs": [
+    {
+     "t": "Kyren Williams anytime TD",
+     "r": "1 TD"
+    },
+    {
+     "t": "Matthew Golden 20+ rec yds",
+     "r": "39 rec yds"
+    },
+    {
+     "t": "Blake Corum 30+ rush yds",
+     "r": "184 rush yds"
+    },
+    {
+     "t": "Kyren Williams 40+ rush yds",
+     "r": "46 rush yds"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 168.0,
+   "profit": 118.0
+  },
+  {
+   "week": 12,
+   "kind": "SGP+TD",
+   "title": "GB @ LA \u00b7 4-leg SGP + TD",
+   "n": 4,
+   "p": 0.23752,
+   "price": 293,
+   "legs": [
+    {
+     "t": "Blake Corum anytime TD",
+     "r": "1 TD"
+    },
+    {
+     "t": "Matthew Golden 20+ rec yds",
+     "r": "39 rec yds"
+    },
+    {
+     "t": "Blake Corum 30+ rush yds",
+     "r": "184 rush yds"
+    },
+    {
+     "t": "Kyren Williams 40+ rush yds",
+     "r": "46 rush yds"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 196.5,
+   "profit": 146.5
+  },
+  {
+   "week": 12,
+   "kind": "SGP",
+   "title": "CHI @ DET \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.50428,
+   "price": -129,
+   "legs": [
+    {
+     "t": "Luther Burden III 20+ rec yds",
+     "r": "44 rec yds"
+    },
+    {
+     "t": "Luther Burden III 3+ receptions",
+     "r": "3 receptions"
+    },
+    {
+     "t": "Amon-Ra St. Brown 5+ receptions",
+     "r": "7 receptions"
+    },
+    {
+     "t": "Amon-Ra St. Brown 60+ rec yds",
+     "r": "146 rec yds"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 88.76,
+   "profit": 38.76
+  },
+  {
+   "week": 12,
+   "kind": "SGP",
+   "title": "CHI @ DET \u00b7 props 4-leg",
+   "n": 4,
+   "p": 0.49584,
+   "price": 102,
+   "legs": [
+    {
+     "t": "Rome Odunze 2+ receptions",
+     "r": "6 receptions"
+    },
+    {
+     "t": "Rome Odunze 20+ rec yds",
+     "r": "87 rec yds"
+    },
+    {
+     "t": "Amon-Ra St. Brown 5+ receptions",
+     "r": "7 receptions"
+    },
+    {
+     "t": "Amon-Ra St. Brown 60+ rec yds",
+     "r": "146 rec yds"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 101.0,
+   "profit": 51.0
+  },
+  {
+   "week": 12,
+   "kind": "SGP+TD",
+   "title": "CHI @ DET \u00b7 4-leg SGP + TD",
+   "n": 4,
+   "p": 0.40102,
+   "price": 120,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "3 TD"
+    },
+    {
+     "t": "Luther Burden III 20+ rec yds",
+     "r": "44 rec yds"
+    },
+    {
+     "t": "Amon-Ra St. Brown 5+ receptions",
+     "r": "7 receptions"
+    },
+    {
+     "t": "Amon-Ra St. Brown 60+ rec yds",
+     "r": "146 rec yds"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 110.0,
+   "profit": 60.0
+  },
+  {
+   "week": 12,
+   "kind": "ATD",
+   "title": "CHI @ DET + PHI @ DAL \u00b7 TD double",
+   "n": 2,
+   "p": 0.48207,
+   "price": 112,
+   "legs": [
+    {
+     "t": "Jahmyr Gibbs anytime TD",
+     "r": "3 TD"
+    },
+    {
+     "t": "Javonte Williams anytime TD",
+     "r": "3 TD"
+    }
+   ],
+   "src": "graded",
+   "stake": 50,
+   "ret": 106.0,
+   "profit": 56.0
   }
  ],
  "atd_legs": [
@@ -6914,5 +7160,5 @@
   }
  ],
  "excluded": {},
- "note": "Algorithm slips graded as shipped against final box scores. Stakes and returns are examples at the model's fair price, not bets that were placed. A sportsbook's price for the same slip would differ."
+ "note": "Algorithm slips graded as shipped against final box scores. Stakes and returns are examples at the model's fair price, not bets that were placed. A sportsbook's price for the same slip would differ. Week 12 slips show the books' listed leg prices multiplied (The Odds API), not a fair price."
 }

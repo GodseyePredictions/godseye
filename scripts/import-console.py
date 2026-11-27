@@ -131,6 +131,10 @@ js = patch(js, '''`<span class="cpill">Week ${s.week}</span><span class="cpill">
                '''`<span>Week ${s.week}</span><span>${kindL[s.kind]||s.kind}</span><span class="win">${s.n}-leg cashed</span>`,''')
 js = patch(js, '''s.legs.map(l=>`<li>${esc(l.t)} <span class="cact">(${esc(l.r)})</span></li>`).join(""),''',
                '''s.legs.map(l=>`<li><span>${esc(l.t)}</span></li>`).join(""),''')
+#     Week 12 onward a cashed slip carries the books' listed price (owner, 25 November: a fair price is never shown as a price)
+js = patch(js, """`<span>Model ${s.p?pct(s.p):"–"}</span><span>Fair price <b>${amS(s.fair)}</b></span>`""",
+               """`<span>Model ${s.p?pct(s.p):"–"}</span>${s.price!=null?`<span>Price <b>${amS(s.price)}</b></span>`:`<span>Fair price <b>${amS(s.fair)}</b></span>`}`""")
+js = patch(js, "sort((a,b)=>b.week-a.week||(b.fair||0)-(a.fair||0))", "sort((a,b)=>b.week-a.week||((b.price??b.fair)||0)-((a.price??a.fair)||0))")
 #     no tally of tickets cashed or issued anywhere on the site (owner, 26 November): the record chip is not drawn
 js = patch(js, '''rec.tickets?["Last graded week",`${rec.cashed}<small>/ ${rec.tickets} cashed</small>`,`${rec.legs_hit}% of legs hit vs ${rec.legs_exp}% expected`]:["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];''', '''["Props holdout",`87%<small>hit</small>`,"floor legs 2025–26, 82% expected"]];''')
 js = patch(js, """$("#recchip").textContent=D.meta.record&&D.meta.record.tickets?`Last week: ${D.meta.record.cashed}/${D.meta.record.tickets} tickets cashed`:`Graded as shipped, every week`;""", "")
