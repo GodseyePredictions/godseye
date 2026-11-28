@@ -1,6 +1,6 @@
 {
  "date": "2026-11-27",
- "made_at": "2026-11-27T17:43:01+00:00",
+ "made_at": "2026-11-27T21:36:30+00:00",
  "games": [
   {
    "game_id": 2026020400,
@@ -23600,16 +23600,16 @@
       "status": "Unconfirmed"
      },
      "NYR": {
-      "ok": false,
+      "ok": true,
       "goalie": "Dylan Garand",
       "player_id": 8482193,
-      "status": "Unconfirmed"
+      "status": "Confirmed"
      }
     },
     "lines": {
      "CHI": {
-      "ok": false,
-      "updated": "2026-11-26T15:09:51.613Z"
+      "ok": true,
+      "updated": "2026-11-27T21:35:28.854Z"
      },
      "NYR": {
       "ok": true,
@@ -23617,9 +23617,7 @@
      }
     },
     "notes": [
-     "CHI starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
-     "CHI lines are stale: legs that depend on it are re-run once it is confirmed",
-     "NYR starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed"
+     "CHI starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed"
     ],
     "goalies_ok": false
    },
@@ -23640,7 +23638,7 @@
    },
    "expected": {
     "CHI": {
-     "goals": 2.34,
+     "goals": 2.13,
      "sog": 24.2,
      "pp_min": 3.98,
      "steps": [
@@ -23671,6 +23669,10 @@
       {
        "what": "2 time zones since last game",
        "factor": 0.992
+      },
+      {
+       "what": "out: Tyler Bertuzzi, Connor Bedard, Patrick Kane, Dillon Boucher",
+       "factor": 0.9099
       }
      ]
     },
@@ -23717,71 +23719,71 @@
    "sim": {
     "home": "CHI",
     "away": "NYR",
-    "home_goals": 2.651,
-    "away_goals": 3.111,
-    "total": 5.762,
-    "home_win": 0.4233,
-    "overtime": 0.2354,
-    "shootout": 0.0785,
-    "home_sog": 24.88,
-    "away_sog": 28.55,
-    "empty_net_goals": 0.387,
-    "blowout_prob": 0.1666,
+    "home_goals": 2.437,
+    "away_goals": 3.114,
+    "total": 5.551,
+    "home_win": 0.3862,
+    "overtime": 0.2395,
+    "shootout": 0.0794,
+    "home_sog": 25.01,
+    "away_sog": 28.48,
+    "empty_net_goals": 0.383,
+    "blowout_prob": 0.1647,
     "favourite": "NYR",
-    "favourite_blowout_prob": 0.107,
+    "favourite_blowout_prob": 0.1182,
     "blowout_flag": false
    },
    "fair": {
     "moneyline": {
      "CHI": {
-      "prob": 0.4233,
-      "fair_price": 136
+      "prob": 0.3862,
+      "fair_price": 159
      },
      "NYR": {
-      "prob": 0.5767,
-      "fair_price": -136
+      "prob": 0.6138,
+      "fair_price": -159
      }
     },
     "puck_line": {
      "CHI -1.5": {
-      "prob": 0.2379,
-      "fair_price": 320
+      "prob": 0.2054,
+      "fair_price": 387
      },
      "NYR +1.5": {
-      "prob": 0.7621,
-      "fair_price": -320
+      "prob": 0.7946,
+      "fair_price": -387
      },
      "NYR -1.5": {
-      "prob": 0.3673,
-      "fair_price": 172
+      "prob": 0.3962,
+      "fair_price": 152
      },
      "CHI +1.5": {
-      "prob": 0.6327,
-      "fair_price": -172
+      "prob": 0.6038,
+      "fair_price": -152
      }
     },
     "totals": {
      "over 5.5": {
-      "prob": 0.4825,
-      "fair_price": 107
+      "prob": 0.4405,
+      "fair_price": 127
      },
      "over 6.5": {
-      "prob": 0.3797,
-      "fair_price": 163
+      "prob": 0.3394,
+      "fair_price": 195
      }
     },
     "regulation": {
      "CHI": {
-      "prob": 0.3091,
-      "fair_price": 224
+      "prob": 0.271,
+      "fair_price": 269
      },
      "draw": {
-      "prob": 0.2354,
-      "fair_price": 325
+      "prob": 0.2395,
+      "fair_price": 318
      },
      "NYR": {
-      "prob": 0.4555,
-      "fair_price": 120
+      "prob": 0.4895,
+      "fair_price": 104
      }
     }
    },
@@ -23792,95 +23794,119 @@
      "side": "under",
      "line": 6.5,
      "price": -140.0,
-     "model_prob": 0.6203,
+     "model_prob": 0.6605,
      "implied_prob": 0.5552,
-     "edge": 0.0651,
-     "tier": "play",
-     "fair_price": -163
+     "edge": 0.1053,
+     "tier": "strong",
+     "fair_price": -195
     },
     {
      "book": "fanduel",
-     "market": "ml",
-     "side": "CHI",
-     "line": 0.0,
-     "price": 142.0,
-     "model_prob": 0.4233,
-     "implied_prob": 0.3952,
-     "edge": 0.0281,
-     "tier": "lean",
-     "fair_price": 136
+     "market": "total",
+     "side": "under",
+     "line": 5.5,
+     "price": 108.0,
+     "model_prob": 0.5595,
+     "implied_prob": 0.458,
+     "edge": 0.1016,
+     "tier": "strong",
+     "fair_price": -127
     },
     {
      "book": "fanduel",
      "market": "ml3",
      "side": "draw",
      "line": 0.0,
-     "price": 330.0,
-     "model_prob": 0.2354,
-     "implied_prob": 0.2179,
-     "edge": 0.0175,
-     "tier": null,
-     "fair_price": 325
+     "price": 340.0,
+     "model_prob": 0.2395,
+     "implied_prob": 0.2134,
+     "edge": 0.0261,
+     "tier": "lean",
+     "fair_price": 318
     },
     {
      "book": "fanduel",
-     "market": "spread",
-     "side": "CHI",
-     "line": 1.5,
-     "price": -188.0,
-     "model_prob": 0.6327,
-     "implied_prob": 0.6219,
-     "edge": 0.0108,
-     "tier": null,
-     "fair_price": -172
-    },
-    {
-     "book": "fanduel",
-     "market": "ml3",
+     "market": "ml",
      "side": "CHI",
      "line": 0.0,
-     "price": 210.0,
-     "model_prob": 0.3091,
-     "implied_prob": 0.3022,
-     "edge": 0.0069,
+     "price": 150.0,
+     "model_prob": 0.3862,
+     "implied_prob": 0.3826,
+     "edge": 0.0036,
      "tier": null,
-     "fair_price": 224
+     "fair_price": 159
     },
     {
      "book": "fanduel",
      "market": "spread",
      "side": "NYR",
      "line": -1.5,
-     "price": 152.0,
-     "model_prob": 0.3673,
-     "implied_prob": 0.3781,
-     "edge": -0.0108,
+     "price": 142.0,
+     "model_prob": 0.3962,
+     "implied_prob": 0.3932,
+     "edge": 0.0029,
      "tier": null,
-     "fair_price": 172
+     "fair_price": 152
     },
     {
      "book": "fanduel",
-     "market": "ml3",
-     "side": "NYR",
-     "line": 0.0,
-     "price": -105.0,
-     "model_prob": 0.4555,
-     "implied_prob": 0.4799,
-     "edge": -0.0244,
+     "market": "spread",
+     "side": "CHI",
+     "line": 1.5,
+     "price": -176.0,
+     "model_prob": 0.6038,
+     "implied_prob": 0.6068,
+     "edge": -0.0029,
      "tier": null,
-     "fair_price": 120
+     "fair_price": -152
     },
     {
      "book": "fanduel",
      "market": "ml",
      "side": "NYR",
      "line": 0.0,
-     "price": -172.0,
-     "model_prob": 0.5767,
-     "implied_prob": 0.6048,
-     "edge": -0.0281,
+     "price": -182.0,
+     "model_prob": 0.6138,
+     "implied_prob": 0.6174,
+     "edge": -0.0036,
      "tier": null,
-     "fair_price": -136
+     "fair_price": -159
+    },
+    {
+     "book": "fanduel",
+     "market": "ml3",
+     "side": "NYR",
+     "line": 0.0,
+     "price": -115.0,
+     "model_prob": 0.4895,
+     "implied_prob": 0.5022,
+     "edge": -0.0126,
+     "tier": null,
+     "fair_price": 104
+    },
+    {
+     "book": "fanduel",
+     "market": "ml3",
+     "side": "CHI",
+     "line": 0.0,
+     "price": 230.0,
+     "model_prob": 0.271,
+     "implied_prob": 0.2845,
+     "edge": -0.0135,
+     "tier": null,
+     "fair_price": 269
+    },
+    {
+     "book": "fanduel",
+     "market": "total",
+     "side": "over",
+     "line": 5.5,
+     "price": -132.0,
+     "model_prob": 0.4405,
+     "implied_prob": 0.542,
+     "edge": -0.1016,
+     "tier": null,
+     "fair_price": 127
     },
     {
      "book": "fanduel",
@@ -23888,11 +23914,11 @@
      "side": "over",
      "line": 6.5,
      "price": 114.0,
-     "model_prob": 0.3797,
+     "model_prob": 0.3394,
      "implied_prob": 0.4448,
-     "edge": -0.0651,
+     "edge": -0.1053,
      "tier": null,
-     "fair_price": 163
+     "fair_price": 195
     }
    ],
    "goalies": {
@@ -23903,8 +23929,8 @@
      "below_min_sample": 0,
      "starts": 75,
      "player_id": 8481519,
-     "pull_prob": 0.0473,
-     "expected_saves": 25.33
+     "pull_prob": 0.0536,
+     "expected_saves": 25.22
     },
     "NYR": {
      "gsax60": 0.053201053104526545,
@@ -23913,319 +23939,317 @@
      "below_min_sample": 0,
      "starts": 17,
      "player_id": 8482193,
-     "pull_prob": 0.0262,
-     "expected_saves": 22.26
+     "pull_prob": 0.0222,
+     "expected_saves": 22.62
     }
    },
    "tickets": [],
    "pool": [],
    "removed": [
     {
+     "label": "Dominic Toninato 2+ shots on goal",
+     "p": 0.2939,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 3+ shots on goal",
+     "p": 0.1063,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 4+ shots on goal",
+     "p": 0.0333,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 5+ shots on goal",
+     "p": 0.0096,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 1+ points",
+     "p": 0.2283,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 2+ points",
+     "p": 0.0323,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 1+ assists",
+     "p": 0.1319,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 2+ assists",
+     "p": 0.0111,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 1+ hits",
+     "p": 0.6855,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 2+ hits",
+     "p": 0.3498,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 3+ hits",
+     "p": 0.1474,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 4+ hits",
+     "p": 0.0523,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 5+ hits",
+     "p": 0.0185,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 1+ blocked shots",
+     "p": 0.2061,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 2+ blocked shots",
+     "p": 0.0306,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 3+ blocked shots",
+     "p": 0.0043,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 4+ blocked shots",
+     "p": 0.0005,
+     "reason": "rung not on the book's ladder"
+    },
+    {
+     "label": "Dominic Toninato 1+ goals",
+     "p": 0.1118,
+     "reason": "rung not on the book's ladder"
+    },
+    {
      "label": "Sam Rinzel 2+ shots on goal",
-     "p": 0.5637,
+     "p": 0.5684,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 3+ shots on goal",
-     "p": 0.3169,
+     "p": 0.3308,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 4+ shots on goal",
-     "p": 0.1585,
+     "p": 0.1706,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 5+ shots on goal",
-     "p": 0.0754,
+     "p": 0.0805,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 1+ points",
-     "p": 0.4279,
+     "p": 0.4166,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 2+ points",
-     "p": 0.1147,
+     "p": 0.1035,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 1+ assists",
-     "p": 0.3518,
+     "p": 0.3422,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 2+ assists",
-     "p": 0.073,
+     "p": 0.0681,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 1+ hits",
-     "p": 0.6495,
+     "p": 0.6599,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 2+ hits",
-     "p": 0.3049,
+     "p": 0.3201,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 3+ hits",
-     "p": 0.1154,
+     "p": 0.1253,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 4+ hits",
-     "p": 0.039,
+     "p": 0.0423,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 5+ hits",
-     "p": 0.0113,
+     "p": 0.0128,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 1+ blocked shots",
-     "p": 0.6257,
+     "p": 0.6267,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 2+ blocked shots",
-     "p": 0.3053,
+     "p": 0.3014,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 3+ blocked shots",
-     "p": 0.1278,
+     "p": 0.1245,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 4+ blocked shots",
-     "p": 0.0498,
+     "p": 0.0488,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Sam Rinzel 1+ goals",
-     "p": 0.1206,
+     "p": 0.1125,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 2+ shots on goal",
-     "p": 0.6127,
+     "p": 0.6204,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 3+ shots on goal",
-     "p": 0.3615,
+     "p": 0.3767,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 4+ shots on goal",
-     "p": 0.1946,
+     "p": 0.209,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 5+ shots on goal",
-     "p": 0.0969,
+     "p": 0.1066,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 1+ points",
-     "p": 0.4585,
+     "p": 0.45,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 2+ points",
-     "p": 0.1309,
+     "p": 0.1232,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 1+ assists",
-     "p": 0.3256,
+     "p": 0.3266,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 2+ assists",
-     "p": 0.0621,
+     "p": 0.0604,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 1+ hits",
-     "p": 0.623,
+     "p": 0.6203,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 2+ hits",
-     "p": 0.2831,
+     "p": 0.2807,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 3+ hits",
-     "p": 0.1017,
+     "p": 0.1027,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 4+ hits",
-     "p": 0.0301,
+     "p": 0.0337,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 5+ hits",
-     "p": 0.0094,
+     "p": 0.0097,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 1+ blocked shots",
-     "p": 0.4664,
+     "p": 0.4596,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 2+ blocked shots",
-     "p": 0.1588,
+     "p": 0.1565,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 3+ blocked shots",
-     "p": 0.0448,
+     "p": 0.0447,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 4+ blocked shots",
-     "p": 0.0118,
+     "p": 0.0124,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Anton Frondell 1+ goals",
-     "p": 0.1994,
+     "p": 0.1852,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Cole Smith 2+ shots on goal",
-     "p": 0.3311,
+     "p": 0.3537,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Cole Smith 3+ shots on goal",
-     "p": 0.1257,
+     "p": 0.1449,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Cole Smith 4+ shots on goal",
-     "p": 0.0429,
+     "p": 0.0512,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Cole Smith 5+ shots on goal",
-     "p": 0.0123,
+     "p": 0.0153,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Cole Smith 1+ points",
-     "p": 0.2798,
+     "p": 0.2829,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Cole Smith 2+ points",
-     "p": 0.0434,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 1+ assists",
-     "p": 0.1538,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 2+ assists",
-     "p": 0.0126,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 1+ hits",
-     "p": 0.8908,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 2+ hits",
-     "p": 0.6827,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 3+ hits",
-     "p": 0.4539,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 4+ hits",
-     "p": 0.2735,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 5+ hits",
-     "p": 0.1512,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 1+ blocked shots",
-     "p": 0.261,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 2+ blocked shots",
      "p": 0.0453,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 3+ blocked shots",
-     "p": 0.0075,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 4+ blocked shots",
-     "p": 0.0007,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Cole Smith 1+ goals",
-     "p": 0.1482,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Ian Cole 2+ shots on goal",
-     "p": 0.2461,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Ian Cole 3+ shots on goal",
-     "p": 0.0833,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Ian Cole 4+ shots on goal",
-     "p": 0.025,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Ian Cole 5+ shots on goal",
-     "p": 0.0069,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Ian Cole 1+ points",
-     "p": 0.2002,
-     "reason": "rung not on the book's ladder"
-    },
-    {
-     "label": "Ian Cole 2+ points",
-     "p": 0.0208,
      "reason": "rung not on the book's ladder"
     }
    ],
-   "removed_count": 666,
+   "removed_count": 664,
    "notes": [
     "CHI starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
-    "CHI lines are stale: legs that depend on it are re-run once it is confirmed",
-    "NYR starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
     "no 4-leg slip: 0 floor rungs passed the gates, or no combination reached the 25% joint floor",
     "no 6-leg slip: 0 floor rungs passed the gates, or no combination reached the 12% joint floor",
     "no 8-leg slip: 0 floor rungs passed the gates, or no combination reached the 6% joint floor"
@@ -24240,13 +24264,13 @@
      "line": "d1",
      "pp": "pp1",
      "notes": "d1 tonight, usually d2 minutes: +25s EV, pp1: 62% of 277s team PP, plus part of his surplus",
-     "sog": 1.88,
+     "sog": 1.85,
      "pts": 0.79,
      "goals": 0.15,
      "ast": 0.64,
-     "hits": 0.47,
-     "blk": 1.25,
-     "atg": 0.1373
+     "hits": 0.48,
+     "blk": 1.27,
+     "atg": 0.1416
     },
     {
      "player_id": 8481568,
@@ -24257,13 +24281,13 @@
      "line": "d1",
      "pp": null,
      "notes": "",
-     "sog": 1.2,
-     "pts": 0.31,
+     "sog": 1.22,
+     "pts": 0.3,
      "goals": 0.05,
-     "ast": 0.26,
+     "ast": 0.25,
      "hits": 0.63,
-     "blk": 1.52,
-     "atg": 0.0511
+     "blk": 1.48,
+     "atg": 0.0491
     },
     {
      "player_id": 8483506,
@@ -24274,13 +24298,13 @@
      "line": "d1",
      "pp": "pp1",
      "notes": "d1 tonight, usually d2 minutes: +60s EV, pp1: 62% of 262s team PP",
-     "sog": 2.02,
-     "pts": 0.57,
-     "goals": 0.13,
-     "ast": 0.44,
-     "hits": 1.12,
-     "blk": 1.14,
-     "atg": 0.1206
+     "sog": 2.06,
+     "pts": 0.54,
+     "goals": 0.12,
+     "ast": 0.42,
+     "hits": 1.17,
+     "blk": 1.13,
+     "atg": 0.1125
     },
     {
      "player_id": 8484783,
@@ -24292,12 +24316,29 @@
      "pp": "pp2",
      "notes": "pp2: 38% of 262s team PP",
      "sog": 1.37,
-     "pts": 0.26,
+     "pts": 0.24,
      "goals": 0.07,
-     "ast": 0.19,
+     "ast": 0.17,
      "hits": 1.65,
-     "blk": 1.0,
-     "atg": 0.0668
+     "blk": 0.98,
+     "atg": 0.0633
+    },
+    {
+     "player_id": 8474013,
+     "player": "Ian Cole",
+     "team": "CHI",
+     "pos": "D",
+     "toi_min": 21.2,
+     "line": "d2",
+     "pp": null,
+     "notes": "d2 tonight, usually d3 minutes: +22s EV",
+     "sog": 1.0,
+     "pts": 0.22,
+     "goals": 0.04,
+     "ast": 0.18,
+     "hits": 1.02,
+     "blk": 1.67,
+     "atg": 0.0433
     },
     {
      "player_id": 8478882,
@@ -24308,30 +24349,13 @@
      "line": "d1",
      "pp": null,
      "notes": "",
-     "sog": 1.41,
-     "pts": 0.26,
+     "sog": 1.42,
+     "pts": 0.27,
      "goals": 0.07,
-     "ast": 0.19,
-     "hits": 0.79,
+     "ast": 0.2,
+     "hits": 0.8,
      "blk": 1.12,
-     "atg": 0.0689
-    },
-    {
-     "player_id": 8474013,
-     "player": "Ian Cole",
-     "team": "CHI",
-     "pos": "D",
-     "toi_min": 20.9,
-     "line": "d3",
-     "pp": null,
-     "notes": "",
-     "sog": 0.97,
-     "pts": 0.22,
-     "goals": 0.05,
-     "ast": 0.17,
-     "hits": 1.01,
-     "blk": 1.66,
-     "atg": 0.0477
+     "atg": 0.0685
     },
     {
      "player_id": 8477969,
@@ -24342,13 +24366,13 @@
      "line": "d2",
      "pp": null,
      "notes": "d2 tonight, usually d1 minutes: -25s EV",
-     "sog": 0.91,
+     "sog": 0.9,
      "pts": 0.25,
      "goals": 0.06,
      "ast": 0.19,
-     "hits": 1.19,
-     "blk": 1.4,
-     "atg": 0.0554
+     "hits": 1.18,
+     "blk": 1.39,
+     "atg": 0.0548
     },
     {
      "player_id": 8480434,
@@ -24359,13 +24383,13 @@
      "line": "d2",
      "pp": "pp2",
      "notes": "pp2: 38% of 277s team PP",
-     "sog": 1.51,
-     "pts": 0.37,
+     "sog": 1.52,
+     "pts": 0.38,
      "goals": 0.08,
      "ast": 0.29,
      "hits": 0.73,
-     "blk": 1.27,
-     "atg": 0.0795
+     "blk": 1.29,
+     "atg": 0.0806
     },
     {
      "player_id": 8476459,
@@ -24376,13 +24400,13 @@
      "line": "f1",
      "pp": "pp1",
      "notes": "pp1: 62% of 277s team PP, plus part of his surplus",
-     "sog": 2.57,
-     "pts": 0.85,
+     "sog": 2.58,
+     "pts": 0.86,
      "goals": 0.3,
      "ast": 0.56,
-     "hits": 1.35,
-     "blk": 0.58,
-     "atg": 0.256
+     "hits": 1.36,
+     "blk": 0.6,
+     "atg": 0.2632
     },
     {
      "player_id": 8481789,
@@ -24394,12 +24418,12 @@
      "pp": "pp1",
      "notes": "pp1: 62% of 277s team PP",
      "sog": 2.49,
-     "pts": 0.74,
-     "goals": 0.34,
+     "pts": 0.73,
+     "goals": 0.33,
      "ast": 0.4,
-     "hits": 3.19,
-     "blk": 0.48,
-     "atg": 0.2854
+     "hits": 3.2,
+     "blk": 0.49,
+     "atg": 0.2849
     },
     {
      "player_id": 8476468,
@@ -24410,13 +24434,13 @@
      "line": "f2",
      "pp": "pp1",
      "notes": "f2 tonight, usually f1 minutes: -29s EV, pp1: 62% of 277s team PP, plus part of his surplus",
-     "sog": 2.35,
+     "sog": 2.36,
      "pts": 0.85,
      "goals": 0.31,
      "ast": 0.55,
      "hits": 1.46,
      "blk": 0.43,
-     "atg": 0.263
+     "atg": 0.2683
     },
     {
      "player_id": 8482073,
@@ -24427,13 +24451,13 @@
      "line": "d3",
      "pp": null,
      "notes": "",
-     "sog": 1.4,
-     "pts": 0.2,
+     "sog": 1.39,
+     "pts": 0.19,
      "goals": 0.06,
-     "ast": 0.14,
-     "hits": 2.32,
-     "blk": 1.31,
-     "atg": 0.0537
+     "ast": 0.13,
+     "hits": 2.31,
+     "blk": 1.34,
+     "atg": 0.0551
     },
     {
      "player_id": 8482157,
@@ -24444,13 +24468,13 @@
      "line": "f1",
      "pp": "pp2",
      "notes": "f1 tonight, usually f3 minutes: +78s EV, pp2: 38% of 277s team PP",
-     "sog": 2.42,
+     "sog": 2.46,
      "pts": 0.59,
      "goals": 0.32,
      "ast": 0.27,
-     "hits": 4.06,
-     "blk": 0.6,
-     "atg": 0.275
+     "hits": 4.03,
+     "blk": 0.62,
+     "atg": 0.2707
     },
     {
      "player_id": 8485391,
@@ -24461,13 +24485,13 @@
      "line": "f1",
      "pp": "pp1",
      "notes": "f1 tonight, usually f3 minutes: +91s EV, pp1: 62% of 262s team PP",
-     "sog": 2.22,
-     "pts": 0.62,
-     "goals": 0.22,
+     "sog": 2.28,
+     "pts": 0.6,
+     "goals": 0.21,
      "ast": 0.4,
      "hits": 1.05,
-     "blk": 0.69,
-     "atg": 0.1994
+     "blk": 0.68,
+     "atg": 0.1852
     },
     {
      "player_id": 8483493,
@@ -24478,13 +24502,13 @@
      "line": "f2",
      "pp": "pp1",
      "notes": "f2 tonight, usually f1 minutes: -52s EV, pp1: 62% of 262s team PP, plus part of his surplus",
-     "sog": 2.19,
-     "pts": 0.57,
-     "goals": 0.29,
-     "ast": 0.28,
-     "hits": 0.92,
-     "blk": 0.54,
-     "atg": 0.253
+     "sog": 2.23,
+     "pts": 0.54,
+     "goals": 0.28,
+     "ast": 0.26,
+     "hits": 0.93,
+     "blk": 0.55,
+     "atg": 0.2414
     },
     {
      "player_id": 8484390,
@@ -24495,13 +24519,13 @@
      "line": "f1",
      "pp": "pp1",
      "notes": "pp1: 62% of 262s team PP, plus part of his surplus",
-     "sog": 2.06,
-     "pts": 0.58,
-     "goals": 0.31,
-     "ast": 0.27,
-     "hits": 1.04,
+     "sog": 2.09,
+     "pts": 0.55,
+     "goals": 0.29,
+     "ast": 0.26,
+     "hits": 1.05,
      "blk": 0.3,
-     "atg": 0.2633
+     "atg": 0.2497
     },
     {
      "player_id": 8482109,
@@ -24512,47 +24536,30 @@
      "line": "f1",
      "pp": "pp1",
      "notes": "pp1: 62% of 277s team PP, plus part of his surplus",
-     "sog": 2.33,
+     "sog": 2.32,
      "pts": 0.81,
      "goals": 0.32,
-     "ast": 0.48,
+     "ast": 0.49,
      "hits": 1.24,
      "blk": 0.43,
-     "atg": 0.2772
-    },
-    {
-     "player_id": 8474141,
-     "player": "Patrick Kane",
-     "team": "CHI",
-     "pos": "F",
-     "toi_min": 16.8,
-     "line": "f2",
-     "pp": "pp1",
-     "notes": "pp1: 62% of 262s team PP, plus part of his surplus",
-     "sog": 2.27,
-     "pts": 0.72,
-     "goals": 0.22,
-     "ast": 0.5,
-     "hits": 0.48,
-     "blk": 0.37,
-     "atg": 0.2004
+     "atg": 0.2747
     },
     {
      "player_id": 8476882,
      "player": "Teuvo Teravainen",
      "team": "CHI",
      "pos": "F",
-     "toi_min": 15.7,
-     "line": "f3",
-     "pp": "pp2",
-     "notes": "f3 tonight, usually f4 minutes: +37s EV, pp2: 38% of 262s team PP",
-     "sog": 1.17,
-     "pts": 0.36,
-     "goals": 0.13,
-     "ast": 0.23,
-     "hits": 0.35,
-     "blk": 0.4,
-     "atg": 0.1196
+     "toi_min": 17.4,
+     "line": "f2",
+     "pp": "pp1",
+     "notes": "f2 tonight, usually f4 minutes: +76s EV, pp1: 62% of 262s team PP",
+     "sog": 1.39,
+     "pts": 0.43,
+     "goals": 0.14,
+     "ast": 0.3,
+     "hits": 0.38,
+     "blk": 0.41,
+     "atg": 0.1281
     },
     {
      "player_id": 8477987,
@@ -24563,13 +24570,13 @@
      "line": "f1",
      "pp": "pp2",
      "notes": "f1 tonight, usually f3 minutes: +91s EV, pp2: 38% of 262s team PP",
-     "sog": 1.7,
-     "pts": 0.48,
-     "goals": 0.23,
-     "ast": 0.26,
+     "sog": 1.72,
+     "pts": 0.46,
+     "goals": 0.21,
+     "ast": 0.25,
      "hits": 1.05,
      "blk": 0.36,
-     "atg": 0.2049
+     "atg": 0.1915
     },
     {
      "player_id": 8483450,
@@ -24580,13 +24587,13 @@
      "line": "f3",
      "pp": "pp2",
      "notes": "f3 tonight, usually f2 minutes: -39s EV, pp2: 38% of 262s team PP",
-     "sog": 1.36,
-     "pts": 0.35,
-     "goals": 0.16,
+     "sog": 1.4,
+     "pts": 0.34,
+     "goals": 0.15,
      "ast": 0.19,
-     "hits": 0.82,
-     "blk": 0.34,
-     "atg": 0.1451
+     "hits": 0.83,
+     "blk": 0.33,
+     "atg": 0.1389
     },
     {
      "player_id": 8482666,
@@ -24598,12 +24605,29 @@
      "pp": "pp2",
      "notes": "pp2: 38% of 277s team PP",
      "sog": 1.39,
-     "pts": 0.26,
+     "pts": 0.27,
      "goals": 0.06,
-     "ast": 0.2,
-     "hits": 0.52,
-     "blk": 0.79,
-     "atg": 0.0614
+     "ast": 0.21,
+     "hits": 0.53,
+     "blk": 0.81,
+     "atg": 0.0593
+    },
+    {
+     "player_id": 8482062,
+     "player": "Cole Smith",
+     "team": "CHI",
+     "pos": "F",
+     "toi_min": 14.7,
+     "line": "f3",
+     "pp": null,
+     "notes": "f3 tonight, usually f4 minutes: +37s EV",
+     "sog": 1.3,
+     "pts": 0.33,
+     "goals": 0.16,
+     "ast": 0.17,
+     "hits": 2.75,
+     "blk": 0.32,
+     "atg": 0.1483
     },
     {
      "player_id": 8484197,
@@ -24614,13 +24638,13 @@
      "line": "f2",
      "pp": "pp2",
      "notes": "f2 tonight, usually f3 minutes: +39s EV, pp2: 38% of 262s team PP",
-     "sog": 1.62,
-     "pts": 0.48,
-     "goals": 0.18,
-     "ast": 0.3,
-     "hits": 0.85,
-     "blk": 0.32,
-     "atg": 0.1631
+     "sog": 1.66,
+     "pts": 0.43,
+     "goals": 0.17,
+     "ast": 0.27,
+     "hits": 0.84,
+     "blk": 0.31,
+     "atg": 0.1536
     },
     {
      "player_id": 8483690,
@@ -24631,47 +24655,13 @@
      "line": "f3",
      "pp": null,
      "notes": "",
-     "sog": 1.2,
-     "pts": 0.39,
-     "goals": 0.16,
+     "sog": 1.18,
+     "pts": 0.38,
+     "goals": 0.15,
      "ast": 0.23,
-     "hits": 1.88,
+     "hits": 1.84,
      "blk": 0.6,
-     "atg": 0.1446
-    },
-    {
-     "player_id": 8482062,
-     "player": "Cole Smith",
-     "team": "CHI",
-     "pos": "F",
-     "toi_min": 14.1,
-     "line": "f4",
-     "pp": null,
-     "notes": "",
-     "sog": 1.23,
-     "pts": 0.33,
-     "goals": 0.16,
-     "ast": 0.17,
-     "hits": 2.6,
-     "blk": 0.31,
-     "atg": 0.1482
-    },
-    {
-     "player_id": 8482807,
-     "player": "Ethan Del Mastro",
-     "team": "CHI",
-     "pos": "D",
-     "toi_min": 14.1,
-     "line": "d2",
-     "pp": null,
-     "notes": "d2 tonight, usually d3 minutes: +22s EV",
-     "sog": 0.87,
-     "pts": 0.22,
-     "goals": 0.04,
-     "ast": 0.18,
-     "hits": 1.25,
-     "blk": 0.81,
-     "atg": 0.0403
+     "atg": 0.1401
     },
     {
      "player_id": 8480009,
@@ -24683,12 +24673,29 @@
      "pp": "pp2",
      "notes": "f3 tonight, usually f4 minutes: +55s EV, pp2: 38% of 277s team PP",
      "sog": 1.69,
-     "pts": 0.42,
+     "pts": 0.43,
      "goals": 0.2,
      "ast": 0.23,
      "hits": 2.03,
      "blk": 0.68,
-     "atg": 0.1777
+     "atg": 0.1819
+    },
+    {
+     "player_id": 8482807,
+     "player": "Ethan Del Mastro",
+     "team": "CHI",
+     "pos": "D",
+     "toi_min": 13.7,
+     "line": "d3",
+     "pp": null,
+     "notes": "",
+     "sog": 0.86,
+     "pts": 0.2,
+     "goals": 0.04,
+     "ast": 0.17,
+     "hits": 1.21,
+     "blk": 0.77,
+     "atg": 0.0365
     },
     {
      "player_id": 8484136,
@@ -24699,13 +24706,13 @@
      "line": "f4",
      "pp": "pp2",
      "notes": "pp2: 38% of 277s team PP",
-     "sog": 1.54,
+     "sog": 1.53,
      "pts": 0.37,
-     "goals": 0.18,
-     "ast": 0.19,
-     "hits": 0.65,
+     "goals": 0.19,
+     "ast": 0.18,
+     "hits": 0.64,
      "blk": 0.5,
-     "atg": 0.1671
+     "atg": 0.1706
     },
     {
      "player_id": 8478413,
@@ -24717,12 +24724,29 @@
      "pp": null,
      "notes": "",
      "sog": 1.13,
-     "pts": 0.3,
-     "goals": 0.13,
-     "ast": 0.17,
-     "hits": 1.72,
+     "pts": 0.28,
+     "goals": 0.12,
+     "ast": 0.16,
+     "hits": 1.71,
      "blk": 0.42,
-     "atg": 0.1224
+     "atg": 0.1123
+    },
+    {
+     "player_id": 8483466,
+     "player": "Kevin Korchinski",
+     "team": "CHI",
+     "pos": "D",
+     "toi_min": 12.1,
+     "line": "d3",
+     "pp": "pp2",
+     "notes": "pp2: 38% of 262s team PP",
+     "sog": 0.99,
+     "pts": 0.21,
+     "goals": 0.04,
+     "ast": 0.17,
+     "hits": 0.36,
+     "blk": 0.59,
+     "atg": 0.042
     },
     {
      "player_id": 8478233,
@@ -24739,7 +24763,7 @@
      "ast": 0.18,
      "hits": 1.01,
      "blk": 0.47,
-     "atg": 0.1245
+     "atg": 0.1179
     },
     {
      "player_id": 8481704,
@@ -24750,30 +24774,13 @@
      "line": "f2",
      "pp": null,
      "notes": "f2 tonight, usually f4 minutes: +105s EV",
-     "sog": 1.24,
+     "sog": 1.23,
      "pts": 0.35,
      "goals": 0.14,
-     "ast": 0.2,
-     "hits": 1.45,
-     "blk": 0.36,
-     "atg": 0.1329
-    },
-    {
-     "player_id": 8483466,
-     "player": "Kevin Korchinski",
-     "team": "CHI",
-     "pos": "D",
-     "toi_min": 10.5,
-     "line": "d3",
-     "pp": null,
-     "notes": "",
-     "sog": 0.74,
-     "pts": 0.15,
-     "goals": 0.03,
-     "ast": 0.12,
-     "hits": 0.34,
-     "blk": 0.57,
-     "atg": 0.0324
+     "ast": 0.21,
+     "hits": 1.46,
+     "blk": 0.37,
+     "atg": 0.1341
     },
     {
      "player_id": 8482877,
@@ -24784,13 +24791,30 @@
      "line": "f3",
      "pp": null,
      "notes": "f3 tonight, usually f4 minutes: +55s EV",
-     "sog": 1.01,
+     "sog": 0.98,
      "pts": 0.27,
-     "goals": 0.12,
-     "ast": 0.15,
+     "goals": 0.13,
+     "ast": 0.14,
      "hits": 2.02,
      "blk": 0.37,
-     "atg": 0.1164
+     "atg": 0.1178
+    },
+    {
+     "player_id": 8476952,
+     "player": "Dominic Toninato",
+     "team": "CHI",
+     "pos": "F",
+     "toi_min": 9.1,
+     "line": "f4",
+     "pp": null,
+     "notes": "",
+     "sog": 1.12,
+     "pts": 0.26,
+     "goals": 0.12,
+     "ast": 0.14,
+     "hits": 1.26,
+     "blk": 0.24,
+     "atg": 0.1118
     },
     {
      "player_id": 8476822,
@@ -24801,13 +24825,13 @@
      "line": "f4",
      "pp": null,
      "notes": "",
-     "sog": 0.69,
-     "pts": 0.19,
-     "goals": 0.08,
+     "sog": 0.71,
+     "pts": 0.18,
+     "goals": 0.07,
      "ast": 0.11,
-     "hits": 1.18,
-     "blk": 0.46,
-     "atg": 0.0724
+     "hits": 1.19,
+     "blk": 0.44,
+     "atg": 0.0707
     },
     {
      "player_id": 8479390,
@@ -24818,13 +24842,13 @@
      "line": "f4",
      "pp": null,
      "notes": "",
-     "sog": 0.73,
+     "sog": 0.72,
      "pts": 0.25,
      "goals": 0.09,
      "ast": 0.16,
-     "hits": 0.59,
+     "hits": 0.58,
      "blk": 0.29,
-     "atg": 0.0867
+     "atg": 0.086
     },
     {
      "player_id": 8478446,
@@ -24841,7 +24865,7 @@
      "ast": 0.13,
      "hits": 0.96,
      "blk": 0.29,
-     "atg": 0.1138
+     "atg": 0.1119
     }
    ],
    "paper": true,
@@ -26293,85 +26317,73 @@
    "game_lines": [
     {
      "book": "fanduel",
-     "market": "ml",
-     "side": "PIT",
-     "line": 0.0,
-     "price": 118.0,
-     "model_prob": 0.4959,
-     "implied_prob": 0.4388,
-     "edge": 0.0571,
+     "market": "total",
+     "side": "under",
+     "line": 6.5,
+     "price": -106.0,
+     "model_prob": 0.5433,
+     "implied_prob": 0.4913,
+     "edge": 0.052,
      "tier": "play",
-     "fair_price": 102
+     "fair_price": -119
     },
     {
      "book": "fanduel",
-     "market": "ml3",
+     "market": "ml",
      "side": "PIT",
      "line": 0.0,
-     "price": 185.0,
-     "model_prob": 0.3859,
-     "implied_prob": 0.3294,
-     "edge": 0.0565,
+     "price": 112.0,
+     "model_prob": 0.4959,
+     "implied_prob": 0.4517,
+     "edge": 0.0442,
      "tier": "play",
-     "fair_price": 159
+     "fair_price": 102
     },
     {
      "book": "fanduel",
      "market": "spread",
      "side": "PIT",
      "line": 1.5,
-     "price": -220.0,
+     "price": -225.0,
      "model_prob": 0.6986,
-     "implied_prob": 0.6549,
-     "edge": 0.0437,
-     "tier": "play",
+     "implied_prob": 0.6597,
+     "edge": 0.0389,
+     "tier": "lean",
      "fair_price": -232
     },
     {
      "book": "fanduel",
-     "market": "total",
-     "side": "under",
-     "line": 6.5,
-     "price": -110.0,
-     "model_prob": 0.5433,
-     "implied_prob": 0.5,
-     "edge": 0.0433,
-     "tier": "play",
-     "fair_price": -119
+     "market": "ml3",
+     "side": "PIT",
+     "line": 0.0,
+     "price": 165.0,
+     "model_prob": 0.3859,
+     "implied_prob": 0.3563,
+     "edge": 0.0296,
+     "tier": "lean",
+     "fair_price": 159
     },
     {
      "book": "fanduel",
      "market": "ml3",
      "side": "draw",
      "line": 0.0,
-     "price": 320.0,
+     "price": 340.0,
      "model_prob": 0.2306,
-     "implied_prob": 0.2235,
-     "edge": 0.007,
+     "implied_prob": 0.2146,
+     "edge": 0.016,
      "tier": null,
      "fair_price": 334
-    },
-    {
-     "book": "fanduel",
-     "market": "total",
-     "side": "over",
-     "line": 6.5,
-     "price": -110.0,
-     "model_prob": 0.4567,
-     "implied_prob": 0.5,
-     "edge": -0.0433,
-     "tier": null,
-     "fair_price": 119
     },
     {
      "book": "fanduel",
      "market": "spread",
      "side": "BUF",
      "line": -1.5,
-     "price": 176.0,
+     "price": 180.0,
      "model_prob": 0.3014,
-     "implied_prob": 0.3451,
-     "edge": -0.0437,
+     "implied_prob": 0.3403,
+     "edge": -0.0389,
      "tier": null,
      "fair_price": 232
     },
@@ -26380,10 +26392,10 @@
      "market": "ml",
      "side": "BUF",
      "line": 0.0,
-     "price": -142.0,
+     "price": -134.0,
      "model_prob": 0.5041,
-     "implied_prob": 0.5612,
-     "edge": -0.0571,
+     "implied_prob": 0.5483,
+     "edge": -0.0442,
      "tier": null,
      "fair_price": -102
     },
@@ -26392,12 +26404,24 @@
      "market": "ml3",
      "side": "BUF",
      "line": 0.0,
-     "price": 110.0,
+     "price": 120.0,
      "model_prob": 0.3836,
-     "implied_prob": 0.4471,
-     "edge": -0.0635,
+     "implied_prob": 0.4291,
+     "edge": -0.0456,
      "tier": null,
      "fair_price": 161
+    },
+    {
+     "book": "fanduel",
+     "market": "total",
+     "side": "over",
+     "line": 6.5,
+     "price": -114.0,
+     "model_prob": 0.4567,
+     "implied_prob": 0.5087,
+     "edge": -0.052,
+     "tier": null,
+     "fair_price": 119
     }
    ],
    "goalies": {
@@ -27355,9 +27379,9 @@
      },
      "SEA": {
       "ok": false,
-      "goalie": "Joey Daccord",
-      "player_id": 8478916,
-      "status": "Unconfirmed"
+      "goalie": "Philipp Grubauer",
+      "player_id": 8475831,
+      "status": "Likely"
      }
     },
     "lines": {
@@ -27367,11 +27391,11 @@
      },
      "SEA": {
       "ok": true,
-      "updated": "2026-11-27T13:39:19.367Z"
+      "updated": "2026-11-27T18:20:56.636Z"
      }
     },
     "notes": [
-     "SEA starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed"
+     "SEA starting goalie is likely: legs that depend on it are re-run once it is confirmed"
     ],
     "goalies_ok": false
    },
@@ -27392,7 +27416,7 @@
    },
    "expected": {
     "EDM": {
-     "goals": 2.756,
+     "goals": 2.61,
      "sog": 25.0,
      "pp_min": 4.4,
      "steps": [
@@ -27413,8 +27437,8 @@
        "factor": 1.0272
       },
       {
-       "what": "facing Joey Daccord (GSAx/60 -0.11)",
-       "factor": 1.0358
+       "what": "facing Philipp Grubauer (GSAx/60 +0.06)",
+       "factor": 0.981
       },
       {
        "what": "home ice",
@@ -27473,71 +27497,71 @@
    "sim": {
     "home": "EDM",
     "away": "SEA",
-    "home_goals": 3.047,
-    "away_goals": 2.615,
-    "total": 5.662,
-    "home_win": 0.5727,
-    "overtime": 0.2423,
-    "shootout": 0.0799,
-    "home_sog": 25.17,
-    "away_sog": 24.23,
-    "empty_net_goals": 0.377,
-    "blowout_prob": 0.1633,
+    "home_goals": 2.911,
+    "away_goals": 2.628,
+    "total": 5.539,
+    "home_win": 0.548,
+    "overtime": 0.2455,
+    "shootout": 0.0785,
+    "home_sog": 25.27,
+    "away_sog": 24.19,
+    "empty_net_goals": 0.386,
+    "blowout_prob": 0.1553,
     "favourite": "EDM",
-    "favourite_blowout_prob": 0.1039,
+    "favourite_blowout_prob": 0.091,
     "blowout_flag": false
    },
    "fair": {
     "moneyline": {
      "EDM": {
-      "prob": 0.5727,
-      "fair_price": -134
+      "prob": 0.548,
+      "fair_price": -121
      },
      "SEA": {
-      "prob": 0.4273,
-      "fair_price": 134
+      "prob": 0.4521,
+      "fair_price": 121
      }
     },
     "puck_line": {
      "EDM -1.5": {
-      "prob": 0.3564,
-      "fair_price": 181
+      "prob": 0.3353,
+      "fair_price": 198
      },
      "SEA +1.5": {
-      "prob": 0.6437,
-      "fair_price": -181
+      "prob": 0.6647,
+      "fair_price": -198
      },
      "SEA -1.5": {
-      "prob": 0.2336,
-      "fair_price": 328
+      "prob": 0.253,
+      "fair_price": 295
      },
      "EDM +1.5": {
-      "prob": 0.7663,
-      "fair_price": -328
+      "prob": 0.747,
+      "fair_price": -295
      }
     },
     "totals": {
      "over 5.5": {
-      "prob": 0.4632,
-      "fair_price": 116
+      "prob": 0.4357,
+      "fair_price": 130
      },
      "over 6.5": {
-      "prob": 0.3661,
-      "fair_price": 173
+      "prob": 0.3407,
+      "fair_price": 194
      }
     },
     "regulation": {
      "EDM": {
-      "prob": 0.4513,
-      "fair_price": 122
+      "prob": 0.423,
+      "fair_price": 136
      },
      "draw": {
-      "prob": 0.2423,
-      "fair_price": 313
+      "prob": 0.2455,
+      "fair_price": 307
      },
      "SEA": {
-      "prob": 0.3064,
-      "fair_price": 226
+      "prob": 0.3316,
+      "fair_price": 202
      }
     }
    },
@@ -27547,12 +27571,12 @@
      "market": "total",
      "side": "under",
      "line": 6.5,
-     "price": -114.0,
-     "model_prob": 0.6339,
-     "implied_prob": 0.5087,
-     "edge": 0.1252,
+     "price": -115.0,
+     "model_prob": 0.6593,
+     "implied_prob": 0.5108,
+     "edge": 0.1485,
      "tier": "strong",
-     "fair_price": -173
+     "fair_price": -194
     },
     {
      "book": "fanduel",
@@ -27560,11 +27584,11 @@
      "side": "SEA",
      "line": 1.5,
      "price": -142.0,
-     "model_prob": 0.6437,
+     "model_prob": 0.6647,
      "implied_prob": 0.559,
-     "edge": 0.0847,
+     "edge": 0.1057,
      "tier": "strong",
-     "fair_price": -181
+     "fair_price": -198
     },
     {
      "book": "fanduel",
@@ -27572,35 +27596,35 @@
      "side": "SEA",
      "line": 0.0,
      "price": 176.0,
-     "model_prob": 0.4273,
+     "model_prob": 0.4521,
      "implied_prob": 0.3468,
-     "edge": 0.0805,
+     "edge": 0.1053,
      "tier": "strong",
-     "fair_price": 134
+     "fair_price": 121
     },
     {
      "book": "fanduel",
      "market": "ml3",
      "side": "SEA",
      "line": 0.0,
-     "price": 270.0,
-     "model_prob": 0.3064,
-     "implied_prob": 0.2493,
-     "edge": 0.0571,
-     "tier": "play",
-     "fair_price": 226
+     "price": 260.0,
+     "model_prob": 0.3316,
+     "implied_prob": 0.2587,
+     "edge": 0.0729,
+     "tier": "strong",
+     "fair_price": 202
     },
     {
      "book": "fanduel",
      "market": "ml3",
      "side": "draw",
      "line": 0.0,
-     "price": 350.0,
-     "model_prob": 0.2423,
-     "implied_prob": 0.2049,
-     "edge": 0.0374,
-     "tier": "lean",
-     "fair_price": 313
+     "price": 370.0,
+     "model_prob": 0.2455,
+     "implied_prob": 0.1981,
+     "edge": 0.0473,
+     "tier": "play",
+     "fair_price": 307
     },
     {
      "book": "fanduel",
@@ -27608,11 +27632,11 @@
      "side": "EDM",
      "line": 0.0,
      "price": -215.0,
-     "model_prob": 0.5727,
+     "model_prob": 0.548,
      "implied_prob": 0.6532,
-     "edge": -0.0805,
+     "edge": -0.1053,
      "tier": null,
-     "fair_price": -134
+     "fair_price": -121
     },
     {
      "book": "fanduel",
@@ -27620,35 +27644,35 @@
      "side": "EDM",
      "line": -1.5,
      "price": 116.0,
-     "model_prob": 0.3564,
+     "model_prob": 0.3353,
      "implied_prob": 0.441,
-     "edge": -0.0847,
+     "edge": -0.1057,
      "tier": null,
-     "fair_price": 181
+     "fair_price": 198
     },
     {
      "book": "fanduel",
      "market": "ml3",
      "side": "EDM",
      "line": 0.0,
-     "price": -145.0,
-     "model_prob": 0.4513,
-     "implied_prob": 0.5458,
-     "edge": -0.0945,
+     "price": -140.0,
+     "model_prob": 0.423,
+     "implied_prob": 0.5432,
+     "edge": -0.1202,
      "tier": null,
-     "fair_price": 122
+     "fair_price": 136
     },
     {
      "book": "fanduel",
      "market": "total",
      "side": "over",
      "line": 6.5,
-     "price": -106.0,
-     "model_prob": 0.3661,
-     "implied_prob": 0.4913,
-     "edge": -0.1252,
+     "price": -105.0,
+     "model_prob": 0.3407,
+     "implied_prob": 0.4892,
+     "edge": -0.1485,
      "tier": null,
-     "fair_price": 173
+     "fair_price": 194
     }
    ],
    "goalies": {
@@ -27659,18 +27683,18 @@
      "below_min_sample": 0,
      "starts": 40,
      "player_id": 8477465,
-     "pull_prob": 0.0256,
-     "expected_saves": 21.66
+     "pull_prob": 0.0289,
+     "expected_saves": 21.59
     },
     "SEA": {
-     "gsax60": -0.11396948670394304,
+     "gsax60": 0.06045418958681347,
      "league_xga60": 3.1815568992639784,
-     "name": "Joey Daccord",
+     "name": "Philipp Grubauer",
      "below_min_sample": 0,
-     "starts": 57,
-     "player_id": 8478916,
-     "pull_prob": 0.0454,
-     "expected_saves": 22.07
+     "starts": 39,
+     "player_id": 8475831,
+     "pull_prob": 0.0399,
+     "expected_saves": 22.33
     }
    },
    "tickets": [],
@@ -27678,102 +27702,102 @@
    "removed": [
     {
      "label": "Ty Emberson 2+ shots on goal",
-     "p": 0.1388,
+     "p": 0.137,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 3+ shots on goal",
-     "p": 0.0321,
+     "p": 0.0331,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 4+ shots on goal",
-     "p": 0.0067,
+     "p": 0.0066,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 5+ shots on goal",
-     "p": 0.0011,
+     "p": 0.001,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 1+ points",
-     "p": 0.104,
+     "p": 0.1002,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 2+ points",
-     "p": 0.006,
+     "p": 0.0053,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 1+ assists",
-     "p": 0.0876,
+     "p": 0.0833,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 2+ assists",
-     "p": 0.0042,
+     "p": 0.0039,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 1+ hits",
-     "p": 0.7064,
+     "p": 0.7066,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 2+ hits",
-     "p": 0.379,
+     "p": 0.3819,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 3+ hits",
-     "p": 0.1664,
+     "p": 0.1743,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 4+ hits",
-     "p": 0.0651,
+     "p": 0.0694,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 5+ hits",
-     "p": 0.0215,
+     "p": 0.0246,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 1+ blocked shots",
-     "p": 0.5524,
+     "p": 0.5541,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 2+ blocked shots",
-     "p": 0.2379,
+     "p": 0.2309,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 3+ blocked shots",
-     "p": 0.089,
+     "p": 0.0873,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 4+ blocked shots",
-     "p": 0.0316,
+     "p": 0.0293,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Ty Emberson 1+ goals",
-     "p": 0.0182,
+     "p": 0.0181,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 2+ shots on goal",
-     "p": 0.2074,
+     "p": 0.2059,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 3+ shots on goal",
-     "p": 0.0609,
+     "p": 0.0612,
      "reason": "rung not on the book's ladder"
     },
     {
@@ -27783,67 +27807,67 @@
     },
     {
      "label": "Max Jones 5+ shots on goal",
-     "p": 0.0032,
+     "p": 0.0033,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 1+ points",
-     "p": 0.1646,
+     "p": 0.158,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 2+ points",
-     "p": 0.0135,
+     "p": 0.0138,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 1+ assists",
-     "p": 0.0795,
+     "p": 0.076,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 2+ assists",
-     "p": 0.0032,
+     "p": 0.0034,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 1+ hits",
-     "p": 0.8444,
+     "p": 0.8438,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 2+ hits",
-     "p": 0.5912,
+     "p": 0.5938,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 3+ hits",
-     "p": 0.3543,
+     "p": 0.3628,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 4+ hits",
-     "p": 0.1949,
+     "p": 0.1964,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 5+ hits",
-     "p": 0.0976,
+     "p": 0.0966,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 1+ blocked shots",
-     "p": 0.2013,
+     "p": 0.2047,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 2+ blocked shots",
-     "p": 0.0292,
+     "p": 0.0286,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Max Jones 3+ blocked shots",
-     "p": 0.0042,
+     "p": 0.0036,
      "reason": "rung not on the book's ladder"
     },
     {
@@ -27853,12 +27877,12 @@
     },
     {
      "label": "Max Jones 1+ goals",
-     "p": 0.0916,
+     "p": 0.0894,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 2+ shots on goal",
-     "p": 0.2655,
+     "p": 0.2663,
      "reason": "rung not on the book's ladder"
     },
     {
@@ -27868,118 +27892,118 @@
     },
     {
      "label": "Connor Murphy 4+ shots on goal",
-     "p": 0.0297,
+     "p": 0.0274,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 5+ shots on goal",
-     "p": 0.0081,
+     "p": 0.0077,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 1+ points",
-     "p": 0.1508,
+     "p": 0.1466,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 2+ points",
-     "p": 0.0133,
+     "p": 0.0123,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 1+ assists",
-     "p": 0.1195,
+     "p": 0.1179,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 2+ assists",
-     "p": 0.0081,
+     "p": 0.0077,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 1+ hits",
-     "p": 0.703,
+     "p": 0.71,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 2+ hits",
-     "p": 0.3755,
+     "p": 0.3852,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 3+ hits",
-     "p": 0.1651,
+     "p": 0.1685,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 4+ hits",
-     "p": 0.0653,
+     "p": 0.0658,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 5+ hits",
-     "p": 0.0219,
+     "p": 0.0233,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 1+ blocked shots",
-     "p": 0.7802,
+     "p": 0.7775,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 2+ blocked shots",
-     "p": 0.5099,
+     "p": 0.5021,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 3+ blocked shots",
-     "p": 0.2974,
+     "p": 0.2914,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 4+ blocked shots",
-     "p": 0.1613,
+     "p": 0.157,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Connor Murphy 1+ goals",
-     "p": 0.0358,
+     "p": 0.033,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Colton Dach 2+ shots on goal",
-     "p": 0.5187,
+     "p": 0.5139,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Colton Dach 3+ shots on goal",
-     "p": 0.2712,
+     "p": 0.2732,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Colton Dach 4+ shots on goal",
-     "p": 0.124,
+     "p": 0.1309,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Colton Dach 5+ shots on goal",
-     "p": 0.0522,
+     "p": 0.0553,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Colton Dach 1+ points",
-     "p": 0.3177,
+     "p": 0.3119,
      "reason": "rung not on the book's ladder"
     },
     {
      "label": "Colton Dach 2+ points",
-     "p": 0.0574,
+     "p": 0.0529,
      "reason": "rung not on the book's ladder"
     }
    ],
    "removed_count": 666,
    "notes": [
-    "SEA starting goalie is unconfirmed: legs that depend on it are re-run once it is confirmed",
+    "SEA starting goalie is likely: legs that depend on it are re-run once it is confirmed",
     "no 4-leg slip: 0 floor rungs passed the gates, or no combination reached the 25% joint floor",
     "no 6-leg slip: 0 floor rungs passed the gates, or no combination reached the 12% joint floor",
     "no 8-leg slip: 0 floor rungs passed the gates, or no combination reached the 6% joint floor"
@@ -27994,13 +28018,13 @@
      "line": "d1",
      "pp": "pp1",
      "notes": "pp1: 62% of 293s team PP, plus part of his surplus",
-     "sog": 2.46,
-     "pts": 0.82,
-     "goals": 0.18,
-     "ast": 0.64,
-     "hits": 0.48,
+     "sog": 2.49,
+     "pts": 0.78,
+     "goals": 0.17,
+     "ast": 0.61,
+     "hits": 0.49,
      "blk": 1.17,
-     "atg": 0.1613
+     "atg": 0.1568
     },
     {
      "player_id": 8478407,
@@ -28011,13 +28035,13 @@
      "line": "d1",
      "pp": "pp1",
      "notes": "d1 tonight, usually d2 minutes: +77s EV, pp1: 62% of 303s team PP",
-     "sog": 2.24,
+     "sog": 2.23,
      "pts": 0.43,
      "goals": 0.13,
      "ast": 0.3,
      "hits": 0.4,
-     "blk": 1.21,
-     "atg": 0.1219
+     "blk": 1.23,
+     "atg": 0.1199
     },
     {
      "player_id": 8478402,
@@ -28028,13 +28052,13 @@
      "line": "f1",
      "pp": "pp1",
      "notes": "pp1: 62% of 293s team PP, plus part of his surplus",
-     "sog": 3.14,
-     "pts": 1.31,
-     "goals": 0.45,
-     "ast": 0.86,
-     "hits": 0.76,
-     "blk": 0.52,
-     "atg": 0.359
+     "sog": 3.15,
+     "pts": 1.25,
+     "goals": 0.43,
+     "ast": 0.82,
+     "hits": 0.77,
+     "blk": 0.54,
+     "atg": 0.3448
     },
     {
      "player_id": 8477986,
@@ -28048,10 +28072,10 @@
      "sog": 2.15,
      "pts": 0.44,
      "goals": 0.11,
-     "ast": 0.33,
-     "hits": 1.38,
-     "blk": 1.25,
-     "atg": 0.1069
+     "ast": 0.34,
+     "hits": 1.39,
+     "blk": 1.27,
+     "atg": 0.1028
     },
     {
      "player_id": 8478854,
@@ -28062,13 +28086,13 @@
      "line": "d2",
      "pp": "pp2",
      "notes": "pp2: 38% of 293s team PP",
-     "sog": 1.2,
-     "pts": 0.34,
+     "sog": 1.18,
+     "pts": 0.33,
      "goals": 0.06,
      "ast": 0.27,
-     "hits": 0.62,
+     "hits": 0.61,
      "blk": 1.37,
-     "atg": 0.0626
+     "atg": 0.0595
     },
     {
      "player_id": 8475218,
@@ -28080,12 +28104,12 @@
      "pp": "pp2",
      "notes": "pp2: 38% of 293s team PP",
      "sog": 1.57,
-     "pts": 0.41,
-     "goals": 0.09,
-     "ast": 0.32,
+     "pts": 0.39,
+     "goals": 0.08,
+     "ast": 0.3,
      "hits": 0.89,
-     "blk": 1.34,
-     "atg": 0.0851
+     "blk": 1.31,
+     "atg": 0.0809
     },
     {
      "player_id": 8477934,
@@ -28096,13 +28120,13 @@
      "line": "f1",
      "pp": "pp1",
      "notes": "pp1: 62% of 293s team PP, plus part of his surplus",
-     "sog": 3.09,
-     "pts": 1.16,
-     "goals": 0.49,
-     "ast": 0.67,
+     "sog": 3.13,
+     "pts": 1.1,
+     "goals": 0.46,
+     "ast": 0.64,
      "hits": 0.7,
      "blk": 0.37,
-     "atg": 0.386
+     "atg": 0.3671
     },
     {
      "player_id": 8476457,
@@ -28113,13 +28137,13 @@
      "line": "d1",
      "pp": null,
      "notes": "d1 tonight, usually d2 minutes: +77s EV",
-     "sog": 1.18,
+     "sog": 1.17,
      "pts": 0.19,
      "goals": 0.04,
-     "ast": 0.15,
-     "hits": 1.75,
-     "blk": 1.61,
-     "atg": 0.0416
+     "ast": 0.14,
+     "hits": 1.74,
+     "blk": 1.62,
+     "atg": 0.0428
     },
     {
      "player_id": 8482858,
@@ -28130,13 +28154,13 @@
      "line": "d2",
      "pp": null,
      "notes": "d2 tonight, usually d1 minutes: -77s EV",
-     "sog": 0.83,
+     "sog": 0.84,
      "pts": 0.17,
      "goals": 0.04,
      "ast": 0.13,
-     "hits": 1.33,
+     "hits": 1.34,
      "blk": 1.36,
-     "atg": 0.0414
+     "atg": 0.043
     },
     {
      "player_id": 8476473,
@@ -28149,11 +28173,11 @@
      "notes": "",
      "sog": 1.02,
      "pts": 0.16,
-     "goals": 0.04,
+     "goals": 0.03,
      "ast": 0.13,
-     "hits": 1.34,
-     "blk": 1.92,
-     "atg": 0.0358
+     "hits": 1.36,
+     "blk": 1.88,
+     "atg": 0.033
     },
     {
      "player_id": 8477953,
@@ -28165,12 +28189,29 @@
      "pp": "pp1",
      "notes": "pp1: 62% of 293s team PP",
      "sog": 1.75,
-     "pts": 0.57,
-     "goals": 0.23,
-     "ast": 0.34,
-     "hits": 2.19,
+     "pts": 0.55,
+     "goals": 0.22,
+     "ast": 0.33,
+     "hits": 2.17,
      "blk": 0.4,
-     "atg": 0.2039
+     "atg": 0.1956
+    },
+    {
+     "player_id": 8476905,
+     "player": "Chandler Stephenson",
+     "team": "SEA",
+     "pos": "F",
+     "toi_min": 18.7,
+     "line": "f1",
+     "pp": "pp1",
+     "notes": "f1 tonight, usually f2 minutes: +25s EV, pp1: 62% of 303s team PP",
+     "sog": 1.33,
+     "pts": 0.54,
+     "goals": 0.14,
+     "ast": 0.4,
+     "hits": 0.51,
+     "blk": 0.51,
+     "atg": 0.127
     },
     {
      "player_id": 8481617,
@@ -28181,13 +28222,13 @@
      "line": "f1",
      "pp": "pp2",
      "notes": "pp2: 38% of 293s team PP, plus part of his surplus",
-     "sog": 2.14,
-     "pts": 0.65,
-     "goals": 0.32,
-     "ast": 0.32,
-     "hits": 3.6,
+     "sog": 2.15,
+     "pts": 0.62,
+     "goals": 0.31,
+     "ast": 0.31,
+     "hits": 3.63,
      "blk": 0.5,
-     "atg": 0.2779
+     "atg": 0.2678
     },
     {
      "player_id": 8482665,
@@ -28199,46 +28240,12 @@
      "pp": "pp1",
      "notes": "f2 tonight, usually f1 minutes: -25s EV, pp1: 62% of 303s team PP",
      "sog": 1.92,
-     "pts": 0.57,
-     "goals": 0.24,
-     "ast": 0.32,
-     "hits": 0.63,
+     "pts": 0.59,
+     "goals": 0.25,
+     "ast": 0.34,
+     "hits": 0.62,
      "blk": 0.59,
-     "atg": 0.217
-    },
-    {
-     "player_id": 8482259,
-     "player": "Bobby McMann",
-     "team": "SEA",
-     "pos": "F",
-     "toi_min": 18.0,
-     "line": "f1",
-     "pp": "pp1",
-     "notes": "pp1: 62% of 303s team PP",
-     "sog": 2.48,
-     "pts": 0.54,
-     "goals": 0.26,
-     "ast": 0.28,
-     "hits": 2.39,
-     "blk": 0.32,
-     "atg": 0.2268
-    },
-    {
-     "player_id": 8476905,
-     "player": "Chandler Stephenson",
-     "team": "SEA",
-     "pos": "F",
-     "toi_min": 17.9,
-     "line": "f3",
-     "pp": "pp1",
-     "notes": "f3 tonight, usually f2 minutes: -22s EV, pp1: 62% of 303s team PP",
-     "sog": 1.31,
-     "pts": 0.53,
-     "goals": 0.14,
-     "ast": 0.39,
-     "hits": 0.49,
-     "blk": 0.48,
-     "atg": 0.1277
+     "atg": 0.2224
     },
     {
      "player_id": 8476454,
@@ -28249,13 +28256,13 @@
      "line": "f2",
      "pp": "pp1",
      "notes": "pp1: 62% of 293s team PP, plus part of his surplus",
-     "sog": 1.75,
-     "pts": 0.67,
-     "goals": 0.27,
-     "ast": 0.4,
-     "hits": 0.5,
+     "sog": 1.78,
+     "pts": 0.64,
+     "goals": 0.25,
+     "ast": 0.38,
+     "hits": 0.49,
      "blk": 0.44,
-     "atg": 0.2364
+     "atg": 0.2276
     },
     {
      "player_id": 8474586,
@@ -28266,13 +28273,30 @@
      "line": "f1",
      "pp": "pp1",
      "notes": "f1 tonight, usually f2 minutes: +25s EV, pp1: 62% of 303s team PP",
-     "sog": 2.0,
-     "pts": 0.6,
+     "sog": 2.03,
+     "pts": 0.59,
      "goals": 0.28,
-     "ast": 0.32,
+     "ast": 0.31,
      "hits": 0.72,
      "blk": 0.54,
-     "atg": 0.2422
+     "atg": 0.2447
+    },
+    {
+     "player_id": 8482259,
+     "player": "Bobby McMann",
+     "team": "SEA",
+     "pos": "F",
+     "toi_min": 17.2,
+     "line": "f3",
+     "pp": "pp1",
+     "notes": "f3 tonight, usually f1 minutes: -46s EV, pp1: 62% of 303s team PP",
+     "sog": 2.37,
+     "pts": 0.51,
+     "goals": 0.26,
+     "ast": 0.25,
+     "hits": 2.23,
+     "blk": 0.31,
+     "atg": 0.2268
     },
     {
      "player_id": 8484800,
@@ -28283,13 +28307,13 @@
      "line": "f1",
      "pp": "pp2",
      "notes": "f1 tonight, usually f3 minutes: +46s EV, pp2: 38% of 303s team PP, plus part of his surplus",
-     "sog": 1.6,
-     "pts": 0.53,
+     "sog": 1.58,
+     "pts": 0.51,
      "goals": 0.19,
-     "ast": 0.34,
-     "hits": 0.42,
+     "ast": 0.32,
+     "hits": 0.44,
      "blk": 0.51,
-     "atg": 0.1745
+     "atg": 0.1736
     },
     {
      "player_id": 8482713,
@@ -28302,11 +28326,11 @@
      "notes": "f2 tonight, usually f1 minutes: -25s EV, pp2: 38% of 303s team PP",
      "sog": 2.04,
      "pts": 0.57,
-     "goals": 0.22,
-     "ast": 0.35,
-     "hits": 1.66,
+     "goals": 0.21,
+     "ast": 0.36,
+     "hits": 1.63,
      "blk": 0.44,
-     "atg": 0.1954
+     "atg": 0.1902
     },
     {
      "player_id": 8482703,
@@ -28317,13 +28341,13 @@
      "line": "f2",
      "pp": "pp2",
      "notes": "f2 tonight, usually f3 minutes: +52s EV, pp2: 38% of 293s team PP",
-     "sog": 1.83,
-     "pts": 0.38,
-     "goals": 0.2,
-     "ast": 0.19,
-     "hits": 3.87,
-     "blk": 0.51,
-     "atg": 0.1794
+     "sog": 1.84,
+     "pts": 0.37,
+     "goals": 0.19,
+     "ast": 0.18,
+     "hits": 3.9,
+     "blk": 0.5,
+     "atg": 0.1766
     },
     {
      "player_id": 8477919,
@@ -28334,13 +28358,13 @@
      "line": "f3",
      "pp": null,
      "notes": "f3 tonight, usually f2 minutes: -22s EV",
-     "sog": 1.14,
-     "pts": 0.36,
+     "sog": 1.12,
+     "pts": 0.37,
      "goals": 0.15,
-     "ast": 0.21,
+     "ast": 0.22,
      "hits": 0.78,
-     "blk": 0.67,
-     "atg": 0.1401
+     "blk": 0.69,
+     "atg": 0.1376
     },
     {
      "player_id": 8481554,
@@ -28352,12 +28376,12 @@
      "pp": "pp2",
      "notes": "f2 tonight, usually f3 minutes: +22s EV, pp2: 38% of 303s team PP, plus part of his surplus",
      "sog": 1.45,
-     "pts": 0.54,
-     "goals": 0.16,
+     "pts": 0.55,
+     "goals": 0.17,
      "ast": 0.38,
-     "hits": 0.85,
+     "hits": 0.84,
      "blk": 0.25,
-     "atg": 0.151
+     "atg": 0.1564
     },
     {
      "player_id": 8478013,
@@ -28368,13 +28392,30 @@
      "line": "d3",
      "pp": null,
      "notes": "on neither PP unit",
-     "sog": 1.13,
-     "pts": 0.16,
+     "sog": 1.14,
+     "pts": 0.15,
      "goals": 0.05,
-     "ast": 0.11,
+     "ast": 0.1,
      "hits": 0.28,
-     "blk": 1.32,
-     "atg": 0.0508
+     "blk": 1.3,
+     "atg": 0.0478
+    },
+    {
+     "player_id": 8484241,
+     "player": "Matthew Wood",
+     "team": "SEA",
+     "pos": "F",
+     "toi_min": 14.0,
+     "line": "f3",
+     "pp": "pp2",
+     "notes": "f3 tonight, usually f4 minutes: +47s EV, pp2: 38% of 303s team PP",
+     "sog": 1.61,
+     "pts": 0.42,
+     "goals": 0.17,
+     "ast": 0.25,
+     "hits": 0.94,
+     "blk": 0.49,
+     "atg": 0.1596
     },
     {
      "player_id": 8479324,
@@ -28385,30 +28426,13 @@
      "line": "d3",
      "pp": null,
      "notes": "",
-     "sog": 0.64,
+     "sog": 0.63,
      "pts": 0.09,
      "goals": 0.03,
      "ast": 0.06,
-     "hits": 0.53,
-     "blk": 1.01,
-     "atg": 0.0286
-    },
-    {
-     "player_id": 8482751,
-     "player": "Ryan Winterton",
-     "team": "SEA",
-     "pos": "F",
-     "toi_min": 13.9,
-     "line": "f3",
-     "pp": null,
-     "notes": "f3 tonight, usually f4 minutes: +47s EV",
-     "sog": 1.51,
-     "pts": 0.36,
-     "goals": 0.16,
-     "ast": 0.19,
-     "hits": 1.27,
-     "blk": 0.62,
-     "atg": 0.1484
+     "hits": 0.52,
+     "blk": 1.02,
+     "atg": 0.0299
     },
     {
      "player_id": 8479372,
@@ -28419,30 +28443,30 @@
      "line": "d3",
      "pp": null,
      "notes": "",
-     "sog": 0.76,
-     "pts": 0.13,
+     "sog": 0.74,
+     "pts": 0.14,
      "goals": 0.04,
      "ast": 0.09,
-     "hits": 1.37,
-     "blk": 0.84,
-     "atg": 0.0406
+     "hits": 1.39,
+     "blk": 0.85,
+     "atg": 0.042
     },
     {
-     "player_id": 8484241,
-     "player": "Matthew Wood",
+     "player_id": 8482751,
+     "player": "Ryan Winterton",
      "team": "SEA",
      "pos": "F",
      "toi_min": 13.2,
      "line": "f4",
-     "pp": "pp2",
-     "notes": "pp2: 38% of 303s team PP",
-     "sog": 1.53,
-     "pts": 0.38,
+     "pp": null,
+     "notes": "",
+     "sog": 1.43,
+     "pts": 0.34,
      "goals": 0.16,
-     "ast": 0.22,
-     "hits": 0.88,
-     "blk": 0.45,
-     "atg": 0.1492
+     "ast": 0.18,
+     "hits": 1.19,
+     "blk": 0.59,
+     "atg": 0.145
     },
     {
      "player_id": 8478472,
@@ -28453,13 +28477,13 @@
      "line": "f3",
      "pp": null,
      "notes": "f3 tonight, usually f4 minutes: +49s EV",
-     "sog": 0.99,
+     "sog": 1.0,
      "pts": 0.29,
-     "goals": 0.11,
-     "ast": 0.19,
-     "hits": 2.6,
-     "blk": 0.58,
-     "atg": 0.1002
+     "goals": 0.1,
+     "ast": 0.18,
+     "hits": 2.61,
+     "blk": 0.57,
+     "atg": 0.098
     },
     {
      "player_id": 8477450,
@@ -28471,12 +28495,12 @@
      "pp": null,
      "notes": "",
      "sog": 1.11,
-     "pts": 0.26,
-     "goals": 0.11,
+     "pts": 0.25,
+     "goals": 0.1,
      "ast": 0.15,
-     "hits": 1.47,
-     "blk": 0.71,
-     "atg": 0.1022
+     "hits": 1.46,
+     "blk": 0.69,
+     "atg": 0.0947
     },
     {
      "player_id": 8480834,
@@ -28487,13 +28511,13 @@
      "line": "d3",
      "pp": null,
      "notes": "",
-     "sog": 0.65,
+     "sog": 0.64,
      "pts": 0.11,
      "goals": 0.02,
      "ast": 0.09,
-     "hits": 1.35,
-     "blk": 0.93,
-     "atg": 0.0182
+     "hits": 1.37,
+     "blk": 0.91,
+     "atg": 0.0181
     },
     {
      "player_id": 8480029,
@@ -28505,12 +28529,12 @@
      "pp": null,
      "notes": "f3 tonight, usually f4 minutes: +49s EV",
      "sog": 1.02,
-     "pts": 0.23,
+     "pts": 0.22,
      "goals": 0.1,
-     "ast": 0.13,
-     "hits": 2.58,
+     "ast": 0.12,
+     "hits": 2.6,
      "blk": 0.47,
-     "atg": 0.0988
+     "atg": 0.097
     },
     {
      "player_id": 8483570,
@@ -28521,13 +28545,13 @@
      "line": "f4",
      "pp": null,
      "notes": "",
-     "sog": 1.08,
-     "pts": 0.28,
+     "sog": 1.09,
+     "pts": 0.29,
      "goals": 0.11,
      "ast": 0.17,
-     "hits": 1.43,
+     "hits": 1.41,
      "blk": 0.42,
-     "atg": 0.106
+     "atg": 0.1087
     },
     {
      "player_id": 8479365,
@@ -28538,13 +28562,13 @@
      "line": "f4",
      "pp": "pp2",
      "notes": "pp2: 38% of 293s team PP",
-     "sog": 1.18,
-     "pts": 0.23,
-     "goals": 0.14,
+     "sog": 1.21,
+     "pts": 0.22,
+     "goals": 0.13,
      "ast": 0.09,
-     "hits": 2.49,
+     "hits": 2.47,
      "blk": 0.26,
-     "atg": 0.1283
+     "atg": 0.1183
     },
     {
      "player_id": 8486161,
@@ -28556,12 +28580,12 @@
      "pp": null,
      "notes": "",
      "sog": 0.76,
-     "pts": 0.16,
+     "pts": 0.15,
      "goals": 0.07,
      "ast": 0.09,
      "hits": 0.94,
-     "blk": 0.48,
-     "atg": 0.0682
+     "blk": 0.47,
+     "atg": 0.0653
     },
     {
      "player_id": 8482874,
@@ -28572,13 +28596,13 @@
      "line": "f4",
      "pp": null,
      "notes": "",
-     "sog": 0.82,
-     "pts": 0.22,
+     "sog": 0.83,
+     "pts": 0.24,
      "goals": 0.1,
      "ast": 0.13,
-     "hits": 3.89,
-     "blk": 0.3,
-     "atg": 0.0929
+     "hits": 3.86,
+     "blk": 0.29,
+     "atg": 0.096
     },
     {
      "player_id": 8479368,
@@ -28590,12 +28614,12 @@
      "pp": null,
      "notes": "",
      "sog": 0.87,
-     "pts": 0.18,
-     "goals": 0.1,
+     "pts": 0.17,
+     "goals": 0.09,
      "ast": 0.08,
-     "hits": 2.16,
+     "hits": 2.17,
      "blk": 0.24,
-     "atg": 0.0916
+     "atg": 0.0894
     }
    ],
    "paper": true,
