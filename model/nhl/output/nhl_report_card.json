@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-26",
+ "as_of": "2026-11-28",
  "week": [
   {
    "market": "blk",
@@ -10,10 +10,10 @@
   },
   {
    "market": "goals",
-   "legs": 23,
-   "won": 10,
-   "hit_rate": 0.4348,
-   "model_avg": 0.3247
+   "legs": 39,
+   "won": 15,
+   "hit_rate": 0.3846,
+   "model_avg": 0.3215
   },
   {
    "market": "hits",
@@ -24,45 +24,45 @@
   },
   {
    "market": "ml",
-   "legs": 1,
-   "won": 0,
-   "hit_rate": 0.0,
-   "model_avg": 0.5982
+   "legs": 2,
+   "won": 1,
+   "hit_rate": 0.5,
+   "model_avg": 0.6759
   },
   {
    "market": "pts",
-   "legs": 3,
-   "won": 2,
-   "hit_rate": 0.6667,
-   "model_avg": 0.6362
+   "legs": 5,
+   "won": 4,
+   "hit_rate": 0.8,
+   "model_avg": 0.6424
   },
   {
    "market": "saves",
-   "legs": 5,
-   "won": 5,
+   "legs": 6,
+   "won": 6,
    "hit_rate": 1.0,
-   "model_avg": 0.8781
+   "model_avg": 0.8758
   },
   {
    "market": "sog",
-   "legs": 38,
-   "won": 28,
-   "hit_rate": 0.7368,
-   "model_avg": 0.7868
+   "legs": 84,
+   "won": 65,
+   "hit_rate": 0.7738,
+   "model_avg": 0.7954
   },
   {
    "market": "spread",
-   "legs": 28,
-   "won": 17,
-   "hit_rate": 0.6071,
-   "model_avg": 0.7777
+   "legs": 43,
+   "won": 26,
+   "hit_rate": 0.6047,
+   "model_avg": 0.78
   },
   {
    "market": "total",
-   "legs": 33,
-   "won": 30,
-   "hit_rate": 0.9091,
-   "model_avg": 0.7958
+   "legs": 46,
+   "won": 38,
+   "hit_rate": 0.8261,
+   "model_avg": 0.7973
   }
  ],
  "all_time": [
@@ -75,10 +75,10 @@
   },
   {
    "market": "goals",
-   "legs": 23,
-   "won": 10,
-   "hit_rate": 0.4348,
-   "model_avg": 0.3247
+   "legs": 39,
+   "won": 15,
+   "hit_rate": 0.3846,
+   "model_avg": 0.3215
   },
   {
    "market": "hits",
@@ -89,65 +89,65 @@
   },
   {
    "market": "ml",
-   "legs": 1,
-   "won": 0,
-   "hit_rate": 0.0,
-   "model_avg": 0.5982
+   "legs": 2,
+   "won": 1,
+   "hit_rate": 0.5,
+   "model_avg": 0.6759
   },
   {
    "market": "pts",
-   "legs": 3,
-   "won": 2,
-   "hit_rate": 0.6667,
-   "model_avg": 0.6362
+   "legs": 5,
+   "won": 4,
+   "hit_rate": 0.8,
+   "model_avg": 0.6424
   },
   {
    "market": "saves",
-   "legs": 5,
-   "won": 5,
+   "legs": 6,
+   "won": 6,
    "hit_rate": 1.0,
-   "model_avg": 0.8781
+   "model_avg": 0.8758
   },
   {
    "market": "sog",
-   "legs": 38,
-   "won": 28,
-   "hit_rate": 0.7368,
-   "model_avg": 0.7868
+   "legs": 84,
+   "won": 65,
+   "hit_rate": 0.7738,
+   "model_avg": 0.7954
   },
   {
    "market": "spread",
-   "legs": 28,
-   "won": 17,
-   "hit_rate": 0.6071,
-   "model_avg": 0.7777
+   "legs": 43,
+   "won": 26,
+   "hit_rate": 0.6047,
+   "model_avg": 0.78
   },
   {
    "market": "total",
-   "legs": 33,
-   "won": 30,
-   "hit_rate": 0.9091,
-   "model_avg": 0.7958
+   "legs": 46,
+   "won": 38,
+   "hit_rate": 0.8261,
+   "model_avg": 0.7973
   }
  ],
  "tickets": {
   "sgp4": {
-   "tickets": 15,
-   "won": 9,
+   "tickets": 25,
+   "won": 11,
    "void": 0,
-   "model_avg": 0.4869
+   "model_avg": 0.4734
   },
   "sgp6": {
-   "tickets": 13,
-   "won": 4,
+   "tickets": 15,
+   "won": 5,
    "void": 0,
-   "model_avg": 0.3119
+   "model_avg": 0.3123
   },
   "atg": {
-   "tickets": 14,
-   "won": 4,
+   "tickets": 24,
+   "won": 6,
    "void": 0,
-   "model_avg": 0.182
+   "model_avg": 0.1749
   },
   "sgp8": {
    "tickets": 11,
@@ -156,28 +156,28 @@
    "model_avg": 0.2061
   },
   "closer": {
-   "tickets": 4,
-   "won": 2,
+   "tickets": 7,
+   "won": 4,
    "void": 0,
-   "model_avg": 0.7565
+   "model_avg": 0.7695
   },
   "lotto": {
-   "tickets": 1,
+   "tickets": 2,
    "won": 0,
    "void": 0,
-   "model_avg": 0.0167
+   "model_avg": 0.013
   },
   "multi2": {
-   "tickets": 1,
+   "tickets": 2,
    "won": 1,
    "void": 0,
-   "model_avg": 0.3854
+   "model_avg": 0.3657
   },
   "multi3": {
-   "tickets": 1,
+   "tickets": 2,
    "won": 0,
    "void": 0,
-   "model_avg": 0.2279
+   "model_avg": 0.2076
   }
  },
  "note": "private: results are reported to the owner, not posted on the site"

@@ -9435,7 +9435,9 @@
       "Listed at fanduel at +115 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Timo Meier anytime goal scorer",
@@ -9466,7 +9468,9 @@
       "Listed at fanduel at +230 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.1131,
@@ -9486,8 +9490,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "won",
+   "legs_won": 2,
+   "legs_counted": 2,
+   "final": "CGY 3, NJD 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "closer",
@@ -9519,7 +9528,9 @@
       "Listed at fanduel at -800 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": "margin +2 for NJD",
+     "result": "won"
     }
    ],
    "chance": 0.8214,
@@ -9540,8 +9551,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "won",
+   "legs_won": 1,
+   "legs_counted": 1,
+   "final": "CGY 3, NJD 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -9576,7 +9592,9 @@
       "Listed at betmgm at -650 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Connor Brown 1+ shots on goal",
@@ -9607,7 +9625,9 @@
       "Listed at fanduel at -750 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "CGY +3.5 puck line",
@@ -9635,7 +9655,9 @@
       "Listed at fanduel at -750 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": "margin +2 for NJD",
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -9663,7 +9685,9 @@
       "Listed at fanduel at -330 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 8,
+     "result": "lost"
     }
    ],
    "chance": 0.4949,
@@ -9685,8 +9709,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "CGY 3, NJD 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp6",
@@ -9721,7 +9750,9 @@
       "Listed at betmgm at -650 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Connor Brown 1+ shots on goal",
@@ -9752,7 +9783,9 @@
       "Listed at fanduel at -750 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Dougie Hamilton 2+ shots on goal",
@@ -9783,7 +9816,9 @@
       "Listed at betmgm at -250 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -9811,7 +9846,9 @@
       "Listed at fanduel at -480 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 8,
+     "result": "won"
     },
     {
      "label": "NJD +1.5 puck line",
@@ -9839,7 +9876,9 @@
       "Listed at fanduel at -800 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": "margin +2 for NJD",
+     "result": "won"
     },
     {
      "label": "Jack Hughes 1+ points",
@@ -9869,7 +9908,9 @@
       "Listed at fanduel at -440 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 4,
+     "result": "won"
     }
    ],
    "chance": 0.2941,
@@ -9892,8 +9933,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "won",
+   "legs_won": 6,
+   "legs_counted": 6,
+   "final": "CGY 3, NJD 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -9928,7 +9974,9 @@
       "Listed at fanduel at +110 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.3291,
@@ -9948,8 +9996,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "TOR 3, BOS 1 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "closer",
@@ -9981,7 +10034,9 @@
       "Listed at fanduel at -410 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": "margin -2 for BOS",
+     "result": "lost"
     }
    ],
    "chance": 0.8292,
@@ -10002,8 +10057,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "TOR 3, BOS 1 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -10035,7 +10095,9 @@
       "Listed at fanduel at -260 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Casey Mittelstadt 1+ shots on goal",
@@ -10066,7 +10128,9 @@
       "Listed at betmgm at -300 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "BOS +1.5 puck line",
@@ -10094,7 +10158,9 @@
       "Listed at fanduel at -410 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": "margin -2 for BOS",
+     "result": "lost"
     },
     {
      "label": "Fraser Minten 1+ shots on goal",
@@ -10125,7 +10191,9 @@
       "Listed at betmgm at -525 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 3,
+     "result": "won"
     }
    ],
    "chance": 0.4541,
@@ -10147,8 +10215,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "TOR 3, BOS 1 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp6",
@@ -10180,7 +10253,9 @@
       "Listed at fanduel at -260 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Casey Mittelstadt 1+ shots on goal",
@@ -10211,7 +10286,9 @@
       "Listed at betmgm at -300 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "BOS +1.5 puck line",
@@ -10239,7 +10316,9 @@
       "Listed at fanduel at -410 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": "margin -2 for BOS",
+     "result": "lost"
     },
     {
      "label": "Fraser Minten 1+ shots on goal",
@@ -10270,7 +10349,9 @@
       "Listed at betmgm at -525 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Gavin McKenna 1+ shots on goal",
@@ -10301,7 +10382,9 @@
       "Listed at betmgm at -625 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Anthony Stolarz 18+ saves",
@@ -10331,7 +10414,9 @@
       "Listed at fanduel at -850 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 28,
+     "result": "won"
     }
    ],
    "chance": 0.3347,
@@ -10354,8 +10439,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 4,
+   "legs_counted": 6,
+   "final": "TOR 3, BOS 1 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -10390,7 +10480,9 @@
       "Listed at fanduel at +170 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.3084,
@@ -10410,8 +10502,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "UTA 6, NSH 5 (SO)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "closer",
@@ -10443,7 +10540,9 @@
       "Listed at fanduel at -340 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": "margin -1 for NSH",
+     "result": "won"
     }
    ],
    "chance": 0.7094,
@@ -10464,8 +10563,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "won",
+   "legs_won": 1,
+   "legs_counted": 1,
+   "final": "UTA 6, NSH 5 (SO)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -10500,7 +10604,9 @@
       "Listed at betmgm at -525 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Anders Lee 1+ shots on goal",
@@ -10531,7 +10637,9 @@
       "Listed at fanduel at -780 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -10559,7 +10667,9 @@
       "Listed at fanduel at -330 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 11,
+     "result": "lost"
     },
     {
      "label": "UTA +1.5 puck line",
@@ -10587,7 +10697,9 @@
       "Listed at fanduel at -340 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": "margin -1 for NSH",
+     "result": "won"
     }
    ],
    "chance": 0.4086,
@@ -10609,8 +10721,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "UTA 6, NSH 5 (SO)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "lotto",
@@ -10644,7 +10761,9 @@
       "Listed at fanduel at -174 for this rung; the price is not an input to the pick"
      ],
      "game": "FLA @ WSH",
-     "game_id": 2026020406
+     "game_id": 2026020406,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Anton Lundell 2+ shots on goal",
@@ -10675,7 +10794,9 @@
       "Listed at fanduel at -154 for this rung; the price is not an input to the pick"
      ],
      "game": "FLA @ WSH",
-     "game_id": 2026020406
+     "game_id": 2026020406,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Matvei Michkov 1+ points",
@@ -10705,7 +10826,9 @@
       "Listed at fanduel at -178 for this rung; the price is not an input to the pick"
      ],
      "game": "VAN @ PHI",
-     "game_id": 2026020405
+     "game_id": 2026020405,
+     "actual": null,
+     "result": "void"
     },
     {
      "label": "Mikko Rantanen 2+ shots on goal",
@@ -10736,7 +10859,9 @@
       "Listed at fanduel at -176 for this rung; the price is not an input to the pick"
      ],
      "game": "DAL @ STL",
-     "game_id": 2026020403
+     "game_id": 2026020403,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Auston Matthews 3+ shots on goal",
@@ -10767,7 +10892,9 @@
       "Listed at fanduel at -250 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Matt Boldy 3+ shots on goal",
@@ -10798,7 +10925,9 @@
       "Listed at fanduel at -265 for this rung; the price is not an input to the pick"
      ],
      "game": "COL @ MIN",
-     "game_id": 2026020408
+     "game_id": 2026020408,
+     "actual": 2,
+     "result": "lost"
     },
     {
      "label": "Artturi Lehkonen 2+ shots on goal",
@@ -10829,7 +10958,9 @@
       "Listed at fanduel at -188 for this rung; the price is not an input to the pick"
      ],
      "game": "COL @ MIN",
-     "game_id": 2026020408
+     "game_id": 2026020408,
+     "actual": 5,
+     "result": "won"
     },
     {
      "label": "Marco Kasper 2+ shots on goal",
@@ -10860,7 +10991,9 @@
       "Listed at betmgm at -115 for this rung; the price is not an input to the pick"
      ],
      "game": "DET @ CBJ",
-     "game_id": 2026020407
+     "game_id": 2026020407,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Brayden Point 2+ shots on goal",
@@ -10891,7 +11024,9 @@
       "Listed at fanduel at -182 for this rung; the price is not an input to the pick"
      ],
      "game": "OTT @ TBL",
-     "game_id": 2026020404
+     "game_id": 2026020404,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.0092,
@@ -10937,8 +11072,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 5,
+   "legs_counted": 8,
+   "final": "FLA 3, WSH 2 (REG); VAN 2, PHI 5 (REG); DAL 3, STL 5 (REG); TOR 3, BOS 1 (REG); COL 4, MIN 3 (SO); DET 2, CBJ 0 (REG); OTT 6, TBL 2 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "multi2",
@@ -10973,7 +11113,9 @@
       "Listed at betmgm at -525 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Anders Lee 1+ shots on goal",
@@ -11004,7 +11146,9 @@
       "Listed at fanduel at -780 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Kailer Yamamoto 1+ shots on goal",
@@ -11035,7 +11179,9 @@
       "Listed at betmgm at -450 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Evan Rodrigues 1+ shots on goal",
@@ -11066,7 +11212,9 @@
       "Listed at betmgm at -650 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Connor Brown 1+ shots on goal",
@@ -11097,7 +11245,9 @@
       "Listed at fanduel at -750 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Dougie Hamilton 2+ shots on goal",
@@ -11128,7 +11278,9 @@
       "Listed at betmgm at -250 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.34597,
@@ -11155,8 +11307,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 5,
+   "legs_counted": 6,
+   "final": "UTA 6, NSH 5 (SO); CGY 3, NJD 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "multi3",
@@ -11191,7 +11348,9 @@
       "Listed at betmgm at -525 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Anders Lee 1+ shots on goal",
@@ -11222,7 +11381,9 @@
       "Listed at fanduel at -780 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Kailer Yamamoto 1+ shots on goal",
@@ -11253,7 +11414,9 @@
       "Listed at betmgm at -450 for this rung; the price is not an input to the pick"
      ],
      "game": "UTA @ NSH",
-     "game_id": 2026020402
+     "game_id": 2026020402,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Evan Rodrigues 1+ shots on goal",
@@ -11284,7 +11447,9 @@
       "Listed at betmgm at -650 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Connor Brown 1+ shots on goal",
@@ -11315,7 +11480,9 @@
       "Listed at fanduel at -750 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Dougie Hamilton 2+ shots on goal",
@@ -11346,7 +11513,9 @@
       "Listed at betmgm at -250 for this rung; the price is not an input to the pick"
      ],
      "game": "CGY @ NJD",
-     "game_id": 2026020401
+     "game_id": 2026020401,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -11374,7 +11543,9 @@
       "Listed at fanduel at -260 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Casey Mittelstadt 1+ shots on goal",
@@ -11405,7 +11576,9 @@
       "Listed at betmgm at -300 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "BOS +1.5 puck line",
@@ -11433,7 +11606,9 @@
       "Listed at fanduel at -410 for this rung; the price is not an input to the pick"
      ],
      "game": "TOR @ BOS",
-     "game_id": 2026020400
+     "game_id": 2026020400,
+     "actual": "margin -2 for BOS",
+     "result": "lost"
     }
    ],
    "chance": 0.18727,
@@ -11464,8 +11639,13 @@
    "start_utc": "2026-11-27T18:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": false
+   "graded": true,
+   "early": false,
+   "result": "lost",
+   "legs_won": 7,
+   "legs_counted": 9,
+   "final": "UTA 6, NSH 5 (SO); CGY 3, NJD 5 (REG); TOR 3, BOS 1 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -11500,7 +11680,9 @@
       "Listed at fanduel at +170 for this rung; the price is not an input to the pick"
      ],
      "game": "DAL @ STL",
-     "game_id": 2026020403
+     "game_id": 2026020403,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Jason Robertson anytime goal scorer",
@@ -11531,7 +11713,9 @@
       "Listed at fanduel at +160 for this rung; the price is not an input to the pick"
      ],
      "game": "DAL @ STL",
-     "game_id": 2026020403
+     "game_id": 2026020403,
+     "actual": 2,
+     "result": "won"
     }
    ],
    "chance": 0.0859,
@@ -11551,8 +11735,13 @@
    "start_utc": "2026-11-27T19:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 1,
+   "legs_counted": 2,
+   "final": "DAL 3, STL 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -11587,7 +11776,9 @@
       "Listed at betmgm at -450 for this rung; the price is not an input to the pick"
      ],
      "game": "DAL @ STL",
-     "game_id": 2026020403
+     "game_id": 2026020403,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Tyler Seguin 1+ shots on goal",
@@ -11618,7 +11809,9 @@
       "Listed at fanduel at -500 for this rung; the price is not an input to the pick"
      ],
      "game": "DAL @ STL",
-     "game_id": 2026020403
+     "game_id": 2026020403,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -11646,7 +11839,9 @@
       "Listed at fanduel at -480 for this rung; the price is not an input to the pick"
      ],
      "game": "DAL @ STL",
-     "game_id": 2026020403
+     "game_id": 2026020403,
+     "actual": 8,
+     "result": "lost"
     },
     {
      "label": "STL +2.5 puck line",
@@ -11674,7 +11869,9 @@
       "Listed at fanduel at -480 for this rung; the price is not an input to the pick"
      ],
      "game": "DAL @ STL",
-     "game_id": 2026020403
+     "game_id": 2026020403,
+     "actual": "margin +2 for STL",
+     "result": "won"
     }
    ],
    "chance": 0.4421,
@@ -11696,8 +11893,13 @@
    "start_utc": "2026-11-27T19:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "DAL 3, STL 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -11732,7 +11934,9 @@
       "Listed at fanduel at +180 for this rung; the price is not an input to the pick"
      ],
      "game": "DET @ CBJ",
-     "game_id": 2026020407
+     "game_id": 2026020407,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Alex DeBrincat anytime goal scorer",
@@ -11763,7 +11967,9 @@
       "Listed at fanduel at +160 for this rung; the price is not an input to the pick"
      ],
      "game": "DET @ CBJ",
-     "game_id": 2026020407
+     "game_id": 2026020407,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.0782,
@@ -11783,8 +11989,13 @@
    "start_utc": "2026-11-27T20:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 1,
+   "legs_counted": 2,
+   "final": "DET 2, CBJ 0 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -11819,7 +12030,9 @@
       "Listed at betmgm at -500 for this rung; the price is not an input to the pick"
      ],
      "game": "DET @ CBJ",
-     "game_id": 2026020407
+     "game_id": 2026020407,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Valeri Nichushkin 1+ shots on goal",
@@ -11850,7 +12063,9 @@
       "Listed at betmgm at -650 for this rung; the price is not an input to the pick"
      ],
      "game": "DET @ CBJ",
-     "game_id": 2026020407
+     "game_id": 2026020407,
+     "actual": 3,
+     "result": "won"
     },
     {
      "label": "Under 7.5 goals",
@@ -11878,7 +12093,9 @@
       "Listed at fanduel at -450 for this rung; the price is not an input to the pick"
      ],
      "game": "DET @ CBJ",
-     "game_id": 2026020407
+     "game_id": 2026020407,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "CBJ +1.5 puck line",
@@ -11906,7 +12123,9 @@
       "Listed at fanduel at -380 for this rung; the price is not an input to the pick"
      ],
      "game": "DET @ CBJ",
-     "game_id": 2026020407
+     "game_id": 2026020407,
+     "actual": "margin -2 for CBJ",
+     "result": "lost"
     }
    ],
    "chance": 0.4557,
@@ -11928,8 +12147,13 @@
    "start_utc": "2026-11-27T20:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "DET 2, CBJ 0 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -11964,7 +12188,9 @@
       "Listed at fanduel at +150 for this rung; the price is not an input to the pick"
      ],
      "game": "FLA @ WSH",
-     "game_id": 2026020406
+     "game_id": 2026020406,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Brady Tkachuk anytime goal scorer",
@@ -11995,7 +12221,9 @@
       "Listed at fanduel at +180 for this rung; the price is not an input to the pick"
      ],
      "game": "FLA @ WSH",
-     "game_id": 2026020406
+     "game_id": 2026020406,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.1117,
@@ -12015,8 +12243,13 @@
    "start_utc": "2026-11-27T20:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 2,
+   "final": "FLA 3, WSH 2 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -12051,7 +12284,9 @@
       "Listed at betmgm at -500 for this rung; the price is not an input to the pick"
      ],
      "game": "FLA @ WSH",
-     "game_id": 2026020406
+     "game_id": 2026020406,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "Tom Wilson 1+ shots on goal",
@@ -12082,7 +12317,9 @@
       "Listed at fanduel at -620 for this rung; the price is not an input to the pick"
      ],
      "game": "FLA @ WSH",
-     "game_id": 2026020406
+     "game_id": 2026020406,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "WSH +1.5 puck line",
@@ -12110,7 +12347,9 @@
       "Listed at fanduel at -265 for this rung; the price is not an input to the pick"
      ],
      "game": "FLA @ WSH",
-     "game_id": 2026020406
+     "game_id": 2026020406,
+     "actual": "margin -1 for WSH",
+     "result": "won"
     },
     {
      "label": "Over 4.5 goals",
@@ -12138,7 +12377,9 @@
       "Listed at fanduel at -700 for this rung; the price is not an input to the pick"
      ],
      "game": "FLA @ WSH",
-     "game_id": 2026020406
+     "game_id": 2026020406,
+     "actual": 5,
+     "result": "won"
     }
    ],
    "chance": 0.4802,
@@ -12160,8 +12401,13 @@
    "start_utc": "2026-11-27T20:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "FLA 3, WSH 2 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -12196,7 +12442,9 @@
       "Listed at fanduel at +180 for this rung; the price is not an input to the pick"
      ],
      "game": "OTT @ TBL",
-     "game_id": 2026020404
+     "game_id": 2026020404,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Nikita Kucherov anytime goal scorer",
@@ -12227,7 +12475,9 @@
       "Listed at fanduel at +160 for this rung; the price is not an input to the pick"
      ],
      "game": "OTT @ TBL",
-     "game_id": 2026020404
+     "game_id": 2026020404,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.0999,
@@ -12247,8 +12497,13 @@
    "start_utc": "2026-11-27T20:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 2,
+   "final": "OTT 6, TBL 2 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -12283,7 +12538,9 @@
       "Listed at betmgm at -450 for this rung; the price is not an input to the pick"
      ],
      "game": "OTT @ TBL",
-     "game_id": 2026020404
+     "game_id": 2026020404,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Under 7.5 goals",
@@ -12311,7 +12568,9 @@
       "Listed at fanduel at -360 for this rung; the price is not an input to the pick"
      ],
      "game": "OTT @ TBL",
-     "game_id": 2026020404
+     "game_id": 2026020404,
+     "actual": 8,
+     "result": "lost"
     },
     {
      "label": "Charle-Edouard D'Astous 1+ shots on goal",
@@ -12342,7 +12601,9 @@
       "Listed at betmgm at -295 for this rung; the price is not an input to the pick"
      ],
      "game": "OTT @ TBL",
-     "game_id": 2026020404
+     "game_id": 2026020404,
+     "actual": 1,
+     "result": "won"
     },
     {
      "label": "TBL +1.5 puck line",
@@ -12370,7 +12631,9 @@
       "Listed at fanduel at -400 for this rung; the price is not an input to the pick"
      ],
      "game": "OTT @ TBL",
-     "game_id": 2026020404
+     "game_id": 2026020404,
+     "actual": "margin -4 for TBL",
+     "result": "lost"
     }
    ],
    "chance": 0.3754,
@@ -12392,8 +12655,13 @@
    "start_utc": "2026-11-27T20:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 1,
+   "legs_counted": 4,
+   "final": "OTT 6, TBL 2 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -12428,7 +12696,9 @@
       "Listed at fanduel at +240 for this rung; the price is not an input to the pick"
      ],
      "game": "VAN @ PHI",
-     "game_id": 2026020405
+     "game_id": 2026020405,
+     "actual": null,
+     "result": "void"
     },
     {
      "label": "Porter Martone anytime goal scorer",
@@ -12459,7 +12729,9 @@
       "Listed at fanduel at +220 for this rung; the price is not an input to the pick"
      ],
      "game": "VAN @ PHI",
-     "game_id": 2026020405
+     "game_id": 2026020405,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.0881,
@@ -12479,8 +12751,13 @@
    "start_utc": "2026-11-27T20:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 1,
+   "legs_counted": 1,
+   "final": "VAN 2, PHI 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -12511,7 +12788,9 @@
       "Listed at fanduel at -245 for this rung; the price is not an input to the pick"
      ],
      "game": "VAN @ PHI",
-     "game_id": 2026020405
+     "game_id": 2026020405,
+     "actual": "VAN 2, PHI 5",
+     "result": "won"
     },
     {
      "label": "Denver Barkey 1+ shots on goal",
@@ -12542,7 +12821,9 @@
       "Listed at betmgm at -350 for this rung; the price is not an input to the pick"
      ],
      "game": "VAN @ PHI",
-     "game_id": 2026020405
+     "game_id": 2026020405,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Over 4.5 goals",
@@ -12570,7 +12851,9 @@
       "Listed at fanduel at -550 for this rung; the price is not an input to the pick"
      ],
      "game": "VAN @ PHI",
-     "game_id": 2026020405
+     "game_id": 2026020405,
+     "actual": 7,
+     "result": "won"
     },
     {
      "label": "Trevor Zegras 1+ shots on goal",
@@ -12601,7 +12884,9 @@
       "Listed at fanduel at -800 for this rung; the price is not an input to the pick"
      ],
      "game": "VAN @ PHI",
-     "game_id": 2026020405
+     "game_id": 2026020405,
+     "actual": 1,
+     "result": "won"
     }
    ],
    "chance": 0.4792,
@@ -12623,8 +12908,13 @@
    "start_utc": "2026-11-27T20:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 3,
+   "legs_counted": 4,
+   "final": "VAN 2, PHI 5 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -12659,7 +12949,9 @@
       "Listed at fanduel at +120 for this rung; the price is not an input to the pick"
      ],
      "game": "COL @ MIN",
-     "game_id": 2026020408
+     "game_id": 2026020408,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Matt Boldy anytime goal scorer",
@@ -12690,7 +12982,9 @@
       "Listed at fanduel at +155 for this rung; the price is not an input to the pick"
      ],
      "game": "COL @ MIN",
-     "game_id": 2026020408
+     "game_id": 2026020408,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.1106,
@@ -12710,8 +13004,13 @@
    "start_utc": "2026-11-27T21:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 2,
+   "final": "COL 4, MIN 3 (SO)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -12743,7 +13042,9 @@
       "Listed at fanduel at -350 for this rung; the price is not an input to the pick"
      ],
      "game": "COL @ MIN",
-     "game_id": 2026020408
+     "game_id": 2026020408,
+     "actual": 7,
+     "result": "won"
     },
     {
      "label": "Blake Coleman 1+ shots on goal",
@@ -12774,7 +13075,9 @@
       "Listed at fanduel at -900 for this rung; the price is not an input to the pick"
      ],
      "game": "COL @ MIN",
-     "game_id": 2026020408
+     "game_id": 2026020408,
+     "actual": 4,
+     "result": "won"
     },
     {
      "label": "Brock Faber 1+ shots on goal",
@@ -12805,7 +13108,9 @@
       "Listed at fanduel at -800 for this rung; the price is not an input to the pick"
      ],
      "game": "COL @ MIN",
-     "game_id": 2026020408
+     "game_id": 2026020408,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "MIN +1.5 puck line",
@@ -12833,7 +13138,9 @@
       "Listed at fanduel at -350 for this rung; the price is not an input to the pick"
      ],
      "game": "COL @ MIN",
-     "game_id": 2026020408
+     "game_id": 2026020408,
+     "actual": "margin -1 for MIN",
+     "result": "won"
     }
    ],
    "chance": 0.4814,
@@ -12855,8 +13162,13 @@
    "start_utc": "2026-11-27T21:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "won",
+   "legs_won": 4,
+   "legs_counted": 4,
+   "final": "COL 4, MIN 3 (SO)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "atg",
@@ -12891,7 +13203,9 @@
       "Listed at fanduel at +110 for this rung; the price is not an input to the pick"
      ],
      "game": "LAK @ ANA",
-     "game_id": 2026020409
+     "game_id": 2026020409,
+     "actual": 0,
+     "result": "lost"
     }
    ],
    "chance": 0.3249,
@@ -12911,8 +13225,13 @@
    "start_utc": "2026-11-27T21:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 0,
+   "legs_counted": 1,
+   "final": "LAK 5, ANA 3 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   },
   {
    "kind": "sgp4",
@@ -12944,7 +13263,9 @@
       "Listed at fanduel at -280 for this rung; the price is not an input to the pick"
      ],
      "game": "LAK @ ANA",
-     "game_id": 2026020409
+     "game_id": 2026020409,
+     "actual": 8,
+     "result": "lost"
     },
     {
      "label": "Alex Killorn 1+ shots on goal",
@@ -12975,7 +13296,9 @@
       "Listed at betmgm at -625 for this rung; the price is not an input to the pick"
      ],
      "game": "LAK @ ANA",
-     "game_id": 2026020409
+     "game_id": 2026020409,
+     "actual": 0,
+     "result": "lost"
     },
     {
      "label": "Troy Terry 1+ shots on goal",
@@ -13006,7 +13329,9 @@
       "Listed at fanduel at -750 for this rung; the price is not an input to the pick"
      ],
      "game": "LAK @ ANA",
-     "game_id": 2026020409
+     "game_id": 2026020409,
+     "actual": 2,
+     "result": "won"
     },
     {
      "label": "ANA +2.5 puck line",
@@ -13034,7 +13359,9 @@
       "Listed at fanduel at -600 for this rung; the price is not an input to the pick"
      ],
      "game": "LAK @ ANA",
-     "game_id": 2026020409
+     "game_id": 2026020409,
+     "actual": "margin -2 for ANA",
+     "result": "won"
     }
    ],
    "chance": 0.4598,
@@ -13056,8 +13383,13 @@
    "start_utc": "2026-11-27T21:00:00Z",
    "paper": false,
    "made_after_start": false,
-   "graded": false,
-   "early": true
+   "graded": true,
+   "early": true,
+   "result": "lost",
+   "legs_won": 2,
+   "legs_counted": 4,
+   "final": "LAK 5, ANA 3 (REG)",
+   "graded_at": "2026-11-28T09:31:23+00:00"
   }
  ]
 }

@@ -1,6 +1,218 @@
 {
  "slips": [
   {
+   "id": "2026-11-27-VAN-PHI-atg",
+   "date": "2026-11-27",
+   "title": "Anytime goal scorer",
+   "game": "VAN @ PHI",
+   "final": "VAN 2, PHI 5 (REG)",
+   "made_at": "2026-11-27T17:43:01+00:00",
+   "chance": 0.0881,
+   "fair_price": 1036,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Porter Martone anytime goal scorer",
+     "prob": 0.2962,
+     "actual": 1,
+     "price": 220.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-27-UTA-NSH-closer",
+   "date": "2026-11-27",
+   "title": "Game-line closer",
+   "game": "UTA @ NSH",
+   "final": "UTA 6, NSH 5 (SO)",
+   "made_at": "2026-11-27T17:43:01+00:00",
+   "chance": 0.7094,
+   "fair_price": -244,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "UTA +1.5 puck line",
+     "prob": 0.7094,
+     "actual": "margin -1 for NSH",
+     "price": -340.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-27-FLA-WSH-sgp4",
+   "date": "2026-11-27",
+   "title": "4-leg slip",
+   "game": "FLA @ WSH",
+   "final": "FLA 3, WSH 2 (REG)",
+   "made_at": "2026-11-27T17:43:01+00:00",
+   "chance": 0.4802,
+   "fair_price": 108,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Brad Marchand 1+ shots on goal",
+     "prob": 0.8676,
+     "actual": 2,
+     "price": -500.0
+    },
+    {
+     "label": "Tom Wilson 1+ shots on goal",
+     "prob": 0.8725,
+     "actual": 1,
+     "price": -620.0
+    },
+    {
+     "label": "WSH +1.5 puck line",
+     "prob": 0.7268,
+     "actual": "margin -1 for WSH",
+     "price": -265.0
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.8561,
+     "actual": 5,
+     "price": -700.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-27-COL-MIN-sgp4",
+   "date": "2026-11-27",
+   "title": "4-leg slip",
+   "game": "COL @ MIN",
+   "final": "COL 4, MIN 3 (SO)",
+   "made_at": "2026-11-27T17:43:01+00:00",
+   "chance": 0.4814,
+   "fair_price": 108,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Under 7.5 goals",
+     "prob": 0.8241,
+     "actual": 7,
+     "price": -350.0
+    },
+    {
+     "label": "Blake Coleman 1+ shots on goal",
+     "prob": 0.8871,
+     "actual": 4,
+     "price": -900.0
+    },
+    {
+     "label": "Brock Faber 1+ shots on goal",
+     "prob": 0.872,
+     "actual": 2,
+     "price": -800.0
+    },
+    {
+     "label": "MIN +1.5 puck line",
+     "prob": 0.7426,
+     "actual": "margin -1 for MIN",
+     "price": -350.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-27-CGY-NJD-sgp6",
+   "date": "2026-11-27",
+   "title": "6-leg slip",
+   "game": "CGY @ NJD",
+   "final": "CGY 3, NJD 5 (REG)",
+   "made_at": "2026-11-27T17:43:01+00:00",
+   "chance": 0.2941,
+   "fair_price": 240,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Evan Rodrigues 1+ shots on goal",
+     "prob": 0.8643,
+     "actual": 1,
+     "price": -650.0
+    },
+    {
+     "label": "Connor Brown 1+ shots on goal",
+     "prob": 0.8799,
+     "actual": 4,
+     "price": -750.0
+    },
+    {
+     "label": "Dougie Hamilton 2+ shots on goal",
+     "prob": 0.7025,
+     "actual": 2,
+     "price": -250.0
+    },
+    {
+     "label": "Over 4.5 goals",
+     "prob": 0.7825,
+     "actual": 8,
+     "price": -480.0
+    },
+    {
+     "label": "NJD +1.5 puck line",
+     "prob": 0.8214,
+     "actual": "margin +2 for NJD",
+     "price": -800.0
+    },
+    {
+     "label": "Jack Hughes 1+ points",
+     "prob": 0.7043,
+     "actual": 4,
+     "price": -440.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-27-CGY-NJD-closer",
+   "date": "2026-11-27",
+   "title": "Game-line closer",
+   "game": "CGY @ NJD",
+   "final": "CGY 3, NJD 5 (REG)",
+   "made_at": "2026-11-27T17:43:01+00:00",
+   "chance": 0.8214,
+   "fair_price": -460,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "NJD +1.5 puck line",
+     "prob": 0.8214,
+     "actual": "margin +2 for NJD",
+     "price": -800.0
+    }
+   ]
+  },
+  {
+   "id": "2026-11-27-CGY-NJD-atg",
+   "date": "2026-11-27",
+   "title": "Anytime goal scorer",
+   "game": "CGY @ NJD",
+   "final": "CGY 3, NJD 5 (REG)",
+   "made_at": "2026-11-27T17:43:01+00:00",
+   "chance": 0.1131,
+   "fair_price": 784,
+   "rungs_verified": true,
+   "priced": true,
+   "legs": [
+    {
+     "label": "Jack Hughes anytime goal scorer",
+     "prob": 0.3634,
+     "actual": 1,
+     "price": 115.0
+    },
+    {
+     "label": "Timo Meier anytime goal scorer",
+     "prob": 0.3179,
+     "actual": 1,
+     "price": 230.0
+    }
+   ]
+  },
+  {
    "id": "2026-11-25-multi2",
    "date": "2026-11-25",
    "title": "2-game slip",
